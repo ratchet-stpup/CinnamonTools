@@ -1,9 +1,0 @@
-{
-	"uuid": "0dyseus@QuickMenu",
-	"max-instances": "100",
-	"dangerous": true,
-	"description": "Easily and quickly create a menu based on the files/folders found inside an specific folder.",
-	"name": "Quick Menu",
-	"website": "https://github.com/Odyseus/CinnamonApplets",
-	"version": "1.0"
-}
