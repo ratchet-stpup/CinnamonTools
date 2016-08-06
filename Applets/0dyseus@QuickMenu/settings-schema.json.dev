@@ -1,0 +1,144 @@
+{
+	"pref_head_1": {
+		"type": "header",
+		"description": "Applet settings"
+	},
+	"pref_directory": {
+		"type": "filechooser",
+		"default": "",
+		"description": "Choose directory",
+		"select-dir": true,
+		"tooltip": "Choose a directory with files and/or folders in it.\nThe files will be used to create the menu.\nThe folders will be used to create sub-menus."
+	},
+	"pref_customtooltip": {
+		"type": "entry",
+		"default": "Quick Menu",
+		"description": "Custom Tooltip",
+		"tooltip": "Set a custom tooltip for the applet."
+	},
+	"pref_show_customicon": {
+		"type": "checkbox",
+		"default": true,
+		"description": "Show Applet icon.",
+		"tooltip": "Display this applet icon."
+	},
+	"pref_customicon": {
+		"type": "iconfilechooser",
+		"default": "folder-open",
+		"description": "Icon for Applet",
+		"dependency": "pref_show_customicon",
+		"indent": true,
+		"tooltip": "Set a custom icon for the applet."
+	},
+	"pref_show_applet_title": {
+		"type": "checkbox",
+		"default": false,
+		"description": "Show Applet title.",
+		"tooltip": "Display this applet title."
+	},
+	"pref_applet_title": {
+		"type": "entry",
+		"default": "Quick Menu",
+		"description": "Title for Applet",
+		"dependency": "pref_show_applet_title",
+		"indent": true,
+		"tooltip": "Set a custom title for the applet."
+	},
+
+	"pref_separator_1": {
+		"type": "separator"
+	},
+	"pref_head_2": {
+		"type": "header",
+		"description": "Menu settings"
+	},
+	"pref_hotkey": {
+		"type": "keybinding",
+		"description": "Keyboard shortcut to open and close the menu",
+		"default": ""
+	},
+	"pref_icon_for_menus": {
+		"type": "iconfilechooser",
+		"default": "folder",
+		"description": "Icon for sub-menus",
+		"tooltip": "Set a custom icon for the applet."
+	},
+	"pref_autoupdate": {
+		"type": "checkbox",
+		"default": false,
+		"description": "Autoupdate menu.",
+		"tooltip": "Auto update menu list every time it's opened."
+	},
+	"pref_show_only_desktop_files": {
+		"type": "checkbox",
+		"default": true,
+		"description": "Show only .desktop files.",
+		"tooltip": "If enabled, only .desktop files will be used to create the menu.\nIf disabled, all file types will be used to create the menu."
+	},
+	"pref_show_hidden_files": {
+		"type": "checkbox",
+		"default": false,
+		"description": "Show hidden files.",
+		"tooltip": "If enabled, hidden files will be used to create menu items."
+	},
+	"pref_show_hidden_folders": {
+		"type": "checkbox",
+		"default": false,
+		"description": "Show hidden folders.",
+		"tooltip": "If enabled, hidden sub folders will be used to create sub-menus."
+	},
+	"pref_show_submenu_icons": {
+		"type": "checkbox",
+		"default": true,
+		"description": "Show sub-menu icons.",
+		"tooltip": "If enabled, all sub-menu items will be created without icons."
+	},
+	"pref_show_applications_icons": {
+		"type": "checkbox",
+		"default": true,
+		"description": "Show application icons.",
+		"tooltip": "If enabled, all menu items will be created without icons."
+	},
+	"pref_ignore_sub_folders": {
+		"type": "checkbox",
+		"default": false,
+		"description": "Ignore sub folders.",
+		"tooltip": "If enabled, sub-menus will not be created based on the sub folders found."
+	},
+	"pref_open_on_hover": {
+		"type": "checkbox",
+		"default": false,
+		"description": "Open menu on hover",
+		"tooltip": "If enabled, sub-menus will not be created based on the sub folders found."
+	},
+	"pref_open_on_hover_delay": {
+		"type": "spinbutton",
+		"default": 100,
+		"min": 0,
+		"max": 1000,
+		"step": 5,
+		"indent": true,
+		"units": "milliseconds",
+		"dependency": "pref_open_on_hover",
+		"description": "Open delay:",
+		"tooltip": "Increase or decrease this spinner value to make the applet wider or narrower in the panel"
+	},
+	"pref_close_on_leave": {
+		"type": "checkbox",
+		"default": false,
+		"description": "Close menu on mouse leave",
+		"tooltip": "If enabled, sub-menus will not be created based on the sub folders found."
+	},
+	"pref_close_on_leave_delay": {
+		"type": "spinbutton",
+		"default": 200,
+		"min": 0,
+		"max": 1000,
+		"step": 5,
+		"indent": true,
+		"units": "milliseconds",
+		"dependency": "pref_close_on_leave",
+		"description": "Close delay:",
+		"tooltip": "Increase or decrease this spinner value to make the applet wider or narrower in the panel"
+	}
+}
