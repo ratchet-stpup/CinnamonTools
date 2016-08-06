@@ -13,6 +13,7 @@
 		"3.0"
 	],
 	"dangerous": true,
+	"website": "https://github.com/Odyseus/CinnamonTools",
 	"description": "Remove windows decorations from maximized windows.",
 	"uuid": "0dyseus@CinnamonMaximusFork"
 }
