@@ -10,7 +10,7 @@ The function of this applet is very simple, create a menu based on the files/fol
 
 ## Options
 
-![Settings window](https://raw.githubusercontent.com/Odyseus/CinnamonApplets/master/0dyseus%40QuickMenu/public/Screenshot-001.png "Settings window")
+![Settings window](https://raw.githubusercontent.com/Odyseus/CinnamonTools/master/Applets/0dyseus%40QuickMenu/public/Screenshot-001.png "Settings window")
 
 #### Applet settings
 
