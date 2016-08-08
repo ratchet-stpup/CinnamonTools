@@ -1,0 +1,9 @@
+{
+	"description": "Displays CPU, memory, swap and network usage and load in graphs.",
+	"dangerous": true,
+	"uuid": "0dyseus@SysmonitorByOrcus",
+	"name": "System Monitor (Fork By Odyseus)",
+	"version": "1.4",
+	"website": "https://github.com/Odyseus/CinnamonTools",
+	"icon": "utilities-system-monitor"
+}
