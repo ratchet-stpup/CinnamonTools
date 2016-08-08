@@ -1,0 +1,8 @@
+{
+	"description": "Fork of the main Cinnamon Window list applet.",
+	"max-instances": -1,
+	"dangerous": false,
+	"uuid": "0dyseus@window-list-fork",
+	"name": "Window list (Fork By Odyseus)",
+	"icon": "gnome-panel-window-list"
+}
