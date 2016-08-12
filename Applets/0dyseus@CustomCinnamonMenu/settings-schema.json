@@ -1,0 +1,193 @@
+{
+	"overlay-key": {
+		"type": "keybinding",
+		"description": "Keyboard shortcut to open and close the menu",
+		"default": "Super_L::Super_R"
+	},
+	"menu-icon-custom": {
+		"type": "checkbox",
+		"default": false,
+		"description": "Use a custom icon",
+		"tooltip": "Unchecking this allows the theme to set the icon"
+	},
+	"menu-icon": {
+		"type": "iconfilechooser",
+		"default": "/usr/share/cinnamon/theme/menu-symbolic.svg",
+		"description": "Icon",
+		"tooltip": "Select an icon to show in the panel.",
+		"dependency": "menu-icon-custom",
+		"indent": "true"
+	},
+	"menu-label": {
+		"type": "entry",
+		"default": "Menu",
+		"description": "Text",
+		"tooltip": "Enter custom text to show in the panel."
+	},
+	"show-category-icons": {
+		"type": "checkbox",
+		"default": true,
+		"description": "Show category icons",
+		"tooltip": "Choose whether or not to show icons on categories."
+	},
+	"show-application-icons": {
+		"type": "checkbox",
+		"default": true,
+		"description": "Show application icons",
+		"tooltip": "Choose whether or not to show icons on applications."
+	},
+	"favbox-show": {
+		"type": "checkbox",
+		"default": true,
+		"description": "Show favorites and quit options",
+		"tooltip": "Choose whether or not to show the left pane of the menu."
+	},
+	"show-places": {
+		"type": "checkbox",
+		"default": true,
+		"description": "Show bookmarks and places",
+		"tooltip": "Choose whether or not to show bookmarks and places in the menu."
+	},
+	"enable-autoscroll": {
+		"type": "checkbox",
+		"default": true,
+		"description": "Enable autoscrolling in application list",
+		"tooltip": "Choose whether or not to enable smooth autoscrolling in the application list."
+	},
+	"search-filesystem": {
+		"type": "checkbox",
+		"default": false,
+		"description": "Enable filesystem path entry in search box",
+		"tooltip": "Allows path entry in the menu search box."
+	},
+	"activate-on-hover": {
+		"type": "checkbox",
+		"default": false,
+		"description": "Open the menu when I move my mouse over it",
+		"tooltip": "Enable opening the menu when the mouse enters the applet"
+	},
+	"hover-delay": {
+		"type": "spinbutton",
+		"default": 0,
+		"min": 0,
+		"max": 1000,
+		"step": 50,
+		"units": "milliseconds",
+		"description": "Menu hover delay:",
+		"tooltip": "Delay between switching categories"
+	},
+	"menu-editor-button": {
+		"type": "button",
+		"description": "Open the menu editor",
+		"callback": "_launch_editor",
+		"tooltip": "Press this button to customize your menu entries."
+	},
+	"head0": {
+		"type": "header",
+		"description": "\nExtra menu options: "
+	},
+	"pref_separator_heigth": {
+		"type": "spinbutton",
+		"default": 0,
+		"min": 0,
+		"max": 1000,
+		"step": 10,
+		"units": "pixels",
+		"description": "Favorites box separator height:",
+		"tooltip": "Size of separator between \"Favorites\" box and \"Quit\" box.\nWhy in freaking hell isn't possible to make it flexible!?!?!!?"
+	},
+	"pref_max_fav_icon_size": {
+		"type": "spinbutton",
+		"default": 22,
+		"min": 16,
+		"max": 256,
+		"step": 2,
+		"units": "pixels",
+		"description": "Favorites icon size:",
+		"tooltip": ""
+	},
+	"pref_category_icon_size": {
+		"type": "spinbutton",
+		"default": 22,
+		"min": 16,
+		"max": 256,
+		"step": 2,
+		"units": "pixels",
+		"description": "Categories icon size:",
+		"tooltip": ""
+	},
+	"pref_application_icon_size": {
+		"type": "spinbutton",
+		"default": 22,
+		"min": 16,
+		"max": 256,
+		"step": 2,
+		"units": "pixels",
+		"description": "Applications icon size:",
+		"tooltip": ""
+	},
+	"pref_max_recent_files": {
+		"type": "spinbutton",
+		"default": 20,
+		"min": 5,
+		"max": 100,
+		"step": 1,
+		"units": "pixels",
+		"description": "Max recent files:",
+		"tooltip": ""
+	},
+	"pref_show_system_buttons": {
+		"type": "checkbox",
+		"default": true,
+		"description": "Show \"Quit\" buttons",
+		"tooltip": ""
+	},
+	"pref_show_lock_button": {
+		"indent": true,
+		"dependency": "pref_show_system_buttons",
+		"type": "checkbox",
+		"default": true,
+		"description": "Show \"Lock screen\" button",
+		"tooltip": ""
+	},
+	"pref_show_logout_button": {
+		"indent": true,
+		"dependency": "pref_show_system_buttons",
+		"type": "checkbox",
+		"default": true,
+		"description": "Show \"Logout\" button",
+		"tooltip": ""
+	},
+	"pref_show_shutdown_button": {
+		"indent": true,
+		"dependency": "pref_show_system_buttons",
+		"type": "checkbox",
+		"default": true,
+		"description": "Show \"Shutdown\" button",
+		"tooltip": ""
+	},
+	"pref_search_box_bottom": {
+		"type": "checkbox",
+		"default": true,
+		"description": "Search box at the bottom of menu",
+		"tooltip": ""
+	},
+	"pref_show_appinfo_box": {
+		"type": "checkbox",
+		"default": false,
+		"description": "Display application info box (Needs Cinnamon restart)",
+		"tooltip": ""
+	},
+	"pref_show_recents_button": {
+		"type": "checkbox",
+		"default": true,
+		"description": "Show Recent files category",
+		"tooltip": "For people who want the Recent files category hidden without disabling recent files globally."
+	},
+	"pref_fuzzy_search_enabled": {
+		"type": "checkbox",
+		"default": true,
+		"description": "Enable fuzzy search (EXPERIMENTAL)",
+		"tooltip": ""
+	}
+}

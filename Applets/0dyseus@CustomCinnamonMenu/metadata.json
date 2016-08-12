@@ -1,0 +1,8 @@
+{
+	"description": "Customizable Main Cinnamon menu.",
+	"max-instances": -1,
+	"dangerous": false,
+	"version": "1.0",
+	"uuid": "0dyseus@CustomCinnamonMenu",
+	"name": "Custom Cinnamon Menu"
+}
