@@ -1,0 +1,9 @@
+{
+	"uuid": "0dyseus@DesktopHandler",
+	"max-instances": "8", 
+	"version": "1.0",
+	"dangerous": false,
+	"description": "Various shortcuts to handle desktop actions.",
+	"name": "Desktop Handler",
+	"icon": "desktop-effects"
+}
