@@ -3,6 +3,7 @@
 	"max-instances": -1,
 	"dangerous": false,
 	"version": "1.0",
+	"website": "https://github.com/Odyseus/CinnamonTools/tree/master/Applets/0dyseus%40CustomCinnamonMenu",
 	"uuid": "0dyseus@CustomCinnamonMenu",
 	"name": "Custom Cinnamon Menu"
 }

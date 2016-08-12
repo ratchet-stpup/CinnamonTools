@@ -1,9 +1,10 @@
 {
 	"uuid": "0dyseus@DesktopHandler",
-	"max-instances": "8", 
+	"max-instances": "8",
 	"version": "1.0",
 	"dangerous": false,
 	"description": "Various shortcuts to handle desktop actions.",
+	"website": "https://github.com/Odyseus/CinnamonTools/tree/master/Applets/0dyseus%40DesktopHandler",
 	"name": "Desktop Handler",
 	"icon": "desktop-effects"
 }

@@ -4,5 +4,8 @@
 	"dangerous": false,
 	"uuid": "0dyseus@window-list-fork",
 	"name": "Window list (Fork By Odyseus)",
+	"version": "1.0",
+	"website": "https://github.com/Odyseus/CinnamonTools/tree/master/Applets/0dyseus%40window-list-fork",
 	"icon": "gnome-panel-window-list"
 }
+

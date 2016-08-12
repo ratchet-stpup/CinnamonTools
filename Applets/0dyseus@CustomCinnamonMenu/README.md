@@ -11,7 +11,7 @@ This applet is a custom version of the default Cinnamon Menu applet.
 - The ammount of recent files can be customized.
 - The **Quit** buttons can be hidded all at once or individually.
 - The **Recent Files** category can be hidden. This is for people who want the **Recent Files** category hidden without disabling recent files globally.
-- Added Fuzzy search. Based on [Sane Menu](https://cinnamon-spices.linuxmint.com/applets/view/258s) applet.
+- Added Fuzzy search. Based on [Sane Menu](https://cinnamon-spices.linuxmint.com/applets/view/258s) applet by **nooulaif**.
 
 ![Settings window](https://raw.githubusercontent.com/Odyseus/CinnamonTools/master/Applets/0dyseus%40CustomCinnamonMenu/screenshot2.png "Settings window")
 

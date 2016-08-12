@@ -10,8 +10,8 @@ This applet is based on [Smart Panel](https://cinnamon-spices.linuxmint.com/exte
     - Adjust opacity of windows
     - Toggle show desktop
     - Switch between windows
-- Posibility to perform different actions for scrolling up and down over the applet.
-- Posibility to perform different actions on left and middle click on the applet.
+- Posibility to perform different actions for scrolling up and down.
+- Posibility to perform different actions on left and middle click.
 - Actions for up/down scroll and/or left/middle clicks.
     - Expo
     - Overview
@@ -24,6 +24,8 @@ This applet is based on [Smart Panel](https://cinnamon-spices.linuxmint.com/exte
 - Posibility to create a windows list menu.
 - Left/Middle/Right click on applet can be configured to open the windows list menu.
 - Desktop peek functionality with configurable levels of opacity.
+
+![Settings window](https://raw.githubusercontent.com/Odyseus/CinnamonTools/master/Applets/0dyseus%40DesktopHandler/screenshot.png "Settings window")
 
 ## Change Log
 
