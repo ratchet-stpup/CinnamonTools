@@ -29,6 +29,10 @@ This applet is based on [Smart Panel](https://cinnamon-spices.linuxmint.com/exte
 
 ## Change Log
 
+##### 1.1
+- Minor fixes (mostly grammar).
+- Finally figure out how to align tooltips text to the left. ¬¬
+
 ##### 1.0
 - Initial release.
 

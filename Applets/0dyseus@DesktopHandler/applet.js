@@ -2,8 +2,8 @@
  * [Desktop Handler]
  *
  * This applet is based on other applets/extensions for Cinnamon:
- *     - Smart Panel Extension By mohammad-sn
- *     - Show Desktop ++ Applet By mohammad-sn
+ *     - Smart Panel Extension By mohammad-sn.
+ *     - Show Desktop ++ Applet By mohammad-sn.
  */
 
 const Lang = imports.lang;
@@ -29,7 +29,7 @@ const CoverflowSwitcher = imports.ui.appSwitcher.coverflowSwitcher;
 const TimelineSwitcher = imports.ui.appSwitcher.timelineSwitcher;
 const ClassicSwitcher = imports.ui.appSwitcher.classicSwitcher;
 const AppSwitcher = imports.ui.appSwitcher.appSwitcher;
-
+const Tooltips = imports.ui.tooltips;
 const PopupMenu = imports.ui.popupMenu;
 const AppletManager = imports.ui.appletManager;
 
@@ -140,11 +140,17 @@ MyApplet.prototype = {
 		this.settings.bindProperty(Settings.BindingDirection.BIDIRECTIONAL,
 			"pref_windows_list_menu_enabled",
 			"pref_windows_list_menu_enabled",
-			this._handleWindowList, null);
+			function() {
+				this._handleWindowList();
+				this._setAppletTooltip();
+			}, null);
 		this.settings.bindProperty(Settings.BindingDirection.BIDIRECTIONAL,
 			"pref_button_to_open_menu",
 			"pref_button_to_open_menu",
-			this._handleWindowList, null);
+			function() {
+				this._handleWindowList();
+				this._setAppletTooltip();
+			}, null);
 		this.settings.bindProperty(Settings.BindingDirection.IN,
 			"pref_keep_menu_open",
 			"pref_keep_menu_open",
@@ -205,19 +211,19 @@ MyApplet.prototype = {
 		this.settings.bindProperty(Settings.BindingDirection.IN,
 			"pref_scroll_up_action",
 			"pref_scroll_up_action",
-			null, null);
+			this._onScrollSettingsChanged, null);
 		this.settings.bindProperty(Settings.BindingDirection.IN,
 			"pref_scroll_down_action",
 			"pref_scroll_down_action",
-			null, null);
+			this._onScrollSettingsChanged, null);
 		this.settings.bindProperty(Settings.BindingDirection.BIDIRECTIONAL,
 			"pref_left_click_action",
 			"pref_left_click_action",
-			null, null);
+			this._setAppletTooltip, null);
 		this.settings.bindProperty(Settings.BindingDirection.BIDIRECTIONAL,
 			"pref_middle_click_action",
 			"pref_middle_click_action",
-			null, null);
+			this._setAppletTooltip, null);
 		this.settings.bindProperty(Settings.BindingDirection.IN,
 			"pref_custom_cmd1_action",
 			"pref_custom_cmd1_action",
@@ -280,7 +286,7 @@ MyApplet.prototype = {
 			this._handleWindowList();
 			this._setAppletStyle();
 
-			// Workaroud to apply background color on applet load.
+			// Workaround to apply background color on applet load.
 			// Without the timeout, the style is not applied.
 			Mainloop.timeout_add(3000, Lang.bind(this, function() {
 				this._setAppletStyle(true);
@@ -684,12 +690,6 @@ MyApplet.prototype = {
 	},
 
 	_onEntered: function(event) {
-		// this.actor.style = "background-color:" + this.h_color;
-		// if (global.screen.get_workspace_by_index(1) !== null) {
-		// 	this.set_applet_tooltip(Main.getWorkspaceName(global.screen.get_active_workspace_index()));
-		// 	this._applet_tooltip.show();
-		// }
-
 		if (this.pref_peek_desktop_enabled) {
 			if (this._peektimeoutid)
 				Mainloop.source_remove(this._peektimeoutid);
@@ -741,7 +741,6 @@ MyApplet.prototype = {
 	},
 
 	_onLEntered: function(event) {
-		// this.actor.style = "background-color: rgba(255,255,255,0)";
 		if (this.didpeek) {
 			this.show_all(0.2);
 			this.didpeek = false;
@@ -749,14 +748,6 @@ MyApplet.prototype = {
 		if (this._peektimeoutid)
 			Mainloop.source_remove(this._peektimeoutid);
 	},
-
-	// on_applet_clicked: function(event) {
-	// 	global.screen.toggle_desktop(global.get_current_time());
-	// 	this.show_all(0);
-	// 	if (this._peektimeoutid)
-	// 		Mainloop.source_remove(this._peektimeoutid);
-	// 	this.didpeek = false;
-	// },
 
 	_setAppletStyle: function(aInit) {
 		this.actor.style = "background-color:" + this.pref_applet_background_color + ";";
@@ -818,35 +809,61 @@ MyApplet.prototype = {
 	},
 
 	_setAppletTooltip: function() {
-		let tt = "Desktop Handler Applet\n\n";
+		if (this.tooltip)
+			this.tooltip.destroy();
+
+		let boldSpan = function(aStr) {
+			return '<span weight="bold">' + aStr + '</span>';
+		};
+
+		let tt = boldSpan(_("Desktop Handler Applet")) + "\n\n";
+
 		if (this.pref_separated_scroll_action) {
-			tt += _("Scroll Up action: " + this._strMap[this.pref_scroll_up_action]) + "\n";
-			tt += _("Scroll Down action: " + this._strMap[this.pref_scroll_down_action]) + "\n";
+			tt += boldSpan(_("Scroll Up action: ")) + _(this._strMap[this.pref_scroll_up_action]) + "\n";
+			tt += boldSpan(_("Scroll Down action: ")) + _(this._strMap[this.pref_scroll_down_action]) + "\n";
 		} else
-			tt += _("Scroll action: " + this._strMap[this.pref_scroll_action]) + "\n";
+			tt += boldSpan(_("Scroll action: ")) + _(this._strMap[this.pref_scroll_action]) + "\n";
 
 		let lCA = (this.pref_windows_list_menu_enabled &&
 				this.pref_button_to_open_menu === "winlistmenu1") ?
 			this._strMap["winmenu"] :
 			this._strMap[this.pref_left_click_action];
-		tt += _("Left click action: " + lCA) + "\n";
+		tt += boldSpan(_("Left click action: ")) + _(lCA) + "\n";
 
 		let mCA = (this.pref_windows_list_menu_enabled &&
 				this.pref_button_to_open_menu === "winlistmenu2") ?
 			this._strMap["winmenu"] :
 			this._strMap[this.pref_middle_click_action];
-		tt += _("Middle click action: " + mCA) + "\n";
+		tt += boldSpan(_("Middle click action: ")) + _(mCA) + "\n";
 
 		if (this.pref_windows_list_menu_enabled &&
 			this.pref_button_to_open_menu === "winlistmenu3")
-			tt += _("Rigth click action: " + this._strMap["winmenu"]) + "\n";
+			tt += boldSpan(_("Right click action: ")) + _(this._strMap["winmenu"]) + "\n";
 
-		this.set_applet_tooltip(tt);
+		this.tooltip = new Tooltips.PanelItemTooltip(this, "", this._orientation);
+
+		/* Some hacking of the underlying tooltip ClutterText to set wrapping,
+		 * format, etc */
+		try {
+			this.tooltip._tooltip.style_class = "desktop-handler-applet-tooltip";
+			// this.tooltip._tooltip.get_clutter_text().set_width(TOOLTIP_WIDTH);
+			this.tooltip._tooltip.get_clutter_text().set_line_alignment(0);
+			this.tooltip._tooltip.get_clutter_text().set_line_wrap(true);
+			this.tooltip._tooltip.get_clutter_text().set_markup(tt);
+		} catch (aErr) {
+			global.logError("Error Tweaking Tooltip: " + aErr);
+			/* If we couldn't tweak the tooltip format this is likely because
+			 * the underlying implementation has changed. Don't issue any
+			 * failure here */
+		}
+
+		// this.set_applet_tooltip(tt);
 	},
 
 	_onScrollActionChanged: function() {
 		if (this.pref_scroll_action !== "none")
 			this.pref_separated_scroll_action = false;
+		this._setAppletTooltip();
 	},
 
 	_onScrollSettingsChanged: function() {
@@ -1114,7 +1131,7 @@ MyApplet.prototype = {
 			 * for display (100% - (left and right "padding")).
 			 * The horizontal minimum/maximum values are 5% and 95%, resulting in 90% available for
 			 *  positioning
-			 * If the user choses 50% as osd position, these calculations result the osd being
+			 * If the user chooses 50% as osd position, these calculations result the osd being
 			 *  centered onscreen
 			 */
 			let [minX, maxX, minY, maxY] = [5, 95, 5, 95];

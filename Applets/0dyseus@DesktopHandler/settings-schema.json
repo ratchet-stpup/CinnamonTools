@@ -83,7 +83,7 @@
 			"Expo": "expo",
 			"Overview": "overview",
 			"Launch App Switcher": "appswitcher",
-			"Show Desktop": "desktop",
+			"Toggle Show desktop": "desktop",
 			"Run 1st Custom Command": "cc1",
 			"Run 2nd Custom Command": "cc2",
 			"Run 3rd Custom Command": "cc3",
@@ -102,7 +102,7 @@
 			"Expo": "expo",
 			"Overview": "overview",
 			"Launch App Switcher": "appswitcher",
-			"Show Desktop": "desktop",
+			"Toggle Show desktop": "desktop",
 			"Run 1st Custom Command": "cc1",
 			"Run 2nd Custom Command": "cc2",
 			"Run 3rd Custom Command": "cc3",
@@ -128,7 +128,7 @@
 			"Expo": "expo",
 			"Overview": "overview",
 			"Launch App Switcher": "appswitcher",
-			"Show Desktop": "desktop",
+			"Toggle Show desktop": "desktop",
 			"Run 1st Custom Command": "cc1",
 			"Run 2nd Custom Command": "cc2",
 			"Run 3rd Custom Command": "cc3",
@@ -146,7 +146,7 @@
 			"Expo": "expo",
 			"Overview": "overview",
 			"Launch App Switcher": "appswitcher",
-			"Show Desktop": "desktop",
+			"Toggle Show desktop": "desktop",
 			"Run 1st Custom Command": "cc1",
 			"Run 2nd Custom Command": "cc2",
 			"Run 3rd Custom Command": "cc3",
@@ -363,7 +363,7 @@
 		"options": {
 			"Current workspace": "switch-windows",
 			"All workspaces": "switch-panels",
-			"Curret Application": "switch-group"
+			"Current Application": "switch-group"
 		},
 		"tooltip": ""
 	},
@@ -375,7 +375,7 @@
 		"options": {
 			"Current workspace": "switch-windows",
 			"All workspaces": "switch-panels",
-			"Curret Application": "switch-group"
+			"Current Application": "switch-group"
 		},
 		"tooltip": ""
 	},
