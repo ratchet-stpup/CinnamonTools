@@ -121,149 +121,7 @@ MyApplet.prototype = {
 
 		this.settings = new Settings.AppletSettings(this, aMetadata["uuid"], aInstance_id);
 
-		this.settings.bindProperty(Settings.BindingDirection.IN,
-			"pref_show_context_menu_default_items",
-			"pref_show_context_menu_default_items",
-			null, null);
-		this.settings.bindProperty(Settings.BindingDirection.IN,
-			"pref_show_context_menu_about",
-			"pref_show_context_menu_about",
-			null, null);
-		this.settings.bindProperty(Settings.BindingDirection.IN,
-			"pref_show_context_menu_configure",
-			"pref_show_context_menu_configure",
-			null, null);
-		this.settings.bindProperty(Settings.BindingDirection.IN,
-			"pref_show_context_menu_remove",
-			"pref_show_context_menu_remove",
-			null, null);
-		this.settings.bindProperty(Settings.BindingDirection.BIDIRECTIONAL,
-			"pref_windows_list_menu_enabled",
-			"pref_windows_list_menu_enabled",
-			function() {
-				this._handleWindowList();
-				this._setAppletTooltip();
-			}, null);
-		this.settings.bindProperty(Settings.BindingDirection.BIDIRECTIONAL,
-			"pref_button_to_open_menu",
-			"pref_button_to_open_menu",
-			function() {
-				this._handleWindowList();
-				this._setAppletTooltip();
-			}, null);
-		this.settings.bindProperty(Settings.BindingDirection.IN,
-			"pref_keep_menu_open",
-			"pref_keep_menu_open",
-			this.updateMenu, null);
-		this.settings.bindProperty(Settings.BindingDirection.IN,
-			"pref_show_close_buttons",
-			"pref_show_close_buttons",
-			null, null);
-		this.settings.bindProperty(Settings.BindingDirection.IN,
-			"pref_show_close_all_buttons",
-			"pref_show_close_all_buttons",
-			null, null);
-		this.settings.bindProperty(Settings.BindingDirection.IN,
-			"pref_peek_desktop_enabled",
-			"pref_peek_desktop_enabled",
-			this._handleDesktopPeek, null);
-		this.settings.bindProperty(Settings.BindingDirection.IN,
-			"pref_peek_desktop_delay",
-			"pref_peek_desktop_delay",
-			null, null);
-		this.settings.bindProperty(Settings.BindingDirection.IN,
-			"pref_peek_opacity",
-			"pref_peek_opacity",
-			null, null);
-		this.settings.bindProperty(Settings.BindingDirection.IN,
-			"pref_opacify_desktop_icons",
-			"pref_opacify_desktop_icons",
-			null, null);
-		this.settings.bindProperty(Settings.BindingDirection.IN,
-			"pref_opacify_desklets",
-			"pref_opacify_desklets",
-			null, null);
-		this.settings.bindProperty(Settings.BindingDirection.IN,
-			"pref_blur_effect_enabled",
-			"pref_blur_effect_enabled",
-			null, null);
-
-		this.settings.bindProperty(Settings.BindingDirection.BIDIRECTIONAL,
-			"pref_applet_background_color",
-			"pref_applet_background_color",
-			this._setAppletStyle, null);
-		this.settings.bindProperty(Settings.BindingDirection.BIDIRECTIONAL,
-			"pref_applet_with",
-			"pref_applet_with",
-			this._setAppletStyle, null);
-		this.settings.bindProperty(Settings.BindingDirection.BIDIRECTIONAL,
-			"pref_custom_icon",
-			"pref_custom_icon",
-			this._setAppletStyle, null);
-		this.settings.bindProperty(Settings.BindingDirection.BIDIRECTIONAL,
-			"pref_scroll_action",
-			"pref_scroll_action",
-			this._onScrollActionChanged, null);
-		this.settings.bindProperty(Settings.BindingDirection.BIDIRECTIONAL,
-			"pref_separated_scroll_action",
-			"pref_separated_scroll_action",
-			this._onScrollSettingsChanged, null);
-		this.settings.bindProperty(Settings.BindingDirection.IN,
-			"pref_scroll_up_action",
-			"pref_scroll_up_action",
-			this._onScrollSettingsChanged, null);
-		this.settings.bindProperty(Settings.BindingDirection.IN,
-			"pref_scroll_down_action",
-			"pref_scroll_down_action",
-			this._onScrollSettingsChanged, null);
-		this.settings.bindProperty(Settings.BindingDirection.BIDIRECTIONAL,
-			"pref_left_click_action",
-			"pref_left_click_action",
-			this._setAppletTooltip, null);
-		this.settings.bindProperty(Settings.BindingDirection.BIDIRECTIONAL,
-			"pref_middle_click_action",
-			"pref_middle_click_action",
-			this._setAppletTooltip, null);
-		this.settings.bindProperty(Settings.BindingDirection.IN,
-			"pref_custom_cmd1_action",
-			"pref_custom_cmd1_action",
-			null, null);
-		this.settings.bindProperty(Settings.BindingDirection.IN,
-			"pref_custom_cmd2_action",
-			"pref_custom_cmd2_action",
-			null, null);
-		this.settings.bindProperty(Settings.BindingDirection.IN,
-			"pref_custom_cmd3_action",
-			"pref_custom_cmd3_action",
-			null, null);
-		this.settings.bindProperty(Settings.BindingDirection.IN,
-			"pref_custom_cmd4_action",
-			"pref_custom_cmd4_action",
-			null, null);
-		this.settings.bindProperty(Settings.BindingDirection.IN,
-			"pref_prevent_fast_scroll",
-			"pref_prevent_fast_scroll",
-			null, null);
-		this.settings.bindProperty(Settings.BindingDirection.IN,
-			"pref_scroll_delay",
-			"pref_scroll_delay",
-			null, null);
-		this.settings.bindProperty(Settings.BindingDirection.IN,
-			"pref_switcher_style",
-			"pref_switcher_style",
-			null, null);
-		this.settings.bindProperty(Settings.BindingDirection.IN,
-			"pref_switcher_scope",
-			"pref_switcher_scope",
-			null, null);
-		this.settings.bindProperty(Settings.BindingDirection.IN,
-			"pref_switcher_modified",
-			"pref_switcher_modified",
-			null, null);
-		this.settings.bindProperty(Settings.BindingDirection.IN,
-			"pref_switcher_modifier",
-			"pref_switcher_modifier",
-			null, null);
+		this._bind_settings();
 
 		this.cwm_settings = new Gio.Settings({
 			schema: "org.cinnamon.desktop.wm.preferences"
@@ -299,6 +157,54 @@ MyApplet.prototype = {
 		// for (let prop in Clutter) {
 		// 	global.logError(prop);
 		// }
+	},
+
+	_bind_settings: function() {
+		let settingsArray = [
+			[Settings.BindingDirection.BIDIRECTIONAL, "pref_applet_background_color", this._setAppletStyle],
+			[Settings.BindingDirection.BIDIRECTIONAL, "pref_applet_with", this._setAppletStyle],
+			[Settings.BindingDirection.BIDIRECTIONAL, "pref_custom_icon", this._setAppletStyle],
+			[Settings.BindingDirection.BIDIRECTIONAL, "pref_scroll_action", this._onScrollActionChanged],
+			[Settings.BindingDirection.BIDIRECTIONAL, "pref_separated_scroll_action", this._onScrollSettingsChanged],
+			[Settings.BindingDirection.BIDIRECTIONAL, "pref_left_click_action", this._setAppletTooltip],
+			[Settings.BindingDirection.BIDIRECTIONAL, "pref_middle_click_action", this._setAppletTooltip],
+			[Settings.BindingDirection.BIDIRECTIONAL, "pref_windows_list_menu_enabled", function() {
+				this._handleWindowList();
+				this._setAppletTooltip();
+			}],
+			[Settings.BindingDirection.BIDIRECTIONAL, "pref_button_to_open_menu", function() {
+				this._handleWindowList();
+				this._setAppletTooltip();
+			}],
+			[Settings.BindingDirection.IN, "pref_scroll_up_action", this._onScrollSettingsChanged],
+			[Settings.BindingDirection.IN, "pref_scroll_down_action", this._onScrollSettingsChanged],
+			[Settings.BindingDirection.IN, "pref_custom_cmd1_action", null],
+			[Settings.BindingDirection.IN, "pref_custom_cmd2_action", null],
+			[Settings.BindingDirection.IN, "pref_custom_cmd3_action", null],
+			[Settings.BindingDirection.IN, "pref_custom_cmd4_action", null],
+			[Settings.BindingDirection.IN, "pref_prevent_fast_scroll", null],
+			[Settings.BindingDirection.IN, "pref_scroll_delay", null],
+			[Settings.BindingDirection.IN, "pref_switcher_style", null],
+			[Settings.BindingDirection.IN, "pref_switcher_scope", null],
+			[Settings.BindingDirection.IN, "pref_switcher_modified", null],
+			[Settings.BindingDirection.IN, "pref_switcher_modifier", null],
+			[Settings.BindingDirection.IN, "pref_show_context_menu_default_items", null],
+			[Settings.BindingDirection.IN, "pref_show_context_menu_about", null],
+			[Settings.BindingDirection.IN, "pref_show_context_menu_configure", null],
+			[Settings.BindingDirection.IN, "pref_show_context_menu_remove", null],
+			[Settings.BindingDirection.IN, "pref_keep_menu_open", this.updateMenu],
+			[Settings.BindingDirection.IN, "pref_show_close_buttons", null],
+			[Settings.BindingDirection.IN, "pref_show_close_all_buttons", null],
+			[Settings.BindingDirection.IN, "pref_peek_desktop_enabled", this._handleDesktopPeek],
+			[Settings.BindingDirection.IN, "pref_peek_desktop_delay", null],
+			[Settings.BindingDirection.IN, "pref_peek_opacity", null],
+			[Settings.BindingDirection.IN, "pref_opacify_desktop_icons", null],
+			[Settings.BindingDirection.IN, "pref_opacify_desklets", null],
+			[Settings.BindingDirection.IN, "pref_blur_effect_enabled", null],
+		];
+		for (let [binding, property_name, callback] of settingsArray) {
+			this.settings.bindProperty(binding, property_name, property_name, callback, null);
+		}
 	},
 
 	_handleDesktopPeek: function() {

@@ -2,6 +2,10 @@
 
 This applet is based on [Smart Panel](https://cinnamon-spices.linuxmint.com/extensions/view/32) extension and [Show Desktop ++](https://cinnamon-spices.linuxmint.com/applets/view/165) applet, both authored by  **mohammad-sn**. I *mixed* both of them into an applet because there is not always room on the panel to perform the actions added by **Smart Panel**. The **Smart Panel** extension can still be installed and activated at the same time than this applet to have even more desktop actions.
 
+## Compatibility
+
+Tested and working on Cinnamon version 3.0.7.
+
 ## Features
 
 - The applet icon, background color and width can be customized.
@@ -27,12 +31,19 @@ This applet is based on [Smart Panel](https://cinnamon-spices.linuxmint.com/exte
 
 ![Settings window](https://raw.githubusercontent.com/Odyseus/CinnamonTools/master/Applets/0dyseus%40DesktopHandler/screenshot.png "Settings window")
 
+<h2 style="color:red;"> Bug report and feature request</h2>
+<span style="color:red;">
+Spices comments system is absolutely useless to report bugs with any king of legibility. In addition, there is no notifications system for new comments. So, if anyone has bugs to report or a feature request, do so on this applet GitHub page. Just click the **Website** button next to the **Download** button.
+</span>
+
 ## Change Log
 
-##### 1.1
+##### 1.02
+- Minor performance tweaks.
+
+##### 1.01
 - Minor fixes (mostly grammar).
 - Finally figure out how to align tooltips text to the left. ¬¬
 
-##### 1.0
+##### 1.00
 - Initial release.
-

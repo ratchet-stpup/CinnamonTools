@@ -1,9 +1,10 @@
 {
-	"description": "Customizable Main Cinnamon menu.",
-	"max-instances": -1,
-	"dangerous": false,
-	"version": "1.0",
-	"website": "https://github.com/Odyseus/CinnamonTools/tree/master/Applets/0dyseus%40CustomCinnamonMenu",
-	"uuid": "0dyseus@CustomCinnamonMenu",
-	"name": "Custom Cinnamon Menu"
+    "website": "https://github.com/Odyseus/CinnamonTools/tree/master/Applets/0dyseus%40CustomCinnamonMenu", 
+    "description": "Customizable Main Cinnamon menu.", 
+    "max-instances": -1, 
+    "dangerous": false, 
+    "name": "Custom Cinnamon Menu", 
+    "version": "1.01", 
+    "last-edited": "1470985317", 
+    "uuid": "0dyseus@CustomCinnamonMenu"
 }
