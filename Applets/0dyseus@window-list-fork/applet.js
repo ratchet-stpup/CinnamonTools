@@ -423,9 +423,6 @@ AppMenuButton.prototype = {
 	},
 
 	setDisplayTitle: function() {
-		if (this._applet.pref_hide_labels)
-			return true;
-
 		let title = this.metaWindow.get_title();
 		let tracker = Cinnamon.WindowTracker.get_default();
 		let app = tracker.get_window_app(this.metaWindow);
@@ -444,6 +441,9 @@ AppMenuButton.prototype = {
 
 		if (this._tooltip && this._tooltip.set_text)
 			this._tooltip.set_text(title);
+
+		if (this._applet.pref_hide_labels)
+			return true;
 
 		if (this.metaWindow.minimized) {
 			title = "[" + title + "]";

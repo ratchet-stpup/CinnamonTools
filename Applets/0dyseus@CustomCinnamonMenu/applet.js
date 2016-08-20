@@ -28,10 +28,16 @@ const SearchProviderManager = imports.ui.searchProviderManager;
 const Gettext = imports.gettext;
 const _ = Gettext.gettext;
 
-// Mark Odyseuss
+/**
+ * START mark Odyseus
+ */
 var PREF_MAX_FAV_ICON_SIZE = 22;
 var PREF_CATEGORY_ICON_SIZE = 22;
 var PREF_APPLICATION_ICON_SIZE = 22;
+var PREF_CUSTOM_COMMAND_ICON_SIZE = 22;
+/**
+ * END
+ */
 
 const INITIAL_BUTTON_LOAD = 30;
 const MAX_BUTTON_WIDTH = "max-width: 20em;";
@@ -200,7 +206,8 @@ GenericApplicationButton.prototype = {
 	},
 
 	highlight: function() {
-		this.actor.add_style_pseudo_class('highlighted');
+		if (!this.appsMenuButton.pref_disable_new_apps_highlighting)
+			this.actor.add_style_pseudo_class('highlighted');
 	},
 
 	unhighlight: function() {
@@ -329,6 +336,10 @@ TransientButton.prototype = {
 			let fileInfo = this.file.query_info(Gio.FILE_ATTRIBUTE_STANDARD_TYPE, Gio.FileQueryInfoFlags.NONE, null);
 			let contentType = Gio.content_type_guess(this.pathOrCommand, null);
 			let themedIcon = Gio.content_type_get_icon(contentType[0]);
+			/**
+			 * START mark Odyseus
+			 * Just changed the name of the icon size variable.
+			 */
 			this.icon = new St.Icon({
 				gicon: themedIcon,
 				icon_size: PREF_APPLICATION_ICON_SIZE,
@@ -338,6 +349,10 @@ TransientButton.prototype = {
 		} catch (e) {
 			this.handler = null;
 			let iconName = this.isPath ? 'folder' : 'unknown';
+			/**
+			 * START mark Odyseus
+			 * Just changed the name of the icon size variable.
+			 */
 			this.icon = new St.Icon({
 				icon_name: iconName,
 				icon_size: PREF_APPLICATION_ICON_SIZE,
@@ -395,7 +410,10 @@ ApplicationButton.prototype = {
 		this.category = [];
 		this.actor.set_style_class_name('menu-application-button');
 		if (showIcon) {
-			// Mark Odyseus
+			/**
+			 * START mark Odyseus
+			 * Just changed the name of the icons size variable.
+			 */
 			this.icon = this.app.create_icon_texture(PREF_APPLICATION_ICON_SIZE);
 			this.addActor(this.icon);
 		}
@@ -427,6 +445,10 @@ ApplicationButton.prototype = {
 		let monitorHeight = Main.layoutManager.primaryMonitor.height;
 		let real_size = (0.7 * monitorHeight) / nbFavorites;
 		let icon_size = 0.6 * real_size / global.ui_scale;
+		/**
+		 * START mark Odyseus
+		 * Just changed the name of the icon size variable.
+		 */
 		if (icon_size > PREF_MAX_FAV_ICON_SIZE)
 			icon_size = PREF_MAX_FAV_ICON_SIZE;
 		return this.app.create_icon_texture(icon_size);
@@ -483,8 +505,16 @@ SearchProviderResultButton.prototype = {
 		if (result.icon) {
 			this.icon = result.icon;
 		} else if (result.icon_app) {
+			/**
+			 * START mark Odyseus
+			 * Just changed the name of the icon size variable.
+			 */
 			this.icon = result.icon_app.create_icon_texture(PREF_APPLICATION_ICON_SIZE);
 		} else if (result.icon_filename) {
+			/**
+			 * START mark Odyseus
+			 * Just changed the name of the icon size variable.
+			 */
 			this.icon = new St.Icon({
 				gicon: new Gio.FileIcon({
 					file: Gio.file_new_for_path(result.icon_filename)
@@ -548,13 +578,21 @@ PlaceButton.prototype = {
 		this.label.clutter_text.ellipsize = Pango.EllipsizeMode.END;
 		this.label.set_style(MAX_BUTTON_WIDTH);
 		if (showIcon) {
+			/**
+			 * START mark Odyseus
+			 * Just changed the name of the icon size variable.
+			 */
 			this.icon = place.iconFactory(PREF_APPLICATION_ICON_SIZE);
 			if (!this.icon)
+			/**
+			 * START mark Odyseus
+			 * Just changed the name of the icon size variable.
+			 */
 				this.icon = new St.Icon({
-					icon_name: "folder",
-					icon_size: PREF_APPLICATION_ICON_SIZE,
-					icon_type: St.IconType.FULLCOLOR
-				});
+				icon_name: "folder",
+				icon_size: PREF_APPLICATION_ICON_SIZE,
+				icon_type: St.IconType.FULLCOLOR
+			});
 			if (this.icon)
 				this.addActor(this.icon);
 		}
@@ -629,6 +667,10 @@ RecentButton.prototype = {
 		this.label.clutter_text.ellipsize = Pango.EllipsizeMode.END;
 		this.label.set_style(MAX_BUTTON_WIDTH);
 		if (showIcon) {
+			/**
+			 * START mark Odyseus
+			 * Just changed the name of the icon size variable.
+			 */
 			this.icon = file.createIcon(PREF_APPLICATION_ICON_SIZE);
 			this.addActor(this.icon);
 		}
@@ -767,6 +809,10 @@ GenericButton.prototype = {
 		this.label.set_style(MAX_BUTTON_WIDTH);
 
 		if (icon !== null) {
+			/**
+			 * START mark Odyseus
+			 * Just changed the name of the icon size variable.
+			 */
 			let icon_actor = new St.Icon({
 				icon_name: icon,
 				icon_type: St.IconType.FULLCOLOR,
@@ -810,6 +856,10 @@ RecentClearButton.prototype = {
 			text: this.button_name,
 			style_class: 'menu-application-button-label'
 		});
+		/**
+		 * START mark Odyseus
+		 * Just changed the name of the icon size variable.
+		 */
 		this.icon = new St.Icon({
 			icon_name: 'edit-clear',
 			icon_type: St.IconType.SYMBOLIC,
@@ -865,6 +915,10 @@ CategoryButton.prototype = {
 			style_class: 'menu-category-button-label'
 		});
 		if (category && this.icon_name) {
+			/**
+			 * START mark Odyseus
+			 * Just changed the name of the icon size variable.
+			 */
 			this.icon = St.TextureCache.get_default().load_gicon(null, icon, (PREF_CATEGORY_ICON_SIZE));
 			if (this.icon) {
 				this.addActor(this.icon);
@@ -895,6 +949,10 @@ PlaceCategoryButton.prototype = {
 			style_class: 'menu-category-button-label'
 		});
 		if (showIcon) {
+			/**
+			 * START mark Odyseus
+			 * Just changed the name of the icon size variable.
+			 */
 			this.icon = new St.Icon({
 				icon_name: "folder",
 				icon_size: PREF_CATEGORY_ICON_SIZE,
@@ -928,6 +986,10 @@ RecentCategoryButton.prototype = {
 			style_class: 'menu-category-button-label'
 		});
 		if (showIcon) {
+			/**
+			 * START mark Odyseus
+			 * Just changed the name of the icon size variable.
+			 */
 			this.icon = new St.Icon({
 				icon_name: "folder-recent",
 				icon_size: PREF_CATEGORY_ICON_SIZE,
@@ -955,6 +1017,10 @@ FavoritesButton.prototype = {
 		let monitorHeight = Main.layoutManager.primaryMonitor.height;
 		let real_size = (0.7 * monitorHeight) / nbFavorites;
 		let icon_size = 0.6 * real_size / global.ui_scale;
+		/**
+		 * START mark Odyseus
+		 * Just changed the name of the icon size variable.
+		 */
 		if (icon_size > PREF_MAX_FAV_ICON_SIZE)
 			icon_size = PREF_MAX_FAV_ICON_SIZE;
 		this.actor.style = "padding-top: " + (icon_size / 3) + "px;padding-bottom: " + (icon_size / 3) + "px; margin:auto;";
@@ -1009,6 +1075,10 @@ SystemButton.prototype = {
 		let monitorHeight = Main.layoutManager.primaryMonitor.height;
 		let real_size = (0.7 * monitorHeight) / nbFavorites;
 		let icon_size = 0.6 * real_size / global.ui_scale;
+		/**
+		 * START mark Odyseus
+		 * Just changed the name of the icon size variable.
+		 */
 		if (icon_size > PREF_MAX_FAV_ICON_SIZE)
 			icon_size = PREF_MAX_FAV_ICON_SIZE;
 		this.actor.style = "padding-top: " + (icon_size / 3) + "px;padding-bottom: " + (icon_size / 3) + "px; margin:auto;";
@@ -1187,14 +1257,14 @@ FavoritesBox.prototype = {
 	}
 };
 
-function MyApplet(orientation, panel_height, instance_id) {
-	this._init(orientation, panel_height, instance_id);
+function MyApplet(metadata, orientation, panel_height, instance_id) {
+	this._init(metadata, orientation, panel_height, instance_id);
 }
 
 MyApplet.prototype = {
 	__proto__: Applet.TextIconApplet.prototype,
 
-	_init: function(orientation, panel_height, instance_id) {
+	_init: function(metadata, orientation, panel_height, instance_id) {
 		Applet.TextIconApplet.prototype._init.call(this, orientation, panel_height, instance_id);
 		this.initial_load_done = false;
 
@@ -1206,21 +1276,6 @@ MyApplet.prototype = {
 		this.actor.connect('key-press-event', Lang.bind(this, this._onSourceKeyPress));
 
 		this.settings = new Settings.AppletSettings(this, "0dyseus@CustomCinnamonMenu", instance_id);
-
-		// Mark Odyseus
-		this.settings.bindProperty(Settings.BindingDirection.IN, "pref_fuzzy_search_enabled", "pref_fuzzy_search_enabled", this._refreshAll, null);
-		this.settings.bindProperty(Settings.BindingDirection.IN, "pref_show_recents_button", "pref_show_recents_button", this._refreshAll, null);
-		this.settings.bindProperty(Settings.BindingDirection.IN, "pref_show_system_buttons", "pref_show_system_buttons", this._refreshAll, null);
-		this.settings.bindProperty(Settings.BindingDirection.IN, "pref_show_lock_button", "pref_show_lock_button", this._refreshAll, null);
-		this.settings.bindProperty(Settings.BindingDirection.IN, "pref_show_logout_button", "pref_show_logout_button", this._refreshAll, null);
-		this.settings.bindProperty(Settings.BindingDirection.IN, "pref_show_shutdown_button", "pref_show_shutdown_button", this._refreshAll, null);
-		this.settings.bindProperty(Settings.BindingDirection.IN, "pref_separator_heigth", "pref_separator_heigth", this._refreshAll, null);
-		this.settings.bindProperty(Settings.BindingDirection.IN, "pref_search_box_bottom", "pref_search_box_bottom", this._refreshAll, null);
-		this.settings.bindProperty(Settings.BindingDirection.IN, "pref_show_appinfo_box", "pref_show_appinfo_box", this._refreshAll, null);
-		this.settings.bindProperty(Settings.BindingDirection.IN, "pref_max_fav_icon_size", "pref_max_fav_icon_size", this._refreshAll, null);
-		this.settings.bindProperty(Settings.BindingDirection.IN, "pref_category_icon_size", "pref_category_icon_size", this._refreshAll, null);
-		this.settings.bindProperty(Settings.BindingDirection.IN, "pref_application_icon_size", "pref_application_icon_size", this._refreshAll, null);
-		this.settings.bindProperty(Settings.BindingDirection.IN, "pref_max_recent_files", "pref_max_recent_files", this._refreshAll, null);
 
 		this.settings.bindProperty(Settings.BindingDirection.IN, "show-places", "showPlaces", this._refreshBelowApps, null);
 		this.settings.bindProperty(Settings.BindingDirection.IN, "activate-on-hover", "activateOnHover", this._updateActivateOnHover, null);
@@ -1236,10 +1291,6 @@ MyApplet.prototype = {
 		this.settings.bindProperty(Settings.BindingDirection.IN, "show-category-icons", "showCategoryIcons", this._refreshAll, null);
 		this.settings.bindProperty(Settings.BindingDirection.IN, "show-application-icons", "showApplicationIcons", this._refreshAll, null);
 		this.settings.bindProperty(Settings.BindingDirection.IN, "favbox-show", "favBoxShow", this._favboxtoggle, null);
-
-		PREF_CATEGORY_ICON_SIZE = this.pref_category_icon_size;
-		PREF_APPLICATION_ICON_SIZE = this.pref_application_icon_size;
-		PREF_MAX_FAV_ICON_SIZE = this.pref_max_fav_icon_size;
 
 		this._updateKeybinding();
 
@@ -1257,9 +1308,26 @@ MyApplet.prototype = {
 			icon_type: St.IconType.SYMBOLIC
 		});
 
-		// Mark Odyseus - From Sane Menu
+		/**
+		 * START mark Odyseus
+		 */
+		// From Sane Menu
+		Gtk.IconTheme.get_default().append_search_path(metadata.path + "/icons/");
 		this._applicationsButtonsBackup = [];
 		this._applicationsOrder = {};
+		//
+		this._orientation = orientation;
+		this._hardRefreshTimeout1 = null;
+		this._hardRefreshTimeout2 = null;
+		this._refreshCustomCommandsTimeout = null;
+		this._bind_extra_settings();
+		PREF_CATEGORY_ICON_SIZE = this.pref_category_icon_size;
+		PREF_APPLICATION_ICON_SIZE = this.pref_application_icon_size;
+		PREF_MAX_FAV_ICON_SIZE = this.pref_max_fav_icon_size;
+		PREF_CUSTOM_COMMAND_ICON_SIZE = this.pref_custom_command_icon_size;
+		/**
+		 * END
+		 */
 
 		this._searchIconClickedId = 0;
 		this._applicationsButtons = [];
@@ -1298,7 +1366,7 @@ MyApplet.prototype = {
 		this._pathCompleter.set_dirs_only(false);
 		this.lastAcResults = [];
 		this.settings.bindProperty(Settings.BindingDirection.IN, "search-filesystem", "searchFilesystem", null, null);
-		this.refreshing = false; // used as a flag tSearchProviderResultButtono know if we're currently refreshing (so we don't do it more than once concurrently)
+		this.refreshing = false; // used as a flag to know if we're currently refreshing (so we don't do it more than once concurrently)
 
 		// We shouldn't need to call refreshAll() here... since we get a "icon-theme-changed" signal when CSD starts.
 		// The reason we do is in case the Cinnamon icon theme is the same as the one specificed in GTK itself (in .config)
@@ -1308,6 +1376,89 @@ MyApplet.prototype = {
 		St.TextureCache.get_default().connect("icon-theme-changed", Lang.bind(this, this.onIconThemeChanged));
 		this._recalc_height();
 	},
+
+	/**
+	 * START mark Odyseus
+	 */
+	_bind_extra_settings: function() {
+		let settingsArray = [
+			[Settings.BindingDirection.IN, "pref_disable_new_apps_highlighting", null],
+			[Settings.BindingDirection.IN, "pref_fuzzy_search_enabled", null],
+			[Settings.BindingDirection.IN, "pref_show_recents_button", null],
+			[Settings.BindingDirection.IN, "pref_system_buttons_display", null],
+			[Settings.BindingDirection.IN, "pref_show_lock_button", null],
+			[Settings.BindingDirection.IN, "pref_show_logout_button", null],
+			[Settings.BindingDirection.IN, "pref_show_shutdown_button", null],
+			[Settings.BindingDirection.IN, "pref_lock_button_custom_icon", null],
+			[Settings.BindingDirection.IN, "pref_logout_button_custom_icon", null],
+			[Settings.BindingDirection.IN, "pref_shutdown_button_custom_icon", null],
+			[Settings.BindingDirection.IN, "pref_separator_heigth", null],
+			[Settings.BindingDirection.IN, "pref_search_box_bottom", null],
+			[Settings.BindingDirection.IN, "pref_custom_width_for_searchbox", null],
+			[Settings.BindingDirection.IN, "pref_show_search_box", null],
+			[Settings.BindingDirection.IN, "pref_show_appinfo_box", null],
+			[Settings.BindingDirection.IN, "pref_max_fav_icon_size", null],
+			[Settings.BindingDirection.IN, "pref_category_icon_size", null],
+			[Settings.BindingDirection.IN, "pref_application_icon_size", null],
+			[Settings.BindingDirection.IN, "pref_max_recent_files", null],
+			[Settings.BindingDirection.IN, "pref_show_custom_commands_box", null],
+			[Settings.BindingDirection.IN, "pref_custom_command_box_padding_top", null],
+			[Settings.BindingDirection.IN, "pref_custom_command_box_padding_right", null],
+			[Settings.BindingDirection.IN, "pref_custom_command_box_padding_bottom", null],
+			[Settings.BindingDirection.IN, "pref_custom_command_box_padding_left", null],
+			[Settings.BindingDirection.IN, "pref_custom_commands_box_alignment", null],
+			[Settings.BindingDirection.IN, "pref_custom_commands_box_at_the_bottom", null],
+			[Settings.BindingDirection.IN, "pref_custom_command_icon_size", null],
+
+			[Settings.BindingDirection.IN, "pref_command_1_label", null],
+			[Settings.BindingDirection.IN, "pref_command_1_command", null],
+			[Settings.BindingDirection.IN, "pref_command_1_icon", null],
+			[Settings.BindingDirection.IN, "pref_command_1_description", null],
+			[Settings.BindingDirection.IN, "pref_command_2_label", null],
+			[Settings.BindingDirection.IN, "pref_command_2_command", null],
+			[Settings.BindingDirection.IN, "pref_command_2_icon", null],
+			[Settings.BindingDirection.IN, "pref_command_2_description", null],
+			[Settings.BindingDirection.IN, "pref_command_3_label", null],
+			[Settings.BindingDirection.IN, "pref_command_3_command", null],
+			[Settings.BindingDirection.IN, "pref_command_3_icon", null],
+			[Settings.BindingDirection.IN, "pref_command_3_description", null],
+			[Settings.BindingDirection.IN, "pref_command_4_label", null],
+			[Settings.BindingDirection.IN, "pref_command_4_command", null],
+			[Settings.BindingDirection.IN, "pref_command_4_icon", null],
+			[Settings.BindingDirection.IN, "pref_command_4_description", null],
+			[Settings.BindingDirection.IN, "pref_command_5_label", null],
+			[Settings.BindingDirection.IN, "pref_command_5_command", null],
+			[Settings.BindingDirection.IN, "pref_command_5_icon", null],
+			[Settings.BindingDirection.IN, "pref_command_5_description", null],
+			[Settings.BindingDirection.IN, "pref_command_6_label", null],
+			[Settings.BindingDirection.IN, "pref_command_6_command", null],
+			[Settings.BindingDirection.IN, "pref_command_6_icon", null],
+			[Settings.BindingDirection.IN, "pref_command_6_description", null],
+			[Settings.BindingDirection.IN, "pref_command_7_label", null],
+			[Settings.BindingDirection.IN, "pref_command_7_command", null],
+			[Settings.BindingDirection.IN, "pref_command_7_icon", null],
+			[Settings.BindingDirection.IN, "pref_command_7_description", null],
+			[Settings.BindingDirection.IN, "pref_command_8_label", null],
+			[Settings.BindingDirection.IN, "pref_command_8_command", null],
+			[Settings.BindingDirection.IN, "pref_command_8_icon", null],
+			[Settings.BindingDirection.IN, "pref_command_8_description", null],
+			[Settings.BindingDirection.IN, "pref_command_9_label", null],
+			[Settings.BindingDirection.IN, "pref_command_9_command", null],
+			[Settings.BindingDirection.IN, "pref_command_9_icon", null],
+			[Settings.BindingDirection.IN, "pref_command_9_description", null],
+			[Settings.BindingDirection.IN, "pref_command_10_label", null],
+			[Settings.BindingDirection.IN, "pref_command_10_command", null],
+			[Settings.BindingDirection.IN, "pref_command_10_icon", null],
+			[Settings.BindingDirection.IN, "pref_command_10_description", null],
+
+		];
+		for (let [binding, property_name, callback] of settingsArray) {
+			this.settings.bindProperty(binding, property_name, property_name, callback, null);
+		}
+	},
+	/**
+	 * END
+	 */
 
 	_updateKeybinding: function() {
 		Main.keybindingManager.addHotKey("overlay-key", this.overlayKey, Lang.bind(this, function() {
@@ -1331,10 +1482,16 @@ MyApplet.prototype = {
 	},
 
 	_refreshAll: function() {
-		// Mark Odyseus
+		/**
+		 * START mark Odyseus
+		 */
 		PREF_CATEGORY_ICON_SIZE = this.pref_category_icon_size;
 		PREF_APPLICATION_ICON_SIZE = this.pref_application_icon_size;
 		PREF_MAX_FAV_ICON_SIZE = this.pref_max_fav_icon_size;
+		PREF_CUSTOM_COMMAND_ICON_SIZE = this.pref_custom_command_icon_size;
+		/**
+		 * END
+		 */
 
 		try {
 			this._refreshApps();
@@ -1373,10 +1530,43 @@ MyApplet.prototype = {
 	},
 
 	_recalc_height: function() {
-		let scrollBoxHeight = (this.leftBox.get_allocation_box().y2 - this.leftBox.get_allocation_box().y1) -
-			(this.searchBox.get_allocation_box().y2 - this.searchBox.get_allocation_box().y1);
+		let scrollBoxHeight = (this.leftBox.get_allocation_box().y2 - this.leftBox.get_allocation_box().y1);
+		/**
+		 * START mark Odyseus
+		 */
+		if (this.pref_show_search_box)
+			scrollBoxHeight = scrollBoxHeight - (this.searchBox.get_allocation_box().y2 - this.searchBox.get_allocation_box().y1);
+		if (this.pref_show_custom_commands_box)
+			scrollBoxHeight = scrollBoxHeight - (this.myCustomCommandsBox.get_allocation_box().y2 - this.myCustomCommandsBox.get_allocation_box().y1);
+		/**
+		 * END
+		 */
 		this.applicationsScrollBox.style = "height: " + scrollBoxHeight / global.ui_scale + "px;";
 	},
+
+	/**
+	 * START mark Odyseus
+	 */
+	_hardRefreshAll: function() {
+		if (this._hardRefreshTimeout2)
+			Mainloop.source_remove(this._hardRefreshTimeout2);
+
+		if (this._hardRefreshTimeout1)
+			Mainloop.source_remove(this._hardRefreshTimeout1);
+
+		let self = this;
+		this._hardRefreshTimeout1 = Mainloop.timeout_add(500, Lang.bind(this, function() {
+			self.on_orientation_changed(this._orientation);
+			self._hardRefreshTimeout2 = Mainloop.timeout_add(500, Lang.bind(this, function() {
+				self.refreshAll();
+				this._hardRefreshTimeout1 = null;
+				this._hardRefreshTimeout2 = null;
+			}));
+		}));
+	},
+	/**
+	 * END
+	 */
 
 	on_orientation_changed: function(orientation) {
 		this.menu.destroy();
@@ -1400,7 +1590,7 @@ MyApplet.prototype = {
 	},
 
 	on_applet_clicked: function(event) {
-		this.menu.toggle_with_options(false);
+		this.menu.toggle_with_options(true);
 	},
 
 	_onSourceKeyPress: function(actor, event) {
@@ -1533,10 +1723,15 @@ MyApplet.prototype = {
 	},
 
 	_onMenuKeyPress: function(actor, event) {
-		// Mark Odyseus - From Sane Menu
+		/**
+		 * START mark Odyseus
+		 */
+		// From Sane Menu
 		if (this.pref_fuzzy_search_enabled)
 			this._applicationsButtons = Object.create(this._applicationsButtonsBackup);
-
+		/**
+		 * END
+		 */
 		let symbol = event.get_key_symbol();
 		let item_actor;
 		let index = 0;
@@ -1938,7 +2133,10 @@ MyApplet.prototype = {
 		this._recentButtons = [];
 
 		// Now generate recent category and recent files buttons and add to the list
-		// Mark Odyseus
+		/**
+		 * START mark Odyseus
+		 * Just added the condition to hide Recent files category.
+		 */
 		if (this.privacy_settings.get_boolean(REMEMBER_RECENT_KEY) &&
 			this.pref_show_recents_button) {
 			this.recentButton = new RecentCategoryButton(null, this.showCategoryIcons);
@@ -2179,9 +2377,15 @@ MyApplet.prototype = {
 			this.applicationsBox.add_actor(this._applicationsButtons[i].menu.actor);
 		}
 
-		// Mark Odyseus From Sane Menu
+		/**
+		 * START mark Odyseus
+		 */
+		// From Sane Menu
 		if (this.pref_fuzzy_search_enabled)
 			this._applicationsButtonsBackup = Object.create(this._applicationsButtons);
+		/**
+		 * END
+		 */
 
 		this._appsWereRefreshed = true;
 	},
@@ -2237,9 +2441,14 @@ MyApplet.prototype = {
 
 		//Separator
 		if (launchers.length !== 0) {
-			// Mark Odyseus
+			/**
+			 * START mark Odyseus
+			 */
 			let separatorBox = new SeparatorBox(false, this.pref_separator_heigth);
 			this.favoritesBox.add_actor(separatorBox.actor);
+			/**
+			 * END
+			 */
 
 			// Original code
 			// let separator = new PopupMenu.PopupSeparatorMenuItem();
@@ -2249,7 +2458,7 @@ MyApplet.prototype = {
 			// });
 		}
 
-		if (this.pref_show_system_buttons) {
+		if (this.pref_system_buttons_display === 1) {
 			if (this.pref_show_lock_button) { // Lock screen
 				let button1 = new SystemButton(this, "system-lock-screen", launchers.length + 3,
 					_("Lock screen"),
@@ -2430,18 +2639,22 @@ MyApplet.prototype = {
 		this._session = new GnomeSession.SessionManager();
 		this._screenSaverProxy = new ScreenSaver.ScreenSaverProxy();
 
-		if (this.favBoxShow)
+		if (this.favBoxShow) {
 			this.leftPane.add_actor(this.leftBox, {
 				y_align: St.Align.END,
 				y_fill: false
 			});
+		}
 
 		let rightPane = new St.BoxLayout({
 			vertical: true
 		});
-		this.rightPane = rightPane;
+		// this.rightPane = rightPane;
 
-		// Mark Odyseus
+		/**
+		 * START mark Odyseus
+		 * Moved the selectedAppBox creation up here to allow me to insert it erlier in the rightPane.
+		 */
 		this.selectedAppBox = new St.BoxLayout({
 			style_class: 'menu-selected-app-box',
 			vertical: true
@@ -2462,29 +2675,75 @@ MyApplet.prototype = {
 		});
 		this.selectedAppBox.add_actor(this.selectedAppDescription);
 
-		this.searchBox = new St.BoxLayout({
-			style_class: 'menu-search-box'
-		});
+		this.myCustomCommandsBox = null;
+
+		if (this.pref_show_custom_commands_box) {
+			this.myCustomCommandsBox = new St.BoxLayout({
+				vertical: false,
+				reactive: true,
+				track_hover: true,
+				can_focus: true
+			});
+			this.myCustomCommandsBox.set_width(-1);
+			this.myCustomCommandsBox.set_style("padding-top: " + this.pref_custom_command_box_padding_top +
+				"px; padding-right: " + this.pref_custom_command_box_padding_right +
+				"px; padding-bottom: " + this.pref_custom_command_box_padding_bottom +
+				"px; padding-left: " + this.pref_custom_command_box_padding_left + "px;");
+		}
+
+		if (this.pref_show_search_box) {
+			this.searchBox = new St.BoxLayout({
+				style_class: 'menu-search-box'
+			});
+		}
 
 		// Mark Odyseus
 		if (this.pref_search_box_bottom)
 			this.pref_show_appinfo_box && section.actor.add_actor(this.selectedAppBox);
 		else
-			rightPane.add_actor(this.searchBox);
+			this.pref_show_search_box && rightPane.add_actor(this.searchBox);
 
-		this.searchEntry = new St.Entry({
-			name: 'menu-search-entry',
-			hint_text: _("Type to search..."),
-			track_hover: true,
-			can_focus: true
-		});
-		this.searchEntry.set_secondary_icon(this._searchInactiveIcon);
-		this.searchBox.add_actor(this.searchEntry);
-		this.searchActive = false;
-		this.searchEntryText = this.searchEntry.clutter_text;
-		this.searchEntryText.connect('text-changed', Lang.bind(this, this._onSearchTextChanged));
-		this.searchEntryText.connect('key-press-event', Lang.bind(this, this._onMenuKeyPress));
-		this._previousSearchPattern = "";
+		let customCmdBoxAlignment;
+		switch (this.pref_custom_commands_box_alignment) {
+			case 0:
+				customCmdBoxAlignment = St.Align.START;
+				break;
+			case 1:
+				customCmdBoxAlignment = St.Align.MIDDLE;
+				break;
+			case 2:
+				customCmdBoxAlignment = St.Align.END;
+				break;
+		}
+
+		if (this.myCustomCommandsBox !== null && !this.pref_custom_commands_box_at_the_bottom)
+			rightPane.add(this.myCustomCommandsBox, {
+				x_fill: false,
+				y_fill: false,
+				x_align: customCmdBoxAlignment,
+				y_align: St.Align.MIDDLE,
+				expand: true
+			});
+
+		if (this.pref_show_search_box) {
+			this.searchEntry = new St.Entry({
+				name: 'menu-search-entry',
+				hint_text: _("Type to search..."),
+				track_hover: true,
+				can_focus: true
+			});
+
+			this.searchEntry.set_secondary_icon(this._searchInactiveIcon);
+			this.searchBox.add_actor(this.searchEntry);
+			this.searchActive = false;
+			this.searchEntryText = this.searchEntry.clutter_text;
+			this.searchEntryText.connect('text-changed', Lang.bind(this, this._onSearchTextChanged));
+			this.searchEntryText.connect('key-press-event', Lang.bind(this, this._onMenuKeyPress));
+			this._previousSearchPattern = "";
+		}
+		/**
+		 * END
+		 */
 
 		this.categoriesApplicationsBox = new CategoriesApplicationsBox();
 		rightPane.add_actor(this.categoriesApplicationsBox.actor);
@@ -2556,11 +2815,25 @@ MyApplet.prototype = {
 
 		section.actor.add_actor(this.mainBox);
 
-		// Mark Odyseus
+		/**
+		 * START mark Odyseus
+		 */
 		if (this.pref_search_box_bottom)
-			rightPane.add_actor(this.searchBox);
+			this.pref_show_search_box && rightPane.add_actor(this.searchBox);
 		else
 			this.pref_show_appinfo_box && section.actor.add_actor(this.selectedAppBox);
+
+		if (this.myCustomCommandsBox !== null && this.pref_custom_commands_box_at_the_bottom)
+			rightPane.add(this.myCustomCommandsBox, {
+				x_fill: false,
+				y_fill: false,
+				x_align: customCmdBoxAlignment,
+				y_align: St.Align.MIDDLE,
+				expand: true
+			});
+		/**
+		 * END
+		 */
 
 		this.appBoxIter = new VisibleChildIterator(this.applicationsBox);
 		this.applicationsBox._vis_iter = this.appBoxIter;
@@ -2571,7 +2844,130 @@ MyApplet.prototype = {
 		Mainloop.idle_add(Lang.bind(this, function() {
 			this._clearAllSelections(true);
 		}));
+
+		/**
+		 * START mark Odyseus
+		 */
+		if (this.pref_custom_width_for_searchbox === 0)
+			this.searchEntry.set_width(-1);
+		else
+			this.searchEntry.set_width(this.pref_custom_width_for_searchbox);
+
+		this._updateCustomCommandsBox();
+		/**
+		 * END
+		 */
 	},
+
+	/**
+	 * START mark Odyseus
+	 */
+	_updateCustomCommandsBox: function() {
+		if (this.myCustomCommandsBox === null || this._refreshCustomCommandsTimeout !== null)
+			return true;
+
+		this._refreshCustomCommandsTimeout = Mainloop.timeout_add(1000, Lang.bind(this, function() {
+			this._refreshCustomCommandsTimeout = null;
+		}));
+
+		this.myCustomCommandsBox.destroy_all_children();
+		let count = 10;
+		let base = "pref_command_";
+		let lbl, cmd, icn, desc;
+
+		for (let i = count - 1; i > 0; --i) {
+			lbl = this[base + i + "_label"],
+				cmd = this[base + i + "_command"],
+				icn = this[base + i + "_icon"],
+				desc = this[base + i + "_description"];
+
+			if (cmd === "" || icn === "")
+				continue;
+
+			let app = {
+				command: cmd,
+				description: desc,
+				label: lbl,
+				icon: icn
+			};
+			if (app) {
+				let button = new MyCustomCommanButton(this, app, null);
+				this.myCustomCommandsBox.add_actor(button.actor);
+			}
+		}
+
+		if (this.pref_system_buttons_display === 2)
+			this._insertCustomSystemButtons();
+	},
+	/**
+	 * END
+	 */
+
+	/**
+	 * START mark Odyseus
+	 */
+	_insertCustomSystemButtons: function() {
+		if (this.pref_show_lock_button) { // Lock screen
+			let button1 = new MyCustomCommanButton(this, {
+				command: null,
+				description: _("Lock the screen"),
+				label: _("Lock screen"),
+				icon: (this.pref_lock_button_custom_icon === "" ?
+					"system-lock-screen" :
+					this.pref_lock_button_custom_icon)
+			}, Lang.bind(this, function() {
+				this.menu.close();
+
+				let screensaver_settings = new Gio.Settings({
+					schema_id: "org.cinnamon.desktop.screensaver"
+				});
+				let screensaver_dialog = Gio.file_new_for_path("/usr/bin/cinnamon-screensaver-command");
+				if (screensaver_dialog.query_exists(null)) {
+					if (screensaver_settings.get_boolean("ask-for-away-message")) {
+						Util.spawnCommandLine("cinnamon-screensaver-lock-dialog");
+					} else {
+						Util.spawnCommandLine("cinnamon-screensaver-command --lock");
+					}
+				} else {
+					this._screenSaverProxy.LockRemote("");
+				}
+			}));
+			this.myCustomCommandsBox.add_actor(button1.actor);
+		}
+
+		if (this.pref_show_logout_button) { // Logout button
+			let button2 = new MyCustomCommanButton(this, {
+				command: null,
+				description: _("Leave the session"),
+				label: _("Logout"),
+				icon: (this.pref_logout_button_custom_icon === "" ?
+					"system-lock-screen" :
+					this.pref_logout_button_custom_icon)
+			}, Lang.bind(this, function() {
+				this.menu.close();
+				this._session.LogoutRemote(0);
+			}));
+			this.myCustomCommandsBox.add_actor(button2.actor);
+		}
+
+		if (this.pref_show_shutdown_button) { // Shutdown button
+			let button3 = new MyCustomCommanButton(this, {
+				command: null,
+				description: _("Shutdown the computer"),
+				label: _("Quit"),
+				icon: (this.pref_shutdown_button_custom_icon === "" ?
+					"system-lock-screen" :
+					this.pref_shutdown_button_custom_icon)
+			}, Lang.bind(this, function() {
+				this.menu.close();
+				this._session.ShutdownRemote();
+			}));
+			this.myCustomCommandsBox.add_actor(button3.actor);
+		}
+	},
+	/**
+	 * END
+	 */
 
 	_updateVFade: function() {
 		let mag_on = this.a11y_settings.get_boolean("screen-magnifier-enabled") &&
@@ -2611,6 +3007,14 @@ MyApplet.prototype = {
 			cLen = actors3.length;
 		for (; c < cLen; c++) {
 			let actor = actors3[c];
+			actor.remove_style_pseudo_class("hover");
+			actor.show();
+		}
+		let actors4 = this.myCustomCommandsBox.get_children();
+		let d = 0,
+			dLen = actors3.length;
+		for (; d < dLen; d++) {
+			let actor = actors3[d];
 			actor.remove_style_pseudo_class("hover");
 			actor.show();
 		}
@@ -2682,15 +3086,22 @@ MyApplet.prototype = {
 			let i = 0,
 				iLen = this._applicationsButtons.length;
 			for (; i < iLen; i++) {
+				/**
+				 * START mark Odyseus
+				 */
+				// From Sane menu
 				if (apps.indexOf(this._applicationsButtons[i].app.get_id()) != -1) {
-					if (this.pref_fuzzy_search_enabled && !appCategory) { // Mark Odyseus - From Sane Menu
+					if (this.pref_fuzzy_search_enabled && !appCategory) {
 						this.applicationsBox.add_actor(this._applicationsButtons[i].actor);
 						this.applicationsBox.add_actor(this._applicationsButtons[i].menu.actor);
 					} else
 						this._applicationsButtons[i].actor.show();
-				} else { // Mark Odyseus - From Sane Menu
+				} else {
 					this.pref_fuzzy_search_enabled || this._applicationsButtons[i].actor.hide();
 				}
+				/**
+				 * END
+				 */
 			}
 		} else {
 			this._applicationsButtons.forEach(function(item, index) {
@@ -2814,7 +3225,10 @@ MyApplet.prototype = {
 				this._setCategoriesButtonActive(false);
 				this._doSearch();
 			} else {
-				// Mark Odyseus - From Sane Menu
+				/**
+				 * START mark Odyseus
+				 */
+				// From Sane Menu
 				// TODO: Find a better way to restore initial state
 				if (this.pref_fuzzy_search_enabled) {
 					this._refreshApps();
@@ -2824,6 +3238,9 @@ MyApplet.prototype = {
 						this._refreshRecent();
 				}
 				// this._refreshApps();
+				/**
+				 * END
+				 */
 
 				if (this._searchIconClickedId > 0)
 					this.searchEntry.disconnect(this._searchIconClickedId);
@@ -2869,12 +3286,21 @@ MyApplet.prototype = {
 		let res;
 		if (pattern) {
 			res = [];
-			// Mark Odyseus - From Sane Menu
+			/**
+			 * START mark Odyseus
+			 */
+			// From Sane Menu
 			this._applicationsOrder = {};
+			/**
+			 * END
+			 */
 			for (let i in this._applicationsButtons) {
 				let app = this._applicationsButtons[i].app;
-
-				if (this.pref_fuzzy_search_enabled) { // Mark Odyseus - From Sane Menu
+				/**
+				 * START mark Odyseus
+				 */
+				// From Sane Menu
+				if (this.pref_fuzzy_search_enabled) {
 					let fuzzy = this._fuzzysearch(pattern, Util.latinise(app.get_name().toLowerCase()));
 					if (fuzzy[0]) {
 						res.push(app.get_id());
@@ -2887,13 +3313,19 @@ MyApplet.prototype = {
 						(app.get_id() && Util.latinise(app.get_id().slice(0, -8).toLowerCase()).indexOf(pattern) != -1))
 						res.push(app.get_id());
 				}
+				/**
+				 * END
+				 */
 			}
 		} else
 			res = applist;
 		return res;
 	},
 
-	// Mark Odyseus - From Sane Menu
+	/**
+	 * START mark Odyseus
+	 */
+	// From Sane Menu
 	_fuzzysort: function(order) {
 		return function(a, b) {
 			a = a.app.get_id();
@@ -2903,8 +3335,14 @@ MyApplet.prototype = {
 			return avalue > bvalue;
 		};
 	},
+	/**
+	 * END
+	 */
 
-	// Mark Odyseus - From Sane Menu
+	/**
+	 * START mark Odyseus
+	 */
+	// From Sane Menu
 	_fuzzysearch: function(needle, haystack) {
 		var hlen = haystack.length;
 		var nlen = needle.length;
@@ -2939,6 +3377,9 @@ MyApplet.prototype = {
 		}
 		return [true, OccurrenceAt];
 	},
+	/**
+	 * END
+	 */
 
 	_doSearch: function() {
 		this._searchTimeoutId = 0;
@@ -2982,12 +3423,18 @@ MyApplet.prototype = {
 			acResults = this._getCompletions(this.searchEntryText.get_text());
 		}
 
-		// Mark Odyseus - From Sane Menu
+		/**
+		 * START mark Odyseus
+		 */
+		// From Sane Menu
 		// remove all buttons here for sort to have effect
 		if (this.pref_fuzzy_search_enabled) {
 			this.applicationsBox.remove_all_children();
 			this._applicationsButtons = this._applicationsButtons.sort(this._fuzzysort(this._applicationsOrder));
 		}
+		/**
+		 * END
+		 */
 
 		this._displayButtons(null, placesResults, recentResults, appResults, acResults);
 
@@ -3077,6 +3524,9 @@ MyApplet.prototype = {
 	}
 };
 
+/**
+ * START mark Odyseus
+ */
 function SeparatorBox(haveLine, space) {
 	this._init(haveLine, space);
 }
@@ -3114,7 +3564,97 @@ SeparatorBox.prototype = {
 	}
 };
 
+function MyCustomCommanButton(aApplet, aApp, aCallback) {
+	this._init(aApplet, aApp, aCallback);
+}
+
+MyCustomCommanButton.prototype = {
+	__proto__: PopupMenu.PopupBaseMenuItem.prototype,
+
+	_init: function(aApplet, aApp, aCallback) {
+		this.app = aApp;
+		this.applet = aApplet;
+		this.callback = aCallback;
+
+		PopupMenu.PopupBaseMenuItem.prototype._init.call(this, {
+			hover: true
+		});
+
+		this.actor = new St.Bin({
+			style_class: 'customcommand-button-container'
+		});
+
+		this.button = new St.Button({
+			style_class: 'customcommand-button'
+		});
+		let icon_size = PREF_CUSTOM_COMMAND_ICON_SIZE;
+		let icon_type = (this.app.icon.search("-symbolic") !== -1) ? 0 : 1;
+		let iconObj = {
+			icon_size: icon_size,
+			icon_type: icon_type,
+			style_class: "customcommand-button-icon",
+		};
+		if (this.app.icon.indexOf("/") !== -1)
+			iconObj["gicon"] = new Gio.FileIcon({
+				file: Gio.file_new_for_path(this.app.icon)
+			});
+		else
+			iconObj["icon_name"] = this.app.icon;
+
+		this.icon = new St.Icon(iconObj);
+		this.button.set_child(this.icon);
+		this.actor.add_actor(this.button);
+
+		this.button.set_style_class_name("menu-application-button");
+		this.button.connect("clicked", Lang.bind(this, this._activate, aCallback));
+		this.button.connect("enter-event", Lang.bind(this, this._enterEvent));
+		this.button.connect("leave-event", Lang.bind(this, this._leaveEvent));
+
+		this.isDraggableApp = false;
+	},
+
+	_enterEvent: function() {
+		this.button.style_class = "menu-application-button-selected";
+		this.actor.add_style_pseudo_class("hover");
+		this.applet.selectedAppTitle.set_text(this.app.label);
+		if (this.app.description)
+			this.applet.selectedAppDescription.set_text(this.app.description.split("\n")[0]);
+		else
+			this.applet.selectedAppDescription.set_text("");
+	},
+
+	_leaveEvent: function() {
+		this.button.style_class = "menu-application-button";
+		this.actor.remove_style_pseudo_class("hover");
+		this.applet.selectedAppTitle.set_text("");
+		this.applet.selectedAppDescription.set_text("");
+	},
+
+	_activate: function(event, aCallback) {
+		if (this.callback)
+			this.callback();
+		else {
+			let cmd = this.app.command;
+			try { // Try to execute
+				GLib.spawn_command_line_async(cmd);
+			} catch (aErr1) {
+				try {
+					if (cmd.indexOf("/") !== -1) // Try to open file if cmd is a path
+						Main.Util.spawnCommandLine("xdg-open " + cmd);
+				} catch (aErr2) {
+					Main.notify("[Custom Cinnamon Menu]", aErr2.message);
+				}
+			} finally {
+				this.applet.menu.close();
+			}
+		}
+	},
+};
+/**
+ * END
+ */
+
 function main(metadata, orientation, panel_height, instance_id) {
-	let myApplet = new MyApplet(orientation, panel_height, instance_id);
+	let myApplet = new MyApplet(metadata, orientation, panel_height, instance_id);
 	return myApplet;
 }

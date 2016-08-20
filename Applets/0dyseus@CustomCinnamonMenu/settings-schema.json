@@ -51,13 +51,13 @@
 	"enable-autoscroll": {
 		"type": "checkbox",
 		"default": true,
-		"description": "Enable autoscrolling in application list",
-		"tooltip": "Choose whether or not to enable smooth autoscrolling in the application list."
+		"description": "Enable auto-scrolling in application list",
+		"tooltip": "Choose whether or not to enable smooth auto-scrolling in the application list."
 	},
 	"search-filesystem": {
 		"type": "checkbox",
 		"default": false,
-		"description": "Enable filesystem path entry in search box",
+		"description": "Enable file system path entry in search box",
 		"tooltip": "Allows path entry in the menu search box."
 	},
 	"activate-on-hover": {
@@ -82,9 +82,41 @@
 		"callback": "_launch_editor",
 		"tooltip": "Press this button to customize your menu entries."
 	},
+	"sep0": {
+		"type": "separator"
+	},
 	"head0": {
 		"type": "header",
-		"description": "\nExtra menu options: "
+		"description": "\nExtra menu options:\nThese options are not automatically saved when modified.\nPress any of the \"Click here to save settings\" buttons for the settings to take effect."
+	},
+	"button0": {
+		"type": "button",
+		"description": "Click here to save settings",
+		"callback": "_hardRefreshAll"
+	},
+	"pref_show_appinfo_box": {
+		"type": "checkbox",
+		"default": false,
+		"description": "Display application info box (Needs Cinnamon restart)",
+		"tooltip": ""
+	},
+	"pref_show_recents_button": {
+		"type": "checkbox",
+		"default": true,
+		"description": "Show Recent files category",
+		"tooltip": "For people who want the Recent files category hidden without disabling recent files globally."
+	},
+	"pref_fuzzy_search_enabled": {
+		"type": "checkbox",
+		"default": true,
+		"description": "Enable fuzzy search (EXPERIMENTAL)",
+		"tooltip": ""
+	},
+	"pref_disable_new_apps_highlighting": {
+		"type": "checkbox",
+		"default": true,
+		"description": "Disable newly installed apps highlighting",
+		"tooltip": ""
 	},
 	"pref_separator_heigth": {
 		"type": "spinbutton",
@@ -132,62 +164,534 @@
 		"min": 5,
 		"max": 100,
 		"step": 1,
-		"units": "pixels",
+		"units": "files",
 		"description": "Max recent files:",
 		"tooltip": ""
 	},
-	"pref_show_system_buttons": {
-		"type": "checkbox",
-		"default": true,
-		"description": "Show \"Quit\" buttons",
-		"tooltip": ""
+	"sep3": {
+		"type": "separator"
+	},
+	"head3": {
+		"type": "header",
+		"description": "\nQuit buttons"
+	},
+	"pref_system_buttons_display": {
+		"type": "radiogroup",
+		"dependency": "pref_show_custom_commands_box",
+		"default": 2,
+		"description": "Where to display the Quit buttons",
+		"options": {
+			"Hide all": 0,
+			"Inside \"Favorites\" box": 1,
+			"Next to Custom commands box": 2
+		}
 	},
 	"pref_show_lock_button": {
-		"indent": true,
-		"dependency": "pref_show_system_buttons",
 		"type": "checkbox",
 		"default": true,
 		"description": "Show \"Lock screen\" button",
 		"tooltip": ""
 	},
+	"pref_lock_button_custom_icon": {
+		"type": "iconfilechooser",
+		"indent": "true",
+		"default": "system-lock-screen-symbolic",
+		"description": "Custom icon for \"Lock screen\" button:",
+		"tooltip": "Only valid if the System buttons box is placed next to the Custom commands box.\nLeave blank to use default."
+	},
 	"pref_show_logout_button": {
-		"indent": true,
-		"dependency": "pref_show_system_buttons",
 		"type": "checkbox",
 		"default": true,
 		"description": "Show \"Logout\" button",
 		"tooltip": ""
 	},
+	"pref_logout_button_custom_icon": {
+		"type": "iconfilechooser",
+		"indent": "true",
+		"default": "system-log-out-symbolic",
+		"description": "Custom icon for \"Logout\" button:",
+		"tooltip": "Only valid if the System buttons box is placed next to the Custom commands box.\nLeave blank to use default."
+	},
 	"pref_show_shutdown_button": {
-		"indent": true,
-		"dependency": "pref_show_system_buttons",
 		"type": "checkbox",
 		"default": true,
 		"description": "Show \"Shutdown\" button",
 		"tooltip": ""
 	},
+	"pref_shutdown_button_custom_icon": {
+		"type": "iconfilechooser",
+		"indent": "true",
+		"default": "system-shutdown-symbolic",
+		"description": "Custom icon for \"Shutdown\" button:",
+		"tooltip": "Only valid if the System buttons box is placed next to the Custom commands box.\nLeave blank to use default."
+	},
+	"sep4": {
+		"type": "separator"
+	},
+	"head4": {
+		"type": "header",
+		"description": "\nSearch box"
+	},
+	"pref_show_search_box": {
+		"type": "checkbox",
+		"default": true,
+		"description": "Show search box. (Needs Cinnamon restart)",
+		"tooltip": ""
+	},
 	"pref_search_box_bottom": {
 		"type": "checkbox",
 		"default": true,
+		"dependency": "pref_show_search_box",
 		"description": "Search box at the bottom of menu",
 		"tooltip": ""
 	},
-	"pref_show_appinfo_box": {
-		"type": "checkbox",
-		"default": false,
-		"description": "Display application info box (Needs Cinnamon restart)",
-		"tooltip": ""
+	"pref_custom_width_for_searchbox": {
+		"type": "spinbutton",
+		"dependency": "pref_show_custom_commands_box",
+		"default": 0,
+		"min": 0,
+		"max": 2048,
+		"step": 1,
+		"indent": true,
+		"units": "pixels",
+		"description": "Custom width for search box:",
+		"tooltip": "Set to 0 (zero) for not setting a width."
 	},
-	"pref_show_recents_button": {
+	"sep1": {
+		"type": "separator"
+	},
+	"head1": {
+		"type": "header",
+		"description": "\nCustom commands"
+	},
+	"pref_show_custom_commands_box": {
 		"type": "checkbox",
 		"default": true,
-		"description": "Show Recent files category",
-		"tooltip": "For people who want the Recent files category hidden without disabling recent files globally."
+		"description": "Show Custom commands box on menu"
 	},
-	"pref_fuzzy_search_enabled": {
+	"pref_custom_commands_box_at_the_bottom": {
 		"type": "checkbox",
+		"dependency": "pref_show_custom_commands_box",
 		"default": true,
-		"description": "Enable fuzzy search (EXPERIMENTAL)",
+		"description": "Place the Custom commands box at the bottom of the menu"
+	},
+	"pref_custom_command_icon_size": {
+		"type": "spinbutton",
+		"dependency": "pref_show_custom_commands_box",
+		"default": 22,
+		"min": 16,
+		"max": 256,
+		"step": 2,
+		"units": "pixels",
+		"description": "Icon size:",
 		"tooltip": ""
+	},
+	"pref_custom_command_box_padding_top": {
+		"type": "spinbutton",
+		"dependency": "pref_show_custom_commands_box",
+		"default": 5,
+		"min": 0,
+		"max": 500,
+		"step": 1,
+		"units": "pixels",
+		"description": "Box top padding:",
+		"tooltip": ""
+	},
+	"pref_custom_command_box_padding_right": {
+		"type": "spinbutton",
+		"dependency": "pref_show_custom_commands_box",
+		"default": 30,
+		"min": 0,
+		"max": 500,
+		"step": 1,
+		"units": "pixels",
+		"description": "Box right padding:",
+		"tooltip": ""
+	},
+	"pref_custom_command_box_padding_bottom": {
+		"type": "spinbutton",
+		"dependency": "pref_show_custom_commands_box",
+		"default": 5,
+		"min": 0,
+		"max": 500,
+		"step": 1,
+		"units": "pixels",
+		"description": "Box bottom padding:",
+		"tooltip": ""
+	},
+	"pref_custom_command_box_padding_left": {
+		"type": "spinbutton",
+		"dependency": "pref_show_custom_commands_box",
+		"default": 10,
+		"min": 0,
+		"max": 500,
+		"step": 1,
+		"units": "pixels",
+		"description": "Box left padding:",
+		"tooltip": ""
+	},
+	"pref_custom_commands_box_alignment": {
+		"type": "radiogroup",
+		"dependency": "pref_show_custom_commands_box",
+		"default": 2,
+		"description": "Alignment of buttons inside the custom commands box",
+		"options": {
+			"Left": 0,
+			"Middle": 1,
+			"Right": 2
+		}
+	},
+	"button1": {
+		"type": "button",
+		"description": "Click here to save settings",
+		"callback": "_hardRefreshAll"
+	},
+	"head2": {
+		"type": "header",
+		"description": "\nCustom commands notes\nFields marked with asterisks (*) are mandatory. Otherwise, the button will not appear on the menu.\nIcons can be any icon name or path to an icon file (symbolic or full color).\nCommands can be any command (as entered in a terminal) or a path to a file.\nIf the file is an executable script, an attempt to execute it will be made.\nOtherwise, the file will be opened with the systems handler for that file type."
+	},
+	"pref_command_1": {
+		"type": "header",
+		"description": "\nCustom command 1"
+	},
+	"pref_command_1_label": {
+		"type": "entry",
+		"default": "System Settings",
+		"indent": true,
+		"dependency": "pref_show_custom_commands_box",
+		"description": "Label:"
+	},
+	"pref_command_1_command": {
+		"type": "filechooser",
+		"select-dir": false,
+		"default": "cinnamon-settings",
+		"indent": true,
+		"dependency": "pref_show_custom_commands_box",
+		"description": "*Command or path to file:"
+	},
+	"pref_command_1_icon": {
+		"type": "iconfilechooser",
+		"default": "custom-preferences-system-symbolic",
+		"indent": true,
+		"dependency": "pref_show_custom_commands_box",
+		"description": "*Icon:"
+	},
+	"pref_command_1_description": {
+		"type": "entry",
+		"default": "System Settings",
+		"indent": true,
+		"dependency": "pref_show_custom_commands_box",
+		"description": "Description:"
+	},
+	"pref_command_2": {
+		"type": "header",
+		"description": "\nCustom command 2"
+	},
+	"pref_command_2_label": {
+		"type": "entry",
+		"default": "Mint updates manager",
+		"indent": true,
+		"dependency": "pref_show_custom_commands_box",
+		"description": "Label:"
+	},
+	"pref_command_2_command": {
+		"type": "filechooser",
+		"select-dir": false,
+		"default": "mintupdate",
+		"indent": true,
+		"dependency": "pref_show_custom_commands_box",
+		"description": "*Command or path to file:"
+	},
+	"pref_command_2_icon": {
+		"type": "iconfilechooser",
+		"default": "custom-security-high-symbolic",
+		"indent": true,
+		"dependency": "pref_show_custom_commands_box",
+		"description": "*Icon:"
+	},
+	"pref_command_2_description": {
+		"type": "entry",
+		"default": "Mint updates manager",
+		"indent": true,
+		"dependency": "pref_show_custom_commands_box",
+		"description": "Description:"
+	},
+	"pref_command_3": {
+		"type": "header",
+		"description": "\nCustom command 3"
+	},
+	"pref_command_3_label": {
+		"type": "entry",
+		"default": "Printers",
+		"indent": true,
+		"dependency": "pref_show_custom_commands_box",
+		"description": "Label:"
+	},
+	"pref_command_3_command": {
+		"type": "filechooser",
+		"select-dir": false,
+		"default": "system-config-printer",
+		"indent": true,
+		"dependency": "pref_show_custom_commands_box",
+		"description": "*Command or path to file:"
+	},
+	"pref_command_3_icon": {
+		"type": "iconfilechooser",
+		"default": "custom-printer-symbolic",
+		"indent": true,
+		"dependency": "pref_show_custom_commands_box",
+		"description": "*Icon:"
+	},
+	"pref_command_3_description": {
+		"type": "entry",
+		"default": "Printers",
+		"indent": true,
+		"dependency": "pref_show_custom_commands_box",
+		"description": "Description:"
+	},
+	"pref_command_4": {
+		"type": "header",
+		"description": "\nCustom command 4"
+	},
+	"pref_command_4_label": {
+		"type": "entry",
+		"default": "System Information",
+		"indent": true,
+		"dependency": "pref_show_custom_commands_box",
+		"description": "Label:"
+	},
+	"pref_command_4_command": {
+		"type": "filechooser",
+		"select-dir": false,
+		"default": "cinnamon-settings info",
+		"indent": true,
+		"dependency": "pref_show_custom_commands_box",
+		"description": "*Command or path to file:"
+	},
+	"pref_command_4_icon": {
+		"type": "iconfilechooser",
+		"default": "custom-dialog-information-symbolic",
+		"indent": true,
+		"dependency": "pref_show_custom_commands_box",
+		"description": "*Icon:"
+	},
+	"pref_command_4_description": {
+		"type": "entry",
+		"default": "System Information",
+		"indent": true,
+		"dependency": "pref_show_custom_commands_box",
+		"description": "Description:"
+	},
+	"pref_command_5": {
+		"type": "header",
+		"description": "\nCustom command 5"
+	},
+	"pref_command_5_label": {
+		"type": "entry",
+		"default": "",
+		"indent": true,
+		"dependency": "pref_show_custom_commands_box",
+		"description": "Label:"
+	},
+	"pref_command_5_command": {
+		"type": "filechooser",
+		"select-dir": false,
+		"default": "",
+		"indent": true,
+		"dependency": "pref_show_custom_commands_box",
+		"description": "*Command or path to file:"
+	},
+	"pref_command_5_icon": {
+		"type": "iconfilechooser",
+		"default": "",
+		"indent": true,
+		"dependency": "pref_show_custom_commands_box",
+		"description": "*Icon:"
+	},
+	"pref_command_5_description": {
+		"type": "entry",
+		"default": "",
+		"indent": true,
+		"dependency": "pref_show_custom_commands_box",
+		"description": "Description:"
+	},
+	"head_null": {
+		"type": "header",
+		"description": ""
+	},
+	"button3": {
+		"type": "button",
+		"description": "Click here to save settings",
+		"callback": "_hardRefreshAll"
+	},
+	"pref_command_6": {
+		"type": "header",
+		"description": "\nCustom command 6"
+	},
+	"pref_command_6_label": {
+		"type": "entry",
+		"default": "",
+		"indent": true,
+		"dependency": "pref_show_custom_commands_box",
+		"description": "Label:"
+	},
+	"pref_command_6_command": {
+		"type": "filechooser",
+		"select-dir": false,
+		"default": "",
+		"indent": true,
+		"dependency": "pref_show_custom_commands_box",
+		"description": "*Command or path to file:"
+	},
+	"pref_command_6_icon": {
+		"type": "iconfilechooser",
+		"default": "",
+		"indent": true,
+		"dependency": "pref_show_custom_commands_box",
+		"description": "*Icon:"
+	},
+	"pref_command_6_description": {
+		"type": "entry",
+		"default": "",
+		"indent": true,
+		"dependency": "pref_show_custom_commands_box",
+		"description": "Description:"
+	},
+	"pref_command_7": {
+		"type": "header",
+		"description": "\nCustom command 7"
+	},
+	"pref_command_7_label": {
+		"type": "entry",
+		"default": "",
+		"indent": true,
+		"dependency": "pref_show_custom_commands_box",
+		"description": "Label:"
+	},
+	"pref_command_7_command": {
+		"type": "filechooser",
+		"select-dir": false,
+		"default": "",
+		"indent": true,
+		"dependency": "pref_show_custom_commands_box",
+		"description": "*Command or path to file:"
+	},
+	"pref_command_7_icon": {
+		"type": "iconfilechooser",
+		"default": "",
+		"indent": true,
+		"dependency": "pref_show_custom_commands_box",
+		"description": "*Icon:"
+	},
+	"pref_command_7_description": {
+		"type": "entry",
+		"default": "",
+		"indent": true,
+		"dependency": "pref_show_custom_commands_box",
+		"description": "Description:"
+	},
+	"pref_command_8": {
+		"type": "header",
+		"description": "\nCustom command 8"
+	},
+	"pref_command_8_label": {
+		"type": "entry",
+		"default": "",
+		"indent": true,
+		"dependency": "pref_show_custom_commands_box",
+		"description": "Label:"
+	},
+	"pref_command_8_command": {
+		"type": "filechooser",
+		"select-dir": false,
+		"default": "",
+		"indent": true,
+		"dependency": "pref_show_custom_commands_box",
+		"description": "*Command or path to file:"
+	},
+	"pref_command_8_icon": {
+		"type": "iconfilechooser",
+		"default": "",
+		"indent": true,
+		"dependency": "pref_show_custom_commands_box",
+		"description": "*Icon:"
+	},
+	"pref_command_8_description": {
+		"type": "entry",
+		"default": "",
+		"indent": true,
+		"dependency": "pref_show_custom_commands_box",
+		"description": "Description:"
+	},
+	"pref_command_9": {
+		"type": "header",
+		"description": "\nCustom command 9"
+	},
+	"pref_command_9_label": {
+		"type": "entry",
+		"default": "",
+		"indent": true,
+		"dependency": "pref_show_custom_commands_box",
+		"description": "Label:"
+	},
+	"pref_command_9_command": {
+		"type": "filechooser",
+		"select-dir": false,
+		"default": "",
+		"indent": true,
+		"dependency": "pref_show_custom_commands_box",
+		"description": "*Command or path to file:"
+	},
+	"pref_command_9_icon": {
+		"type": "iconfilechooser",
+		"default": "",
+		"indent": true,
+		"dependency": "pref_show_custom_commands_box",
+		"description": "*Icon:"
+	},
+	"pref_command_9_description": {
+		"type": "entry",
+		"default": "",
+		"indent": true,
+		"dependency": "pref_show_custom_commands_box",
+		"description": "Description:"
+	},
+	"pref_command_10": {
+		"type": "header",
+		"description": "\nCustom command 10"
+	},
+	"pref_command_10_label": {
+		"type": "entry",
+		"default": "",
+		"indent": true,
+		"dependency": "pref_show_custom_commands_box",
+		"description": "Label:"
+	},
+	"pref_command_10_command": {
+		"type": "filechooser",
+		"select-dir": false,
+		"default": "",
+		"indent": true,
+		"dependency": "pref_show_custom_commands_box",
+		"description": "*Command or path to file:"
+	},
+	"pref_command_10_icon": {
+		"type": "iconfilechooser",
+		"default": "",
+		"indent": true,
+		"dependency": "pref_show_custom_commands_box",
+		"description": "*Icon:"
+	},
+	"pref_command_10_description": {
+		"type": "entry",
+		"default": "",
+		"indent": true,
+		"dependency": "pref_show_custom_commands_box",
+		"description": "Description:"
+	},
+	"button3": {
+		"type": "button",
+		"description": "Click here to save settings",
+		"callback": "_hardRefreshAll"
 	}
 }

@@ -37,168 +37,206 @@ const St = imports.gi.St;
 const NMClient = imports.gi.NMClient;
 const Gettext = imports.gettext;
 const _ = Gettext.gettext;
+const Gio = imports.gi.Gio;
 
-const CONFIG_FILE = "settings.json";
-const DEFAULT_CONFIG = {
-	"graphWidth": 40,
-	"refreshRate": 1000,
-	"backgroundColor": [0, 0, 0, 1],
-	"borderColor": [0.7294117647058823, 0.7411764705882353, 0.7137254901960784, 1],
-	"smooth": false,
-	"cpu": {
-		"enabled": true,
-		"colors": [
-			[0.9882352941176471, 0.9137254901960784, 0.30980392156862746, 1],
-			[0.9882352941176471, 0.6862745098039216, 0.24313725490196078, 1],
-			[0.9372549019607843, 0.1607843137254902, 0.1607843137254902, 1],
-			[0.3666666666666667, 0, 0, 1]
-		]
-	},
-	"mem": {
-		"enabled": true,
-		"colors": [
-			[0.4633333333333334, 0.8236395759717317, 1, 1],
-			[0.20392156862745098, 0.396078431372549, 0.6431372549019608, 1]
-		]
-	},
-	"swap": {
-		"enabled": true,
-		"colors": [
-			[0.4470588235294118, 0.6235294117647059, 0.8117647058823529, 1]
-		]
-	},
-	"net": {
-		"enabled": true,
-		"colors": [
-			[0.5411764705882353, 0.8862745098039215, 0.20392156862745098, 1],
-			[0.9372549019607843, 0.1607843137254902, 0.1607843137254902, 1]
-		]
-	},
-	"load": {
-		"enabled": true,
-		"colors": [
-			[0.8, 0, 0, 1]
-		]
-	}
-};
+const Settings = imports.ui.settings;
+const Tooltips = imports.ui.tooltips;
 
-function MyApplet(metadata, orientation) {
-	this._init(metadata, orientation);
+function _notifyme(aMsg) {
+	GLib.spawn_command_line_async("notify-send --icon=image-missing '" + aMsg + "'");
+}
+
+function MyApplet(aMetadata, aOrientation, aPanel_height, aInstance_id) {
+	this._init(aMetadata, aOrientation, aPanel_height, aInstance_id);
 }
 
 MyApplet.prototype = {
 	__proto__: Applet.Applet.prototype,
 
-	_init: function(metadata, orientation) {
-		Applet.Applet.prototype._init.call(this, orientation);
+	_init: function(aMetadata, aOrientation, aPanel_height, aInstance_id) {
+		Applet.Applet.prototype._init.call(this, aOrientation);
+
+		this.settings = new Settings.AppletSettings(this, aMetadata.uuid, aInstance_id);
 
 		try {
-			this.dir = metadata.path;
-			this.loadSettings();
-			this.initContextMenu();
+			this._bind_settings();
 
 			this.areas = [];
 			this.graphs = [];
 
+			try {
+				this.tooltip = new Tooltips.PanelItemTooltip(this, "", aOrientation);
+
+				this.tooltip._tooltip.get_clutter_text().set_line_alignment(0);
+				this.tooltip._tooltip.get_clutter_text().set_line_wrap(true);
+				if (this.pref_align_tooltip_text_to_the_left)
+					this.tooltip._tooltip.set_style("text-align:left;");
+			} catch (aErr) {
+				this.tooltip = false;
+			}
+
 			let ncpu = GTop.glibtop_get_sysinfo().ncpu;
-			if (this.cfg.cpu.enabled)
-				this.addGraph(new CpuDataProvider(), this.cfg.cpu.colors);
-			if (this.cfg.mem.enabled)
-				this.addGraph(new MemDataProvider(), this.cfg.mem.colors);
-			if (this.cfg.swap.enabled)
-				this.addGraph(new SwapDataProvider(), this.cfg.swap.colors);
-			if (this.cfg.net.enabled)
-				this.addGraph(new NetDataProvider(), this.cfg.net.colors).setAutoScale(1024);
-			if (this.cfg.load.enabled)
-				this.addGraph(new LoadAvgDataProvider(), this.cfg.load.colors).setAutoScale(2 * ncpu);
+			if (this.pref_show_cpu_graph) {
+				this.addGraph(new CpuDataProvider(), [
+					this._parseColor(this.pref_cpu_graph_color_user),
+					this._parseColor(this.pref_cpu_graph_color_nice),
+					this._parseColor(this.pref_cpu_graph_color_kernel),
+					this._parseColor(this.pref_cpu_graph_color_iowait),
+				], this.pref_cpu_graph_width);
+			}
+			if (this.pref_show_memmory_graph) {
+				this.addGraph(new MemDataProvider(), [
+					this._parseColor(this.pref_memory_graph_color_used),
+					this._parseColor(this.pref_memory_graph_color_cached),
+				], this.pref_memory_graph_width);
+			}
+			if (this.pref_show_swap_graph) {
+				this.addGraph(new SwapDataProvider(),
+					this._parseColor(this.pref_swap_graph_color_used),
+					this.pref_swap_graph_width);
+			}
+			if (this.pref_show_network_graph) {
+				this.addGraph(new NetDataProvider(), [
+					this._parseColor(this.pref_network_graph_color_download),
+					this._parseColor(this.pref_network_graph_color_upload),
+				], this.pref_network_graph_width).setAutoScale(1024);
+			}
+			if (this.pref_show_load_graph) {
+				this.addGraph(new LoadAvgDataProvider(),
+					this._parseColor(this.pref_load_graph_color_load),
+					this.pref_load_graph_width).setAutoScale(2 * ncpu);
+			}
 
 			this.update();
+
+			// if (this.pref_align_tooltip_text_to_the_left)
+			// 	this._applet_tooltip._tooltip.set_style("text-align:left;");
+
 		} catch (e) {
 			global.logError(e);
 		}
 	},
 
-	on_applet_clicked: function(event) {
-		GLib.spawn_command_line_async('gnome-system-monitor');
+	_restart_cinnamon: function() {
+		global.reexec_self();
 	},
 
-	on_orientation_changed: function(orientation) {
-		this.initContextMenu();
+	_bind_settings: function() {
+		let settingsArray = [
+			[Settings.BindingDirection.IN, "pref_align_tooltip_text_to_the_left", null],
+			[Settings.BindingDirection.IN, "pref_custom_command", null],
+			[Settings.BindingDirection.IN, "pref_use_smooth_graphs", null],
+			[Settings.BindingDirection.IN, "pref_refresh_rate", null],
+			[Settings.BindingDirection.IN, "pref_background_color", null],
+			[Settings.BindingDirection.IN, "pref_draw_background", null],
+			[Settings.BindingDirection.IN, "pref_draw_border", null],
+			[Settings.BindingDirection.IN, "pref_border_color", null],
+			[Settings.BindingDirection.IN, "pref_show_cpu_graph", null],
+			[Settings.BindingDirection.IN, "pref_cpu_graph_width", null],
+			[Settings.BindingDirection.IN, "pref_cpu_graph_color_user", null],
+			[Settings.BindingDirection.IN, "pref_cpu_graph_color_nice", null],
+			[Settings.BindingDirection.IN, "pref_cpu_graph_color_kernel", null],
+			[Settings.BindingDirection.IN, "pref_cpu_graph_color_iowait", null],
+			[Settings.BindingDirection.IN, "pref_show_memmory_graph", null],
+			[Settings.BindingDirection.IN, "pref_memory_graph_width", null],
+			[Settings.BindingDirection.IN, "pref_memory_graph_color_used", null],
+			[Settings.BindingDirection.IN, "pref_memory_graph_color_cached", null],
+			[Settings.BindingDirection.IN, "pref_show_swap_graph", null],
+			[Settings.BindingDirection.IN, "pref_swap_graph_width", null],
+			[Settings.BindingDirection.IN, "pref_swap_graph_color_used", null],
+			[Settings.BindingDirection.IN, "pref_show_network_graph", null],
+			[Settings.BindingDirection.IN, "pref_network_graph_width", null],
+			[Settings.BindingDirection.IN, "pref_network_graph_color_download", null],
+			[Settings.BindingDirection.IN, "pref_network_graph_color_upload", null],
+			[Settings.BindingDirection.IN, "pref_show_load_graph", null],
+			[Settings.BindingDirection.IN, "pref_load_graph_width", null],
+			[Settings.BindingDirection.IN, "pref_load_graph_color_load", null],
+		];
+		for (let [binding, property_name, callback] of settingsArray) {
+			this.settings.bindProperty(binding, property_name, property_name, callback, null);
+		}
 	},
 
-	initContextMenu: function() {
-		let settings_menu_item = new Applet.MenuItem(_("Settings"), Gtk.STOCK_EDIT, Lang.bind(this, this.launchSettings));
-		this._applet_context_menu.addMenuItem(settings_menu_item);
+	on_applet_clicked: function(aE) {
+		GLib.spawn_command_line_async(this.pref_custom_command);
 	},
 
-	addGraph: function(provider, colors) {
+	addGraph: function(aProvider, aColors, aGraphWidth) {
 		let index = this.areas.length;
 		let area = new St.DrawingArea();
-		area.set_width(this.cfg.graphWidth);
-		area.connect('repaint', Lang.bind(this, function() {
+		area.set_width(aGraphWidth);
+		area.connect("repaint", Lang.bind(this, function() {
 			this.graphs[index].paint();
 		}));
 		this.actor.add(area, {
 			y_fill: true
 		});
 
-		let graph = new Graph(area, provider, colors, this.cfg.backgroundColor, this.cfg.borderColor);
-		provider.refreshRate = this.cfg.refreshRate;
-		graph.smooth = this.cfg.smooth;
+		let graph = new Graph(area, aProvider, aColors,
+			this.pref_draw_background ? this._parseColor(this.pref_background_color) : null,
+			this.pref_draw_border ? this._parseColor(this.pref_border_color) : null);
+		aProvider.refreshRate = this.pref_refresh_rate;
+		graph.smooth = this.pref_use_smooth_graphs;
 
 		this.areas.push(area);
 		this.graphs.push(graph);
+
 		return graph;
 	},
 
 	update: function() {
-		let tooltip = "";
-		for (let i = 0; i < this.graphs.length; ++i) {
+		let tt = "";
+
+		let i = 0,
+			iLen = this.graphs.length;
+		for (; i < iLen; ++i) {
 			this.graphs[i].refresh();
+			let txt = this.graphs[i].provider.getText(false);
 			if (i > 0)
-				tooltip = tooltip + "\n";
-			tooltip = tooltip + this.graphs[i].provider.getText(false);
+				tt = tt + "\n";
+			if (this.tooltip)
+				tt = tt + "<b>" + txt[0] + "</b>" + txt[1];
+			else
+				tt = tt + txt[0] + txt[1];
 		}
-		this.set_applet_tooltip(tooltip);
-		Mainloop.timeout_add(this.cfg.refreshRate, Lang.bind(this, this.update));
+
+		if (this.tooltip) {
+			try {
+				this.tooltip._tooltip.get_clutter_text().set_markup(tt);
+			} catch (aErr) {
+				global.logError("Error Tweaking Tooltip: " + aErr);
+			}
+		} else
+			this.set_applet_tooltip(tt);
+
+		Mainloop.timeout_add(this.pref_refresh_rate, Lang.bind(this, this.update));
 	},
 
-	loadSettings: function() {
+	_parseColor: function(aColor) {
+		let rgba;
 		try {
-			let path = GLib.build_filenamev([this.dir, CONFIG_FILE]);
-			let content = Cinnamon.get_file_contents_utf8_sync(path);
-			this.cfg = JSON.parse(content);
-		} catch (e) {
-			//global.log("Failed to load settings: " + e);
-			this.cfg = DEFAULT_CONFIG;
-		}
-	},
-
-	launchSettings: function() {
-		try {
-			GLib.spawn_async(this.dir, ["gjs", "settings.js"], null,
-				GLib.SpawnFlags.SEARCH_PATH, null);
-		} catch (aErr) {
-			this._notifyme("For the settings window of this applet to work, the package called gjs needs to be installed.");
-		}
-	},
-
-	_notifyme: function(aMsg) {
-		GLib.spawn_command_line_async("notify-send --icon=image-missing '" + aMsg + "'");
-	},
+			rgba = aColor.match(/rgba?\((.*)\)/)[1].split(",").map(Number);
+		} catch (aErr) {}
+		return [
+			rgba[0] / 255,
+			rgba[1] / 255,
+			rgba[2] / 255,
+			"3" in rgba ? rgba[3] : 1
+		];
+	}
 };
 
-function Graph(area, provider, colors, background, border) {
-	this._init(area, provider, colors, background, border);
+function Graph(aArea, aProvider, aColors, aBackground, aBorder) {
+	this._init(aArea, aProvider, aColors, aBackground, aBorder);
 }
 
 Graph.prototype = {
-	_init: function(area, provider, colors, background, border) {
-		this.area = area;
-		this.provider = provider;
-		this.colors = colors;
-		this.background = background;
-		this.border = border;
+	_init: function(aArea, aProvider, aColors, aBackground, aBorder) {
+		this.area = aArea;
+		this.provider = aProvider;
+		this.colors = aColors;
+		this.background = aBackground;
+		this.border = aBorder;
 		this.smooth = false;
 		let datasize = this.area.get_width() - 2;
 		this.data = new Array(datasize);
@@ -206,7 +244,9 @@ Graph.prototype = {
 		this.autoScale = false;
 		this.scale = 1;
 
-		for (let i = 0; i < this.data.length; ++i) {
+		let i = 0,
+			iLen = this.data.length;
+		for (; i < iLen; ++i) {
 			this.data[i] = new Array(this.dim);
 			for (let j = 0; j < this.data[i].length; ++j)
 				this.data[i][j] = 0;
@@ -221,7 +261,9 @@ Graph.prototype = {
 
 		if (this.autoScale) {
 			let maxVal = this.minScale;
-			for (let i = 0; i < this.data.length; ++i) {
+			let i = 0,
+				iLen = this.data.length;
+			for (; i < iLen; ++i) {
 				let sum = this.dataSum(i, this.dim - 1);
 				if (sum > maxVal)
 					maxVal = sum;
@@ -230,10 +272,10 @@ Graph.prototype = {
 		}
 	},
 
-	dataSum: function(i, depth) {
+	dataSum: function(aIndex, aDepth) {
 		let sum = 0;
-		for (let j = 0; j <= depth; ++j)
-			sum += this.data[i][j];
+		for (let j = 0; j <= aDepth; ++j)
+			sum += this.data[aIndex][j];
 		return sum;
 	},
 
@@ -241,16 +283,21 @@ Graph.prototype = {
 		let cr = this.area.get_context();
 		let [width, height] = this.area.get_size();
 		//background
-		cr.setSourceRGBA(this.background[0], this.background[1], this.background[2], this.background[3]);
-		cr.setLineWidth(1);
-		cr.rectangle(0.5, 0.5, width - 1, height - 1);
-		cr.fill();
+		if (this.background !== null) {
+			cr.setSourceRGBA(this.background[0], this.background[1], this.background[2], this.background[3]);
+			cr.setLineWidth(1);
+			cr.rectangle(0.5, 0.5, width - 1, height - 1);
+			cr.fill();
+		}
 		//data
 		if (this.smooth) {
 			for (let j = this.dim - 1; j >= 0; --j) {
+				cr.translate(0, 0);
 				cr.moveTo(1.5, height);
 				this.setColor(cr, j);
-				for (let i = 0; i < this.data.length; ++i)
+				let i = 0,
+					iLen = this.data.length;
+				for (; i < iLen; ++i)
 					cr.lineTo(i + 1.5, height - Math.round((height - 1) * this.scale * this.dataSum(i, j)));
 				cr.lineTo(width - 1.5, height);
 				cr.lineTo(1.5, height);
@@ -258,7 +305,9 @@ Graph.prototype = {
 				cr.stroke();
 			}
 		} else {
-			for (let i = 0; i < this.data.length; ++i) {
+			let i = 0,
+				iLen = this.data.length;
+			for (; i < iLen; ++i) {
 				for (let j = this.dim - 1; j >= 0; --j) {
 					this.setColor(cr, j);
 					cr.moveTo(i + 1.5, height - 1);
@@ -268,20 +317,22 @@ Graph.prototype = {
 			}
 		}
 		//border
-		cr.setSourceRGBA(this.border[0], this.border[1], this.border[2], this.border[3]);
-		cr.rectangle(0.5, 0.5, width - 1, height - 1);
-		cr.stroke();
+		if (this.border !== null) {
+			cr.setSourceRGBA(this.border[0], this.border[1], this.border[2], this.border[3]);
+			cr.rectangle(0.5, 0.5, width - 1, height - 1);
+			cr.stroke();
+		}
 	},
 
-	setColor: function(cr, i) {
-		let c = this.colors[i % this.colors.length];
-		cr.setSourceRGBA(c[0], c[1], c[2], c[3]);
+	setColor: function(aCtx, aIndex) {
+		let c = this.colors[aIndex % this.colors.length];
+		aCtx.setSourceRGBA(c[0], c[1], c[2], c[3]);
 	},
 
-	setAutoScale: function(minScale) {
-		if (minScale > 0) {
+	setAutoScale: function(aMinScale) {
+		if (aMinScale > 0) {
 			this.autoScale = true;
-			this.minScale = minScale;
+			this.minScale = aMinScale;
 		} else
 			this.autoScale = false;
 	}
@@ -324,7 +375,7 @@ CpuDataProvider.prototype = {
 		this.iowait_last = this.gtop.iowait;
 		this.total_last = this.gtop.total;
 		let used = 1 - idle - nice - sys - iowait;
-		this.text = "CPU: " + Math.round(100 * used) + " %";
+		this.text = ["CPU: ", Math.round(100 * used) + " %"];
 		return [used, nice, sys, iowait];
 	},
 
@@ -350,7 +401,7 @@ MemDataProvider.prototype = {
 		GTop.glibtop_get_mem(this.gtop);
 		let used = this.gtop.used / this.gtop.total;
 		let cached = (this.gtop.buffer + this.gtop.cached) / this.gtop.total;
-		this.text = "Memory: " + Math.round((this.gtop.used - this.gtop.cached - this.gtop.buffer) / (1024 * 1024)) + " / " + Math.round(this.gtop.total / (1024 * 1024)) + " MB";
+		this.text = ["Memory: ", Math.round((this.gtop.used - this.gtop.cached - this.gtop.buffer) / (1024 * 1024)) + " / " + Math.round(this.gtop.total / (1024 * 1024)) + " MB"];
 		return [used - cached, cached];
 	},
 
@@ -375,7 +426,7 @@ SwapDataProvider.prototype = {
 	getData: function() {
 		GTop.glibtop_get_swap(this.gtop);
 		let used = this.gtop.used / this.gtop.total;
-		this.text = "Swap: " + Math.round(this.gtop.used / (1024 * 1024)) + " / " + Math.round(this.gtop.total / (1024 * 1024)) + " MB";
+		this.text = ["Swap: ", Math.round(this.gtop.used / (1024 * 1024)) + " / " + Math.round(this.gtop.total / (1024 * 1024)) + " MB"];
 		return [used];
 	},
 
@@ -393,7 +444,9 @@ NetDataProvider.prototype = {
 		this.gtop = new GTop.glibtop_netload();
 		let dev = NMClient.Client.new().get_devices();
 		this.devices = [];
-		for (let i = 0; i < dev.length; ++i)
+		let i = 0,
+			iLen = dev.length;
+		for (; i < iLen; ++i)
 			this.devices.push(dev[i].get_iface());
 
 		[this.down_last, this.up_last] = this.getNetLoad();
@@ -409,7 +462,7 @@ NetDataProvider.prototype = {
 		let up_delta = (up - this.up_last) * 1000 / this.refreshRate;
 		this.down_last = down;
 		this.up_last = up;
-		this.text = "Network D/U: " + Math.round(down_delta / 1024) + " / " + Math.round(up_delta / 1024) + " KB/s";
+		this.text = ["Network D/U: ", Math.round(down_delta / 1024) + " / " + Math.round(up_delta / 1024) + " KB/s"];
 		return [down_delta, up_delta];
 	},
 
@@ -420,7 +473,9 @@ NetDataProvider.prototype = {
 	getNetLoad: function() {
 		let down = 0;
 		let up = 0;
-		for (let i = 0; i < this.devices.length; ++i) {
+		let i = 0,
+			iLen = this.devices.length;
+		for (; i < iLen; ++i) {
 			GTop.glibtop.get_netload(this.gtop, this.devices[i]);
 			down += this.gtop.bytes_in;
 			up += this.gtop.bytes_out;
@@ -445,7 +500,7 @@ LoadAvgDataProvider.prototype = {
 	getData: function() {
 		GTop.glibtop_get_loadavg(this.gtop);
 		let load = this.gtop.loadavg[0];
-		this.text = "Load average: " + this.gtop.loadavg[0] + ", " + this.gtop.loadavg[1] + ", " + this.gtop.loadavg[2];
+		this.text = ["Load average: ", this.gtop.loadavg[0] + ", " + this.gtop.loadavg[1] + ", " + this.gtop.loadavg[2]];
 		return [load];
 	},
 
@@ -454,7 +509,7 @@ LoadAvgDataProvider.prototype = {
 	}
 };
 
-function main(metadata, orientation) {
-	let myApplet = new MyApplet(metadata, orientation);
+function main(aMetadata, aOrientation, aPanel_height, aInstance_id) {
+	let myApplet = new MyApplet(aMetadata, aOrientation, aPanel_height, aInstance_id);
 	return myApplet;
 }

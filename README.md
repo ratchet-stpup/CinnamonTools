@@ -9,6 +9,7 @@
 
 #### My Cinnamon Extensions
 - [Cinnamon Maximus (Fork by Odyseus)](https://cinnamon-spices.linuxmint.com/extensions/view/39)
+- [Window demands attention behavior](https://cinnamon-spices.linuxmint.com/extensions/view/40)
 
 #### My Cinnamon Themes
 - [Mint-XY](https://cinnamon-spices.linuxmint.com/themes/view/567)

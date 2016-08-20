@@ -3,8 +3,8 @@
     "description": "Customizable Main Cinnamon menu.", 
     "max-instances": -1, 
     "dangerous": false, 
-    "name": "Custom Cinnamon Menu", 
+    "uuid": "0dyseus@CustomCinnamonMenu", 
     "version": "1.01", 
-    "last-edited": "1470985317", 
-    "uuid": "0dyseus@CustomCinnamonMenu"
+    "last-edited": "1471152669", 
+    "name": "Custom Cinnamon Menu"
 }

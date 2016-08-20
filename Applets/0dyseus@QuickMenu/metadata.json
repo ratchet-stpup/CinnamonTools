@@ -1,9 +1,10 @@
 {
-	"website": "https://github.com/Odyseus/CinnamonTools/tree/master/Applets/0dyseus%40QuickMenu",
-	"uuid": "0dyseus@QuickMenu",
-	"max-instances": "100",
-	"dangerous": true,
-	"description": "Easily and quickly create a menu based on the files/folders found inside an specific folder.",
-	"version": "1.0",
-	"name": "Quick Menu"
+    "website": "https://github.com/Odyseus/CinnamonTools/tree/master/Applets/0dyseus%40QuickMenu", 
+    "description": "Easily and quickly create a menu based on the files/folders found inside an specific folder.", 
+    "max-instances": "100", 
+    "dangerous": true, 
+    "name": "Quick Menu", 
+    "version": "1.0", 
+    "last-edited": "1470992758", 
+    "uuid": "0dyseus@QuickMenu"
 }

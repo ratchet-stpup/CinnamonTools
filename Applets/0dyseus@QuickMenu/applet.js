@@ -49,84 +49,7 @@ MyApplet.prototype = {
 		this.settings = new Settings.AppletSettings(this, appletUUID, aInstance_id);
 
 		try {
-			this.settings.bindProperty(Settings.BindingDirection.IN,
-				"pref_ignore_sub_folders",
-				"pref_ignore_sub_folders",
-				this._updateMenu, null);
-			this.settings.bindProperty(Settings.BindingDirection.IN,
-				"pref_show_only_desktop_files",
-				"pref_show_only_desktop_files",
-				this._updateMenu, null);
-			this.settings.bindProperty(Settings.BindingDirection.IN,
-				"pref_show_submenu_icons",
-				"pref_show_submenu_icons",
-				this._updateMenu, null);
-			this.settings.bindProperty(Settings.BindingDirection.IN,
-				"pref_show_applications_icons",
-				"pref_show_applications_icons",
-				this._updateMenu, null);
-			this.settings.bindProperty(Settings.BindingDirection.IN,
-				"pref_show_applet_title",
-				"pref_show_applet_title",
-				this._onSettingsTitle, null);
-			this.settings.bindProperty(Settings.BindingDirection.IN,
-				"pref_applet_title",
-				"pref_applet_title",
-				this._onSettingsTitle, null);
-			this.settings.bindProperty(Settings.BindingDirection.IN,
-				"pref_show_hidden_files",
-				"pref_show_hidden_files",
-				this._updateMenu, null);
-			this.settings.bindProperty(Settings.BindingDirection.IN,
-				"pref_show_hidden_folders",
-				"pref_show_hidden_folders",
-				this._updateMenu, null);
-			this.settings.bindProperty(Settings.BindingDirection.IN,
-				"pref_autoupdate",
-				"pref_autoupdate",
-				this._onSettingsAutoupdate, null);
-			this.settings.bindProperty(Settings.BindingDirection.BIDIRECTIONAL,
-				"pref_directory",
-				"pref_directory",
-				this._onSettingsDirectory, null);
-			this.settings.bindProperty(Settings.BindingDirection.IN,
-				"pref_customtooltip",
-				"pref_customtooltip",
-				this._onSettingsCustomTooltip, null);
-			this.settings.bindProperty(Settings.BindingDirection.IN,
-				"pref_show_customicon",
-				"pref_show_customicon",
-				this._onSettingsIcon, null);
-			this.settings.bindProperty(Settings.BindingDirection.BIDIRECTIONAL,
-				"pref_customicon",
-				"pref_customicon",
-				this._onSettingsIcon, null);
-			this.settings.bindProperty(Settings.BindingDirection.BIDIRECTIONAL,
-				"pref_icon_for_menus",
-				"pref_icon_for_menus",
-				this._updateMenu, null);
-			this.settings.bindProperty(Settings.BindingDirection.IN,
-				"pref_hotkey",
-				"pref_hotkey",
-				this._updateKeybinding, null);
-
-			// Resume adding this feature when I figure out how to make it work right.
-			// this.settings.bindProperty(Settings.BindingDirection.IN,
-			// 	"pref_open_on_hover",
-			// 	"pref_open_on_hover",
-			// 	null, null);
-			// this.settings.bindProperty(Settings.BindingDirection.IN,
-			// 	"pref_open_on_hover_delay",
-			// 	"pref_open_on_hover_delay",
-			// 	null, null);
-			// this.settings.bindProperty(Settings.BindingDirection.IN,
-			// 	"pref_close_on_leave",
-			// 	"pref_close_on_leave",
-			// 	null, null);
-			// this.settings.bindProperty(Settings.BindingDirection.IN,
-			// 	"pref_close_on_leave_delay",
-			// 	"pref_close_on_leave_delay",
-			// 	null, null);
+			this._bind_settings();
 		} catch (aErr) {
 			global.logError(aErr);
 		}
@@ -156,6 +79,35 @@ MyApplet.prototype = {
 
 		} catch (aErr) {
 			global.logError(aErr);
+		}
+	},
+
+	_bind_settings: function() {
+		let settingsArray = [
+			[Settings.BindingDirection.IN, "pref_ignore_sub_folders", this._updateMenu],
+			[Settings.BindingDirection.IN, "pref_show_only_desktop_files", this._updateMenu],
+			[Settings.BindingDirection.IN, "pref_show_submenu_icons", this._updateMenu],
+			[Settings.BindingDirection.IN, "pref_show_applications_icons", this._updateMenu],
+			[Settings.BindingDirection.IN, "pref_show_applet_title", this._onSettingsTitle],
+			[Settings.BindingDirection.IN, "pref_applet_title", this._onSettingsTitle],
+			[Settings.BindingDirection.IN, "pref_show_hidden_files", this._updateMenu],
+			[Settings.BindingDirection.IN, "pref_show_hidden_folders", this._updateMenu],
+			[Settings.BindingDirection.IN, "pref_autoupdate", this._onSettingsAutoupdate],
+			[Settings.BindingDirection.IN, "pref_directory", this._onSettingsDirectory],
+			[Settings.BindingDirection.IN, "pref_customtooltip", this._onSettingsCustomTooltip],
+			[Settings.BindingDirection.IN, "pref_show_customicon", this._onSettingsIcon],
+			[Settings.BindingDirection.IN, "pref_customicon", this._onSettingsIcon],
+			[Settings.BindingDirection.IN, "pref_icon_for_menus", this._updateMenu],
+			[Settings.BindingDirection.IN, "pref_hotkey", this._updateKeybinding],
+
+			// Resume adding this feature when I figure out how to make it work right.
+			// [Settings.BindingDirection.IN, "pref_open_on_hover", null],
+			// [Settings.BindingDirection.IN, "pref_open_on_hover_delay", null],
+			// [Settings.BindingDirection.IN, "pref_close_on_leave", null],
+			// [Settings.BindingDirection.IN, "pref_close_on_leave_delay", null],
+		];
+		for (let [binding, property_name, callback] of settingsArray) {
+			this.settings.bindProperty(binding, property_name, property_name, callback, null);
 		}
 	},
 
