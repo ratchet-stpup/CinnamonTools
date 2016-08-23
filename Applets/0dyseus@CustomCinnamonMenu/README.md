@@ -20,6 +20,16 @@ Tested and working on Cinnamon version 3.0.7.
 - Custom launchers icons can have a custom size and can be symbolic or full color.
 - Custom launchers can execute any command (as entered in a terminal) or a path to a file. If the file is an executable script, an attempt to execute it will be made. Otherwise, the file will be opened with the systems handler for that file type.
 - The **Quit buttons** can now be moved next the the custom launchers box and can have custom icons (ONLY when they are placed next to the custom launchers box).
+- The **All Applications** category can be removed from the menu.
+- The **Favorites** can now be displayed as one more category. The **All Applications** category has to be hidden.
+- The placement of the categories box and the applications box can be swapped.
+- Scrollbars in the applications box can be hidden.
+- The padding of certain menu elements can be customized to override the current theme stylesheets.
+- Recently installed applications highlighting can be disabled.
+
+### Menu *emulating* the Whisker menu (XFCE)
+
+![Whisker menu](https://raw.githubusercontent.com/Odyseus/CinnamonTools/master/Applets/0dyseus%40CustomCinnamonMenu/screenshot2.png "Whisker menu")
 
 <h2 style="color:red;"> Bug report and feature request</h2>
 <span style="color:red;">
@@ -27,6 +37,14 @@ Spices comments system is absolutely useless to report bugs with any king of leg
 </span>
 
 ## Change Log
+
+##### 1.03
+- Added option to invert the placement of the categories box and the applications box.
+- Added option to display the **Favorites** as a category.
+- Added option to remove the (totally useless) **All applications** category.
+- Added option to hide the scrollbar from the applications list.
+- Added option to disable recently installed applications highlighting.
+- Added options to customize the padding of certain menu elements.
 
 ##### 1.02
 - Added option to hide search box.

@@ -96,8 +96,8 @@
 	},
 	"pref_show_appinfo_box": {
 		"type": "checkbox",
-		"default": false,
-		"description": "Display application info box (Needs Cinnamon restart)",
+		"default": true,
+		"description": "Display application info box",
 		"tooltip": ""
 	},
 	"pref_show_recents_button": {
@@ -115,7 +115,32 @@
 	"pref_disable_new_apps_highlighting": {
 		"type": "checkbox",
 		"default": true,
-		"description": "Disable newly installed apps highlighting",
+		"description": "Disable newly installed applications highlighting",
+		"tooltip": ""
+	},
+	"pref_hide_allapps_category": {
+		"type": "checkbox",
+		"default": false,
+		"description": "Hide All Applications category",
+		"tooltip": ""
+	},
+	"pref_display_favorites_as_category_menu": {
+		"type": "checkbox",
+		"dependency": "pref_hide_allapps_category",
+		"default": false,
+		"description": "Display Favorites as a category menu",
+		"tooltip": ""
+	},
+	"pref_hide_applications_list_scrollbar": {
+		"type": "checkbox",
+		"default": false,
+		"description": "Hide applications list scrollbar",
+		"tooltip": ""
+	},
+	"pref_swap_categories_box": {
+		"type": "checkbox",
+		"default": false,
+		"description": "Swap categories box",
 		"tooltip": ""
 	},
 	"pref_separator_heigth": {
@@ -240,7 +265,7 @@
 	},
 	"pref_search_box_bottom": {
 		"type": "checkbox",
-		"default": true,
+		"default": false,
 		"dependency": "pref_show_search_box",
 		"description": "Search box at the bottom of menu",
 		"tooltip": ""
@@ -266,14 +291,14 @@
 	},
 	"pref_show_custom_commands_box": {
 		"type": "checkbox",
-		"default": true,
+		"default": false,
 		"description": "Show Custom commands box on menu"
 	},
 	"pref_custom_commands_box_at_the_bottom": {
 		"type": "checkbox",
 		"dependency": "pref_show_custom_commands_box",
 		"default": true,
-		"description": "Place the Custom commands box at the bottom of the menu"
+		"description": "Place the Custom launchers box at the bottom of the menu"
 	},
 	"pref_custom_command_icon_size": {
 		"type": "spinbutton",
@@ -284,50 +309,6 @@
 		"step": 2,
 		"units": "pixels",
 		"description": "Icon size:",
-		"tooltip": ""
-	},
-	"pref_custom_command_box_padding_top": {
-		"type": "spinbutton",
-		"dependency": "pref_show_custom_commands_box",
-		"default": 5,
-		"min": 0,
-		"max": 500,
-		"step": 1,
-		"units": "pixels",
-		"description": "Box top padding:",
-		"tooltip": ""
-	},
-	"pref_custom_command_box_padding_right": {
-		"type": "spinbutton",
-		"dependency": "pref_show_custom_commands_box",
-		"default": 30,
-		"min": 0,
-		"max": 500,
-		"step": 1,
-		"units": "pixels",
-		"description": "Box right padding:",
-		"tooltip": ""
-	},
-	"pref_custom_command_box_padding_bottom": {
-		"type": "spinbutton",
-		"dependency": "pref_show_custom_commands_box",
-		"default": 5,
-		"min": 0,
-		"max": 500,
-		"step": 1,
-		"units": "pixels",
-		"description": "Box bottom padding:",
-		"tooltip": ""
-	},
-	"pref_custom_command_box_padding_left": {
-		"type": "spinbutton",
-		"dependency": "pref_show_custom_commands_box",
-		"default": 10,
-		"min": 0,
-		"max": 500,
-		"step": 1,
-		"units": "pixels",
-		"description": "Box left padding:",
 		"tooltip": ""
 	},
 	"pref_custom_commands_box_alignment": {
@@ -689,7 +670,239 @@
 		"dependency": "pref_show_custom_commands_box",
 		"description": "Description:"
 	},
-	"button3": {
+	"button4": {
+		"type": "button",
+		"description": "Click here to save settings",
+		"callback": "_hardRefreshAll"
+	},
+	"pref_custom_padding_separator": {
+		"type": "separator"
+	},
+	"pref_custom_padding": {
+		"type": "header",
+		"description": "\nCustom padding\nNote: Most themes stylesheets come with hardcoded sizes for certain elemets (ABSOLUTELY VERY ANNOYING!!!).\nThis section is for overriding those stylesheets."
+	},
+	"pref_set_categories_padding": {
+		"type": "checkbox",
+		"default": false,
+		"description": "Set a custom padding for the Categories box",
+		"tooltip": ""
+	},
+	"pref_categories_box_padding_top": {
+		"indent": true,
+		"type": "spinbutton",
+		"default": 5,
+		"min": 0,
+		"max": 500,
+		"step": 1,
+		"dependency": "pref_set_categories_padding",
+		"units": "pixels",
+		"description": "Box top padding:",
+		"tooltip": ""
+	},
+	"pref_categories_box_padding_right": {
+		"indent": true,
+		"type": "spinbutton",
+		"default": 30,
+		"min": 0,
+		"max": 500,
+		"step": 1,
+		"dependency": "pref_set_categories_padding",
+		"units": "pixels",
+		"description": "Box right padding:",
+		"tooltip": ""
+	},
+	"pref_categories_box_padding_bottom": {
+		"indent": true,
+		"type": "spinbutton",
+		"default": 5,
+		"min": 0,
+		"max": 500,
+		"step": 1,
+		"dependency": "pref_set_categories_padding",
+		"units": "pixels",
+		"description": "Box bottom padding:",
+		"tooltip": ""
+	},
+	"pref_categories_box_padding_left": {
+		"indent": true,
+		"type": "spinbutton",
+		"default": 10,
+		"min": 0,
+		"max": 500,
+		"step": 1,
+		"dependency": "pref_set_categories_padding",
+		"units": "pixels",
+		"description": "Box left padding:",
+		"tooltip": ""
+	},
+	"pref_set_search_entry_padding": {
+		"type": "checkbox",
+		"default": false,
+		"description": "Set a custom padding for the search entry box",
+		"tooltip": ""
+	},
+	"pref_search_entry_padding_top": {
+		"indent": true,
+		"type": "spinbutton",
+		"default": 5,
+		"min": 0,
+		"max": 500,
+		"step": 1,
+		"dependency": "pref_set_search_entry_padding",
+		"units": "pixels",
+		"description": "Box top padding:",
+		"tooltip": ""
+	},
+	"pref_search_entry_padding_right": {
+		"indent": true,
+		"type": "spinbutton",
+		"default": 30,
+		"min": 0,
+		"max": 500,
+		"step": 1,
+		"dependency": "pref_set_search_entry_padding",
+		"units": "pixels",
+		"description": "Box right padding:",
+		"tooltip": ""
+	},
+	"pref_search_entry_padding_bottom": {
+		"indent": true,
+		"type": "spinbutton",
+		"default": 5,
+		"min": 0,
+		"max": 500,
+		"step": 1,
+		"dependency": "pref_set_search_entry_padding",
+		"units": "pixels",
+		"description": "Box bottom padding:",
+		"tooltip": ""
+	},
+	"pref_search_entry_padding_left": {
+		"indent": true,
+		"type": "spinbutton",
+		"default": 10,
+		"min": 0,
+		"max": 500,
+		"step": 1,
+		"dependency": "pref_set_search_entry_padding",
+		"units": "pixels",
+		"description": "Box left padding:",
+		"tooltip": ""
+	},
+	"pref_set_search_box_padding": {
+		"type": "checkbox",
+		"default": false,
+		"description": "Set a custom padding for the search box",
+		"tooltip": ""
+	},
+	"pref_search_box_padding_top": {
+		"indent": true,
+		"type": "spinbutton",
+		"default": 5,
+		"min": 0,
+		"max": 500,
+		"step": 1,
+		"dependency": "pref_set_search_box_padding",
+		"units": "pixels",
+		"description": "Box top padding:",
+		"tooltip": ""
+	},
+	"pref_search_box_padding_right": {
+		"indent": true,
+		"type": "spinbutton",
+		"default": 30,
+		"min": 0,
+		"max": 500,
+		"step": 1,
+		"dependency": "pref_set_search_box_padding",
+		"units": "pixels",
+		"description": "Box right padding:",
+		"tooltip": ""
+	},
+	"pref_search_box_padding_bottom": {
+		"indent": true,
+		"type": "spinbutton",
+		"default": 5,
+		"min": 0,
+		"max": 500,
+		"step": 1,
+		"dependency": "pref_set_search_box_padding",
+		"units": "pixels",
+		"description": "Box bottom padding:",
+		"tooltip": ""
+	},
+	"pref_search_box_padding_left": {
+		"indent": true,
+		"type": "spinbutton",
+		"default": 10,
+		"min": 0,
+		"max": 500,
+		"step": 1,
+		"dependency": "pref_set_search_box_padding",
+		"units": "pixels",
+		"description": "Box left padding:",
+		"tooltip": ""
+	},
+	"pref_set_custom_box_padding": {
+		"type": "checkbox",
+		"default": false,
+		"description": "Set a custom padding for the Custom launchers box",
+		"tooltip": ""
+	},
+	"pref_custom_command_box_padding_top": {
+		"indent": true,
+		"type": "spinbutton",
+		"dependency": "pref_show_custom_commands_box",
+		"default": 5,
+		"min": 0,
+		"max": 500,
+		"step": 1,
+		"dependency": "pref_set_custom_box_padding",
+		"units": "pixels",
+		"description": "Box top padding:",
+		"tooltip": ""
+	},
+	"pref_custom_command_box_padding_right": {
+		"indent": true,
+		"type": "spinbutton",
+		"dependency": "pref_show_custom_commands_box",
+		"default": 30,
+		"min": 0,
+		"max": 500,
+		"step": 1,
+		"dependency": "pref_set_custom_box_padding",
+		"units": "pixels",
+		"description": "Box right padding:",
+		"tooltip": ""
+	},
+	"pref_custom_command_box_padding_bottom": {
+		"indent": true,
+		"type": "spinbutton",
+		"dependency": "pref_show_custom_commands_box",
+		"default": 5,
+		"min": 0,
+		"max": 500,
+		"step": 1,
+		"dependency": "pref_set_custom_box_padding",
+		"units": "pixels",
+		"description": "Box bottom padding:",
+		"tooltip": ""
+	},
+	"pref_custom_command_box_padding_left": {
+		"indent": true,
+		"type": "spinbutton",
+		"dependency": "pref_show_custom_commands_box",
+		"default": 10,
+		"min": 0,
+		"max": 500,
+		"step": 1,
+		"dependency": "pref_set_custom_box_padding",
+		"units": "pixels",
+		"description": "Box left padding:",
+		"tooltip": ""
+	},
+	"button5": {
 		"type": "button",
 		"description": "Click here to save settings",
 		"callback": "_hardRefreshAll"

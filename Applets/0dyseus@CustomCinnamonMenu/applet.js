@@ -897,11 +897,26 @@ CategoryButton.prototype = {
 		let icon = null;
 		if (category) {
 			if (showIcon) {
-				icon = category.get_icon();
-				if (icon && icon.get_names)
-					this.icon_name = icon.get_names().toString();
-				else
-					this.icon_name = "";
+				/**
+				 * START mark Odyseus
+				 */
+				if (category.get_menu_id() === "favorites") {
+					this.icon_name = category.get_icon();
+					icon = new St.Icon({
+						icon_name: this.icon_name,
+						icon_size: PREF_CATEGORY_ICON_SIZE,
+						icon_type: St.IconType.FULLCOLOR
+					});
+				} else {
+					/**
+					 * END
+					 */
+					icon = category.get_icon();
+					if (icon && icon.get_names)
+						this.icon_name = icon.get_names().toString();
+					else
+						this.icon_name = "";
+				}
 			} else {
 				this.icon_name = "";
 			}
@@ -917,9 +932,14 @@ CategoryButton.prototype = {
 		if (category && this.icon_name) {
 			/**
 			 * START mark Odyseus
-			 * Just changed the name of the icon size variable.
 			 */
-			this.icon = St.TextureCache.get_default().load_gicon(null, icon, (PREF_CATEGORY_ICON_SIZE));
+			if (category.get_menu_id() === "favorites")
+				this.icon = icon;
+			else
+				this.icon = St.TextureCache.get_default().load_gicon(null, icon, (PREF_CATEGORY_ICON_SIZE));
+			/**
+			 * END
+			 */
 			if (this.icon) {
 				this.addActor(this.icon);
 				this.icon.realize();
@@ -1382,6 +1402,9 @@ MyApplet.prototype = {
 	 */
 	_bind_extra_settings: function() {
 		let settingsArray = [
+			[Settings.BindingDirection.BIDIRECTIONAL, "pref_hide_allapps_category", null],
+			[Settings.BindingDirection.BIDIRECTIONAL, "pref_display_favorites_as_category_menu", null],
+			[Settings.BindingDirection.IN, "pref_swap_categories_box", null],
 			[Settings.BindingDirection.IN, "pref_disable_new_apps_highlighting", null],
 			[Settings.BindingDirection.IN, "pref_fuzzy_search_enabled", null],
 			[Settings.BindingDirection.IN, "pref_show_recents_button", null],
@@ -1409,6 +1432,23 @@ MyApplet.prototype = {
 			[Settings.BindingDirection.IN, "pref_custom_commands_box_alignment", null],
 			[Settings.BindingDirection.IN, "pref_custom_commands_box_at_the_bottom", null],
 			[Settings.BindingDirection.IN, "pref_custom_command_icon_size", null],
+			[Settings.BindingDirection.IN, "pref_categories_box_padding_top", null],
+			[Settings.BindingDirection.IN, "pref_categories_box_padding_right", null],
+			[Settings.BindingDirection.IN, "pref_categories_box_padding_bottom", null],
+			[Settings.BindingDirection.IN, "pref_categories_box_padding_left", null],
+			[Settings.BindingDirection.IN, "pref_hide_applications_list_scrollbar", null],
+			[Settings.BindingDirection.IN, "pref_search_entry_padding_top", null],
+			[Settings.BindingDirection.IN, "pref_search_entry_padding_right", null],
+			[Settings.BindingDirection.IN, "pref_search_entry_padding_bottom", null],
+			[Settings.BindingDirection.IN, "pref_search_entry_padding_left", null],
+			[Settings.BindingDirection.IN, "pref_set_search_entry_padding", null],
+			[Settings.BindingDirection.IN, "pref_set_custom_box_padding", null],
+			[Settings.BindingDirection.IN, "pref_set_categories_padding", null],
+			[Settings.BindingDirection.IN, "pref_search_box_padding_top", null],
+			[Settings.BindingDirection.IN, "pref_search_box_padding_right", null],
+			[Settings.BindingDirection.IN, "pref_search_box_padding_bottom", null],
+			[Settings.BindingDirection.IN, "pref_search_box_padding_left", null],
+			[Settings.BindingDirection.IN, "pref_set_search_box_padding", null],
 
 			[Settings.BindingDirection.IN, "pref_command_1_label", null],
 			[Settings.BindingDirection.IN, "pref_command_1_command", null],
@@ -1455,6 +1495,10 @@ MyApplet.prototype = {
 		for (let [binding, property_name, callback] of settingsArray) {
 			this.settings.bindProperty(binding, property_name, property_name, callback, null);
 		}
+
+		if (!this.pref_hide_allapps_category)
+			this.pref_display_favorites_as_category_menu = false;
+
 	},
 	/**
 	 * END
@@ -1548,6 +1592,9 @@ MyApplet.prototype = {
 	 * START mark Odyseus
 	 */
 	_hardRefreshAll: function() {
+		if (!this.pref_hide_allapps_category)
+			this.pref_display_favorites_as_category_menu = false;
+
 		if (this._hardRefreshTimeout2)
 			Mainloop.source_remove(this._hardRefreshTimeout2);
 
@@ -1622,13 +1669,25 @@ MyApplet.prototype = {
 
 			let n = Math.min(this._applicationsButtons.length,
 				INITIAL_BUTTON_LOAD);
-			let i = 0,
-				iLen = n;
-			for (; i < iLen; i++) {
+			let i = 0;
+			for (; i < n; i++) {
 				this._applicationsButtons[i].actor.show();
 			}
+			/**
+			 * START mark Odyseus
+			 */
+			if (this.pref_hide_allapps_category)
+				this._clearPrevCatSelection(this._allAppsCategoryButton.actor);
 			this._allAppsCategoryButton.actor.style_class = "menu-category-button-selected";
-			Mainloop.idle_add(Lang.bind(this, this._initial_cat_selection, n));
+			if (this.pref_hide_allapps_category) {
+				this._select_category(this.pref_hide_allapps_category ?
+					this._initialSelectedCategory :
+					null, this._allAppsCategoryButton);
+			} else
+				Mainloop.idle_add(Lang.bind(this, this._initial_cat_selection, n));
+			/**
+			 * END
+			 */
 		} else {
 			this.actor.remove_style_pseudo_class('active');
 			if (this.searchActive) {
@@ -2240,36 +2299,93 @@ MyApplet.prototype = {
 		//Remove all categories
 		this.categoriesBox.destroy_all_children();
 
-		this._allAppsCategoryButton = new CategoryButton(null);
-		this._addEnterEvent(this._allAppsCategoryButton, Lang.bind(this, function() {
-			if (!this.searchActive) {
-				this._allAppsCategoryButton.isHovered = true;
-				if (this.hover_delay > 0) {
-					Tweener.addTween(this, {
-						time: this.hover_delay,
-						onComplete: function() {
-							if (this._allAppsCategoryButton.isHovered) {
-								this._clearPrevCatSelection(this._allAppsCategoryButton.actor);
-								this._allAppsCategoryButton.actor.style_class = "menu-category-button-selected";
-								this._select_category(null, this._allAppsCategoryButton);
-							} else {
-								this._allAppsCategoryButton.actor.style_class = "menu-category-button";
+		if (!this.pref_hide_allapps_category && !this.pref_display_favorites_as_category_menu) {
+			this._allAppsCategoryButton = new CategoryButton(null);
+			this._addEnterEvent(this._allAppsCategoryButton, Lang.bind(this, function() {
+				if (!this.searchActive) {
+					this._allAppsCategoryButton.isHovered = true;
+					if (this.hover_delay > 0) {
+						Tweener.addTween(this, {
+							time: this.hover_delay,
+							onComplete: function() {
+								if (this._allAppsCategoryButton.isHovered) {
+									this._clearPrevCatSelection(this._allAppsCategoryButton.actor);
+									this._allAppsCategoryButton.actor.style_class = "menu-category-button-selected";
+									this._select_category(null, this._allAppsCategoryButton);
+								} else {
+									this._allAppsCategoryButton.actor.style_class = "menu-category-button";
+								}
 							}
-						}
-					});
-				} else {
-					this._clearPrevCatSelection(this._allAppsCategoryButton.actor);
-					this._allAppsCategoryButton.actor.style_class = "menu-category-button-selected";
-					this._select_category(null, this._allAppsCategoryButton);
+						});
+					} else {
+						this._clearPrevCatSelection(this._allAppsCategoryButton.actor);
+						this._allAppsCategoryButton.actor.style_class = "menu-category-button-selected";
+						this._select_category(null, this._allAppsCategoryButton);
+					}
+					this.makeVectorBox(this._allAppsCategoryButton.actor);
 				}
-				this.makeVectorBox(this._allAppsCategoryButton.actor);
-			}
-		}));
-		this._allAppsCategoryButton.actor.connect('leave-event', Lang.bind(this, function() {
-			this._previousSelectedActor = this._allAppsCategoryButton.actor;
-			this._allAppsCategoryButton.isHovered = false;
-		}));
-		this.categoriesBox.add_actor(this._allAppsCategoryButton.actor);
+			}));
+			this._allAppsCategoryButton.actor.connect('leave-event', Lang.bind(this, function() {
+				this._previousSelectedActor = this._allAppsCategoryButton.actor;
+				this._allAppsCategoryButton.isHovered = false;
+			}));
+			this.categoriesBox.add_actor(this._allAppsCategoryButton.actor);
+		}
+
+		if (this.pref_hide_allapps_category && this.pref_display_favorites_as_category_menu) {
+			let cat = {
+				get_menu_id: function() {
+					return "favorites";
+				},
+				get_id: function() {
+					return -1;
+				},
+				get_description: function() {
+					return this.get_name();
+				},
+				get_name: function() {
+					return _("Favorites");
+				},
+				get_is_nodisplay: function() {
+					return false;
+				},
+				get_icon: function() {
+					return "user-bookmarks";
+				}
+			};
+			this._initialSelectedCategory = "favorites";
+			this._allAppsCategoryButton = new CategoryButton(cat, this.showCategoryIcons);
+			this._addEnterEvent(this._allAppsCategoryButton, Lang.bind(this, function() {
+				// this._allAppsCategoryButton.actor.connect('enter-event', Lang.bind(this, function() {
+				if (!this.searchActive) {
+					this._allAppsCategoryButton.isHovered = true;
+					if (this.hover_delay > 0) {
+						Tweener.addTween(this, {
+							time: this.hover_delay,
+							onComplete: function() {
+								if (this._allAppsCategoryButton.isHovered) {
+									this._clearPrevCatSelection(this._allAppsCategoryButton.actor);
+									this._allAppsCategoryButton.actor.style_class = "menu-category-button-selected";
+									this._select_category(this._initialSelectedCategory, this._allAppsCategoryButton);
+								} else {
+									this._allAppsCategoryButton.actor.style_class = "menu-category-button";
+								}
+							}
+						});
+					} else {
+						this._clearPrevCatSelection(this._allAppsCategoryButton.actor);
+						this._allAppsCategoryButton.actor.style_class = "menu-category-button-selected";
+						this._select_category(this._initialSelectedCategory, this._allAppsCategoryButton);
+					}
+					this.makeVectorBox(this._allAppsCategoryButton.actor);
+				}
+			}));
+			this._allAppsCategoryButton.actor.connect('leave-event', Lang.bind(this, function() {
+				this._previousSelectedActor = this._allAppsCategoryButton.actor;
+				this._allAppsCategoryButton.isHovered = false;
+			}));
+			this.categoriesBox.add_actor(this._allAppsCategoryButton.actor);
+		}
 
 		let trees = [appsys.get_tree()];
 
@@ -2359,6 +2475,11 @@ MyApplet.prototype = {
 						}
 						categoryButton.isHovered = false;
 					}));
+					if (i === 0 && this.pref_hide_allapps_category &&
+						!this.pref_display_favorites_as_category_menu) {
+						this._initialSelectedCategory = dir;
+						this._allAppsCategoryButton = categoryButton;
+					}
 					this.categoriesBox.add_actor(categoryButton.actor);
 				}
 			}
@@ -2537,7 +2658,8 @@ MyApplet.prototype = {
 		var iter = dir.iter();
 		var has_entries = false;
 		var nextType;
-		if (!top_dir) top_dir = dir;
+		if (!top_dir)
+			top_dir = dir;
 		while ((nextType = iter.next()) != CMenu.TreeItemType.INVALID) {
 			if (nextType == CMenu.TreeItemType.ENTRY) {
 				var entry = iter.get_entry();
@@ -2685,10 +2807,11 @@ MyApplet.prototype = {
 				can_focus: true
 			});
 			this.myCustomCommandsBox.set_width(-1);
-			this.myCustomCommandsBox.set_style("padding-top: " + this.pref_custom_command_box_padding_top +
-				"px; padding-right: " + this.pref_custom_command_box_padding_right +
-				"px; padding-bottom: " + this.pref_custom_command_box_padding_bottom +
-				"px; padding-left: " + this.pref_custom_command_box_padding_left + "px;");
+			if (this.pref_set_custom_box_padding)
+				this.myCustomCommandsBox.set_style("padding-top: " + this.pref_custom_command_box_padding_top +
+					"px; padding-right: " + this.pref_custom_command_box_padding_right +
+					"px; padding-bottom: " + this.pref_custom_command_box_padding_bottom +
+					"px; padding-left: " + this.pref_custom_command_box_padding_left + "px;");
 		}
 
 		if (this.pref_show_search_box) {
@@ -2697,12 +2820,9 @@ MyApplet.prototype = {
 			});
 		}
 
-		// Mark Odyseus
-		if (this.pref_search_box_bottom)
-			this.pref_show_appinfo_box && section.actor.add_actor(this.selectedAppBox);
-		else
-			this.pref_show_search_box && rightPane.add_actor(this.searchBox);
-
+		/**
+		 * START mark Odyseus
+		 */
 		let customCmdBoxAlignment;
 		switch (this.pref_custom_commands_box_alignment) {
 			case 0:
@@ -2716,12 +2836,20 @@ MyApplet.prototype = {
 				break;
 		}
 
-		if (this.myCustomCommandsBox !== null && !this.pref_custom_commands_box_at_the_bottom)
+		if (this.myCustomCommandsBox !== null && !this.pref_custom_commands_box_at_the_bottom) {
 			rightPane.add(this.myCustomCommandsBox, {
 				x_fill: false,
 				y_fill: false,
 				x_align: customCmdBoxAlignment,
 				y_align: St.Align.MIDDLE,
+				expand: true
+			});
+		}
+
+		if (this.pref_search_box_bottom)
+			this.pref_show_appinfo_box && section.actor.add_actor(this.selectedAppBox);
+		else
+			this.pref_show_search_box && rightPane.add_actor(this.searchBox, {
 				expand: true
 			});
 
@@ -2733,7 +2861,26 @@ MyApplet.prototype = {
 				can_focus: true
 			});
 
+			/**
+			 * START mark Odyseus
+			 */
+			if (this.pref_set_search_entry_padding)
+				this.searchEntry.set_style("padding-top: " + this.pref_search_entry_padding_top +
+					"px; padding-right: " + this.pref_search_entry_padding_right +
+					"px; padding-bottom: " + this.pref_search_entry_padding_bottom +
+					"px; padding-left: " + this.pref_search_entry_padding_left + "px;");
+
+			if (this.pref_set_search_box_padding)
+				this.searchBox.set_style("padding-top: " + this.pref_search_box_padding_top +
+					"px; padding-right: " + this.pref_search_box_padding_right +
+					"px; padding-bottom: " + this.pref_search_box_padding_bottom +
+					"px; padding-left: " + this.pref_search_box_padding_left + "px;");
+			/**
+			 * END
+			 */
+
 			this.searchEntry.set_secondary_icon(this._searchInactiveIcon);
+
 			this.searchBox.add_actor(this.searchEntry);
 			this.searchActive = false;
 			this.searchEntryText = this.searchEntry.clutter_text;
@@ -2752,12 +2899,34 @@ MyApplet.prototype = {
 			vertical: true,
 			accessible_role: Atk.Role.LIST
 		});
+		/**
+		 * START mark Odyseus
+		 */
+		if (this.pref_set_categories_padding)
+			this.categoriesBox.set_style("padding-top: " + this.pref_categories_box_padding_top +
+				"px; padding-right: " + this.pref_categories_box_padding_right +
+				"px; padding-bottom: " + this.pref_categories_box_padding_bottom +
+				"px; padding-left: " + this.pref_categories_box_padding_left + "px;");
+		/**
+		 * END
+		 */
 		this.applicationsScrollBox = new St.ScrollView({
 			x_fill: true,
 			y_fill: false,
 			y_align: St.Align.START,
 			style_class: 'vfade menu-applications-scrollbox'
 		});
+
+		/**
+		 * START mark Odyseus
+		 */
+		if (this.pref_hide_applications_list_scrollbar)
+			this.applicationsScrollBox.get_vscroll_bar().set_opacity(0);
+		else
+			this.applicationsScrollBox.get_vscroll_bar().set_opacity(1);
+		/**
+		 * END
+		 */
 
 		this.a11y_settings = new Gio.Settings({
 			schema_id: "org.cinnamon.desktop.a11y.applications"
@@ -2790,8 +2959,11 @@ MyApplet.prototype = {
 		this.applicationsBox.add_style_class_name('menu-applications-box'); //this is to support old themes
 		this.applicationsScrollBox.add_actor(this.applicationsBox);
 		this.applicationsScrollBox.set_policy(Gtk.PolicyType.NEVER, Gtk.PolicyType.AUTOMATIC);
-		this.categoriesApplicationsBox.actor.add_actor(this.categoriesBox);
+		if (!this.pref_swap_categories_box)
+			this.categoriesApplicationsBox.actor.add_actor(this.categoriesBox);
 		this.categoriesApplicationsBox.actor.add_actor(this.applicationsScrollBox);
+		if (this.pref_swap_categories_box)
+			this.categoriesApplicationsBox.actor.add_actor(this.categoriesBox);
 
 		let fav_obj = new FavoritesBox();
 		this.favoritesBox = fav_obj.actor;
@@ -2819,7 +2991,9 @@ MyApplet.prototype = {
 		 * START mark Odyseus
 		 */
 		if (this.pref_search_box_bottom)
-			this.pref_show_search_box && rightPane.add_actor(this.searchBox);
+			this.pref_show_search_box && rightPane.add_actor(this.searchBox, {
+				expand: true
+			});
 		else
 			this.pref_show_appinfo_box && section.actor.add_actor(this.selectedAppBox);
 
@@ -3021,10 +3195,20 @@ MyApplet.prototype = {
 	},
 
 	_select_category: function(dir, categoryButton) {
-		if (dir)
-			this._displayButtons(this._listApplications(dir.get_menu_id()));
-		else
-			this._displayButtons(this._listApplications(null));
+		/**
+		 * START mark Odyseus
+		 */
+		if (dir === "favorites")
+			this._displayButtons("favorites");
+		else {
+			/**
+			 * END
+			 */
+			if (dir)
+				this._displayButtons(this._listApplications(dir.get_menu_id()));
+			else
+				this._displayButtons(this._listApplications(null));
+		}
 		this.closeContextMenus(null, false);
 	},
 
@@ -3073,7 +3257,21 @@ MyApplet.prototype = {
 				this._applicationsButtons.forEach(function(item, index) {
 					item.actor.show();
 				});
+				/**
+				 * START mark Odyseus
+				 */
+			} else if (appCategory == "favorites") {
+				this._applicationsButtons.forEach(function(item, index) {
+					if (AppFavorites.getAppFavorites().isFavorite(item.app.get_id())) {
+						item.actor.show();
+					} else {
+						item.actor.hide();
+					}
+				});
 			} else {
+				/**
+				 * END
+				 */
 				this._applicationsButtons.forEach(function(item, index) {
 					if (item.category.indexOf(appCategory) != -1) {
 						item.actor.show();
@@ -3219,7 +3417,15 @@ MyApplet.prototype = {
 					this._searchIconClickedId = this.searchEntry.connect('secondary-icon-clicked',
 						Lang.bind(this, function() {
 							this.resetSearch();
-							this._select_category(null, this._allAppsCategoryButton);
+							/**
+							 * START mark Odyseus
+							 */
+							this._select_category(this.pref_hide_allapps_category ?
+								this._initialSelectedCategory :
+								null, this._allAppsCategoryButton);
+							/**
+							 * END
+							 */
 						}));
 				}
 				this._setCategoriesButtonActive(false);
@@ -3248,7 +3454,15 @@ MyApplet.prototype = {
 				this.searchEntry.set_secondary_icon(this._searchInactiveIcon);
 				this._previousSearchPattern = "";
 				this._setCategoriesButtonActive(true);
-				this._select_category(null, this._allAppsCategoryButton);
+				/**
+				 * START mark Odyseus
+				 */
+				this._select_category(this.pref_hide_allapps_category ?
+					this._initialSelectedCategory :
+					null, this._allAppsCategoryButton);
+				/**
+				 * END
+				 */
 			}
 			return;
 		}
