@@ -100,6 +100,12 @@
 		"description": "Display application info box",
 		"tooltip": ""
 	},
+	"pref_apps_info_box_alignment_to_the_left": {
+		"type": "checkbox",
+		"default": false,
+		"description": "Align application info box text to the left",
+		"tooltip": ""
+	},
 	"pref_show_recents_button": {
 		"type": "checkbox",
 		"default": true,
@@ -202,13 +208,12 @@
 	},
 	"pref_system_buttons_display": {
 		"type": "radiogroup",
-		"dependency": "pref_show_custom_commands_box",
 		"default": 2,
 		"description": "Where to display the Quit buttons",
 		"options": {
 			"Hide all": 0,
 			"Inside \"Favorites\" box": 1,
-			"Next to Custom commands box": 2
+			"Next to Custom launchers box": 2
 		}
 	},
 	"pref_show_lock_button": {
@@ -222,7 +227,7 @@
 		"indent": "true",
 		"default": "system-lock-screen-symbolic",
 		"description": "Custom icon for \"Lock screen\" button:",
-		"tooltip": "Only valid if the System buttons box is placed next to the Custom commands box.\nLeave blank to use default."
+		"tooltip": "Only valid if the System buttons box is placed next to the Custom launchers box.\nLeave blank to use default."
 	},
 	"pref_show_logout_button": {
 		"type": "checkbox",
@@ -235,7 +240,7 @@
 		"indent": "true",
 		"default": "system-log-out-symbolic",
 		"description": "Custom icon for \"Logout\" button:",
-		"tooltip": "Only valid if the System buttons box is placed next to the Custom commands box.\nLeave blank to use default."
+		"tooltip": "Only valid if the System buttons box is placed next to the Custom launchers box.\nLeave blank to use default."
 	},
 	"pref_show_shutdown_button": {
 		"type": "checkbox",
@@ -248,7 +253,7 @@
 		"indent": "true",
 		"default": "system-shutdown-symbolic",
 		"description": "Custom icon for \"Shutdown\" button:",
-		"tooltip": "Only valid if the System buttons box is placed next to the Custom commands box.\nLeave blank to use default."
+		"tooltip": "Only valid if the System buttons box is placed next to the Custom launchers box.\nLeave blank to use default."
 	},
 	"sep4": {
 		"type": "separator"
@@ -270,9 +275,15 @@
 		"description": "Search box at the bottom of menu",
 		"tooltip": ""
 	},
+	"pref_autofit_searchbox_width": {
+		"type": "checkbox",
+		"default": false,
+		"dependency": "pref_show_search_box",
+		"description": "Auto-fit searchbox to menu width",
+		"tooltip": "If enabled, Custom width for search box will be ignored. Also, this option is ignored if the custom launchers box is placed at either side of the searchbox."
+	},
 	"pref_custom_width_for_searchbox": {
 		"type": "spinbutton",
-		"dependency": "pref_show_custom_commands_box",
 		"default": 0,
 		"min": 0,
 		"max": 2048,
@@ -287,22 +298,22 @@
 	},
 	"head1": {
 		"type": "header",
-		"description": "\nCustom commands"
+		"description": "\nCustom launchers"
 	},
-	"pref_show_custom_commands_box": {
-		"type": "checkbox",
-		"default": false,
-		"description": "Show Custom commands box on menu"
-	},
-	"pref_custom_commands_box_at_the_bottom": {
-		"type": "checkbox",
-		"dependency": "pref_show_custom_commands_box",
-		"default": true,
-		"description": "Place the Custom launchers box at the bottom of the menu"
+	"pref_custom_launchers_box_placement": {
+		"type": "radiogroup",
+		"default": 2,
+		"description": "Custom launchers box placement",
+		"options": {
+			"Disabled": 0,
+			"Left of search box": 1,
+			"Right of search box": 2,
+			"At the top of menu": 3,
+			"At the bottom of menu": 4
+		}
 	},
 	"pref_custom_command_icon_size": {
 		"type": "spinbutton",
-		"dependency": "pref_show_custom_commands_box",
 		"default": 22,
 		"min": 16,
 		"max": 256,
@@ -313,9 +324,8 @@
 	},
 	"pref_custom_commands_box_alignment": {
 		"type": "radiogroup",
-		"dependency": "pref_show_custom_commands_box",
 		"default": 2,
-		"description": "Alignment of buttons inside the custom commands box",
+		"description": "Alignment of buttons inside the custom launchers box",
 		"options": {
 			"Left": 0,
 			"Middle": 1,
@@ -329,17 +339,16 @@
 	},
 	"head2": {
 		"type": "header",
-		"description": "\nCustom commands notes\nFields marked with asterisks (*) are mandatory. Otherwise, the button will not appear on the menu.\nIcons can be any icon name or path to an icon file (symbolic or full color).\nCommands can be any command (as entered in a terminal) or a path to a file.\nIf the file is an executable script, an attempt to execute it will be made.\nOtherwise, the file will be opened with the systems handler for that file type."
+		"description": "\nCustom launchers notes\nFields marked with asterisks (*) are mandatory. Otherwise, the button will not appear on the menu.\nIcons can be any icon name or path to an icon file (symbolic or full color).\nCommands can be any command (as entered in a terminal) or a path to a file.\nIf the file is an executable script, an attempt to execute it will be made.\nOtherwise, the file will be opened with the systems handler for that file type."
 	},
 	"pref_command_1": {
 		"type": "header",
-		"description": "\nCustom command 1"
+		"description": "\nCustom launcher 1"
 	},
 	"pref_command_1_label": {
 		"type": "entry",
 		"default": "System Settings",
 		"indent": true,
-		"dependency": "pref_show_custom_commands_box",
 		"description": "Label:"
 	},
 	"pref_command_1_command": {
@@ -347,32 +356,28 @@
 		"select-dir": false,
 		"default": "cinnamon-settings",
 		"indent": true,
-		"dependency": "pref_show_custom_commands_box",
 		"description": "*Command or path to file:"
 	},
 	"pref_command_1_icon": {
 		"type": "iconfilechooser",
 		"default": "custom-preferences-system-symbolic",
 		"indent": true,
-		"dependency": "pref_show_custom_commands_box",
 		"description": "*Icon:"
 	},
 	"pref_command_1_description": {
 		"type": "entry",
 		"default": "System Settings",
 		"indent": true,
-		"dependency": "pref_show_custom_commands_box",
 		"description": "Description:"
 	},
 	"pref_command_2": {
 		"type": "header",
-		"description": "\nCustom command 2"
+		"description": "\nCustom launcher 2"
 	},
 	"pref_command_2_label": {
 		"type": "entry",
 		"default": "Mint updates manager",
 		"indent": true,
-		"dependency": "pref_show_custom_commands_box",
 		"description": "Label:"
 	},
 	"pref_command_2_command": {
@@ -380,32 +385,28 @@
 		"select-dir": false,
 		"default": "mintupdate",
 		"indent": true,
-		"dependency": "pref_show_custom_commands_box",
 		"description": "*Command or path to file:"
 	},
 	"pref_command_2_icon": {
 		"type": "iconfilechooser",
 		"default": "custom-security-high-symbolic",
 		"indent": true,
-		"dependency": "pref_show_custom_commands_box",
 		"description": "*Icon:"
 	},
 	"pref_command_2_description": {
 		"type": "entry",
 		"default": "Mint updates manager",
 		"indent": true,
-		"dependency": "pref_show_custom_commands_box",
 		"description": "Description:"
 	},
 	"pref_command_3": {
 		"type": "header",
-		"description": "\nCustom command 3"
+		"description": "\nCustom launcher 3"
 	},
 	"pref_command_3_label": {
 		"type": "entry",
 		"default": "Printers",
 		"indent": true,
-		"dependency": "pref_show_custom_commands_box",
 		"description": "Label:"
 	},
 	"pref_command_3_command": {
@@ -413,32 +414,28 @@
 		"select-dir": false,
 		"default": "system-config-printer",
 		"indent": true,
-		"dependency": "pref_show_custom_commands_box",
 		"description": "*Command or path to file:"
 	},
 	"pref_command_3_icon": {
 		"type": "iconfilechooser",
 		"default": "custom-printer-symbolic",
 		"indent": true,
-		"dependency": "pref_show_custom_commands_box",
 		"description": "*Icon:"
 	},
 	"pref_command_3_description": {
 		"type": "entry",
 		"default": "Printers",
 		"indent": true,
-		"dependency": "pref_show_custom_commands_box",
 		"description": "Description:"
 	},
 	"pref_command_4": {
 		"type": "header",
-		"description": "\nCustom command 4"
+		"description": "\nCustom launcher 4"
 	},
 	"pref_command_4_label": {
 		"type": "entry",
 		"default": "System Information",
 		"indent": true,
-		"dependency": "pref_show_custom_commands_box",
 		"description": "Label:"
 	},
 	"pref_command_4_command": {
@@ -446,32 +443,28 @@
 		"select-dir": false,
 		"default": "cinnamon-settings info",
 		"indent": true,
-		"dependency": "pref_show_custom_commands_box",
 		"description": "*Command or path to file:"
 	},
 	"pref_command_4_icon": {
 		"type": "iconfilechooser",
 		"default": "custom-dialog-information-symbolic",
 		"indent": true,
-		"dependency": "pref_show_custom_commands_box",
 		"description": "*Icon:"
 	},
 	"pref_command_4_description": {
 		"type": "entry",
 		"default": "System Information",
 		"indent": true,
-		"dependency": "pref_show_custom_commands_box",
 		"description": "Description:"
 	},
 	"pref_command_5": {
 		"type": "header",
-		"description": "\nCustom command 5"
+		"description": "\nCustom launcher 5"
 	},
 	"pref_command_5_label": {
 		"type": "entry",
 		"default": "",
 		"indent": true,
-		"dependency": "pref_show_custom_commands_box",
 		"description": "Label:"
 	},
 	"pref_command_5_command": {
@@ -479,21 +472,18 @@
 		"select-dir": false,
 		"default": "",
 		"indent": true,
-		"dependency": "pref_show_custom_commands_box",
 		"description": "*Command or path to file:"
 	},
 	"pref_command_5_icon": {
 		"type": "iconfilechooser",
 		"default": "",
 		"indent": true,
-		"dependency": "pref_show_custom_commands_box",
 		"description": "*Icon:"
 	},
 	"pref_command_5_description": {
 		"type": "entry",
 		"default": "",
 		"indent": true,
-		"dependency": "pref_show_custom_commands_box",
 		"description": "Description:"
 	},
 	"head_null": {
@@ -507,13 +497,12 @@
 	},
 	"pref_command_6": {
 		"type": "header",
-		"description": "\nCustom command 6"
+		"description": "\nCustom launcher 6"
 	},
 	"pref_command_6_label": {
 		"type": "entry",
 		"default": "",
 		"indent": true,
-		"dependency": "pref_show_custom_commands_box",
 		"description": "Label:"
 	},
 	"pref_command_6_command": {
@@ -521,32 +510,28 @@
 		"select-dir": false,
 		"default": "",
 		"indent": true,
-		"dependency": "pref_show_custom_commands_box",
 		"description": "*Command or path to file:"
 	},
 	"pref_command_6_icon": {
 		"type": "iconfilechooser",
 		"default": "",
 		"indent": true,
-		"dependency": "pref_show_custom_commands_box",
 		"description": "*Icon:"
 	},
 	"pref_command_6_description": {
 		"type": "entry",
 		"default": "",
 		"indent": true,
-		"dependency": "pref_show_custom_commands_box",
 		"description": "Description:"
 	},
 	"pref_command_7": {
 		"type": "header",
-		"description": "\nCustom command 7"
+		"description": "\nCustom launcher 7"
 	},
 	"pref_command_7_label": {
 		"type": "entry",
 		"default": "",
 		"indent": true,
-		"dependency": "pref_show_custom_commands_box",
 		"description": "Label:"
 	},
 	"pref_command_7_command": {
@@ -554,32 +539,28 @@
 		"select-dir": false,
 		"default": "",
 		"indent": true,
-		"dependency": "pref_show_custom_commands_box",
 		"description": "*Command or path to file:"
 	},
 	"pref_command_7_icon": {
 		"type": "iconfilechooser",
 		"default": "",
 		"indent": true,
-		"dependency": "pref_show_custom_commands_box",
 		"description": "*Icon:"
 	},
 	"pref_command_7_description": {
 		"type": "entry",
 		"default": "",
 		"indent": true,
-		"dependency": "pref_show_custom_commands_box",
 		"description": "Description:"
 	},
 	"pref_command_8": {
 		"type": "header",
-		"description": "\nCustom command 8"
+		"description": "\nCustom launcher 8"
 	},
 	"pref_command_8_label": {
 		"type": "entry",
 		"default": "",
 		"indent": true,
-		"dependency": "pref_show_custom_commands_box",
 		"description": "Label:"
 	},
 	"pref_command_8_command": {
@@ -587,32 +568,28 @@
 		"select-dir": false,
 		"default": "",
 		"indent": true,
-		"dependency": "pref_show_custom_commands_box",
 		"description": "*Command or path to file:"
 	},
 	"pref_command_8_icon": {
 		"type": "iconfilechooser",
 		"default": "",
 		"indent": true,
-		"dependency": "pref_show_custom_commands_box",
 		"description": "*Icon:"
 	},
 	"pref_command_8_description": {
 		"type": "entry",
 		"default": "",
 		"indent": true,
-		"dependency": "pref_show_custom_commands_box",
 		"description": "Description:"
 	},
 	"pref_command_9": {
 		"type": "header",
-		"description": "\nCustom command 9"
+		"description": "\nCustom launcher 9"
 	},
 	"pref_command_9_label": {
 		"type": "entry",
 		"default": "",
 		"indent": true,
-		"dependency": "pref_show_custom_commands_box",
 		"description": "Label:"
 	},
 	"pref_command_9_command": {
@@ -620,32 +597,28 @@
 		"select-dir": false,
 		"default": "",
 		"indent": true,
-		"dependency": "pref_show_custom_commands_box",
 		"description": "*Command or path to file:"
 	},
 	"pref_command_9_icon": {
 		"type": "iconfilechooser",
 		"default": "",
 		"indent": true,
-		"dependency": "pref_show_custom_commands_box",
 		"description": "*Icon:"
 	},
 	"pref_command_9_description": {
 		"type": "entry",
 		"default": "",
 		"indent": true,
-		"dependency": "pref_show_custom_commands_box",
 		"description": "Description:"
 	},
 	"pref_command_10": {
 		"type": "header",
-		"description": "\nCustom command 10"
+		"description": "\nCustom launcher 10"
 	},
 	"pref_command_10_label": {
 		"type": "entry",
 		"default": "",
 		"indent": true,
-		"dependency": "pref_show_custom_commands_box",
 		"description": "Label:"
 	},
 	"pref_command_10_command": {
@@ -653,21 +626,18 @@
 		"select-dir": false,
 		"default": "",
 		"indent": true,
-		"dependency": "pref_show_custom_commands_box",
 		"description": "*Command or path to file:"
 	},
 	"pref_command_10_icon": {
 		"type": "iconfilechooser",
 		"default": "",
 		"indent": true,
-		"dependency": "pref_show_custom_commands_box",
 		"description": "*Icon:"
 	},
 	"pref_command_10_description": {
 		"type": "entry",
 		"default": "",
 		"indent": true,
-		"dependency": "pref_show_custom_commands_box",
 		"description": "Description:"
 	},
 	"button4": {
@@ -853,7 +823,6 @@
 	"pref_custom_command_box_padding_top": {
 		"indent": true,
 		"type": "spinbutton",
-		"dependency": "pref_show_custom_commands_box",
 		"default": 5,
 		"min": 0,
 		"max": 500,
@@ -866,7 +835,6 @@
 	"pref_custom_command_box_padding_right": {
 		"indent": true,
 		"type": "spinbutton",
-		"dependency": "pref_show_custom_commands_box",
 		"default": 30,
 		"min": 0,
 		"max": 500,
@@ -879,7 +847,6 @@
 	"pref_custom_command_box_padding_bottom": {
 		"indent": true,
 		"type": "spinbutton",
-		"dependency": "pref_show_custom_commands_box",
 		"default": 5,
 		"min": 0,
 		"max": 500,
@@ -892,7 +859,6 @@
 	"pref_custom_command_box_padding_left": {
 		"indent": true,
 		"type": "spinbutton",
-		"dependency": "pref_show_custom_commands_box",
 		"default": 10,
 		"min": 0,
 		"max": 500,

@@ -59,12 +59,8 @@ MyApplet.prototype = {
 			this.menu = new Applet.AppletPopupMenu(this, aOrientation, aInstance_id);
 			this.menuManager.addMenu(this.menu);
 
-			// Resume adding this feature when I figure out how to make it work right.
-			// this.menu.controller = new HoverController(this, this.menu.actor, this.menu);
-			// this.controller = new HoverController(this, this.actor, this.menu);
-
-			if (!this.pref_directory)
-				this.pref_directory = GLib.get_home_dir() + "/My Quick Launch";
+			if (this.pref_directory === "")
+				this.pref_directory = GLib.get_home_dir() + "/Desktop";
 
 			this.autoupdate_last = this.pref_autoupdate;
 			this.directory_last = this.pref_directory;
@@ -84,6 +80,8 @@ MyApplet.prototype = {
 
 	_bind_settings: function() {
 		let settingsArray = [
+			[Settings.BindingDirection.BIDIRECTIONAL, "pref_directory", this._onSettingsDirectory],
+			[Settings.BindingDirection.BIDIRECTIONAL, "pref_sub_menu_icons_file_name", null],
 			[Settings.BindingDirection.IN, "pref_ignore_sub_folders", this._updateMenu],
 			[Settings.BindingDirection.IN, "pref_show_only_desktop_files", this._updateMenu],
 			[Settings.BindingDirection.IN, "pref_show_submenu_icons", this._updateMenu],
@@ -93,18 +91,16 @@ MyApplet.prototype = {
 			[Settings.BindingDirection.IN, "pref_show_hidden_files", this._updateMenu],
 			[Settings.BindingDirection.IN, "pref_show_hidden_folders", this._updateMenu],
 			[Settings.BindingDirection.IN, "pref_autoupdate", this._onSettingsAutoupdate],
-			[Settings.BindingDirection.IN, "pref_directory", this._onSettingsDirectory],
 			[Settings.BindingDirection.IN, "pref_customtooltip", this._onSettingsCustomTooltip],
 			[Settings.BindingDirection.IN, "pref_show_customicon", this._onSettingsIcon],
 			[Settings.BindingDirection.IN, "pref_customicon", this._onSettingsIcon],
 			[Settings.BindingDirection.IN, "pref_icon_for_menus", this._updateMenu],
 			[Settings.BindingDirection.IN, "pref_hotkey", this._updateKeybinding],
-
-			// Resume adding this feature when I figure out how to make it work right.
-			// [Settings.BindingDirection.IN, "pref_open_on_hover", null],
-			// [Settings.BindingDirection.IN, "pref_open_on_hover_delay", null],
-			// [Settings.BindingDirection.IN, "pref_close_on_leave", null],
-			// [Settings.BindingDirection.IN, "pref_close_on_leave_delay", null],
+			[Settings.BindingDirection.IN, "pref_use_different_icons_for_sub_menus", this._updateMenu],
+			[Settings.BindingDirection.IN, "pref_style_for_sub_menus", null],
+			[Settings.BindingDirection.IN, "pref_style_for_menu_items", null],
+			[Settings.BindingDirection.IN, "pref_sub_menu_icon_size", this._updateMenu],
+			[Settings.BindingDirection.IN, "pref_menu_item_icon_size", this._updateMenu],
 		];
 		for (let [binding, property_name, callback] of settingsArray) {
 			this.settings.bindProperty(binding, property_name, property_name, callback, null);
@@ -126,17 +122,36 @@ MyApplet.prototype = {
 		let self = this;
 		let currentDir = Gio.file_new_for_path(aDir);
 		if (currentDir.query_exists(null)) {
+			let iconsForFolders = null;
+
+			if (this.pref_use_different_icons_for_sub_menus) {
+				if (this.pref_sub_menu_icons_file_name === "")
+					this.pref_sub_menu_icons_file_name = "0_icons_for_sub_menus.json";
+
+				let iconsForSubMenusFile = Gio.file_new_for_path(aDir + "/" + this.pref_sub_menu_icons_file_name);
+				if (iconsForSubMenusFile.query_exists(null)) {
+					let fileContent = Cinnamon.get_file_contents_utf8_sync(iconsForSubMenusFile.get_path());
+					try {
+						iconsForFolders = JSON.parse(fileContent);
+					} catch (aErr) {
+						iconsForFolders = null;
+						global.logError(aErr);
+					}
+				}
+			}
 
 			let dirs = [];
 			let files = [];
 
-			let enumerator = currentDir.enumerate_children("standard::type", Gio.FileQueryInfoFlags.NOFOLLOW_SYMLINKS, null);
+			let enumerator = currentDir.enumerate_children("standard::type",
+				Gio.FileQueryInfoFlags.NOFOLLOW_SYMLINKS, null);
 			let file;
 
 			// Get all dirs and files
 			while ((file = enumerator.next_file(null)) !== null) {
 				let fileName = file.get_name();
 				let fileType = file.get_file_type();
+
 				if (fileType === Gio.FileType.DIRECTORY) {
 					if (this.pref_ignore_sub_folders)
 						continue;
@@ -144,12 +159,27 @@ MyApplet.prototype = {
 					if (/^\./.test(fileName) && !this.pref_show_hidden_folders)
 						continue;
 
-					dirs.push(fileName);
+					let iconName = this.pref_icon_for_menus;
+					if (this.pref_show_submenu_icons &&
+						this.pref_use_different_icons_for_sub_menus &&
+						iconsForFolders !== null &&
+						iconsForFolders[fileName]) {
+						global.logError(iconsForFolders[fileName]);
+						iconName = iconsForFolders[fileName];
+					}
+
+					dirs.push({
+						folderName: fileName,
+						iconName: iconName,
+					});
 				} else {
 					if (!/.desktop$/.test(fileName) && this.pref_show_only_desktop_files)
 						continue;
 
 					if (/^\./.test(fileName) && !this.pref_show_hidden_files)
+						continue;
+
+					if (fileName === this.pref_sub_menu_icons_file_name)
 						continue;
 
 					let filePath = aDir + "/" + fileName;
@@ -198,17 +228,19 @@ MyApplet.prototype = {
 			// Populate dirs first
 			if (dirs.length > 0 && !this.pref_ignore_sub_folders) {
 				dirs = dirs.sort(function(a, b) {
-					return a.localeCompare(b);
+					return a.folderName.localeCompare(b.folderName);
 				});
 				let d = 0,
 					dLen = dirs.length;
 				for (; d < dLen; d++) {
-					let directory = currentDir.get_path() + "/" + dirs[d];
+					let dirPath = currentDir.get_path() + "/" + dirs[d].folderName;
 					let submenu = this.pref_show_submenu_icons ?
-						new PopupMenuExtension.PopupLeftImageSubMenuMenuItem(dirs[d], this.pref_icon_for_menus) :
-						new PopupMenu.PopupSubMenuMenuItem(dirs[d]);
-					submenu.label.add_style_class_name("quick-menu-directory");
-					submenu.menu = this._loadDir(directory, submenu.menu);
+						new PopupMenuExtension.PopupLeftImageSubMenuMenuItem(dirs[d].folderName,
+							dirs[d].iconName, this.pref_sub_menu_icon_size) :
+						new PopupMenu.PopupSubMenuMenuItem(dirs[d].folderName);
+					if (this.pref_style_for_sub_menus !== "")
+						submenu.label.set_style(this.pref_style_for_sub_menus);
+					submenu.menu = this._loadDir(dirPath, submenu.menu);
 					aMenu.addMenuItem(submenu);
 				}
 			}
@@ -224,8 +256,11 @@ MyApplet.prototype = {
 					fLen = files.length;
 				for (; f < fLen; f++) {
 					let item = this.pref_show_applications_icons ?
-						new PopupMenuExtension.PopupImageLeftMenuItem(files[f].Name, files[f].Icon) :
+						new PopupMenuExtension.PopupImageLeftMenuItem(files[f].Name, files[f].Icon,
+							null, this.pref_menu_item_icon_size) :
 						new PopupMenu.PopupMenuItem(files[f].Name);
+					if (this.pref_style_for_menu_items !== "")
+						item.label.set_style(this.pref_style_for_menu_items);
 					item._handler = files[f].Handler;
 					item._app = files[f].App;
 					item.connect("activate", Lang.bind(this, function() {
@@ -297,7 +332,8 @@ MyApplet.prototype = {
 			"edit-redo",
 			St.IconType.SYMBOLIC);
 		this.update_menu_item.connect("activate", Lang.bind(this, this._updateMenu));
-		new Tooltips.Tooltip(this.update_menu_item.actor, _("Scan the main folder to find new/deleted files/folders."), this._orientation);
+		new Tooltips.Tooltip(this.update_menu_item.actor,
+			_("Scan the main folder to find new/deleted files/folders."), this._orientation);
 		this._applet_context_menu.addMenuItem(this.update_menu_item);
 
 		this.open_dir_menu_item = new PopupMenu.PopupIconMenuItem(_("Open folder"),
@@ -306,7 +342,8 @@ MyApplet.prototype = {
 		this.open_dir_menu_item.connect("activate", Lang.bind(this, function() {
 			Main.Util.spawnCommandLine("xdg-open " + self.pref_directory);
 		}));
-		new Tooltips.Tooltip(this.open_dir_menu_item.actor, _("Open the main folder."), this._orientation);
+		new Tooltips.Tooltip(this.open_dir_menu_item.actor, _("Open the main folder."),
+			this._orientation);
 		this._applet_context_menu.addMenuItem(this.open_dir_menu_item);
 
 		this.help_menu_item = new PopupMenu.PopupIconMenuItem(_("Help"),
@@ -337,54 +374,6 @@ MyApplet.prototype = {
 		this.menu.toggle();
 	}
 };
-
-// Resume adding this feature when I figure out how to make it work right.
-// function HoverController(aApplet, aActor, aMenu) {
-// 	this._init(aApplet, aActor, aMenu);
-// }
-
-// HoverController.prototype = {
-// 	_init: function(aApplet, aActor, aMenu) {
-// 		this._applet = aApplet;
-// 		this._parentActor = aActor;
-// 		this._parentMenu = aMenu;
-
-// 		global.logError(this._parentMenu.paint_id);
-
-// 		if (this._applet.pref_open_on_hover)
-// 			this._parentActor.connect("enter-event", Lang.bind(this, this._onEnter));
-
-// 		if (this._applet.pref_close_on_leave)
-// 			this._parentActor.connect("leave-event", Lang.bind(this, this._onLeave));
-
-// 		this.shouldOpen = false;
-// 	},
-
-// 	_onEnter: function() {
-// 		this.shouldOpen = true;
-
-// 		Mainloop.timeout_add(this._applet.pref_open_on_hover_delay, Lang.bind(this, this.open));
-// 	},
-
-// 	_onLeave: function() {
-// 		this.shouldOpen = this._parentActor === this._applet.actor;
-// 		// this.shouldOpen = false;
-
-// 		Mainloop.timeout_add(this._applet.pref_close_on_leave_delay, Lang.bind(this, this.close));
-// 	},
-
-// 	open: function() {
-// 		if (this.shouldOpen && !this._applet._applet_context_menu.isOpen) {
-// 			this._parentMenu.open();
-// 		}
-// 	},
-
-// 	close: function() {
-// 		if (!this.shouldOpen) {
-// 			this._parentMenu.close();
-// 		}
-// 	}
-// };
 
 function main(aMetadata, aOrientation, aPanel_height, aInstance_id) {
 	let myApplet = new MyApplet(aOrientation, aPanel_height, aInstance_id);

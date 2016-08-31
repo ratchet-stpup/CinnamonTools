@@ -23,11 +23,12 @@ function PopupImageLeftMenuItem() {
 PopupImageLeftMenuItem.prototype = {
 	__proto__: PopupMenu.PopupBaseMenuItem.prototype,
 
-	_init: function(aDisplayName, aIconName, aCommand, aParams) {
+	_init: function(aDisplayName, aIconName, aCommand, aIconSize, aParams) {
 		PopupMenu.PopupBaseMenuItem.prototype._init.call(this, aParams);
 
 		// useful to use application in the connect method
 		this.command = aCommand;
+		this._icon_size = aIconSize;
 
 		this._icon = this._createIcon(aIconName);
 		this.addActor(this._icon);
@@ -48,12 +49,12 @@ PopupImageLeftMenuItem.prototype = {
 
 			return new St.Icon({
 				gicon: iconFile,
-				icon_size: 24
+				icon_size: this._icon_size
 			});
 		} else // use a themed icon
 			return new St.Icon({
 			icon_name: aIconName,
-			icon_size: 24,
+			icon_size: this._icon_size,
 			icon_type: St.IconType.FULLCOLOR
 		});
 	}
@@ -67,10 +68,11 @@ function PopupLeftImageSubMenuMenuItem() {
 PopupLeftImageSubMenuMenuItem.prototype = {
 	__proto__: PopupMenu.PopupSubMenuMenuItem.prototype,
 
-	_init: function(aDisplayName, aIconName, aParams) {
+	_init: function(aDisplayName, aIconName, aIconSize, aParams) {
 		PopupMenu.PopupBaseMenuItem.prototype._init.call(this, aParams);
 
 		this.actor.add_style_class_name('popup-submenu-menu-item');
+		this._icon_size = aIconSize;
 
 		this._icon = this._createIcon(aIconName);
 		this.addActor(this._icon);
@@ -108,12 +110,12 @@ PopupLeftImageSubMenuMenuItem.prototype = {
 
 			return new St.Icon({
 				gicon: iconFile,
-				icon_size: 24
+				icon_size: this._icon_size
 			});
 		} else // use a themed icon
 			return new St.Icon({
 			icon_name: aIconName,
-			icon_size: 24,
+			icon_size: this._icon_size,
 			icon_type: St.IconType.FULLCOLOR
 		});
 	}

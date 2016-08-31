@@ -3,8 +3,8 @@
     "description": "Easily and quickly create a menu based on the files/folders found inside an specific folder.", 
     "max-instances": "100", 
     "dangerous": true, 
-    "name": "Quick Menu", 
-    "version": "1.0", 
-    "last-edited": "1470992758", 
-    "uuid": "0dyseus@QuickMenu"
+    "uuid": "0dyseus@QuickMenu", 
+    "version": "1.01", 
+    "last-edited": "1471719126", 
+    "name": "Quick Menu"
 }

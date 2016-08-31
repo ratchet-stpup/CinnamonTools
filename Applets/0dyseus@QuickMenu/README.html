@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>Quick Menu Readme</title>
-    <link rel="stylesheet" type="text/css" href="/public/github.css">
+    <link rel="stylesheet" type="text/css" href="./public/github.css">
   </head>
   <body>
     <div class="container">
@@ -34,14 +34,39 @@
 <ul>
 <li><strong>Keyboard shortcut to open and close the menu:</strong> Sets a hotkey to open/close the menu.</li>
 <li><strong>Icon for sub-menus:</strong> Set a custom icon for the sub-menus.</li>
-<li><strong>Autoupdate menu.:</strong> If enabled, every time the menu is opened, the applet will scan the main folder for added/deleted/modified files/folders and rebuild the menu. If disabled, the menu has to be updated manually from its context menu.</li>
+<li><strong>Style for sub-menus:</strong> Set a custom style for the sub-menus. After changing this setting, the menu has to be updated manually (<strong>Update menu</strong> item from the applet context menu).</li>
+<li><strong>Style for menu items:</strong> Set a custom style for the menu items. After changing this setting, the menu has to be updated manually (<strong>Update menu</strong> item from the applet context menu).</li>
+<li><strong>Auto-update menu.:</strong> If enabled, every time the menu is opened, the applet will scan the main folder for added/deleted/modified files/folders and rebuild the menu. If disabled, the menu has to be updated manually from its context menu.</li>
 <li><strong>Show only .desktop files:</strong> If enabled, only .desktop files will be used to create the menu. If disabled, all file types will be used to create the menu.</li>
 <li><strong>Show hidden files:</strong> If enabled, hidden files will be used to create menu items.</li>
 <li><strong>Show hidden folders:</strong> If enabled, hidden sub folders will be used to create sub-menus.</li>
 <li><strong>Show sub-menu icons:</strong> If disabled, all sub-menu items will be created without icons.</li>
 <li><strong>Show menu items icon:</strong> If disabled, all menu items will be created without icons.</li>
+<li><strong>Allow sub-menus to each have their own icon:</strong> Read the section called <em>How to set a different icon for each sub-menu</em> for details about the usage of this option.</li>
+<li><strong>Name for the file containing the icons for sub-menus:</strong> Read the section called <em>How to set a different icon for each sub-menu</em> for details about the usage of this option.</li>
 <li><strong>Ignore sub folders:</strong> If enabled, the sub folders found inside the main folder will be ignored and sub-menus will not be created.</li>
 </ul>
+<h2>How to set a different icon for each sub-menu</h2>
+<ul>
+<li>Create a file at the same level as the folders that will be used to create the sub-menus.</li>
+<li>The file name can be customized. By default is called <strong>0_icons_for_sub_menus.json</strong>.</li>
+<li>Whatever name is chosen for the file, it will be automatically ignored and will never be shown on the menu.</li>
+<li>The content of the file is a <em>JSON object</em> and has to look as follows:</li>
+</ul>
+<div class="codehilite"><pre><span class="p">{</span>
+    <span class="nt">&quot;Folder name 1&quot;</span><span class="p">:</span> <span class="s2">&quot;Icon name or icon path for Folder name 1&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;Folder name 2&quot;</span><span class="p">:</span> <span class="s2">&quot;Icon name or icon path for Folder name 2&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;Folder name 3&quot;</span><span class="p">:</span> <span class="s2">&quot;Icon name or icon path for Folder name 3&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;Folder name n&quot;</span><span class="p">:</span> <span class="s2">&quot;Icon name or icon path for Folder name n&quot;</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<ul>
+<li><strong>Warning!!!</strong> JSON <em>"language"</em> is very strict. Just be sure to ONLY use double quotes. And the last key/value combination DOESN'T have to end with a comma (<strong>Folder name n</strong> in the previous example).</li>
+</ul>
+<h4>Image featuring different icons for each sub-menu and different icon sizes</h4>
+<p><img alt="Image featuring different icons for each sub-menu and different icon sizes" src="./public/Screenshot-002.png" title="Image featuring different icons for each sub-menu and different icon sizes"></p>
 <h2>Known issues</h2>
 <p><strong>Note:</strong> My very limited knowledge (I'm not a developer) along with the lack of documentation for creating applets makes the corrections of these bugs/issues very hard for me. If someone has the solution, don't hesitate in pointing me in the right direction.</p>
 <ul>
@@ -53,6 +78,13 @@
 Spices comments system is absolutely useless to report bugs with any king of legibility. In addition, there is no notifications system for new comments. So, if anyone has bugs to report or a feature request, do so on this applet GitHub page. Just click the <strong>Website</strong> button next to the <strong>Download</strong> button.
 </span></p>
 <h2>Change Log</h2>
+<h5>1.01</h5>
+<ul>
+<li>Fixed the need to restart Cinnamon after adding this applet to the panel.</li>
+<li>Added option to allow custom icons for each individual sub-menu.</li>
+<li>Added options to set a custom size for sub-menus and menu items icons.</li>
+<li>Removed style sheet from applet folder (overwritten by each applet update) in favor of options to set styles for menu items and sub-menus (persistent across updates).</li>
+</ul>
 <h5>1.00</h5>
 <ul>
 <li>Initial release.</li>
@@ -61,18 +93,4 @@ Spices comments system is absolutely useless to report bugs with any king of leg
       </div>
     </div>
   </body>
-  <script type="text/x-omnimarkup-config">
-    window.App.Context = {
-      buffer_id: 249,
-      timestamp: '1471346562.2481592',
-      revivable_key: 'L2hvbWUvb2R5c2V1cy8ubG9jYWwvc2hhcmUvY2lubmFtb24vYXBwbGV0cy8wZHlzZXVzQFF1aWNrTWVudS9SRUFETUUubWQ='
-    };
-    window.App.Options = {
-      ajax_polling_interval: 500,
-      mathjax_enabled: false
-    };
-  </script>
-  <script type="text/javascript" src="/public/jquery-2.1.3.min.js"></script>
-  <script type="text/javascript" src="/public/imagesloaded.pkgd.min.js"></script>
-  <script type="text/javascript" src="/public/app.js"></script>
 </html>

@@ -31,6 +31,8 @@ const _ = Gettext.gettext;
 /**
  * START mark Odyseus
  */
+const AccountsService = imports.gi.AccountsService;
+
 var PREF_MAX_FAV_ICON_SIZE = 22;
 var PREF_CATEGORY_ICON_SIZE = 22;
 var PREF_APPLICATION_ICON_SIZE = 22;
@@ -1401,95 +1403,96 @@ MyApplet.prototype = {
 	 * START mark Odyseus
 	 */
 	_bind_extra_settings: function() {
+		let bD = Settings.BindingDirection;
 		let settingsArray = [
-			[Settings.BindingDirection.BIDIRECTIONAL, "pref_hide_allapps_category", null],
-			[Settings.BindingDirection.BIDIRECTIONAL, "pref_display_favorites_as_category_menu", null],
-			[Settings.BindingDirection.IN, "pref_swap_categories_box", null],
-			[Settings.BindingDirection.IN, "pref_disable_new_apps_highlighting", null],
-			[Settings.BindingDirection.IN, "pref_fuzzy_search_enabled", null],
-			[Settings.BindingDirection.IN, "pref_show_recents_button", null],
-			[Settings.BindingDirection.IN, "pref_system_buttons_display", null],
-			[Settings.BindingDirection.IN, "pref_show_lock_button", null],
-			[Settings.BindingDirection.IN, "pref_show_logout_button", null],
-			[Settings.BindingDirection.IN, "pref_show_shutdown_button", null],
-			[Settings.BindingDirection.IN, "pref_lock_button_custom_icon", null],
-			[Settings.BindingDirection.IN, "pref_logout_button_custom_icon", null],
-			[Settings.BindingDirection.IN, "pref_shutdown_button_custom_icon", null],
-			[Settings.BindingDirection.IN, "pref_separator_heigth", null],
-			[Settings.BindingDirection.IN, "pref_search_box_bottom", null],
-			[Settings.BindingDirection.IN, "pref_custom_width_for_searchbox", null],
-			[Settings.BindingDirection.IN, "pref_show_search_box", null],
-			[Settings.BindingDirection.IN, "pref_show_appinfo_box", null],
-			[Settings.BindingDirection.IN, "pref_max_fav_icon_size", null],
-			[Settings.BindingDirection.IN, "pref_category_icon_size", null],
-			[Settings.BindingDirection.IN, "pref_application_icon_size", null],
-			[Settings.BindingDirection.IN, "pref_max_recent_files", null],
-			[Settings.BindingDirection.IN, "pref_show_custom_commands_box", null],
-			[Settings.BindingDirection.IN, "pref_custom_command_box_padding_top", null],
-			[Settings.BindingDirection.IN, "pref_custom_command_box_padding_right", null],
-			[Settings.BindingDirection.IN, "pref_custom_command_box_padding_bottom", null],
-			[Settings.BindingDirection.IN, "pref_custom_command_box_padding_left", null],
-			[Settings.BindingDirection.IN, "pref_custom_commands_box_alignment", null],
-			[Settings.BindingDirection.IN, "pref_custom_commands_box_at_the_bottom", null],
-			[Settings.BindingDirection.IN, "pref_custom_command_icon_size", null],
-			[Settings.BindingDirection.IN, "pref_categories_box_padding_top", null],
-			[Settings.BindingDirection.IN, "pref_categories_box_padding_right", null],
-			[Settings.BindingDirection.IN, "pref_categories_box_padding_bottom", null],
-			[Settings.BindingDirection.IN, "pref_categories_box_padding_left", null],
-			[Settings.BindingDirection.IN, "pref_hide_applications_list_scrollbar", null],
-			[Settings.BindingDirection.IN, "pref_search_entry_padding_top", null],
-			[Settings.BindingDirection.IN, "pref_search_entry_padding_right", null],
-			[Settings.BindingDirection.IN, "pref_search_entry_padding_bottom", null],
-			[Settings.BindingDirection.IN, "pref_search_entry_padding_left", null],
-			[Settings.BindingDirection.IN, "pref_set_search_entry_padding", null],
-			[Settings.BindingDirection.IN, "pref_set_custom_box_padding", null],
-			[Settings.BindingDirection.IN, "pref_set_categories_padding", null],
-			[Settings.BindingDirection.IN, "pref_search_box_padding_top", null],
-			[Settings.BindingDirection.IN, "pref_search_box_padding_right", null],
-			[Settings.BindingDirection.IN, "pref_search_box_padding_bottom", null],
-			[Settings.BindingDirection.IN, "pref_search_box_padding_left", null],
-			[Settings.BindingDirection.IN, "pref_set_search_box_padding", null],
-
-			[Settings.BindingDirection.IN, "pref_command_1_label", null],
-			[Settings.BindingDirection.IN, "pref_command_1_command", null],
-			[Settings.BindingDirection.IN, "pref_command_1_icon", null],
-			[Settings.BindingDirection.IN, "pref_command_1_description", null],
-			[Settings.BindingDirection.IN, "pref_command_2_label", null],
-			[Settings.BindingDirection.IN, "pref_command_2_command", null],
-			[Settings.BindingDirection.IN, "pref_command_2_icon", null],
-			[Settings.BindingDirection.IN, "pref_command_2_description", null],
-			[Settings.BindingDirection.IN, "pref_command_3_label", null],
-			[Settings.BindingDirection.IN, "pref_command_3_command", null],
-			[Settings.BindingDirection.IN, "pref_command_3_icon", null],
-			[Settings.BindingDirection.IN, "pref_command_3_description", null],
-			[Settings.BindingDirection.IN, "pref_command_4_label", null],
-			[Settings.BindingDirection.IN, "pref_command_4_command", null],
-			[Settings.BindingDirection.IN, "pref_command_4_icon", null],
-			[Settings.BindingDirection.IN, "pref_command_4_description", null],
-			[Settings.BindingDirection.IN, "pref_command_5_label", null],
-			[Settings.BindingDirection.IN, "pref_command_5_command", null],
-			[Settings.BindingDirection.IN, "pref_command_5_icon", null],
-			[Settings.BindingDirection.IN, "pref_command_5_description", null],
-			[Settings.BindingDirection.IN, "pref_command_6_label", null],
-			[Settings.BindingDirection.IN, "pref_command_6_command", null],
-			[Settings.BindingDirection.IN, "pref_command_6_icon", null],
-			[Settings.BindingDirection.IN, "pref_command_6_description", null],
-			[Settings.BindingDirection.IN, "pref_command_7_label", null],
-			[Settings.BindingDirection.IN, "pref_command_7_command", null],
-			[Settings.BindingDirection.IN, "pref_command_7_icon", null],
-			[Settings.BindingDirection.IN, "pref_command_7_description", null],
-			[Settings.BindingDirection.IN, "pref_command_8_label", null],
-			[Settings.BindingDirection.IN, "pref_command_8_command", null],
-			[Settings.BindingDirection.IN, "pref_command_8_icon", null],
-			[Settings.BindingDirection.IN, "pref_command_8_description", null],
-			[Settings.BindingDirection.IN, "pref_command_9_label", null],
-			[Settings.BindingDirection.IN, "pref_command_9_command", null],
-			[Settings.BindingDirection.IN, "pref_command_9_icon", null],
-			[Settings.BindingDirection.IN, "pref_command_9_description", null],
-			[Settings.BindingDirection.IN, "pref_command_10_label", null],
-			[Settings.BindingDirection.IN, "pref_command_10_command", null],
-			[Settings.BindingDirection.IN, "pref_command_10_icon", null],
-			[Settings.BindingDirection.IN, "pref_command_10_description", null],
+			[bD.BIDIRECTIONAL, "pref_hide_allapps_category", null],
+			[bD.BIDIRECTIONAL, "pref_display_favorites_as_category_menu", null],
+			[bD.IN, "pref_apps_info_box_alignment_to_the_left", null],
+			[bD.IN, "pref_swap_categories_box", null],
+			[bD.IN, "pref_disable_new_apps_highlighting", null],
+			[bD.IN, "pref_fuzzy_search_enabled", null],
+			[bD.IN, "pref_show_recents_button", null],
+			[bD.IN, "pref_system_buttons_display", null],
+			[bD.IN, "pref_show_lock_button", null],
+			[bD.IN, "pref_show_logout_button", null],
+			[bD.IN, "pref_show_shutdown_button", null],
+			[bD.IN, "pref_lock_button_custom_icon", null],
+			[bD.IN, "pref_logout_button_custom_icon", null],
+			[bD.IN, "pref_shutdown_button_custom_icon", null],
+			[bD.IN, "pref_separator_heigth", null],
+			[bD.IN, "pref_search_box_bottom", null],
+			[bD.IN, "pref_custom_width_for_searchbox", null],
+			[bD.IN, "pref_show_search_box", null],
+			[bD.IN, "pref_show_appinfo_box", null],
+			[bD.IN, "pref_max_fav_icon_size", null],
+			[bD.IN, "pref_category_icon_size", null],
+			[bD.IN, "pref_application_icon_size", null],
+			[bD.IN, "pref_max_recent_files", null],
+			[bD.IN, "pref_custom_launchers_box_placement", null],
+			[bD.IN, "pref_autofit_searchbox_width", null],
+			[bD.IN, "pref_custom_command_box_padding_top", null],
+			[bD.IN, "pref_custom_command_box_padding_right", null],
+			[bD.IN, "pref_custom_command_box_padding_bottom", null],
+			[bD.IN, "pref_custom_command_box_padding_left", null],
+			[bD.IN, "pref_custom_commands_box_alignment", null],
+			[bD.IN, "pref_custom_command_icon_size", null],
+			[bD.IN, "pref_categories_box_padding_top", null],
+			[bD.IN, "pref_categories_box_padding_right", null],
+			[bD.IN, "pref_categories_box_padding_bottom", null],
+			[bD.IN, "pref_categories_box_padding_left", null],
+			[bD.IN, "pref_hide_applications_list_scrollbar", null],
+			[bD.IN, "pref_search_entry_padding_top", null],
+			[bD.IN, "pref_search_entry_padding_right", null],
+			[bD.IN, "pref_search_entry_padding_bottom", null],
+			[bD.IN, "pref_search_entry_padding_left", null],
+			[bD.IN, "pref_set_search_entry_padding", null],
+			[bD.IN, "pref_set_custom_box_padding", null],
+			[bD.IN, "pref_set_categories_padding", null],
+			[bD.IN, "pref_search_box_padding_top", null],
+			[bD.IN, "pref_search_box_padding_right", null],
+			[bD.IN, "pref_search_box_padding_bottom", null],
+			[bD.IN, "pref_search_box_padding_left", null],
+			[bD.IN, "pref_set_search_box_padding", null],
+			[bD.IN, "pref_command_1_label", null],
+			[bD.IN, "pref_command_1_command", null],
+			[bD.IN, "pref_command_1_icon", null],
+			[bD.IN, "pref_command_1_description", null],
+			[bD.IN, "pref_command_2_label", null],
+			[bD.IN, "pref_command_2_command", null],
+			[bD.IN, "pref_command_2_icon", null],
+			[bD.IN, "pref_command_2_description", null],
+			[bD.IN, "pref_command_3_label", null],
+			[bD.IN, "pref_command_3_command", null],
+			[bD.IN, "pref_command_3_icon", null],
+			[bD.IN, "pref_command_3_description", null],
+			[bD.IN, "pref_command_4_label", null],
+			[bD.IN, "pref_command_4_command", null],
+			[bD.IN, "pref_command_4_icon", null],
+			[bD.IN, "pref_command_4_description", null],
+			[bD.IN, "pref_command_5_label", null],
+			[bD.IN, "pref_command_5_command", null],
+			[bD.IN, "pref_command_5_icon", null],
+			[bD.IN, "pref_command_5_description", null],
+			[bD.IN, "pref_command_6_label", null],
+			[bD.IN, "pref_command_6_command", null],
+			[bD.IN, "pref_command_6_icon", null],
+			[bD.IN, "pref_command_6_description", null],
+			[bD.IN, "pref_command_7_label", null],
+			[bD.IN, "pref_command_7_command", null],
+			[bD.IN, "pref_command_7_icon", null],
+			[bD.IN, "pref_command_7_description", null],
+			[bD.IN, "pref_command_8_label", null],
+			[bD.IN, "pref_command_8_command", null],
+			[bD.IN, "pref_command_8_icon", null],
+			[bD.IN, "pref_command_8_description", null],
+			[bD.IN, "pref_command_9_label", null],
+			[bD.IN, "pref_command_9_command", null],
+			[bD.IN, "pref_command_9_icon", null],
+			[bD.IN, "pref_command_9_description", null],
+			[bD.IN, "pref_command_10_label", null],
+			[bD.IN, "pref_command_10_command", null],
+			[bD.IN, "pref_command_10_icon", null],
+			[bD.IN, "pref_command_10_description", null],
 
 		];
 		for (let [binding, property_name, callback] of settingsArray) {
@@ -1580,7 +1583,7 @@ MyApplet.prototype = {
 		 */
 		if (this.pref_show_search_box)
 			scrollBoxHeight = scrollBoxHeight - (this.searchBox.get_allocation_box().y2 - this.searchBox.get_allocation_box().y1);
-		if (this.pref_show_custom_commands_box)
+		if (this.pref_custom_launchers_box_placement !== 0)
 			scrollBoxHeight = scrollBoxHeight - (this.myCustomCommandsBox.get_allocation_box().y2 - this.myCustomCommandsBox.get_allocation_box().y1);
 		/**
 		 * END
@@ -1685,6 +1688,15 @@ MyApplet.prototype = {
 					null, this._allAppsCategoryButton);
 			} else
 				Mainloop.idle_add(Lang.bind(this, this._initial_cat_selection, n));
+
+			// I moved this to _refreshApps. Let's see how it works in there.
+			// if (this.pref_autofit_searchbox_width && this.pref_custom_launchers_box_placement >= 3) {
+			// 	let searchEntryWidth = (this.applicationsBox.get_allocation_box().x2 -
+			// 		this.applicationsBox.get_allocation_box().x1);
+			// 	searchEntryWidth = searchEntryWidth + (this.categoriesBox.get_allocation_box().x2 -
+			// 		this.categoriesBox.get_allocation_box().x1);
+			// 	this.searchEntry.set_width(searchEntryWidth);
+			// }
 			/**
 			 * END
 			 */
@@ -2504,6 +2516,14 @@ MyApplet.prototype = {
 		// From Sane Menu
 		if (this.pref_fuzzy_search_enabled)
 			this._applicationsButtonsBackup = Object.create(this._applicationsButtons);
+		//
+		if (this.pref_autofit_searchbox_width && this.pref_custom_launchers_box_placement >= 3) {
+			let searchEntryWidth = (this.applicationsBox.get_allocation_box().x2 -
+				this.applicationsBox.get_allocation_box().x1);
+			searchEntryWidth = searchEntryWidth + (this.categoriesBox.get_allocation_box().x2 -
+				this.categoriesBox.get_allocation_box().x1);
+			this.searchEntry.set_width(searchEntryWidth);
+		}
 		/**
 		 * END
 		 */
@@ -2777,10 +2797,24 @@ MyApplet.prototype = {
 		 * START mark Odyseus
 		 * Moved the selectedAppBox creation up here to allow me to insert it erlier in the rightPane.
 		 */
+		let searchBoxContainer;
+
+		if (this.pref_custom_launchers_box_placement >= 3)
+			searchBoxContainer = rightPane;
+		else {
+			searchBoxContainer = new St.BoxLayout({
+				vertical: false
+			});
+		}
+
 		this.selectedAppBox = new St.BoxLayout({
 			style_class: 'menu-selected-app-box',
 			vertical: true
 		});
+		if (this.pref_apps_info_box_alignment_to_the_left)
+			this.selectedAppBox.set_style("text-align: left;");
+		else
+			this.selectedAppBox.set_style("text-align: right;");
 
 		if (this.selectedAppBox.peek_theme_node() === null ||
 			this.selectedAppBox.get_theme_node().get_length('height') === 0)
@@ -2799,7 +2833,7 @@ MyApplet.prototype = {
 
 		this.myCustomCommandsBox = null;
 
-		if (this.pref_show_custom_commands_box) {
+		if (this.pref_custom_launchers_box_placement !== 0) {
 			this.myCustomCommandsBox = new St.BoxLayout({
 				vertical: false,
 				reactive: true,
@@ -2836,22 +2870,28 @@ MyApplet.prototype = {
 				break;
 		}
 
-		if (this.myCustomCommandsBox !== null && !this.pref_custom_commands_box_at_the_bottom) {
-			rightPane.add(this.myCustomCommandsBox, {
-				x_fill: false,
-				y_fill: false,
-				x_align: customCmdBoxAlignment,
-				y_align: St.Align.MIDDLE,
-				expand: true
-			});
+		let dummyObj = {
+			x_fill: false,
+			y_fill: false,
+			x_align: customCmdBoxAlignment,
+			y_align: St.Align.MIDDLE,
+			expand: true
+		};
+
+		if (this.myCustomCommandsBox !== null) {
+			if (this.pref_custom_launchers_box_placement === 1) { // Left of search box
+				searchBoxContainer.add(this.myCustomCommandsBox, dummyObj);
+			} else if (this.pref_custom_launchers_box_placement === 3) { // At the top
+				rightPane.add(this.myCustomCommandsBox, dummyObj);
+			}
 		}
 
 		if (this.pref_search_box_bottom)
 			this.pref_show_appinfo_box && section.actor.add_actor(this.selectedAppBox);
-		else
-			this.pref_show_search_box && rightPane.add_actor(this.searchBox, {
-				expand: true
-			});
+		else {
+			rightPane.add_actor(searchBoxContainer);
+			this.pref_show_search_box && searchBoxContainer.add_actor(this.searchBox);
+		}
 
 		if (this.pref_show_search_box) {
 			this.searchEntry = new St.Entry({
@@ -2881,7 +2921,13 @@ MyApplet.prototype = {
 
 			this.searchEntry.set_secondary_icon(this._searchInactiveIcon);
 
-			this.searchBox.add_actor(this.searchEntry);
+			this.searchBox.add(this.searchEntry, {
+				x_fill: true,
+				x_align: St.Align.START,
+				y_align: St.Align.MIDDLE,
+				y_fill: false,
+				expand: true
+			});
 			this.searchActive = false;
 			this.searchEntryText = this.searchEntry.clutter_text;
 			this.searchEntryText.connect('text-changed', Lang.bind(this, this._onSearchTextChanged));
@@ -2990,21 +3036,19 @@ MyApplet.prototype = {
 		/**
 		 * START mark Odyseus
 		 */
-		if (this.pref_search_box_bottom)
-			this.pref_show_search_box && rightPane.add_actor(this.searchBox, {
-				expand: true
-			});
-		else
+		if (this.pref_search_box_bottom) {
+			rightPane.add_actor(searchBoxContainer);
+			this.pref_show_search_box && searchBoxContainer.add_actor(this.searchBox);
+		} else
 			this.pref_show_appinfo_box && section.actor.add_actor(this.selectedAppBox);
 
-		if (this.myCustomCommandsBox !== null && this.pref_custom_commands_box_at_the_bottom)
-			rightPane.add(this.myCustomCommandsBox, {
-				x_fill: false,
-				y_fill: false,
-				x_align: customCmdBoxAlignment,
-				y_align: St.Align.MIDDLE,
-				expand: true
-			});
+		if (this.myCustomCommandsBox !== null) {
+			if (this.pref_custom_launchers_box_placement === 2) { // Right of search box
+				searchBoxContainer.add(this.myCustomCommandsBox, dummyObj);
+			} else if (this.pref_custom_launchers_box_placement === 4) { // At the bottom
+				rightPane.add(this.myCustomCommandsBox, dummyObj);
+			}
+		}
 		/**
 		 * END
 		 */
@@ -3022,10 +3066,12 @@ MyApplet.prototype = {
 		/**
 		 * START mark Odyseus
 		 */
-		if (this.pref_custom_width_for_searchbox === 0)
-			this.searchEntry.set_width(-1);
-		else
-			this.searchEntry.set_width(this.pref_custom_width_for_searchbox);
+		if (this.pref_custom_launchers_box_placement < 3) {
+			if (this.pref_custom_width_for_searchbox === 0)
+				this.searchEntry.set_width(-1);
+			else
+				this.searchEntry.set_width(this.pref_custom_width_for_searchbox);
+		}
 
 		this._updateCustomCommandsBox();
 		/**
@@ -3062,7 +3108,8 @@ MyApplet.prototype = {
 				command: cmd,
 				description: desc,
 				label: lbl,
-				icon: icn
+				icon: icn,
+				icon_size: PREF_CUSTOM_COMMAND_ICON_SIZE
 			};
 			if (app) {
 				let button = new MyCustomCommanButton(this, app, null);
@@ -3088,7 +3135,8 @@ MyApplet.prototype = {
 				label: _("Lock screen"),
 				icon: (this.pref_lock_button_custom_icon === "" ?
 					"system-lock-screen" :
-					this.pref_lock_button_custom_icon)
+					this.pref_lock_button_custom_icon),
+				icon_size: PREF_CUSTOM_COMMAND_ICON_SIZE
 			}, Lang.bind(this, function() {
 				this.menu.close();
 
@@ -3116,7 +3164,8 @@ MyApplet.prototype = {
 				label: _("Logout"),
 				icon: (this.pref_logout_button_custom_icon === "" ?
 					"system-lock-screen" :
-					this.pref_logout_button_custom_icon)
+					this.pref_logout_button_custom_icon),
+				icon_size: PREF_CUSTOM_COMMAND_ICON_SIZE
 			}, Lang.bind(this, function() {
 				this.menu.close();
 				this._session.LogoutRemote(0);
@@ -3131,7 +3180,8 @@ MyApplet.prototype = {
 				label: _("Quit"),
 				icon: (this.pref_shutdown_button_custom_icon === "" ?
 					"system-lock-screen" :
-					this.pref_shutdown_button_custom_icon)
+					this.pref_shutdown_button_custom_icon),
+				icon_size: PREF_CUSTOM_COMMAND_ICON_SIZE
 			}, Lang.bind(this, function() {
 				this.menu.close();
 				this._session.ShutdownRemote();
@@ -3801,7 +3851,7 @@ MyCustomCommanButton.prototype = {
 		this.button = new St.Button({
 			style_class: 'customcommand-button'
 		});
-		let icon_size = PREF_CUSTOM_COMMAND_ICON_SIZE;
+		let icon_size = this.app.icon_size;
 		let icon_type = (this.app.icon.search("-symbolic") !== -1) ? 0 : 1;
 		let iconObj = {
 			icon_size: icon_size,
