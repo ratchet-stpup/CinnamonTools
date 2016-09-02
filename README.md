@@ -1,4 +1,4 @@
-### Applets and Extensions for the Cinnamon Desktop Environment
+### Applets, Extensions and Themes for the Cinnamon Desktop Environment
 
 #### My Cinnamon Applets
 - [Custom Cinnamon Menu](https://cinnamon-spices.linuxmint.com/applets/view/264)
@@ -13,3 +13,4 @@
 
 #### My Cinnamon Themes
 - [Mint-XY](https://cinnamon-spices.linuxmint.com/themes/view/567)
+- [Mint-XY-Greybird-Blue](https://cinnamon-spices.linuxmint.com/themes/view/569)
