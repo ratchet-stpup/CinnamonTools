@@ -21,5 +21,8 @@ Spices comments system is absolutely useless to report bugs with any king of leg
 
 ## Change Log
 
+##### 1.01
+- Fixed all broken links pointing to this extension website.
+
 ##### 1.00
 - Initial release.
