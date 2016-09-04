@@ -29,6 +29,11 @@
 		"default": true,
 		"description": "Show window thumbnails on hover"
 	},
+	"pref_hide_tooltips": {
+		"type": "checkbox",
+		"default": false,
+		"description": "Do not display tooltips. (Cinnamon will be restarted)"
+	},
 	"pref_hide_labels": {
 		"type": "checkbox",
 		"default": false,

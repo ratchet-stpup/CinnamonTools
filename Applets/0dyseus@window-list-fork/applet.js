@@ -439,7 +439,8 @@ AppMenuButton.prototype = {
 		if (title.length > MAX_TEXT_LENGTH)
 			title = title.substr(0, MAX_TEXT_LENGTH);
 
-		if (this._tooltip && this._tooltip.set_text)
+
+		if (this._tooltip && this._tooltip.set_text && !this._applet.pref_hide_tooltips)
 			this._tooltip.set_text(title);
 
 		if (this._applet.pref_hide_labels)
@@ -909,6 +910,10 @@ MyApplet.prototype = {
 		this.settings.bindProperty(Settings.BindingDirection.IN,
 			"pref_hide_labels",
 			"pref_hide_labels",
+			this._onLabelHidden, null);
+		this.settings.bindProperty(Settings.BindingDirection.IN,
+			"pref_hide_tooltips",
+			"pref_hide_tooltips",
 			this._onLabelHidden, null);
 
 		this.signals = new SignalManager.SignalManager(this);

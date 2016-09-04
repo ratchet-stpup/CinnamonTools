@@ -8,6 +8,7 @@ Tested and working on Cinnamon version 3.0.7.
 
 ## Differences with the original
 - Added option to remove the label from the window list buttons.
+- Added option to remove the tooltips from the window list buttons.
 - Added icons to the window list button's context menu.
 
 <h2 style="color:red;"> Bug report and feature request</h2>
@@ -16,6 +17,9 @@ Spices comments system is absolutely useless to report bugs with any king of leg
 </span>
 
 ## Change Log
+
+##### 1.02
+- Added option to hide tooltips.
 
 ##### 1.01
 - Fixed tooltips not displaying.
