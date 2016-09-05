@@ -10,10 +10,9 @@ This theme is basically the default **Mint-X** theme with some graphics (check/r
 - Now all switches have an uniform look across tolkits.
 
     - ###### Before:
-![Before image](https://dl.dropboxusercontent.com/u/5194280/0PublishedCinnamonTools//CinnamonTools/0MiscFiles/Mint-XY-001.png "Before image")
+![Before image](https://raw.githubusercontent.com/Odyseus/CinnamonTools/master/0MiscFiles/Mint-XY-001.png "Before image")
     - ###### After:
-![After image](https://dl.dropboxusercontent.com/u/5194280/0PublishedCinnamonTools//CinnamonTools/0MiscFiles/Mint-XY-002.png "After image")
+![After image](https://raw.githubusercontent.com/Odyseus/CinnamonTools/master/0MiscFiles/Mint-XY-002.png "After image")
 
 ##### 1.0
 - Initial release.
-
