@@ -166,6 +166,10 @@ StScrollBar StButton#vhandle:hover
 .popup-menu {
 	color: rgb(70,70,70);
 	min-width: 100px;
+	border-top: none;
+border-left: none;
+border-right: none;
+border-radius: 0 0 0 0;
 }
 
 .popup-menu StEntry {

@@ -2060,7 +2060,12 @@ GtkStatusbar {
  * switch *
  **********/
 
-GtkSwitch {
+ /**
+  * Mark Odyseus
+  * GtkSwitch is set on gtk-odyseus-tweaks.css file and uses assets from extra-assets folder
+  */
+
+/*GtkSwitch {
     -GtkSwitch-slider-width: 40px;
     font-weight: bold;
     font-size: smaller;
@@ -2083,7 +2088,7 @@ GtkSwitch.trough:insensitive:active {
 }
 
 GtkSwitch.slider {
-}
+}*/
 
 /*******************
  * symbolic images *

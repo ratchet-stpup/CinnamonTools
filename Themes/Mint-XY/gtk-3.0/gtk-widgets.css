@@ -2060,7 +2060,7 @@ GtkStatusbar {
  * switch *
  **********/
 
-GtkSwitch {
+/*GtkSwitch {
     -GtkSwitch-slider-width: 40px;
     font-weight: bold;
     font-size: smaller;
@@ -2083,7 +2083,7 @@ GtkSwitch.trough:insensitive:active {
 }
 
 GtkSwitch.slider {
-}
+}*/
 
 /*******************
  * symbolic images *
