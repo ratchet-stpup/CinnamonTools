@@ -531,6 +531,17 @@ GdMainIconView.content-view {
     box-shadow: 0 2px 3px alpha(black, 0.3);
 }
 
+.window-frame.solid-csd {
+    border-radius: 0;
+    margin: 1px;
+    background-color: @theme_bg_color;
+    box-shadow: none;
+}
+
+.solid-csd .header-bar.titlebar {
+    border-radius: 0;
+}
+
 /****************
  * drawing area *
  ****************/
@@ -1223,6 +1234,12 @@ GtkTreeMenu .menuitem,
     color: mix(@menu_fg, @menu_bg, 0.6);
 }
 
+
+.menuitem .accelerator {
+    color: alpha(@theme_text_color, 0.6);
+}
+
+
 GtkModelMenuItem GtkBox GtkImage {
 }
 
@@ -1671,8 +1688,8 @@ GtkTreeView.view.trough:selected {
 .scrollbar {
     background-clip: padding-box;
     -GtkRange-trough-border: 2;
-    -GtkScrollbar-has-backward-stepper: 0;
-    -GtkScrollbar-has-forward-stepper: 0;
+    -GtkScrollbar-has-backward-stepper: 1;
+    -GtkScrollbar-has-forward-stepper: 1;
     -GtkRange-slider-width: 10;
     -GtkScrollbar-min-slider-length: 30;
     -GtkRange-stepper-spacing: 0;

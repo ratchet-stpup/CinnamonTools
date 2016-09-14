@@ -1,10 +1,10 @@
 {
     "website": "https://github.com/Odyseus/CinnamonTools/tree/master/Applets/0dyseus%40SysmonitorByOrcus", 
-    "description": "Displays CPU, memory, swap and network usage and load in graphs.", 
+    "last-edited": "1471716762", 
     "dangerous": true, 
     "uuid": "0dyseus@SysmonitorByOrcus", 
+    "name": "System Monitor (Fork By Odyseus)", 
     "version": "1.5", 
-    "last-edited": "1470992691", 
     "icon": "utilities-system-monitor", 
-    "name": "System Monitor (Fork By Odyseus)"
+    "description": "Displays CPU, memory, swap and network usage and load in graphs."
 }

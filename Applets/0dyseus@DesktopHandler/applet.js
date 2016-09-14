@@ -209,8 +209,10 @@ MyApplet.prototype = {
 
 	_handleDesktopPeek: function() {
 		try {
-			this.actor.disconnect(this.enterAct);
-			this.actor.disconnect(this.leaveAct);
+			if (this.enterAct)
+				this.actor.disconnect(this.enterAct);
+			if (this.leaveAct)
+				this.actor.disconnect(this.leaveAct);
 		} catch (aErr) {}
 
 		if (!this.pref_peek_desktop_enabled)
@@ -219,6 +221,7 @@ MyApplet.prototype = {
 		this.enterAct = this.actor.connect("enter-event", Lang.bind(this, this._onEntered));
 		this.leaveAct = this.actor.connect("leave-event", Lang.bind(this, this._onLEntered));
 
+		return true;
 	},
 
 	_handleWindowList: function() {
@@ -250,6 +253,7 @@ MyApplet.prototype = {
 			this.openAct = this._winMenu.connect("open-state-changed", Lang.bind(this, this._onToggled));
 		} catch (aErr) {}
 
+		return true;
 	},
 
 	updateMenu: function() {
@@ -688,6 +692,8 @@ MyApplet.prototype = {
 		}
 
 		this._setAppletTooltip();
+
+		return true;
 	},
 
 	_strMap: {
@@ -1010,6 +1016,8 @@ MyApplet.prototype = {
 			reqWs.activate(global.get_current_time());
 			this.showWorkspaceOSD();
 		}
+
+		return true;
 	},
 
 	showWorkspaceOSD: function() {

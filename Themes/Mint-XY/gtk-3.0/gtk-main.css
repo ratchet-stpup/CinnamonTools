@@ -125,4 +125,8 @@
 @import url("apps/cinnamon-applications.css");
 @import url("apps/ubiquity.css");
 
+/**
+ * Mark Odyseus
+ * Add css tweaks in a separated file instead of in-line in each file.
+ */
 @import url("gtk-odyseus-tweaks.css");

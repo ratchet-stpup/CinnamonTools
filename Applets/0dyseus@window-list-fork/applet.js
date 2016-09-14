@@ -945,6 +945,7 @@ MyApplet.prototype = {
 
 	on_applet_removed_from_panel: function() {
 		this.signals.disconnectAllSignals();
+		this.settings.finalize();
 	},
 
 	on_applet_instances_changed: function() {

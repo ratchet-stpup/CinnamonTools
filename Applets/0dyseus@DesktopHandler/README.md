@@ -38,6 +38,9 @@ Spices comments system is absolutely useless to report bugs with any king of leg
 
 ## Change Log
 
+##### 1.03
+- Minor fixes.
+
 ##### 1.02
 - Minor performance tweaks.
 

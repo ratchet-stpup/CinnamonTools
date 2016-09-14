@@ -1,11 +1,11 @@
 {
     "website": "https://github.com/Odyseus/CinnamonTools/tree/master/Applets/0dyseus%40DesktopHandler", 
-    "uuid": "0dyseus@DesktopHandler", 
+    "description": "Various shortcuts to handle desktop actions.", 
     "max-instances": "8", 
     "dangerous": false, 
-    "description": "Various shortcuts to handle desktop actions.", 
-    "version": "1.02", 
-    "last-edited": "1471086010", 
+    "name": "Desktop Handler", 
+    "version": "1.03", 
+    "last-edited": "1471153098", 
     "icon": "desktop-effects", 
-    "name": "Desktop Handler"
+    "uuid": "0dyseus@DesktopHandler"
 }

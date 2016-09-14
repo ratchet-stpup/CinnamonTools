@@ -31,12 +31,12 @@ const _ = Gettext.gettext;
 /**
  * START mark Odyseus
  */
-const AccountsService = imports.gi.AccountsService;
-
 var PREF_MAX_FAV_ICON_SIZE = 22;
 var PREF_CATEGORY_ICON_SIZE = 22;
 var PREF_APPLICATION_ICON_SIZE = 22;
 var PREF_CUSTOM_COMMAND_ICON_SIZE = 22;
+var PREF_CUSTOM_ICON_FOR_REC_APPS_CAT = "";
+var PREF_CUSTOM_LABEL_FOR_REC_APPS_CAT = "";
 /**
  * END
  */
@@ -50,10 +50,6 @@ const PRIVACY_SCHEMA = "org.cinnamon.desktop.privacy";
 const REMEMBER_RECENT_KEY = "remember-recent-files";
 
 let appsys = Cinnamon.AppSystem.get_default();
-
-function _notifyme(aMsg) {
-	GLib.spawn_command_line_async("notify-send --icon=image-missing '" + aMsg + "'");
-}
 
 /* VisibleChildIterator takes a container (boxlayout, etc.)
  * and creates an array of its visible children and their index
@@ -177,7 +173,11 @@ ApplicationContextMenuItem.prototype = {
 				break;
 			case "uninstall":
 				Util.spawnCommandLine("gksu -m '" + _("Please provide your password to uninstall this application") + "' /usr/bin/cinnamon-remove-application '" + this._appButton.app.get_app_info().get_filename() + "'");
-				this._appButton.appsMenuButton.menu.close();
+				this._appButton.appsMenuButton.menu.close(this.pref_animate_menu);
+				break;
+			case "run_with_nvidia_gpu":
+				Util.spawnCommandLine("optirun gtk-launch " + this._appButton.app.get_id());
+				this._appButton.appsMenuButton.menu.close(this.pref_animate_menu);
 				break;
 		}
 		return false;
@@ -236,11 +236,44 @@ GenericApplicationButton.prototype = {
 	activate: function(event) {
 		this.unhighlight();
 		this.app.open_new_window(-1);
-		this.appsMenuButton.menu.close();
+		this.appsMenuButton.menu.close(this.pref_animate_menu);
+		if (this.appsMenuButton.pref_remember_recently_used_apps &&
+			this instanceof ApplicationButton) {
+			try {
+				let t = new Date().getTime();
+				let recApps = this.appsMenuButton.pref_recently_used_apps;
+				// Remove object if it was previously launched.
+				for (let i = recApps.length; i--;) {
+					if (recApps[i]["id"] === this.app.get_id()) {
+						recApps.splice(i, 1);
+					}
+				}
+				// this.app.lastAccess = t;
+				recApps.push({
+					id: this.app.get_id(),
+					lastAccess: t
+				});
+
+				// Holy ·$%&/()!!!
+				// The only freaking way that I could find to remove duplicated!!!
+				// Like always, Stack Overflow is a life saver.
+				// http://stackoverflow.com/questions/31014324/remove-duplicated-object-in-array
+				let temp = [];
+
+				this.appsMenuButton.pref_recently_used_apps = recApps.filter(function(aVal) {
+					return temp.indexOf(aVal.id) === -1 ? temp.push(aVal.id) : false;
+				});
+
+				this.appsMenuButton._refreshRecentApps();
+			} catch (aErr) {
+				global.logError(aErr);
+			}
+		}
 	},
 
 	closeMenu: function() {
-		if (this.withMenu) this.menu.close();
+		if (this.withMenu)
+			this.menu.close(this.pref_animate_menu);
 	},
 
 	toggleMenu: function() {
@@ -270,12 +303,17 @@ GenericApplicationButton.prototype = {
 				menuItem = new ApplicationContextMenuItem(this, _("Uninstall"), "uninstall");
 				this.menu.addMenuItem(menuItem);
 			}
+			if (this.appsMenuButton._isBumblebeeInstalled) {
+				menuItem = new ApplicationContextMenuItem(this, _("Run with nVidia GPU"), "run_with_nvidia_gpu");
+				this.menu.addMenuItem(menuItem);
+			}
 		}
-		this.menu.toggle();
+		this.menu.toggle(this.pref_animate_menu);
 	},
 
 	_subMenuOpenStateChanged: function() {
-		if (this.menu.isOpen) this.appsMenuButton._scrollToButton(this.menu);
+		if (this.menu.isOpen)
+			this.appsMenuButton._scrollToButton(this.menu);
 	}
 };
 
@@ -396,7 +434,7 @@ TransientButton.prototype = {
 
 		}
 
-		this.appsMenuButton.menu.close();
+		this.appsMenuButton.menu.close(this.pref_animate_menu);
 	}
 };
 
@@ -550,7 +588,7 @@ SearchProviderResultButton.prototype = {
 	activate: function(event) {
 		try {
 			this.provider.on_result_selected(this.result);
-			this.appsMenuButton.menu.close();
+			this.appsMenuButton.menu.close(this.pref_animate_menu);
 		} catch (e) {
 			global.logError(e);
 		}
@@ -607,13 +645,13 @@ PlaceButton.prototype = {
 	_onButtonReleaseEvent: function(actor, event) {
 		if (event.get_button() == 1) {
 			this.place.launch();
-			this.appsMenuButton.menu.close();
+			this.appsMenuButton.menu.close(this.appsMenuButton.pref_animate_menu);
 		}
 	},
 
 	activate: function(event) {
 		this.place.launch();
-		this.appsMenuButton.menu.close();
+		this.appsMenuButton.menu.close(this.appsMenuButton.pref_animate_menu);
 	}
 };
 
@@ -689,7 +727,7 @@ RecentButton.prototype = {
 	_onButtonReleaseEvent: function(actor, event) {
 		if (event.get_button() == 1) {
 			this.file.launch();
-			this.appsMenuButton.menu.close();
+			this.appsMenuButton.menu.close(this.appsMenuButton.pref_animate_menu);
 		}
 		if (event.get_button() == 3) {
 			if (!this.menu.isOpen)
@@ -701,11 +739,11 @@ RecentButton.prototype = {
 
 	activate: function(event) {
 		this.file.launch();
-		this.appsMenuButton.menu.close();
+		this.appsMenuButton.menu.close(this.appsMenuButton.pref_animate_menu);
 	},
 
 	closeMenu: function() {
-		this.menu.close();
+		this.menu.close(this.appsMenuButton.pref_animate_menu);
 	},
 
 	hasLocalPath: function(file) {
@@ -737,7 +775,7 @@ RecentButton.prototype = {
 					Lang.bind(this, function() {
 						default_info.launch([file], null, null);
 						this.toggleMenu();
-						this.appsMenuButton.menu.close();
+						this.appsMenuButton.menu.close(this.appsMenuButton.pref_animate_menu);
 					}));
 				this.menu.addMenuItem(menuItem);
 			}
@@ -763,7 +801,7 @@ RecentButton.prototype = {
 					Lang.bind(this, function() {
 						info.launch([file], null, null);
 						this.toggleMenu();
-						this.appsMenuButton.menu.close();
+						this.appsMenuButton.menu.close(this.appsMenuButton.pref_animate_menu);
 					}));
 				this.menu.addMenuItem(menuItem);
 			}
@@ -775,16 +813,17 @@ RecentButton.prototype = {
 					Lang.bind(this, function() {
 						Util.spawnCommandLine("nemo-open-with " + this.file.uri);
 						this.toggleMenu();
-						this.appsMenuButton.menu.close();
+						this.appsMenuButton.menu.close(this.appsMenuButton.pref_animate_menu);
 					}));
 				this.menu.addMenuItem(menuItem);
 			}
 		}
-		this.menu.toggle();
+		this.menu.toggle(this.appsMenuButton.pref_animate_menu);
 	},
 
 	_subMenuOpenStateChanged: function() {
-		if (this.menu.isOpen) this.appsMenuButton._scrollToButton(this.menu);
+		if (this.menu.isOpen)
+			this.appsMenuButton._scrollToButton(this.menu);
 	}
 };
 
@@ -875,7 +914,7 @@ RecentClearButton.prototype = {
 
 	_onButtonReleaseEvent: function(actor, event) {
 		if (event.get_button() == 1) {
-			this.appsMenuButton.menu.close();
+			this.appsMenuButton.menu.close(this.appsMenuButton.pref_animate_menu);
 			let GtkRecent = new Gtk.RecentManager();
 			GtkRecent.purge_items();
 		}
@@ -902,7 +941,8 @@ CategoryButton.prototype = {
 				/**
 				 * START mark Odyseus
 				 */
-				if (category.get_menu_id() === "favorites") {
+				if (category.get_menu_id() === "favorites" ||
+					category.get_menu_id() === "recentApps") {
 					this.icon_name = category.get_icon();
 					icon = new St.Icon({
 						icon_name: this.icon_name,
@@ -935,7 +975,8 @@ CategoryButton.prototype = {
 			/**
 			 * START mark Odyseus
 			 */
-			if (category.get_menu_id() === "favorites")
+			if (category.get_menu_id() === "favorites" ||
+				category.get_menu_id() === "recentApps")
 				this.icon = icon;
 			else
 				this.icon = St.TextureCache.get_default().load_gicon(null, icon, (PREF_CATEGORY_ICON_SIZE));
@@ -1294,25 +1335,44 @@ MyApplet.prototype = {
 		this.menuManager = new PopupMenu.PopupMenuManager(this);
 		this.menu = new Applet.AppletPopupMenu(this, orientation);
 		this.menuManager.addMenu(this.menu);
+		this.orientation = orientation;
 
 		this.actor.connect('key-press-event', Lang.bind(this, this._onSourceKeyPress));
 
-		this.settings = new Settings.AppletSettings(this, "0dyseus@CustomCinnamonMenu", instance_id);
+		this.settings = new Settings.AppletSettings(this, metadata["uuid"], instance_id);
 
-		this.settings.bindProperty(Settings.BindingDirection.IN, "show-places", "showPlaces", this._refreshBelowApps, null);
-		this.settings.bindProperty(Settings.BindingDirection.IN, "activate-on-hover", "activateOnHover", this._updateActivateOnHover, null);
+		this._appletEnterEventId = 0;
+		this._appletLeaveEventId = 0;
+		this._appletHoverDelayId = 0;
+
+		/**
+		 * START mark Odyseus
+		 */
+		// From Sane Menu
+		Gtk.IconTheme.get_default().append_search_path(metadata.path + "/icons/");
+		this._applicationsButtonsBackup = [];
+		this._applicationsOrder = {};
+		//
+		this._bind_settings();
+		this._hardRefreshTimeout1 = null;
+		this._hardRefreshTimeout2 = null;
+		this._refreshCustomCommandsTimeout = null;
+		PREF_CATEGORY_ICON_SIZE = this.pref_category_icon_size;
+		PREF_APPLICATION_ICON_SIZE = this.pref_application_icon_size;
+		PREF_MAX_FAV_ICON_SIZE = this.pref_max_fav_icon_size;
+		PREF_CUSTOM_COMMAND_ICON_SIZE = this.pref_custom_command_icon_size;
+		PREF_CUSTOM_ICON_FOR_REC_APPS_CAT = this.pref_recently_used_apps_custom_icon;
+		PREF_CUSTOM_LABEL_FOR_REC_APPS_CAT = this.pref_recently_used_apps_custom_label;
+
+		this._recentAppsButtons = [];
+		/**
+		 * END
+		 */
+
 		this._updateActivateOnHover();
 
 		this.menu.actor.add_style_class_name('menu-background');
 		this.menu.connect('open-state-changed', Lang.bind(this, this._onOpenStateChanged));
-
-		this.settings.bindProperty(Settings.BindingDirection.IN, "menu-icon-custom", "menuIconCustom", this._updateIconAndLabel, null);
-		this.settings.bindProperty(Settings.BindingDirection.IN, "menu-icon", "menuIcon", this._updateIconAndLabel, null);
-		this.settings.bindProperty(Settings.BindingDirection.IN, "menu-label", "menuLabel", this._updateIconAndLabel, null);
-		this.settings.bindProperty(Settings.BindingDirection.IN, "overlay-key", "overlayKey", this._updateKeybinding, null);
-		this.settings.bindProperty(Settings.BindingDirection.IN, "show-category-icons", "showCategoryIcons", this._refreshAll, null);
-		this.settings.bindProperty(Settings.BindingDirection.IN, "show-application-icons", "showApplicationIcons", this._refreshAll, null);
-		this.settings.bindProperty(Settings.BindingDirection.IN, "favbox-show", "favBoxShow", this._favboxtoggle, null);
 
 		this._updateKeybinding();
 
@@ -1329,27 +1389,6 @@ MyApplet.prototype = {
 			icon_name: 'edit-clear',
 			icon_type: St.IconType.SYMBOLIC
 		});
-
-		/**
-		 * START mark Odyseus
-		 */
-		// From Sane Menu
-		Gtk.IconTheme.get_default().append_search_path(metadata.path + "/icons/");
-		this._applicationsButtonsBackup = [];
-		this._applicationsOrder = {};
-		//
-		this._orientation = orientation;
-		this._hardRefreshTimeout1 = null;
-		this._hardRefreshTimeout2 = null;
-		this._refreshCustomCommandsTimeout = null;
-		this._bind_extra_settings();
-		PREF_CATEGORY_ICON_SIZE = this.pref_category_icon_size;
-		PREF_APPLICATION_ICON_SIZE = this.pref_application_icon_size;
-		PREF_MAX_FAV_ICON_SIZE = this.pref_max_fav_icon_size;
-		PREF_CUSTOM_COMMAND_ICON_SIZE = this.pref_custom_command_icon_size;
-		/**
-		 * END
-		 */
 
 		this._searchIconClickedId = 0;
 		this._applicationsButtons = [];
@@ -1371,6 +1410,7 @@ MyApplet.prototype = {
 		this._knownApps = []; // Used to keep track of apps that are already installed, so we can highlight newly installed ones
 		this._appsWereRefreshed = false;
 		this._canUninstallApps = GLib.file_test("/usr/bin/cinnamon-remove-application", GLib.FileTest.EXISTS);
+		this._isBumblebeeInstalled = GLib.file_test("/usr/bin/optirun", GLib.FileTest.EXISTS);
 		this.RecentManager = new DocInfo.DocManager();
 		this.privacy_settings = new Gio.Settings({
 			schema_id: PRIVACY_SCHEMA
@@ -1378,7 +1418,6 @@ MyApplet.prototype = {
 		this._display();
 		appsys.connect('installed-changed', Lang.bind(this, this.onAppSysChanged));
 		AppFavorites.getAppFavorites().connect('changed', Lang.bind(this, this._refreshFavs));
-		this.settings.bindProperty(Settings.BindingDirection.IN, "hover-delay", "hover_delay_ms", this._update_hover_delay, null);
 		this._update_hover_delay();
 		Main.placesManager.connect('places-updated', Lang.bind(this, this._refreshBelowApps));
 		this.RecentManager.connect('changed', Lang.bind(this, this._refreshRecent));
@@ -1387,7 +1426,6 @@ MyApplet.prototype = {
 		this._pathCompleter = new Gio.FilenameCompleter();
 		this._pathCompleter.set_dirs_only(false);
 		this.lastAcResults = [];
-		this.settings.bindProperty(Settings.BindingDirection.IN, "search-filesystem", "searchFilesystem", null, null);
 		this.refreshing = false; // used as a flag to know if we're currently refreshing (so we don't do it more than once concurrently)
 
 		// We shouldn't need to call refreshAll() here... since we get a "icon-theme-changed" signal when CSD starts.
@@ -1402,11 +1440,20 @@ MyApplet.prototype = {
 	/**
 	 * START mark Odyseus
 	 */
-	_bind_extra_settings: function() {
+	_bind_settings: function() {
 		let bD = Settings.BindingDirection;
 		let settingsArray = [
 			[bD.BIDIRECTIONAL, "pref_hide_allapps_category", null],
 			[bD.BIDIRECTIONAL, "pref_display_favorites_as_category_menu", null],
+			[bD.BIDIRECTIONAL, "pref_recently_used_apps", null],
+			[bD.IN, "pref_animate_menu", null],
+			[bD.IN, "pref_recently_used_apps_custom_icon", null],
+			[bD.IN, "pref_recently_used_apps_custom_label", null],
+			[bD.IN, "pref_cat_hover_delay", this._update_hover_delay],
+			[bD.IN, "pref_remember_recently_used_apps", null],
+			[bD.IN, "pref_recently_used_apps_invert_order", null],
+			[bD.IN, "pref_recently_used_apps_separator", null],
+			[bD.IN, "pref_max_recently_used_apps", null],
 			[bD.IN, "pref_apps_info_box_alignment_to_the_left", null],
 			[bD.IN, "pref_swap_categories_box", null],
 			[bD.IN, "pref_disable_new_apps_highlighting", null],
@@ -1493,7 +1540,24 @@ MyApplet.prototype = {
 			[bD.IN, "pref_command_10_command", null],
 			[bD.IN, "pref_command_10_icon", null],
 			[bD.IN, "pref_command_10_description", null],
-
+			/**
+			 * START Original preferences renamed and moved here
+			 */
+			[bD.IN, "pref_enable_autoscroll", this._update_autoscroll],
+			[bD.IN, "pref_search_filesystem", null],
+			[bD.IN, "pref_show_places", this._refreshBelowApps],
+			[bD.IN, "pref_display_category_icons", this._refreshAll],
+			[bD.IN, "pref_display_application_icons", this._refreshAll],
+			[bD.IN, "pref_display_fav_box", this._favboxtoggle],
+			[bD.IN, "pref_overlay_key", this._updateKeybinding],
+			[bD.IN, "pref_custom_label_for_applet", this._updateIconAndLabel],
+			[bD.IN, "pref_custom_icon_for_applet", this._updateIconAndLabel],
+			[bD.IN, "pref_use_a_custom_icon_for_applet", this._updateIconAndLabel],
+			[bD.IN, "pref_open_menu_on_hover", this._updateActivateOnHover],
+			[bD.IN, "pref_menu_hover_delay", this._updateActivateOnHover],
+			/**
+			 * END
+			 */
 		];
 		for (let [binding, property_name, callback] of settingsArray) {
 			this.settings.bindProperty(binding, property_name, property_name, callback, null);
@@ -1508,9 +1572,9 @@ MyApplet.prototype = {
 	 */
 
 	_updateKeybinding: function() {
-		Main.keybindingManager.addHotKey("overlay-key", this.overlayKey, Lang.bind(this, function() {
+		Main.keybindingManager.addHotKey("overlay-key", this.pref_overlay_key, Lang.bind(this, function() {
 			if (!Main.overview.visible && !Main.expo.visible)
-				this.menu.toggle_with_options(false);
+				this.menu.toggle_with_options(this.pref_animate_menu);
 		}));
 	},
 
@@ -1536,6 +1600,11 @@ MyApplet.prototype = {
 		PREF_APPLICATION_ICON_SIZE = this.pref_application_icon_size;
 		PREF_MAX_FAV_ICON_SIZE = this.pref_max_fav_icon_size;
 		PREF_CUSTOM_COMMAND_ICON_SIZE = this.pref_custom_command_icon_size;
+		PREF_CUSTOM_ICON_FOR_REC_APPS_CAT = this.pref_recently_used_apps_custom_icon;
+		PREF_CUSTOM_LABEL_FOR_REC_APPS_CAT = this.pref_recently_used_apps_custom_label;
+
+		if (!this.pref_remember_recently_used_apps)
+			this.pref_recently_used_apps = []; // Clear list when disabling 
 		/**
 		 * END
 		 */
@@ -1545,6 +1614,7 @@ MyApplet.prototype = {
 			this._refreshFavs();
 			this._refreshPlaces();
 			this._refreshRecent();
+			this._refreshRecentApps();
 		} catch (exception) {
 			global.log(exception);
 		}
@@ -1558,22 +1628,48 @@ MyApplet.prototype = {
 
 	openMenu: function() {
 		if (!this._applet_context_menu.isOpen) {
-			this.menu.open(false);
+			this.menu.open(this.pref_animate_menu);
 		}
 	},
 
-	_updateActivateOnHover: function() {
-		if (this._openMenuId) {
-			this.actor.disconnect(this._openMenuId);
-			this._openMenuId = 0;
+	_clearDelayCallbacks: function() {
+		if (this._appletHoverDelayId > 0) {
+			Mainloop.source_remove(this._appletHoverDelayId);
+			this._appletHoverDelayId = 0;
 		}
-		if (this.activateOnHover) {
-			this._openMenuId = this.actor.connect('enter-event', Lang.bind(this, this.openMenu));
+		if (this._appletLeaveEventId > 0) {
+			this.actor.disconnect(this._appletLeaveEventId);
+			this._appletLeaveEventId = 0;
+		}
+
+		return false;
+	},
+
+	_updateActivateOnHover: function() {
+		if (this._appletEnterEventId > 0) {
+			this.actor.disconnect(this._appletEnterEventId);
+			this._appletEnterEventId = 0;
+		}
+		this._clearDelayCallbacks();
+		if (this.pref_open_menu_on_hover) {
+			this._appletEnterEventId = this.actor.connect('enter-event', Lang.bind(this, function() {
+				if (this.pref_menu_hover_delay > 0) {
+					this._appletLeaveEventId = this.actor.connect('leave-event', Lang.bind(this, this._clearDelayCallbacks));
+					this._appletHoverDelayId = Mainloop.timeout_add(this.pref_menu_hover_delay,
+						Lang.bind(this, function() {
+							this.openMenu();
+							this._clearDelayCallbacks();
+						}));
+				} else {
+					this.openMenu();
+
+				}
+			}));
 		}
 	},
 
 	_update_hover_delay: function() {
-		this.hover_delay = this.hover_delay_ms / 1000;
+		this.cat_hover_delay = this.pref_cat_hover_delay / 1000;
 	},
 
 	_recalc_height: function() {
@@ -1606,7 +1702,7 @@ MyApplet.prototype = {
 
 		let self = this;
 		this._hardRefreshTimeout1 = Mainloop.timeout_add(500, Lang.bind(this, function() {
-			self.on_orientation_changed(this._orientation);
+			self.on_orientation_changed(this.orientation);
 			self._hardRefreshTimeout2 = Mainloop.timeout_add(500, Lang.bind(this, function() {
 				self.refreshAll();
 				this._hardRefreshTimeout1 = null;
@@ -1619,6 +1715,7 @@ MyApplet.prototype = {
 	 */
 
 	on_orientation_changed: function(orientation) {
+		this.orientation = orientation;
 		this.menu.destroy();
 		this.menu = new Applet.AppletPopupMenu(this, orientation);
 		this.menuManager.addMenu(this.menu);
@@ -1629,6 +1726,15 @@ MyApplet.prototype = {
 
 		if (this.initial_load_done)
 			this._refreshAll();
+		this._updateIconAndLabel();
+	},
+
+	/**
+	 * override getDisplayLayout to declare that this applet is suitable for both horizontal and
+	 * vertical orientations
+	 */
+	getDisplayLayout: function() {
+		return Applet.DisplayLayout.BOTH;
 	},
 
 	on_applet_added_to_panel: function() {
@@ -1640,21 +1746,21 @@ MyApplet.prototype = {
 	},
 
 	on_applet_clicked: function(event) {
-		this.menu.toggle_with_options(true);
+		this.menu.toggle_with_options(this.pref_animate_menu);
 	},
 
 	_onSourceKeyPress: function(actor, event) {
 		let symbol = event.get_key_symbol();
 
 		if (symbol == Clutter.KEY_space || symbol == Clutter.KEY_Return) {
-			this.menu.toggle();
+			this.menu.toggle(this.pref_animate_menu);
 			return true;
 		} else if (symbol == Clutter.KEY_Escape && this.menu.isOpen) {
-			this.menu.close();
+			this.menu.close(this.pref_animate_menu);
 			return true;
 		} else if (symbol == Clutter.KEY_Down) {
 			if (!this.menu.isOpen)
-				this.menu.toggle();
+				this.menu.toggle(this.pref_animate_menu);
 			this.menu.actor.navigate_focus(this.actor, Gtk.DirectionType.DOWN, false);
 			return true;
 		} else
@@ -1663,6 +1769,10 @@ MyApplet.prototype = {
 
 	_onOpenStateChanged: function(menu, open) {
 		if (open) {
+			// Without the second check, function breaks on Cinnamon stable.
+			if (this._appletEnterEventId > 0 && this.actor.handler_block) {
+				this.actor.handler_block(this._appletEnterEventId);
+			}
 			this.menuIsOpening = true;
 			this.actor.add_style_pseudo_class('active');
 			global.stage.set_key_focus(this.searchEntry);
@@ -1688,19 +1798,14 @@ MyApplet.prototype = {
 					null, this._allAppsCategoryButton);
 			} else
 				Mainloop.idle_add(Lang.bind(this, this._initial_cat_selection, n));
-
-			// I moved this to _refreshApps. Let's see how it works in there.
-			// if (this.pref_autofit_searchbox_width && this.pref_custom_launchers_box_placement >= 3) {
-			// 	let searchEntryWidth = (this.applicationsBox.get_allocation_box().x2 -
-			// 		this.applicationsBox.get_allocation_box().x1);
-			// 	searchEntryWidth = searchEntryWidth + (this.categoriesBox.get_allocation_box().x2 -
-			// 		this.categoriesBox.get_allocation_box().x1);
-			// 	this.searchEntry.set_width(searchEntryWidth);
-			// }
 			/**
 			 * END
 			 */
 		} else {
+			// Without the second check, function breaks on Cinnamon stable.
+			if (this._appletEnterEventId > 0 && this.actor.handler_unblock) {
+				this.actor.handler_unblock(this._appletEnterEventId);
+			}
 			this.actor.remove_style_pseudo_class('active');
 			if (this.searchActive) {
 				this.resetSearch();
@@ -1748,7 +1853,7 @@ MyApplet.prototype = {
 	},
 
 	_favboxtoggle: function() {
-		if (!this.favBoxShow) {
+		if (!this.pref_display_fav_box) {
 			this.leftPane.remove_actor(this.leftBox);
 		} else {
 			this.leftPane.add_actor(this.leftBox, {
@@ -1760,37 +1865,58 @@ MyApplet.prototype = {
 
 	_updateIconAndLabel: function() {
 		try {
-			if (this.menuIconCustom) {
-				if (this.menuIcon === "") {
+			if (this.pref_use_a_custom_icon_for_applet) {
+				if (this.pref_custom_icon_for_applet === "") {
 					this.set_applet_icon_name("");
-				} else if (GLib.path_is_absolute(this.menuIcon) && GLib.file_test(this.menuIcon, GLib.FileTest.EXISTS)) {
-					if (this.menuIcon.search("-symbolic") != -1)
-						this.set_applet_icon_symbolic_path(this.menuIcon);
+				} else if (GLib.path_is_absolute(this.pref_custom_icon_for_applet) && GLib.file_test(this.pref_custom_icon_for_applet, GLib.FileTest.EXISTS)) {
+					if (this.pref_custom_icon_for_applet.search("-symbolic") != -1)
+						this.set_applet_icon_symbolic_path(this.pref_custom_icon_for_applet);
 					else
-						this.set_applet_icon_path(this.menuIcon);
-				} else if (Gtk.IconTheme.get_default().has_icon(this.menuIcon)) {
-					if (this.menuIcon.search("-symbolic") != -1)
-						this.set_applet_icon_symbolic_name(this.menuIcon);
+						this.set_applet_icon_path(this.pref_custom_icon_for_applet);
+				} else if (Gtk.IconTheme.get_default().has_icon(this.pref_custom_icon_for_applet)) {
+					if (this.pref_custom_icon_for_applet.search("-symbolic") != -1)
+						this.set_applet_icon_symbolic_name(this.pref_custom_icon_for_applet);
 					else
-						this.set_applet_icon_name(this.menuIcon);
+						this.set_applet_icon_name(this.pref_custom_icon_for_applet);
+					/**
+					 * START mark Odyseus
+					 * I added the last condition without checking Gtk.IconTheme.get_default.
+					 * Otherwise, if there is a valid icon name added by
+					 *  Gtk.IconTheme.get_default().append_search_path, it will not be recognized.
+					 * With the following extra condition, the worst that can happen is that
+					 *  the applet icon will not change/be set.
+					 */
+				} else {
+					try {
+						if (this.pref_custom_icon_for_applet.search("-symbolic") != -1)
+							this.set_applet_icon_symbolic_name(this.pref_custom_icon_for_applet);
+						else
+							this.set_applet_icon_name(this.pref_custom_icon_for_applet);
+					} catch (aErr) {
+						global.logError(aErr);
+					}
 				}
 			} else {
 				this._set_default_menu_icon();
 			}
 		} catch (e) {
-			global.logWarning("Could not load icon file \"" + this.menuIcon + "\" for menu button");
+			global.logWarning("Could not load icon file \"" + this.pref_custom_icon_for_applet + "\" for menu button");
 		}
 
-		if (this.menuIconCustom && this.menuIcon === "") {
+		if (this.pref_use_a_custom_icon_for_applet && this.pref_custom_icon_for_applet === "") {
 			this._applet_icon_box.hide();
 		} else {
 			this._applet_icon_box.show();
 		}
 
-		if (this.menuLabel !== "")
-			this.set_applet_label(_(this.menuLabel));
-		else
+		if (this.orientation == St.Side.LEFT || this.orientation == St.Side.RIGHT) { // no menu label if in a vertical panel
 			this.set_applet_label("");
+		} else {
+			if (this.pref_custom_label_for_applet !== "")
+				this.set_applet_label(_(this.pref_custom_label_for_applet));
+			else
+				this.set_applet_label("");
+		}
 	},
 
 	_onMenuKeyPress: function(actor, event) {
@@ -1833,7 +1959,10 @@ MyApplet.prototype = {
 			item_actor = this.appBoxIter.getFirstVisible();
 			index = this.appBoxIter.getAbsoluteIndexOfChild(item_actor);
 			this._scrollToButton(item_actor._delegate);
-		} else if (this._activeContainer === null && symbol == Clutter.KEY_Left && this.favBoxShow) {
+		} else if (this._activeContainer === null &&
+			symbol == (this.pref_swap_categories_box ? Clutter.KEY_Right : Clutter.KEY_Left) &&
+			this.pref_display_fav_box) {
+			// } else if (this._activeContainer === null && symbol == Clutter.KEY_Left && this.pref_display_fav_box) {
 			this._activeContainer = this.favoritesBox;
 			item_actor = this.favBoxIter.getFirstVisible();
 			index = this.favBoxIter.getAbsoluteIndexOfChild(item_actor);
@@ -1865,7 +1994,9 @@ MyApplet.prototype = {
 				index = this.catBoxIter.getAbsoluteIndexOfChild(item_actor);
 				this._previousTreeSelectedActor._delegate.emit('leave-event');
 			}
-		} else if (symbol == Clutter.KEY_Right && (this._activeContainer !== this.applicationsBox)) {
+		} else if (symbol == (this.pref_swap_categories_box ? Clutter.KEY_Left : Clutter.KEY_Right) &&
+			(this._activeContainer !== this.applicationsBox)) {
+			// } else if (symbol == Clutter.KEY_Right && (this._activeContainer !== this.applicationsBox)) {
 			if (this._activeContainer == this.categoriesBox) {
 				if (this._previousVisibleIndex !== null) {
 					item_actor = this.appBoxIter.getVisibleItem(this._previousVisibleIndex);
@@ -1873,17 +2004,24 @@ MyApplet.prototype = {
 					item_actor = this.appBoxIter.getFirstVisible();
 				}
 			} else {
-				item_actor = (this._previousTreeSelectedActor !== null) ? this._previousTreeSelectedActor : this.catBoxIter.getFirstVisible();
+				item_actor = (this._previousTreeSelectedActor !== null) ?
+					this._previousTreeSelectedActor :
+					this.catBoxIter.getFirstVisible();
 				index = this.catBoxIter.getAbsoluteIndexOfChild(item_actor);
 				this._previousTreeSelectedActor = item_actor;
 			}
 			index = item_actor.get_parent()._vis_iter.getAbsoluteIndexOfChild(item_actor);
-		} else if (symbol == Clutter.KEY_Left && this._activeContainer === this.applicationsBox && !this.searchActive) {
+		} else if (symbol == (this.pref_swap_categories_box ? Clutter.KEY_Right : Clutter.KEY_Left) &&
+			this._activeContainer === this.applicationsBox && !this.searchActive) {
+			// } else if (symbol == Clutter.KEY_Left && this._activeContainer === this.applicationsBox && !this.searchActive) {
 			this._previousSelectedActor = this.applicationsBox.get_child_at_index(index);
 			item_actor = (this._previousTreeSelectedActor !== null) ? this._previousTreeSelectedActor : this.catBoxIter.getFirstVisible();
 			index = this.catBoxIter.getAbsoluteIndexOfChild(item_actor);
 			this._previousTreeSelectedActor = item_actor;
-		} else if (symbol == Clutter.KEY_Left && this._activeContainer === this.categoriesBox && !this.searchActive && this.favBoxShow) {
+		} else if (symbol == (this.pref_swap_categories_box ? Clutter.KEY_Right : Clutter.KEY_Left) &&
+			this._activeContainer === this.categoriesBox && !this.searchActive &&
+			this.pref_display_fav_box) {
+			// } else if (symbol == Clutter.KEY_Left && this._activeContainer === this.categoriesBox && !this.searchActive && this.pref_display_fav_box) {
 			this._previousSelectedActor = this.categoriesBox.get_child_at_index(index);
 			item_actor = this.favBoxIter.getFirstVisible();
 			index = this.favBoxIter.getAbsoluteIndexOfChild(item_actor);
@@ -1891,10 +2029,10 @@ MyApplet.prototype = {
 			item_actor = this._activeContainer.get_child_at_index(this._selectedItemIndex);
 			item_actor._delegate.activate();
 			return true;
-		} else if (this.searchFilesystem && (this._fileFolderAccessActive || symbol == Clutter.slash)) {
+		} else if (this.pref_search_filesystem && (this._fileFolderAccessActive || symbol == Clutter.slash)) {
 			if (symbol == Clutter.Return || symbol == Clutter.KP_Enter) {
 				if (this._run(this.searchEntry.get_text())) {
-					this.menu.close();
+					this.menu.close(this.pref_animate_menu);
 				}
 				return true;
 			}
@@ -2113,14 +2251,14 @@ MyApplet.prototype = {
 		this._placesButtons = [];
 
 		// Now generate Places category and places buttons and add to the list
-		if (this.showPlaces) {
-			this.placesButton = new PlaceCategoryButton(null, this.showCategoryIcons);
+		if (this.pref_show_places) {
+			this.placesButton = new PlaceCategoryButton(null, this.pref_display_category_icons);
 			this._addEnterEvent(this.placesButton, Lang.bind(this, function() {
 				if (!this.searchActive) {
 					this.placesButton.isHovered = true;
-					if (this.hover_delay > 0) {
+					if (this.cat_hover_delay > 0) {
 						Tweener.addTween(this, {
-							time: this.hover_delay,
+							time: this.cat_hover_delay,
 							onComplete: function() {
 								if (this.placesButton.isHovered) {
 									this._clearPrevCatSelection(this.placesButton);
@@ -2165,7 +2303,7 @@ MyApplet.prototype = {
 				iLen = places.length;
 			for (; i < iLen; i++) {
 				let place = places[i];
-				let button = new PlaceButton(this, place, place.name, this.showApplicationIcons);
+				let button = new PlaceButton(this, place, place.name, this.pref_display_application_icons);
 				this._addEnterEvent(button, Lang.bind(this, function() {
 					this._clearPrevSelection(button.actor);
 					button.actor.style_class = "menu-application-button-selected";
@@ -2207,16 +2345,18 @@ MyApplet.prototype = {
 		/**
 		 * START mark Odyseus
 		 * Just added the condition to hide Recent files category.
+		 * This is for people that doesn't want to disable the Remember accessed files option
+		 * from Privacy but wants to get rid of the Recent files category on the menu.
 		 */
 		if (this.privacy_settings.get_boolean(REMEMBER_RECENT_KEY) &&
 			this.pref_show_recents_button) {
-			this.recentButton = new RecentCategoryButton(null, this.showCategoryIcons);
+			this.recentButton = new RecentCategoryButton(null, this.pref_display_category_icons);
 			this._addEnterEvent(this.recentButton, Lang.bind(this, function() {
 				if (!this.searchActive) {
 					this.recentButton.isHovered = true;
-					if (this.hover_delay > 0) {
+					if (this.cat_hover_delay > 0) {
 						Tweener.addTween(this, {
-							time: this.hover_delay,
+							time: this.cat_hover_delay,
 							onComplete: function() {
 								if (this.recentButton.isHovered) {
 									this._clearPrevCatSelection(this.recentButton.actor);
@@ -2259,7 +2399,7 @@ MyApplet.prototype = {
 				let id = 0,
 					idLen = this.RecentManager._infosByTimestamp.length;
 				for (; id < this.pref_max_recent_files && id < idLen; id++) {
-					let button = new RecentButton(this, this.RecentManager._infosByTimestamp[id], this.showApplicationIcons);
+					let button = new RecentButton(this, this.RecentManager._infosByTimestamp[id], this.pref_display_application_icons);
 					this._addEnterEvent(button, Lang.bind(this, function() {
 						this._clearPrevSelection(button.actor);
 						button.actor.style_class = "menu-application-button-selected";
@@ -2302,6 +2442,107 @@ MyApplet.prototype = {
 		this._resizeApplicationsBox();
 	},
 
+	/**
+	 * START mark Odyseus
+	 */
+	_refreshRecentApps: function() {
+		let r = 0,
+			rLen = this._recentAppsButtons.length;
+		for (; r < rLen; r++) {
+			this._recentAppsButtons[r].actor.destroy();
+		}
+		if (!this.pref_remember_recently_used_apps) {
+			let c = 0,
+				cLen = this._categoryButtons.length;
+			for (; c < cLen; c++) {
+				if (this._categoryButtons[c] instanceof RecentAppsCategoryButton) {
+					this._categoryButtons[c].actor.destroy();
+				}
+			}
+			return true;
+		}
+		this._recentAppsButtons = [];
+		this._recentAppsApps = [];
+
+		if (this.pref_recently_used_apps.length > 0 && this.recentAppsButton !== null) {
+			let self = this;
+			Array.prototype.slice.call(this._applicationsButtons).forEach(function(aBtn) {
+				let appId = aBtn.get_app_id();
+				let c = 0,
+					cLen = self.pref_recently_used_apps.length;
+				for (; c < cLen; c++) {
+					if (self.pref_recently_used_apps[c]["id"] === appId) {
+						aBtn.app.lastAccess = self.pref_recently_used_apps[c]["lastAccess"];
+						self._recentAppsApps.push(aBtn.app);
+						continue;
+					}
+				}
+			});
+
+			let clearBtn = new GenericButton(_("Clear list"), "edit-clear", true, Lang.bind(this, function() {
+				this.pref_recently_used_apps = [];
+				this._refreshRecentApps();
+			}));
+			this._addEnterEvent(clearBtn, Lang.bind(this, function() {
+				this._clearPrevSelection(clearBtn.actor);
+				clearBtn.actor.style_class = "menu-application-button-selected";
+			}));
+			clearBtn.actor.connect('leave-event', Lang.bind(this, function() {
+				clearBtn.actor.style_class = "menu-application-button";
+				this._previousSelectedActor = clearBtn.actor;
+			}));
+
+			if (this.pref_recently_used_apps_invert_order) {
+				this._recentAppsButtons.push(clearBtn);
+				this.applicationsBox.add_actor(clearBtn.actor);
+			}
+
+			this._recentAppsApps = this._recentAppsApps.sort(function(a, b) {
+				if (self.pref_recently_used_apps_invert_order)
+					return a["lastAccess"] > b["lastAccess"];
+				return a["lastAccess"] < b["lastAccess"];
+			});
+
+			let id = 0,
+				idLen = this._recentAppsApps.length;
+			for (; id < this.pref_max_recently_used_apps && id < idLen; id++) {
+				let button = new ApplicationButton(this, this._recentAppsApps[id], this.pref_display_application_icons);
+				this._addEnterEvent(button, Lang.bind(this, function() {
+					this._clearPrevSelection(button.actor);
+					button.actor.style_class = "menu-application-button-selected";
+					this.selectedAppTitle.set_text("");
+					this.selectedAppDescription.set_text(button.file.uri.slice(7).replace(/%20/g, ' '));
+				}));
+				button.actor.connect('leave-event', Lang.bind(this, function() {
+					button.actor.style_class = "menu-application-button";
+					this._previousSelectedActor = button.actor;
+					this.selectedAppTitle.set_text("");
+					this.selectedAppDescription.set_text("");
+				}));
+				this._recentAppsButtons.push(button);
+				this.applicationsBox.add_actor(button.actor);
+				this.applicationsBox.add_actor(button.menu.actor);
+			}
+
+			if (!this.pref_recently_used_apps_invert_order) {
+				this._recentAppsButtons.push(clearBtn);
+				this.applicationsBox.add_actor(clearBtn.actor);
+			}
+		} else {
+			let button = new GenericButton(_("No recent apps"), null, false, null);
+			this._recentAppsButtons.push(button);
+			this.applicationsBox.add_actor(button.actor);
+		}
+
+		this._setCategoriesButtonActive(!this.searchActive);
+
+		this._recalc_height();
+		this._resizeApplicationsBox();
+	},
+	/**
+	 * END
+	 */
+
 	_refreshApps: function() {
 		this.applicationsBox.destroy_all_children();
 		this._applicationsButtons = [];
@@ -2316,9 +2557,9 @@ MyApplet.prototype = {
 			this._addEnterEvent(this._allAppsCategoryButton, Lang.bind(this, function() {
 				if (!this.searchActive) {
 					this._allAppsCategoryButton.isHovered = true;
-					if (this.hover_delay > 0) {
+					if (this.cat_hover_delay > 0) {
 						Tweener.addTween(this, {
-							time: this.hover_delay,
+							time: this.cat_hover_delay,
 							onComplete: function() {
 								if (this._allAppsCategoryButton.isHovered) {
 									this._clearPrevCatSelection(this._allAppsCategoryButton.actor);
@@ -2344,60 +2585,122 @@ MyApplet.prototype = {
 			this.categoriesBox.add_actor(this._allAppsCategoryButton.actor);
 		}
 
-		if (this.pref_hide_allapps_category && this.pref_display_favorites_as_category_menu) {
-			let cat = {
-				get_menu_id: function() {
-					return "favorites";
-				},
-				get_id: function() {
-					return -1;
-				},
-				get_description: function() {
-					return this.get_name();
-				},
-				get_name: function() {
-					return _("Favorites");
-				},
-				get_is_nodisplay: function() {
-					return false;
-				},
-				get_icon: function() {
-					return "user-bookmarks";
-				}
-			};
-			this._initialSelectedCategory = "favorites";
-			this._allAppsCategoryButton = new CategoryButton(cat, this.showCategoryIcons);
-			this._addEnterEvent(this._allAppsCategoryButton, Lang.bind(this, function() {
-				// this._allAppsCategoryButton.actor.connect('enter-event', Lang.bind(this, function() {
-				if (!this.searchActive) {
-					this._allAppsCategoryButton.isHovered = true;
-					if (this.hover_delay > 0) {
-						Tweener.addTween(this, {
-							time: this.hover_delay,
-							onComplete: function() {
-								if (this._allAppsCategoryButton.isHovered) {
-									this._clearPrevCatSelection(this._allAppsCategoryButton.actor);
-									this._allAppsCategoryButton.actor.style_class = "menu-category-button-selected";
-									this._select_category(this._initialSelectedCategory, this._allAppsCategoryButton);
-								} else {
-									this._allAppsCategoryButton.actor.style_class = "menu-category-button";
-								}
-							}
-						});
-					} else {
-						this._clearPrevCatSelection(this._allAppsCategoryButton.actor);
-						this._allAppsCategoryButton.actor.style_class = "menu-category-button-selected";
-						this._select_category(this._initialSelectedCategory, this._allAppsCategoryButton);
+		/**
+		 * START mark Odyseus
+		 * Favorites category
+		 */
+		try {
+			if (this.pref_hide_allapps_category && this.pref_display_favorites_as_category_menu) {
+				let favCat = {
+					get_menu_id: function() {
+						return "favorites";
+					},
+					get_id: function() {
+						return -1;
+					},
+					get_description: function() {
+						return this.get_name();
+					},
+					get_name: function() {
+						return _("Favorites");
+					},
+					get_is_nodisplay: function() {
+						return false;
+					},
+					get_icon: function() {
+						return "user-bookmarks";
 					}
-					this.makeVectorBox(this._allAppsCategoryButton.actor);
-				}
-			}));
-			this._allAppsCategoryButton.actor.connect('leave-event', Lang.bind(this, function() {
-				this._previousSelectedActor = this._allAppsCategoryButton.actor;
-				this._allAppsCategoryButton.isHovered = false;
-			}));
-			this.categoriesBox.add_actor(this._allAppsCategoryButton.actor);
+				};
+				this._initialSelectedCategory = "favorites";
+				this._allAppsCategoryButton = new CategoryButton(favCat, this.pref_display_category_icons);
+				this._addEnterEvent(this._allAppsCategoryButton, Lang.bind(this, function() {
+					if (!this.searchActive) {
+						this._allAppsCategoryButton.isHovered = true;
+						if (this.cat_hover_delay > 0) {
+							Tweener.addTween(this, {
+								time: this.cat_hover_delay,
+								onComplete: function() {
+									if (this._allAppsCategoryButton.isHovered) {
+										this._clearPrevCatSelection(this._allAppsCategoryButton.actor);
+										this._allAppsCategoryButton.actor.style_class = "menu-category-button-selected";
+										this._select_category(this._initialSelectedCategory, this._allAppsCategoryButton);
+									} else {
+										this._allAppsCategoryButton.actor.style_class = "menu-category-button";
+									}
+								}
+							});
+						} else {
+							this._clearPrevCatSelection(this._allAppsCategoryButton.actor);
+							this._allAppsCategoryButton.actor.style_class = "menu-category-button-selected";
+							this._select_category(this._initialSelectedCategory, this._allAppsCategoryButton);
+						}
+						this.makeVectorBox(this._allAppsCategoryButton.actor);
+					}
+				}));
+				this._allAppsCategoryButton.actor.connect('leave-event', Lang.bind(this, function() {
+					this._previousSelectedActor = this._allAppsCategoryButton.actor;
+					this._allAppsCategoryButton.isHovered = false;
+				}));
+				this.categoriesBox.add_actor(this._allAppsCategoryButton.actor);
+			}
+		} catch (aErr) {
+			global.logError(aErr);
 		}
+		/**
+		 * END
+		 */
+
+		/**
+		 * START mark Odyseus
+		 * Recent apps category.
+		 * This was easy...until I started to try to sort the apps by execution time!!
+		 * It was a total nightmare!!!!
+		 */
+		try {
+			if (this.pref_remember_recently_used_apps) {
+				this.recentAppsCatButton = new RecentAppsCategoryButton(null, this.pref_display_category_icons);
+				this._addEnterEvent(this.recentAppsCatButton, Lang.bind(this, function() {
+					if (!this.searchActive) {
+						this.recentAppsCatButton.isHovered = true;
+						if (this.cat_hover_delay > 0) {
+							Tweener.addTween(this, {
+								time: this.cat_hover_delay,
+								onComplete: function() {
+									if (this.recentAppsCatButton.isHovered) {
+										this._clearPrevCatSelection(this.recentAppsCatButton.actor);
+										this.recentAppsCatButton.actor.style_class = "menu-category-button-selected";
+										this._displayButtons("recentApps", null, null, null, null, true);
+									} else {
+										this.recentAppsCatButton.actor.style_class = "menu-category-button";
+									}
+								}
+							});
+						} else {
+							this._clearPrevCatSelection(this.recentAppsCatButton.actor);
+							this.recentAppsCatButton.actor.style_class = "menu-category-button-selected";
+							this._displayButtons("recentApps", null, null, null, null, true);
+						}
+						this.makeVectorBox(this.recentAppsCatButton.actor);
+					}
+				}));
+				this.recentAppsCatButton.actor.connect('leave-event', Lang.bind(this, function() {
+					this._previousSelectedActor = this.recentAppsCatButton.actor;
+					this.recentAppsCatButton.isHovered = false;
+				}));
+				this.categoriesBox.add_actor(this.recentAppsCatButton.actor);
+				this._categoryButtons.push(this.recentAppsCatButton);
+
+				if (this.pref_recently_used_apps_separator) {
+					let separatorBox = new SeparatorBox(true, -1, true);
+					this.categoriesBox.add_actor(separatorBox.actor);
+				}
+			}
+		} catch (aErr) {
+			global.logError(aErr);
+		}
+		/**
+		 * END
+		 */
 
 		let trees = [appsys.get_tree()];
 
@@ -2449,13 +2752,13 @@ MyApplet.prototype = {
 				if (dir.get_is_nodisplay())
 					continue;
 				if (this._loadCategory(dir)) {
-					let categoryButton = new CategoryButton(dir, this.showCategoryIcons);
+					let categoryButton = new CategoryButton(dir, this.pref_display_category_icons);
 					this._addEnterEvent(categoryButton, Lang.bind(this, function() {
 						if (!this.searchActive) {
 							categoryButton.isHovered = true;
-							if (this.hover_delay > 0) {
+							if (this.cat_hover_delay > 0) {
 								Tweener.addTween(this, {
-									time: this.hover_delay,
+									time: this.cat_hover_delay,
 									onComplete: function() {
 										if (categoryButton.isHovered) {
 											this._clearPrevCatSelection(categoryButton.actor);
@@ -2585,7 +2888,7 @@ MyApplet.prototype = {
 			/**
 			 * START mark Odyseus
 			 */
-			let separatorBox = new SeparatorBox(false, this.pref_separator_heigth);
+			let separatorBox = new SeparatorBox(false, this.pref_separator_heigth, true);
 			this.favoritesBox.add_actor(separatorBox.actor);
 			/**
 			 * END
@@ -2609,7 +2912,7 @@ MyApplet.prototype = {
 				button1.actor.connect('leave-event', Lang.bind(this, this._favLeaveEvent, button1));
 
 				button1.activate = Lang.bind(this, function() {
-					this.menu.close();
+					this.menu.close(this.pref_animate_menu);
 
 					let screensaver_settings = new Gio.Settings({
 						schema_id: "org.cinnamon.desktop.screensaver"
@@ -2641,7 +2944,7 @@ MyApplet.prototype = {
 				button2.actor.connect('leave-event', Lang.bind(this, this._favLeaveEvent, button2));
 
 				button2.activate = Lang.bind(this, function() {
-					this.menu.close();
+					this.menu.close(this.pref_animate_menu);
 					this._session.LogoutRemote(0);
 				});
 
@@ -2660,7 +2963,7 @@ MyApplet.prototype = {
 				button3.actor.connect('leave-event', Lang.bind(this, this._favLeaveEvent, button3));
 
 				button3.activate = Lang.bind(this, function() {
-					this.menu.close();
+					this.menu.close(this.pref_animate_menu);
 					this._session.ShutdownRemote();
 				});
 
@@ -2685,17 +2988,19 @@ MyApplet.prototype = {
 				var entry = iter.get_entry();
 				if (!entry.get_app_info().get_nodisplay()) {
 					has_entries = true;
+
 					var app = appsys.lookup_app_by_tree_entry(entry);
 					if (!app)
 						app = appsys.lookup_settings_app_by_tree_entry(entry);
 					var app_key = app.get_id();
+
 					if (app_key === null) {
 						app_key = app.get_name() + ":" +
 							app.get_description();
 					}
 					if (!(app_key in this._applicationsButtonFromApp)) {
 
-						let applicationButton = new ApplicationButton(this, app, this.showApplicationIcons);
+						let applicationButton = new ApplicationButton(this, app, this.pref_display_application_icons);
 
 						var app_is_known = false;
 						let i = 0,
@@ -2781,7 +3086,7 @@ MyApplet.prototype = {
 		this._session = new GnomeSession.SessionManager();
 		this._screenSaverProxy = new ScreenSaver.ScreenSaverProxy();
 
-		if (this.favBoxShow) {
+		if (this.pref_display_fav_box) {
 			this.leftPane.add_actor(this.leftBox, {
 				y_align: St.Align.END,
 				y_fill: false
@@ -2985,7 +3290,6 @@ MyApplet.prototype = {
 
 		this._updateVFade();
 
-		this.settings.bindProperty(Settings.BindingDirection.IN, "enable-autoscroll", "autoscroll_enabled", this._update_autoscroll, null);
 		this._update_autoscroll();
 
 		let vscroll = this.applicationsScrollBox.get_vscroll_bar();
@@ -3002,6 +3306,7 @@ MyApplet.prototype = {
 			style_class: 'menu-applications-inner-box',
 			vertical: true
 		});
+
 		this.applicationsBox.add_style_class_name('menu-applications-box'); //this is to support old themes
 		this.applicationsScrollBox.add_actor(this.applicationsBox);
 		this.applicationsScrollBox.set_policy(Gtk.PolicyType.NEVER, Gtk.PolicyType.AUTOMATIC);
@@ -3138,7 +3443,7 @@ MyApplet.prototype = {
 					this.pref_lock_button_custom_icon),
 				icon_size: PREF_CUSTOM_COMMAND_ICON_SIZE
 			}, Lang.bind(this, function() {
-				this.menu.close();
+				this.menu.close(this.pref_animate_menu);
 
 				let screensaver_settings = new Gio.Settings({
 					schema_id: "org.cinnamon.desktop.screensaver"
@@ -3167,7 +3472,7 @@ MyApplet.prototype = {
 					this.pref_logout_button_custom_icon),
 				icon_size: PREF_CUSTOM_COMMAND_ICON_SIZE
 			}, Lang.bind(this, function() {
-				this.menu.close();
+				this.menu.close(this.pref_animate_menu);
 				this._session.LogoutRemote(0);
 			}));
 			this.myCustomCommandsBox.add_actor(button2.actor);
@@ -3183,7 +3488,7 @@ MyApplet.prototype = {
 					this.pref_shutdown_button_custom_icon),
 				icon_size: PREF_CUSTOM_COMMAND_ICON_SIZE
 			}, Lang.bind(this, function() {
-				this.menu.close();
+				this.menu.close(this.pref_animate_menu);
 				this._session.ShutdownRemote();
 			}));
 			this.myCustomCommandsBox.add_actor(button3.actor);
@@ -3204,7 +3509,7 @@ MyApplet.prototype = {
 	},
 
 	_update_autoscroll: function() {
-		this.applicationsScrollBox.set_auto_scrolling(this.autoscroll_enabled);
+		this.applicationsScrollBox.set_auto_scrolling(this.pref_enable_autoscroll);
 	},
 
 	_clearAllSelections: function(hide_apps) {
@@ -3245,20 +3550,19 @@ MyApplet.prototype = {
 	},
 
 	_select_category: function(dir, categoryButton) {
-		/**
-		 * START mark Odyseus
-		 */
-		if (dir === "favorites")
-			this._displayButtons("favorites");
-		else {
+		if (dir) {
+			/**
+			 * START mark Odyseus
+			 */
+			if (dir === "favorites" || dir === "recentApps")
+				this._displayButtons(dir);
+			else
+				this._displayButtons(this._listApplications(dir.get_menu_id()));
 			/**
 			 * END
 			 */
-			if (dir)
-				this._displayButtons(this._listApplications(dir.get_menu_id()));
-			else
-				this._displayButtons(this._listApplications(null));
-		}
+		} else
+			this._displayButtons(this._listApplications(null));
 		this.closeContextMenus(null, false);
 	},
 
@@ -3301,7 +3605,7 @@ MyApplet.prototype = {
 		}
 	},
 
-	_displayButtons: function(appCategory, places, recent, apps, autocompletes) {
+	_displayButtons: function(appCategory, places, recent, apps, autocompletes, recentApps) {
 		if (appCategory) {
 			if (appCategory == "all") {
 				this._applicationsButtons.forEach(function(item, index) {
@@ -3310,7 +3614,7 @@ MyApplet.prototype = {
 				/**
 				 * START mark Odyseus
 				 */
-			} else if (appCategory == "favorites") {
+			} else if (appCategory === "favorites") {
 				this._applicationsButtons.forEach(function(item, index) {
 					if (AppFavorites.getAppFavorites().isFavorite(item.app.get_id())) {
 						item.actor.show();
@@ -3398,6 +3702,15 @@ MyApplet.prototype = {
 				item.actor.hide();
 			});
 		}
+		if (recentApps) {
+			this._recentAppsButtons.forEach(function(item, index) {
+				item.actor.show();
+			});
+		} else {
+			this._recentAppsButtons.forEach(function(item, index) {
+				item.actor.hide();
+			});
+		}
 		if (autocompletes) {
 
 			this._transientButtons.forEach(function(item, index) {
@@ -3458,7 +3771,7 @@ MyApplet.prototype = {
 			if (searchString === '' && !this.searchActive)
 				return;
 			this.searchActive = searchString !== '';
-			this._fileFolderAccessActive = this.searchActive && this.searchFilesystem;
+			this._fileFolderAccessActive = this.searchActive && this.pref_search_filesystem;
 			this._clearAllSelections();
 
 			if (this.searchActive) {
@@ -3488,10 +3801,12 @@ MyApplet.prototype = {
 				// TODO: Find a better way to restore initial state
 				if (this.pref_fuzzy_search_enabled) {
 					this._refreshApps();
-					if (this.showPlaces)
+					if (this.pref_show_places)
 						this._refreshPlaces();
 					if (this.privacy_settings.get_boolean(REMEMBER_RECENT_KEY))
 						this._refreshRecent();
+					if (this.pref_remember_recently_used_apps)
+						this._refreshRecentApps();
 				}
 				// this._refreshApps();
 				/**
@@ -3682,7 +3997,7 @@ MyApplet.prototype = {
 		}
 
 		var acResults = []; // search box autocompletion results
-		if (this.searchFilesystem) {
+		if (this.pref_search_filesystem) {
 			// Don't use the pattern here, as filesystem is case sensitive
 			acResults = this._getCompletions(this.searchEntryText.get_text());
 		}
@@ -3785,25 +4100,29 @@ MyApplet.prototype = {
 		}
 
 		return true;
+	},
+
+	on_applet_removed_from_panel: function() {
+		this.settings.finalize();
 	}
 };
 
 /**
  * START mark Odyseus
  */
-function SeparatorBox(haveLine, space) {
-	this._init(haveLine, space);
+function SeparatorBox(aHaveLine, aSpace, aIsVertical) {
+	this._init(aHaveLine, aSpace, aIsVertical);
 }
 
 SeparatorBox.prototype = {
-	_init: function(haveLine, space) {
+	_init: function(aHaveLine, aSpace, aIsVertical) {
 		this.actor = new St.BoxLayout({
-			vertical: true
+			vertical: aIsVertical
 		});
 		this.separatorLine = new PopupMenu.PopupSeparatorMenuItem();
 		this.actor.add_actor(this.separatorLine.actor);
-		this.setLineVisible(haveLine);
-		this.setSpace(space);
+		this.setLineVisible(aHaveLine);
+		this.setSpace(aSpace);
 	},
 
 	destroy: function() {
@@ -3811,20 +4130,20 @@ SeparatorBox.prototype = {
 		this.actor.destroy();
 	},
 
-	setSpace: function(space) {
-		this.space = space;
+	setSpace: function(aSpace) {
+		this.space = aSpace;
 		if (this.actor.get_vertical()) {
 			this.actor.set_width(-1);
-			this.actor.set_height(space);
+			this.actor.set_height(aSpace);
 		} else {
-			this.actor.set_width(space);
+			this.actor.set_width(aSpace);
 			this.actor.set_height(-1);
 		}
 	},
 
-	setLineVisible: function(show) {
-		this.haveLine = show;
-		this.separatorLine.actor.visible = show;
+	setLineVisible: function(aShow) {
+		this.haveLine = aShow;
+		this.separatorLine.actor.visible = aShow;
 	}
 };
 
@@ -3909,11 +4228,45 @@ MyCustomCommanButton.prototype = {
 					Main.notify("[Custom Cinnamon Menu]", aErr2.message);
 				}
 			} finally {
-				this.applet.menu.close();
+				this.applet.menu.close(this.pref_animate_menu);
 			}
 		}
 	},
 };
+
+function RecentAppsCategoryButton(app, showIcon) {
+	this._init(app, showIcon);
+}
+
+RecentAppsCategoryButton.prototype = {
+	__proto__: PopupMenu.PopupBaseMenuItem.prototype,
+
+	_init: function(category, showIcon) {
+		PopupMenu.PopupBaseMenuItem.prototype._init.call(this, {
+			hover: false
+		});
+		this.actor.set_style_class_name('menu-category-button');
+		this.actor._delegate = this;
+		this.label = new St.Label({
+			text: PREF_CUSTOM_LABEL_FOR_REC_APPS_CAT,
+			style_class: 'menu-category-button-label'
+		});
+		if (showIcon) {
+			this.icon = new St.Icon({
+				icon_name: PREF_CUSTOM_ICON_FOR_REC_APPS_CAT,
+				icon_size: PREF_CATEGORY_ICON_SIZE,
+				icon_type: St.IconType.FULLCOLOR
+			});
+			this.addActor(this.icon);
+			this.icon.realize();
+		} else {
+			this.icon = null;
+		}
+		this.addActor(this.label);
+		this.label.realize();
+	}
+};
+
 /**
  * END
  */

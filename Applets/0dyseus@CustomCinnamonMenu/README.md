@@ -26,6 +26,7 @@ Tested and working on Cinnamon version 3.0.7.
 - Scrollbars in the applications box can be hidden.
 - The padding of certain menu elements can be customized to override the current theme stylesheets.
 - Recently installed applications highlighting can be disabled.
+- Recently used applications can be remembered and will be displayed on a category called **Recent Apps**. The applications will be sorted by execution time and the name and icon of the category can be customized.
 
 ### Menu *emulating* the Whisker menu (XFCE)
 
@@ -37,6 +38,11 @@ Spices comments system is absolutely useless to report bugs with any king of leg
 </span>
 
 ## Change Log
+
+##### 1.05
+- Added new option to remember recently used applications launched from the menu. These applications will be displayed on a new category and sorted by execution time.
+- Added some tweaks and new features from the nightly version of the default Cinnamon menu. These additions make this applet *play nice* with the new vertical panels introduced by Cinnamon nightly.
+- Some fixes to the menu keyboard navigation. There were some inconsistencies when the option **Swap categories box** was enabled. There are still some inconsistencies when the favorites box is shown. I will fix them when I figure out how to.
 
 ##### 1.04
 - Added option to place the custom launchers box to the left or to the right of the searchbox.
@@ -57,7 +63,6 @@ Spices comments system is absolutely useless to report bugs with any king of leg
 - Added a box that can contain any custom launcher (up to 10) and can be placed at the top or the bottom of the menu.
 - The **Quit buttons** can now be moved next the the custom launchers box.
 - The **Quit buttons** can now have custom icons (ONLY when they are placed next to the custom launchers box).
-
 
 ##### 1.01
 - Minor performance tweaks.

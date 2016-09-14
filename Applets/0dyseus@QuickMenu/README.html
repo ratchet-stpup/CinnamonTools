@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>Quick Menu Readme</title>
-    <link rel="stylesheet" type="text/css" href="./public/github.css">
+    <link rel="stylesheet" type="text/css" href="/public/github.css">
   </head>
   <body>
     <div class="container">
@@ -49,8 +49,9 @@
 <h2>How to set a different icon for each sub-menu</h2>
 <ul>
 <li>Create a file at the same level as the folders that will be used to create the sub-menus.</li>
-<li>The file name can be customized. By default is called <strong>0_icons_for_sub_menus.json</strong>.</li>
+<li>The file name can be customized, doesn't need to have an extension name and can be a hidden file (a dot file). By default is called <strong>0_icons_for_sub_menus.json</strong>.</li>
 <li>Whatever name is chosen for the file, it will be automatically ignored and will never be shown on the menu.</li>
+<li>If any sub-folder has more folders that need to have custom icons, just create another <strong>0_icons_for_sub_menus.json</strong> file at the same level that those folders.</li>
 <li>The content of the file is a <em>JSON object</em> and has to look as follows:</li>
 </ul>
 <div class="codehilite"><pre><span class="p">{</span>
@@ -67,17 +68,16 @@
 </ul>
 <h4>Image featuring different icons for each sub-menu and different icon sizes</h4>
 <p><img alt="Image featuring different icons for each sub-menu and different icon sizes" src="./public/Screenshot-002.png" title="Image featuring different icons for each sub-menu and different icon sizes"></p>
-<h2>Known issues</h2>
-<p><strong>Note:</strong> My very limited knowledge (I'm not a developer) along with the lack of documentation for creating applets makes the corrections of these bugs/issues very hard for me. If someone has the solution, don't hesitate in pointing me in the right direction.</p>
-<ul>
-<li>Some file types (.log for example) will create menu items without icons.</li>
-</ul>
 <h2 style="color:red;"> Bug report and feature request</h2>
 
 <p><span style="color:red;">
 Spices comments system is absolutely useless to report bugs with any king of legibility. In addition, there is no notifications system for new comments. So, if anyone has bugs to report or a feature request, do so on this applet GitHub page. Just click the <strong>Website</strong> button next to the <strong>Download</strong> button.
 </span></p>
 <h2>Change Log</h2>
+<h5>1.02</h5>
+<ul>
+<li>Fixed the known issue of not displaying an icon for certain file types.</li>
+</ul>
 <h5>1.01</h5>
 <ul>
 <li>Fixed the need to restart Cinnamon after adding this applet to the panel.</li>

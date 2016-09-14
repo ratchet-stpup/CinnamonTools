@@ -223,6 +223,10 @@ MyApplet.prototype = {
 			rgba[2] / 255,
 			"3" in rgba ? rgba[3] : 1
 		];
+	},
+
+	on_applet_removed_from_panel: function() {
+		this.settings.finalize();
 	}
 };
 

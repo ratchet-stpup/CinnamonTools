@@ -1,3 +1,6 @@
+/**
+ * GTK3 switches with the same appearance as the Cinnamon switches.
+ */
 GtkSwitch {
 	font: 1;
 	-GtkSwitch-slider-width: 52;
@@ -85,3 +88,26 @@ GtkInfoBar GtkSwitch.trough:active:insensitive {
 .primary-toolbar .inline-toolbar GtkSwitch.trough:active:insensitive {
 	background-image: -gtk-scaled(url("extra-assets/switch-active-insensitive-header.png"), url("extra-assets/switch-active-insensitive-header@2.png"));
 }
+
+/**
+ * Remove dashed lines for scroll feedbak.
+ */
+.undershoot.top,
+.undershoot.right,
+.undershoot.bottom,
+.undershoot.left {
+	background-image: none;
+}
+
+
+/**
+ * Remove dashed lines for scroll feedbak.
+ */
+.overshoot.top,
+.overshoot.right,
+.overshoot.bottom,
+.overshoot.left {
+	background: none;
+	background-image: none;
+}
+

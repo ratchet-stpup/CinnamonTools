@@ -25,6 +25,7 @@ const Util = imports.misc.util;
 const Tooltips = imports.ui.tooltips;
 const Mainloop = imports.mainloop;
 
+const MAX_BUTTON_WIDTH = "max-width: 20em;";
 const appletUUID = "0dyseus@QuickMenu";
 const AppletDirectory = imports.ui.appletManager.appletMeta[appletUUID].path;
 var CloseMenuTimeout = null;
@@ -45,7 +46,6 @@ MyApplet.prototype = {
 		Applet.TextIconApplet.prototype._init.call(this, aOrientation, aPanel_height, aInstance_id);
 
 		this._orientation = aOrientation;
-
 		this.settings = new Settings.AppletSettings(this, appletUUID, aInstance_id);
 
 		try {
@@ -186,7 +186,7 @@ MyApplet.prototype = {
 					let contentType = Gio.content_type_guess(filePath, null);
 					let isDeskFile = contentType.indexOf("application/x-desktop") !== -1;
 					let app = Gio.file_new_for_path(filePath);
-
+					global.logError(contentType.toString());
 					if (!app) {
 						global.logError("File " + filePath + " not found");
 						continue;
@@ -207,7 +207,7 @@ MyApplet.prototype = {
 							if (icon instanceof(Gio.FileIcon))
 								iconName = icon.get_file().get_path();
 							else
-								iconName = icon.get_names()[0].toString();
+								iconName = self._tryToGetValidIcon(icon.get_names());
 						} else
 							iconName = "image-missing";
 					}
@@ -274,7 +274,8 @@ MyApplet.prototype = {
 									item._handler.launch([item._app], null);
 								}
 						} catch (aErr) {
-							self._notifyme(aErr);
+							Main.notify(aErr);
+							global.logError(aErr);
 						}
 					}));
 					aMenu.addMenuItem(item);
@@ -285,8 +286,14 @@ MyApplet.prototype = {
 		return aMenu;
 	},
 
-	_notifyme: function(aMsg) {
-		GLib.spawn_command_line_async("notify-send --icon=" + this.pref_customicon + " '" + aMsg + "'");
+	_tryToGetValidIcon: function(aArr) {
+		let i = 0,
+			iLen = aArr.length;
+		for (; i < iLen; i++) {
+			if (Gtk.IconTheme.get_default().has_icon(aArr[i]))
+				return aArr[i].toString();
+		}
+		return "image-missing";
 	},
 
 	_onSettingsAutoupdate: function() {

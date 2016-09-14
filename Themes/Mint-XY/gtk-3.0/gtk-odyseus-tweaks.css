@@ -85,3 +85,10 @@ GtkInfoBar GtkSwitch.trough:active:insensitive {
 .primary-toolbar .inline-toolbar GtkSwitch.trough:active:insensitive {
 	background-image: -gtk-scaled(url("extra-assets/switch-active-insensitive-header.png"), url("extra-assets/switch-active-insensitive-header@2.png"));
 }
+
+.undershoot.top,
+.undershoot.right,
+.undershoot.bottom,
+.undershoot.left {
+	background-image: none;
+}

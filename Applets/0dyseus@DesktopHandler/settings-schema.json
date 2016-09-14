@@ -388,7 +388,6 @@
 			"Ctrl": "4",
 			"Shift": "1"
 		},
-		"dependency": "pref_use_gestures",
 		"tooltip": ""
 	}
 }

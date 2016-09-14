@@ -1,80 +1,91 @@
 {
-	"overlay-key": {
+	"pref_overlay_key": {
 		"type": "keybinding",
 		"description": "Keyboard shortcut to open and close the menu",
 		"default": "Super_L::Super_R"
 	},
-	"menu-icon-custom": {
+	"pref_use_a_custom_icon_for_applet": {
 		"type": "checkbox",
 		"default": false,
 		"description": "Use a custom icon",
 		"tooltip": "Unchecking this allows the theme to set the icon"
 	},
-	"menu-icon": {
+	"pref_custom_icon_for_applet": {
 		"type": "iconfilechooser",
-		"default": "/usr/share/cinnamon/theme/menu-symbolic.svg",
+		"default": "custom-start-here-linux-mint-symbolic",
 		"description": "Icon",
 		"tooltip": "Select an icon to show in the panel.",
-		"dependency": "menu-icon-custom",
+		"dependency": "pref_use_a_custom_icon_for_applet",
 		"indent": "true"
 	},
-	"menu-label": {
+	"pref_custom_label_for_applet": {
 		"type": "entry",
 		"default": "Menu",
-		"description": "Text",
+		"description": "Custom label",
 		"tooltip": "Enter custom text to show in the panel."
 	},
-	"show-category-icons": {
+	"pref_display_category_icons": {
 		"type": "checkbox",
 		"default": true,
 		"description": "Show category icons",
 		"tooltip": "Choose whether or not to show icons on categories."
 	},
-	"show-application-icons": {
+	"pref_display_application_icons": {
 		"type": "checkbox",
 		"default": true,
 		"description": "Show application icons",
 		"tooltip": "Choose whether or not to show icons on applications."
 	},
-	"favbox-show": {
+	"pref_display_fav_box": {
 		"type": "checkbox",
 		"default": true,
 		"description": "Show favorites and quit options",
 		"tooltip": "Choose whether or not to show the left pane of the menu."
 	},
-	"show-places": {
+	"pref_show_places": {
 		"type": "checkbox",
 		"default": true,
 		"description": "Show bookmarks and places",
 		"tooltip": "Choose whether or not to show bookmarks and places in the menu."
 	},
-	"enable-autoscroll": {
+	"pref_enable_autoscroll": {
 		"type": "checkbox",
 		"default": true,
 		"description": "Enable auto-scrolling in application list",
 		"tooltip": "Choose whether or not to enable smooth auto-scrolling in the application list."
 	},
-	"search-filesystem": {
+	"pref_search_filesystem": {
 		"type": "checkbox",
 		"default": false,
 		"description": "Enable file system path entry in search box",
 		"tooltip": "Allows path entry in the menu search box."
 	},
-	"activate-on-hover": {
+	"pref_open_menu_on_hover": {
 		"type": "checkbox",
 		"default": false,
 		"description": "Open the menu when I move my mouse over it",
-		"tooltip": "Enable opening the menu when the mouse enters the applet"
+		"tooltip": "Enable opening the menu when the mouse enters the applet."
 	},
-	"hover-delay": {
+	"pref_menu_hover_delay": {
+		"type": "spinbutton",
+		"default": 0,
+		"min": 0,
+		"max": 1000,
+		"step": 50,
+		"dependency" : "pref_open_menu_on_hover",
+		"units": "milliseconds",
+		"description": "Menu hover delay:",
+		"tooltip": "Delay before the menu is opened on entering the applet."
+	},
+	"pref_cat_hover_delay": {
 		"type": "spinbutton",
 		"default": 0,
 		"min": 0,
 		"max": 1000,
 		"step": 50,
 		"units": "milliseconds",
-		"description": "Menu hover delay:",
-		"tooltip": "Delay between switching categories"
+		"description": "Category selection delay:",
+		"tooltip": "Delay between switching categories."
 	},
 	"menu-editor-button": {
 		"type": "button",
@@ -93,6 +104,12 @@
 		"type": "button",
 		"description": "Click here to save settings",
 		"callback": "_hardRefreshAll"
+	},
+	"pref_animate_menu": {
+		"type": "checkbox",
+		"default": false,
+		"description": "Animate open/close menu",
+		"tooltip": ""
 	},
 	"pref_show_appinfo_box": {
 		"type": "checkbox",
@@ -114,7 +131,7 @@
 	},
 	"pref_fuzzy_search_enabled": {
 		"type": "checkbox",
-		"default": true,
+		"default": false,
 		"description": "Enable fuzzy search (EXPERIMENTAL)",
 		"tooltip": ""
 	},
@@ -147,7 +164,7 @@
 		"type": "checkbox",
 		"default": false,
 		"description": "Swap categories box",
-		"tooltip": ""
+		"tooltip": "By default, the categories box is to the left of the applications list. With this option enabled, the categories box will be placed to the right of the applications list."
 	},
 	"pref_separator_heigth": {
 		"type": "spinbutton",
@@ -225,7 +242,7 @@
 	"pref_lock_button_custom_icon": {
 		"type": "iconfilechooser",
 		"indent": "true",
-		"default": "system-lock-screen-symbolic",
+		"default": "custom-system-lock-screen-symbolic",
 		"description": "Custom icon for \"Lock screen\" button:",
 		"tooltip": "Only valid if the System buttons box is placed next to the Custom launchers box.\nLeave blank to use default."
 	},
@@ -238,7 +255,7 @@
 	"pref_logout_button_custom_icon": {
 		"type": "iconfilechooser",
 		"indent": "true",
-		"default": "system-log-out-symbolic",
+		"default": "custom-system-log-out-symbolic",
 		"description": "Custom icon for \"Logout\" button:",
 		"tooltip": "Only valid if the System buttons box is placed next to the Custom launchers box.\nLeave blank to use default."
 	},
@@ -251,7 +268,7 @@
 	"pref_shutdown_button_custom_icon": {
 		"type": "iconfilechooser",
 		"indent": "true",
-		"default": "system-shutdown-symbolic",
+		"default": "custom-system-shutdown-symbolic",
 		"description": "Custom icon for \"Shutdown\" button:",
 		"tooltip": "Only valid if the System buttons box is placed next to the Custom launchers box.\nLeave blank to use default."
 	},
@@ -296,13 +313,69 @@
 	"sep1": {
 		"type": "separator"
 	},
+	"head5": {
+		"type": "header",
+		"description": "\nRecently used applications"
+	},
+	"pref_remember_recently_used_apps": {
+		"type": "checkbox",
+		"default": false,
+		"description": "Show Recently used apps category",
+		"tooltip": "From the moment this option is enabled, every application launched from the menu will be stored and displayed in the Recently used apps category.\nEvery time this option is disabled, the list of recently used applications will be cleared."
+	},
+	"pref_recently_used_apps_separator": {
+		"type": "checkbox",
+		"default": false,
+		"dependency": "pref_remember_recently_used_apps",
+		"description": "Display separator after Recently used apps category",
+		"tooltip": ""
+	},
+	"pref_recently_used_apps_invert_order": {
+		"type": "checkbox",
+		"default": false,
+		"dependency": "pref_remember_recently_used_apps",
+		"description": "Invert Recently used apps order",
+		"tooltip": "By default, the most recently used app is at the top of the list. With this option enabled, the most recentrly used app will be at the bottom of the list."
+	},
+	"pref_recently_used_apps_custom_icon": {
+		"type": "entry",
+		"dependency": "pref_remember_recently_used_apps",
+		"default": "folder-recent",
+		"description": "Custom icon for category",
+		"tooltip": "Enter custom icon for the Recently used apps category.\nOnly icon names are allowed."
+	},
+	"pref_recently_used_apps_custom_label": {
+		"type": "entry",
+		"dependency": "pref_remember_recently_used_apps",
+		"default": "Recent Apps",
+		"description": "Custom label for category",
+		"tooltip": "Enter custom label for the Recently used apps category."
+	},
+	"pref_max_recently_used_apps": {
+		"type": "spinbutton",
+		"dependency": "pref_remember_recently_used_apps",
+		"default": 20,
+		"min": 5,
+		"max": 100,
+		"step": 1,
+		"units": "applications",
+		"description": "Max recenttly used apps:",
+		"tooltip": ""
+	},
+	"pref_recently_used_apps": {
+		"type": "generic",
+		"default": []
+	},
+	"sep5": {
+		"type": "separator"
+	},
 	"head1": {
 		"type": "header",
 		"description": "\nCustom launchers"
 	},
 	"pref_custom_launchers_box_placement": {
 		"type": "radiogroup",
-		"default": 2,
+		"default": 4,
 		"description": "Custom launchers box placement",
 		"options": {
 			"Disabled": 0,

@@ -43,8 +43,9 @@ Tested and working on Cinnamon version 3.0.7.
 
 ## How to set a different icon for each sub-menu
 - Create a file at the same level as the folders that will be used to create the sub-menus.
-- The file name can be customized. By default is called **0_icons_for_sub_menus.json**.
+- The file name can be customized, doesn't need to have an extension name and can be a hidden file (a dot file). By default is called **0_icons_for_sub_menus.json**.
 - Whatever name is chosen for the file, it will be automatically ignored and will never be shown on the menu.
+- If any sub-folder has more folders that need to have custom icons, just create another **0_icons_for_sub_menus.json** file at the same level that those folders.
 - The content of the file is a *JSON object* and has to look as follows:
 ```json
 {
@@ -60,17 +61,15 @@ Tested and working on Cinnamon version 3.0.7.
 #### Image featuring different icons for each sub-menu and different icon sizes
 ![Image featuring different icons for each sub-menu and different icon sizes](https://raw.githubusercontent.com/Odyseus/CinnamonTools/master/Applets/0dyseus%40QuickMenu/public/Screenshot-002.png "Image featuring different icons for each sub-menu and different icon sizes")
 
-## Known issues
-**Note:** My very limited knowledge (I'm not a developer) along with the lack of documentation for creating applets makes the corrections of these bugs/issues very hard for me. If someone has the solution, don't hesitate in pointing me in the right direction.
-
-- Some file types (.log for example) will create menu items without icons.
-
 <h2 style="color:red;"> Bug report and feature request</h2>
 <span style="color:red;">
 Spices comments system is absolutely useless to report bugs with any king of legibility. In addition, there is no notifications system for new comments. So, if anyone has bugs to report or a feature request, do so on this applet GitHub page. Just click the **Website** button next to the **Download** button.
 </span>
 
 ## Change Log
+
+##### 1.02
+- Fixed the known issue of not displaying an icon for certain file types.
 
 ##### 1.01
 - Fixed the need to restart Cinnamon after adding this applet to the panel.
