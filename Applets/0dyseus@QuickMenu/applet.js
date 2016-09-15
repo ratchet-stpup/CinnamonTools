@@ -164,7 +164,6 @@ MyApplet.prototype = {
 						this.pref_use_different_icons_for_sub_menus &&
 						iconsForFolders !== null &&
 						iconsForFolders[fileName]) {
-						global.logError(iconsForFolders[fileName]);
 						iconName = iconsForFolders[fileName];
 					}
 
@@ -186,7 +185,6 @@ MyApplet.prototype = {
 					let contentType = Gio.content_type_guess(filePath, null);
 					let isDeskFile = contentType.indexOf("application/x-desktop") !== -1;
 					let app = Gio.file_new_for_path(filePath);
-					global.logError(contentType.toString());
 					if (!app) {
 						global.logError("File " + filePath + " not found");
 						continue;
