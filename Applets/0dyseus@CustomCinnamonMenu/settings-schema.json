@@ -72,7 +72,7 @@
 		"min": 0,
 		"max": 1000,
 		"step": 50,
-		"dependency" : "pref_open_menu_on_hover",
+		"dependency": "pref_open_menu_on_hover",
 		"units": "milliseconds",
 		"description": "Menu hover delay:",
 		"tooltip": "Delay before the menu is opened on entering the applet."
@@ -224,7 +224,7 @@
 		"description": "\nQuit buttons"
 	},
 	"pref_system_buttons_display": {
-		"type": "radiogroup",
+		"type": "combobox",
 		"default": 2,
 		"description": "Where to display the Quit buttons",
 		"options": {
@@ -310,6 +310,81 @@
 		"description": "Custom width for search box:",
 		"tooltip": "Set to 0 (zero) for not setting a width."
 	},
+	"sep6": {
+		"type": "separator"
+	},
+	"button2": {
+		"type": "button",
+		"description": "Click here to save settings",
+		"callback": "_hardRefreshAll"
+	},
+	"head6": {
+		"type": "header",
+		"description": "\nApplications context menu extras"
+	},
+	"pref_show_icons_on_context": {
+		"type": "checkbox",
+		"default": true,
+		"description": "Show icons on context menu"
+	},
+	"pref_hide_add_to_panel_on_context": {
+		"type": "checkbox",
+		"default": false,
+		"description": "Hide \"Add to panel\""
+	},
+	"pref_hide_add_to_desktop_on_context": {
+		"type": "checkbox",
+		"default": false,
+		"description": "Hide \"Add to desktop\""
+	},
+	"pref_hide_uninstall_on_context": {
+		"type": "checkbox",
+		"default": false,
+		"description": "Hide \"Uninstall\""
+	},
+	"pref_show_desktop_file_folder_on_context": {
+		"type": "checkbox",
+		"default": false,
+		"description": "Show \"Open .desktop file folder\" on context"
+	},
+	"pref_show_run_as_root_on_context": {
+		"type": "checkbox",
+		"default": false,
+		"description": "Show \"Run as root\" on context"
+	},
+	"pref_show_edit_desktop_file_on_context": {
+		"type": "checkbox",
+		"default": false,
+		"description": "Show \"Edit .desktop file\" on context",
+		"tooltip": "It add to the applications context menu an entry that will allow you to open the current selected application's .desktop file in a text editor."
+	},
+	"pref_gain_privileges_on_context": {
+		"type": "checkbox",
+		"dependency": "pref_show_edit_desktop_file_on_context",
+		"default": false,
+		"indent": true,
+		"description": "Gain privileges of not owned files",
+		"tooltip": "If enabled, this options will open as root .desktop files that aren't owned by the current user.\n\nThis isn't needed for all text editors. Some text editors will allow you to open and edit not owned files and will ask for the root password at the moment of saving the changes."
+	},
+	"pref_custom_editor_for_edit_desktop_file_on_context": {
+		"type": "filechooser",
+		"dependency": "pref_show_edit_desktop_file_on_context",
+		"select-dir": false,
+		"default": "",
+		"indent": true,
+		"description": "Custom text editor:",
+		"tooltip": "Set a custom text editor to open .desktop files (just the name of the text editor executable or the path to it).\nLeave it blank to let the system decide."
+	},
+	"pref_privilege_elevator_on_context": {
+		"type": "entry",
+		"default": "gksu",
+		"description": "Privileges elevator:",
+		"tooltip": "The graphical front-end to use to run applications as root.\nThis is used by the \"Open as Root\" context menu and the option \"Gain privileges of not owned files\".\nIf left blank, \"Open as Root\" context menu will not be displayed."
+	},
+
+
+
+
 	"sep1": {
 		"type": "separator"
 	},
@@ -374,7 +449,7 @@
 		"description": "\nCustom launchers"
 	},
 	"pref_custom_launchers_box_placement": {
-		"type": "radiogroup",
+		"type": "combobox",
 		"default": 4,
 		"description": "Custom launchers box placement",
 		"options": {
@@ -396,7 +471,7 @@
 		"tooltip": ""
 	},
 	"pref_custom_commands_box_alignment": {
-		"type": "radiogroup",
+		"type": "combobox",
 		"default": 2,
 		"description": "Alignment of buttons inside the custom launchers box",
 		"options": {

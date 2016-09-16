@@ -2427,7 +2427,3 @@ StScrollBar StButton#vhandle:hover {
 }
 .applet-box.vertical:hover .applet-icon {
 }
-
-StScrollView.vfade {
-	/*-st-vfade-offset: 68px;*/
-}

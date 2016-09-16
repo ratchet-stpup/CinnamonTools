@@ -131,10 +131,10 @@ column-header.button {
  * switch *
  **********/
 
- /**
-  * Mark Odyseus
-  * GtkSwitch is set on gtk-odyseus-tweaks.css file and uses assets from extra-assets folder
-  */
+/**
+ * Mark Odyseus
+ * GtkSwitchs are taken care of in gtk-odyseus-tweaks.css file.
+ */
 
 /*GtkSwitch.trough {
     background-color: transparent;
@@ -168,8 +168,8 @@ GtkSwitch.slider:insensitive {
     background-image: linear-gradient(to bottom,
                             @button_insensitive_bg_a,
                             @button_insensitive_bg_b);
-}*/
-
+}
+*/
 /***********
  * toolbar *
  ***********/

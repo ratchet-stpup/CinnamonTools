@@ -1,3 +1,7 @@
+/**
+ * START
+ * Gtk3 switches with the same appearance that the Cinnamon switches.
+ */
 GtkSwitch {
 	font: 1;
 	-GtkSwitch-slider-width: 52;
@@ -85,10 +89,36 @@ GtkInfoBar GtkSwitch.trough:active:insensitive {
 .primary-toolbar .inline-toolbar GtkSwitch.trough:active:insensitive {
 	background-image: -gtk-scaled(url("extra-assets/switch-active-insensitive-header.png"), url("extra-assets/switch-active-insensitive-header@2.png"));
 }
+/**
+ * END
+ * Gtk3 switches with the same appearance that the Cinnamon switches.
+ */
 
+/**
+ * START
+ * Remove dashed lines feedback from scrolled windows.
+ */
 .undershoot.top,
 .undershoot.right,
 .undershoot.bottom,
 .undershoot.left {
 	background-image: none;
 }
+/**
+ * END
+ * Remove dashed lines feedback from scrolled windows.
+ */
+
+/**
+ * START
+ * Display scroll bar arrows in all gtk3 applications.
+ */
+.scrollbar {
+	-GtkScrollbar-has-backward-stepper: 1;
+	-GtkScrollbar-has-forward-stepper: 1;
+	-GtkRange-slider-width: 11;
+}
+/**
+ * END
+ * Display scroll bar arrows in all gtk3 applications.
+ */

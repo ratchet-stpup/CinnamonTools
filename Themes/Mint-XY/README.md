@@ -6,6 +6,11 @@ This theme is basically the default **Mint-X** theme with some graphics (check/r
 
 ## Change Log
 
+##### 1.02
+- Added compatibility for vertical panels. Vertical panels are only present on Cinnamon nightly builds.
+- Restored all removed scroll bars arrows.
+- Removed dashed lines feedback from scrolled windows (affects gtk3 applications only).
+
 ##### 1.01
 - Now all switches have an uniform look across tolkits.
 

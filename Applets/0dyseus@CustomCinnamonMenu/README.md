@@ -4,7 +4,7 @@ This applet is a custom version of the default Cinnamon Menu applet, but infinit
 
 ## Compatibility
 
-Tested and working on Cinnamon version 3.0.7.
+Tested and working on Cinnamon version 3.0.7 (stable and nightly).
 
 ## Added options/features
 
@@ -27,6 +27,9 @@ Tested and working on Cinnamon version 3.0.7.
 - The padding of certain menu elements can be customized to override the current theme stylesheets.
 - Recently installed applications highlighting can be disabled.
 - Recently used applications can be remembered and will be displayed on a category called **Recent Apps**. The applications will be sorted by execution time and the name and icon of the category can be customized.
+- The context menu for applications has three new items (**Run as root**, **Edit .desktop file** and **Open .desktop file folder**).
+- The default **Add to panel**, **Add to desktop** and **Uninstall** context menu items can be hidden.
+- The menu editor can be directly opened from this applet context menu without the need to open it from the settings windows of this applet.
 
 ### Menu *emulating* the Whisker menu (XFCE)
 
@@ -38,6 +41,13 @@ Spices comments system is absolutely useless to report bugs with any king of leg
 </span>
 
 ## Change Log
+
+##### 1.06
+- Fixed an issue with the context menu for applications listed under **Recent Apps** category (the context menu wasn't closing when switching categories.
+- Added three new items to the context menu for applications (**Run as root**, **Edit .desktop file** and **Open .desktop file folder**). All three items can be hidden/shown individually.
+- Added options to hide **Add to panel**, **Add to desktop** and **Uninstall** context menu items.
+- Added option to enable open/close animations for the menu.
+- Added a new item to the context menu of this applet to open the menu editor.
 
 ##### 1.05
 - Added new option to remember recently used applications launched from the menu. These applications will be displayed on a new category and sorted by execution time.
