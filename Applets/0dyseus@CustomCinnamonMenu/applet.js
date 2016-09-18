@@ -31,7 +31,10 @@ const _ = Gettext.gettext;
 /**
  * START mark Odyseus
  */
+// Needed to get user name
 const AccountsService = imports.gi.AccountsService;
+// Needed for confirmation dialogs.
+const ModalDialog = imports.ui.modalDialog;
 
 var PREF_MAX_FAV_ICON_SIZE = 22;
 var PREF_CATEGORY_ICON_SIZE = 22;
@@ -156,6 +159,8 @@ ApplicationContextMenuItem.prototype = {
 	activate: function(event) {
 		let pathToDesktopFile = this._appButton.app.get_app_info().get_filename();
 		let process;
+		let likelyHasSucceeded = false;
+		let cmd = "";
 
 		switch (this._action) {
 			case "add_to_panel":
@@ -193,17 +198,68 @@ ApplicationContextMenuItem.prototype = {
 				this._appButton.toggleMenu();
 				break;
 			case "uninstall":
-				Util.spawnCommandLine("gksu -m '" + _("Please provide your password to uninstall this application") + "' /usr/bin/cinnamon-remove-application '" + this._appButton.app.get_app_info().get_filename() + "'");
+				Util.spawnCommandLine("gksu -m '" + _("Please provide your password to uninstall this application") +
+					"' /usr/bin/cinnamon-remove-application '" +
+					this._appButton.app.get_app_info().get_filename() + "'");
 				this._appButton.appsMenuButton.menu.close(PREF_ANIMATE_MENU);
 				break;
 			case "run_with_nvidia_gpu":
-				Util.spawnCommandLine("optirun gtk-launch " + this._appButton.app.get_id());
-				this._appButton.appsMenuButton.menu.close(PREF_ANIMATE_MENU);
+				try {
+					Util.spawnCommandLine("optirun gtk-launch " + this._appButton.app.get_id());
+					likelyHasSucceeded = true;
+				} catch (aErr) {
+					global.logError(aErr.message);
+					likelyHasSucceeded = false;
+				} finally {
+					if (this._appButton.appsMenuButton.pref_remember_recently_used_apps &&
+						this._appButton instanceof ApplicationButton &&
+						likelyHasSucceeded) {
+						this._appButton.appsMenuButton._storeRecentApp(this._appButton.app.get_id());
+					}
+					this._appButton.appsMenuButton.menu.close(PREF_ANIMATE_MENU);
+				}
 				break;
 				/**
 				 * START mark Odyseus
 				 * Custom context menu actions.
 				 */
+			case "launch_from_terminal":
+			case "launch_from_terminal_as_root":
+				let elevated = this._action === "launch_from_terminal_as_root" ?
+					this._appButton.appsMenuButton.pref_privilege_elevator + " " :
+					"";
+
+				/**
+				 * Without the run_from_terminal.sh script, I would be forced to use different
+				 *  methods to keep the terminal open.
+				 * Even so, directly using the gtk-launch command after the -e argument
+				 *  works whenever it effing wants!!!
+				 * Using the run_from_terminal.sh script, gtk-launch command works 100% of
+				 *  the time and, for now, seems to do the trick with all terminals that I tested.
+				 * http://askubuntu.com/questions/46627/how-can-i-make-a-script-that-opens-terminal-windows-and-executes-commands-in-the
+				 */
+				cmd = this._appButton.appsMenuButton.pref_terminal_emulator +
+					" -e \"" + this._appButton.appsMenuButton._runFromTerminalScript + " " +
+					elevated + "gtk-launch " + this._appButton.app.get_id().replace(/.desktop$/g, "") + "\"";
+
+				try {
+					let [success, argv] = GLib.shell_parse_argv(cmd);
+
+					let flags = GLib.SpawnFlags.SEARCH_PATH;
+					GLib.spawn_async(null, argv, null, flags, null);
+					likelyHasSucceeded = true;
+				} catch (aErr) {
+					global.logError(aErr.message);
+					likelyHasSucceeded = false;
+				} finally {
+					if (this._appButton.appsMenuButton.pref_remember_recently_used_apps &&
+						this._appButton instanceof ApplicationButton &&
+						likelyHasSucceeded) {
+						this._appButton.appsMenuButton._storeRecentApp(this._appButton.app.get_id());
+					}
+					this._appButton.appsMenuButton.menu.close(PREF_ANIMATE_MENU);
+				}
+				break;
 			case "open_desktop_file_folder":
 				let dirPath;
 				try {
@@ -222,22 +278,30 @@ ApplicationContextMenuItem.prototype = {
 				} catch (aErr) {
 					Main.notify("[Custom Cinnamon Menu]", aErr.message);
 					global.logError(aErr.message);
+				} finally {
+					this._appButton.appsMenuButton.menu.close(PREF_ANIMATE_MENU);
 				}
-				this._appButton.appsMenuButton.menu.close(PREF_ANIMATE_MENU);
 				break;
 			case "run_as_root":
 				try {
-					Util.spawnCommandLine(this._appButton.appsMenuButton.pref_privilege_elevator_on_context +
+					Util.spawnCommandLine(this._appButton.appsMenuButton.pref_privilege_elevator +
 						" gtk-launch " + this._appButton.app.get_id());
+					likelyHasSucceeded = true;
 				} catch (aErr) {
 					Main.notify("[Custom Cinnamon Menu]", aErr.message);
 					global.logError(aErr.message);
+					likelyHasSucceeded = false;
+				} finally {
+					if (this._appButton.appsMenuButton.pref_remember_recently_used_apps &&
+						this._appButton instanceof ApplicationButton &&
+						likelyHasSucceeded) {
+						this._appButton.appsMenuButton._storeRecentApp(this._appButton.app.get_id());
+					}
+					this._appButton.appsMenuButton.menu.close(PREF_ANIMATE_MENU);
 				}
-				this._appButton.appsMenuButton.menu.close(PREF_ANIMATE_MENU);
 				break;
 			case "open_with_text_editor":
-				let cmd = "",
-					currentUser;
+				let currentUser;
 				let fileOwner;
 
 				try {
@@ -254,7 +318,7 @@ ApplicationContextMenuItem.prototype = {
 
 				if (this._appButton.appsMenuButton.pref_gain_privileges_on_context &&
 					currentUser !== fileOwner) {
-					cmd += this._appButton.appsMenuButton.pref_privilege_elevator_on_context;
+					cmd += this._appButton.appsMenuButton.pref_privilege_elevator;
 				}
 
 				let customEditor = this._appButton.appsMenuButton.pref_custom_editor_for_edit_desktop_file_on_context;
@@ -268,8 +332,9 @@ ApplicationContextMenuItem.prototype = {
 				} catch (aErr) {
 					Main.notify("[Custom Cinnamon Menu]", aErr.message);
 					global.logError(aErr.message);
+				} finally {
+					this._appButton.appsMenuButton.menu.close(PREF_ANIMATE_MENU);
 				}
-				this._appButton.appsMenuButton.menu.close(PREF_ANIMATE_MENU);
 				break;
 				/**
 				 * END
@@ -330,44 +395,54 @@ GenericApplicationButton.prototype = {
 
 	activate: function(event) {
 		this.unhighlight();
-		this.app.open_new_window(-1);
+		let likelyHasSucceeded = false;
+
+		let ctrlKey = Clutter.ModifierType.CONTROL_MASK & global.get_pointer()[2];
+		let shiftKey = Clutter.ModifierType.SHIFT_MASK & global.get_pointer()[2];
+		// let altKey = Clutter.ModifierType.MOD1_MASK & global.get_pointer()[2];
+		// global.logError("ctrlKey " + ctrlKey);
+		// global.logError("shiftKey " + shiftKey);
+		// global.logError("altKey " + altKey);
+
+		if (ctrlKey && this.appsMenuButton._terminalReady) {
+			try {
+				let elevated = shiftKey ?
+					this.appsMenuButton.pref_privilege_elevator + " " :
+					"";
+
+				let cmd = this.appsMenuButton.pref_terminal_emulator +
+					" -e \"" + this.appsMenuButton._runFromTerminalScript + " " +
+					elevated + "gtk-launch " + this.app.get_id().replace(/.desktop$/g, "") + "\"";
+
+				let [success, argv] = GLib.shell_parse_argv(cmd);
+
+				let flags = GLib.SpawnFlags.SEARCH_PATH;
+				GLib.spawn_async(null, argv, null, flags, null);
+				likelyHasSucceeded = true;
+			} catch (aErr) {
+				global.logError(aErr.message);
+				likelyHasSucceeded = false;
+			}
+		} else if (shiftKey && !ctrlKey) {
+			try {
+				Util.spawnCommandLine(this.appsMenuButton.pref_privilege_elevator +
+					" gtk-launch " + this.app.get_id());
+				likelyHasSucceeded = true;
+			} catch (aErr) {
+				Main.notify("[Custom Cinnamon Menu]", aErr.message);
+				global.logError(aErr.message);
+				likelyHasSucceeded = false;
+			}
+		} else {
+			this.app.open_new_window(-1);
+			likelyHasSucceeded = true;
+		}
+
 		this.appsMenuButton.menu.close(PREF_ANIMATE_MENU);
 		if (this.appsMenuButton.pref_remember_recently_used_apps &&
-			this instanceof ApplicationButton) {
-			try {
-				// for (let prop in this.app.get_app_info()) {
-				// 	global.logError(prop);
-				// }
-
-				global.logError(this.app.get_app_info().get_filename());
-				let t = new Date().getTime();
-				let recApps = this.appsMenuButton.pref_recently_used_apps;
-				// Remove object if it was previously launched.
-				for (let i = recApps.length; i--;) {
-					if (recApps[i]["id"] === this.app.get_id()) {
-						recApps.splice(i, 1);
-					}
-				}
-				// this.app.lastAccess = t;
-				recApps.push({
-					id: this.app.get_id(),
-					lastAccess: t
-				});
-
-				// Holy ·$%&/()!!!
-				// The only freaking way that I could find to remove duplicated!!!
-				// Like always, Stack Overflow is a life saver.
-				// http://stackoverflow.com/questions/31014324/remove-duplicated-object-in-array
-				let temp = [];
-
-				this.appsMenuButton.pref_recently_used_apps = recApps.filter(function(aVal) {
-					return temp.indexOf(aVal.id) === -1 ? temp.push(aVal.id) : false;
-				});
-
-				this.appsMenuButton._refreshRecentApps();
-			} catch (aErr) {
-				global.logError(aErr);
-			}
+			this instanceof ApplicationButton &&
+			likelyHasSucceeded) {
+			this.appsMenuButton._storeRecentApp(this.app.get_id());
 		}
 	},
 
@@ -416,8 +491,7 @@ GenericApplicationButton.prototype = {
 					"run_with_nvidia_gpu", "nvidia-settings");
 				this.menu.addMenuItem(menuItem);
 			}
-			if (this.appsMenuButton.pref_show_run_as_root_on_context &&
-				this.appsMenuButton.pref_privilege_elevator_on_context !== "") {
+			if (this.appsMenuButton.pref_show_run_as_root_on_context) {
 				menuItem = new ApplicationContextMenuItem(this, _("Run as root"),
 					"run_as_root", "system-run");
 				this.menu.addMenuItem(menuItem);
@@ -430,6 +504,18 @@ GenericApplicationButton.prototype = {
 			if (this.appsMenuButton.pref_show_desktop_file_folder_on_context) {
 				menuItem = new ApplicationContextMenuItem(this, _("Open .desktop file folder"),
 					"open_desktop_file_folder", "folder");
+				this.menu.addMenuItem(menuItem);
+			}
+			if (this.appsMenuButton.pref_show_run_from_terminal_on_context &&
+				this.appsMenuButton._terminalReady) {
+				menuItem = new ApplicationContextMenuItem(this, _("Run from terminal"),
+					"launch_from_terminal", "custom-terminal");
+				this.menu.addMenuItem(menuItem);
+			}
+			if (this.appsMenuButton.pref_show_run_from_terminal_as_root_on_context &&
+				this.appsMenuButton._terminalReady) {
+				menuItem = new ApplicationContextMenuItem(this, _("Run from terminal as root"),
+					"launch_from_terminal_as_root", "custom-terminal");
 				this.menu.addMenuItem(menuItem);
 			}
 		}
@@ -1473,6 +1559,10 @@ MyApplet.prototype = {
 		/**
 		 * START mark Odyseus
 		 */
+		this._applet_dir = imports.ui.appletManager.appletMeta[metadata["uuid"]].path;
+		this._metadata = metadata;
+		this._instance_id = instance_id;
+
 		this._bind_settings();
 		// From Sane Menu
 		Gtk.IconTheme.get_default().append_search_path(metadata.path + "/icons/");
@@ -1492,6 +1582,16 @@ MyApplet.prototype = {
 		PREF_ANIMATE_MENU = this.pref_animate_menu;
 
 		this._recentAppsButtons = [];
+		this._terminalReady = false;
+		this._runFromTerminalScript = this._applet_dir + "/run_from_terminal.sh";
+
+		if (GLib.file_test(this._runFromTerminalScript, GLib.FileTest.EXISTS))
+			this._terminalReady = true;
+		else
+			this._terminalReady = false;
+
+		if (this._terminalReady && !GLib.file_test(this._runFromTerminalScript, GLib.FileTest.IS_EXECUTABLE))
+			Util.spawnCommandLine("chmod +x \"" + this._runFromTerminalScript);
 		/**
 		 * END
 		 */
@@ -1573,13 +1673,16 @@ MyApplet.prototype = {
 			[bD.BIDIRECTIONAL, "pref_hide_allapps_category", null],
 			[bD.BIDIRECTIONAL, "pref_display_favorites_as_category_menu", null],
 			[bD.BIDIRECTIONAL, "pref_recently_used_apps", null],
+			[bD.IN, "pref_terminal_emulator", null],
 			[bD.IN, "pref_show_icons_on_context", null],
 			[bD.IN, "pref_hide_add_to_panel_on_context", null],
 			[bD.IN, "pref_hide_add_to_desktop_on_context", null],
 			[bD.IN, "pref_hide_uninstall_on_context", null],
 			[bD.IN, "pref_gain_privileges_on_context", null],
-			[bD.IN, "pref_privilege_elevator_on_context", null],
+			[bD.IN, "pref_privilege_elevator", null],
 			[bD.IN, "pref_custom_editor_for_edit_desktop_file_on_context", null],
+			[bD.IN, "pref_show_run_from_terminal_on_context", null],
+			[bD.IN, "pref_show_run_from_terminal_as_root_on_context", null],
 			[bD.IN, "pref_show_desktop_file_folder_on_context", null],
 			[bD.IN, "pref_show_edit_desktop_file_on_context", null],
 			[bD.IN, "pref_show_run_as_root_on_context", null],
@@ -2583,6 +2686,37 @@ MyApplet.prototype = {
 	/**
 	 * START mark Odyseus
 	 */
+	_storeRecentApp: function(aAppID) {
+		try {
+			let t = new Date().getTime();
+			let recApps = this.pref_recently_used_apps;
+			// Remove object if it was previously launched.
+			for (let i = recApps.length; i--;) {
+				if (recApps[i]["id"] === aAppID) {
+					recApps.splice(i, 1);
+				}
+			}
+			recApps.push({
+				id: aAppID,
+				lastAccess: t
+			});
+
+			// Holy ·$%&/()!!!
+			// The only freaking way that I could find to remove duplicated!!!
+			// Like always, Stack Overflow is a life saver.
+			// http://stackoverflow.com/questions/31014324/remove-duplicated-object-in-array
+			let temp = [];
+
+			this.pref_recently_used_apps = recApps.filter(function(aVal) {
+				return temp.indexOf(aVal.id) === -1 ? temp.push(aVal.id) : false;
+			});
+
+			this._refreshRecentApps();
+		} catch (aErr) {
+			global.logError(aErr);
+		}
+	},
+
 	_refreshRecentApps: function() {
 		let r = 0,
 			rLen = this._recentAppsButtons.length;
@@ -3547,7 +3681,7 @@ MyApplet.prototype = {
 				icon_size: PREF_CUSTOM_COMMAND_ICON_SIZE
 			};
 			if (app) {
-				let button = new MyCustomCommanButton(this, app, null);
+				let button = new MyCustomCommandButton(this, app, null);
 				this.myCustomCommandsBox.add_actor(button.actor);
 			}
 		}
@@ -3564,7 +3698,7 @@ MyApplet.prototype = {
 	 */
 	_insertCustomSystemButtons: function() {
 		if (this.pref_show_lock_button) { // Lock screen
-			let button1 = new MyCustomCommanButton(this, {
+			let button1 = new MyCustomCommandButton(this, {
 				command: null,
 				description: _("Lock the screen"),
 				label: _("Lock screen"),
@@ -3593,7 +3727,7 @@ MyApplet.prototype = {
 		}
 
 		if (this.pref_show_logout_button) { // Logout button
-			let button2 = new MyCustomCommanButton(this, {
+			let button2 = new MyCustomCommandButton(this, {
 				command: null,
 				description: _("Leave the session"),
 				label: _("Logout"),
@@ -3609,7 +3743,7 @@ MyApplet.prototype = {
 		}
 
 		if (this.pref_show_shutdown_button) { // Shutdown button
-			let button3 = new MyCustomCommanButton(this, {
+			let button3 = new MyCustomCommandButton(this, {
 				command: null,
 				description: _("Shutdown the computer"),
 				label: _("Quit"),
@@ -3626,13 +3760,54 @@ MyApplet.prototype = {
 	},
 
 	_expand_applet_context_menu: function() {
-		let self = this;
+		this._applet_context_menu.removeAll();
+
 		let menuItem = new PopupMenu.PopupIconMenuItem(_("Open the menu editor"),
-			"text-editor",
-			St.IconType.SYMBOLIC);
+			"text-editor", St.IconType.SYMBOLIC);
 		menuItem.connect("activate", Lang.bind(this, this._launch_editor));
 		this._applet_context_menu.addMenuItem(menuItem);
 
+		menuItem = new PopupMenu.PopupIconMenuItem(_("Help"),
+			"dialog-information", St.IconType.SYMBOLIC);
+		menuItem.connect("activate", Lang.bind(this, function() {
+			Util.spawnCommandLine("xdg-open " + this._applet_dir + "/HELP.md");
+		}));
+		this._applet_context_menu.addMenuItem(menuItem);
+
+		/**
+		 * The default context menu items need to have the following names
+		 * to overwrite the original ones.
+		 */
+		this.context_menu_separator = new PopupMenu.PopupSeparatorMenuItem();
+		this._applet_context_menu.addMenuItem(this.context_menu_separator);
+
+		this.context_menu_item_about = new PopupMenu.PopupIconMenuItem(_("About..."),
+			"dialog-question",
+			St.IconType.SYMBOLIC);
+		this.context_menu_item_about.connect('activate', Lang.bind(this, this.openAbout));
+		this._applet_context_menu.addMenuItem(this.context_menu_item_about);
+
+		this.context_menu_item_configure = new PopupMenu.PopupIconMenuItem(_("Configure..."),
+			"system-run",
+			St.IconType.SYMBOLIC);
+		this.context_menu_item_configure.connect('activate', Lang.bind(this, function() {
+			Util.spawnCommandLine("cinnamon-settings applets " + this._metadata["uuid"] +
+				" " + this._instance_id);
+		}));
+		this._applet_context_menu.addMenuItem(this.context_menu_item_configure);
+
+		this.context_menu_item_remove = new PopupMenu.PopupIconMenuItem(_("Remove this applet"),
+			"edit-delete",
+			St.IconType.SYMBOLIC);
+		this.context_menu_item_remove.connect('activate', Lang.bind(this, function() {
+			new ConfirmationDialog(Lang.bind(this, function() {
+					Main.AppletManager._removeAppletFromPanel(this._metadata["uuid"], this._instance_id);
+				}),
+				this._metadata["name"],
+				"Are you sure that you want to remove " + this._metadata["name"] + " from your panel?",
+				_("Cancel"), _("OK")).open();
+		}));
+		this._applet_context_menu.addMenuItem(this.context_menu_item_remove);
 	},
 
 	/**
@@ -4306,11 +4481,11 @@ SeparatorBox.prototype = {
 	}
 };
 
-function MyCustomCommanButton(aApplet, aApp, aCallback) {
+function MyCustomCommandButton(aApplet, aApp, aCallback) {
 	this._init(aApplet, aApp, aCallback);
 }
 
-MyCustomCommanButton.prototype = {
+MyCustomCommandButton.prototype = {
 	__proto__: PopupMenu.PopupBaseMenuItem.prototype,
 
 	_init: function(aApplet, aApp, aCallback) {
@@ -4373,9 +4548,9 @@ MyCustomCommanButton.prototype = {
 	},
 
 	_activate: function(event, aCallback) {
-		if (this.callback)
+		if (this.callback) {
 			this.callback();
-		else {
+		} else {
 			let cmd = this.app.command;
 			try { // Try to execute
 				GLib.spawn_command_line_async(cmd);
@@ -4386,10 +4561,9 @@ MyCustomCommanButton.prototype = {
 				} catch (aErr2) {
 					Main.notify("[Custom Cinnamon Menu]", aErr2.message);
 				}
-			} finally {
-				this.applet.menu.close(this.aApplet.pref_animate_menu);
 			}
 		}
+		this.applet.menu.close(PREF_ANIMATE_MENU);
 	},
 };
 
@@ -4496,6 +4670,70 @@ ShellOutputProcess.prototype = {
 
 };
 
+function ConfirmationDialog() {
+	this._init.apply(this, arguments);
+}
+
+ConfirmationDialog.prototype = {
+	__proto__: ModalDialog.ModalDialog.prototype,
+
+	_init: function(aCallback, aDialogLabel, aDialogMessage, aCancelButtonLabel, aDoButtonLabel) {
+		ModalDialog.ModalDialog.prototype._init.call(this, {
+			styleClass: null
+		});
+
+		let mainContentBox = new St.BoxLayout({
+			style_class: 'polkit-dialog-main-layout',
+			vertical: false
+		});
+		this.contentLayout.add(mainContentBox, {
+			x_fill: true,
+			y_fill: true
+		});
+
+		let messageBox = new St.BoxLayout({
+			style_class: 'polkit-dialog-message-layout',
+			vertical: true
+		});
+		mainContentBox.add(messageBox, {
+			y_align: St.Align.START
+		});
+
+		this._subjectLabel = new St.Label({
+			style_class: 'polkit-dialog-headline',
+			text: aDialogLabel
+		});
+
+		messageBox.add(this._subjectLabel, {
+			y_fill: false,
+			y_align: St.Align.START
+		});
+
+		this._descriptionLabel = new St.Label({
+			style_class: 'polkit-dialog-description',
+			text: aDialogMessage
+		});
+
+		messageBox.add(this._descriptionLabel, {
+			y_fill: true,
+			y_align: St.Align.START
+		});
+
+		this.setButtons([{
+			label: aCancelButtonLabel,
+			action: Lang.bind(this, function() {
+				this.close();
+			}),
+			key: Clutter.Escape
+		}, {
+			label: aDoButtonLabel,
+			action: Lang.bind(this, function() {
+				this.close();
+				aCallback();
+			})
+		}]);
+	}
+};
 /**
  * END
  */

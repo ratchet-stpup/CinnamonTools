@@ -8,9 +8,8 @@ Tested and working on Cinnamon version 3.0.7 (stable and nightly).
 
 ## Added options/features
 
-- The separator between **Favorites** box and **Quit** box can have a custom height. I couldn't find a way to make this flexible or automatic.
 - The searchbox can be moved to the bottom or completely hidden. It can also have a fixed width or an automatic width to fit the menu width.
-- The applications info box (that thing that is used instead of a good old tooltip ¬¬) can be hidden.
+- The applications info box can be aligned to the left or be hidden.
 - The size of the Favorites/Categories/Applications icons can be customized.
 - The amount of recent files can be customized.
 - The **Quit** buttons can be hidden all at once or individually.
@@ -27,9 +26,14 @@ Tested and working on Cinnamon version 3.0.7 (stable and nightly).
 - The padding of certain menu elements can be customized to override the current theme stylesheets.
 - Recently installed applications highlighting can be disabled.
 - Recently used applications can be remembered and will be displayed on a category called **Recent Apps**. The applications will be sorted by execution time and the name and icon of the category can be customized.
-- The context menu for applications has three new items (**Run as root**, **Edit .desktop file** and **Open .desktop file folder**).
 - The default **Add to panel**, **Add to desktop** and **Uninstall** context menu items can be hidden.
 - The menu editor can be directly opened from this applet context menu without the need to open it from the settings windows of this applet.
+- The context menu for applications has 5 new items:
+    - **Run as root:** Executes application as root.
+    - **Edit .desktop file:** Open the application's .desktop file with a text editor.
+    - **Open .desktop file folder:** Open the folder where the application's .desktop file is stored.
+    - **Run from terminal:** Open a terminal and run application from there.
+    - **Run from terminal as root:** Same as above but the application is executed as root.
 
 ### Menu *emulating* the Whisker menu (XFCE)
 
@@ -41,6 +45,15 @@ Spices comments system is absolutely useless to report bugs with any king of leg
 </span>
 
 ## Change Log
+
+##### 1.07
+- Reorganized this applet settings window.
+- Added to this applet context menu a **Help** menu item. It will open a file containing some basic information about usage and some troubleshooting instructions.
+- Added **Run from terminal** and **Run from terminal as root** to the applications context menu.
+- Added three new actions when clicking applications.
+    - **Shift + Left click:** Run as root
+    - **Ctrl + Left click:** Run from terminal
+    - **Ctrl + Shift + Left click:** Run from terminal as root
 
 ##### 1.06
 - Fixed an issue with the context menu for applications listed under **Recent Apps** category (the context menu wasn't closing when switching categories.
