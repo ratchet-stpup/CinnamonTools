@@ -767,10 +767,6 @@
 	"sep7": {
 		"type": "separator"
 	},
-	"appearance0": {
-		"type": "header",
-		"description": "\nAppearance"
-	},
 	"appearance1": {
 		"type": "header",
 		"description": "\nIcon sizes"
@@ -831,7 +827,7 @@
 	},
 	"appearance3": {
 		"type": "header",
-		"description": "\nNote: Most themes stylesheets come with hardcoded sizes for certain elemets (ABSOLUTELY VERY ANNOYING!!!).\nThis section is for overriding those stylesheets.\n"
+		"description": "\nNote: Most themes stylesheets come with hardcoded sizes for certain elemets.\nThis section is for overriding those stylesheets."
 	},
 	"pref_set_categories_padding": {
 		"type": "checkbox",
