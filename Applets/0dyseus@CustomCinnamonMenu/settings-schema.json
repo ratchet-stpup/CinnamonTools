@@ -1,7 +1,7 @@
 {
 	"head": {
 		"type": "header",
-		"description": "\nMost settings are not automatically saved when modified.\nPress any of the \"Click here to save settings\" buttons for the settings to take effect."
+		"description": "Most settings are not automatically saved when modified.\nPress any of the \"Click here to save settings\" buttons for the settings to take effect."
 	},
 	"button0": {
 		"type": "button",
@@ -10,7 +10,7 @@
 	},
 	"head0": {
 		"type": "header",
-		"description": "\nApplet settings"
+		"description": "Applet settings"
 	},
 	"pref_overlay_key": {
 		"type": "keybinding",
@@ -40,7 +40,7 @@
 	"pref_open_menu_on_hover": {
 		"type": "checkbox",
 		"default": false,
-		"description": "Open the menu when I move my mouse over it",
+		"description": "Open the menu on mouse over",
 		"tooltip": "Enable opening the menu when the mouse enters the applet."
 	},
 	"pref_menu_hover_delay": {
@@ -59,7 +59,7 @@
 	},
 	"head1": {
 		"type": "header",
-		"description": "\nMenu settings"
+		"description": "Menu settings"
 	},
 	"pref_display_category_icons": {
 		"type": "checkbox",
@@ -88,8 +88,8 @@
 	"pref_show_recents_button": {
 		"type": "checkbox",
 		"default": true,
-		"description": "Show \"Recent files\" category",
-		"tooltip": "For people who want the Recent files category hidden without disabling recent files globally."
+		"description": "Show \"Recent documents\" category",
+		"tooltip": "For people who want the \"Recent documents\" category hidden without disabling recent documents globally."
 	},
 	"pref_max_recent_files": {
 		"type": "spinbutton",
@@ -98,8 +98,8 @@
 		"min": 5,
 		"max": 100,
 		"step": 1,
-		"units": "files",
-		"description": "Max recent files:",
+		"units": "documents",
+		"description": "Max recent documents:",
 		"tooltip": ""
 	},
 	"pref_enable_autoscroll": {
@@ -142,14 +142,14 @@
 	"pref_hide_allapps_category": {
 		"type": "checkbox",
 		"default": false,
-		"description": "Hide All Applications category",
+		"description": "Hide \"All Applications\" category",
 		"tooltip": ""
 	},
 	"pref_display_favorites_as_category_menu": {
 		"type": "checkbox",
 		"dependency": "pref_hide_allapps_category",
 		"default": false,
-		"description": "Display Favorites as a category menu",
+		"description": "Display \"Favorites\" as a category menu",
 		"tooltip": ""
 	},
 	"pref_hide_applications_list_scrollbar": {
@@ -195,7 +195,7 @@
 	},
 	"head3": {
 		"type": "header",
-		"description": "\nQuit buttons"
+		"description": "Quit buttons"
 	},
 	"pref_system_buttons_display": {
 		"type": "combobox",
@@ -251,7 +251,7 @@
 	},
 	"head4": {
 		"type": "header",
-		"description": "\nSearch box"
+		"description": "Search box"
 	},
 	"pref_search_filesystem": {
 		"type": "checkbox",
@@ -276,7 +276,7 @@
 		"type": "checkbox",
 		"default": false,
 		"dependency": "pref_show_search_box",
-		"description": "Auto-fit searchbox to menu width",
+		"description": "Auto-fit the width of the search box with the menu width",
 		"tooltip": "If enabled, Custom width for search box will be ignored. Also, this option is ignored if the custom launchers box is placed at either side of the searchbox."
 	},
 	"pref_custom_width_for_searchbox": {
@@ -300,7 +300,7 @@
 	},
 	"head5": {
 		"type": "header",
-		"description": "\nApplications context menu extras"
+		"description": "Applications context menu extras"
 	},
 	"pref_show_icons_on_context": {
 		"type": "checkbox",
@@ -346,7 +346,7 @@
 		"type": "checkbox",
 		"default": false,
 		"description": "Show \"Edit .desktop file\" on context",
-		"tooltip": "It add to the applications context menu an entry that will allow you to open the current selected application's .desktop file in a text editor."
+		"tooltip": "It adds to the applications context menu an entry that will allow you to open the current selected application's .desktop file in a text editor."
 	},
 	"pref_gain_privileges_on_context": {
 		"type": "checkbox",
@@ -371,41 +371,34 @@
 	},
 	"head6": {
 		"type": "header",
-		"description": "\nRecently used applications"
+		"description": "Recently used applications"
 	},
 	"pref_remember_recently_used_apps": {
 		"type": "checkbox",
 		"default": false,
-		"description": "Show Recently used apps category",
-		"tooltip": "From the moment this option is enabled, every application launched from the menu will be stored and displayed in the Recently used apps category.\nEvery time this option is disabled, the list of recently used applications will be cleared."
+		"description": "Show \"Recent Applications\" category",
+		"tooltip": "From the moment this option is enabled, every application launched from the menu will be stored and displayed in the \"Recent Applications\" category.\nEvery time this option is disabled, the list of recently used applications will be cleared."
 	},
 	"pref_recently_used_apps_separator": {
 		"type": "checkbox",
 		"default": false,
 		"dependency": "pref_remember_recently_used_apps",
-		"description": "Display separator after Recently used apps category",
+		"description": "Display separator after \"Recent Applications\" category",
 		"tooltip": ""
 	},
 	"pref_recently_used_apps_invert_order": {
 		"type": "checkbox",
 		"default": false,
 		"dependency": "pref_remember_recently_used_apps",
-		"description": "Invert Recently used apps order",
-		"tooltip": "By default, the most recently used app is at the top of the list. With this option enabled, the most recentrly used app will be at the bottom of the list."
+		"description": "Invert recently used applications order",
+		"tooltip": "By default, the most recently used application is at the top of the list. With this option enabled, the most recently used application will be at the bottom of the list."
 	},
 	"pref_recently_used_apps_custom_icon": {
 		"type": "entry",
 		"dependency": "pref_remember_recently_used_apps",
 		"default": "folder-recent",
 		"description": "Custom icon for category",
-		"tooltip": "Enter custom icon for the Recently used apps category.\nOnly icon names are allowed."
-	},
-	"pref_recently_used_apps_custom_label": {
-		"type": "entry",
-		"dependency": "pref_remember_recently_used_apps",
-		"default": "Recent Apps",
-		"description": "Custom label for category",
-		"tooltip": "Enter custom label for the Recently used apps category."
+		"tooltip": "Enter custom icon for the \"Recent Applications\" category.\nOnly icon names are allowed."
 	},
 	"pref_max_recently_used_apps": {
 		"type": "spinbutton",
@@ -427,7 +420,7 @@
 	},
 	"head7": {
 		"type": "header",
-		"description": "\nCustom launchers"
+		"description": "Custom launchers"
 	},
 	"pref_custom_launchers_box_placement": {
 		"type": "combobox",
@@ -458,11 +451,11 @@
 	},
 	"head8": {
 		"type": "header",
-		"description": "\nCustom launchers notes\nFields marked with asterisks (*) are mandatory. Otherwise, the button will not appear on the menu.\nIcons can be any icon name or path to an icon file (symbolic or full color).\nCommands can be any command (as entered in a terminal) or a path to a file.\nIf the file is an executable script, an attempt to execute it will be made.\nOtherwise, the file will be opened with the systems handler for that file type."
+		"description": "Custom launchers notes\nFields marked with asterisks (*) are mandatory. Otherwise, the button will not appear on the menu.\nIcons can be any icon name or path to an icon file (symbolic or full color).\nCommands can be any command (as entered in a terminal) or a path to a file.\nIf the file is an executable script, an attempt to execute it will be made.\nOtherwise, the file will be opened with the systems handler for that file type."
 	},
 	"pref_command_1": {
 		"type": "header",
-		"description": "\nCustom launcher 1"
+		"description": "Custom launcher 1"
 	},
 	"pref_command_1_label": {
 		"type": "entry",
@@ -491,7 +484,7 @@
 	},
 	"pref_command_2": {
 		"type": "header",
-		"description": "\nCustom launcher 2"
+		"description": "Custom launcher 2"
 	},
 	"pref_command_2_label": {
 		"type": "entry",
@@ -520,7 +513,7 @@
 	},
 	"pref_command_3": {
 		"type": "header",
-		"description": "\nCustom launcher 3"
+		"description": "Custom launcher 3"
 	},
 	"pref_command_3_label": {
 		"type": "entry",
@@ -549,7 +542,7 @@
 	},
 	"pref_command_4": {
 		"type": "header",
-		"description": "\nCustom launcher 4"
+		"description": "Custom launcher 4"
 	},
 	"pref_command_4_label": {
 		"type": "entry",
@@ -578,7 +571,7 @@
 	},
 	"pref_command_5": {
 		"type": "header",
-		"description": "\nCustom launcher 5"
+		"description": "Custom launcher 5"
 	},
 	"pref_command_5_label": {
 		"type": "entry",
@@ -616,7 +609,7 @@
 	},
 	"pref_command_6": {
 		"type": "header",
-		"description": "\nCustom launcher 6"
+		"description": "Custom launcher 6"
 	},
 	"pref_command_6_label": {
 		"type": "entry",
@@ -645,7 +638,7 @@
 	},
 	"pref_command_7": {
 		"type": "header",
-		"description": "\nCustom launcher 7"
+		"description": "Custom launcher 7"
 	},
 	"pref_command_7_label": {
 		"type": "entry",
@@ -674,7 +667,7 @@
 	},
 	"pref_command_8": {
 		"type": "header",
-		"description": "\nCustom launcher 8"
+		"description": "Custom launcher 8"
 	},
 	"pref_command_8_label": {
 		"type": "entry",
@@ -703,7 +696,7 @@
 	},
 	"pref_command_9": {
 		"type": "header",
-		"description": "\nCustom launcher 9"
+		"description": "Custom launcher 9"
 	},
 	"pref_command_9_label": {
 		"type": "entry",
@@ -732,7 +725,7 @@
 	},
 	"pref_command_10": {
 		"type": "header",
-		"description": "\nCustom launcher 10"
+		"description": "Custom launcher 10"
 	},
 	"pref_command_10_label": {
 		"type": "entry",
@@ -769,7 +762,7 @@
 	},
 	"appearance1": {
 		"type": "header",
-		"description": "\nIcon sizes"
+		"description": "Icon sizes"
 	},
 	"pref_max_fav_icon_size": {
 		"type": "spinbutton",
@@ -813,7 +806,7 @@
 	},
 	"appearance2": {
 		"type": "header",
-		"description": "\nFavorites box"
+		"description": "Favorites box"
 	},
 	"pref_separator_heigth": {
 		"type": "spinbutton",
@@ -823,11 +816,11 @@
 		"step": 10,
 		"units": "pixels",
 		"description": "Favorites box separator height:",
-		"tooltip": "Size of separator between \"Favorites\" box and \"Quit\" box.\nWhy in freaking hell isn't possible to make it flexible!?!?!!?"
+		"tooltip": "Size of separator between \"Favorites\" box and \"Quit\" box."
 	},
 	"appearance3": {
 		"type": "header",
-		"description": "\nNote: Most themes stylesheets come with hardcoded sizes for certain elemets.\nThis section is for overriding those stylesheets."
+		"description": "Note: Most themes stylesheets come with hardcoded sizes for certain elemets.\nThis section is for overriding those stylesheets."
 	},
 	"pref_set_categories_padding": {
 		"type": "checkbox",

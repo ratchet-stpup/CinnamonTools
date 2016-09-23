@@ -26,7 +26,6 @@ const Pango = imports.gi.Pango;
 const SearchProviderManager = imports.ui.searchProviderManager;
 
 const Gettext = imports.gettext;
-const _ = Gettext.gettext;
 
 /**
  * START mark Odyseus
@@ -43,6 +42,21 @@ var PREF_CUSTOM_COMMAND_ICON_SIZE = 22;
 var PREF_CUSTOM_ICON_FOR_REC_APPS_CAT = "";
 var PREF_CUSTOM_LABEL_FOR_REC_APPS_CAT = "";
 var PREF_ANIMATE_MENU = false;
+
+// For translation mechanism.
+// Incredible that this worked right!! LOL
+// Comments that start with // NOTE: are to be extracted by xgettext
+// and are directed to translators only.
+var UUID;
+
+function _(aStr) {
+	// Thanks to https://github.com/lestcape for this!!!
+	let customTrans = Gettext.dgettext(UUID, aStr);
+	if (customTrans != aStr) {
+		return customTrans;
+	}
+	return Gettext.gettext(aStr);
+}
 /**
  * END
  */
@@ -198,7 +212,10 @@ ApplicationContextMenuItem.prototype = {
 				this._appButton.toggleMenu();
 				break;
 			case "uninstall":
-				Util.spawnCommandLine("gksu -m '" + _("Please provide your password to uninstall this application") +
+				Util.spawnCommandLine("gksu -m '" +
+					// NOTE: This string could be left blank because it's a default string,
+					// so it's already translated by Cinnamon. It's up to the translators.
+					_("Please provide your password to uninstall this application") +
 					"' /usr/bin/cinnamon-remove-application '" +
 					this._appButton.app.get_app_info().get_filename() + "'");
 				this._appButton.appsMenuButton.menu.close(PREF_ANIMATE_MENU);
@@ -264,9 +281,7 @@ ApplicationContextMenuItem.prototype = {
 				let dirPath;
 				try {
 					process = new ShellOutputProcess(['dirname', pathToDesktopFile]);
-					dirPath = process.spawn_sync_and_get_output()
-						.replace(/\s+/g, "")
-						.replace(/\"/g, "");
+					dirPath = process.spawn_sync_and_get_output();
 				} catch (aErr) {
 					dirPath = false;
 					Main.notify("[Custom Cinnamon Menu]", aErr.message);
@@ -310,7 +325,10 @@ ApplicationContextMenuItem.prototype = {
 					process = new ShellOutputProcess(['stat', '-c', '"%U"', pathToDesktopFile]);
 					fileOwner = process.spawn_sync_and_get_output()
 						.replace(/\s+/g, "")
-						.replace(/\"/g, "");
+						// If I use the literal double quotes inside the RegEx,
+						// cinnamon-json-makepot with the --js argument breaks.
+						// SyntaxError: unterminated string literal
+						.replace(/\u0022/g, "");
 				} catch (aErr) {
 					fileOwner = false;
 					global.logError(aErr.message);
@@ -462,31 +480,43 @@ GenericApplicationButton.prototype = {
 			}
 			let menuItem;
 			if (!this.appsMenuButton.pref_hide_add_to_panel_on_context) {
+				// NOTE: This string could be left blank because it's a default string,
+				// so it's already translated by Cinnamon. It's up to the translators.
 				menuItem = new ApplicationContextMenuItem(this, _("Add to panel"),
 					"add_to_panel", "list-add");
 				this.menu.addMenuItem(menuItem);
 			}
 			if (USER_DESKTOP_PATH && !this.appsMenuButton.pref_hide_add_to_desktop_on_context) {
+				// NOTE: This string could be left blank because it's a default string,
+				// so it's already translated by Cinnamon. It's up to the translators.
 				menuItem = new ApplicationContextMenuItem(this, _("Add to desktop"),
 					"add_to_desktop", "list-add");
 				this.menu.addMenuItem(menuItem);
 			}
 			if (AppFavorites.getAppFavorites().isFavorite(this.app.get_id())) {
+				// NOTE: This string could be left blank because it's a default string,
+				// so it's already translated by Cinnamon. It's up to the translators.
 				menuItem = new ApplicationContextMenuItem(this, _("Remove from favorites"),
 					"remove_from_favorites", "edit-delete");
 				this.menu.addMenuItem(menuItem);
 			} else {
+				// NOTE: This string could be left blank because it's a default string,
+				// so it's already translated by Cinnamon. It's up to the translators.
 				menuItem = new ApplicationContextMenuItem(this, _("Add to favorites"),
 					"add_to_favorites", "list-add");
 				this.menu.addMenuItem(menuItem);
 			}
 			if (this.appsMenuButton._canUninstallApps &&
 				!this.appsMenuButton.pref_hide_uninstall_on_context) {
+				// NOTE: This string could be left blank because it's a default string,
+				// so it's already translated by Cinnamon. It's up to the translators.
 				menuItem = new ApplicationContextMenuItem(this, _("Uninstall"),
 					"uninstall", "edit-delete");
 				this.menu.addMenuItem(menuItem);
 			}
 			if (this.appsMenuButton._isBumblebeeInstalled) {
+				// NOTE: This string could be left blank because it's a default string,
+				// so it's already translated by Cinnamon. It's up to the translators.
 				menuItem = new ApplicationContextMenuItem(this, _("Run with nVidia GPU"),
 					"run_with_nvidia_gpu", "nvidia-settings");
 				this.menu.addMenuItem(menuItem);
@@ -969,6 +999,8 @@ RecentButton.prototype = {
 			}
 			let menuItem;
 
+			// NOTE: This string could be left blank because it's a default string,
+			// so it's already translated by Cinnamon. It's up to the translators.
 			menuItem = new PopupMenu.PopupMenuItem(_("Open with"), {
 				reactive: false
 			});
@@ -1019,6 +1051,8 @@ RecentButton.prototype = {
 
 			if (GLib.find_program_in_path("nemo-open-with") !== null) {
 				menuItem = new RecentContextMenuItem(this,
+					// NOTE: This string could be left blank because it's a default string,
+					// so it's already translated by Cinnamon. It's up to the translators.
 					_("Other application..."),
 					false,
 					Lang.bind(this, function() {
@@ -1102,6 +1136,8 @@ RecentClearButton.prototype = {
 		});
 		this.appsMenuButton = appsMenuButton;
 		this.actor.set_style_class_name('menu-application-button');
+		// NOTE: This string could be left blank because it's a default string,
+		// so it's already translated by Cinnamon. It's up to the translators.
 		this.button_name = _("Clear list");
 		this.actor._delegate = this;
 		this.label = new St.Label({
@@ -1175,6 +1211,8 @@ CategoryButton.prototype = {
 			}
 			label = category.get_name();
 		} else
+		// NOTE: This string could be left blank because it's a default string,
+		// so it's already translated by Cinnamon. It's up to the translators.
 			label = _("All Applications");
 
 		this.actor._delegate = this;
@@ -1219,6 +1257,8 @@ PlaceCategoryButton.prototype = {
 		this.actor.set_style_class_name('menu-category-button');
 		this.actor._delegate = this;
 		this.label = new St.Label({
+			// NOTE: This string could be left blank because it's a default string,
+			// so it's already translated by Cinnamon. It's up to the translators.
 			text: _("Places"),
 			style_class: 'menu-category-button-label'
 		});
@@ -1256,6 +1296,8 @@ RecentCategoryButton.prototype = {
 		this.actor.set_style_class_name('menu-category-button');
 		this.actor._delegate = this;
 		this.label = new St.Label({
+			// NOTE: This string could be left blank because it's a default string,
+			// so it's already translated by Cinnamon. It's up to the translators.
 			text: _("Recent Files"),
 			style_class: 'menu-category-button-label'
 		});
@@ -1542,7 +1584,6 @@ MyApplet.prototype = {
 		Applet.TextIconApplet.prototype._init.call(this, orientation, panel_height, instance_id);
 		this.initial_load_done = false;
 
-		this.set_applet_tooltip(_("Menu"));
 		this.menuManager = new PopupMenu.PopupMenuManager(this);
 		this.menu = new Applet.AppletPopupMenu(this, orientation);
 		this.menuManager.addMenu(this.menu);
@@ -1550,7 +1591,7 @@ MyApplet.prototype = {
 
 		this.actor.connect('key-press-event', Lang.bind(this, this._onSourceKeyPress));
 
-		this.settings = new Settings.AppletSettings(this, metadata["uuid"], instance_id);
+		this.settings = new Settings.AppletSettings(this, metadata.uuid, instance_id);
 
 		this._appletEnterEventId = 0;
 		this._appletLeaveEventId = 0;
@@ -1558,8 +1599,13 @@ MyApplet.prototype = {
 
 		/**
 		 * START mark Odyseus
+		 * Be careful not to call the _() function before this point!!!
 		 */
-		this._applet_dir = imports.ui.appletManager.appletMeta[metadata["uuid"]].path;
+		// Prepare translation mechanism.
+		UUID = metadata.uuid;
+		Gettext.bindtextdomain(metadata.uuid, GLib.get_home_dir() + "/.local/share/locale");
+
+		this._applet_dir = imports.ui.appletManager.appletMeta[metadata.uuid].path;
 		this._metadata = metadata;
 		this._instance_id = instance_id;
 
@@ -1573,17 +1619,21 @@ MyApplet.prototype = {
 		this._hardRefreshTimeout1 = null;
 		this._hardRefreshTimeout2 = null;
 		this._refreshCustomCommandsTimeout = null;
+
 		PREF_CATEGORY_ICON_SIZE = this.pref_category_icon_size;
 		PREF_APPLICATION_ICON_SIZE = this.pref_application_icon_size;
 		PREF_MAX_FAV_ICON_SIZE = this.pref_max_fav_icon_size;
 		PREF_CUSTOM_COMMAND_ICON_SIZE = this.pref_custom_command_icon_size;
 		PREF_CUSTOM_ICON_FOR_REC_APPS_CAT = this.pref_recently_used_apps_custom_icon;
-		PREF_CUSTOM_LABEL_FOR_REC_APPS_CAT = this.pref_recently_used_apps_custom_label;
 		PREF_ANIMATE_MENU = this.pref_animate_menu;
 
 		this._recentAppsButtons = [];
 		this._terminalReady = false;
 		this._runFromTerminalScript = this._applet_dir + "/run_from_terminal.sh";
+
+		// NOTE: This string could be left blank because it's a default string,
+		// so it's already translated by Cinnamon. It's up to the translators.
+		this.set_applet_tooltip(_("Menu"));
 
 		if (GLib.file_test(this._runFromTerminalScript, GLib.FileTest.EXISTS))
 			this._terminalReady = true;
@@ -1688,7 +1738,6 @@ MyApplet.prototype = {
 			[bD.IN, "pref_show_run_as_root_on_context", null],
 			[bD.IN, "pref_animate_menu", null],
 			[bD.IN, "pref_recently_used_apps_custom_icon", null],
-			[bD.IN, "pref_recently_used_apps_custom_label", null],
 			[bD.IN, "pref_cat_hover_delay", this._update_hover_delay],
 			[bD.IN, "pref_remember_recently_used_apps", null],
 			[bD.IN, "pref_recently_used_apps_invert_order", null],
@@ -1841,7 +1890,6 @@ MyApplet.prototype = {
 		PREF_MAX_FAV_ICON_SIZE = this.pref_max_fav_icon_size;
 		PREF_CUSTOM_COMMAND_ICON_SIZE = this.pref_custom_command_icon_size;
 		PREF_CUSTOM_ICON_FOR_REC_APPS_CAT = this.pref_recently_used_apps_custom_icon;
-		PREF_CUSTOM_LABEL_FOR_REC_APPS_CAT = this.pref_recently_used_apps_custom_label;
 		PREF_ANIMATE_MENU = this.pref_animate_menu;
 
 		if (!this.pref_remember_recently_used_apps)
@@ -2154,7 +2202,7 @@ MyApplet.prototype = {
 			this.set_applet_label("");
 		} else {
 			if (this.pref_custom_label_for_applet !== "")
-				this.set_applet_label(_(this.pref_custom_label_for_applet));
+				this.set_applet_label(this.pref_custom_label_for_applet);
 			else
 				this.set_applet_label("");
 		}
@@ -2670,6 +2718,8 @@ MyApplet.prototype = {
 				this._recentButtons.push(button);
 				this.applicationsBox.add_actor(button.actor);
 			} else {
+				// NOTE: This string could be left blank because it's a default string,
+				// so it's already translated by Cinnamon. It's up to the translators.
 				let button = new GenericButton(_("No recent documents"), null, false, null);
 				this._recentButtons.push(button);
 				this.applicationsBox.add_actor(button.actor);
@@ -2791,7 +2841,7 @@ MyApplet.prototype = {
 				this.applicationsBox.add_actor(clearBtn.actor);
 			}
 		} else {
-			let button = new GenericButton(_("No recent apps"), null, false, null);
+			let button = new GenericButton(_("No recent applications"), null, false, null);
 			this._recentAppsButtons.push(button);
 			this.applicationsBox.add_actor(button.actor);
 		}
@@ -3084,7 +3134,8 @@ MyApplet.prototype = {
 		if (this.pref_fuzzy_search_enabled)
 			this._applicationsButtonsBackup = Object.create(this._applicationsButtons);
 		//
-		if (this.pref_autofit_searchbox_width && this.pref_custom_launchers_box_placement >= 3) {
+		if (this.pref_autofit_searchbox_width && (this.pref_custom_launchers_box_placement >= 3 ||
+				this.pref_custom_launchers_box_placement === 0)) {
 			let searchEntryWidth = (this.applicationsBox.get_allocation_box().x2 -
 				this.applicationsBox.get_allocation_box().x1);
 			searchEntryWidth = searchEntryWidth + (this.categoriesBox.get_allocation_box().x2 -
@@ -3169,7 +3220,11 @@ MyApplet.prototype = {
 		if (this.pref_system_buttons_display === 1) {
 			if (this.pref_show_lock_button) { // Lock screen
 				let button1 = new SystemButton(this, "system-lock-screen", launchers.length + 3,
+					// NOTE: This string could be left blank because it's a default string,
+					// so it's already translated by Cinnamon. It's up to the translators.
 					_("Lock screen"),
+					// NOTE: This string could be left blank because it's a default string,
+					// so it's already translated by Cinnamon. It's up to the translators.
 					_("Lock the screen"));
 
 				this._addEnterEvent(button1, Lang.bind(this, this._favEnterEvent, button1));
@@ -3201,7 +3256,11 @@ MyApplet.prototype = {
 
 			if (this.pref_show_logout_button) { // Logout button
 				let button2 = new SystemButton(this, "system-log-out", launchers.length + 3,
+					// NOTE: This string could be left blank because it's a default string,
+					// so it's already translated by Cinnamon. It's up to the translators.
 					_("Logout"),
+					// NOTE: This string could be left blank because it's a default string,
+					// so it's already translated by Cinnamon. It's up to the translators.
 					_("Leave the session"));
 
 				this._addEnterEvent(button2, Lang.bind(this, this._favEnterEvent, button2));
@@ -3220,7 +3279,11 @@ MyApplet.prototype = {
 
 			if (this.pref_show_shutdown_button) { // Shutdown button
 				let button3 = new SystemButton(this, "system-shutdown", launchers.length + 3,
+					// NOTE: This string could be left blank because it's a default string,
+					// so it's already translated by Cinnamon. It's up to the translators.
 					_("Quit"),
+					// NOTE: This string could be left blank because it's a default string,
+					// so it's already translated by Cinnamon. It's up to the translators.
 					_("Shutdown the computer"));
 
 				this._addEnterEvent(button3, Lang.bind(this, this._favEnterEvent, button3));
@@ -3368,7 +3431,8 @@ MyApplet.prototype = {
 		 */
 		let searchBoxContainer;
 
-		if (this.pref_custom_launchers_box_placement >= 3)
+		if (this.pref_custom_launchers_box_placement >= 3 ||
+			this.pref_custom_launchers_box_placement === 0)
 			searchBoxContainer = rightPane;
 		else {
 			searchBoxContainer = new St.BoxLayout({
@@ -3465,6 +3529,8 @@ MyApplet.prototype = {
 		if (this.pref_show_search_box) {
 			this.searchEntry = new St.Entry({
 				name: 'menu-search-entry',
+				// NOTE: This string could be left blank because it's a default string,
+				// so it's already translated by Cinnamon. It's up to the translators.
 				hint_text: _("Type to search..."),
 				track_hover: true,
 				can_focus: true
@@ -3652,6 +3718,9 @@ MyApplet.prototype = {
 	 * START mark Odyseus
 	 */
 	_updateCustomCommandsBox: function() {
+		if (this.myCustomCommandsBox !== null)
+			this.myCustomCommandsBox.destroy_all_children();
+
 		if (this.myCustomCommandsBox === null || this._refreshCustomCommandsTimeout !== null)
 			return true;
 
@@ -3659,7 +3728,6 @@ MyApplet.prototype = {
 			this._refreshCustomCommandsTimeout = null;
 		}));
 
-		this.myCustomCommandsBox.destroy_all_children();
 		let count = 10;
 		let base = "pref_command_";
 		let lbl, cmd, icn, desc;
@@ -3761,7 +3829,8 @@ MyApplet.prototype = {
 
 	_expand_applet_context_menu: function() {
 		this._applet_context_menu.removeAll();
-
+		// NOTE: This string could be left blank because it's a default string,
+		// so it's already translated by Cinnamon. It's up to the translators.
 		let menuItem = new PopupMenu.PopupIconMenuItem(_("Open the menu editor"),
 			"text-editor", St.IconType.SYMBOLIC);
 		menuItem.connect("activate", Lang.bind(this, this._launch_editor));
@@ -3781,30 +3850,38 @@ MyApplet.prototype = {
 		this.context_menu_separator = new PopupMenu.PopupSeparatorMenuItem();
 		this._applet_context_menu.addMenuItem(this.context_menu_separator);
 
+		// NOTE: This string could be left blank because it's a default string,
+		// so it's already translated by Cinnamon. It's up to the translators.
 		this.context_menu_item_about = new PopupMenu.PopupIconMenuItem(_("About..."),
 			"dialog-question",
 			St.IconType.SYMBOLIC);
 		this.context_menu_item_about.connect('activate', Lang.bind(this, this.openAbout));
 		this._applet_context_menu.addMenuItem(this.context_menu_item_about);
 
+		// NOTE: This string could be left blank because it's a default string,
+		// so it's already translated by Cinnamon. It's up to the translators.
 		this.context_menu_item_configure = new PopupMenu.PopupIconMenuItem(_("Configure..."),
 			"system-run",
 			St.IconType.SYMBOLIC);
 		this.context_menu_item_configure.connect('activate', Lang.bind(this, function() {
-			Util.spawnCommandLine("cinnamon-settings applets " + this._metadata["uuid"] +
+			Util.spawnCommandLine("cinnamon-settings applets " + this._metadata.uuid +
 				" " + this._instance_id);
 		}));
 		this._applet_context_menu.addMenuItem(this.context_menu_item_configure);
 
-		this.context_menu_item_remove = new PopupMenu.PopupIconMenuItem(_("Remove this applet"),
+		// NOTE: This string could be left blank because it's a default string,
+		// so it's already translated by Cinnamon. It's up to the translators.
+		this.context_menu_item_remove = new PopupMenu.PopupIconMenuItem(_("Remove '%s'")
+			.format(this._metadata.name),
 			"edit-delete",
 			St.IconType.SYMBOLIC);
 		this.context_menu_item_remove.connect('activate', Lang.bind(this, function() {
 			new ConfirmationDialog(Lang.bind(this, function() {
-					Main.AppletManager._removeAppletFromPanel(this._metadata["uuid"], this._instance_id);
+					Main.AppletManager._removeAppletFromPanel(this._metadata.uuid, this._instance_id);
 				}),
-				this._metadata["name"],
-				"Are you sure that you want to remove " + this._metadata["name"] + " from your panel?",
+				this._metadata.name,
+				_("Are you sure that you want to remove '%s' from your panel?")
+				.format(this._metadata.name),
 				_("Cancel"), _("OK")).open();
 		}));
 		this._applet_context_menu.addMenuItem(this.context_menu_item_remove);
@@ -3855,13 +3932,15 @@ MyApplet.prototype = {
 			actor.remove_style_pseudo_class("hover");
 			actor.show();
 		}
-		let actors4 = this.myCustomCommandsBox.get_children();
-		let d = 0,
-			dLen = actors3.length;
-		for (; d < dLen; d++) {
-			let actor = actors3[d];
-			actor.remove_style_pseudo_class("hover");
-			actor.show();
+		if (this.myCustomCommandsBox !== null) {
+			let actors4 = this.myCustomCommandsBox.get_children();
+			let d = 0,
+				dLen = actors3.length;
+			for (; d < dLen; d++) {
+				let actor = actors3[d];
+				actor.remove_style_pseudo_class("hover");
+				actor.show();
+			}
 		}
 	},
 
@@ -4104,10 +4183,9 @@ MyApplet.prototype = {
 			let searchString = this.searchEntry.get_text();
 			if (searchString === '' && !this.searchActive)
 				return;
-			this.searchActive = searchString !== '';
 			this._fileFolderAccessActive = this.searchActive && this.pref_search_filesystem;
-			this._clearAllSelections();
-
+			this._clearAllSelections(false);
+			this.searchActive = searchString !== '';
 			if (this.searchActive) {
 				this.searchEntry.set_secondary_icon(this._searchActiveIcon);
 				if (this._searchIconClickedId === 0) {
@@ -4581,7 +4659,7 @@ RecentAppsCategoryButton.prototype = {
 		this.actor.set_style_class_name('menu-category-button');
 		this.actor._delegate = this;
 		this.label = new St.Label({
-			text: PREF_CUSTOM_LABEL_FOR_REC_APPS_CAT,
+			text: _("Recent Applications"),
 			style_class: 'menu-category-button-label'
 		});
 		if (showIcon) {
