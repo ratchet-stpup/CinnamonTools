@@ -3,9 +3,9 @@
     "description": "Various shortcuts to handle desktop actions.", 
     "max-instances": "8", 
     "dangerous": false, 
-    "name": "Desktop Handler", 
-    "version": "1.03", 
-    "last-edited": "1471153098", 
+    "uuid": "0dyseus@DesktopHandler", 
+    "version": "1.04", 
+    "last-edited": "1473874426", 
     "icon": "desktop-effects", 
-    "uuid": "0dyseus@DesktopHandler"
+    "name": "Desktop Handler"
 }

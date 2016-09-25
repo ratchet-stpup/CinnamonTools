@@ -83,8 +83,24 @@ const WINDOW_PREVIEW_WIDTH = 200;
 const WINDOW_PREVIEW_HEIGHT = 150;
 
 const Gettext = imports.gettext;
-const _ = Gettext.gettext;
+
 const AppletUUID = "0dyseus@window-list-fork";
+
+// For translation mechanism.
+// Incredible that this worked right!! LOL
+// Comments that start with // NOTE: are to be extracted by xgettext
+// and are directed to translators only.
+const GLib = imports.gi.GLib;
+var UUID;
+
+function _(aStr) {
+	// Thanks to https://github.com/lestcape for this!!!
+	let customTrans = Gettext.dgettext(UUID, aStr);
+	if (customTrans != aStr) {
+		return customTrans;
+	}
+	return Gettext.gettext(aStr);
+}
 
 function WindowPreview(item, metaWindow) {
 	this._init(item, metaWindow);
@@ -438,7 +454,6 @@ AppMenuButton.prototype = {
 		title = title.replace(/\s/g, " ");
 		if (title.length > MAX_TEXT_LENGTH)
 			title = title.substr(0, MAX_TEXT_LENGTH);
-
 
 		if (this._tooltip && this._tooltip.set_text && !this._applet.pref_hide_tooltips)
 			this._tooltip.set_text(title);
@@ -856,18 +871,22 @@ AppMenuButtonRightClickMenu.prototype = {
 	},
 };
 
-function MyApplet(orientation, panel_height, instance_id) {
-	this._init(orientation, panel_height, instance_id);
+function MyApplet(metadata, orientation, panel_height, instance_id) {
+	this._init(metadata, orientation, panel_height, instance_id);
 }
 
 MyApplet.prototype = {
 	__proto__: Applet.Applet.prototype,
 
-	_init: function(orientation, panel_height, instance_id) {
+	_init: function(metadata, orientation, panel_height, instance_id) {
 		Applet.Applet.prototype._init.call(this, orientation, panel_height, instance_id);
 
 		this.actor.set_track_hover(false);
 		this.actor.add_style_class_name("window-list-box");
+
+		// Prepare translation mechanism.
+		UUID = metadata.uuid;
+		Gettext.bindtextdomain(metadata.uuid, GLib.get_home_dir() + "/.local/share/locale");
 
 		this.orientation = orientation;
 		this.dragInProgress = false;
@@ -945,7 +964,6 @@ MyApplet.prototype = {
 
 	on_applet_removed_from_panel: function() {
 		this.signals.disconnectAllSignals();
-		this.settings.finalize();
 	},
 
 	on_applet_instances_changed: function() {
@@ -1217,6 +1235,6 @@ MyApplet.prototype = {
 };
 
 function main(metadata, orientation, panel_height, instance_id) {
-	let myApplet = new MyApplet(orientation, panel_height, instance_id);
+	let myApplet = new MyApplet(metadata, orientation, panel_height, instance_id);
 	return myApplet;
 }

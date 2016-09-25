@@ -179,47 +179,35 @@ msgstr ""
 
 #. NOTE: This string could be left blank because it's a default string,
 #. so it's already translated by Cinnamon. It's up to the translators.
-#: applet.js:3834
+#: applet.js:3833
 msgid "Open the menu editor"
 msgstr ""
 
-#: applet.js:3839
+#: applet.js:3838
 msgid "Help"
 msgstr ""
 
 #. NOTE: This string could be left blank because it's a default string,
 #. so it's already translated by Cinnamon. It's up to the translators.
-#: applet.js:3855
-msgid "About..."
-msgstr ""
-
-#. NOTE: This string could be left blank because it's a default string,
-#. so it's already translated by Cinnamon. It's up to the translators.
-#: applet.js:3863
-msgid "Configure..."
-msgstr ""
-
-#. NOTE: This string could be left blank because it's a default string,
-#. so it's already translated by Cinnamon. It's up to the translators.
-#: applet.js:3874
+#: applet.js:3847
 #, javascript-format
 msgid "Remove '%s'"
 msgstr ""
 
-#: applet.js:3883
+#: applet.js:3856
 #, javascript-format
 msgid "Are you sure that you want to remove '%s' from your panel?"
 msgstr ""
 
-#: applet.js:3885
+#: applet.js:3858
 msgid "Cancel"
 msgstr ""
 
-#: applet.js:3885
+#: applet.js:3858
 msgid "OK"
 msgstr ""
 
-#: applet.js:4662
+#: applet.js:4634
 msgid "Recent Applications"
 msgstr ""
 
@@ -408,8 +396,7 @@ msgstr ""
 msgid "Show bookmarks and places"
 msgstr ""
 
-#. 0dyseus@CustomCinnamonMenu->settings-
-#. schema.json->pref_show_places->tooltip
+#. 0dyseus@CustomCinnamonMenu->settings-schema.json->pref_show_places->tooltip
 msgid "Choose whether or not to show bookmarks and places in the menu."
 msgstr ""
 
@@ -861,20 +848,17 @@ msgstr ""
 msgid "Show \"Run from terminal as root\" on context"
 msgstr ""
 
-#. 0dyseus@CustomCinnamonMenu->settings-
-#. schema.json->appearance1->description
+#. 0dyseus@CustomCinnamonMenu->settings-schema.json->appearance1->description
 msgid "Icon sizes"
 msgstr ""
 
-#. 0dyseus@CustomCinnamonMenu->settings-
-#. schema.json->appearance3->description
+#. 0dyseus@CustomCinnamonMenu->settings-schema.json->appearance3->description
 msgid ""
 "Note: Most themes stylesheets come with hardcoded sizes for certain elemets.\n"
 "This section is for overriding those stylesheets."
 msgstr ""
 
-#. 0dyseus@CustomCinnamonMenu->settings-
-#. schema.json->appearance2->description
+#. 0dyseus@CustomCinnamonMenu->settings-schema.json->appearance2->description
 msgid "Favorites box"
 msgstr ""
 

@@ -97,7 +97,7 @@
 		"type": "checkbox",
 		"default": false,
 		"description": "Show hidden folders.",
-		"tooltip": "If enabled, hidden sub folders will be used to create sub-menus."
+		"tooltip": "If enabled, hidden sub folders will also be used to create sub-menus."
 	},
 	"pref_show_submenu_icons": {
 		"type": "checkbox",

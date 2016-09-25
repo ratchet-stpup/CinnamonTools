@@ -49,7 +49,7 @@ Spices comments system is absolutely useless to report bugs with any king of leg
 ##### 1.08
 - Fixed a bug that caused the search on the menu to break when the custom launchers box was set to disabled/hidden.
 - Fixed a bug that caused the search on the menu would not fit to the panel width when the custom launchers box was set to disabled/hidden.
-- Added support for localizations. If someone wants to contribute with translations, inside the Help section of this applet (found in the applet context menu) you will find some pointers on how to do it.
+- Added support for localizations. If someone wants to contribute with translations, inside the Help section of this applet (found in the applet context menu or the Help.md file inside this applet folder) you will find some pointers on how to do it.
 
 ##### 1.07
 - Reorganized this applet settings window.

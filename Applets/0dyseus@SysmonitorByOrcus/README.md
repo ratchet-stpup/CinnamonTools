@@ -25,6 +25,9 @@ Spices comments system is absolutely useless to report bugs with any king of leg
 
 ## Change Log
 
+##### 1.6
+- Added support for localizations. If someone wants to contribute with translations, inside the Help section of this applet (found in the applet context menu or the Help.md file inside this applet folder) you will find some pointers on how to do it.
+
 ##### 1.5
 - Re-writed to use Cinnamon's native settings system instead of an external library. This allowed me to remove **gjs** as a dependency for this applet.
 - Added an option to use a custom command on applet click.

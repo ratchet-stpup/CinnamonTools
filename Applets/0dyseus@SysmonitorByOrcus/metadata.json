@@ -4,7 +4,7 @@
     "dangerous": true, 
     "uuid": "0dyseus@SysmonitorByOrcus", 
     "name": "System Monitor (Fork By Odyseus)", 
-    "version": "1.5", 
+    "version": "1.6", 
     "icon": "utilities-system-monitor", 
     "description": "Displays CPU, memory, swap and network usage and load in graphs."
 }

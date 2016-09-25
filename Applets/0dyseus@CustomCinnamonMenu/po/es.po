@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-09-22 21:06-0300\n"
+"POT-Creation-Date: 2016-09-25 01:25-0300\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Odyseus\n"
 "Language-Team: \n"
@@ -176,47 +176,35 @@ msgstr "Escriba para buscar..."
 
 #. NOTE: This string could be left blank because it's a default string,
 #. so it's already translated by Cinnamon. It's up to the translators.
-#: applet.js:3834
+#: applet.js:3833
 msgid "Open the menu editor"
 msgstr "Abrir el editor de menús"
 
-#: applet.js:3839
+#: applet.js:3838
 msgid "Help"
 msgstr "Ayuda"
 
 #. NOTE: This string could be left blank because it's a default string,
 #. so it's already translated by Cinnamon. It's up to the translators.
-#: applet.js:3855
-msgid "About..."
-msgstr "Acerca de..."
-
-#. NOTE: This string could be left blank because it's a default string,
-#. so it's already translated by Cinnamon. It's up to the translators.
-#: applet.js:3863
-msgid "Configure..."
-msgstr "Configurar..."
-
-#. NOTE: This string could be left blank because it's a default string,
-#. so it's already translated by Cinnamon. It's up to the translators.
-#: applet.js:3874
+#: applet.js:3847
 #, javascript-format
 msgid "Remove '%s'"
 msgstr "Remover '%s'"
 
-#: applet.js:3883
+#: applet.js:3856
 #, javascript-format
 msgid "Are you sure that you want to remove '%s' from your panel?"
 msgstr "¿Está seguro de que desea remover '%s' del panel?"
 
-#: applet.js:3885
+#: applet.js:3858
 msgid "Cancel"
 msgstr "Cancelar"
 
-#: applet.js:3885
+#: applet.js:3858
 msgid "OK"
 msgstr "Aceptar"
 
-#: applet.js:4662
+#: applet.js:4634
 msgid "Recent Applications"
 msgstr "Aplicaciones recientes"
 
@@ -405,8 +393,7 @@ msgstr "Esconder \"Añadir al panel\""
 msgid "Show bookmarks and places"
 msgstr "Mostrar Favoritos y Lugares"
 
-#. 0dyseus@CustomCinnamonMenu->settings-
-#. schema.json->pref_show_places->tooltip
+#. 0dyseus@CustomCinnamonMenu->settings-schema.json->pref_show_places->tooltip
 msgid "Choose whether or not to show bookmarks and places in the menu."
 msgstr "Elegir si desea o no mostrar Favoritos y Lugares en el menú."
 
@@ -890,13 +877,11 @@ msgstr "Campo de búsqueda en la parte inferior del menú"
 msgid "Show \"Run from terminal as root\" on context"
 msgstr "Mostrar \"Ejecutar desde terminal como root\" en el menú contextual"
 
-#. 0dyseus@CustomCinnamonMenu->settings-
-#. schema.json->appearance1->description
+#. 0dyseus@CustomCinnamonMenu->settings-schema.json->appearance1->description
 msgid "Icon sizes"
 msgstr "Tamaño de los íconos"
 
-#. 0dyseus@CustomCinnamonMenu->settings-
-#. schema.json->appearance3->description
+#. 0dyseus@CustomCinnamonMenu->settings-schema.json->appearance3->description
 msgid ""
 "Note: Most themes stylesheets come with hardcoded sizes for certain elemets.\n"
 "This section is for overriding those stylesheets."
@@ -905,8 +890,7 @@ msgstr ""
 "elementos del menú.\n"
 "Esta sección es sobrescribir esos valores predefinidos."
 
-#. 0dyseus@CustomCinnamonMenu->settings-
-#. schema.json->appearance2->description
+#. 0dyseus@CustomCinnamonMenu->settings-schema.json->appearance2->description
 msgid "Favorites box"
 msgstr "Sección Favoritos"
 
@@ -1144,3 +1128,9 @@ msgstr "Lanzador personalizado 8"
 #. schema.json->pref_command_9->description
 msgid "Custom launcher 9"
 msgstr "Lanzador personalizado 9"
+
+#~ msgid "About..."
+#~ msgstr "Acerca de..."
+
+#~ msgid "Configure..."
+#~ msgstr "Configurar..."

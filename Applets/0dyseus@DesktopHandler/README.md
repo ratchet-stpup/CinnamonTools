@@ -12,7 +12,7 @@ Tested and working on Cinnamon version 3.0.7.
 - Scroll over applet actions:
     - Switch between workspaces
     - Adjust opacity of windows
-    - Toggle show desktop
+    - Toggle Show desktop
     - Switch between windows
 - Posibility to perform different actions for scrolling up and down.
 - Posibility to perform different actions on left and middle click.
@@ -37,6 +37,9 @@ Spices comments system is absolutely useless to report bugs with any king of leg
 </span>
 
 ## Change Log
+
+##### 1.04
+- Added support for localizations. If someone wants to contribute with translations, inside the Help section of this applet (found in the applet context menu or the Help.md file inside this applet folder) you will find some pointers on how to do it.
 
 ##### 1.03
 - Minor fixes.

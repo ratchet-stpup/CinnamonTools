@@ -1,0 +1,127 @@
+# This is a template file for translating the Cinnamon applet called Window List (Fork By Odyseus) Menu.
+# Copyright (C) 2016
+# This file is distributed under the same license as the Window List (Fork By Odyseus) applet.
+# Odyseus <EMAIL@ADDRESS>, 2016.
+#
+msgid ""
+msgstr ""
+
+"Project-Id-Version: 1.03\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-09-25 21:43-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Odyseus <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: \n"
+
+#: applet.js:731
+msgid "Configure Window list applet"
+msgstr ""
+
+#: applet.js:743
+msgid "Move to the other monitor"
+msgstr ""
+
+#: applet.js:752
+#, javascript-format
+msgid "Move to monitor %d"
+msgstr ""
+
+#: applet.js:763
+msgid "Only on this workspace"
+msgstr ""
+
+#: applet.js:769
+msgid "Visible on all workspaces"
+msgstr ""
+
+#: applet.js:775
+msgid "Move to another workspace"
+msgstr ""
+
+#. Close all/others
+#: applet.js:797
+msgid "Close all"
+msgstr ""
+
+#: applet.js:806
+msgid "Close others"
+msgstr ""
+
+#: applet.js:820
+msgid "Restore to full opacity"
+msgstr ""
+
+#: applet.js:828
+msgid "Restore"
+msgstr ""
+
+#: applet.js:833
+msgid "Minimize"
+msgstr ""
+
+#: applet.js:841
+msgid "Unmaximize"
+msgstr ""
+
+#: applet.js:846
+msgid "Maximize"
+msgstr ""
+
+#: applet.js:853
+msgid "Close"
+msgstr ""
+
+#. 0dyseus@window-list-fork->metadata.json->description
+msgid "Fork of the main Cinnamon Window list applet."
+msgstr ""
+
+#. 0dyseus@window-list-fork->metadata.json->name
+msgid "Window list (Fork By Odyseus)"
+msgstr ""
+
+#. 0dyseus@window-list-fork->settings-
+#. schema.json->pref_hide_labels->description
+msgid "Hide labels in the window list buttons. (Cinnamon will be restarted)"
+msgstr ""
+
+#. 0dyseus@window-list-fork->settings-
+#. schema.json->pref_reverse_scrolling->description
+msgid "Reverse the direction of mouse-wheel scrolling in the window list"
+msgstr ""
+
+#. 0dyseus@window-list-fork->settings-
+#. schema.json->pref_enable_scrolling->description
+msgid "Enable mouse-wheel scrolling in the window list"
+msgstr ""
+
+#. 0dyseus@window-list-fork->settings-
+#. schema.json->pref_window_preview->description
+msgid "Show window thumbnails on hover"
+msgstr ""
+
+#. 0dyseus@window-list-fork->settings-
+#. schema.json->pref_buttons_use_entire_space->description
+msgid ""
+"Window buttons can have different sizes and use the entire space available"
+msgstr ""
+
+#. 0dyseus@window-list-fork->settings-
+#. schema.json->pref_middle_click_close->description
+msgid "Middle click to close window"
+msgstr ""
+
+#. 0dyseus@window-list-fork->settings-
+#. schema.json->pref_hide_tooltips->description
+msgid "Do not display tooltips. (Cinnamon will be restarted)"
+msgstr ""
+
+#. 0dyseus@window-list-fork->settings-
+#. schema.json->pref_enable_alerts->description
+msgid ""
+"Show an alert in the window list when a window from another workspace "
+"requires attention"
+msgstr ""

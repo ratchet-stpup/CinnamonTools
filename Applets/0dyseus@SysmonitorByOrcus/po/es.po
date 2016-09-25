@@ -1,0 +1,271 @@
+# This is a template file for translating the Cinnamon applet called System Monitor.
+# Copyright (C) 2016
+# This file is distributed under the same license as the System Monitor applet.
+# Odyseus <EMAIL@ADDRESS>, 2016.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: 1.06\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-09-24 21:06-0300\n"
+"PO-Revision-Date: 2016-09-24 21:26-0300\n"
+"Last-Translator: Odyseus\n"
+"Language-Team: \n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.7.1\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#. NOTE: This string could be left blank because it's a default string,
+#. so it's already translated by Cinnamon. It's up to the translators.
+#: applet.js:258
+#, javascript-format
+msgid "Remove '%s'"
+msgstr "Remover '%s'"
+
+#: applet.js:267
+#, javascript-format
+msgid "Are you sure that you want to remove '%s' from your panel?"
+msgstr "¿Está seguro de que desea remover '%s' del panel?"
+
+#: applet.js:269
+msgid "Cancel"
+msgstr "Cancelar"
+
+#: applet.js:269
+msgid "OK"
+msgstr "Aceptar"
+
+#: applet.js:427
+msgid "CPU: "
+msgstr "CPU: "
+
+#: applet.js:453
+msgid "Memory: "
+msgstr "Memoria: "
+
+#: applet.js:453 applet.js:478
+msgid " MB"
+msgstr "MB"
+
+#: applet.js:478
+msgid "Swap: "
+msgstr "Swap: "
+
+#: applet.js:514
+msgid "Network D/U: "
+msgstr "Red D/S: "
+
+#: applet.js:514
+msgid " KB/s"
+msgstr "KB/s"
+
+#: applet.js:552
+msgid "Load average: "
+msgstr "Promedio de carga: "
+
+#. 0dyseus@SysmonitorByOrcus->metadata.json->description
+msgid "Displays CPU, memory, swap and network usage and load in graphs."
+msgstr "Muestra gráficos de uso de CPU. memoria, swap, red y carga."
+
+#. 0dyseus@SysmonitorByOrcus->metadata.json->name
+msgid "System Monitor (Fork By Odyseus)"
+msgstr "Monitor de Sistema"
+
+#. 0dyseus@SysmonitorByOrcus->settings-
+#. schema.json->pref_show_swap_graph->description
+msgid "Show Swap graph:"
+msgstr "Mostrar gráfico de swap:"
+
+#. 0dyseus@SysmonitorByOrcus->settings-
+#. schema.json->pref_show_network_graph->description
+msgid "Show Network graph:"
+msgstr "Mostrar gráfico de red:"
+
+#. 0dyseus@SysmonitorByOrcus->settings-schema.json->head44->description
+#. 0dyseus@SysmonitorByOrcus->settings-schema.json->head33->description
+#. 0dyseus@SysmonitorByOrcus->settings-schema.json->head55->description
+#. 0dyseus@SysmonitorByOrcus->settings-schema.json->head11->description
+#. 0dyseus@SysmonitorByOrcus->settings-schema.json->head22->description
+msgid "Colors"
+msgstr "Colores"
+
+#. 0dyseus@SysmonitorByOrcus->settings-
+#. schema.json->pref_network_graph_width->description
+msgid "Network graph width"
+msgstr "Anchura del gráfico de red"
+
+#. 0dyseus@SysmonitorByOrcus->settings-
+#. schema.json->pref_network_graph_width->units
+#. 0dyseus@SysmonitorByOrcus->settings-
+#. schema.json->pref_memory_graph_width->units
+#. 0dyseus@SysmonitorByOrcus->settings-
+#. schema.json->pref_load_graph_width->units
+#. 0dyseus@SysmonitorByOrcus->settings-
+#. schema.json->pref_swap_graph_width->units
+#. 0dyseus@SysmonitorByOrcus->settings-
+#. schema.json->pref_cpu_graph_width->units
+msgid "pixels"
+msgstr "pixeles"
+
+#. 0dyseus@SysmonitorByOrcus->settings-
+#. schema.json->pref_border_color->description
+msgid "Border color:"
+msgstr "Color del borde:"
+
+#. 0dyseus@SysmonitorByOrcus->settings-
+#. schema.json->pref_align_tooltip_text_to_the_left->description
+msgid "Align tooltip text to the left"
+msgstr "Alinear el texto de las herramientas emergentes a la izquierda"
+
+#. 0dyseus@SysmonitorByOrcus->settings-
+#. schema.json->pref_background_color->description
+msgid "Background color:"
+msgstr "Color de fondo:"
+
+#. 0dyseus@SysmonitorByOrcus->settings-
+#. schema.json->pref_memory_graph_width->description
+msgid "Memory graph width"
+msgstr "Anchura del gráfico de memoria"
+
+#. 0dyseus@SysmonitorByOrcus->settings-
+#. schema.json->pref_load_graph_width->description
+msgid "Load graph width"
+msgstr "Anchura del gráfico de carga"
+
+#. 0dyseus@SysmonitorByOrcus->settings-
+#. schema.json->pref_custom_command->description
+msgid "Custom command on applet click:"
+msgstr "Comando personalizado al cliquear en el applet:"
+
+#. 0dyseus@SysmonitorByOrcus->settings-
+#. schema.json->pref_refresh_rate->description
+msgid "Refresh rate:"
+msgstr "Frecuencia de refresco:"
+
+#. 0dyseus@SysmonitorByOrcus->settings-schema.json->pref_refresh_rate->units
+msgid "milliseconds"
+msgstr "milisegundos"
+
+#. 0dyseus@SysmonitorByOrcus->settings-
+#. schema.json->pref_swap_graph_color_used->description
+#. 0dyseus@SysmonitorByOrcus->settings-
+#. schema.json->pref_memory_graph_color_used->description
+msgid "Used:"
+msgstr "Usado:"
+
+#. 0dyseus@SysmonitorByOrcus->settings-
+#. schema.json->pref_cpu_graph_color_kernel->description
+msgid "Kernel:"
+msgstr "Kernel:"
+
+#. 0dyseus@SysmonitorByOrcus->settings-
+#. schema.json->pref_network_graph_color_download->description
+msgid "Download:"
+msgstr "Descarga:"
+
+#. 0dyseus@SysmonitorByOrcus->settings-
+#. schema.json->pref_network_graph_color_upload->description
+msgid "Upload:"
+msgstr "Subida:"
+
+#. 0dyseus@SysmonitorByOrcus->settings-
+#. schema.json->pref_cpu_graph_color_nice->description
+msgid "Nice:"
+msgstr "Nice:"
+
+#. 0dyseus@SysmonitorByOrcus->settings-
+#. schema.json->pref_draw_border->description
+msgid "Draw graph border"
+msgstr "Dibujar borde de gráfico"
+
+#. 0dyseus@SysmonitorByOrcus->settings-
+#. schema.json->pref_use_smooth_graphs->description
+msgid "Use smooth graphs"
+msgstr "Usar suavizado de gráficos"
+
+#. 0dyseus@SysmonitorByOrcus->settings-schema.json->head4->description
+msgid "Network"
+msgstr "Red"
+
+#. 0dyseus@SysmonitorByOrcus->settings-
+#. schema.json->pref_show_memmory_graph->description
+msgid "Show Memory graph:"
+msgstr "Mostrar gráfico de memoria:"
+
+#. 0dyseus@SysmonitorByOrcus->settings-schema.json->demo-button2->description
+#. 0dyseus@SysmonitorByOrcus->settings-schema.json->demo-button1->description
+msgid "To apply these settings, Cinnamon needs to be restarted. Click me!!!"
+msgstr "Para aplicar estas preferencias, Cinnamon necesita ser reiniciado. Presióname!!!"
+
+#. 0dyseus@SysmonitorByOrcus->settings-schema.json->demo-button2->tooltip
+#. 0dyseus@SysmonitorByOrcus->settings-schema.json->demo-button1->tooltip
+msgid "Restart Cinnamon"
+msgstr "Reiniciar Cinnamon"
+
+#. 0dyseus@SysmonitorByOrcus->settings-
+#. schema.json->pref_swap_graph_width->description
+msgid "Swap graph width"
+msgstr "Anchura de gráfico swap"
+
+#. 0dyseus@SysmonitorByOrcus->settings-
+#. schema.json->pref_show_cpu_graph->description
+msgid "Show CPU graph:"
+msgstr "Mostrar gráfico de CPU:"
+
+#. 0dyseus@SysmonitorByOrcus->settings-
+#. schema.json->pref_show_load_graph->description
+msgid "Show Load graph:"
+msgstr "Mostrar gráfico de carga:"
+
+#. 0dyseus@SysmonitorByOrcus->settings-schema.json->head5->description
+msgid "Load"
+msgstr "Carga"
+
+#. 0dyseus@SysmonitorByOrcus->settings-
+#. schema.json->pref_draw_background->description
+msgid "Draw graph background"
+msgstr "Dibujar fondo de gráfico"
+
+#. 0dyseus@SysmonitorByOrcus->settings-schema.json->head3->description
+msgid "Swap"
+msgstr "Swap"
+
+#. 0dyseus@SysmonitorByOrcus->settings-schema.json->head2->description
+msgid "Memory"
+msgstr "Memoria"
+
+#. 0dyseus@SysmonitorByOrcus->settings-schema.json->head1->description
+msgid "CPU"
+msgstr "CPU"
+
+#. 0dyseus@SysmonitorByOrcus->settings-schema.json->head0->description
+msgid "General settings"
+msgstr "Preferencias generales"
+
+#. 0dyseus@SysmonitorByOrcus->settings-
+#. schema.json->pref_cpu_graph_color_user->description
+msgid "User:"
+msgstr "Usuario:"
+
+#. 0dyseus@SysmonitorByOrcus->settings-
+#. schema.json->pref_load_graph_color_load->description
+msgid "Load:"
+msgstr "Carga:"
+
+#. 0dyseus@SysmonitorByOrcus->settings-
+#. schema.json->pref_cpu_graph_color_iowait->description
+msgid "IOWait:"
+msgstr "IOWait:"
+
+#. 0dyseus@SysmonitorByOrcus->settings-
+#. schema.json->pref_memory_graph_color_cached->description
+msgid "Cached:"
+msgstr "Almacenado en caché:"
+
+#. 0dyseus@SysmonitorByOrcus->settings-
+#. schema.json->pref_cpu_graph_width->description
+msgid "CPU graph width"
+msgstr "Anchura del gráfico de CPU"

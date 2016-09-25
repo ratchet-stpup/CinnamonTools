@@ -7,7 +7,7 @@
 	},
 	"head0": {
 		"type": "header",
-		"description": "\nGeneral settings"
+		"description": "General settings"
 	},
 	"pref_use_smooth_graphs": {
 		"type": "checkbox",
@@ -64,7 +64,7 @@
 	},
 	"head1": {
 		"type": "header",
-		"description": "\nCPU"
+		"description": "CPU"
 	},
 	"pref_show_cpu_graph": {
 		"type": "checkbox",
@@ -114,7 +114,7 @@
 	},
 	"head2": {
 		"type": "header",
-		"description": "\nMemory"
+		"description": "Memory"
 	},
 	"pref_show_memmory_graph": {
 		"type": "checkbox",
@@ -152,7 +152,7 @@
 	},
 	"head3": {
 		"type": "header",
-		"description": "\nSwap"
+		"description": "Swap"
 	},
 	"pref_show_swap_graph": {
 		"type": "checkbox",
@@ -184,7 +184,7 @@
 	},
 	"head4": {
 		"type": "header",
-		"description": "\nNetwork"
+		"description": "Network"
 	},
 	"pref_show_network_graph": {
 		"type": "checkbox",
@@ -222,7 +222,7 @@
 	},
 	"head5": {
 		"type": "header",
-		"description": "\nLoad"
+		"description": "Load"
 	},
 	"pref_show_load_graph": {
 		"type": "checkbox",

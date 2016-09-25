@@ -3828,7 +3828,6 @@ MyApplet.prototype = {
 	},
 
 	_expand_applet_context_menu: function() {
-		this._applet_context_menu.removeAll();
 		// NOTE: This string could be left blank because it's a default string,
 		// so it's already translated by Cinnamon. It's up to the translators.
 		let menuItem = new PopupMenu.PopupIconMenuItem(_("Open the menu editor"),
@@ -3842,32 +3841,6 @@ MyApplet.prototype = {
 			Util.spawnCommandLine("xdg-open " + this._applet_dir + "/HELP.md");
 		}));
 		this._applet_context_menu.addMenuItem(menuItem);
-
-		/**
-		 * The default context menu items need to have the following names
-		 * to overwrite the original ones.
-		 */
-		this.context_menu_separator = new PopupMenu.PopupSeparatorMenuItem();
-		this._applet_context_menu.addMenuItem(this.context_menu_separator);
-
-		// NOTE: This string could be left blank because it's a default string,
-		// so it's already translated by Cinnamon. It's up to the translators.
-		this.context_menu_item_about = new PopupMenu.PopupIconMenuItem(_("About..."),
-			"dialog-question",
-			St.IconType.SYMBOLIC);
-		this.context_menu_item_about.connect('activate', Lang.bind(this, this.openAbout));
-		this._applet_context_menu.addMenuItem(this.context_menu_item_about);
-
-		// NOTE: This string could be left blank because it's a default string,
-		// so it's already translated by Cinnamon. It's up to the translators.
-		this.context_menu_item_configure = new PopupMenu.PopupIconMenuItem(_("Configure..."),
-			"system-run",
-			St.IconType.SYMBOLIC);
-		this.context_menu_item_configure.connect('activate', Lang.bind(this, function() {
-			Util.spawnCommandLine("cinnamon-settings applets " + this._metadata.uuid +
-				" " + this._instance_id);
-		}));
-		this._applet_context_menu.addMenuItem(this.context_menu_item_configure);
 
 		// NOTE: This string could be left blank because it's a default string,
 		// so it's already translated by Cinnamon. It's up to the translators.
@@ -3884,7 +3857,6 @@ MyApplet.prototype = {
 				.format(this._metadata.name),
 				_("Cancel"), _("OK")).open();
 		}));
-		this._applet_context_menu.addMenuItem(this.context_menu_item_remove);
 	},
 
 	/**

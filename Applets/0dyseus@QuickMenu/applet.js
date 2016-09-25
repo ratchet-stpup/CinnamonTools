@@ -1,7 +1,5 @@
 /**
  * [Quick Menu Applet]
- * Developed by Odyseus
- * Version: 1.0 (12-09-2016)
  * License: GPLv3
  *
  * Applet based on code found on the following applets:
@@ -12,7 +10,6 @@
 const Applet = imports.ui.applet;
 const Cinnamon = imports.gi.Cinnamon;
 const Gettext = imports.gettext;
-const _ = Gettext.gettext;
 const Gio = imports.gi.Gio;
 const GLib = imports.gi.GLib;
 const Gtk = imports.gi.Gtk;
@@ -30,19 +27,33 @@ const appletUUID = "0dyseus@QuickMenu";
 const AppletDirectory = imports.ui.appletManager.appletMeta[appletUUID].path;
 var CloseMenuTimeout = null;
 var OpenMenuTimeout = null;
+// Needed for confirmation dialogs.
+const ModalDialog = imports.ui.modalDialog;
+const Clutter = imports.gi.Clutter;
 
 // Import the popupMenuExtension.js file inside the applet folder.
 imports.searchPath.push(AppletDirectory);
 const PopupMenuExtension = imports.popupMenuExtension;
 
-function MyApplet(aOrientation, aPanel_height, aInstance_id) {
-	this._init(aOrientation, aPanel_height, aInstance_id);
+var UUID;
+
+function _(aStr) {
+	// Thanks to https://github.com/lestcape for this!!!
+	let customTrans = Gettext.dgettext(UUID, aStr);
+	if (customTrans != aStr) {
+		return customTrans;
+	}
+	return Gettext.gettext(aStr);
+}
+
+function MyApplet(aMetadata, aOrientation, aPanel_height, aInstance_id) {
+	this._init(aMetadata, aOrientation, aPanel_height, aInstance_id);
 }
 
 MyApplet.prototype = {
 	__proto__: Applet.TextIconApplet.prototype,
 
-	_init: function(aOrientation, aPanel_height, aInstance_id) {
+	_init: function(aMetadata, aOrientation, aPanel_height, aInstance_id) {
 		Applet.TextIconApplet.prototype._init.call(this, aOrientation, aPanel_height, aInstance_id);
 
 		this._orientation = aOrientation;
@@ -55,6 +66,11 @@ MyApplet.prototype = {
 		}
 
 		try {
+			this._metadata = aMetadata;
+			this._instance_id = aInstance_id;
+			UUID = aMetadata.uuid;
+			Gettext.bindtextdomain(aMetadata.uuid, GLib.get_home_dir() + "/.local/share/locale");
+
 			this.menuManager = new PopupMenu.PopupMenuManager(this);
 			this.menu = new Applet.AppletPopupMenu(this, aOrientation, aInstance_id);
 			this.menuManager.addMenu(this.menu);
@@ -65,7 +81,7 @@ MyApplet.prototype = {
 			this.autoupdate_last = this.pref_autoupdate;
 			this.directory_last = this.pref_directory;
 
-			this._createContextMenu();
+			this._expand_applet_context_menu();
 			this._onSettingsCustomTooltip();
 			this._onSettingsIcon();
 			this._onSettingsTitle();
@@ -331,8 +347,7 @@ MyApplet.prototype = {
 			this.set_applet_label("");
 	},
 
-	_createContextMenu: function() {
-		let self = this;
+	_expand_applet_context_menu: function() {
 		this.update_menu_item = new PopupMenu.PopupIconMenuItem(_("Update menu"),
 			"edit-redo",
 			St.IconType.SYMBOLIC);
@@ -345,7 +360,7 @@ MyApplet.prototype = {
 			"folder",
 			St.IconType.SYMBOLIC);
 		this.open_dir_menu_item.connect("activate", Lang.bind(this, function() {
-			Main.Util.spawnCommandLine("xdg-open " + self.pref_directory);
+			Main.Util.spawnCommandLine("xdg-open " + this.pref_directory);
 		}));
 		new Tooltips.Tooltip(this.open_dir_menu_item.actor, _("Open the main folder."),
 			this._orientation);
@@ -355,10 +370,26 @@ MyApplet.prototype = {
 			"dialog-information",
 			St.IconType.SYMBOLIC);
 		this.help_menu_item.connect("activate", Lang.bind(this, function() {
-			Main.Util.spawnCommandLine("xdg-open " + AppletDirectory + "/README.html");
+			Main.Util.spawnCommandLine("xdg-open " + AppletDirectory + "/README.md");
 		}));
 		new Tooltips.Tooltip(this.help_menu_item.actor, _("Open the help file."), this._orientation);
 		this._applet_context_menu.addMenuItem(this.help_menu_item);
+
+		// NOTE: This string could be left blank because it's a default string,
+		// so it's already translated by Cinnamon. It's up to the translators.
+		this.context_menu_item_remove = new PopupMenu.PopupIconMenuItem(_("Remove '%s'")
+			.format(this._metadata.name),
+			"edit-delete",
+			St.IconType.SYMBOLIC);
+		this.context_menu_item_remove.connect('activate', Lang.bind(this, function() {
+			new ConfirmationDialog(Lang.bind(this, function() {
+					Main.AppletManager._removeAppletFromPanel(this._metadata.uuid, this._instance_id);
+				}),
+				this._metadata.name,
+				_("Are you sure that you want to remove '%s' from your panel?")
+				.format(this._metadata.name),
+				_("Cancel"), _("OK")).open();
+		}));
 	},
 
 	_updateKeybinding: function() {
@@ -380,7 +411,72 @@ MyApplet.prototype = {
 	}
 };
 
+function ConfirmationDialog() {
+	this._init.apply(this, arguments);
+}
+
+ConfirmationDialog.prototype = {
+	__proto__: ModalDialog.ModalDialog.prototype,
+
+	_init: function(aCallback, aDialogLabel, aDialogMessage, aCancelButtonLabel, aDoButtonLabel) {
+		ModalDialog.ModalDialog.prototype._init.call(this, {
+			styleClass: null
+		});
+
+		let mainContentBox = new St.BoxLayout({
+			style_class: 'polkit-dialog-main-layout',
+			vertical: false
+		});
+		this.contentLayout.add(mainContentBox, {
+			x_fill: true,
+			y_fill: true
+		});
+
+		let messageBox = new St.BoxLayout({
+			style_class: 'polkit-dialog-message-layout',
+			vertical: true
+		});
+		mainContentBox.add(messageBox, {
+			y_align: St.Align.START
+		});
+
+		this._subjectLabel = new St.Label({
+			style_class: 'polkit-dialog-headline',
+			text: aDialogLabel
+		});
+
+		messageBox.add(this._subjectLabel, {
+			y_fill: false,
+			y_align: St.Align.START
+		});
+
+		this._descriptionLabel = new St.Label({
+			style_class: 'polkit-dialog-description',
+			text: aDialogMessage
+		});
+
+		messageBox.add(this._descriptionLabel, {
+			y_fill: true,
+			y_align: St.Align.START
+		});
+
+		this.setButtons([{
+			label: aCancelButtonLabel,
+			action: Lang.bind(this, function() {
+				this.close();
+			}),
+			key: Clutter.Escape
+		}, {
+			label: aDoButtonLabel,
+			action: Lang.bind(this, function() {
+				this.close();
+				aCallback();
+			})
+		}]);
+	}
+};
+
 function main(aMetadata, aOrientation, aPanel_height, aInstance_id) {
-	let myApplet = new MyApplet(aOrientation, aPanel_height, aInstance_id);
+	let myApplet = new MyApplet(aMetadata, aOrientation, aPanel_height, aInstance_id);
 	return myApplet;
 }

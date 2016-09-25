@@ -13,7 +13,7 @@
 	"pref_applet_with": {
 		"indent": true,
 		"type": "spinbutton",
-		"description": "Applet custom with (Set to 0 (zero) to not set a width):",
+		"description": "Applet custom width (Set to 0 (zero) to not set a width):",
 		"min": 0,
 		"max": 500,
 		"step": 1,
@@ -32,7 +32,7 @@
 	},
 	"head1": {
 		"type": "header",
-		"description": "\nMouse scroll options: "
+		"description": "Mouse scroll options: "
 	},
 	"pref_scroll_action": {
 		"indent": true,
@@ -42,7 +42,7 @@
 		"options": {
 			"Switch between workspaces": "switch_workspace",
 			"Adjust opacity of windows": "adjust_opacity",
-			"Toggle show desktop": "desktop",
+			"Toggle Show desktop": "desktop",
 			"Switch between windows": "switch-windows",
 			"None": "none"
 		},
@@ -117,7 +117,7 @@
 	},
 	"head2": {
 		"type": "header",
-		"description": "\nMouse click options: "
+		"description": "Mouse click options: "
 	},
 	"pref_left_click_action": {
 		"indent": true,
@@ -161,7 +161,7 @@
 	},
 	"head3": {
 		"type": "header",
-		"description": "\nWindows menu options"
+		"description": "Windows menu options"
 	},
 	"pref_windows_list_menu_enabled": {
 		"indent": true,
@@ -214,11 +214,19 @@
 		"description": "Show context menu default items on right click",
 		"tooltip": ""
 	},
+	"pref_show_context_menu_help": {
+		"indent": true,
+		"type": "checkbox",
+		"dependency": "pref_windows_list_menu_enabled",
+		"default": true,
+		"description": "Show \"Help\"",
+		"tooltip": ""
+	},
 	"pref_show_context_menu_about": {
 		"indent": true,
 		"type": "checkbox",
 		"dependency": "pref_windows_list_menu_enabled",
-		"default": false,
+		"default": true,
 		"description": "Show \"About...\"",
 		"tooltip": ""
 	},
@@ -234,7 +242,7 @@
 		"indent": true,
 		"type": "checkbox",
 		"dependency": "pref_windows_list_menu_enabled",
-		"default": false,
+		"default": true,
 		"description": "Show \"Remove this applet\"",
 		"tooltip": ""
 	},
@@ -244,13 +252,13 @@
 	},
 	"head4": {
 		"type": "header",
-		"description": "\nPeek at desktop options:"
+		"description": "Peek at desktop options:"
 	},
 	"pref_peek_desktop_enabled": {
 		"indent": true,
 		"type": "checkbox",
 		"default": true,
-		"description": "Opacify windows on hover",
+		"description": "Opacify windows on hover (a.k.a. desktop peek)",
 		"tooltip": "Take a glance at your desktop and desklets."
 	},
 	"pref_peek_desktop_delay": {
@@ -288,7 +296,7 @@
 		"max": 255,
 		"step": 10,
 		"dependency": "pref_peek_desktop_enabled",
-		"description": "Opacity on hover:",
+		"description": "Level of opacity:",
 		"tooltip": ""
 	},
 	"pref_blur_effect_enabled": {
@@ -305,7 +313,7 @@
 	},
 	"head5": {
 		"type": "header",
-		"description": "\nCustom Commands: "
+		"description": "Custom Commands: "
 	},
 	"pref_custom_cmd1_action": {
 		"indent": true,
@@ -336,7 +344,7 @@
 	},
 	"head6": {
 		"type": "header",
-		"description": "\nApp Switcher Settings: "
+		"description": "App Switcher Settings: "
 	},
 	"pref_switcher_style": {
 		"indent": true,

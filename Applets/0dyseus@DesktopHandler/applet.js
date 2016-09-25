@@ -9,9 +9,8 @@
 const Lang = imports.lang;
 const Applet = imports.ui.applet;
 const GLib = imports.gi.GLib;
-const Gettext = imports.gettext.domain("cinnamon-applets");
+const Gettext = imports.gettext;
 const Gtk = imports.gi.Gtk;
-const _ = Gettext.gettext;
 
 const Mainloop = imports.mainloop;
 const Main = imports.ui.main;
@@ -33,6 +32,23 @@ const Tooltips = imports.ui.tooltips;
 const PopupMenu = imports.ui.popupMenu;
 const AppletManager = imports.ui.appletManager;
 
+// Needed for confirmation dialogs.
+const ModalDialog = imports.ui.modalDialog;
+
+// For translation mechanism.
+// Incredible that this worked right!! LOL
+// Comments that start with // NOTE: are to be extracted by xgettext
+// and are directed to translators only.
+var UUID;
+
+function _(aStr) {
+	// Thanks to https://github.com/lestcape for this!!!
+	let customTrans = Gettext.dgettext(UUID, aStr);
+	if (customTrans != aStr) {
+		return customTrans;
+	}
+	return Gettext.gettext(aStr);
+}
 /**
  * #MenuItem
  * @_text (string): Text to be displayed in the menu item
@@ -99,9 +115,7 @@ MenuItem.prototype = {
 
 	/**
 	 * clone:
-	 * 
 	 * Clones the menu item
-	 * 
 	 * Returns (MenuItem): a clone of this menu item
 	 */
 	clone: function() {
@@ -121,6 +135,12 @@ MyApplet.prototype = {
 
 		this.settings = new Settings.AppletSettings(this, aMetadata["uuid"], aInstance_id);
 
+		this._applet_dir = imports.ui.appletManager.appletMeta[aMetadata.uuid].path;
+
+		// Prepare translation mechanism.
+		UUID = aMetadata.uuid;
+		Gettext.bindtextdomain(aMetadata.uuid, GLib.get_home_dir() + "/.local/share/locale");
+
 		this._bind_settings();
 
 		this.cwm_settings = new Gio.Settings({
@@ -135,6 +155,7 @@ MyApplet.prototype = {
 		this.uptgg = true;
 		this._orientation = aOrientation;
 		this._instance_id = aInstance_id;
+		this._metadata = aMetadata;
 
 		try {
 
@@ -153,10 +174,6 @@ MyApplet.prototype = {
 		} catch (e) {
 			global.logError(e);
 		}
-
-		// for (let prop in Clutter) {
-		// 	global.logError(prop);
-		// }
 	},
 
 	_bind_settings: function() {
@@ -189,6 +206,7 @@ MyApplet.prototype = {
 			[Settings.BindingDirection.IN, "pref_switcher_modified", null],
 			[Settings.BindingDirection.IN, "pref_switcher_modifier", null],
 			[Settings.BindingDirection.IN, "pref_show_context_menu_default_items", null],
+			[Settings.BindingDirection.IN, "pref_show_context_menu_help", null],
 			[Settings.BindingDirection.IN, "pref_show_context_menu_about", null],
 			[Settings.BindingDirection.IN, "pref_show_context_menu_configure", null],
 			[Settings.BindingDirection.IN, "pref_show_context_menu_remove", null],
@@ -460,7 +478,7 @@ MyApplet.prototype = {
 			icon_type: St.IconType.SYMBOLIC,
 			icon_size: 14
 		});
-		let item = new MenuItem(_("Expo                  "), icon, Lang.bind(this, function() {
+		let item = new MenuItem(_("Expo"), icon, Lang.bind(this, function() {
 			if (!Main.expo.animationInProgress)
 				Main.expo.toggle();
 		}));
@@ -497,13 +515,13 @@ MyApplet.prototype = {
 
 		if (this.pref_show_context_menu_default_items) {
 			if (this.pref_button_to_open_menu === "winlistmenu3")
-				this.addDefaultContextItems();
+				this._expand_applet_context_menu();
 			else
-				this.addDefaultContextItems(true);
+				this._expand_applet_context_menu(true);
 		}
 	},
 
-	addDefaultContextItems: function(aRestore) {
+	_expand_applet_context_menu: function(aRestore) {
 		if (aRestore)
 			this._applet_context_menu.removeAll();
 		let addSeparator = 0;
@@ -514,12 +532,28 @@ MyApplet.prototype = {
 		if (this.pref_show_context_menu_remove)
 			addSeparator += 1;
 
+		/**
+		 * The default context menu items need to have the following names
+		 * to overwrite the original ones.
+		 */
 		if (!aRestore && addSeparator !== 0) {
 			this.context_menu_separator = new PopupMenu.PopupSeparatorMenuItem();
 			this._applet_context_menu.addMenuItem(this.context_menu_separator);
 		}
 
+		if (this.pref_show_context_menu_help || aRestore) {
+			let menuItem = new PopupMenu.PopupIconMenuItem(_("Help"),
+				"dialog-information", St.IconType.SYMBOLIC);
+			menuItem.connect("activate", Lang.bind(this, function() {
+				Util.spawnCommandLine("xdg-open " + this._applet_dir + "/HELP.md");
+			}));
+			this._applet_context_menu.addMenuItem(menuItem);
+
+		}
+
 		if (this.pref_show_context_menu_about || aRestore) {
+			// NOTE: This string could be left blank because it's a default string,
+			// so it's already translated by Cinnamon. It's up to the translators.
 			this.context_menu_item_about = new PopupMenu.PopupIconMenuItem(_("About..."),
 				"dialog-question",
 				St.IconType.SYMBOLIC);
@@ -528,21 +562,33 @@ MyApplet.prototype = {
 		}
 
 		if (this.pref_show_context_menu_configure || aRestore) {
+			// NOTE: This string could be left blank because it's a default string,
+			// so it's already translated by Cinnamon. It's up to the translators.
 			this.context_menu_item_configure = new PopupMenu.PopupIconMenuItem(_("Configure..."),
 				"system-run",
 				St.IconType.SYMBOLIC);
 			this.context_menu_item_configure.connect('activate', Lang.bind(this, function() {
-				Util.spawnCommandLine("cinnamon-settings applets " + this._uuid + " " + this.instance_id);
+				Util.spawnCommandLine("cinnamon-settings applets " + this._metadata.uuid +
+					" " + this._instance_id);
 			}));
 			this._applet_context_menu.addMenuItem(this.context_menu_item_configure);
 		}
 
 		if (this.pref_show_context_menu_remove || aRestore) {
-			this.context_menu_item_remove = new PopupMenu.PopupIconMenuItem(_("Remove this applet"),
+			// NOTE: This string could be left blank because it's a default string,
+			// so it's already translated by Cinnamon. It's up to the translators.
+			this.context_menu_item_remove = new PopupMenu.PopupIconMenuItem(_("Remove '%s'")
+				.format(this._metadata.name),
 				"edit-delete",
 				St.IconType.SYMBOLIC);
 			this.context_menu_item_remove.connect('activate', Lang.bind(this, function() {
-				AppletManager._removeAppletFromPanel(this._uuid, this.instance_id);
+				new ConfirmationDialog(Lang.bind(this, function() {
+						Main.AppletManager._removeAppletFromPanel(this._metadata.uuid, this._instance_id);
+					}),
+					this._metadata.name,
+					_("Are you sure that you want to remove '%s' from your panel?")
+					.format(this._metadata.name),
+					_("Cancel"), _("OK")).open();
 			}));
 			this._applet_context_menu.addMenuItem(this.context_menu_item_remove);
 		}
@@ -728,29 +774,29 @@ MyApplet.prototype = {
 			return '<span weight="bold">' + aStr + '</span>';
 		};
 
-		let tt = boldSpan(_("Desktop Handler Applet")) + "\n\n";
+		let tt = boldSpan(_("Desktop Handler")) + "\n\n";
 
 		if (this.pref_separated_scroll_action) {
-			tt += boldSpan(_("Scroll Up action: ")) + _(this._strMap[this.pref_scroll_up_action]) + "\n";
-			tt += boldSpan(_("Scroll Down action: ")) + _(this._strMap[this.pref_scroll_down_action]) + "\n";
+			tt += boldSpan(_("Scroll Up: ")) + _(this._strMap[this.pref_scroll_up_action]) + "\n";
+			tt += boldSpan(_("Scroll Down: ")) + _(this._strMap[this.pref_scroll_down_action]) + "\n";
 		} else
-			tt += boldSpan(_("Scroll action: ")) + _(this._strMap[this.pref_scroll_action]) + "\n";
+			tt += boldSpan(_("Scroll: ")) + _(this._strMap[this.pref_scroll_action]) + "\n";
 
 		let lCA = (this.pref_windows_list_menu_enabled &&
 				this.pref_button_to_open_menu === "winlistmenu1") ?
 			this._strMap["winmenu"] :
 			this._strMap[this.pref_left_click_action];
-		tt += boldSpan(_("Left click action: ")) + _(lCA) + "\n";
+		tt += boldSpan(_("Left click") + ": ") + _(lCA) + "\n";
 
 		let mCA = (this.pref_windows_list_menu_enabled &&
 				this.pref_button_to_open_menu === "winlistmenu2") ?
 			this._strMap["winmenu"] :
 			this._strMap[this.pref_middle_click_action];
-		tt += boldSpan(_("Middle click action: ")) + _(mCA) + "\n";
+		tt += boldSpan(_("Middle click") + ": ") + _(mCA) + "\n";
 
 		if (this.pref_windows_list_menu_enabled &&
 			this.pref_button_to_open_menu === "winlistmenu3")
-			tt += boldSpan(_("Right click action: ")) + _(this._strMap["winmenu"]) + "\n";
+			tt += boldSpan(_("Right click") + ": ") + _(this._strMap["winmenu"]) + "\n";
 
 		this.tooltip = new Tooltips.PanelItemTooltip(this, "", this._orientation);
 
@@ -1272,6 +1318,71 @@ myCoverflowSwitcher.prototype = {
 		this._activateSelected();
 	},
 
+};
+
+function ConfirmationDialog() {
+	this._init.apply(this, arguments);
+}
+
+ConfirmationDialog.prototype = {
+	__proto__: ModalDialog.ModalDialog.prototype,
+
+	_init: function(aCallback, aDialogLabel, aDialogMessage, aCancelButtonLabel, aDoButtonLabel) {
+		ModalDialog.ModalDialog.prototype._init.call(this, {
+			styleClass: null
+		});
+
+		let mainContentBox = new St.BoxLayout({
+			style_class: 'polkit-dialog-main-layout',
+			vertical: false
+		});
+		this.contentLayout.add(mainContentBox, {
+			x_fill: true,
+			y_fill: true
+		});
+
+		let messageBox = new St.BoxLayout({
+			style_class: 'polkit-dialog-message-layout',
+			vertical: true
+		});
+		mainContentBox.add(messageBox, {
+			y_align: St.Align.START
+		});
+
+		this._subjectLabel = new St.Label({
+			style_class: 'polkit-dialog-headline',
+			text: aDialogLabel
+		});
+
+		messageBox.add(this._subjectLabel, {
+			y_fill: false,
+			y_align: St.Align.START
+		});
+
+		this._descriptionLabel = new St.Label({
+			style_class: 'polkit-dialog-description',
+			text: aDialogMessage
+		});
+
+		messageBox.add(this._descriptionLabel, {
+			y_fill: true,
+			y_align: St.Align.START
+		});
+
+		this.setButtons([{
+			label: aCancelButtonLabel,
+			action: Lang.bind(this, function() {
+				this.close();
+			}),
+			key: Clutter.Escape
+		}, {
+			label: aDoButtonLabel,
+			action: Lang.bind(this, function() {
+				this.close();
+				aCallback();
+			})
+		}]);
+	}
 };
 
 function main(aMetadata, aOrientation, aPanel_height, aInstance_id) {

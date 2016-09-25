@@ -3,9 +3,9 @@
     "uuid": "0dyseus@window-list-fork", 
     "max-instances": -1, 
     "dangerous": false, 
-    "name": "Window list (Fork By Odyseus)", 
-    "version": "1.02", 
-    "last-edited": "1471717018", 
+    "description": "Fork of the main Cinnamon Window list applet.", 
+    "version": "1.03", 
+    "last-edited": "1472973983", 
     "icon": "gnome-panel-window-list", 
-    "description": "Fork of the main Cinnamon Window list applet."
+    "name": "Window list (Fork By Odyseus)"
 }

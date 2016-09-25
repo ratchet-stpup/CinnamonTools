@@ -36,15 +36,32 @@ const Gtk = imports.gi.Gtk;
 const St = imports.gi.St;
 const NMClient = imports.gi.NMClient;
 const Gettext = imports.gettext;
-const _ = Gettext.gettext;
 const Gio = imports.gi.Gio;
+const Main = imports.ui.main;
+const PopupMenu = imports.ui.popupMenu;
+const Util = imports.misc.util;
+
+// Needed for confirmation dialogs.
+const ModalDialog = imports.ui.modalDialog;
+const Clutter = imports.gi.Clutter;
+
+// For translation mechanism.
+// Incredible that this worked right!! LOL
+// Comments that start with // NOTE: are to be extracted by xgettext
+// and are directed to translators only.
+var UUID;
+
+function _(aStr) {
+	// Thanks to https://github.com/lestcape for this!!!
+	let customTrans = Gettext.dgettext(UUID, aStr);
+	if (customTrans != aStr) {
+		return customTrans;
+	}
+	return Gettext.gettext(aStr);
+}
 
 const Settings = imports.ui.settings;
 const Tooltips = imports.ui.tooltips;
-
-function _notifyme(aMsg) {
-	GLib.spawn_command_line_async("notify-send --icon=image-missing '" + aMsg + "'");
-}
 
 function MyApplet(aMetadata, aOrientation, aPanel_height, aInstance_id) {
 	this._init(aMetadata, aOrientation, aPanel_height, aInstance_id);
@@ -58,8 +75,18 @@ MyApplet.prototype = {
 
 		this.settings = new Settings.AppletSettings(this, aMetadata.uuid, aInstance_id);
 
+		this._metadata = aMetadata;
+		this._instance_id = aInstance_id;
+		this._applet_dir = imports.ui.appletManager.appletMeta[aMetadata.uuid].path;
+
+		// Prepare translation mechanism.
+		UUID = aMetadata.uuid;
+		Gettext.bindtextdomain(aMetadata.uuid, GLib.get_home_dir() + "/.local/share/locale");
+
 		try {
 			this._bind_settings();
+
+			this._expand_applet_context_menu();
 
 			this.areas = [];
 			this.graphs = [];
@@ -108,9 +135,6 @@ MyApplet.prototype = {
 			}
 
 			this.update();
-
-			// if (this.pref_align_tooltip_text_to_the_left)
-			// 	this._applet_tooltip._tooltip.set_style("text-align:left;");
 
 		} catch (e) {
 			global.logError(e);
@@ -204,7 +228,7 @@ MyApplet.prototype = {
 			try {
 				this.tooltip._tooltip.get_clutter_text().set_markup(tt);
 			} catch (aErr) {
-				global.logError("Error Tweaking Tooltip: " + aErr);
+				global.logError("System Monitor (Fork By Odyseus): " + aErr.message);
 			}
 		} else
 			this.set_applet_tooltip(tt);
@@ -223,6 +247,35 @@ MyApplet.prototype = {
 			rgba[2] / 255,
 			"3" in rgba ? rgba[3] : 1
 		];
+	},
+
+	/**
+	 * Overwrite the default "Remove applet" context menu item without re-creating
+	 * the entire context menu.
+	 */
+	_expand_applet_context_menu: function() {
+		let menuItem = new PopupMenu.PopupIconMenuItem(_("Help"),
+			"dialog-information", St.IconType.SYMBOLIC);
+		menuItem.connect("activate", Lang.bind(this, function() {
+			Util.spawnCommandLine("xdg-open " + this._applet_dir + "/HELP.md");
+		}));
+		this._applet_context_menu.addMenuItem(menuItem);
+
+		// NOTE: This string could be left blank because it's a default string,
+		// so it's already translated by Cinnamon. It's up to the translators.
+		this.context_menu_item_remove = new PopupMenu.PopupIconMenuItem(_("Remove '%s'")
+			.format(this._metadata.name),
+			"edit-delete",
+			St.IconType.SYMBOLIC);
+		this.context_menu_item_remove.connect('activate', Lang.bind(this, function() {
+			new ConfirmationDialog(Lang.bind(this, function() {
+					Main.AppletManager._removeAppletFromPanel(this._metadata.uuid, this._instance_id);
+				}),
+				this._metadata.name,
+				_("Are you sure that you want to remove '%s' from your panel?")
+				.format(this._metadata.name),
+				_("Cancel"), _("OK")).open();
+		}));
 	},
 
 	on_applet_removed_from_panel: function() {
@@ -379,7 +432,7 @@ CpuDataProvider.prototype = {
 		this.iowait_last = this.gtop.iowait;
 		this.total_last = this.gtop.total;
 		let used = 1 - idle - nice - sys - iowait;
-		this.text = ["CPU: ", Math.round(100 * used) + " %"];
+		this.text = [_("CPU: "), Math.round(100 * used) + " %"];
 		return [used, nice, sys, iowait];
 	},
 
@@ -405,7 +458,7 @@ MemDataProvider.prototype = {
 		GTop.glibtop_get_mem(this.gtop);
 		let used = this.gtop.used / this.gtop.total;
 		let cached = (this.gtop.buffer + this.gtop.cached) / this.gtop.total;
-		this.text = ["Memory: ", Math.round((this.gtop.used - this.gtop.cached - this.gtop.buffer) / (1024 * 1024)) + " / " + Math.round(this.gtop.total / (1024 * 1024)) + " MB"];
+		this.text = [_("Memory: "), Math.round((this.gtop.used - this.gtop.cached - this.gtop.buffer) / (1024 * 1024)) + " / " + Math.round(this.gtop.total / (1024 * 1024)) + _(" MB")];
 		return [used - cached, cached];
 	},
 
@@ -430,7 +483,7 @@ SwapDataProvider.prototype = {
 	getData: function() {
 		GTop.glibtop_get_swap(this.gtop);
 		let used = this.gtop.used / this.gtop.total;
-		this.text = ["Swap: ", Math.round(this.gtop.used / (1024 * 1024)) + " / " + Math.round(this.gtop.total / (1024 * 1024)) + " MB"];
+		this.text = [_("Swap: "), Math.round(this.gtop.used / (1024 * 1024)) + " / " + Math.round(this.gtop.total / (1024 * 1024)) + _(" MB")];
 		return [used];
 	},
 
@@ -466,7 +519,7 @@ NetDataProvider.prototype = {
 		let up_delta = (up - this.up_last) * 1000 / this.refreshRate;
 		this.down_last = down;
 		this.up_last = up;
-		this.text = ["Network D/U: ", Math.round(down_delta / 1024) + " / " + Math.round(up_delta / 1024) + " KB/s"];
+		this.text = [_("Network D/U: "), Math.round(down_delta / 1024) + " / " + Math.round(up_delta / 1024) + _(" KB/s")];
 		return [down_delta, up_delta];
 	},
 
@@ -504,12 +557,77 @@ LoadAvgDataProvider.prototype = {
 	getData: function() {
 		GTop.glibtop_get_loadavg(this.gtop);
 		let load = this.gtop.loadavg[0];
-		this.text = ["Load average: ", this.gtop.loadavg[0] + ", " + this.gtop.loadavg[1] + ", " + this.gtop.loadavg[2]];
+		this.text = [_("Load average: "), this.gtop.loadavg[0] + ", " + this.gtop.loadavg[1] + ", " + this.gtop.loadavg[2]];
 		return [load];
 	},
 
 	getText: function() {
 		return this.text;
+	}
+};
+
+function ConfirmationDialog() {
+	this._init.apply(this, arguments);
+}
+
+ConfirmationDialog.prototype = {
+	__proto__: ModalDialog.ModalDialog.prototype,
+
+	_init: function(aCallback, aDialogLabel, aDialogMessage, aCancelButtonLabel, aDoButtonLabel) {
+		ModalDialog.ModalDialog.prototype._init.call(this, {
+			styleClass: null
+		});
+
+		let mainContentBox = new St.BoxLayout({
+			style_class: 'polkit-dialog-main-layout',
+			vertical: false
+		});
+		this.contentLayout.add(mainContentBox, {
+			x_fill: true,
+			y_fill: true
+		});
+
+		let messageBox = new St.BoxLayout({
+			style_class: 'polkit-dialog-message-layout',
+			vertical: true
+		});
+		mainContentBox.add(messageBox, {
+			y_align: St.Align.START
+		});
+
+		this._subjectLabel = new St.Label({
+			style_class: 'polkit-dialog-headline',
+			text: aDialogLabel
+		});
+
+		messageBox.add(this._subjectLabel, {
+			y_fill: false,
+			y_align: St.Align.START
+		});
+
+		this._descriptionLabel = new St.Label({
+			style_class: 'polkit-dialog-description',
+			text: aDialogMessage
+		});
+
+		messageBox.add(this._descriptionLabel, {
+			y_fill: true,
+			y_align: St.Align.START
+		});
+
+		this.setButtons([{
+			label: aCancelButtonLabel,
+			action: Lang.bind(this, function() {
+				this.close();
+			}),
+			key: Clutter.Escape
+		}, {
+			label: aDoButtonLabel,
+			action: Lang.bind(this, function() {
+				this.close();
+				aCallback();
+			})
+		}]);
 	}
 };
 

@@ -1,0 +1,129 @@
+# This is a template file for translating the Cinnamon applet called Window List (Fork By Odyseus) Menu.
+# Copyright (C) 2016
+# This file is distributed under the same license as the Window List (Fork By Odyseus) applet.
+# Odyseus <EMAIL@ADDRESS>, 2016.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: 1.03\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-09-25 00:54-0300\n"
+"PO-Revision-Date: 2016-09-25 01:09-0300\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.7.1\n"
+"Last-Translator: Odyseus\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language: es\n"
+
+#: applet.js:731
+msgid "Configure Window list applet"
+msgstr "Configurar applet Lista de Ventanas"
+
+#: applet.js:743
+msgid "Move to the other monitor"
+msgstr "Mover hacia el otro monitor"
+
+#: applet.js:752
+#, javascript-format
+msgid "Move to monitor %d"
+msgstr "Mover hacia el monitor %d"
+
+#: applet.js:763
+msgid "Only on this workspace"
+msgstr "Sólo en este entorno de trabajo"
+
+#: applet.js:769
+msgid "Visible on all workspaces"
+msgstr "Visible en todos los entornos de trabajo"
+
+#: applet.js:775
+msgid "Move to another workspace"
+msgstr "Mover a otro entorno de trabajo"
+
+#. Close all/others
+#: applet.js:797
+msgid "Close all"
+msgstr "Cerrar todas"
+
+#: applet.js:806
+msgid "Close others"
+msgstr "Cerrar otras"
+
+#: applet.js:820
+msgid "Restore to full opacity"
+msgstr "Dummy"
+
+#: applet.js:828
+msgid "Restore"
+msgstr "Restaurar"
+
+#: applet.js:833
+msgid "Minimize"
+msgstr "Minimizar"
+
+#: applet.js:841
+msgid "Unmaximize"
+msgstr "Desmaximizar"
+
+#: applet.js:846
+msgid "Maximize"
+msgstr "Maximizar"
+
+#: applet.js:853
+msgid "Close"
+msgstr "Cerrar"
+
+#. 0dyseus@window-list-fork->metadata.json->description
+msgid "Fork of the main Cinnamon Window list applet."
+msgstr "Adaptación del applet de Cinnamon llamado Window list"
+
+#. 0dyseus@window-list-fork->metadata.json->name
+msgid "Window list (Fork By Odyseus)"
+msgstr "Lista de ventanas (Fork By Odyseus)"
+
+#. 0dyseus@window-list-fork->settings-
+#. schema.json->pref_hide_labels->description
+msgid "Hide labels in the window list buttons. (Cinnamon will be restarted)"
+msgstr "Ocultar etiquetas de los botones de la lista de ventanas. (Canela se reiniciará)"
+
+#. 0dyseus@window-list-fork->settings-
+#. schema.json->pref_reverse_scrolling->description
+msgid "Reverse the direction of mouse-wheel scrolling in the window list"
+msgstr "Invertir la dirección de desplazamiento del ratón en la lista de ventanas"
+
+#. 0dyseus@window-list-fork->settings-
+#. schema.json->pref_enable_scrolling->description
+msgid "Enable mouse-wheel scrolling in the window list"
+msgstr "Activar el desplazamiento del ratón en la lista de ventanas"
+
+#. 0dyseus@window-list-fork->settings-
+#. schema.json->pref_window_preview->description
+msgid "Show window thumbnails on hover"
+msgstr "Mostrar imágenes en miniatura de la ventana al pasar el ratón"
+
+#. 0dyseus@window-list-fork->settings-
+#. schema.json->pref_buttons_use_entire_space->description
+msgid "Window buttons can have different sizes and use the entire space available"
+msgstr ""
+"Los botones de las ventanas pueden tener diferentes tamaños y pueden usar todo el espacio "
+"disponible"
+
+#. 0dyseus@window-list-fork->settings-
+#. schema.json->pref_middle_click_close->description
+msgid "Middle click to close window"
+msgstr "Cerrar ventana con botón central del ratón"
+
+#. 0dyseus@window-list-fork->settings-
+#. schema.json->pref_hide_tooltips->description
+msgid "Do not display tooltips. (Cinnamon will be restarted)"
+msgstr "No mostrar caja de herramientas. (Cinnamon se reiniciará)"
+
+#. 0dyseus@window-list-fork->settings-
+#. schema.json->pref_enable_alerts->description
+msgid "Show an alert in the window list when a window from another workspace requires attention"
+msgstr ""
+"Mostrar una alerta en la lista de ventanas cuando una ventana de otra área de trabajo requiere "
+"atención"

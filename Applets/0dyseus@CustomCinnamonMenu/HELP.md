@@ -15,6 +15,7 @@ Never delete any of the files found inside this applet folder. It might break th
         - If you don want to clone the repository, just create a Gist and send me the link.
     - If you don't have/want a GitHub account:
         - You can send me a [Pastebin](http://pastebin.com/) (or similar service) to my [Mint Forums account](https://forums.linuxmint.com/memberlist.php?mode=viewprofile&u=164858).
+- If the source text (in English) and/or my translation to Spanish has errors/inconsistencies, feel free to report them.
 
 ***
 
