@@ -16,7 +16,13 @@ Tested and working on Cinnamon version 3.0.7.
 Spices comments system is absolutely useless to report bugs with any king of legibility. In addition, there is no notifications system for new comments. So, if anyone has bugs to report or a feature request, do so on this applet GitHub page. Just click the **Website** button next to the **Download** button.
 </span>
 
+## Contributors
+- [NikoKrause](https://github.com/NikoKrause): German localization.
+
 ## Change Log
+
+##### 1.04
+- Added German localization. Thanks to [NikoKrause](https://github.com/NikoKrause).
 
 ##### 1.03
 - Added support for localizations. If someone wants to contribute with translations, inside the Help section of this applet (found in the applet context menu or the Help.md file inside this applet folder) you will find some pointers on how to do it.
