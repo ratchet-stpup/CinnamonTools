@@ -728,7 +728,7 @@ AppMenuButtonRightClickMenu.prototype = {
 		let mw = this.metaWindow;
 		let item;
 		let length;
-		item = new PopupMenu.PopupIconMenuItem(_("Configure Window list applet"), "system-run", St.IconType.SYMBOLIC);
+		item = new PopupMenu.PopupIconMenuItem(_("Configure the window list"), "system-run", St.IconType.SYMBOLIC);
 		item.connect('activate', Lang.bind(this, function() {
 			Util.spawnCommandLine("cinnamon-settings applets " + AppletUUID + " " + this._launcher._applet.instance_id);
 		}));

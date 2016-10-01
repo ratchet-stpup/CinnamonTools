@@ -9,119 +9,120 @@ msgstr ""
 "Project-Id-Version: 1.03\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-09-25 21:43-0300\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Odyseus <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2016-10-01 00:10+0200\n"
+"Last-Translator: NikoKrause <nikokrause@gmx.de>\n"
+"Language-Team: GERMAN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: \n"
+"Language: de\n"
 
 #: applet.js:731
 msgid "Configure the window list"
-msgstr ""
+msgstr "Fensterliste konfigurieren …"
 
 #: applet.js:743
 msgid "Move to the other monitor"
-msgstr ""
+msgstr "Zu anderem Bildschirm verschieben"
 
 #: applet.js:752
 #, javascript-format
 msgid "Move to monitor %d"
-msgstr ""
+msgstr "Auf Bildschirm %d verschieben"
 
 #: applet.js:763
 msgid "Only on this workspace"
-msgstr ""
+msgstr "Nur auf dieser Arbeitsfläche"
 
 #: applet.js:769
 msgid "Visible on all workspaces"
-msgstr ""
+msgstr "Auf allen Arbeitsflächen anzeigen"
 
 #: applet.js:775
 msgid "Move to another workspace"
-msgstr ""
+msgstr "Auf andere Arbeitsfläche verschieben"
 
 #. Close all/others
 #: applet.js:797
 msgid "Close all"
-msgstr ""
+msgstr "Alle schließen"
 
 #: applet.js:806
 msgid "Close others"
-msgstr ""
+msgstr "Andere schließen"
 
 #: applet.js:820
 msgid "Restore to full opacity"
-msgstr ""
+msgstr "Die volle Deckkraft wiederherstellen"
 
 #: applet.js:828
 msgid "Restore"
-msgstr ""
+msgstr "Wiederherstellen"
 
 #: applet.js:833
 msgid "Minimize"
-msgstr ""
+msgstr "Verkleinern"
 
 #: applet.js:841
 msgid "Unmaximize"
-msgstr ""
+msgstr "Wiederherstellen"
 
 #: applet.js:846
 msgid "Maximize"
-msgstr ""
+msgstr "Vergrößern"
 
 #: applet.js:853
 msgid "Close"
-msgstr ""
+msgstr "Schließen"
 
 #. 0dyseus@window-list-fork->metadata.json->description
 msgid "Fork of the main Cinnamon Window list applet."
-msgstr ""
+msgstr "Fork des Cinnamon-Haupfensterlisten-Applets"
 
 #. 0dyseus@window-list-fork->metadata.json->name
 msgid "Window list (Fork By Odyseus)"
-msgstr ""
+msgstr "Fensterliste (Fork von Odyseus)"
 
 #. 0dyseus@window-list-fork->settings-
 #. schema.json->pref_hide_labels->description
 msgid "Hide labels in the window list buttons. (Cinnamon will be restarted)"
-msgstr ""
+msgstr "Beschriftungen auf den Knöpfen der Fensterliste verbergen. (Cinnamon wird neu gestartet)"
 
 #. 0dyseus@window-list-fork->settings-
 #. schema.json->pref_reverse_scrolling->description
 msgid "Reverse the direction of mouse-wheel scrolling in the window list"
-msgstr ""
+msgstr "Die Richtung des Mausradrollens in der Fensterliste umkehren"
 
 #. 0dyseus@window-list-fork->settings-
 #. schema.json->pref_enable_scrolling->description
 msgid "Enable mouse-wheel scrolling in the window list"
-msgstr ""
+msgstr "Mausradrollen in der Fensterliste aktivieren"
 
 #. 0dyseus@window-list-fork->settings-
 #. schema.json->pref_window_preview->description
 msgid "Show window thumbnails on hover"
-msgstr ""
+msgstr "Fenstervorschau beim Darüberbewegen anzeigen"
 
 #. 0dyseus@window-list-fork->settings-
 #. schema.json->pref_buttons_use_entire_space->description
 msgid ""
 "Window buttons can have different sizes and use the entire space available"
 msgstr ""
+"Die Fensterknöpfe können verschiedene Größen haben und den verfügbaren Platz ausfüllen"
 
 #. 0dyseus@window-list-fork->settings-
 #. schema.json->pref_middle_click_close->description
 msgid "Middle click to close window"
-msgstr ""
+msgstr "Mittelklick, um das Fenster zu schließen"
 
 #. 0dyseus@window-list-fork->settings-
 #. schema.json->pref_hide_tooltips->description
 msgid "Do not display tooltips. (Cinnamon will be restarted)"
-msgstr ""
+msgstr "Tooltips nicht anzeigen. (Cinnamon wird neu gestartet)"
 
 #. 0dyseus@window-list-fork->settings-
 #. schema.json->pref_enable_alerts->description
 msgid ""
 "Show an alert in the window list when a window from another workspace "
 "requires attention"
-msgstr ""
+msgstr "Einen Hinweis in der Fensterliste anzeigen, wenn ein Fenster auf einer anderen Arbeitsfläche Aufmerksamkeit verlangt"
