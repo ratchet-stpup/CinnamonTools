@@ -1,6 +1,6 @@
 {
 	"pref_activation_mode": {
-		"type": "radiogroup",
+		"type": "combobox",
 		"default": "force",
 		"description": "Choose activation mode",
 		"options": {

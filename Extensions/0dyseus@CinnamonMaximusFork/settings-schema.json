@@ -35,12 +35,12 @@
 		"type": "checkbox",
 		"default": false,
 		"description": "Enable logging",
-		"tooltip": "If enabled, it will log to the Cinnamon log (~/user/.cinnamon/glass.log) information that could be used to debug the extension."
+		"tooltip": "If enabled, it will log to the Cinnamon log (~/.cinnamon/glass.log) information that could be used to debug the extension."
 	},
 	"pref_restart_cinnamon": {
 		"type": "checkbox",
 		"default": false,
 		"description": "Check or uncheck to restart Cinnamon",
-		"tooltip": "Check or uncheck this options to restart Cinnamon.\nNote: I couldn't make a proper button to work in this settings window, so I improvised and used a checkbox. It doesn't really matter if its checked or unchecked."
+		"tooltip": "Check or uncheck this options to restart Cinnamon.\nNote: I couldn't make a proper button to work in this settings window, so I had to improvise and I had to use a checkbox. It doesn't really matter if it's checked or unchecked."
 	}
 }

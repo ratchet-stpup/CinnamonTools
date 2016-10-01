@@ -104,7 +104,6 @@ const Convenience = Me.imports.convenience;
 
 const Prefs = Me.imports.prefs;
 */
-const uuid = "0dyseus@CinnamonMaximusFork";
 
 Meta.MaximizeFlags.BOTH = (Meta.MaximizeFlags.VERTICAL | Meta.MaximizeFlags.HORIZONTAL);
 
@@ -747,17 +746,13 @@ function stopUndecorating() {
 	}
 }
 
-function init(metadata) {
-	settings = new SettingsHandler(metadata.uuid);
-}
-
-function SettingsHandler(uuid) {
-	this._init(uuid);
+function SettingsHandler(aUUID) {
+	this._init(aUUID);
 }
 
 SettingsHandler.prototype = {
-	_init: function(uuid) {
-		this.settings = new Settings.ExtensionSettings(this, uuid);
+	_init: function(aUUID) {
+		this.settings = new Settings.ExtensionSettings(this, aUUID);
 		this.settings.bindProperty(Settings.BindingDirection.IN,
 			"pref_whitelist", "pref_whitelist",
 			function() {
@@ -815,4 +810,8 @@ function disable() {
 	if (settingsChangedID) {
 	    settings.disconnect(settingsChangedID);
 	}*/
+}
+
+function init(aMetaddata) {
+	settings = new SettingsHandler(aMetaddata.uuid);
 }

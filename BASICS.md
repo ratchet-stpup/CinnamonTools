@@ -100,28 +100,47 @@ git remote set-url origin git+ssh://git@github.com/user_name/repo_name.git
 
 ***
 
-# How to localize applets
+# How to localize xlets
+
+**Note:** I will use the word **xlet** to refer to any Cinnamon applet, extension or desklet.
 
 ### Some technical facts
 
 These *facts* are based on documentations and source code that I read.
 
-- .po files can be added to a "po" folder in your applet's directory, and will be compiled and installed into the system when the applet is installed via Cinnamon Settings.
-- If the applet is installed manually and not trough Cinnamon Settings, localizations can be installed with the command `cinnamon-json-makepot -i ./po/*` executed from a terminal opened in the applet's folder. Assuming that a folder called **po** with .po files exists inside the applet's folder.
-- Most applets with support for localizations comes with a template file (a .pot file) that can be used to create .po files. But, in case that a .pot file isn't available, an existent .po file can be copied and renamed and then make the translations on that newly created file.
+- .po files can be added to a "po" folder in your xlet's directory, and will be compiled and installed into the system when the xlet is installed via Cinnamon Settings.
+- If the xlet is installed manually and not trough Cinnamon Settings, localizations can be installed with the command `cinnamon-json-makepot -i ./po/*` executed from a terminal opened inside the xlet's folder. Assuming that a folder called **po** with .po files exists inside the xlet's folder.
+- Most xlets with support for localizations comes with a template file (a .pot file) that can be used to create .po files. But, in case that a .pot file isn't available, an existent .po file can be copied and renamed and then make the translations on that newly created file.
 
 ### How to create localization files (.po files)
 
 The easiest (and safer) way would be using [Poedit](https://poedit.net/). This program can be installed from the repositories of almost all Linux distributions and also can be installed on Windows and OS X.
 
+**Note:** .po and .pot files are simply text files. They could be edited manually with a text editor, but I will only explain .po and .pot files manupulation using Poedit. Editing .po files manually could lead to errors that would render the .po file useless. And a .pot file should never be edited by other than the xlet's developer.
+
 #### Poedit usage
 
+###### Creating a translation file from scratch
+
 - Open Poedit and click on **Create new translation**.
-    - Open a .pot file if it was made available for the applet. This file is created by the applet developer from the source code of the applet. Therefore, this file will be the most up-to-date and will contain the most amount of strings to translate from.
+    - Open a .pot file if it was made available for the xlet. This file is created by the xlet developer from the source code of the xlet. Therefore, this file will be the most up-to-date and will contain the most amount of strings to translate from.
     - If no .pot file if available, any .po file containing any locale can be used to create a new translation (.po file).
 - Once the file is loaded, Poedit will ask you to choose a language for the translation.
 - At this point, the .po file can be saved and the name will automatically reflect the locale code.
+- Poedit usage is pretty much straight forward:
+    - There is the **Source text** box that contains the string to be translated (usually in English).
+    - There is the **Translation** box that will contain the translated text.
+    - There is a button called **Add comment** that will allow you to add comments for other translators to read. **Never delete comments!!!**
+    - If there is a .mo file saved when you save your .po file, the .mo file can be deleted (it isn't used by Cinnamon xlets). You could also disable MO files creation from Poedit preferences (go to **Edit** > **Preferences** > **General** tab and uncheck the option called **Automatically compile MO file when saving**).
 
+###### Updating and existing translation file
+
+- Open the .po file with Poedit.
+- Go to the menu **Catalog** and choose **Update from POT file...** menu item.
+- Select a .pot file from which your .po file was based on.
+- You will be presented with a window with 2 lists (**New strings** and **Obsolete strings**).
+    - **New strings** are strings that will be added to the .po file and will need to be translated.
+    - **Obsolete strings** are strings that aren't used any more and will be removed from the to the .po file.
 
 #### Adding languages to Poedit's spell checker
 
@@ -137,3 +156,4 @@ I tried the three types of dictionaries that I could find on Linux Mint's reposi
 - myspell-<language code>: It wasn't recognised by Poedit in my system.
 - aspell-<language code>: It was recognised by Poedit.
 - hunspell-<language code>: It was recognised by Poedit.
+

@@ -18,7 +18,7 @@ Spices comments system is absolutely useless to report bugs with any king of leg
 
 ## Change Log
 
-##### 1.02
+##### 1.03
 - Added support for localizations. If someone wants to contribute with translations, inside the Help section of this applet (found in the applet context menu or the Help.md file inside this applet folder) you will find some pointers on how to do it.
 
 ##### 1.02
