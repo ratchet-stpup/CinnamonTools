@@ -19,8 +19,8 @@ msgstr ""
 "Language: es\n"
 
 #: applet.js:731
-msgid "Configure Window list applet"
-msgstr "Configurar applet Lista de Ventanas"
+msgid "Configure the window list"
+msgstr "Configurar la lista de ventanas"
 
 #: applet.js:743
 msgid "Move to the other monitor"
