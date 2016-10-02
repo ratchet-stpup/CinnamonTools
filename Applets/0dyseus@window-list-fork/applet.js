@@ -73,9 +73,9 @@ const Tooltips = imports.ui.tooltips;
 const Tweener = imports.ui.tweener;
 const Util = imports.misc.util;
 
-const DEFAULT_ICON_SIZE = 16; // too bad this can't be defined in theme (cinnamon-app.create_icon_texture returns a clutter actor, not a themable object -
+const DEFAULT_ICON_SIZE = 24; // too bad this can't be defined in theme (cinnamon-app.create_icon_texture returns a clutter actor, not a themable object -
 // probably something that could be addressed
-const ICON_HEIGHT_FACTOR = .64;
+const ICON_HEIGHT_FACTOR = .84;
 const MAX_TEXT_LENGTH = 1000;
 const FLASH_INTERVAL = 500;
 
@@ -658,8 +658,6 @@ AppMenuButton.prototype = {
 			this.iconSize = Math.round(this._applet._panelHeight * ICON_HEIGHT_FACTOR / global.ui_scale);
 		else
 			this.iconSize = DEFAULT_ICON_SIZE;
-
-		this.iconSize = 24;
 
 		let icon = app ?
 			app.create_icon_texture(this.iconSize) :
