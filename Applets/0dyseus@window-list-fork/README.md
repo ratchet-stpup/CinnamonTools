@@ -17,9 +17,12 @@ Spices comments system is absolutely useless to report bugs with any king of leg
 </span>
 
 ## Contributors
-- [NikoKrause](https://github.com/NikoKrause): German localization.
+- [NikoKrause](https://github.com/NikoKrause): German localization and bug fixes.
 
 ## Change Log
+
+##### 1.05
+- Fixed icon resizing. Thanks to [NikoKrause](https://github.com/NikoKrause).
 
 ##### 1.04
 - Added German localization. Thanks to [NikoKrause](https://github.com/NikoKrause).
