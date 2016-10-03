@@ -7,8 +7,8 @@ style "panel-buttons"
 {
     xthickness = 1
     ythickness = 1
-    
-    engine "pixmap" 
+
+    engine "pixmap"
     {
         image
         {
@@ -28,7 +28,7 @@ style "panel-buttons"
             border = {4, 4, 4, 4}
             stretch = TRUE
         }
-    } 
+    }
 }
 
 class "PanelToplevel*" style "panel"

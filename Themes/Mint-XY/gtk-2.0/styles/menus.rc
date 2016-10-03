@@ -1,10 +1,10 @@
-style "menubar" 
+style "menubar"
 {
     GtkMenuBar::shadow-type = GTK_SHADOW_NONE
-    
+
     xthickness = 1
     ythickness = 2
-    
+
     engine "murrine"
     {
         contrast = 0.0
@@ -16,18 +16,18 @@ style "menubar"
     }
 }
 
-style "menubar-menuitem" 
+style "menubar-menuitem"
 {
     xthickness = 6
     ythickness = 3
-    
+
     bg[PRELIGHT] = @selected_bg_color
     bg[SELECTED] = @bg_color
     fg[PRELIGHT] = @selected_fg_color
 
-    engine "murrine" 
+    engine "murrine"
     {
-        contrast = .0 
+        contrast = .0
         roundness = 3
         border_shades = { 0.8, 0.8 }
         gradient_shades = {1.0, 1.0, 0.85, 0.85}
@@ -37,7 +37,7 @@ style "menubar-menuitem"
     }
 }
 
-style "menu" 
+style "menu"
 {
     xthickness = 0
     ythickness = 0
@@ -59,7 +59,7 @@ style "menu"
     text[ACTIVE] = @fg_color
     text[INSENSITIVE] = mix (0.4, @fg_color, @bg_color)
 
-    engine "murrine" 
+    engine "murrine"
     {
         arrowstyle = 1
         border_shades = {0.8, 0.8}
@@ -71,7 +71,7 @@ style "menu"
     }
 }
 
-style "menu-item" 
+style "menu-item"
 {
     xthickness = 4
     ythickness = 4
@@ -80,7 +80,7 @@ style "menu-item"
     bg[PRELIGHT] = shade (0.95, @selected_bg_color)
     fg[PRELIGHT] = @selected_fg_color
 
-    engine "murrine" 
+    engine "murrine"
     {
         border_shades = {1.0, 1.0}
         contrast = 0.8
@@ -92,19 +92,19 @@ style "menu-item"
 # This style is there to modify the separator menu items. The goals are:
 # 1. Get a specific height.
 # 2. The line should go to the edges (ie. no border at the left/right)
-style "menu-item-separator" 
+style "menu-item-separator"
 {
     GtkSeparatorMenuItem::horizontal-padding = 0
     GtkWidget::wide-separators = 1
     GtkWidget::separator-width = 1
     GtkWidget::separator-height = 7
-    
+
     xthickness = 1
     ythickness = 0
-    
+
     bg[NORMAL] = @base_color # Remove for visible separators.
-    
-    engine "murrine" 
+
+    engine "murrine"
     {
         contrast = 0.8 # Set the contrast to 0.6 for visible separators.
         separatorstyle = 0

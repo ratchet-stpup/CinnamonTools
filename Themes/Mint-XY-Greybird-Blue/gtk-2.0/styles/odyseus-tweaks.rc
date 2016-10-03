@@ -1,4 +1,4 @@
-style "default" {
+Tstyle "default" {
     # START
     # Display scroll bar arrows in all gtk2 applications.
     # NOTE: I changed the left/right arrows. The originals were too big.

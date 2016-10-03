@@ -2,7 +2,7 @@ style "scrolled-window"
 {
     xthickness = 1
     ythickness = 1
-    
+
     engine "pixmap"
     {
         image

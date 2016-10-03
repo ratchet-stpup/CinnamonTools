@@ -116,7 +116,7 @@ These *facts* are based on documentations and source code that I read.
 
 The easiest (and safer) way would be using [Poedit](https://poedit.net/). This program can be installed from the repositories of almost all Linux distributions and also can be installed on Windows and OS X.
 
-**Note:** .po and .pot files are simply text files. They could be edited manually with a text editor, but I will only explain .po and .pot files manupulation using Poedit. Editing .po files manually could lead to errors that would render the .po file useless. And a .pot file should never be edited by other than the xlet's developer.
+**Note:** .po and .pot files are simply text files. They could be edited manually with a text editor, but I will only explain .po and .pot files manipulation using Poedit. Editing .po files manually could lead to errors that would render the .po file useless. And a .pot file should never be edited by other than the xlet's developer.
 
 #### Poedit usage
 

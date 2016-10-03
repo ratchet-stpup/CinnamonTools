@@ -1,14 +1,14 @@
 style "treeview-header"
 {
     GtkWidget::interior-focus = 1
-    
+
     xthickness = 2
     ythickness = 2
-    
+
     bg[NORMAL] = shade (1.06, @bg_color)
     bg[PRELIGHT] = shade (1.1, @bg_color)
     bg[ACTIVE] = shade (0.9, @bg_color)
-    
+
     engine "murrine"
     {
         arrowstyle = 1
@@ -27,10 +27,10 @@ style "treeview"
 {
     xthickness = 2
     ythickness = 2
-    
+
     base[NORMAL] = @base_color
-    
-    engine "pixmap" 
+
+    engine "pixmap"
     {
         image
         {
@@ -54,9 +54,9 @@ style "treeview"
             function = FOCUS
             file = "images/other/null.png"
         }
-        
+
         # Treeview Progress Bar
-        
+
         image
         {
             function = BOX
@@ -76,9 +76,9 @@ style "treeview"
             shadow = OUT
             detail = "bar"
         }
-        
+
         # Check
-        
+
         image
         {
             function = CHECK
@@ -164,9 +164,9 @@ style "treeview"
             overlay_file = "images/check-radio/checkbox-checked-insensitive.svg"
             overlay_stretch = FALSE
         }
-        
+
         # Radio
-        
+
         image
         {
             function = OPTION

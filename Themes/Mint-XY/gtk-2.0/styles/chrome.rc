@@ -6,10 +6,10 @@ style "chrome-gtk-frame"
     ChromeGtkFrame::frame-gradient-size = 16
     ChromeGtkFrame::frame-gradient-color = shade (1.08,@bg_color)
     ChromeGtkFrame::inactive-frame-gradient-color = shade (1.08,@bg_color)
-    
+
     ChromeGtkFrame::incognito-frame-gradient-color = shade (1.08,@bg_color)
     ChromeGtkFrame::incognito-inactive-frame-gradient-color = shade (1.08,@bg_color)
-    
+
     ChromeGtkFrame::scrollbar-slider-prelight-color = shade (1.10, @bg_color)
     ChromeGtkFrame::scrollbar-slider-normal-color = shade (1.02, @bg_color)
 }

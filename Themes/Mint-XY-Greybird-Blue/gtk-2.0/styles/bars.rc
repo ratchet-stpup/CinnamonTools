@@ -1,4 +1,4 @@
-style "statusbar" 
+style "statusbar"
 {
     xthickness = 4
     ythickness = 4
@@ -19,7 +19,7 @@ style "toolbar"
 {
     xthickness = 3
     ythickness = 3
-    
+
     engine "pixmap"
     {
         image
@@ -62,10 +62,10 @@ style "notebook-toolbar"
 style "inline-toolbar"
 {
     GtkToolbar::button-relief = GTK_RELIEF_NORMAL
-    
+
     engine "pixmap"
     {
-        image 
+        image
         {
             function = BOX
             file = "images/toolbars/inline-toolbar.svg"

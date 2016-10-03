@@ -1,4 +1,4 @@
-style "gedit-frame" 
+style "gedit-frame"
 {
     engine "pixmap"
     {

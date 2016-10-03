@@ -2,7 +2,7 @@ style "frame"
 {
     xthickness = 1
     ythickness = 1
-    
+
     engine "pixmap"
     {
         image

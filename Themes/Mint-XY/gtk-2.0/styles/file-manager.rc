@@ -2,7 +2,7 @@ style "sidebar"
 {
     #xthickness = 0
     #ythickness = 0
-    
+
     base[NORMAL] = "#505050"
     text[NORMAL] = "#ffffff"
 }
@@ -16,7 +16,7 @@ style "pathbar-breadcrumbs"
 {
     xthickness = 1
     ythickness = 0
-    
+
     engine "pixmap"
     {
         image
@@ -37,7 +37,7 @@ style "pathbar-breadcrumbs"
             border =  { 3, 3, 3, 4 }
             stretch = TRUE
         }
-        image    
+        image
         {
             function = BOX
             shadow = IN
@@ -46,7 +46,7 @@ style "pathbar-breadcrumbs"
             overlay_border = { 3, 3, 3, 4 }
             overlay_stretch = TRUE
         }
-        image 
+        image
         {
             function = BOX
             state = INSENSITIVE
@@ -54,10 +54,10 @@ style "pathbar-breadcrumbs"
             border = { 3, 3, 3, 4 }
             stretch = TRUE
         }
-        image 
+        image
         {
             function = BOX
-            file = "images/button/pathbar-button.svg"        
+            file = "images/button/pathbar-button.svg"
             border = { 3, 3, 3, 4 }
         }
     }
@@ -67,7 +67,7 @@ style "thunar-pathbar-breadcrumbs"
 {
     xthickness = 1
     ythickness = 4
-    
+
     engine "pixmap"
     {
         image
@@ -88,7 +88,7 @@ style "thunar-pathbar-breadcrumbs"
             border =  { 3, 3, 3, 4 }
             stretch = TRUE
         }
-        image    
+        image
         {
             function = BOX
             shadow = IN
@@ -97,7 +97,7 @@ style "thunar-pathbar-breadcrumbs"
             overlay_border = { 3, 3, 3, 4 }
             overlay_stretch = TRUE
         }
-        image 
+        image
         {
             function = BOX
             state = INSENSITIVE
@@ -105,10 +105,10 @@ style "thunar-pathbar-breadcrumbs"
             border = { 3, 3, 3, 4 }
             stretch = TRUE
         }
-        image 
+        image
         {
             function = BOX
-            file = "images/button/pathbar-button.svg"        
+            file = "images/button/pathbar-button.svg"
             border = { 3, 3, 3, 4 }
         }
     }

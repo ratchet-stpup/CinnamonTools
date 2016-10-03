@@ -1,6 +1,6 @@
 style "text"
 {
-    engine "murrine" 
+    engine "murrine"
     {
         textstyle = 0
     }

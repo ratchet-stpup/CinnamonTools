@@ -18,116 +18,116 @@ style "default" {
     GtkButton::child-displacement-y	= 0
     GtkButton::default-border = { 1, 1, 1, 1 }
     GtkButtonBox::child-min-height = 26
-    
+
     GtkCheckButton::indicator-size = 16
-    
+
     # The following line hints to gecko (and possibly other appliations)
     # that the entry should be drawn transparently on the canvas.
     # Without this, gecko will fill in the background of the entry.
     #GtkEntry::honors-transparent-bg-hint = 1
     GtkEntry::state-hint = 0
     #GtkEntry::progress-border = { 2, 2, 2, 2 }
-    
+
     GtkExpander::expander-size = 11
-    
-    GnomeHRef::link_color = @link_color		
+
+    GnomeHRef::link_color = @link_color
     GtkHTML	::link-color = @link_color
     GtkIMHtmlr::hyperlink-color	= @link_color
     GtkIMHtml::hyperlink-color = @link_color
     GtkWidget::link-color = @link_color
     GtkWidget::visited-link-color = @link_color
-    
+
     GtkImage::x-ayatana-indicator-dynamic = 1
-    
+
     GtkMenu::horizontal-padding	= 0
     GtkMenu::vertical-padding = 1
     GtkMenuBar::internal-padding = 0
     GtkMenuBar::window-dragging = 1
     GtkMenuItem::horizontal-padding	= 0
-    
+
     GtkNotebook::tab-overlap = 0
-    
+
     GtkPaned::handle-size = 6
-    
+
     GtkProgressBar::min-horizontal-bar-height = 16
     GtkProgressBar::min-vertical-bar-width = 16
-    
+
     GtkRange::trough-border = 0
     GtkRange::slider-width = 11
     GtkRange::stepper-size = 0
     GtkRange::stepper_spacing = 0
     GtkRange::trough-under-steppers	= 0
-    
+
     GtkScale::slider-length	= 16
     GtkScale::slider-width = 16
     GtkScale::trough-side-details = 1
-    
+
     GtkScrollbar::has-backward-stepper = 0
     GtkScrollbar::has-forward-stepper = 0
     GtkScrollbar::min-slider-length	= 30
     GtkScrollbar::slider-width = 14
     GtkScrollbar::trough-border	= 0
     GtkScrollbar::activate-slider = 1
-    
+
     GtkScrolledWindow::scrollbar-spacing = 0
     GtkScrolledWindow::scrollbars-within-bevel = 1
-    
+
     GtkStatusbar::shadow_type = GTK_SHADOW_NONE
-    
+
     GtkToolbar::internal-padding = 1
     GtkToolbar::window-dragging	= 1
-    
+
     GtkTreeView::allow-rules = 1
     GtkTreeView::expander-size = 11
     GtkTreeView::horizontal-separator = 2
     GtkTreeView::row-ending-details = 0
     GtkTreeView::vertical-separator	= 2
-    
+
     GtkWidget::new-tooltip-style = 1
     #GtkWidget::tooltip-alpha = 235
     #GtkWidget::tooltip-radius = 3
     GtkWidget::focus-line-width	= 1
     GtkWidget::focus-padding = 0 # Keeping this at 0 prevents the Firefox tabs from jumping a few pixels when you create a new tab. Set the value locally if needed.
-    
+
     GtkWindow::resize-grip-height = 0
     GtkWindow::resize-grip-width = 0
-    
+
     WnckTasklist::fade-overlay-rect	= 0
-    
+
     xthickness = 1
     ythickness = 1
-    
+
     ## Color Definitions ##
-    
+
     fg[NORMAL] = @fg_color
     fg[PRELIGHT] = @fg_color
     fg[SELECTED] = @selected_fg_color
     fg[ACTIVE] = @fg_color
     fg[INSENSITIVE] = darker (@bg_color)
-    
+
     bg[NORMAL] = @bg_color
     bg[PRELIGHT] = @bg_color
     bg[SELECTED] = @selected_bg_color
     bg[INSENSITIVE] = @bg_color
     bg[ACTIVE] = shade (1.04, @bg_color)
-    
+
     base[NORMAL] = @base_color
     base[PRELIGHT] = shade (0.95, @bg_color)
     base[ACTIVE] = shade (0.92, @selected_bg_color)
     base[SELECTED] = shade (0.93, @selected_bg_color)
     base[INSENSITIVE] = @bg_color
-    
+
     text[NORMAL] = @text_color
     text[PRELIGHT] = @text_color
     text[ACTIVE] = @selected_fg_color
     text[SELECTED] = @selected_fg_color
     text[INSENSITIVE] = darker (@bg_color)
-    
-    engine "pixmap" 
+
+    engine "pixmap"
     {
         # Arrows
-        
-        image 
+
+        image
         {
             function = ARROW
             state = NORMAL
@@ -136,7 +136,7 @@ style "default" {
             overlay_stretch = FALSE
             arrow_direction = UP
         }
-        image 
+        image
         {
             function = ARROW
             state = PRELIGHT
@@ -145,7 +145,7 @@ style "default" {
             overlay_stretch = FALSE
             arrow_direction = UP
         }
-        image 
+        image
         {
             function = ARROW
             state = ACTIVE
@@ -154,7 +154,7 @@ style "default" {
             overlay_stretch = FALSE
             arrow_direction = UP
         }
-        image 
+        image
         {
             function = ARROW
             state = INSENSITIVE
@@ -163,7 +163,7 @@ style "default" {
             overlay_stretch = FALSE
             arrow_direction = UP
         }
-        image 
+        image
         {
             function = ARROW
             state = NORMAL
@@ -172,7 +172,7 @@ style "default" {
             overlay_stretch = FALSE
             arrow_direction = DOWN
         }
-        image 
+        image
         {
             function = ARROW
             state = PRELIGHT
@@ -181,7 +181,7 @@ style "default" {
             overlay_stretch = FALSE
             arrow_direction = DOWN
         }
-        image 
+        image
         {
             function = ARROW
             state = ACTIVE
@@ -190,7 +190,7 @@ style "default" {
             overlay_stretch = FALSE
             arrow_direction = DOWN
         }
-        image 
+        image
         {
             function = ARROW
             state = INSENSITIVE
@@ -199,7 +199,7 @@ style "default" {
             overlay_stretch = FALSE
             arrow_direction = DOWN
         }
-        image 
+        image
         {
             function = ARROW
             state = NORMAL
@@ -208,7 +208,7 @@ style "default" {
             overlay_stretch = FALSE
             arrow_direction = LEFT
         }
-        image 
+        image
         {
             function = ARROW
             state = PRELIGHT
@@ -217,7 +217,7 @@ style "default" {
             overlay_stretch = FALSE
             arrow_direction = LEFT
         }
-        image 
+        image
         {
             function = ARROW
             state = ACTIVE
@@ -226,7 +226,7 @@ style "default" {
             overlay_stretch = FALSE
             arrow_direction = LEFT
         }
-        image 
+        image
         {
             function = ARROW
             state = INSENSITIVE
@@ -235,7 +235,7 @@ style "default" {
             overlay_stretch = FALSE
             arrow_direction = LEFT
         }
-        image 
+        image
         {
             function = ARROW
             state = NORMAL
@@ -244,7 +244,7 @@ style "default" {
             overlay_stretch = FALSE
             arrow_direction = RIGHT
         }
-        image 
+        image
         {
             function = ARROW
             state = PRELIGHT
@@ -253,7 +253,7 @@ style "default" {
             overlay_stretch = FALSE
             arrow_direction = RIGHT
         }
-        image 
+        image
         {
             function = ARROW
             state = ACTIVE
@@ -262,7 +262,7 @@ style "default" {
             overlay_stretch = FALSE
             arrow_direction = RIGHT
         }
-        image 
+        image
         {
             function = ARROW
             state = INSENSITIVE
@@ -271,14 +271,14 @@ style "default" {
             overlay_stretch = FALSE
             arrow_direction = RIGHT
         }
-        image 
+        image
         {
             function = TAB
             state = INSENSITIVE
             overlay_file = "images/arrows/small-arrow-down-insensitive.svg"
             overlay_stretch = FALSE
         }
-        image 
+        image
         {
             function = TAB
             state = NORMAL
@@ -286,7 +286,7 @@ style "default" {
             overlay_border = {0, 0, 0, 0}
             overlay_stretch = FALSE
         }
-        image 
+        image
         {
             function = TAB
             state = PRELIGHT
@@ -294,36 +294,36 @@ style "default" {
             overlay_border = {0, 0, 0, 0}
             overlay_stretch = FALSE
         }
-        
+
         # Expanders
-        
-        image 
+
+        image
         {
             function = EXPANDER
             expander_style = COLLAPSED
             file = "images/expanders/closed.svg"
         }
-        image 
+        image
         {
             function = EXPANDER
             expander_style = EXPANDED
             file = "images/expanders/open.svg"
         }
-        image 
+        image
         {
             function = EXPANDER
             expander_style = SEMI_EXPANDED
             file = "images/expanders/open.svg"
         }
-        image 
+        image
         {
             function = EXPANDER
             expander_style = SEMI_COLLAPSED
             file = "images/expanders/closed.svg"
         }
-        
+
         # Lines
-        
+
         image
         {
             function = VLINE
@@ -338,9 +338,9 @@ style "default" {
             border = {0, 0, 0, 0}
             stretch = TRUE
         }
-        
+
         # Handles
-        
+
         image
         {
             function = HANDLE
@@ -355,9 +355,9 @@ style "default" {
             overlay_stretch = FALSE
             orientation = VERTICAL
         }
-        
+
         # Shadows
-        
+
         image
         {
             function = SHADOW_GAP
@@ -374,7 +374,7 @@ style "default" {
             border = {1, 1, 1, 1}
             stretch = TRUE
         }
-        
+
         image
         {
             function = SHADOW
@@ -402,10 +402,10 @@ style "default" {
             border = {4, 4, 4, 4}
             stretch = TRUE
         }
-        
+
         # Resize Grip
-        
-        image 
+
+        image
         {
             function = RESIZE_GRIP
             state = NORMAL
@@ -414,9 +414,9 @@ style "default" {
             overlay_border = {0, 0, 0, 0}
             overlay_stretch = FALSE
         }
-        
+
         # Focus Lines
-        
+
         image
         {
             function = FOCUS
@@ -433,12 +433,12 @@ style "tooltips"
 {
     xthickness = 3
     ythickness = 3
-    
+
     bg[NORMAL] = @tooltip_bg_color
     fg[NORMAL] = @tooltip_fg_color
     bg[SELECTED] = @tooltip_bg_color
-    
-    engine "murrine" 
+
+    engine "murrine"
     {
         roundness = 4
     }
@@ -458,11 +458,11 @@ style "xfwm-tabwin"
 	bg[ACTIVE]	= shade (0.65, @selected_bg_color)
 	bg[PRELIGHT]	= shade (0.85, @selected_bg_color)
 	bg[SELECTED]	= shade (0.45, @bg_color)
-	
+
 	fg[NORMAL]	= shade (0.8, @base_color)
 	fg[ACTIVE]	= @base_color
 	fg[PRELIGHT]	= @base_color
-	
+
 	engine "murrine" {
 		roundness	    = 6
 		contrast            = 0.8
@@ -487,7 +487,7 @@ style "xfsm-logout"
 	bg[NORMAL]      = @bg_color
 	bg[SELECTED]	= @selected_bg_color # Highlighting selection
 	fg[NORMAL]      = @fg_color
-	
+
 	engine "murrine" {
 		border_shades       = { 1.1, 0.98 }      # gradient to draw on border
 		contrast            = 0.8

@@ -1,12 +1,12 @@
 style "scale"
 {
-    bg[NORMAL] = shade (1.3, @bg_color) 
-    bg[PRELIGHT] = shade (1.10, @bg_color)  
+    bg[NORMAL] = shade (1.3, @bg_color)
+    bg[PRELIGHT] = shade (1.10, @bg_color)
     bg[ACTIVE] = shade (0.9, @bg_color)
-    bg[SELECTED] = shade (1.0, @selected_bg_color)  
+    bg[SELECTED] = shade (1.0, @selected_bg_color)
     bg[INSENSITIVE] = shade (0.95, @bg_color)
-    
-    engine "murrine" 
+
+    engine "murrine"
     {
         focusstyle = 0
         glowstyle = 4
@@ -22,17 +22,17 @@ style "scale"
     }
 }
 
-style "murrine-scrollbar" 
+style "murrine-scrollbar"
 {
     xthickness = 1
     ythickness = 2
-    
+
     bg[NORMAL] = shade (0.95, @bg_color)
     bg[SELECTED] = shade (0.8, @base_color)
     bg[ACTIVE] = shade (0.90, @bg_color)
     bg[PRELIGHT] = shade (0.90, @bg_color)
-    
-    engine "murrine" 
+
+    engine "murrine"
     {
         gradient_shades = {1.1, 1.1, 0.98, 0.98}
         highlight_shade = 1.0
@@ -43,15 +43,15 @@ style "murrine-scrollbar"
     }
 }
 
-style "progressbar" 
+style "progressbar"
 {
     xthickness = 0
     ythickness = 0
-    
+
     fg[PRELIGHT] = @selected_fg_color
-    bg[NORMAL] = shade (1.06, @bg_color) 
+    bg[NORMAL] = shade (1.06, @bg_color)
     bg[ACTIVE] = shade (0.85, @base_color)
-    bg[SELECTED] = shade (1.0, @selected_bg_color)  
+    bg[SELECTED] = shade (1.0, @selected_bg_color)
     bg[INSENSITIVE] = shade (0.95, @bg_color)
 
     engine "murrine" {
@@ -73,11 +73,11 @@ style "scrollbar"
 {
     #xthickness = 1
     #ythickness = 1
-    
+
     engine "pixmap"
     {
         # Troughs
-        
+
         image
         {
             function = BOX
@@ -98,9 +98,9 @@ style "scrollbar"
             stretch = TRUE
             orientation = HORIZONTAL
         }
-        
+
         # Sliders
-        
+
         image
         {
             function = SLIDER

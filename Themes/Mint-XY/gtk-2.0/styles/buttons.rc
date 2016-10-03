@@ -1,8 +1,8 @@
-style "spinbutton" 
+style "spinbutton"
 {
-    bg[NORMAL] = @bg_color 
+    bg[NORMAL] = @bg_color
     bg[ACTIVE] = shade (0.85, @bg_color) # Color for pressed-spinbuttons.
-    
+
     engine "murrine"
     {
         arrowstyle = 1
@@ -13,12 +13,12 @@ style "spinbutton"
 }
 
 style "button"
-{   
+{
     #GtkWidget::interior-focus = 1
-    
+
     xthickness = 3
     ythickness = 4
-    
+
     engine "pixmap"
     {
         image
@@ -28,8 +28,8 @@ style "button"
             recolorable = TRUE
             file = "images/button/button-default.svg"
             border = { 4, 4, 4, 4 }
-            stretch = TRUE      
-        }  
+            stretch = TRUE
+        }
         image
         {
             function = BOX
@@ -48,7 +48,7 @@ style "button"
             border =  { 4, 4, 4, 4 }
             stretch = TRUE
         }
-        image    
+        image
         {
             function = BOX
             shadow = IN
@@ -57,7 +57,7 @@ style "button"
             overlay_border = { 4, 4, 4, 4 }
             overlay_stretch = TRUE
         }
-        image 
+        image
         {
             function = BOX
             state = INSENSITIVE
@@ -65,14 +65,14 @@ style "button"
             border = { 4, 4, 4, 4 }
             stretch = TRUE
         }
-        image 
+        image
         {
             function = BOX
-            file = "images/button/button.svg"        
+            file = "images/button/button.svg"
             border = { 4, 4, 4, 4 }
             stretch = TRUE
         }
-        #image 
+        #image
         #{
         #    function = FOCUS
         #    file = "images/button/button-focus.svg"
@@ -83,12 +83,12 @@ style "button"
 }
 
 style "tool-button"
-{   
+{
     GtkWidget::interior-focus = 1
-    
+
     xthickness = 3
     ythickness = 4
-    
+
     engine "pixmap"
     {
         image
@@ -98,8 +98,8 @@ style "tool-button"
             recolorable = TRUE
             file = "images/button/button-default.svg"
             border = { 4, 4, 4, 4 }
-            stretch = TRUE      
-        }  
+            stretch = TRUE
+        }
         image
         {
             function = BOX
@@ -118,7 +118,7 @@ style "tool-button"
             border =  { 4, 4, 4, 4 }
             stretch = TRUE
         }
-        image    
+        image
         {
             function = BOX
             shadow = IN
@@ -127,7 +127,7 @@ style "tool-button"
             overlay_border = { 4, 4, 4, 4 }
             overlay_stretch = TRUE
         }
-        image 
+        image
         {
             function = BOX
             state = INSENSITIVE
@@ -135,14 +135,14 @@ style "tool-button"
             border = { 4, 4, 4, 4 }
             stretch = TRUE
         }
-        image 
+        image
         {
             function = BOX
-            file = "images/button/button.svg"        
+            file = "images/button/button.svg"
             border = { 4, 4, 4, 4 }
             stretch = TRUE
         }
-        image 
+        image
         {
             function = FOCUS
             file = "images/other/null.png"
