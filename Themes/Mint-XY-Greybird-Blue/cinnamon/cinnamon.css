@@ -2427,3 +2427,24 @@ StScrollBar StButton#vhandle:hover {
 }
 .applet-box.vertical:hover .applet-icon {
 }
+
+/* ===================================================================
+ * About Dialog (applet.js and desklet.js) Tweaks
+ * ===================================================================*/
+/* Make the about dialog a little bigger */
+.about-content {
+	width: 550px;
+	height: 250px;
+	spacing: 8px;
+	padding-bottom: 16px;
+}
+
+/* Let the description text wrap at least for two lines until it "touches" the about-scrollBox */
+.about-description {
+	padding-bottom: 20px;
+}
+
+/* Tweak to "cover" the possible excess of the description text */
+.about-scrollBox {
+	border-image: url("background-assets/bg-1.png") 6;
+}
