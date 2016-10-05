@@ -46,6 +46,11 @@ Spices comments system is absolutely useless to report bugs with any king of leg
 
 ## Change Log
 
+##### 1.09
+- Fixed unescaped characters displayed on applications info box.
+- Fixed fuzzy search display of exact matches. Thanks to [nooulaif](https://github.com/nooulaif).
+- Fixed gap left after hiding favorites box. Thanks to [NikoKrause](https://github.com/NikoKrause).
+
 ##### 1.08
 - Fixed a bug that caused the search on the menu to break when the custom launchers box was set to disabled/hidden.
 - Fixed a bug that caused the search on the menu would not fit to the panel width when the custom launchers box was set to disabled/hidden.

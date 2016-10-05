@@ -2143,8 +2143,10 @@ MyApplet.prototype = {
 
 	_favboxtoggle: function() {
 		if (!this.pref_display_fav_box) {
+			this.leftPane.hide();
 			this.leftPane.remove_actor(this.leftBox);
 		} else {
+			this.leftPane.show();
 			this.leftPane.add_actor(this.leftBox, {
 				y_align: St.Align.END,
 				y_fill: false
@@ -2597,7 +2599,9 @@ MyApplet.prototype = {
 					this._clearPrevSelection(button.actor);
 					button.actor.style_class = "menu-application-button-selected";
 					this.selectedAppTitle.set_text("");
-					this.selectedAppDescription.set_text(button.place.id.slice(16).replace(/%20/g, ' '));
+					this.selectedAppDescription.set_text(decodeURIComponent(button.place.id.slice(16)));
+					// Keep this in case I have to revert it back.
+					// this.selectedAppDescription.set_text(button.place.id.slice(16).replace(/%20/g, ' '));
 				}));
 				button.actor.connect('leave-event', Lang.bind(this, function() {
 					this._previousSelectedActor = button.actor;
@@ -2693,7 +2697,9 @@ MyApplet.prototype = {
 						this._clearPrevSelection(button.actor);
 						button.actor.style_class = "menu-application-button-selected";
 						this.selectedAppTitle.set_text("");
-						this.selectedAppDescription.set_text(button.file.uri.slice(7).replace(/%20/g, ' '));
+						this.selectedAppDescription.set_text(decodeURIComponent(button.file.uri.slice(7)));
+						// Keep this in case I have to revert it back.
+						// this.selectedAppDescription.set_text(button.file.uri.slice(7).replace(/%20/g, ' '));
 					}));
 					button.actor.connect('leave-event', Lang.bind(this, function() {
 						button.actor.style_class = "menu-application-button";
@@ -3841,24 +3847,7 @@ MyApplet.prototype = {
 			Util.spawnCommandLine("xdg-open " + this._applet_dir + "/HELP.md");
 		}));
 		this._applet_context_menu.addMenuItem(menuItem);
-
-		// NOTE: This string could be left blank because it's a default string,
-		// so it's already translated by Cinnamon. It's up to the translators.
-		this.context_menu_item_remove = new PopupMenu.PopupIconMenuItem(_("Remove '%s'")
-			.format(this._metadata.name),
-			"edit-delete",
-			St.IconType.SYMBOLIC);
-		this.context_menu_item_remove.connect('activate', Lang.bind(this, function() {
-			new ConfirmationDialog(Lang.bind(this, function() {
-					Main.AppletManager._removeAppletFromPanel(this._metadata.uuid, this._instance_id);
-				}),
-				this._metadata.name,
-				_("Are you sure that you want to remove '%s' from your panel?")
-				.format(this._metadata.name),
-				_("Cancel"), _("OK")).open();
-		}));
 	},
-
 	/**
 	 * END
 	 */
@@ -4315,7 +4304,7 @@ MyApplet.prototype = {
 			return [false, 0];
 		}
 		if (nlen === hlen) {
-			return [needle === haystack, 0];
+			return [needle === haystack, -99999];
 		}
 		outer: for (var i = 0, j = 0; i < nlen; i++) {
 			var nch = needle.charCodeAt(i);
