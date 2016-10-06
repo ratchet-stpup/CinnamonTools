@@ -34,7 +34,6 @@ const GTop = imports.gi.GTop;
 const GLib = imports.gi.GLib;
 const Gtk = imports.gi.Gtk;
 const St = imports.gi.St;
-const NMClient = imports.gi.NMClient;
 const Gettext = imports.gettext;
 const Gio = imports.gi.Gio;
 const Main = imports.ui.main;
@@ -499,12 +498,7 @@ function NetDataProvider() {
 NetDataProvider.prototype = {
 	_init: function() {
 		this.gtop = new GTop.glibtop_netload();
-		let dev = NMClient.Client.new().get_devices();
-		this.devices = [];
-		let i = 0,
-			iLen = dev.length;
-		for (; i < iLen; ++i)
-			this.devices.push(dev[i].get_iface());
+		this.devices = GTop.glibtop.get_netlist(new GTop.glibtop_netlist());
 
 		[this.down_last, this.up_last] = this.getNetLoad();
 	},
