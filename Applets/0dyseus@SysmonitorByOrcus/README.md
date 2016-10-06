@@ -6,7 +6,8 @@ This applet is a fork of [System Monitor](https://cinnamon-spices.linuxmint.com/
 - This applet uses Cinnamon's native settings system instead of an external library (gjs).
 - I added an option to use a custom command on applet click.
 - I added an option to set a custom width for each graph individually.
-- I added an option to align this applet tooltip text to the left. ¬¬
+- I added an option to align this applet tooltip text to the left.
+- Removed NetworkManager dependency.
 
 ## Compatibility
 
@@ -17,6 +18,10 @@ Tested and working on Cinnamon version 3.0.7.
 - **gir1.2-gtop-2.0**: The gtop library reads information about processes and the state of the
 system.
 
+## Contributors
+
+- [buzz](https://github.com/buzz): Bug fixes.
+
 <div style="color:red;" markdown="1">
 ## Bug report and feature request
 
@@ -24,6 +29,9 @@ Spices comments system is absolutely useless to report bugs with any king of leg
 </div>
 
 ## Change Log
+
+##### 1.7
+- Removed dependency on NetworkManager. Thanks to [buzz](https://github.com/buzz).
 
 ##### 1.6
 - Added support for localizations. If someone wants to contribute with translations, inside the Help section of this applet (found in the applet context menu or the Help.md file inside this applet folder) you will find some pointers on how to do it.
