@@ -5,9 +5,9 @@ options+=("Install translations" "Uninstall translations" "Restart Cinnamon")
 
 
 echo "$(tput bold)$(tput setaf 11)"
-echo "This script has to be executed from inside this applet folder and after this applet is installed."
-echo "If you installed this applet via Cinnamon Settings, translations where already installed automatically by Cinnamon."
-echo "If you installed this applet manually, you need to install the translations."
+echo "This script has to be executed from inside this xlet folder and after this xlet is installed."
+echo "If you installed this xlet via Cinnamon Settings, translations where already installed automatically by Cinnamon."
+echo "If you installed this xlet manually, you need to install the translations."
 echo "$(tput sgr0)$(tput bold)"
 
 PS3="$prompt "

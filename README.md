@@ -16,3 +16,6 @@ All this applets/extensions/themes can be installed directly from Cinnamon's app
 #### My Cinnamon Themes
 - **[Mint-XY](https://cinnamon-spices.linuxmint.com/themes/view/567):** Theme based on the default Mint-X theme with graphics from Mint-Y theme.
 - **[Mint-XY-Greybird-Blue](https://cinnamon-spices.linuxmint.com/themes/view/569):** Theme based on the default Mint-X theme with graphics from Mint-Y theme.
+
+### This repository's wiki
+It contains various how-tos about basic tasks.
