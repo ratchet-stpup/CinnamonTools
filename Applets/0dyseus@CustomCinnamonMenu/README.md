@@ -46,6 +46,9 @@ Spices comments system is absolutely useless to report bugs with any king of leg
 
 ## Change Log
 
+##### 1.11
+- Fixed search results highlighting. Thanks to [NikoKrause](https://github.com/NikoKrause).
+
 ##### 1.10
 - Added option to not store into the Recent Applications category the applications set as Favorite.
 
