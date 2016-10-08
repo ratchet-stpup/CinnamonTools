@@ -46,6 +46,9 @@ Spices comments system is absolutely useless to report bugs with any king of leg
 
 ## Change Log
 
+##### 1.10
+- Added option to not store into the Recent Applications category the applications set as Favorite.
+
 ##### 1.09
 - Fixed unescaped characters displayed on applications info box.
 - Fixed fuzzy search display of exact matches. Thanks to [nooulaif](https://github.com/nooulaif).

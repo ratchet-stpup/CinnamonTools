@@ -8,7 +8,7 @@ msgstr ""
 
 "Project-Id-Version: 1.08\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-05 16:44-0300\n"
+"POT-Creation-Date: 2016-10-08 04:04-0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Odyseus <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -93,7 +93,7 @@ msgstr ""
 
 #. NOTE: This string could be left blank because it's a default string,
 #. so it's already translated by Cinnamon. It's up to the translators.
-#: applet.js:1141 applet.js:2810
+#: applet.js:1141 applet.js:2814
 msgid "Clear list"
 msgstr ""
 
@@ -123,71 +123,71 @@ msgstr ""
 
 #. NOTE: This string could be left blank because it's a default string,
 #. so it's already translated by Cinnamon. It's up to the translators.
-#: applet.js:2729
+#: applet.js:2730
 msgid "No recent documents"
 msgstr ""
 
-#: applet.js:2850
+#: applet.js:2854
 msgid "No recent applications"
 msgstr ""
 
-#: applet.js:2923
+#: applet.js:2927
 msgid "Favorites"
 msgstr ""
 
 #. NOTE: This string could be left blank because it's a default string,
 #. so it's already translated by Cinnamon. It's up to the translators.
-#: applet.js:3231 applet.js:3778
+#: applet.js:3235 applet.js:3782
 msgid "Lock screen"
 msgstr ""
 
 #. NOTE: This string could be left blank because it's a default string,
 #. so it's already translated by Cinnamon. It's up to the translators.
-#: applet.js:3234 applet.js:3777
+#: applet.js:3238 applet.js:3781
 msgid "Lock the screen"
 msgstr ""
 
 #. NOTE: This string could be left blank because it's a default string,
 #. so it's already translated by Cinnamon. It's up to the translators.
-#: applet.js:3267 applet.js:3807
+#: applet.js:3271 applet.js:3811
 msgid "Logout"
 msgstr ""
 
 #. NOTE: This string could be left blank because it's a default string,
 #. so it's already translated by Cinnamon. It's up to the translators.
-#: applet.js:3270 applet.js:3806
+#: applet.js:3274 applet.js:3810
 msgid "Leave the session"
 msgstr ""
 
 #. NOTE: This string could be left blank because it's a default string,
 #. so it's already translated by Cinnamon. It's up to the translators.
-#: applet.js:3290 applet.js:3823
+#: applet.js:3294 applet.js:3827
 msgid "Quit"
 msgstr ""
 
 #. NOTE: This string could be left blank because it's a default string,
 #. so it's already translated by Cinnamon. It's up to the translators.
-#: applet.js:3293 applet.js:3822
+#: applet.js:3297 applet.js:3826
 msgid "Shutdown the computer"
 msgstr ""
 
 #. NOTE: This string could be left blank because it's a default string,
 #. so it's already translated by Cinnamon. It's up to the translators.
-#: applet.js:3540
+#: applet.js:3544
 msgid "Type to search..."
 msgstr ""
 
 #. NOTE: This string could be left blank because it's a default string,
 #. so it's already translated by Cinnamon. It's up to the translators.
-#: applet.js:3839
+#: applet.js:3843
 msgid "Open the menu editor"
 msgstr ""
 
-#: applet.js:3844
+#: applet.js:3848
 msgid "Help"
 msgstr ""
 
-#: applet.js:4623
+#: applet.js:4627
 msgid "Recent Applications"
 msgstr ""
 
@@ -197,6 +197,18 @@ msgstr ""
 
 #. 0dyseus@CustomCinnamonMenu->metadata.json->name
 msgid "Custom Cinnamon Menu"
+msgstr ""
+
+#. 0dyseus@CustomCinnamonMenu->settings-
+#. schema.json->pref_recent_apps_ignore_favorites->description
+msgid "Ignore Favorites"
+msgstr ""
+
+#. 0dyseus@CustomCinnamonMenu->settings-
+#. schema.json->pref_recent_apps_ignore_favorites->tooltip
+msgid ""
+"If enabled, applications set as Favorite will not be stored in the \"Recent "
+"Applications\" category."
 msgstr ""
 
 #. 0dyseus@CustomCinnamonMenu->settings-

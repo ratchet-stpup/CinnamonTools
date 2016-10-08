@@ -1740,6 +1740,7 @@ MyApplet.prototype = {
 			[bD.IN, "pref_recently_used_apps_custom_icon", null],
 			[bD.IN, "pref_cat_hover_delay", this._update_hover_delay],
 			[bD.IN, "pref_remember_recently_used_apps", null],
+			[bD.IN, "pref_recent_apps_ignore_favorites", null],
 			[bD.IN, "pref_recently_used_apps_invert_order", null],
 			[bD.IN, "pref_recently_used_apps_separator", null],
 			[bD.IN, "pref_max_recently_used_apps", null],
@@ -2743,6 +2744,9 @@ MyApplet.prototype = {
 	 * START mark Odyseus
 	 */
 	_storeRecentApp: function(aAppID) {
+		if (this.pref_recent_apps_ignore_favorites &&
+			AppFavorites.getAppFavorites().isFavorite(aAppID))
+			return true;
 		try {
 			let t = new Date().getTime();
 			let recApps = this.pref_recently_used_apps;

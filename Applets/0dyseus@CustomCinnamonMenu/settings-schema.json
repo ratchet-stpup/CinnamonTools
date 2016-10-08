@@ -379,6 +379,13 @@
 		"description": "Show \"Recent Applications\" category",
 		"tooltip": "From the moment this option is enabled, every application launched from the menu will be stored and displayed in the \"Recent Applications\" category.\nEvery time this option is disabled, the list of recently used applications will be cleared."
 	},
+	"pref_recent_apps_ignore_favorites": {
+		"type": "checkbox",
+		"default": false,
+		"dependency": "pref_remember_recently_used_apps",
+		"description": "Ignore Favorites",
+		"tooltip": "If enabled, applications set as Favorite will not be stored in the \"Recent Applications\" category."
+	},
 	"pref_recently_used_apps_separator": {
 		"type": "checkbox",
 		"default": false,
