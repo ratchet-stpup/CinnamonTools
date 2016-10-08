@@ -8,7 +8,7 @@ msgstr ""
 
 "Project-Id-Version: 1.03\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-09-21 21:43-0300\n"
+"POT-Creation-Date: 2016-10-07 19:46-0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Odyseus <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,48 +17,28 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: \n"
 
-#: applet.js:351
+#: applet.js:371
 msgid "Update menu"
 msgstr ""
 
-#: applet.js:356
+#: applet.js:376
 msgid "Scan the main folder to find new/deleted files/folders."
 msgstr ""
 
-#: applet.js:359
+#: applet.js:379
 msgid "Open folder"
 msgstr ""
 
-#: applet.js:365
+#: applet.js:385
 msgid "Open the main folder."
 msgstr ""
 
-#: applet.js:369
+#: applet.js:389
 msgid "Help"
 msgstr ""
 
-#: applet.js:375
+#: applet.js:395
 msgid "Open the help file."
-msgstr ""
-
-#. NOTE: This string could be left blank because it's a default string,
-#. so it's already translated by Cinnamon. It's up to the translators.
-#: applet.js:380
-#, javascript-format
-msgid "Remove '%s'"
-msgstr ""
-
-#: applet.js:389
-#, javascript-format
-msgid "Are you sure that you want to remove '%s' from your panel?"
-msgstr ""
-
-#: applet.js:391
-msgid "Cancel"
-msgstr ""
-
-#: applet.js:391
-msgid "OK"
 msgstr ""
 
 #. 0dyseus@QuickMenu->metadata.json->description
@@ -89,13 +69,25 @@ msgid "Keyboard shortcut to open and close the menu"
 msgstr ""
 
 #. 0dyseus@QuickMenu->settings-schema.json->pref_autoupdate->description
-msgid "Autoupdate menu."
+msgid "Auto-update menu."
 msgstr ""
 
 #. 0dyseus@QuickMenu->settings-schema.json->pref_autoupdate->tooltip
 msgid ""
 "If enabled, every time the menu is opened, the applet will scan the main folder for added/deleted/modified files/folders and rebuild the menu.\n"
 "If disabled, the menu has to be updated manually from its context menu."
+msgstr ""
+
+#. 0dyseus@QuickMenu->settings-
+#. schema.json->pref_auto_close_opened_sub_menus->description
+msgid "Auto-hide opened sub-menus. (EXPERIMENTAL/BUGGY)"
+msgstr ""
+
+#. 0dyseus@QuickMenu->settings-
+#. schema.json->pref_auto_close_opened_sub_menus->tooltip
+msgid ""
+"If enabled, the previously opened sub-menu will be automatically closed.\n"
+"It will only work with sub-menus created at the first level. Sub-menus inside other sub-menus are not affected."
 msgstr ""
 
 #. 0dyseus@QuickMenu->settings-

@@ -5,6 +5,13 @@ Never delete any of the files found inside this applet folder. It might break th
 
 ***
 
+### Applet usage
+
+- Menu items to .desktop files will be displayed with the icon and name declared inside the .desktop files themselves.
+- The menu can be kept open while activating menu items by pressing **Ctrl** + left click or with middle click.
+
+***
+
 ### Applet localization
 
 - If this applet was installed from Cinnamon Settings, all of these applet's localizations where automatically installed.

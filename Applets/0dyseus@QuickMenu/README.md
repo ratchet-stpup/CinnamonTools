@@ -11,6 +11,7 @@ Tested and working on Cinnamon version 3.0.7 (stable and nightly).
 - More than one instance of this applet can be installed at the same time.
 - A hotkey can be assigned to open/close the menu.
 - Menu items to .desktop files will be displayed with the icon and name declared inside the .desktop files themselves.
+- The menu can be kept open while activating menu items by pressing **Ctrl** + left click or with middle click.
 
 ## Options
 
@@ -40,6 +41,7 @@ Tested and working on Cinnamon version 3.0.7 (stable and nightly).
 - **Allow sub-menus to each have their own icon:** Read the section called *How to set a different icon for each sub-menu* for details about the usage of this option.
 - **Name for the file containing the icons for sub-menus:** Read the section called *How to set a different icon for each sub-menu* for details about the usage of this option.
 - **Ignore sub folders:** If enabled, the sub folders found inside the main folder will be ignored and sub-menus will not be created.
+- **Auto-hide opened sub-menus:** If enabled, the previously opened sub-menu will be automatically closed. It will only work with sub-menus created at the first level. Sub-menus inside other sub-menus are not affected.
 
 #### Image featuring different icons for each sub-menu and different icon sizes
 
@@ -51,6 +53,11 @@ Spices comments system is absolutely useless to report bugs with any king of leg
 </span>
 
 ## Change Log
+
+##### 1.04
+- Added option to auto-hide opened sub-menus.
+- Added option to keep the menu open after activating a menu item. This isn't a configurable option.
+- Some code cleaning/corrections.
 
 ##### 1.03
 - Added support for localizations. If someone wants to contribute with translations, inside the Help section of this applet (found in the applet context menu or the Help.md file inside this applet folder) you will find some pointers on how to do it.

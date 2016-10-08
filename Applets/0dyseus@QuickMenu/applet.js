@@ -94,10 +94,28 @@ MyApplet.prototype = {
 		}
 	},
 
+	_subMenuOpenStateChanged: function(aMenu, aOpen) {
+		if (aOpen) {
+			let children = aMenu._getTopMenu()._getMenuItems();
+			let i = 0,
+				iLen = children.length;
+			for (; i < iLen; i++) {
+				let item = children[i];
+				if (item instanceof PopupMenuExtension.PopupLeftImageSubMenuMenuItem ||
+					item instanceof PopupMenu.PopupSubMenuMenuItem) {
+					if (aMenu !== item.menu) {
+						item.menu.close(true);
+					}
+				}
+			}
+		}
+	},
+
 	_bind_settings: function() {
 		let settingsArray = [
 			[Settings.BindingDirection.BIDIRECTIONAL, "pref_directory", this._onSettingsDirectory],
 			[Settings.BindingDirection.BIDIRECTIONAL, "pref_sub_menu_icons_file_name", null],
+			[Settings.BindingDirection.IN, "pref_auto_close_opened_sub_menus", this._updateMenu],
 			[Settings.BindingDirection.IN, "pref_ignore_sub_folders", this._updateMenu],
 			[Settings.BindingDirection.IN, "pref_show_only_desktop_files", this._updateMenu],
 			[Settings.BindingDirection.IN, "pref_show_submenu_icons", this._updateMenu],
@@ -255,6 +273,8 @@ MyApplet.prototype = {
 					if (this.pref_style_for_sub_menus !== "")
 						submenu.label.set_style(this.pref_style_for_sub_menus);
 					submenu.menu = this._loadDir(dirPath, submenu.menu);
+					if (aDir === this.pref_directory && this.pref_auto_close_opened_sub_menus)
+						submenu.menu.connect("open-state-changed", Lang.bind(this, this._subMenuOpenStateChanged));
 					aMenu.addMenuItem(submenu);
 				}
 			}
@@ -272,7 +292,7 @@ MyApplet.prototype = {
 					let item = this.pref_show_applications_icons ?
 						new PopupMenuExtension.PopupImageLeftMenuItem(files[f].Name, files[f].Icon,
 							null, this.pref_menu_item_icon_size) :
-						new PopupMenu.PopupMenuItem(files[f].Name);
+						new PopupMenuExtension.PopupMenuItemNoImage(files[f].Name);
 					if (this.pref_style_for_menu_items !== "")
 						item.label.set_style(this.pref_style_for_menu_items);
 					item._handler = files[f].Handler;
@@ -374,22 +394,6 @@ MyApplet.prototype = {
 		}));
 		new Tooltips.Tooltip(this.help_menu_item.actor, _("Open the help file."), this._orientation);
 		this._applet_context_menu.addMenuItem(this.help_menu_item);
-
-		// NOTE: This string could be left blank because it's a default string,
-		// so it's already translated by Cinnamon. It's up to the translators.
-		this.context_menu_item_remove = new PopupMenu.PopupIconMenuItem(_("Remove '%s'")
-			.format(this._metadata.name),
-			"edit-delete",
-			St.IconType.SYMBOLIC);
-		this.context_menu_item_remove.connect('activate', Lang.bind(this, function() {
-			new ConfirmationDialog(Lang.bind(this, function() {
-					Main.AppletManager._removeAppletFromPanel(this._metadata.uuid, this._instance_id);
-				}),
-				this._metadata.name,
-				_("Are you sure that you want to remove '%s' from your panel?")
-				.format(this._metadata.name),
-				_("Cancel"), _("OK")).open();
-		}));
 	},
 
 	_updateKeybinding: function() {

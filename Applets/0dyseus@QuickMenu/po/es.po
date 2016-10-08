@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.08\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-09-25 01:21-0300\n"
-"PO-Revision-Date: 2016-09-25 01:21-0300\n"
+"POT-Creation-Date: 2016-10-07 19:49-0300\n"
+"PO-Revision-Date: 2016-10-07 19:53-0300\n"
 "Last-Translator: Odyseus\n"
 "Language-Team: \n"
 "Language: es\n"
@@ -18,49 +18,29 @@ msgstr ""
 "X-Generator: Poedit 1.8.7.1\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: applet.js:351
+#: applet.js:371
 msgid "Update menu"
 msgstr "Actualizar menú"
 
-#: applet.js:356
+#: applet.js:376
 msgid "Scan the main folder to find new/deleted files/folders."
 msgstr "Escanear la carpeta principal para encontrar nuevos/borrados archivos/carpetas."
 
-#: applet.js:359
+#: applet.js:379
 msgid "Open folder"
 msgstr "Abrir carpeta"
 
-#: applet.js:365
+#: applet.js:385
 msgid "Open the main folder."
 msgstr "Abrir la carpeta principal."
 
-#: applet.js:369
+#: applet.js:389
 msgid "Help"
 msgstr "Ayuda"
 
-#: applet.js:375
+#: applet.js:395
 msgid "Open the help file."
 msgstr "Abrir el archivo de ayuda."
-
-#. NOTE: This string could be left blank because it's a default string,
-#. so it's already translated by Cinnamon. It's up to the translators.
-#: applet.js:380
-#, javascript-format
-msgid "Remove '%s'"
-msgstr "Remover '%s'"
-
-#: applet.js:389
-#, javascript-format
-msgid "Are you sure that you want to remove '%s' from your panel?"
-msgstr "¿Está seguro de que desea remover '%s' del panel?"
-
-#: applet.js:391
-msgid "Cancel"
-msgstr "Cancelar"
-
-#: applet.js:391
-msgid "OK"
-msgstr "Aceptar"
 
 #. 0dyseus@QuickMenu->metadata.json->description
 msgid "Easily and quickly create a menu based on the files/folders found inside an specific folder."
@@ -90,8 +70,8 @@ msgid "Keyboard shortcut to open and close the menu"
 msgstr "Atajo de teclado para abrir y cerrar el menú"
 
 #. 0dyseus@QuickMenu->settings-schema.json->pref_autoupdate->description
-msgid "Autoupdate menu."
-msgstr "Auto-actualizar el menú"
+msgid "Auto-update menu."
+msgstr "Auto-actualizar menú"
 
 #. 0dyseus@QuickMenu->settings-schema.json->pref_autoupdate->tooltip
 msgid ""
@@ -103,6 +83,22 @@ msgstr ""
 "en busca de archivos/carpetas modificados/borrados/agregados y reconstruirá el menú.\n"
 "Con esta opción desactivada, el menú tiene que ser actualizado manualmente desde su menú "
 "contextual."
+
+#. 0dyseus@QuickMenu->settings-
+#. schema.json->pref_auto_close_opened_sub_menus->description
+msgid "Auto-hide opened sub-menus. (EXPERIMENTAL/BUGGY)"
+msgstr "Auto-ocultar submenúes abiertos. (EXPERIMENTAL)"
+
+#. 0dyseus@QuickMenu->settings-
+#. schema.json->pref_auto_close_opened_sub_menus->tooltip
+msgid ""
+"If enabled, the previously opened sub-menu will be automatically closed.\n"
+"It will only work with sub-menus created at the first level. Sub-menus inside other sub-menus are "
+"not affected."
+msgstr ""
+"Con esta opción activada, un submenú previamente abierto será automáticamente cerrado.\n"
+"Sólo funciona con submenúes creados en el primer nivel del menú principal. Submenúes dentro de "
+"otros submenúes no serán afectados."
 
 #. 0dyseus@QuickMenu->settings-
 #. schema.json->pref_show_hidden_files->description
@@ -280,3 +276,15 @@ msgid ""
 msgstr ""
 "Con esta opción activada, subcarpetas encontradas dentro de la carpeta principal no van a ser "
 "usadas para crear submenúes."
+
+#~ msgid "Remove '%s'"
+#~ msgstr "Remover '%s'"
+
+#~ msgid "Are you sure that you want to remove '%s' from your panel?"
+#~ msgstr "¿Está seguro de que desea remover '%s' del panel?"
+
+#~ msgid "Cancel"
+#~ msgstr "Cancelar"
+
+#~ msgid "OK"
+#~ msgstr "Aceptar"

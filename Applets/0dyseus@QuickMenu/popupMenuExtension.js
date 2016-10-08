@@ -15,6 +15,29 @@ const Gio = imports.gi.Gio;
 const Gtk = imports.gi.Gtk;
 const St = imports.gi.St;
 
+// Override activation to pass keepMenu argument on middle click.
+function PopupMenuItemNoImage() {
+	this._init.apply(this, arguments);
+}
+
+PopupMenuItemNoImage.prototype = {
+	__proto__: PopupMenu.PopupBaseMenuItem.prototype,
+
+	_init: function(aDisplayName, aParams) {
+		PopupMenu.PopupBaseMenuItem.prototype._init.call(this, aParams);
+
+		this.label = new St.Label({
+			text: aDisplayName
+		});
+		this.addActor(this.label);
+	},
+
+	activate: function(aE) {
+		let ctrlKey = Clutter.ModifierType.CONTROL_MASK & global.get_pointer()[2];
+		this.emit("activate", aE, (aE.get_button() === 2 || (aE.get_button() === 1 && ctrlKey)));
+	}
+};
+
 // Redefine a PopupImageMenuItem to get a colored image to the left side
 function PopupImageLeftMenuItem() {
 	this._init.apply(this, arguments);
@@ -37,6 +60,11 @@ PopupImageLeftMenuItem.prototype = {
 			text: aDisplayName
 		});
 		this.addActor(this.label);
+	},
+
+	activate: function(aE) {
+		let ctrlKey = Clutter.ModifierType.CONTROL_MASK & global.get_pointer()[2];
+		this.emit("activate", aE, (aE.get_button() === 2 || (aE.get_button() === 1 && ctrlKey)));
 	},
 
 	_createIcon: function(aIconName) {

@@ -78,7 +78,7 @@
 	"pref_autoupdate": {
 		"type": "checkbox",
 		"default": false,
-		"description": "Autoupdate menu.",
+		"description": "Auto-update menu.",
 		"tooltip": "If enabled, every time the menu is opened, the applet will scan the main folder for added/deleted/modified files/folders and rebuild the menu.\nIf disabled, the menu has to be updated manually from its context menu."
 	},
 	"pref_show_only_desktop_files": {
@@ -152,5 +152,11 @@
 		"default": false,
 		"description": "Ignore sub folders.",
 		"tooltip": "If enabled, the sub folders found inside the main folder will be ignored and sub-menus will not be created."
+	},
+	"pref_auto_close_opened_sub_menus": {
+		"type": "checkbox",
+		"default": true,
+		"description": "Auto-hide opened sub-menus. (EXPERIMENTAL/BUGGY)",
+		"tooltip": "If enabled, the previously opened sub-menu will be automatically closed.\nIt will only work with sub-menus created at the first level. Sub-menus inside other sub-menus are not affected."
 	}
 }
