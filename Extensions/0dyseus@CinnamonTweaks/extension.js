@@ -289,6 +289,21 @@ SettingsHandler.prototype = {
 
 };
 
+function informAndDisable() {
+	try {
+		let msg = _("Extension ativation aborted!!!\n") +
+			_("Your Cinnamon version may not be compatible!!!\n") +
+			_("Minimum Cinnamon version allowed: 2.8.6");
+		global.logError(msg);
+		Main.criticalNotify(metadata.name, msg);
+	} finally {
+		let enabledExtensions = global.settings.get_strv("enabled-extensions");
+		Extension.unloadExtension(metadata.uuid, Extension.Type.EXTENSION);
+		enabledExtensions.splice(enabledExtensions.indexOf(metadata.uuid), 1);
+		global.settings.set_strv("enabled-extensions", enabledExtensions);
+	}
+}
+
 /**
  * Called when extension is loaded
  */
@@ -314,8 +329,6 @@ function init(aExtensionMeta) {
  * Called when extension is loaded
  */
 function enable() {
-	global.log("Enabling Cinnamon Tweaks");
-
 	// DO NOT allow to enable extension if it isn't installed on a proper Cinnamon version.
 	if (allowEnabling) {
 		try {
@@ -349,19 +362,4 @@ function disable() {
 	unpatchAppletManager();
 	unpatchDeskletManager();
 	unpatchMessageTray();
-}
-
-function informAndDisable() {
-	try {
-		let msg = _("Extension ativation aborted!!!\n") +
-			_("Your Cinnamon version may not be compatible!!!\n") +
-			_("Minimum Cinnamon version allowed: 2.8.6");
-		global.logError(msg);
-		Main.criticalNotify(metadata.name, msg);
-	} finally {
-		let enabledExtensions = global.settings.get_strv("enabled-extensions");
-		Extension.unloadExtension(metadata.uuid, Extension.Type.EXTENSION);
-		enabledExtensions.splice(enabledExtensions.indexOf(metadata.uuid), 1);
-		global.settings.set_strv("enabled-extensions", enabledExtensions);
-	}
 }

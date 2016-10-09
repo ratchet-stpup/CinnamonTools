@@ -11,6 +11,7 @@ All this applets/extensions/themes can be installed directly from Cinnamon's app
 
 #### My Cinnamon Extensions
 - **[Cinnamon Maximus (Fork by Odyseus)](https://cinnamon-spices.linuxmint.com/extensions/view/39):** Remove window decorations from maximized windows.
+- **[Cinnamon Tweaks](https://cinnamon-spices.linuxmint.com/extensions/view/41):** Adds some options to modify the default behaviour of certain Cinnamon features.
 - **[Window demands attention behaviour](https://cinnamon-spices.linuxmint.com/extensions/view/40):** Define activation of windows demanding attention.
 
 #### My Cinnamon Themes
