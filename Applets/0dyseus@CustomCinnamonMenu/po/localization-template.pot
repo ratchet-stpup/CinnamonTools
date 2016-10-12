@@ -6,9 +6,9 @@
 msgid ""
 msgstr ""
 
-"Project-Id-Version: 1.08\n"
+"Project-Id-Version: 1.11\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-08 04:04-0300\n"
+"POT-Creation-Date: 2016-10-12 11:12-0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Odyseus <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -93,7 +93,7 @@ msgstr ""
 
 #. NOTE: This string could be left blank because it's a default string,
 #. so it's already translated by Cinnamon. It's up to the translators.
-#: applet.js:1141 applet.js:2814
+#: applet.js:1141 applet.js:2815
 msgid "Clear list"
 msgstr ""
 
@@ -123,71 +123,71 @@ msgstr ""
 
 #. NOTE: This string could be left blank because it's a default string,
 #. so it's already translated by Cinnamon. It's up to the translators.
-#: applet.js:2730
+#: applet.js:2731
 msgid "No recent documents"
 msgstr ""
 
-#: applet.js:2854
+#: applet.js:2855
 msgid "No recent applications"
 msgstr ""
 
-#: applet.js:2927
+#: applet.js:2928
 msgid "Favorites"
 msgstr ""
 
 #. NOTE: This string could be left blank because it's a default string,
 #. so it's already translated by Cinnamon. It's up to the translators.
-#: applet.js:3235 applet.js:3782
+#: applet.js:3236 applet.js:3783
 msgid "Lock screen"
 msgstr ""
 
 #. NOTE: This string could be left blank because it's a default string,
 #. so it's already translated by Cinnamon. It's up to the translators.
-#: applet.js:3238 applet.js:3781
+#: applet.js:3239 applet.js:3782
 msgid "Lock the screen"
 msgstr ""
 
 #. NOTE: This string could be left blank because it's a default string,
 #. so it's already translated by Cinnamon. It's up to the translators.
-#: applet.js:3271 applet.js:3811
+#: applet.js:3272 applet.js:3812
 msgid "Logout"
 msgstr ""
 
 #. NOTE: This string could be left blank because it's a default string,
 #. so it's already translated by Cinnamon. It's up to the translators.
-#: applet.js:3274 applet.js:3810
+#: applet.js:3275 applet.js:3811
 msgid "Leave the session"
 msgstr ""
 
 #. NOTE: This string could be left blank because it's a default string,
 #. so it's already translated by Cinnamon. It's up to the translators.
-#: applet.js:3294 applet.js:3827
+#: applet.js:3295 applet.js:3828
 msgid "Quit"
 msgstr ""
 
 #. NOTE: This string could be left blank because it's a default string,
 #. so it's already translated by Cinnamon. It's up to the translators.
-#: applet.js:3297 applet.js:3826
+#: applet.js:3298 applet.js:3827
 msgid "Shutdown the computer"
 msgstr ""
 
 #. NOTE: This string could be left blank because it's a default string,
 #. so it's already translated by Cinnamon. It's up to the translators.
-#: applet.js:3544
+#: applet.js:3545
 msgid "Type to search..."
 msgstr ""
 
 #. NOTE: This string could be left blank because it's a default string,
 #. so it's already translated by Cinnamon. It's up to the translators.
-#: applet.js:3843
+#: applet.js:3844
 msgid "Open the menu editor"
 msgstr ""
 
-#: applet.js:3848
+#: applet.js:3849
 msgid "Help"
 msgstr ""
 
-#: applet.js:4627
+#: applet.js:4628
 msgid "Recent Applications"
 msgstr ""
 
