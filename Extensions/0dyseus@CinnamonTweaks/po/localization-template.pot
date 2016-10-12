@@ -1,0 +1,177 @@
+# This is a template file for translating the Cinnamon extension called Cinnamon Tweaks.
+# Copyright (C) 2016
+# This file is distributed under the same license as the Cinnamon Tweaks extension.
+# Odyseus <EMAIL@ADDRESS>, 2016.
+#
+msgid ""
+msgstr ""
+
+"Project-Id-Version: 1.01\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-10-10 08:47-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Odyseus <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: \n"
+
+#: extension.js:81
+#, javascript-format
+msgid ""
+"Do you want to remove '%s' from your panel?\n"
+"Instance ID: %s"
+msgstr ""
+
+#: extension.js:83 extension.js:133
+msgid "OK"
+msgstr ""
+
+#: extension.js:84 extension.js:134
+msgid "Cancel"
+msgstr ""
+
+#: extension.js:131
+#, javascript-format
+msgid ""
+"Do you want to remove '%s' from your desktop?\n"
+"Instance ID: %s"
+msgstr ""
+
+#: extension.js:436
+msgid "Extension ativation aborted!!!\n"
+msgstr ""
+
+#: extension.js:437
+msgid "Your Cinnamon version may not be compatible!!!\n"
+msgstr ""
+
+#: extension.js:438
+msgid "Minimum Cinnamon version allowed: 2.8.6"
+msgstr ""
+
+#. 0dyseus@CinnamonTweaks->metadata.json->name
+msgid "Cinnamon Tweaks"
+msgstr ""
+
+#. 0dyseus@CinnamonTweaks->metadata.json->description
+msgid "Several tweaks for Cinnamon."
+msgstr ""
+
+#. 0dyseus@CinnamonTweaks->settings-schema.json->head3->description
+msgid "Window Focus tweaks"
+msgstr ""
+
+#. 0dyseus@CinnamonTweaks->settings-
+#. schema.json->pref_notifications_distance_from_panel->description
+msgid "Distance from panel"
+msgstr ""
+
+#. 0dyseus@CinnamonTweaks->settings-
+#. schema.json->pref_notifications_distance_from_panel->tooltip
+msgid ""
+"For notifications displayed at the top-right of screen: this is the distance between the bottom border of the top panel (if no top panel, from the top of the screen) to the top border of the notification popup.\n"
+"For notifications displayed at the bottom-right of screen: this is the distance between the top border of the bottom panel (if no bottom panel, from the bottom of the screen) to the bottom border of the notification popup."
+msgstr ""
+
+#. 0dyseus@CinnamonTweaks->settings-
+#. schema.json->pref_notifications_distance_from_panel->units
+#. 0dyseus@CinnamonTweaks->settings-
+#. schema.json->pref_notifications_right_margin->units
+msgid "pixels"
+msgstr ""
+
+#. 0dyseus@CinnamonTweaks->settings-
+#. schema.json->pref_win_demands_attention_keyboard_shortcut->description
+msgid "Keyboard shortcut: "
+msgstr ""
+
+#. 0dyseus@CinnamonTweaks->settings-
+#. schema.json->pref_ask_confirmation_desklet_removal->description
+msgid "Ask for confirmation on desklet removal"
+msgstr ""
+
+#. 0dyseus@CinnamonTweaks->settings-
+#. schema.json->pref_ask_confirmation_desklet_removal->tooltip
+#. 0dyseus@CinnamonTweaks->settings-
+#. schema.json->pref_ask_confirmation_applet_removal->tooltip
+msgid ""
+"Display a confirmation dialog on removal.\n"
+"Keeping the Ctrl key pressed will bypass the confirmation."
+msgstr ""
+
+#. 0dyseus@CinnamonTweaks->settings-schema.json->head2->description
+msgid "Notifications tweaks"
+msgstr ""
+
+#. 0dyseus@CinnamonTweaks->settings-schema.json->head1->description
+msgid "Desklets tweaks"
+msgstr ""
+
+#. 0dyseus@CinnamonTweaks->settings-schema.json->head0->description
+msgid "Applets tweaks"
+msgstr ""
+
+#. 0dyseus@CinnamonTweaks->settings-
+#. schema.json->pref_notifications_enable_animation->description
+msgid "Enable notifications open/close animation"
+msgstr ""
+
+#. 0dyseus@CinnamonTweaks->settings-
+#. schema.json->pref_notifications_position->description
+msgid "Notifications position"
+msgstr ""
+
+#. 0dyseus@CinnamonTweaks->settings-
+#. schema.json->pref_notifications_position->options
+msgid "Top-right of screen (System default)"
+msgstr ""
+
+#. 0dyseus@CinnamonTweaks->settings-
+#. schema.json->pref_notifications_position->options
+msgid "Bottom-right of screen"
+msgstr ""
+
+#. 0dyseus@CinnamonTweaks->settings-
+#. schema.json->pref_win_demands_attention_activation_mode->description
+msgid "The activation of windows demanding attention..."
+msgstr ""
+
+#. 0dyseus@CinnamonTweaks->settings-
+#. schema.json->pref_win_demands_attention_activation_mode->options
+msgid "...is performed with a keyboard shortcut"
+msgstr ""
+
+#. 0dyseus@CinnamonTweaks->settings-
+#. schema.json->pref_win_demands_attention_activation_mode->options
+msgid "...is handled by the system"
+msgstr ""
+
+#. 0dyseus@CinnamonTweaks->settings-
+#. schema.json->pref_win_demands_attention_activation_mode->options
+msgid "...is immediate"
+msgstr ""
+
+#. 0dyseus@CinnamonTweaks->settings-
+#. schema.json->pref_notifications_right_margin->description
+msgid "Notification popup right margin"
+msgstr ""
+
+#. 0dyseus@CinnamonTweaks->settings-
+#. schema.json->pref_notifications_right_margin->tooltip
+msgid ""
+"By default, the right margin of the notification popup is defined by the "
+"currently used theme. This option, set to any value other than 0 (zero), "
+"allows to set a custom right margin, ignoring the defined by the theme."
+msgstr ""
+
+#. 0dyseus@CinnamonTweaks->settings-
+#. schema.json->pref_ask_confirmation_applet_removal->description
+msgid "Ask for confirmation on applet removal"
+msgstr ""
+
+#. 0dyseus@CinnamonTweaks->settings-
+#. schema.json->pref_notifications_enable_tweaks->description
+msgid "Enable notifications tweaks"
+msgstr ""

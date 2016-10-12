@@ -6,15 +6,16 @@ This extension adds some options to modify the default behaviour of certain Cinn
 
 Tested and working on Cinnamon versions 2.8.6 and 3.0.7 (stable and nightly).
 
-<span style="color:red;">
+<span style="color:red;font-size:large;">
 **Important note:** Do not try to install and force compatibility for any other version of Cinnamon older than 2.8.6. As a protection mechanism, the extension will auto-disable itself.
 </span>
 
 ## Features/Options
 
-- Ask for confirmation on applet removal.
-- Ask for confirmation on desklet removal.
-- Display notifications at bottom-right corner.
+- Ask for confirmation on applet removal: avoids accidental applet removal.
+- Ask for confirmation on desklet removal: avoids accidental desklet removal.
+- Notifications tweaks: allows changing the notification popups to the bottom of the screen and change its top/bottom/right margins.
+- Window demands attention behaviour: allows the activation of windows demanding attention with a keyboard shortcut or forced.
 
 <h2 style="color:red;"> Bug report and feature request</h2>
 <span style="color:red;">
@@ -22,6 +23,15 @@ Spices comments system is absolutely useless to report bugs with any king of leg
 </span>
 
 ## Change Log
+
+##### 1.01
+- Refactored extension code to allow easy updates/maintenance.
+- Added support for localizations. If someone wants to contribute with translations, the Help.md file inside this extension folder has some pointers on how to do it.
+- Re-enabled show/hide animation for notifications on the bottom. Now the animation plays in the right directions.
+- Now the distance from panel can be set for notifiations shown at the bottom and at the top.
+- Added option to disable notifications animation.
+- Added option to customize the notification right margin.
+- Merged functionality from [Window demands attention behavior](https://cinnamon-spices.linuxmint.com/extensions/view/40) extension.
 
 ##### 1.00
 - Initial release.

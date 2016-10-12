@@ -1,3 +1,75 @@
+const Lang = imports.lang;
+const Clutter = imports.gi.Clutter;
+const St = imports.gi.St;
+const ModalDialog = imports.ui.modalDialog;
+
+function ConfirmationDialog() {
+	this._init.apply(this, arguments);
+}
+
+ConfirmationDialog.prototype = {
+	__proto__: ModalDialog.ModalDialog.prototype,
+
+	// Passing the OK and Cancel buttons labels as arguments to avoid initializing
+	// the "translation functions" inside this file (utils.js).
+	_init: function(aCallback, aDialogLabel, aDialogMessage, aOKBtnLbl, aCancelBtnLbl) {
+		ModalDialog.ModalDialog.prototype._init.call(this, {
+			styleClass: null
+		});
+
+		let mainContentBox = new St.BoxLayout({
+			style_class: 'polkit-dialog-main-layout',
+			vertical: false
+		});
+		this.contentLayout.add(mainContentBox, {
+			x_fill: true,
+			y_fill: true
+		});
+
+		let messageBox = new St.BoxLayout({
+			style_class: 'polkit-dialog-message-layout',
+			vertical: true
+		});
+		mainContentBox.add(messageBox, {
+			y_align: St.Align.START
+		});
+
+		this._subjectLabel = new St.Label({
+			style_class: 'polkit-dialog-headline',
+			text: aDialogLabel
+		});
+
+		messageBox.add(this._subjectLabel, {
+			y_fill: false,
+			y_align: St.Align.START
+		});
+
+		this._descriptionLabel = new St.Label({
+			style_class: 'polkit-dialog-description',
+			text: aDialogMessage
+		});
+
+		messageBox.add(this._descriptionLabel, {
+			y_fill: true,
+			y_align: St.Align.START
+		});
+
+		this.setButtons([{
+			label: aCancelBtnLbl,
+			action: Lang.bind(this, function() {
+				this.close();
+			}),
+			key: Clutter.Escape
+		}, {
+			label: aOKBtnLbl,
+			action: Lang.bind(this, function() {
+				this.close();
+				aCallback();
+			})
+		}]);
+	}
+};
+
 /**
  * Compares two software version numbers (e.g. "1.7.1" or "1.2b").
  *

@@ -1,0 +1,209 @@
+# This is a template file for translating the Cinnamon extension called Cinnamon Tweaks.
+# Copyright (C) 2016
+# This file is distributed under the same license as the Cinnamon Tweaks extension.
+# Odyseus <EMAIL@ADDRESS>, 2016.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: 1.01\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-10-10 09:32-0300\n"
+"PO-Revision-Date: 2016-10-10 09:33-0300\n"
+"Last-Translator: Odyseus\n"
+"Language-Team: \n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.7.1\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: extension.js:81
+#, javascript-format
+msgid ""
+"Do you want to remove '%s' from your panel?\n"
+"Instance ID: %s"
+msgstr ""
+"¿Desea eliminar '%s' de su panel?\n"
+"ID de instancia: %s"
+
+#: extension.js:83 extension.js:133
+msgid "OK"
+msgstr "Aceptar"
+
+#: extension.js:84 extension.js:134
+msgid "Cancel"
+msgstr "Cancelar"
+
+#: extension.js:131
+#, javascript-format
+msgid ""
+"Do you want to remove '%s' from your desktop?\n"
+"Instance ID: %s"
+msgstr ""
+"¿Desea eliminar '%s' de su escritorio?\n"
+"ID de instancia: %s"
+
+#: extension.js:436
+msgid "Extension ativation aborted!!!\n"
+msgstr "¡¡¡Activación de la extensión abortada!!!\n"
+
+#: extension.js:437
+msgid "Your Cinnamon version may not be compatible!!!\n"
+msgstr "¡¡¡Su versión de Cinnamon puede que no sea compatible!!!\n"
+
+#: extension.js:438
+msgid "Minimum Cinnamon version allowed: 2.8.6"
+msgstr "Versión mínima de CInnamon permitida: 2.8.6"
+
+#. 0dyseus@CinnamonTweaks->metadata.json->name
+msgid "Cinnamon Tweaks"
+msgstr "Ajustes de Cinnamon"
+
+#. 0dyseus@CinnamonTweaks->metadata.json->description
+msgid "Several tweaks for Cinnamon."
+msgstr "Varios ajustes para Cinnamon."
+
+#. 0dyseus@CinnamonTweaks->settings-schema.json->head3->description
+msgid "Window Focus tweaks"
+msgstr "Ajustes de foco de ventanas"
+
+#. 0dyseus@CinnamonTweaks->settings-
+#. schema.json->pref_notifications_distance_from_panel->description
+msgid "Distance from panel"
+msgstr "Distancia desde el panel"
+
+#. 0dyseus@CinnamonTweaks->settings-
+#. schema.json->pref_notifications_distance_from_panel->tooltip
+msgid ""
+"For notifications displayed at the top-right of screen: this is the distance between the bottom "
+"border of the top panel (if no top panel, from the top of the screen) to the top border of the "
+"notification popup.\n"
+"For notifications displayed at the bottom-right of screen: this is the distance between the top "
+"border of the bottom panel (if no bottom panel, from the bottom of the screen) to the bottom "
+"border of the notification popup."
+msgstr ""
+"Para las notificaciones que se muestran en la parte superior derecha de la pantalla: esta la "
+"distancia entre el borde inferior del panel superior (si no hay panel superior, desde la parte "
+"superior de la pantalla) hasta el borde superior de la ventana emergente de notificación.\n"
+"Para las notificaciones que se muestran en la parte inferior derecha de la pantalla: esta la "
+"distancia entre el borde superior del panel inferior (si no hay panel inferior, desde la parte "
+"inferior de la pantalla) hasta el borde inferior de la ventana emergente de notificación."
+
+#. 0dyseus@CinnamonTweaks->settings-
+#. schema.json->pref_notifications_distance_from_panel->units
+#. 0dyseus@CinnamonTweaks->settings-
+#. schema.json->pref_notifications_right_margin->units
+msgid "pixels"
+msgstr "pixeles"
+
+#. 0dyseus@CinnamonTweaks->settings-
+#. schema.json->pref_win_demands_attention_keyboard_shortcut->description
+msgid "Keyboard shortcut: "
+msgstr "Atajo de teclado: "
+
+#. 0dyseus@CinnamonTweaks->settings-
+#. schema.json->pref_ask_confirmation_desklet_removal->description
+msgid "Ask for confirmation on desklet removal"
+msgstr "Pedir confirmación al eliminar desklets"
+
+#. 0dyseus@CinnamonTweaks->settings-
+#. schema.json->pref_ask_confirmation_desklet_removal->tooltip
+#. 0dyseus@CinnamonTweaks->settings-
+#. schema.json->pref_ask_confirmation_applet_removal->tooltip
+msgid ""
+"Display a confirmation dialog on removal.\n"
+"Keeping the Ctrl key pressed will bypass the confirmation."
+msgstr ""
+"Mostrar un diálogo de confirmación al eliminar.\n"
+"Manteniendo pulsada la tecla Ctrl se omitirá el diálogo de confirmación."
+
+#. 0dyseus@CinnamonTweaks->settings-schema.json->head2->description
+msgid "Notifications tweaks"
+msgstr "Ajustes de notificaciones"
+
+#. 0dyseus@CinnamonTweaks->settings-schema.json->head1->description
+msgid "Desklets tweaks"
+msgstr "Ajustes de desklets"
+
+#. 0dyseus@CinnamonTweaks->settings-schema.json->head0->description
+msgid "Applets tweaks"
+msgstr "Ajustes de applets"
+
+#. 0dyseus@CinnamonTweaks->settings-
+#. schema.json->pref_notifications_enable_animation->description
+msgid "Enable notifications open/close animation"
+msgstr "Habilitar animación de notificaciones"
+
+#. 0dyseus@CinnamonTweaks->settings-
+#. schema.json->pref_notifications_position->description
+msgid "Notifications position"
+msgstr "Posición de las notificaciones"
+
+#. 0dyseus@CinnamonTweaks->settings-
+#. schema.json->pref_notifications_position->options
+msgid "Top-right of screen (System default)"
+msgstr "Parte superior derecha de la pantalla (por defecto del sistema)"
+
+#. 0dyseus@CinnamonTweaks->settings-
+#. schema.json->pref_notifications_position->options
+msgid "Bottom-right of screen"
+msgstr "Parte inferior derecha de la pantalla"
+
+#. 0dyseus@CinnamonTweaks->settings-
+#. schema.json->pref_win_demands_attention_activation_mode->description
+msgid "The activation of windows demanding attention..."
+msgstr "La activación de ventanas que demandan atención..."
+
+#. 0dyseus@CinnamonTweaks->settings-
+#. schema.json->pref_win_demands_attention_activation_mode->options
+msgid "...is performed with a keyboard shortcut"
+msgstr "...se lleva a cabo con un atajo de teclado"
+
+#. 0dyseus@CinnamonTweaks->settings-
+#. schema.json->pref_win_demands_attention_activation_mode->options
+msgid "...is handled by the system"
+msgstr "...es manejada por el sistema"
+
+#. 0dyseus@CinnamonTweaks->settings-
+#. schema.json->pref_win_demands_attention_activation_mode->options
+msgid "...is immediate"
+msgstr "...es inmediata"
+
+#. 0dyseus@CinnamonTweaks->settings-
+#. schema.json->pref_notifications_right_margin->description
+msgid "Notification popup right margin"
+msgstr "Margen derecho del popup de las notificaciones"
+
+#. 0dyseus@CinnamonTweaks->settings-
+#. schema.json->pref_notifications_right_margin->tooltip
+msgid ""
+"By default, the right margin of the notification popup is defined by the currently used theme. "
+"This option, set to any value other than 0 (zero), allows to set a custom right margin, ignoring "
+"the defined by the theme."
+msgstr ""
+"Por defecto, el margen derecho de la notificación es definido por el tema que se usa actualmente. "
+"Esta opción, con un valor distinto de 0 (cero), permite establecer un margen derecho "
+"personalizado, ignorando el definido por el tema."
+
+#. 0dyseus@CinnamonTweaks->settings-
+#. schema.json->pref_ask_confirmation_applet_removal->description
+msgid "Ask for confirmation on applet removal"
+msgstr "Pedir confirmación al eliminar applets"
+
+#. 0dyseus@CinnamonTweaks->settings-
+#. schema.json->pref_notifications_enable_tweaks->description
+msgid "Enable notifications tweaks"
+msgstr "Habilitar ajustes de notificaciones"
+
+#~ msgid "Set the keybinding to activate windows demanding attention: "
+#~ msgstr "Establecer un atajo de teclado para activar ventanas que exigen atención: "
+
+#~ msgid "Choose activation mode"
+#~ msgstr "Seleccionar modo de activación"
+
+#~ msgid "Force windows demanding attention activation."
+#~ msgstr "Forzar la activación de ventanas que demandan atención."
+
+#~ msgid "System behaviour."
+#~ msgstr "Predeterminado por el sistema"

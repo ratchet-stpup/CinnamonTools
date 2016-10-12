@@ -5,7 +5,7 @@ Never delete any of the files found inside this extension folder. It might break
 
 ***
 
-### extension localization
+### Extension localization
 
 - If this extension was installed from Cinnamon Settings, all of these extension's localizations where automatically installed.
 - If this extension was installed manually and not trough Cinnamon Settings, localizations can be installed by executing the script called **localizations.sh** from a terminal opened inside the extension's folder.
