@@ -15,19 +15,19 @@ select opt in "${options[@]}" "Abort"; do
 	case "$REPLY" in
 		1 ) # Install translations
 			echo "$(tput setaf 10)"
-			cinnamon-json-makepot -i ./po/*
+			( set -xv ; cinnamon-json-makepot -i ./po/* )
 			echo "$(tput setaf 9)Remember to restart Cinnamon!!!$(tput sgr0)"
 			echo "$(tput bold)"
 			;;
 		2 ) # Uninstall translations
 			echo "$(tput setaf 9)"
-			cinnamon-json-makepot -r ./po/*
+			( set -xv ; cinnamon-json-makepot -r ./po/* )
 			echo "Remember to restart Cinnamon!!!$(tput sgr0)"
 			echo "$(tput bold)"
 			;;
 		3 ) # Restart Cinnamon
 			echo "$(tput sgr0)"
-			nohup cinnamon --replace > /dev/null 2>&1 &
+			( set -xv ; nohup cinnamon --replace > /dev/null 2>&1 & )
 			break
 			;;
 		$(( ${#options[@]}+1 )) )
