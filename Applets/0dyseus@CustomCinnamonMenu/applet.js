@@ -415,9 +415,9 @@ GenericApplicationButton.prototype = {
 		this.unhighlight();
 		let likelyHasSucceeded = false;
 
-		let ctrlKey = Clutter.ModifierType.CONTROL_MASK & global.get_pointer()[2];
-		let shiftKey = Clutter.ModifierType.SHIFT_MASK & global.get_pointer()[2];
-		// let altKey = Clutter.ModifierType.MOD1_MASK & global.get_pointer()[2];
+		let ctrlKey = (Clutter.ModifierType.CONTROL_MASK & global.get_pointer()[2]) !== 0;
+		let shiftKey = (Clutter.ModifierType.SHIFT_MASK & global.get_pointer()[2]) !== 0;
+		// let altKey = (Clutter.ModifierType.MOD1_MASK & global.get_pointer()[2]) !== 0;
 		// global.logError("ctrlKey " + ctrlKey);
 		// global.logError("shiftKey " + shiftKey);
 		// global.logError("altKey " + altKey);
@@ -1160,11 +1160,14 @@ RecentClearButton.prototype = {
 	},
 
 	_onButtonReleaseEvent: function(actor, event) {
-		if (event.get_button() == 1) {
-			this.appsMenuButton.menu.close(PREF_ANIMATE_MENU);
-			let GtkRecent = new Gtk.RecentManager();
-			GtkRecent.purge_items();
-		}
+		if (event.get_button() == 1)
+			this.activate(event);
+	},
+
+	activate: function(event) {
+		this.appsMenuButton.menu.close(PREF_ANIMATE_MENU);
+		let GtkRecent = new Gtk.RecentManager();
+		GtkRecent.purge_items();
 	}
 };
 
@@ -2205,7 +2208,7 @@ MyApplet.prototype = {
 			this.set_applet_label("");
 		} else {
 			if (this.pref_custom_label_for_applet !== "")
-				this.set_applet_label(this.pref_custom_label_for_applet);
+				this.set_applet_label(_(this.pref_custom_label_for_applet));
 			else
 				this.set_applet_label("");
 		}
@@ -2601,8 +2604,14 @@ MyApplet.prototype = {
 					this._clearPrevSelection(button.actor);
 					button.actor.style_class = "menu-application-button-selected";
 					this.selectedAppTitle.set_text("");
-					this.selectedAppDescription.set_text(decodeURIComponent(button.place.id.slice(16)));
+					let selectedAppId = decodeURIComponent(button.place.id);
+					selectedAppId = selectedAppId.substr(selectedAppId.indexOf(":") + 1);
+					let fileIndex = selectedAppId.indexOf("file:///");
+					if (fileIndex !== -1)
+						selectedAppId = selectedAppId.substr(fileIndex + 7);
+					this.selectedAppDescription.set_text(selectedAppId);
 					// Keep this in case I have to revert it back.
+					// this.selectedAppDescription.set_text(decodeURIComponent(button.place.id.slice(16)));
 					// this.selectedAppDescription.set_text(button.place.id.slice(16).replace(/%20/g, ' '));
 				}));
 				button.actor.connect('leave-event', Lang.bind(this, function() {
@@ -2699,8 +2708,13 @@ MyApplet.prototype = {
 						this._clearPrevSelection(button.actor);
 						button.actor.style_class = "menu-application-button-selected";
 						this.selectedAppTitle.set_text("");
-						this.selectedAppDescription.set_text(decodeURIComponent(button.file.uri.slice(7)));
+						let selectedAppUri = decodeURIComponent(button.file.uri);
+						let fileIndex = selectedAppUri.indexOf("file:///");
+						if (fileIndex !== -1)
+							selectedAppUri = selectedAppUri.substr(fileIndex + 7);
+						this.selectedAppDescription.set_text(selectedAppUri);
 						// Keep this in case I have to revert it back.
+						// this.selectedAppDescription.set_text(decodeURIComponent(button.file.uri.slice(7)));
 						// this.selectedAppDescription.set_text(button.file.uri.slice(7).replace(/%20/g, ' '));
 					}));
 					button.actor.connect('leave-event', Lang.bind(this, function() {
@@ -4217,7 +4231,8 @@ MyApplet.prototype = {
 		let id = 0,
 			idLen = bookmarks.length;
 		for (; id < idLen; id++) {
-			if (!pattern || bookmarks[id].name.toLowerCase().indexOf(pattern) != -1) res.push(bookmarks[id]);
+			if (!pattern || bookmarks[id].name.toLowerCase().indexOf(pattern) != -1)
+				res.push(bookmarks[id]);
 		}
 		return res;
 	},
@@ -4228,7 +4243,8 @@ MyApplet.prototype = {
 		let id = 0,
 			idLen = devices.length;
 		for (; id < idLen; id++) {
-			if (!pattern || devices[id].name.toLowerCase().indexOf(pattern) != -1) res.push(devices[id]);
+			if (!pattern || devices[id].name.toLowerCase().indexOf(pattern) != -1)
+				res.push(devices[id]);
 		}
 		return res;
 	},

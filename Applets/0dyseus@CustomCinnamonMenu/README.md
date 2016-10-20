@@ -44,18 +44,28 @@ Tested and working on Cinnamon version 3.0.7 (stable and nightly).
 Spices comments system is absolutely useless to report bugs with any king of legibility. In addition, there is no notifications system for new comments. So, if anyone has bugs to report or a feature request, do so on this xlet GitHub page. Just click the **Website** button next to the **Download** button.
 </span>
 
+## Contributors
+- [NikoKrause](https://github.com/NikoKrause): Bug fixes.
+
 ## Change Log
 
+**Note:** Upstream fixes/features are changes made to the original Cinnamon Menu applet that I ported to this applet.
+
+##### 1.12
+- Fixed the non localization of the applet label ([#7](https://github.com/Odyseus/CinnamonTools/issues/7)). Thanks to [NikoKrause](https://github.com/NikoKrause).
+- [Upstream fix] Fixed impossibility to clear the list of **Recent Files** by pressing the **Enter** key.
+- [Upstream fix] Fixed various visual glitches on the applications info box.
+
 ##### 1.11
-- Fixed search results highlighting. Thanks to [NikoKrause](https://github.com/NikoKrause).
+- [Upstream fix] Fixed search results highlighting.
 
 ##### 1.10
 - Added option to not store into the Recent Applications category the applications set as Favorite.
 
 ##### 1.09
-- Fixed unescaped characters displayed on applications info box.
 - Fixed fuzzy search display of exact matches. Thanks to [nooulaif](https://github.com/nooulaif).
-- Fixed gap left after hiding favorites box. Thanks to [NikoKrause](https://github.com/NikoKrause).
+- [Upstream fix] Fixed unescaped characters displayed on applications info box.
+- [Upstream fix] Fixed gap left after hiding favorites box.
 
 ##### 1.08
 - Fixed a bug that caused the search on the menu to break when the custom launchers box was set to disabled/hidden.
