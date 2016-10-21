@@ -4,9 +4,9 @@
 		"2.8",
 		"3.0"
 	],
-	"version": "1.01",
-	"website": "https://github.com/Odyseus/CinnamonTools/tree/master/Extensions/0dyseus%40CinnamonTweaks",
-	"url": "https://github.com/Odyseus/CinnamonTools/tree/master/Extensions/0dyseus%40CinnamonTweaks",
+	"version": "1.02",
+	"website": "https://github.com/Odyseus/CinnamonTools",
+	"url": "https://github.com/Odyseus/CinnamonTools",
 	"dangerous": true,
 	"uuid": "0dyseus@CinnamonTweaks",
 	"description": "Several tweaks for Cinnamon."

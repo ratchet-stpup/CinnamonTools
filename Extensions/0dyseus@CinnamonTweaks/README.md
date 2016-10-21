@@ -16,6 +16,7 @@ Tested and working on Cinnamon versions 2.8.6 and 3.0.7 (stable and nightly).
 - Ask for confirmation on desklet removal: avoids accidental desklet removal.
 - Notifications tweaks: allows changing the notification popups to the bottom of the screen and change its top/bottom/right margins.
 - Window demands attention behaviour: allows the activation of windows demanding attention with a keyboard shortcut or forced.
+- Hot corners tweaks: allows to set a hover activation delay in milliseconds for each hot corner.
 
 <h2 style="color:red;"> Bug report and feature request</h2>
 <span style="color:red;">
@@ -23,6 +24,9 @@ Spices comments system is absolutely useless to report bugs with any king of leg
 </span>
 
 ## Change Log
+
+##### 1.02
+- Added **Hot Corners** tweaks (hover activation delay).
 
 ##### 1.01
 - Refactored extension code to allow easy updates/maintenance.

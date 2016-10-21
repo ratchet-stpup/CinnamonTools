@@ -11,6 +11,7 @@ const Extension = imports.ui.extension;
 const Cinnamon = imports.gi.Cinnamon;
 
 let UUID,
+	HotCornerPathed,
 	ConfirmationDialog,
 	settings,
 	metadata,
@@ -25,6 +26,7 @@ function _(aStr) {
 }
 
 var IDS = {
+	HCP: 0, // CT_HotCornersPatch toggle ID.
 	MTP: 0, // CT_MessageTrayPatch toggle ID.
 	DMP: 0, // CT_DeskletManagerPatch toggle ID.
 	AMP: 0, // CT_AppletManagerPatch toogle ID.
@@ -37,6 +39,7 @@ var IDS = {
  * Container for old attributes and functions for later restore.
  */
 let Storage = {
+	hotCornerManager: {},
 	messageTray: {},
 	appletmanager: {},
 	deskletManager: {}
@@ -364,6 +367,32 @@ var CT_WindowDemandsAttentionBehavior = {
 	}
 };
 
+var CT_HotCornersPatch = {
+	enable: function() {
+		Storage.hotCornerManager = Main.layoutManager.hotCornerManager;
+		delete Main.layoutManager.hotCornerManager;
+		Main.layoutManager.hotCornerManager = new HotCornerPathed.HotCornerManager({
+			0: settings.pref_hotcorners_delay_top_left,
+			1: settings.pref_hotcorners_delay_top_right,
+			2: settings.pref_hotcorners_delay_bottom_left,
+			3: settings.pref_hotcorners_delay_bottom_right
+		});
+		Main.layoutManager._updateHotCorners();
+		global.settings.connect("changed::overview-corner", Lang.bind(this, this.toggle));
+	},
+
+	disable: function() {
+		if (Storage.hotCornerManager) {
+			Main.layoutManager.hotCornerManager = Storage.hotCornerManager;
+			delete Storage.hotCornerManager;
+		}
+	},
+
+	toggle: function() {
+		togglePatch(CT_HotCornersPatch, "HCP", settings.pref_hotcorners_tweaks_enabled);
+	}
+};
+
 /**
  * [Template]
  */
@@ -423,6 +452,11 @@ SettingsHandler.prototype = {
 			[bD.IN, "pref_notifications_right_margin", CT_MessageTrayPatch.toggle],
 			[bD.IN, "pref_win_demands_attention_activation_mode", CT_WindowDemandsAttentionBehavior.toggle],
 			[bD.IN, "pref_win_demands_attention_keyboard_shortcut", CT_WindowDemandsAttentionBehavior.toggle],
+			[bD.IN, "pref_hotcorners_tweaks_enabled", CT_HotCornersPatch.toggle],
+			[bD.IN, "pref_hotcorners_delay_top_left", CT_HotCornersPatch.toggle],
+			[bD.IN, "pref_hotcorners_delay_top_right", CT_HotCornersPatch.toggle],
+			[bD.IN, "pref_hotcorners_delay_bottom_left", CT_HotCornersPatch.toggle],
+			[bD.IN, "pref_hotcorners_delay_bottom_right", CT_HotCornersPatch.toggle],
 		];
 		for (let [binding, property_name, callback] of settingsArray) {
 			this.settings.bindProperty(binding, property_name, property_name, callback, null);
@@ -458,6 +492,7 @@ function init(aExtensionMeta) {
 
 	let utils = extensionImports.utils;
 	ConfirmationDialog = utils.ConfirmationDialog;
+	HotCornerPathed = extensionImports.hotCornerPatched;
 
 	let versionCompare = utils.versionCompare;
 	try {
@@ -501,6 +536,13 @@ function enable() {
 		} catch (aErr) {
 			global.logError(aErr.message);
 		}
+
+		try {
+			if (settings.pref_hotcorners_tweaks_enabled)
+				CT_HotCornersPatch.enable();
+		} catch (aErr) {
+			global.logError(aErr.message);
+		}
 	} else
 		informAndDisable();
 }
@@ -513,4 +555,5 @@ function disable() {
 	CT_DeskletManagerPatch.disable();
 	CT_MessageTrayPatch.disable();
 	CT_WindowDemandsAttentionBehavior.disable();
+	CT_HotCornersPatch.disable();
 }

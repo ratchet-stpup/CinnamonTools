@@ -94,5 +94,62 @@
 		"type": "keybinding",
 		"description": "Keyboard shortcut: ",
 		"default": ""
+	},
+	"separator4": {
+		"type": "separator"
+	},
+	"head4": {
+		"type": "header",
+		"description": "Hot Corners tweaks"
+	},
+	"pref_hotcorners_tweaks_enabled": {
+		"type": "checkbox",
+		"default": false,
+		"description": "Enable Hot Corners tweaks",
+		"tooltip": ""
+	},
+	"pref_hotcorners_delay_top_left": {
+		"type": "spinbutton",
+		"dependency": "pref_hotcorners_tweaks_enabled",
+		"default": 50,
+		"min": 0,
+		"max": 1000,
+		"step": 50,
+		"units": "milliseconds",
+		"description": "Top left hot corner activation delay",
+		"tooltip": "Set a delay in milliseconds to activate this hot corner."
+	},
+	"pref_hotcorners_delay_top_right": {
+		"type": "spinbutton",
+		"dependency": "pref_hotcorners_tweaks_enabled",
+		"default": 50,
+		"min": 0,
+		"max": 1000,
+		"step": 50,
+		"units": "milliseconds",
+		"description": "Top right hot corner activation delay",
+		"tooltip": "Set a delay in milliseconds to activate this hot corner."
+	},
+	"pref_hotcorners_delay_bottom_left": {
+		"type": "spinbutton",
+		"dependency": "pref_hotcorners_tweaks_enabled",
+		"default": 50,
+		"min": 0,
+		"max": 1000,
+		"step": 50,
+		"units": "milliseconds",
+		"description": "Bottom left hot corner activation delay",
+		"tooltip": "Set a delay in milliseconds to activate this hot corner."
+	},
+	"pref_hotcorners_delay_bottom_right": {
+		"type": "spinbutton",
+		"dependency": "pref_hotcorners_tweaks_enabled",
+		"default": 50,
+		"min": 0,
+		"max": 1000,
+		"step": 50,
+		"units": "milliseconds",
+		"description": "Bottom right hot corner activation delay",
+		"tooltip": "Set a delay in milliseconds to activate this hot corner."
 	}
 }

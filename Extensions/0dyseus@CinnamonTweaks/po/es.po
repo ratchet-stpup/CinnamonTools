@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.01\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-10 09:32-0300\n"
-"PO-Revision-Date: 2016-10-10 09:33-0300\n"
+"POT-Creation-Date: 2016-10-21 15:12-0300\n"
+"PO-Revision-Date: 2016-10-21 15:19-0300\n"
 "Last-Translator: Odyseus\n"
 "Language-Team: \n"
 "Language: es\n"
@@ -18,7 +18,7 @@ msgstr ""
 "X-Generator: Poedit 1.8.7.1\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: extension.js:81
+#: extension.js:83
 #, javascript-format
 msgid ""
 "Do you want to remove '%s' from your panel?\n"
@@ -27,15 +27,15 @@ msgstr ""
 "¿Desea eliminar '%s' de su panel?\n"
 "ID de instancia: %s"
 
-#: extension.js:83 extension.js:133
+#: extension.js:85 extension.js:135
 msgid "OK"
 msgstr "Aceptar"
 
-#: extension.js:84 extension.js:134
+#: extension.js:86 extension.js:136
 msgid "Cancel"
 msgstr "Cancelar"
 
-#: extension.js:131
+#: extension.js:133
 #, javascript-format
 msgid ""
 "Do you want to remove '%s' from your desktop?\n"
@@ -44,15 +44,15 @@ msgstr ""
 "¿Desea eliminar '%s' de su escritorio?\n"
 "ID de instancia: %s"
 
-#: extension.js:436
+#: extension.js:469
 msgid "Extension ativation aborted!!!\n"
 msgstr "¡¡¡Activación de la extensión abortada!!!\n"
 
-#: extension.js:437
+#: extension.js:470
 msgid "Your Cinnamon version may not be compatible!!!\n"
 msgstr "¡¡¡Su versión de Cinnamon puede que no sea compatible!!!\n"
 
-#: extension.js:438
+#: extension.js:471
 msgid "Minimum Cinnamon version allowed: 2.8.6"
 msgstr "Versión mínima de CInnamon permitida: 2.8.6"
 
@@ -64,9 +64,126 @@ msgstr "Ajustes de Cinnamon"
 msgid "Several tweaks for Cinnamon."
 msgstr "Varios ajustes para Cinnamon."
 
-#. 0dyseus@CinnamonTweaks->settings-schema.json->head3->description
-msgid "Window Focus tweaks"
-msgstr "Ajustes de foco de ventanas"
+#. 0dyseus@CinnamonTweaks->settings-
+#. schema.json->pref_hotcorners_delay_top_right->description
+msgid "Top right hot corner activation delay"
+msgstr "Retardo de activación para la esquina superior derecha"
+
+#. 0dyseus@CinnamonTweaks->settings-
+#. schema.json->pref_hotcorners_delay_top_right->tooltip
+#. 0dyseus@CinnamonTweaks->settings-
+#. schema.json->pref_hotcorners_delay_bottom_left->tooltip
+#. 0dyseus@CinnamonTweaks->settings-
+#. schema.json->pref_hotcorners_delay_bottom_right->tooltip
+#. 0dyseus@CinnamonTweaks->settings-
+#. schema.json->pref_hotcorners_delay_top_left->tooltip
+msgid "Set a delay in milliseconds to activate this hot corner."
+msgstr "Establecer un retardo en milisegundos para activar esta esquina activa."
+
+#. 0dyseus@CinnamonTweaks->settings-
+#. schema.json->pref_hotcorners_delay_top_right->units
+#. 0dyseus@CinnamonTweaks->settings-
+#. schema.json->pref_hotcorners_delay_bottom_left->units
+#. 0dyseus@CinnamonTweaks->settings-
+#. schema.json->pref_hotcorners_delay_bottom_right->units
+#. 0dyseus@CinnamonTweaks->settings-
+#. schema.json->pref_hotcorners_delay_top_left->units
+msgid "milliseconds"
+msgstr "milisegundos"
+
+#. 0dyseus@CinnamonTweaks->settings-
+#. schema.json->pref_ask_confirmation_desklet_removal->description
+msgid "Ask for confirmation on desklet removal"
+msgstr "Pedir confirmación al eliminar desklets"
+
+#. 0dyseus@CinnamonTweaks->settings-
+#. schema.json->pref_ask_confirmation_desklet_removal->tooltip
+#. 0dyseus@CinnamonTweaks->settings-
+#. schema.json->pref_ask_confirmation_applet_removal->tooltip
+msgid ""
+"Display a confirmation dialog on removal.\n"
+"Keeping the Ctrl key pressed will bypass the confirmation."
+msgstr ""
+"Mostrar un diálogo de confirmación al eliminar.\n"
+"Manteniendo pulsada la tecla Ctrl se omitirá el diálogo de confirmación."
+
+#. 0dyseus@CinnamonTweaks->settings-
+#. schema.json->pref_hotcorners_delay_bottom_left->description
+msgid "Bottom left hot corner activation delay"
+msgstr "Retardo de activación para la esquina inferior izquierda"
+
+#. 0dyseus@CinnamonTweaks->settings-
+#. schema.json->pref_hotcorners_delay_bottom_right->description
+msgid "Bottom right hot corner activation delay"
+msgstr "Retardo de activación para la esquina inferior derecha"
+
+#. 0dyseus@CinnamonTweaks->settings-
+#. schema.json->pref_notifications_enable_animation->description
+msgid "Enable notifications open/close animation"
+msgstr "Habilitar animación de notificaciones"
+
+#. 0dyseus@CinnamonTweaks->settings-
+#. schema.json->pref_ask_confirmation_applet_removal->description
+msgid "Ask for confirmation on applet removal"
+msgstr "Pedir confirmación al eliminar applets"
+
+#. 0dyseus@CinnamonTweaks->settings-
+#. schema.json->pref_notifications_right_margin->description
+msgid "Notification popup right margin"
+msgstr "Margen derecho del popup de las notificaciones"
+
+#. 0dyseus@CinnamonTweaks->settings-
+#. schema.json->pref_notifications_right_margin->tooltip
+msgid ""
+"By default, the right margin of the notification popup is defined by the currently used theme. "
+"This option, set to any value other than 0 (zero), allows to set a custom right margin, ignoring "
+"the defined by the theme."
+msgstr ""
+"Por defecto, el margen derecho de la notificación es definido por el tema que se usa actualmente. "
+"Esta opción, con un valor distinto de 0 (cero), permite establecer un margen derecho "
+"personalizado, ignorando el definido por el tema."
+
+#. 0dyseus@CinnamonTweaks->settings-
+#. schema.json->pref_notifications_right_margin->units
+#. 0dyseus@CinnamonTweaks->settings-
+#. schema.json->pref_notifications_distance_from_panel->units
+msgid "pixels"
+msgstr "pixeles"
+
+#. 0dyseus@CinnamonTweaks->settings-
+#. schema.json->pref_win_demands_attention_keyboard_shortcut->description
+msgid "Keyboard shortcut: "
+msgstr "Atajo de teclado: "
+
+#. 0dyseus@CinnamonTweaks->settings-
+#. schema.json->pref_hotcorners_delay_top_left->description
+msgid "Top left hot corner activation delay"
+msgstr "Retardo de activación para la esquina superior izquierda"
+
+#. 0dyseus@CinnamonTweaks->settings-
+#. schema.json->pref_notifications_position->description
+msgid "Notifications position"
+msgstr "Posición de las notificaciones"
+
+#. 0dyseus@CinnamonTweaks->settings-
+#. schema.json->pref_notifications_position->options
+msgid "Top-right of screen (System default)"
+msgstr "Parte superior derecha de la pantalla (por defecto del sistema)"
+
+#. 0dyseus@CinnamonTweaks->settings-
+#. schema.json->pref_notifications_position->options
+msgid "Bottom-right of screen"
+msgstr "Parte inferior derecha de la pantalla"
+
+#. 0dyseus@CinnamonTweaks->settings-
+#. schema.json->pref_notifications_enable_tweaks->description
+msgid "Enable notifications tweaks"
+msgstr "Habilitar ajustes de notificaciones"
+
+#. 0dyseus@CinnamonTweaks->settings-
+#. schema.json->pref_hotcorners_tweaks_enabled->description
+msgid "Enable Hot Corners tweaks"
+msgstr "Habilitar ajustes de esquinas activas"
 
 #. 0dyseus@CinnamonTweaks->settings-
 #. schema.json->pref_notifications_distance_from_panel->description
@@ -90,33 +207,13 @@ msgstr ""
 "distancia entre el borde superior del panel inferior (si no hay panel inferior, desde la parte "
 "inferior de la pantalla) hasta el borde inferior de la ventana emergente de notificación."
 
-#. 0dyseus@CinnamonTweaks->settings-
-#. schema.json->pref_notifications_distance_from_panel->units
-#. 0dyseus@CinnamonTweaks->settings-
-#. schema.json->pref_notifications_right_margin->units
-msgid "pixels"
-msgstr "pixeles"
+#. 0dyseus@CinnamonTweaks->settings-schema.json->head4->description
+msgid "Hot Corners tweaks"
+msgstr "Ajustes de esquinas activas"
 
-#. 0dyseus@CinnamonTweaks->settings-
-#. schema.json->pref_win_demands_attention_keyboard_shortcut->description
-msgid "Keyboard shortcut: "
-msgstr "Atajo de teclado: "
-
-#. 0dyseus@CinnamonTweaks->settings-
-#. schema.json->pref_ask_confirmation_desklet_removal->description
-msgid "Ask for confirmation on desklet removal"
-msgstr "Pedir confirmación al eliminar desklets"
-
-#. 0dyseus@CinnamonTweaks->settings-
-#. schema.json->pref_ask_confirmation_desklet_removal->tooltip
-#. 0dyseus@CinnamonTweaks->settings-
-#. schema.json->pref_ask_confirmation_applet_removal->tooltip
-msgid ""
-"Display a confirmation dialog on removal.\n"
-"Keeping the Ctrl key pressed will bypass the confirmation."
-msgstr ""
-"Mostrar un diálogo de confirmación al eliminar.\n"
-"Manteniendo pulsada la tecla Ctrl se omitirá el diálogo de confirmación."
+#. 0dyseus@CinnamonTweaks->settings-schema.json->head3->description
+msgid "Window Focus tweaks"
+msgstr "Ajustes de foco de ventanas"
 
 #. 0dyseus@CinnamonTweaks->settings-schema.json->head2->description
 msgid "Notifications tweaks"
@@ -129,26 +226,6 @@ msgstr "Ajustes de desklets"
 #. 0dyseus@CinnamonTweaks->settings-schema.json->head0->description
 msgid "Applets tweaks"
 msgstr "Ajustes de applets"
-
-#. 0dyseus@CinnamonTweaks->settings-
-#. schema.json->pref_notifications_enable_animation->description
-msgid "Enable notifications open/close animation"
-msgstr "Habilitar animación de notificaciones"
-
-#. 0dyseus@CinnamonTweaks->settings-
-#. schema.json->pref_notifications_position->description
-msgid "Notifications position"
-msgstr "Posición de las notificaciones"
-
-#. 0dyseus@CinnamonTweaks->settings-
-#. schema.json->pref_notifications_position->options
-msgid "Top-right of screen (System default)"
-msgstr "Parte superior derecha de la pantalla (por defecto del sistema)"
-
-#. 0dyseus@CinnamonTweaks->settings-
-#. schema.json->pref_notifications_position->options
-msgid "Bottom-right of screen"
-msgstr "Parte inferior derecha de la pantalla"
 
 #. 0dyseus@CinnamonTweaks->settings-
 #. schema.json->pref_win_demands_attention_activation_mode->description
@@ -170,37 +247,8 @@ msgstr "...es manejada por el sistema"
 msgid "...is immediate"
 msgstr "...es inmediata"
 
-#. 0dyseus@CinnamonTweaks->settings-
-#. schema.json->pref_notifications_right_margin->description
-msgid "Notification popup right margin"
-msgstr "Margen derecho del popup de las notificaciones"
-
-#. 0dyseus@CinnamonTweaks->settings-
-#. schema.json->pref_notifications_right_margin->tooltip
-msgid ""
-"By default, the right margin of the notification popup is defined by the currently used theme. "
-"This option, set to any value other than 0 (zero), allows to set a custom right margin, ignoring "
-"the defined by the theme."
-msgstr ""
-"Por defecto, el margen derecho de la notificación es definido por el tema que se usa actualmente. "
-"Esta opción, con un valor distinto de 0 (cero), permite establecer un margen derecho "
-"personalizado, ignorando el definido por el tema."
-
-#. 0dyseus@CinnamonTweaks->settings-
-#. schema.json->pref_ask_confirmation_applet_removal->description
-msgid "Ask for confirmation on applet removal"
-msgstr "Pedir confirmación al eliminar applets"
-
-#. 0dyseus@CinnamonTweaks->settings-
-#. schema.json->pref_notifications_enable_tweaks->description
-msgid "Enable notifications tweaks"
-msgstr "Habilitar ajustes de notificaciones"
-
 #~ msgid "Set the keybinding to activate windows demanding attention: "
 #~ msgstr "Establecer un atajo de teclado para activar ventanas que exigen atención: "
-
-#~ msgid "Choose activation mode"
-#~ msgstr "Seleccionar modo de activación"
 
 #~ msgid "Force windows demanding attention activation."
 #~ msgstr "Forzar la activación de ventanas que demandan atención."
