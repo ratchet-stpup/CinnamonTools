@@ -5,6 +5,7 @@ All this applets/extensions/themes can be installed directly from Cinnamon's app
 #### My Cinnamon Applets
 - **[Custom Cinnamon Menu](https://cinnamon-spices.linuxmint.com/applets/view/264):** A menu for Cinnamon based on the original but more configurable.
 - **[Desktop Handler](https://cinnamon-spices.linuxmint.com/applets/view/263):** Several shortcuts to handle desktop actions.
+- **[Extensions Manager](https://cinnamon-spices.linuxmint.com/applets/view/271):** Allows enabling/disabling extensions (and other tasks) from a menu.
 - **[Quick Menu](https://cinnamon-spices.linuxmint.com/applets/view/260):** Quickly create a menu based on files inside a folder.
 - **[System Monitor (Fork By Odyseus)](https://cinnamon-spices.linuxmint.com/applets/view/262):** Monitor system resources with graphics displayed on the panel.
 - **[Window list (Fork By Odyseus)](https://cinnamon-spices.linuxmint.com/applets/view/261):** A window list applet based on Cinnamon's default with a couple of extra options.
