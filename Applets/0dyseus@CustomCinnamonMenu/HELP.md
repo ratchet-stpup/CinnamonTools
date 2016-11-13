@@ -5,6 +5,15 @@ Never delete any of the files found inside this applet folder. It might break th
 
 ***
 
+### Keyboard navigation
+
+- **Left Arrow**, **Right Arrow**, **Tab** and **Shift + Tab** keys: Cycles through favorites box, applications box and categories box.
+- **Up Arrow** and **Down Arrow** keys: Cycles through menu items in the currently highlighted box.
+- **Page Up** and **Page Down** keys: Jumps to the first and last item of the currently selected box.
+- **Menu** and **Alt + Enter** keys: Opens and closes the context menu (if any) of the currently highlighted menu item.
+- **Enter** key: Executes the currently highlighted menu item.
+- **Escape** key: It closes the main menu. If a context menu is open, it will close the context menu instead and a second tap of this key will close the main menu.
+
 ### Applet localization
 
 - If this applet was installed from Cinnamon Settings, all of these applet's localizations where automatically installed.
@@ -32,15 +41,17 @@ When left clicking an application on the menu, certain key modifiers can be pres
 
 These options are meant for debugging purposes (to see the console output after opening/closing a program to detect possible errors). Instead of opening a terminal to launch a program of which one might not know its command, one can do it directly from the menu and in just one step. Options to run from a terminal an application listed on the menu can be found on the applications context menu and can be hidden/shown from this applet settings window.
 
-By default, these options will use the system's default terminal emulator (**x-terminal-emulator**). Any other terminal emulator can be specified inside the settings window of this applet, as long as said emulator has support for the **-e** argument. I did my tests with **gnome-terminal**, **xterm** and **terminator**. Additional arguments could be passed to the terminal emulator, but it's not supported by me.
+By default, these options will use the system's default terminal emulator (**x-terminal-emulator** on Debian based distros). Any other terminal emulator can be specified inside the settings window of this applet, as long as said emulator has support for the **-e** argument. I did my tests with **gnome-terminal**, **xterm** and **terminator**. Additional arguments could be passed to the terminal emulator, but it's not supported by me.
 
 ***
 
 ### Troubleshooting/extra information
 
-1. If the command **x-terminal-emulator** doesn't run the terminal emulator that one wants to be the default, run the following command to set a different default terminal emulator.
+1. Run from terminal.
+    1. **For Debian based distros:** If the command **x-terminal-emulator** doesn't run the terminal emulator that one wants to be the default, run the following command to set a different default terminal emulator.
     - `sudo update-alternatives --config x-terminal-emulator`
     - Type in the number of the selection and hit enter.
+    2. **For other distros:** Just set the terminal executable of your choice on this applet settings window.
 
 2. There is a file inside this applet directory called **run_from_terminal.sh**. ***Do not remove, rename or edit this file***. Otherwise, all of the *Run from terminal* options will break.
 

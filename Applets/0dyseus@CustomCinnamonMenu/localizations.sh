@@ -12,32 +12,32 @@ echo "$(tput sgr0)$(tput bold)"
 
 PS3="$prompt "
 select opt in "${options[@]}" "Abort"; do
-	case "$REPLY" in
-		1 ) # Install translations
-			echo "$(tput setaf 10)"
-			( set -xv ; cinnamon-json-makepot -i ./po/* )
-			echo "$(tput setaf 9)Remember to restart Cinnamon!!!$(tput sgr0)"
-			echo "$(tput bold)"
-			;;
-		2 ) # Uninstall translations
-			echo "$(tput setaf 9)"
-			( set -xv ; cinnamon-json-makepot -r ./po/* )
-			echo "Remember to restart Cinnamon!!!$(tput sgr0)"
-			echo "$(tput bold)"
-			;;
-		3 ) # Restart Cinnamon
-			echo "$(tput sgr0)"
-			( set -xv ; nohup cinnamon --replace > /dev/null 2>&1 & )
-			break
-			;;
-		$(( ${#options[@]}+1 )) )
-			echo "$(tput setaf 11)Operation cancelled.$(tput sgr0)"
-			break
-			;;
-		* )
-			echo "$(tput setaf 11)Invalid option. Try another one.$(tput sgr0)"
-			echo "$(tput bold)"
-			continue
-			;;
-	esac
+    case "$REPLY" in
+        1 ) # Install translations
+            echo "$(tput setaf 10)"
+            ( set -xv ; cinnamon-json-makepot -i ./po/* )
+            echo "$(tput setaf 9)Remember to restart Cinnamon!!!$(tput sgr0)"
+            echo "$(tput bold)"
+            ;;
+        2 ) # Uninstall translations
+            echo "$(tput setaf 9)"
+            ( set -xv ; cinnamon-json-makepot -r ./po/* )
+            echo "Remember to restart Cinnamon!!!$(tput sgr0)"
+            echo "$(tput bold)"
+            ;;
+        3 ) # Restart Cinnamon
+            echo "$(tput sgr0)"
+            ( set -xv ; nohup cinnamon --replace > /dev/null 2>&1 & )
+            break
+            ;;
+        $(( ${#options[@]}+1 )) )
+            echo "$(tput setaf 11)Operation cancelled.$(tput sgr0)"
+            break
+            ;;
+        * )
+            echo "$(tput setaf 11)Invalid option. Try another one.$(tput sgr0)"
+            echo "$(tput bold)"
+            continue
+            ;;
+    esac
 done
