@@ -4,6 +4,7 @@ import os
 import argparse
 import gettext
 import gi
+import re
 import json
 import subprocess
 import sys
@@ -17,6 +18,28 @@ SETTING_TYPE_INTERNAL = 1
 SETTING_TYPE_EXTERNAL = 2
 curr_ver = subprocess.check_output(["cinnamon", "--version"]).splitlines()[0].split(" ")[1]
 translations = {}
+
+
+def find_extension_subdir(directory):
+    largest = [0]
+    curr_a = curr_ver.split(".")
+
+    for subdir in os.listdir(directory):
+        if not os.path.isdir(os.path.join(directory, subdir)):
+            continue
+
+        if not re.match(r'^[1-9][0-9]*\.[0-9]+(\.[0-9]+)?$', subdir):
+            continue
+
+        subdir_a = subdir.split(".")
+
+        if cmp(subdir_a, curr_a) <= 0 and cmp(largest, subdir_a) <= 0:
+            largest = subdir_a
+
+    if len(largest) == 1:
+        return directory
+    else:
+        return os.path.join(directory, ".".join(largest))
 
 
 def translate(uuid, string):

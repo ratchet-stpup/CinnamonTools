@@ -1,6 +1,6 @@
 ## Extensions Manager applet description
 
-This applet creates a menu with a list of all isntalled extensions in Cinnamon. From each menu item different taks can be performed:
+This applet creates a menu with a list of all installed extensions in Cinnamon. From each menu item different tasks can be performed:
 
 - Enable/Disable the extension
 - Open the extension's settings page
@@ -20,6 +20,10 @@ Spices comments system is absolutely useless to report bugs with any king of leg
 </span>
 
 ## Change Log
+
+##### 1.01
+- Fixed initial detection of extensions with multi version enabled.
+- Removed unnecessary directory.
 
 ##### 1.00
 - Initial release.
