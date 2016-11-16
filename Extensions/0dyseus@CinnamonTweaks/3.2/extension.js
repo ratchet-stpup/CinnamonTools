@@ -22,7 +22,6 @@ const Tooltips = imports.ui.tooltips;
 const St = imports.gi.St;
 
 let $,
-    HotCornerPatched,
     settings,
     metadata,
     allowEnabling = false;
@@ -37,7 +36,6 @@ function _(aStr) {
 
 let IDS = {
     TTP: 0, // CT_TooltipsPatch toggle ID.
-    HCP: 0, // CT_HotCornersPatch toggle ID.
     MTP: 0, // CT_MessageTrayPatch toggle ID.
     DMP: 0, // CT_DeskletManagerPatch toggle ID.
     AMP: 0, // CT_AppletManagerPatch toogle ID.
@@ -72,7 +70,7 @@ function togglePatch(aPatch, aID, aEnabledPref) {
         }
 
         if (!aEnabledPref)
-            return;
+            return true;
 
         IDS[aID] = Mainloop.timeout_add(1000, Lang.bind(aPatch, function() {
             aPatch.enable();
@@ -99,11 +97,30 @@ function informAndDisable() {
     }
 }
 
+function injectToFunction(aParent, aName, aFunc) {
+    let origin = aParent[aName];
+    aParent[aName] = function() {
+        let ret;
+        ret = origin.apply(this, arguments);
+        if (ret === undefined)
+            ret = aFunc.apply(this, arguments);
+        return ret;
+    };
+    return origin;
+}
+
+function removeInjection(aStorage, aInjection, aName) {
+    if (aInjection[aName] === undefined)
+        delete aStorage[aName];
+    else
+        aStorage[aName] = aInjection[aName];
+}
+
 const CT_AppletManagerPatch = {
     enable: function() {
         if (settings.pref_applets_add_open_folder_item_to_context ||
             settings.pref_applets_add_edit_file_item_to_context) {
-            STG.AMP.finalizeContextMenu = $.injectToFunction(Applet.Applet.prototype, "finalizeContextMenu", function() {
+            STG.AMP.finalizeContextMenu = injectToFunction(Applet.Applet.prototype, "finalizeContextMenu", function() {
                 let menuItems = this._applet_context_menu._getMenuItems();
                 let itemsLength = menuItems.length;
                 if (itemsLength > 0) {
@@ -202,7 +219,7 @@ const CT_AppletManagerPatch = {
 
     disable: function() {
         if (STG.AMP.finalizeContextMenu) {
-            $.removeInjection(Applet.Applet.prototype, STG.AMP, "finalizeContextMenu");
+            removeInjection(Applet.Applet.prototype, STG.AMP, "finalizeContextMenu");
         }
         if (STG.AMP._removeAppletFromPanel) {
             AppletManager._removeAppletFromPanel = STG.AMP._removeAppletFromPanel;
@@ -219,7 +236,7 @@ const CT_DeskletManagerPatch = {
     enable: function() {
         if (settings.pref_desklets_add_open_folder_item_to_context ||
             settings.pref_desklets_add_edit_file_item_to_context) {
-            STG.DMP.finalizeContextMenu = $.injectToFunction(Desklet.Desklet.prototype, "finalizeContextMenu", function() {
+            STG.DMP.finalizeContextMenu = injectToFunction(Desklet.Desklet.prototype, "finalizeContextMenu", function() {
                 let menuItems = this._menu._getMenuItems();
                 let itemsLength = menuItems.length;
                 if (itemsLength > 0) {
@@ -315,7 +332,7 @@ const CT_DeskletManagerPatch = {
 
     disable: function() {
         if (STG.DMP.finalizeContextMenu) {
-            $.removeInjection(Desklet.Desklet.prototype, STG.DMP, "finalizeContextMenu");
+            removeInjection(Desklet.Desklet.prototype, STG.DMP, "finalizeContextMenu");
         }
         if (STG.DMP.removeDesklet) {
             DeskletManager.removeDesklet = STG.DMP.removeDesklet;
@@ -546,39 +563,6 @@ const CT_WindowDemandsAttentionBehavior = {
     }
 };
 
-const CT_HotCornersPatch = {
-    enable: function() {
-        if (this.shouldEnable()) {
-            STG.HCP = Main.layoutManager.hotCornerManager;
-            delete Main.layoutManager.hotCornerManager;
-            Main.layoutManager.hotCornerManager = new HotCornerPatched.HotCornerManager({
-                0: settings.pref_hotcorners_delay_top_left,
-                1: settings.pref_hotcorners_delay_top_right,
-                2: settings.pref_hotcorners_delay_bottom_left,
-                3: settings.pref_hotcorners_delay_bottom_right
-            });
-            Main.layoutManager._updateHotCorners();
-            global.settings.connect("changed::overview-corner", Lang.bind(this, this.toggle));
-        } else
-            dealWithRejection();
-    },
-
-    disable: function() {
-        if (STG.HCP) {
-            Main.layoutManager.hotCornerManager = STG.HCP;
-            delete STG.HCP;
-        }
-    },
-
-    toggle: function() {
-        togglePatch(CT_HotCornersPatch, "HCP", settings.pref_hotcorners_tweaks_enabled);
-    },
-
-    shouldEnable: function() {
-        return $.versionCompare(CINNAMON_VERSION, "3.0.7") <= 0;
-    }
-};
-
 const CT_TooltipsPatch = {
     enable: function() {
         if (this.shouldEnable("delay")) {
@@ -607,39 +591,6 @@ const CT_TooltipsPatch = {
                 };
             }
         }
-
-        if (this.shouldEnable("positioning")) {
-            if (settings.pref_tooltips_alignment) {
-                this.desktop_settings = new Gio.Settings({
-                    schema_id: DESKTOP_SCHEMA
-                });
-
-                STG.TTP.show = Tooltips.Tooltip.show;
-                Tooltips.Tooltip.prototype["show"] = function() {
-                    if (this._tooltip.get_text() === "")
-                        return;
-
-                    let tooltipWidth = this._tooltip.get_allocation_box().x2 -
-                        this._tooltip.get_allocation_box().x1;
-
-                    let monitor = Main.layoutManager.findMonitorForActor(this.item);
-
-                    let cursorSize = CT_TooltipsPatch.desktop_settings.get_int(CURSOR_SIZE_KEY);
-                    let tooltipTop = this.mousePosition[1] + (cursorSize / 1.5);
-                    var tooltipLeft = this.mousePosition[0] + (cursorSize / 2);
-
-                    tooltipLeft = Math.max(tooltipLeft, monitor.x);
-                    tooltipLeft = Math.min(tooltipLeft, monitor.x + monitor.width - tooltipWidth);
-
-                    this._tooltip.set_position(tooltipLeft, tooltipTop);
-
-                    this._tooltip.show();
-                    this._tooltip.raise_top();
-                    this.visible = true;
-                };
-            }
-        } else
-            dealWithRejection();
     },
 
     disable: function() {
@@ -717,24 +668,12 @@ SettingsHandler.prototype = {
             ["pref_notifications_right_margin", CT_MessageTrayPatch.toggle],
             ["pref_win_demands_attention_activation_mode", CT_WindowDemandsAttentionBehavior.toggle],
             ["pref_win_demands_attention_keyboard_shortcut", CT_WindowDemandsAttentionBehavior.toggle],
-            ["pref_hotcorners_tweaks_enabled", CT_HotCornersPatch.toggle],
-            ["pref_hotcorners_delay_top_left", CT_HotCornersPatch.toggle],
-            ["pref_hotcorners_delay_top_right", CT_HotCornersPatch.toggle],
-            ["pref_hotcorners_delay_bottom_left", CT_HotCornersPatch.toggle],
-            ["pref_hotcorners_delay_bottom_right", CT_HotCornersPatch.toggle],
             ["pref_tooltips_tweaks_enabled", CT_TooltipsPatch.toggle],
-            ["pref_tooltips_alignment", CT_TooltipsPatch.toggle],
             ["pref_tooltips_delay", CT_TooltipsPatch.toggle],
             ["pref_initial_load", null],
         ];
-        let bindingDirection = Settings.BindingDirection.BIDIRECTIONAL || null;
-        let bindingType = this.settings.hasOwnProperty("bind");
         for (let [property_name, callback] of settingsArray) {
-            if (bindingType)
-                this.settings.bind(property_name, property_name, callback);
-            else
-                this.settings.bindProperty(bindingDirection, property_name,
-                    property_name, callback, null);
+            this.settings.bind(property_name, property_name, callback);
         }
     }
 };
@@ -746,16 +685,30 @@ function init(aExtensionMeta) {
     metadata = aExtensionMeta;
     settings = new SettingsHandler(metadata.uuid);
     Gettext.bindtextdomain(metadata.uuid, GLib.get_home_dir() + "/.local/share/locale");
-
-    let extensionImports = imports.ui.extensionSystem.extensions[metadata.uuid];
-    $ = extensionImports.extensionModules;
-    HotCornerPatched = extensionImports.hotCornerPatched;
+    let extension_dir = metadata.path;
+    let main_extension_dir = extension_dir;
 
     try {
-        allowEnabling = $.versionCompare(CINNAMON_VERSION, "2.8.6") >= 0;
-    } catch (aErr) {
-        global.logError(aErr.message);
-        allowEnabling = false;
+        // Use the main_extension_dir directory for imports shared by all
+        // supported Cinnamon versions.
+        // If I use just extension_dir, I would be forced to put the
+        // files to be imported repeatedly inside each version folder. ¬¬
+        let regExp = new RegExp("(" + metadata.uuid + ")$", "g");
+        if (!regExp.test(main_extension_dir)) {
+            let tempFile = Gio.file_new_for_path(main_extension_dir);
+            main_extension_dir = tempFile.get_parent().get_path();
+        }
+    } finally {
+        imports.searchPath.push(main_extension_dir);
+
+        $ = imports.extensionModules;
+
+        try {
+            allowEnabling = $.versionCompare(CINNAMON_VERSION, "2.8.6") >= 0;
+        } catch (aErr) {
+            global.logError(aErr.message);
+            allowEnabling = false;
+        }
     }
 }
 
@@ -794,13 +747,6 @@ function enable() {
         }
 
         try {
-            if (settings.pref_hotcorners_tweaks_enabled)
-                CT_HotCornersPatch.enable();
-        } catch (aErr) {
-            global.logError(aErr.message);
-        }
-
-        try {
             if (settings.pref_tooltips_tweaks_enabled)
                 CT_TooltipsPatch.enable();
         } catch (aErr) {
@@ -832,6 +778,5 @@ function disable() {
     CT_DeskletManagerPatch.disable();
     CT_MessageTrayPatch.disable();
     CT_WindowDemandsAttentionBehavior.disable();
-    CT_HotCornersPatch.disable();
     CT_TooltipsPatch.disable();
 }

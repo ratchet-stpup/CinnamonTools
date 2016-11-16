@@ -6,10 +6,10 @@
 msgid ""
 msgstr ""
 
-"Project-Id-Version: 1.02\n"
+"Project-Id-Version: 1.03\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-21 15:10-0300\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"POT-Creation-Date: 2016-10-21 14:53-0300\n"
+"PO-Revision-Date: 2016-11-16 09:46-0300\n"
 "Last-Translator: Odyseus <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -17,38 +17,411 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: \n"
 
-#: extension.js:83
+
+#: 3.2/extension.js:60 extension.js:62
+msgid "Tweak ativation aborted!!!"
+msgstr ""
+
+#: 3.2/extension.js:61 3.2/extension.js:88 extension.js:63 extension.js:90
+msgid "Your Cinnamon version may not be compatible!!!"
+msgstr ""
+
+#: 3.2/extension.js:87 extension.js:89
+msgid "Extension ativation aborted!!!"
+msgstr ""
+
+#: 3.2/extension.js:89 extension.js:91
+msgid "Minimum Cinnamon version allowed: 2.8.6"
+msgstr ""
+
+#: 3.2/extension.js:155 extension.js:138
+msgid "Open applet folder"
+msgstr ""
+
+#: 3.2/extension.js:167 extension.js:150
+msgid "Edit applet main file"
+msgstr ""
+
+#: 3.2/extension.js:212 extension.js:195
 #, javascript-format
 msgid ""
 "Do you want to remove '%s' from your panel?\n"
 "Instance ID: %s"
 msgstr ""
 
-#: extension.js:85 extension.js:135
+#: 3.2/extension.js:214 3.2/extension.js:327 extension.js:197 extension.js:310
 msgid "OK"
 msgstr ""
 
-#: extension.js:86 extension.js:136
+#: 3.2/extension.js:215 3.2/extension.js:328 extension.js:198 extension.js:311
 msgid "Cancel"
 msgstr ""
 
-#: extension.js:133
+#: 3.2/extension.js:271 extension.js:254
+msgid "Open desklet folder"
+msgstr ""
+
+#: 3.2/extension.js:283 extension.js:266
+msgid "Edit desklet main file"
+msgstr ""
+
+#: 3.2/extension.js:325 extension.js:308
 #, javascript-format
 msgid ""
 "Do you want to remove '%s' from your desktop?\n"
 "Instance ID: %s"
 msgstr ""
 
-#: extension.js:469
-msgid "Extension ativation aborted!!!\n"
+#: 3.2/extension.js:757 extension.js:811
+msgid ""
+"If you updated this extension from an older version, <b>you must check its "
+"settings window</b>."
 msgstr ""
 
-#: extension.js:470
-msgid "Your Cinnamon version may not be compatible!!!\n"
+#: 3.2/extension.js:758 extension.js:812
+msgid "Some preferences may have been changed to their default values."
 msgstr ""
 
-#: extension.js:471
-msgid "Minimum Cinnamon version allowed: 2.8.6"
+#: 3.2/extension.js:759 extension.js:813
+msgid "This message will not be displayed again."
+msgstr ""
+
+#: hotCornerPatched.js:43
+msgid "Invalid overview options: Incorrect number of corners"
+msgstr ""
+
+#. 3.2->settings-
+#. schema.json->pref_applets_add_open_folder_item_to_context_placement->description
+#. 3.2->settings-
+#. schema.json->pref_desklets_add_open_folder_item_to_context_placement->description
+#. 3.2->settings-
+#. schema.json->pref_desklets_add_edit_file_item_to_context_placement->description
+#. 3.2->settings-
+#. schema.json->pref_applets_add_edit_file_item_to_context_placement->description
+#. 0dyseus@CinnamonTweaks->settings-
+#. schema.json->pref_applets_add_open_folder_item_to_context_placement->description
+#. 0dyseus@CinnamonTweaks->settings-
+#. schema.json->pref_desklets_add_open_folder_item_to_context_placement->description
+#. 0dyseus@CinnamonTweaks->settings-
+#. schema.json->pref_desklets_add_edit_file_item_to_context_placement->description
+#. 0dyseus@CinnamonTweaks->settings-
+#. schema.json->pref_applets_add_edit_file_item_to_context_placement->description
+msgid "(*) Where to place the menu item?"
+msgstr ""
+
+#. 3.2->settings-
+#. schema.json->pref_applets_add_open_folder_item_to_context_placement->options
+#. 3.2->settings-
+#. schema.json->pref_desklets_add_open_folder_item_to_context_placement->options
+#. 3.2->settings-
+#. schema.json->pref_desklets_add_edit_file_item_to_context_placement->options
+#. 3.2->settings-
+#. schema.json->pref_applets_add_edit_file_item_to_context_placement->options
+#. 0dyseus@CinnamonTweaks->settings-
+#. schema.json->pref_applets_add_open_folder_item_to_context_placement->options
+#. 0dyseus@CinnamonTweaks->settings-
+#. schema.json->pref_desklets_add_open_folder_item_to_context_placement->options
+#. 0dyseus@CinnamonTweaks->settings-
+#. schema.json->pref_desklets_add_edit_file_item_to_context_placement->options
+#. 0dyseus@CinnamonTweaks->settings-
+#. schema.json->pref_applets_add_edit_file_item_to_context_placement->options
+msgid "Before \"Configure...\" item"
+msgstr ""
+
+#. 3.2->settings-
+#. schema.json->pref_applets_add_open_folder_item_to_context_placement->options
+#. 3.2->settings-
+#. schema.json->pref_desklets_add_open_folder_item_to_context_placement->options
+#. 3.2->settings-
+#. schema.json->pref_desklets_add_edit_file_item_to_context_placement->options
+#. 3.2->settings-
+#. schema.json->pref_applets_add_edit_file_item_to_context_placement->options
+#. 0dyseus@CinnamonTweaks->settings-
+#. schema.json->pref_applets_add_open_folder_item_to_context_placement->options
+#. 0dyseus@CinnamonTweaks->settings-
+#. schema.json->pref_desklets_add_open_folder_item_to_context_placement->options
+#. 0dyseus@CinnamonTweaks->settings-
+#. schema.json->pref_desklets_add_edit_file_item_to_context_placement->options
+#. 0dyseus@CinnamonTweaks->settings-
+#. schema.json->pref_applets_add_edit_file_item_to_context_placement->options
+msgid "Last item on menu"
+msgstr ""
+
+#. 3.2->settings-
+#. schema.json->pref_applets_add_open_folder_item_to_context_placement->options
+#. 3.2->settings-
+#. schema.json->pref_desklets_add_open_folder_item_to_context_placement->options
+#. 3.2->settings-
+#. schema.json->pref_desklets_add_edit_file_item_to_context_placement->options
+#. 3.2->settings-
+#. schema.json->pref_applets_add_edit_file_item_to_context_placement->options
+#. 0dyseus@CinnamonTweaks->settings-
+#. schema.json->pref_applets_add_open_folder_item_to_context_placement->options
+#. 0dyseus@CinnamonTweaks->settings-
+#. schema.json->pref_desklets_add_open_folder_item_to_context_placement->options
+#. 0dyseus@CinnamonTweaks->settings-
+#. schema.json->pref_desklets_add_edit_file_item_to_context_placement->options
+#. 0dyseus@CinnamonTweaks->settings-
+#. schema.json->pref_applets_add_edit_file_item_to_context_placement->options
+msgid "Before \"About...\" item"
+msgstr ""
+
+#. 3.2->settings-
+#. schema.json->pref_applets_add_open_folder_item_to_context_placement->options
+#. 3.2->settings-
+#. schema.json->pref_desklets_add_open_folder_item_to_context_placement->options
+#. 3.2->settings-
+#. schema.json->pref_desklets_add_edit_file_item_to_context_placement->options
+#. 3.2->settings-
+#. schema.json->pref_applets_add_edit_file_item_to_context_placement->options
+#. 0dyseus@CinnamonTweaks->settings-
+#. schema.json->pref_applets_add_open_folder_item_to_context_placement->options
+#. 0dyseus@CinnamonTweaks->settings-
+#. schema.json->pref_desklets_add_open_folder_item_to_context_placement->options
+#. 0dyseus@CinnamonTweaks->settings-
+#. schema.json->pref_desklets_add_edit_file_item_to_context_placement->options
+#. 0dyseus@CinnamonTweaks->settings-
+#. schema.json->pref_applets_add_edit_file_item_to_context_placement->options
+msgid "Before \"Remove...\" item"
+msgstr ""
+
+#. 3.2->settings-schema.json->pref_tooltips_tweaks_enabled->description
+#. 0dyseus@CinnamonTweaks->settings-
+#. schema.json->pref_tooltips_tweaks_enabled->description
+msgid "Enable Tooltips tweaks"
+msgstr ""
+
+#. 3.2->settings-schema.json->pref_tooltips_tweaks_enabled->tooltip
+#. 0dyseus@CinnamonTweaks->settings-
+#. schema.json->pref_tooltips_tweaks_enabled->tooltip
+msgid "These tweaks affect only Cinnamon's UI tooltips."
+msgstr ""
+
+#. 3.2->settings-
+#. schema.json->pref_desklets_add_open_folder_item_to_context->description
+#. 0dyseus@CinnamonTweaks->settings-
+#. schema.json->pref_desklets_add_open_folder_item_to_context->description
+msgid "(*) Display \"Open desklet folder\" on context menu for desklets"
+msgstr ""
+
+#. 3.2->settings-
+#. schema.json->pref_applets_add_edit_file_item_to_context->description
+#. 0dyseus@CinnamonTweaks->settings-
+#. schema.json->pref_applets_add_edit_file_item_to_context->description
+msgid "(*) Display \"Edit applet main file\" on context menu for applets"
+msgstr ""
+
+#. 3.2->settings-schema.json->pref_applets_tweaks_enabled->description
+#. 0dyseus@CinnamonTweaks->settings-
+#. schema.json->pref_applets_tweaks_enabled->description
+msgid "Enable Applets tweaks"
+msgstr ""
+
+#. 3.2->settings-schema.json->pref_notifications_enable_animation->description
+#. 0dyseus@CinnamonTweaks->settings-
+#. schema.json->pref_notifications_enable_animation->description
+msgid "Enable notifications open/close animation"
+msgstr ""
+
+#. 3.2->settings-schema.json->label0->description
+#. 0dyseus@CinnamonTweaks->settings-schema.json->head00->description
+msgid ""
+"After changing any option marked with asterisks (*), Cinnamon needs to be "
+"restarted."
+msgstr ""
+
+#. 3.2->settings-schema.json->pref_notifications_right_margin->description
+#. 0dyseus@CinnamonTweaks->settings-
+#. schema.json->pref_notifications_right_margin->description
+msgid "Notification popup right margin"
+msgstr ""
+
+#. 3.2->settings-schema.json->pref_notifications_right_margin->tooltip
+#. 0dyseus@CinnamonTweaks->settings-
+#. schema.json->pref_notifications_right_margin->tooltip
+msgid ""
+"By default, the right margin of the notification popup is defined by the "
+"currently used theme. This option, set to any value other than 0 (zero), "
+"allows to set a custom right margin, ignoring the defined by the theme."
+msgstr ""
+
+#. 3.2->settings-schema.json->pref_notifications_right_margin->units
+#. 3.2->settings-schema.json->pref_notifications_distance_from_panel->units
+#. 0dyseus@CinnamonTweaks->settings-
+#. schema.json->pref_notifications_right_margin->units
+#. 0dyseus@CinnamonTweaks->settings-
+#. schema.json->pref_notifications_distance_from_panel->units
+msgid "pixels"
+msgstr ""
+
+#. 3.2->settings-
+#. schema.json->pref_win_demands_attention_keyboard_shortcut->description
+#. 0dyseus@CinnamonTweaks->settings-
+#. schema.json->pref_win_demands_attention_keyboard_shortcut->description
+msgid "Keyboard shortcut: "
+msgstr ""
+
+#. 3.2->settings-schema.json->pref_desklets_tweaks_enabled->description
+#. 0dyseus@CinnamonTweaks->settings-
+#. schema.json->pref_desklets_tweaks_enabled->description
+msgid "Enable Desklets tweaks"
+msgstr ""
+
+#. 3.2->settings-schema.json->head5->description
+#. 0dyseus@CinnamonTweaks->settings-schema.json->head5->description
+msgid "Tooltips tweaks"
+msgstr ""
+
+#. 3.2->settings-schema.json->pref_notifications_position->description
+#. 0dyseus@CinnamonTweaks->settings-
+#. schema.json->pref_notifications_position->description
+msgid "Notifications position"
+msgstr ""
+
+#. 3.2->settings-schema.json->pref_notifications_position->options
+#. 0dyseus@CinnamonTweaks->settings-
+#. schema.json->pref_notifications_position->options
+msgid "Top-right of screen (System default)"
+msgstr ""
+
+#. 3.2->settings-schema.json->pref_notifications_position->options
+#. 0dyseus@CinnamonTweaks->settings-
+#. schema.json->pref_notifications_position->options
+msgid "Bottom-right of screen"
+msgstr ""
+
+#. 3.2->settings-
+#. schema.json->pref_applets_add_open_folder_item_to_context->description
+#. 0dyseus@CinnamonTweaks->settings-
+#. schema.json->pref_applets_add_open_folder_item_to_context->description
+msgid "(*) Display \"Open applet folder\" on context menu for applets"
+msgstr ""
+
+#. 3.2->settings-
+#. schema.json->pref_desklets_ask_confirmation_desklet_removal->description
+#. 0dyseus@CinnamonTweaks->settings-
+#. schema.json->pref_desklets_ask_confirmation_desklet_removal->description
+msgid "Ask for confirmation on desklet removal"
+msgstr ""
+
+#. 3.2->settings-
+#. schema.json->pref_desklets_ask_confirmation_desklet_removal->tooltip
+#. 3.2->settings-
+#. schema.json->pref_applets_ask_confirmation_applet_removal->tooltip
+#. 0dyseus@CinnamonTweaks->settings-
+#. schema.json->pref_desklets_ask_confirmation_desklet_removal->tooltip
+#. 0dyseus@CinnamonTweaks->settings-
+#. schema.json->pref_applets_ask_confirmation_applet_removal->tooltip
+msgid ""
+"Display a confirmation dialog on removal.\n"
+"Keeping the Ctrl key pressed will bypass the confirmation."
+msgstr ""
+
+#. 3.2->settings-schema.json->pref_notifications_enable_tweaks->description
+#. 0dyseus@CinnamonTweaks->settings-
+#. schema.json->pref_notifications_enable_tweaks->description
+msgid "Enable notifications tweaks"
+msgstr ""
+
+#. 3.2->settings-
+#. schema.json->pref_applets_ask_confirmation_applet_removal->description
+#. 0dyseus@CinnamonTweaks->settings-
+#. schema.json->pref_applets_ask_confirmation_applet_removal->description
+msgid "Ask for confirmation on applet removal"
+msgstr ""
+
+#. 3.2->settings-schema.json->head2->description
+#. 0dyseus@CinnamonTweaks->settings-schema.json->head2->description
+msgid "Notifications tweaks"
+msgstr ""
+
+#. 3.2->settings-
+#. schema.json->pref_notifications_distance_from_panel->description
+#. 0dyseus@CinnamonTweaks->settings-
+#. schema.json->pref_notifications_distance_from_panel->description
+msgid "Distance from panel"
+msgstr ""
+
+#. 3.2->settings-schema.json->pref_notifications_distance_from_panel->tooltip
+#. 0dyseus@CinnamonTweaks->settings-
+#. schema.json->pref_notifications_distance_from_panel->tooltip
+msgid ""
+"For notifications displayed at the top-right of screen: this is the distance between the bottom border of the top panel (if no top panel, from the top of the screen) to the top border of the notification popup.\n"
+"For notifications displayed at the bottom-right of screen: this is the distance between the top border of the bottom panel (if no bottom panel, from the bottom of the screen) to the bottom border of the notification popup."
+msgstr ""
+
+#. 3.2->settings-schema.json->head3->description
+#. 0dyseus@CinnamonTweaks->settings-schema.json->head3->description
+msgid "Window Focus tweaks"
+msgstr ""
+
+#. 3.2->settings-
+#. schema.json->pref_desklets_add_edit_file_item_to_context->description
+#. 0dyseus@CinnamonTweaks->settings-
+#. schema.json->pref_desklets_add_edit_file_item_to_context->description
+msgid "(*) Display \"Edit desklet main file\" on context menu for desklets"
+msgstr ""
+
+#. 3.2->settings-schema.json->head1->description
+#. 0dyseus@CinnamonTweaks->settings-schema.json->head1->description
+msgid "Desklets tweaks"
+msgstr ""
+
+#. 3.2->settings-schema.json->head0->description
+#. 0dyseus@CinnamonTweaks->settings-schema.json->head0->description
+msgid "Applets tweaks"
+msgstr ""
+
+#. 3.2->settings-
+#. schema.json->pref_win_demands_attention_activation_mode->description
+#. 0dyseus@CinnamonTweaks->settings-
+#. schema.json->pref_win_demands_attention_activation_mode->description
+msgid "The activation of windows demanding attention..."
+msgstr ""
+
+#. 3.2->settings-
+#. schema.json->pref_win_demands_attention_activation_mode->options
+#. 0dyseus@CinnamonTweaks->settings-
+#. schema.json->pref_win_demands_attention_activation_mode->options
+msgid "...is performed with a keyboard shortcut"
+msgstr ""
+
+#. 3.2->settings-
+#. schema.json->pref_win_demands_attention_activation_mode->options
+#. 0dyseus@CinnamonTweaks->settings-
+#. schema.json->pref_win_demands_attention_activation_mode->options
+msgid "...is handled by the system"
+msgstr ""
+
+#. 3.2->settings-
+#. schema.json->pref_win_demands_attention_activation_mode->options
+#. 0dyseus@CinnamonTweaks->settings-
+#. schema.json->pref_win_demands_attention_activation_mode->options
+msgid "...is immediate"
+msgstr ""
+
+#. 3.2->settings-schema.json->pref_tooltips_delay->description
+#. 0dyseus@CinnamonTweaks->settings-
+#. schema.json->pref_tooltips_delay->description
+msgid "(*) Tooltips show delay"
+msgstr ""
+
+#. 3.2->settings-schema.json->pref_tooltips_delay->tooltip
+#. 0dyseus@CinnamonTweaks->settings-schema.json->pref_tooltips_delay->tooltip
+msgid "Set a delay in milliseconds to display Cinnamon's UI tooltips."
+msgstr ""
+
+#. 3.2->settings-schema.json->pref_tooltips_delay->units
+#. 0dyseus@CinnamonTweaks->settings-
+#. schema.json->pref_hotcorners_delay_bottom_left->units
+#. 0dyseus@CinnamonTweaks->settings-
+#. schema.json->pref_hotcorners_delay_top_left->units
+#. 0dyseus@CinnamonTweaks->settings-
+#. schema.json->pref_hotcorners_delay_bottom_right->units
+#. 0dyseus@CinnamonTweaks->settings-
+#. schema.json->pref_hotcorners_delay_top_right->units
+#. 0dyseus@CinnamonTweaks->settings-schema.json->pref_tooltips_delay->units
+msgid "milliseconds"
 msgstr ""
 
 #. 0dyseus@CinnamonTweaks->metadata.json->name
@@ -60,89 +433,19 @@ msgid "Several tweaks for Cinnamon."
 msgstr ""
 
 #. 0dyseus@CinnamonTweaks->settings-
-#. schema.json->pref_hotcorners_delay_top_right->description
-msgid "Top right hot corner activation delay"
-msgstr ""
-
-#. 0dyseus@CinnamonTweaks->settings-
-#. schema.json->pref_hotcorners_delay_top_right->tooltip
-#. 0dyseus@CinnamonTweaks->settings-
-#. schema.json->pref_hotcorners_delay_bottom_left->tooltip
-#. 0dyseus@CinnamonTweaks->settings-
-#. schema.json->pref_hotcorners_delay_bottom_right->tooltip
-#. 0dyseus@CinnamonTweaks->settings-
-#. schema.json->pref_hotcorners_delay_top_left->tooltip
-msgid "Set a delay in milliseconds to activate this hot corner."
-msgstr ""
-
-#. 0dyseus@CinnamonTweaks->settings-
-#. schema.json->pref_hotcorners_delay_top_right->units
-#. 0dyseus@CinnamonTweaks->settings-
-#. schema.json->pref_hotcorners_delay_bottom_left->units
-#. 0dyseus@CinnamonTweaks->settings-
-#. schema.json->pref_hotcorners_delay_bottom_right->units
-#. 0dyseus@CinnamonTweaks->settings-
-#. schema.json->pref_hotcorners_delay_top_left->units
-msgid "milliseconds"
-msgstr ""
-
-#. 0dyseus@CinnamonTweaks->settings-
-#. schema.json->pref_ask_confirmation_desklet_removal->description
-msgid "Ask for confirmation on desklet removal"
-msgstr ""
-
-#. 0dyseus@CinnamonTweaks->settings-
-#. schema.json->pref_ask_confirmation_desklet_removal->tooltip
-#. 0dyseus@CinnamonTweaks->settings-
-#. schema.json->pref_ask_confirmation_applet_removal->tooltip
-msgid ""
-"Display a confirmation dialog on removal.\n"
-"Keeping the Ctrl key pressed will bypass the confirmation."
-msgstr ""
-
-#. 0dyseus@CinnamonTweaks->settings-
 #. schema.json->pref_hotcorners_delay_bottom_left->description
 msgid "Bottom left hot corner activation delay"
 msgstr ""
 
 #. 0dyseus@CinnamonTweaks->settings-
-#. schema.json->pref_hotcorners_delay_bottom_right->description
-msgid "Bottom right hot corner activation delay"
-msgstr ""
-
+#. schema.json->pref_hotcorners_delay_bottom_left->tooltip
 #. 0dyseus@CinnamonTweaks->settings-
-#. schema.json->pref_notifications_enable_animation->description
-msgid "Enable notifications open/close animation"
-msgstr ""
-
+#. schema.json->pref_hotcorners_delay_top_left->tooltip
 #. 0dyseus@CinnamonTweaks->settings-
-#. schema.json->pref_ask_confirmation_applet_removal->description
-msgid "Ask for confirmation on applet removal"
-msgstr ""
-
+#. schema.json->pref_hotcorners_delay_bottom_right->tooltip
 #. 0dyseus@CinnamonTweaks->settings-
-#. schema.json->pref_notifications_right_margin->description
-msgid "Notification popup right margin"
-msgstr ""
-
-#. 0dyseus@CinnamonTweaks->settings-
-#. schema.json->pref_notifications_right_margin->tooltip
-msgid ""
-"By default, the right margin of the notification popup is defined by the "
-"currently used theme. This option, set to any value other than 0 (zero), "
-"allows to set a custom right margin, ignoring the defined by the theme."
-msgstr ""
-
-#. 0dyseus@CinnamonTweaks->settings-
-#. schema.json->pref_notifications_right_margin->units
-#. 0dyseus@CinnamonTweaks->settings-
-#. schema.json->pref_notifications_distance_from_panel->units
-msgid "pixels"
-msgstr ""
-
-#. 0dyseus@CinnamonTweaks->settings-
-#. schema.json->pref_win_demands_attention_keyboard_shortcut->description
-msgid "Keyboard shortcut: "
+#. schema.json->pref_hotcorners_delay_top_right->tooltip
+msgid "Set a delay in milliseconds to activate this hot corner."
 msgstr ""
 
 #. 0dyseus@CinnamonTweaks->settings-
@@ -151,78 +454,35 @@ msgid "Top left hot corner activation delay"
 msgstr ""
 
 #. 0dyseus@CinnamonTweaks->settings-
-#. schema.json->pref_notifications_position->description
-msgid "Notifications position"
-msgstr ""
-
-#. 0dyseus@CinnamonTweaks->settings-
-#. schema.json->pref_notifications_position->options
-msgid "Top-right of screen (System default)"
-msgstr ""
-
-#. 0dyseus@CinnamonTweaks->settings-
-#. schema.json->pref_notifications_position->options
-msgid "Bottom-right of screen"
-msgstr ""
-
-#. 0dyseus@CinnamonTweaks->settings-
-#. schema.json->pref_notifications_enable_tweaks->description
-msgid "Enable notifications tweaks"
-msgstr ""
-
-#. 0dyseus@CinnamonTweaks->settings-
 #. schema.json->pref_hotcorners_tweaks_enabled->description
 msgid "Enable Hot Corners tweaks"
 msgstr ""
 
 #. 0dyseus@CinnamonTweaks->settings-
-#. schema.json->pref_notifications_distance_from_panel->description
-msgid "Distance from panel"
+#. schema.json->pref_hotcorners_delay_bottom_right->description
+msgid "Bottom right hot corner activation delay"
 msgstr ""
 
 #. 0dyseus@CinnamonTweaks->settings-
-#. schema.json->pref_notifications_distance_from_panel->tooltip
+#. schema.json->pref_tooltips_alignment->description
+msgid "(*) Avoid mouse pointers overlapping tooltips"
+msgstr ""
+
+#. 0dyseus@CinnamonTweaks->settings-
+#. schema.json->pref_tooltips_alignment->tooltip
 msgid ""
-"For notifications displayed at the top-right of screen: this is the distance between the bottom border of the top panel (if no top panel, from the top of the screen) to the top border of the notification popup.\n"
-"For notifications displayed at the bottom-right of screen: this is the distance between the top border of the bottom panel (if no bottom panel, from the bottom of the screen) to the bottom border of the notification popup."
+"Tooltips on Cinnamon's UI are aligned to the top-left corner of the mouse "
+"pointer. This leads to having tooltips overlapped by the mouse pointer. This"
+" tweak aligns the tooltip to the bottom-right corner of the mouse pointer "
+"(approximately), reducing the possibility of the mouse pointer to overlap "
+"the tooltip."
 msgstr ""
 
 #. 0dyseus@CinnamonTweaks->settings-schema.json->head4->description
 msgid "Hot Corners tweaks"
 msgstr ""
 
-#. 0dyseus@CinnamonTweaks->settings-schema.json->head3->description
-msgid "Window Focus tweaks"
-msgstr ""
-
-#. 0dyseus@CinnamonTweaks->settings-schema.json->head2->description
-msgid "Notifications tweaks"
-msgstr ""
-
-#. 0dyseus@CinnamonTweaks->settings-schema.json->head1->description
-msgid "Desklets tweaks"
-msgstr ""
-
-#. 0dyseus@CinnamonTweaks->settings-schema.json->head0->description
-msgid "Applets tweaks"
-msgstr ""
-
 #. 0dyseus@CinnamonTweaks->settings-
-#. schema.json->pref_win_demands_attention_activation_mode->description
-msgid "The activation of windows demanding attention..."
-msgstr ""
-
-#. 0dyseus@CinnamonTweaks->settings-
-#. schema.json->pref_win_demands_attention_activation_mode->options
-msgid "...is performed with a keyboard shortcut"
-msgstr ""
-
-#. 0dyseus@CinnamonTweaks->settings-
-#. schema.json->pref_win_demands_attention_activation_mode->options
-msgid "...is handled by the system"
-msgstr ""
-
-#. 0dyseus@CinnamonTweaks->settings-
-#. schema.json->pref_win_demands_attention_activation_mode->options
-msgid "...is immediate"
+#. schema.json->pref_hotcorners_delay_top_right->description
+msgid "Top right hot corner activation delay"
 msgstr ""
