@@ -149,28 +149,32 @@ const CT_AppletManagerPatch = {
                         return pos;
                     });
 
-                    if (settings.pref_applets_add_open_folder_item_to_context) {
+                    if (settings.pref_applets_add_open_folder_item_to_context &&
+                        !this.context_menu_item_custom_open_folder) {
                         let position = getPosition(settings.pref_applets_add_open_folder_item_to_context_placement);
-                        let item = new PopupMenu.PopupIconMenuItem(
+                        this.context_menu_item_custom_open_folder = new PopupMenu.PopupIconMenuItem(
                             _("Open applet folder"),
                             "folder",
                             St.IconType.SYMBOLIC);
-                        item.connect("activate", Lang.bind(this, function() {
-                            Util.spawnCommandLine("xdg-open " + this._meta["path"]);
-                        }));
-                        this._applet_context_menu.addMenuItem(item, position);
+                        this.context_menu_item_custom_open_folder.connect("activate",
+                            Lang.bind(this, function() {
+                                Util.spawnCommandLine("xdg-open " + this._meta["path"]);
+                            }));
+                        this._applet_context_menu.addMenuItem(this.context_menu_item_custom_open_folder, position);
                     }
 
-                    if (settings.pref_applets_add_edit_file_item_to_context) {
+                    if (settings.pref_applets_add_edit_file_item_to_context &&
+                        !this.context_menu_item_custom_edit_file) {
                         let position = getPosition(settings.pref_applets_add_edit_file_item_to_context_placement);
-                        let item = new PopupMenu.PopupIconMenuItem(
+                        this.context_menu_item_custom_edit_file = new PopupMenu.PopupIconMenuItem(
                             _("Edit applet main file"),
                             "text-editor",
                             St.IconType.SYMBOLIC);
-                        item.connect("activate", Lang.bind(this, function() {
-                            Util.spawnCommandLine("xdg-open " + this._meta["path"] + "/applet.js");
-                        }));
-                        this._applet_context_menu.addMenuItem(item, position);
+                        this.context_menu_item_custom_edit_file.connect("activate",
+                            Lang.bind(this, function() {
+                                Util.spawnCommandLine("xdg-open " + this._meta["path"] + "/applet.js");
+                            }));
+                        this._applet_context_menu.addMenuItem(this.context_menu_item_custom_edit_file, position);
                     }
                 }
             });
@@ -265,28 +269,30 @@ const CT_DeskletManagerPatch = {
                         return pos;
                     });
 
-                    if (settings.pref_desklets_add_open_folder_item_to_context) {
+                    if (settings.pref_desklets_add_open_folder_item_to_context &&
+                        this.context_menu_item_custom_open_folder) {
                         let position = getPosition(settings.pref_desklets_add_open_folder_item_to_context_placement);
-                        let item = new PopupMenu.PopupIconMenuItem(
+                        this.context_menu_item_custom_open_folder = new PopupMenu.PopupIconMenuItem(
                             _("Open desklet folder"),
                             "folder",
                             St.IconType.SYMBOLIC);
-                        item.connect("activate", Lang.bind(this, function() {
+                        this.context_menu_item_custom_open_folder.connect("activate", Lang.bind(this, function() {
                             Util.spawnCommandLine("xdg-open " + this._meta["path"]);
                         }));
-                        this._menu.addMenuItem(item, position);
+                        this._menu.addMenuItem(this.context_menu_item_custom_open_folder, position);
                     }
 
-                    if (settings.pref_desklets_add_edit_file_item_to_context) {
+                    if (settings.pref_desklets_add_edit_file_item_to_context &&
+                        !this.context_menu_item_custom_edit_file) {
                         let position = getPosition(settings.pref_desklets_add_edit_file_item_to_context_placement);
-                        let item = new PopupMenu.PopupIconMenuItem(
+                        this.context_menu_item_custom_edit_file = new PopupMenu.PopupIconMenuItem(
                             _("Edit desklet main file"),
                             "text-editor",
                             St.IconType.SYMBOLIC);
-                        item.connect("activate", Lang.bind(this, function() {
+                        this.context_menu_item_custom_edit_file.connect("activate", Lang.bind(this, function() {
                             Util.spawnCommandLine("xdg-open " + this._meta["path"] + "/desklet.js");
                         }));
-                        this._menu.addMenuItem(item, position);
+                        this._menu.addMenuItem(this.context_menu_item_custom_edit_file, position);
                     }
                 }
             });

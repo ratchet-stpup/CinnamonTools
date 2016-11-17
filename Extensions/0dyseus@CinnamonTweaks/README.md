@@ -25,6 +25,9 @@ Spices comments system is absolutely useless to report bugs with any king of leg
 
 ## Change Log
 
+##### 1.04
+- Fixed duplication of context menu items after moving an applet in panel edit mode.
+
 ##### 1.03
 - Added **Tooltips** tweaks (affect only Cinnamon's UI tooltips).
     - The tooltips can have a custom show delay (system default is 300 milliseconds).
