@@ -59,6 +59,11 @@ Spices comments system is absolutely useless to report bugs with any king of leg
 
 **Note:** Upstream fixes/features are changes made to the original Cinnamon Menu applet that I ported to this applet.
 
+##### 1.14
+- Added option to toggle category selection on hover.
+- Fixed error when trying to set the **run_from_terminal.sh** file as executable.
+- Removed unnecessary folder.
+
 ##### 1.13
 - Enabled multi version support to take advantage of the new settings system for xlets on Cinnamon 3.2.
 - Fixed favorites box scaling.

@@ -2,10 +2,17 @@
 
 **Note:** Upstream fixes/features are changes made to the original Cinnamon Menu applet that I ported to this applet.
 
+##### 1.14
+- Added option to toggle category selection on hover.
+- Fixed error when trying to set the **run_from_terminal.sh** file as executable.
+- Removed unnecessary folder.
+
 ##### 1.13
+- Enabled multi version support to take advantage of the new settings system for xlets on Cinnamon 3.2.
 - Fixed favorites box scaling.
 - Added possibility to display tooltips for all items in the menu (applications, favorites, recent files and places).
-- Added keyboard navigation for context menu.
+- Added option to cap the maximum width of menu items inside the applications box.
+- [Upstream fix] Added keyboard navigation for context menu.
 - [Upstream fix] Greatly improved keyboard navigation.
 - [Upstream fix] Recent files that are no longer available will be hidden or will display a warning.
 - General improvements.

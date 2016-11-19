@@ -104,6 +104,7 @@
                 "pref_display_favorites_as_category_menu",
                 "pref_hide_applications_list_scrollbar",
                 "pref_swap_categories_box",
+                "pref_cat_select_on_hover",
                 "pref_cat_hover_delay",
                 "pref_appinfo_display_method",
                 "pref_privilege_elevator",
@@ -479,6 +480,12 @@
         "default": false,
         "description": "Swap categories box",
         "tooltip": "By default, the categories box is to the left of the applications list. With this option enabled, the categories box will be placed to the right of the applications list."
+    },
+    "pref_cat_select_on_hover": {
+        "type": "switch",
+        "default": true,
+        "description": "Select categories on hover (EXPERIMENTAL)",
+        "tooltip": "If disabled, categories can be selected by clicking on them instead of just hovering."
     },
     "pref_cat_hover_delay": {
         "type": "spinbutton",
