@@ -159,8 +159,10 @@ ApplicationContextMenuItem.prototype = {
                 let destFile = Gio.file_new_for_path(USER_DESKTOP_PATH + "/" + this._appButton.app.get_id());
                 try {
                     file.copy(destFile, 0, null, function() {});
-                    // Need to find a way to do that using the Gio library, but modifying the access::can-execute attribute on the file object seems unsupported
-                    Util.spawnCommandLine("chmod +x \"" + USER_DESKTOP_PATH + "/" + this._appButton.app.get_id() + "\"");
+                    if (FileUtils.hasOwnProperty("changeModeGFile"))
+                        FileUtils.changeModeGFile(destFile, 755);
+                    else
+                        Util.spawnCommandLine("chmod +x \"" + USER_DESKTOP_PATH + "/" + this._appButton.app.get_id() + "\"");
                 } catch (e) {
                     global.log(e);
                 }
@@ -463,7 +465,7 @@ GenericApplicationButton.prototype = {
                 menuItem = new ApplicationContextMenuItem(this,
                     _("Add to desktop"),
                     "add_to_desktop",
-                    "list-add");
+                    "computer");
                 menuItem._tooltip.set_text(_("Add this application to the Desktop."));
                 this.menu.addMenuItem(menuItem);
             }
@@ -473,7 +475,7 @@ GenericApplicationButton.prototype = {
                 menuItem = new ApplicationContextMenuItem(this,
                     _("Remove from favorites"),
                     "remove_from_favorites",
-                    "edit-delete");
+                    "non-starred");
                 menuItem._tooltip.set_text(_("Remove application from your favorites."));
                 this.menu.addMenuItem(menuItem);
             } else {
@@ -482,7 +484,7 @@ GenericApplicationButton.prototype = {
                 menuItem = new ApplicationContextMenuItem(this,
                     _("Add to favorites"),
                     "add_to_favorites",
-                    "list-add");
+                    "starred");
                 menuItem._tooltip.set_text(_("Add application to your favorites."));
                 this.menu.addMenuItem(menuItem);
             }
@@ -503,7 +505,7 @@ GenericApplicationButton.prototype = {
                 menuItem = new ApplicationContextMenuItem(this,
                     _("Run with nVidia GPU"),
                     "run_with_nvidia_gpu",
-                    "nvidia-settings");
+                    "custom-entypo-swarm");
                 menuItem._tooltip.set_text(_("Run application through optirun command (Bumblebee)."));
                 this.menu.addMenuItem(menuItem);
             }
@@ -519,7 +521,7 @@ GenericApplicationButton.prototype = {
                 menuItem = new ApplicationContextMenuItem(this,
                     _("Edit .desktop file"),
                     "open_with_text_editor",
-                    "document-open");
+                    "custom-entypo-edit");
                 menuItem._tooltip.set_text(_("Edit this application .desktop file with a text editor."));
                 this.menu.addMenuItem(menuItem);
             }

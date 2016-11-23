@@ -67,6 +67,7 @@
             "title": "Appearance",
             "sections": [
                 "section_save_button_full",
+                "section_appearance_buttons_width",
                 "section_appearance_icon_sizes",
                 "section_appearance_favorites_box",
                 "section_appearance_boxes_padding",
@@ -104,6 +105,7 @@
                 "pref_display_favorites_as_category_menu",
                 "pref_hide_applications_list_scrollbar",
                 "pref_swap_categories_box",
+                "pref_use_alternate_vector_box",
                 "pref_cat_select_on_hover",
                 "pref_cat_hover_delay",
                 "pref_appinfo_display_method",
@@ -280,11 +282,17 @@
             ]
         },
 
+        "section_appearance_buttons_width": {
+            "type": "section",
+            "title": "Buttons width",
+            "keys": [
+                "pref_max_width_for_buttons"
+            ]
+        },
         "section_appearance_icon_sizes": {
             "type": "section",
             "title": "Icon sizes",
             "keys": [
-                "pref_max_width_for_buttons",
                 "pref_max_fav_icon_size",
                 "pref_category_icon_size",
                 "pref_application_icon_size",
@@ -449,6 +457,12 @@
         "default": false,
         "description": "Enable fuzzy search (EXPERIMENTAL)",
         "tooltip": "This option enables an infinitelly better sorting of search results. It's marked as experimental because it has a huge impact on performance every time the search box is cleared."
+    },
+    "pref_use_alternate_vector_box": {
+        "type": "checkbox",
+        "default": false,
+        "description": "Use alternate category selection method (EXPERIMENTAL)",
+        "tooltip": "With this option enabled, an alternate method to select categories will be used. This method can improve the performance of the menu and is extracted from the applet called Configurable Menu by lestcape."
     },
     "pref_disable_new_apps_highlighting": {
         "type": "switch",

@@ -126,6 +126,12 @@
         "description": "Enable fuzzy search (EXPERIMENTAL)",
         "tooltip": ""
     },
+    "pref_use_alternate_vector_box": {
+        "type": "checkbox",
+        "default": false,
+        "description": "Use alternate category selection method (EXPERIMENTAL)",
+        "tooltip": "With this option enabled, an alternate method to select categories will be used. This method can improve the performance of the menu and is extracted from the applet called Configurable Menu by lestcape."
+    },
     "pref_disable_new_apps_highlighting": {
         "type": "checkbox",
         "default": true,

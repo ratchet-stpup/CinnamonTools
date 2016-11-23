@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-11-19 10:31-0300\n"
+"POT-Creation-Date: 2016-11-23 18:31-0300\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Odyseus\n"
 "Language-Team: \n"
@@ -21,207 +21,207 @@ msgstr ""
 msgid "Menu"
 msgstr "Menú"
 
-#: applet.js:1565 3.2/applet.js:1565
+#: applet.js:1665 3.2/applet.js:1665
 msgid "This file is no longer available"
 msgstr "Este archivo ya no está disponible"
 
 #. NOTE: This string could be left blank because it's a default string,
 #. so it's already translated by Cinnamon. It's up to the translators.
-#: applet.js:1596 3.2/applet.js:1596
+#: applet.js:1696 3.2/applet.js:1696
 msgid "No recent documents"
 msgstr "Sin documentos recientes"
 
-#: applet.js:1718 3.2/applet.js:1718
+#: applet.js:1818 3.2/applet.js:1818
 msgid "No recent applications"
 msgstr "Sin aplicaciones recientes"
 
-#: applet.js:1808 3.2/applet.js:1808
+#: applet.js:1905 3.2/applet.js:1905
 msgid "Favorites"
 msgstr "Favoritos"
 
 #. NOTE: This string could be left blank because it's a default string,
 #. so it's already translated by Cinnamon. It's up to the translators.
-#: applet.js:2172 applet.js:2730 3.2/applet.js:2172 3.2/applet.js:2730
+#: applet.js:2260 applet.js:2818 3.2/applet.js:2260 3.2/applet.js:2818
 msgid "Lock screen"
 msgstr "Bloquear pantalla"
 
 #. NOTE: This string could be left blank because it's a default string,
 #. so it's already translated by Cinnamon. It's up to the translators.
-#: applet.js:2175 applet.js:2729 3.2/applet.js:2175 3.2/applet.js:2729
+#: applet.js:2263 applet.js:2817 3.2/applet.js:2263 3.2/applet.js:2817
 msgid "Lock the screen"
 msgstr "Bloquear la pantalla"
 
 #. NOTE: This string could be left blank because it's a default string,
 #. so it's already translated by Cinnamon. It's up to the translators.
-#: applet.js:2208 applet.js:2759 3.2/applet.js:2208 3.2/applet.js:2759
+#: applet.js:2296 applet.js:2847 3.2/applet.js:2296 3.2/applet.js:2847
 msgid "Logout"
 msgstr "Cerrar sesión"
 
 #. NOTE: This string could be left blank because it's a default string,
 #. so it's already translated by Cinnamon. It's up to the translators.
-#: applet.js:2211 applet.js:2758 3.2/applet.js:2211 3.2/applet.js:2758
+#: applet.js:2299 applet.js:2846 3.2/applet.js:2299 3.2/applet.js:2846
 msgid "Leave the session"
 msgstr "Cerrar la sesión"
 
 #. NOTE: This string could be left blank because it's a default string,
 #. so it's already translated by Cinnamon. It's up to the translators.
-#: applet.js:2231 applet.js:2775 3.2/applet.js:2231 3.2/applet.js:2775
+#: applet.js:2319 applet.js:2863 3.2/applet.js:2319 3.2/applet.js:2863
 msgid "Quit"
 msgstr "Salir"
 
 #. NOTE: This string could be left blank because it's a default string,
 #. so it's already translated by Cinnamon. It's up to the translators.
-#: applet.js:2234 applet.js:2774 3.2/applet.js:2234 3.2/applet.js:2774
+#: applet.js:2322 applet.js:2862 3.2/applet.js:2322 3.2/applet.js:2862
 msgid "Shutdown the computer"
 msgstr "Apagar el equipo"
 
 #. NOTE: This string could be left blank because it's a default string,
 #. so it's already translated by Cinnamon. It's up to the translators.
-#: applet.js:2485 3.2/applet.js:2485
+#: applet.js:2573 3.2/applet.js:2573
 msgid "Type to search..."
 msgstr "Escriba para buscar..."
 
 #. NOTE: This string could be left blank because it's a default string,
 #. so it's already translated by Cinnamon. It's up to the translators.
-#: applet.js:2791 3.2/applet.js:2791
+#: applet.js:2879 3.2/applet.js:2879
 msgid "Open the menu editor"
 msgstr "Abrir el editor de menús"
 
-#: applet.js:2796 3.2/applet.js:2796
+#: applet.js:2884 3.2/applet.js:2884
 msgid "Help"
 msgstr "Ayuda"
 
 #. NOTE: This string could be left blank because it's a default string,
 #. so it's already translated by Cinnamon. It's up to the translators.
-#: appletModules.js:182
+#: appletModules.js:184
 msgid "Please provide your password to uninstall this application"
 msgstr "Por favor, proporcione su contraseña para desinstalar esta aplicación."
 
-#: appletModules.js:454
+#: appletModules.js:456
 msgid "Add to panel"
 msgstr "Añadir al panel"
 
-#: appletModules.js:457
+#: appletModules.js:459
 msgid "Add this application to the Panel launchers applet."
 msgstr "Agregar esta aplicación a los Lanzadores del panel."
 
-#: appletModules.js:464
+#: appletModules.js:466
 msgid "Add to desktop"
 msgstr "Añadir al escritorio"
 
-#: appletModules.js:467
+#: appletModules.js:469
 msgid "Add this application to the Desktop."
 msgstr "Agregar un acceso directo a esta aplicación en el Escritorio."
 
-#: appletModules.js:474
+#: appletModules.js:476
 msgid "Remove from favorites"
 msgstr "Quitar de favoritos"
 
-#: appletModules.js:477
+#: appletModules.js:479
 msgid "Remove application from your favorites."
 msgstr "Quitar aplicación de favoritos."
 
-#: appletModules.js:483
+#: appletModules.js:485
 msgid "Add to favorites"
 msgstr "Añadir a favoritos"
 
-#: appletModules.js:486
+#: appletModules.js:488
 msgid "Add application to your favorites."
 msgstr "Añadir esta aplicación a los favoritos."
 
-#: appletModules.js:494
+#: appletModules.js:496
 msgid "Uninstall"
 msgstr "Desinstalar"
 
-#: appletModules.js:497
+#: appletModules.js:499
 msgid "Uninstall application from your system."
 msgstr "Desinstalar aplicación de su sistema."
 
-#: appletModules.js:504
+#: appletModules.js:506
 msgid "Run with nVidia GPU"
 msgstr "Ejecutar con GPU nVidia"
 
-#: appletModules.js:507
+#: appletModules.js:509
 msgid "Run application through optirun command (Bumblebee)."
 msgstr "Ejecutar aplicación a través del comando optirun (Bumblebee)."
 
-#: appletModules.js:512
+#: appletModules.js:514
 msgid "Run as root"
 msgstr "Ejecutar como root"
 
-#: appletModules.js:515
+#: appletModules.js:517
 msgid "Run application as root."
 msgstr "Ejecutar esta aplicación como root."
 
-#: appletModules.js:520
+#: appletModules.js:522
 msgid "Edit .desktop file"
 msgstr "Editar archivo .desktop"
 
-#: appletModules.js:523
+#: appletModules.js:525
 msgid "Edit this application .desktop file with a text editor."
 msgstr "Editar el archivo .desktop de esta aplicación con un editor de textos."
 
-#: appletModules.js:528
+#: appletModules.js:530
 msgid "Open .desktop file folder"
 msgstr "Abrir carpeta del archivo .desktop"
 
-#: appletModules.js:531
+#: appletModules.js:533
 msgid "Open the folder containg this application .desktop file."
 msgstr "Abrir la carpeta que contiene el archivo .desktop de esta aplicación."
 
-#: appletModules.js:537
+#: appletModules.js:539
 msgid "Run from terminal"
 msgstr "Ejecutar desde terminal"
 
-#: appletModules.js:540
+#: appletModules.js:542
 msgid "Run application from a terminal."
 msgstr "Ejecutar aplicación desde una terminal."
 
-#: appletModules.js:546
+#: appletModules.js:548
 msgid "Run from terminal as root"
 msgstr "Ejecutar desde terminal como root"
 
-#: appletModules.js:549
+#: appletModules.js:551
 msgid "Run application from a terminal as root."
 msgstr "Ejecutar aplicación desde una terminal como root."
 
 #. NOTE: This string could be left blank because it's a default string,
 #. so it's already translated by Cinnamon. It's up to the translators.
-#: appletModules.js:1059
+#: appletModules.js:1061
 msgid "Open with"
 msgstr "Abrir con"
 
 #. NOTE: This string could be left blank because it's a default string,
 #. so it's already translated by Cinnamon. It's up to the translators.
-#: appletModules.js:1111
+#: appletModules.js:1113
 msgid "Other application..."
 msgstr "Otra aplicación..."
 
 #. NOTE: This string could be left blank because it's a default string,
 #. so it's already translated by Cinnamon. It's up to the translators.
-#: appletModules.js:1206 appletModules.js:1257
+#: appletModules.js:1208 appletModules.js:1259
 msgid "Clear list"
 msgstr "Borrar lista"
 
 #. NOTE: This string could be left blank because it's a default string,
 #. so it's already translated by Cinnamon. It's up to the translators.
-#: appletModules.js:1336
+#: appletModules.js:1338
 msgid "All Applications"
 msgstr "Todas las aplicaciones"
 
 #. NOTE: This string could be left blank because it's a default string,
 #. so it's already translated by Cinnamon. It's up to the translators.
-#: appletModules.js:1384
+#: appletModules.js:1386
 msgid "Places"
 msgstr "Lugares"
 
 #. NOTE: This string could be left blank because it's a default string,
 #. so it's already translated by Cinnamon. It's up to the translators.
-#: appletModules.js:1424
+#: appletModules.js:1426
 msgid "Recent Files"
 msgstr "Archivos recientes"
 
-#: appletModules.js:1858
+#: appletModules.js:1860
 msgid "Recent Applications"
 msgstr "Aplicaciones recientes"
 
@@ -699,6 +699,10 @@ msgstr ""
 "La mayoría de las preferencias no son guardadas automáticamente.\n"
 "Presionar cualquiera de los botones \"Click aquí para guardar preferencias\" para guardarlas."
 
+#. 3.2->settings-schema.json->section_appearance_buttons_width->title
+msgid "Buttons width"
+msgstr "Ancho de botones"
+
 #. 3.2->settings-schema.json->section_appearance_favorites_box->title
 #. 0dyseus@CustomCinnamonMenu->settings-schema.json->appearance2->description
 msgid "Favorites box"
@@ -804,12 +808,26 @@ msgstr "Introduzca un texto personalizado para mostrar en el panel."
 msgid "Box bottom padding:"
 msgstr "Espacio inferior:"
 
-#. 3.2->settings-
-#. schema.json->pref_apps_info_box_alignment_to_the_left->description
+#. 3.2->settings-schema.json->pref_menu_hover_delay->description
 #. 0dyseus@CustomCinnamonMenu->settings-
-#. schema.json->pref_apps_info_box_alignment_to_the_left->description
-msgid "Align application info box text to the left"
-msgstr "Alinear el texto del cuadro de información sobre las aplicaciones a la izquierda"
+#. schema.json->pref_menu_hover_delay->description
+msgid "Menu hover delay:"
+msgstr "Tiempo de espera para abrir el menú:"
+
+#. 3.2->settings-schema.json->pref_menu_hover_delay->tooltip
+#. 0dyseus@CustomCinnamonMenu->settings-
+#. schema.json->pref_menu_hover_delay->tooltip
+msgid "Delay before the menu is opened on entering the applet."
+msgstr "Tiempo de espera para abrir el menú al ingresar al applet."
+
+#. 3.2->settings-schema.json->pref_menu_hover_delay->units
+#. 3.2->settings-schema.json->pref_cat_hover_delay->units
+#. 0dyseus@CustomCinnamonMenu->settings-
+#. schema.json->pref_menu_hover_delay->units
+#. 0dyseus@CustomCinnamonMenu->settings-
+#. schema.json->pref_cat_hover_delay->units
+msgid "milliseconds"
+msgstr "milisegundos"
 
 #. 3.2->settings-schema.json->pref_hide_uninstall_on_context->description
 #. 0dyseus@CustomCinnamonMenu->settings-
@@ -1025,26 +1043,12 @@ msgstr "aplicaciones"
 msgid "Show \"Shutdown\" button"
 msgstr "Mostrar botón \"Apagar\""
 
-#. 3.2->settings-schema.json->pref_menu_hover_delay->description
+#. 3.2->settings-
+#. schema.json->pref_apps_info_box_alignment_to_the_left->description
 #. 0dyseus@CustomCinnamonMenu->settings-
-#. schema.json->pref_menu_hover_delay->description
-msgid "Menu hover delay:"
-msgstr "Tiempo de espera para abrir el menú:"
-
-#. 3.2->settings-schema.json->pref_menu_hover_delay->tooltip
-#. 0dyseus@CustomCinnamonMenu->settings-
-#. schema.json->pref_menu_hover_delay->tooltip
-msgid "Delay before the menu is opened on entering the applet."
-msgstr "Tiempo de espera para abrir el menú al ingresar al applet."
-
-#. 3.2->settings-schema.json->pref_menu_hover_delay->units
-#. 3.2->settings-schema.json->pref_cat_hover_delay->units
-#. 0dyseus@CustomCinnamonMenu->settings-
-#. schema.json->pref_menu_hover_delay->units
-#. 0dyseus@CustomCinnamonMenu->settings-
-#. schema.json->pref_cat_hover_delay->units
-msgid "milliseconds"
-msgstr "milisegundos"
+#. schema.json->pref_apps_info_box_alignment_to_the_left->description
+msgid "Align application info box text to the left"
+msgstr "Alinear el texto del cuadro de información sobre las aplicaciones a la izquierda"
 
 #. 3.2->settings-schema.json->custom_launchers_label->description
 msgid ""
@@ -1210,6 +1214,24 @@ msgstr "Mostrar \"Ejecutar desde terminal como root\" en el menú contextual"
 #. schema.json->pref_overlay_key->description
 msgid "Keyboard shortcut to open and close the menu"
 msgstr "Atajo de teclado para abrir el menú"
+
+#. 3.2->settings-schema.json->pref_use_alternate_vector_box->description
+#. 0dyseus@CustomCinnamonMenu->settings-
+#. schema.json->pref_use_alternate_vector_box->description
+msgid "Use alternate category selection method (EXPERIMENTAL)"
+msgstr "Usar método alternativo para seleccionar categorías (EXPERIMENTAL)"
+
+#. 3.2->settings-schema.json->pref_use_alternate_vector_box->tooltip
+#. 0dyseus@CustomCinnamonMenu->settings-
+#. schema.json->pref_use_alternate_vector_box->tooltip
+msgid ""
+"With this option enabled, an alternate method to select categories will be used. This method can "
+"improve the performance of the menu and is extracted from the applet called Configurable Menu by "
+"lestcape."
+msgstr ""
+"Con esta opción activada, se utilizará un método alternativo para seleccionar categorías. Este "
+"método puede mejorar el rendimiento del menú y ha sido extraído del applet llamado Configurable "
+"Menu, creado por lestcape."
 
 #. 3.2->settings-schema.json->pref_show_lock_button->description
 #. 0dyseus@CustomCinnamonMenu->settings-

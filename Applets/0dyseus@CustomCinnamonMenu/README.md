@@ -52,12 +52,18 @@ Spices comments system is absolutely useless to report bugs with any king of leg
 ## Known issues
 - When enabled, the option **Display separator after "Recent Applications" category** will break the menu keyboard navigation. I was planning on removing this option all together, but I opted for keeping it and put a warning on the settings window until I figure out how to fix it.
 
-## Contributors
+## Contributors/Mentions
 - [NikoKrause](https://github.com/NikoKrause): Bug fixes.
+- Some icons used by this menu are from [Entypo pictograms](www.entypo.com) by Daniel Bruce.
 
 ## Change Log
 
 **Note:** Upstream fixes/features are changes made to the original Cinnamon Menu applet that I ported to this applet.
+
+##### 1.15
+- Added option to choose an alternate method for selecting categories. This method is based on **lestcape**'s [Configurable Menu applet](https://github.com/lestcape/Configurable-Menu) and it might improve the menu performance while selecting categories.
+- Updated some context menu icons to be less generic. Thanks to [NikoKrause](https://github.com/NikoKrause).
+- [Upstream fix] Various keyboard navigation fixes.
 
 ##### 1.14
 - Added option to toggle category selection on hover.
