@@ -6,10 +6,10 @@
 msgid ""
 msgstr ""
 
-"Project-Id-Version: 1.03\n"
+"Project-Id-Version: 1.05\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-10-21 14:53-0300\n"
-"PO-Revision-Date: 2016-11-16 09:46-0300\n"
+"PO-Revision-Date: 2016-11-25 02:51-0300\n"
 "Last-Translator: Odyseus <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -17,72 +17,71 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: \n"
 
-
-#: 3.2/extension.js:60 extension.js:62
+#: 3.2/extension.js:64 extension.js:67
 msgid "Tweak ativation aborted!!!"
 msgstr ""
 
-#: 3.2/extension.js:61 3.2/extension.js:88 extension.js:63 extension.js:90
+#: 3.2/extension.js:65 3.2/extension.js:92 extension.js:68 extension.js:95
 msgid "Your Cinnamon version may not be compatible!!!"
 msgstr ""
 
-#: 3.2/extension.js:87 extension.js:89
+#: 3.2/extension.js:91 extension.js:94
 msgid "Extension ativation aborted!!!"
 msgstr ""
 
-#: 3.2/extension.js:89 extension.js:91
+#: 3.2/extension.js:93 extension.js:96
 msgid "Minimum Cinnamon version allowed: 2.8.6"
 msgstr ""
 
-#: 3.2/extension.js:155 extension.js:138
+#: 3.2/extension.js:141 extension.js:144
 msgid "Open applet folder"
 msgstr ""
 
-#: 3.2/extension.js:167 extension.js:150
+#: 3.2/extension.js:155 extension.js:158
 msgid "Edit applet main file"
 msgstr ""
 
-#: 3.2/extension.js:212 extension.js:195
+#: 3.2/extension.js:201 extension.js:204
 #, javascript-format
 msgid ""
 "Do you want to remove '%s' from your panel?\n"
 "Instance ID: %s"
 msgstr ""
 
-#: 3.2/extension.js:214 3.2/extension.js:327 extension.js:197 extension.js:310
+#: 3.2/extension.js:203 3.2/extension.js:318 extension.js:206 extension.js:321
 msgid "OK"
 msgstr ""
 
-#: 3.2/extension.js:215 3.2/extension.js:328 extension.js:198 extension.js:311
+#: 3.2/extension.js:204 3.2/extension.js:319 extension.js:207 extension.js:322
 msgid "Cancel"
 msgstr ""
 
-#: 3.2/extension.js:271 extension.js:254
+#: 3.2/extension.js:261 extension.js:264
 msgid "Open desklet folder"
 msgstr ""
 
-#: 3.2/extension.js:283 extension.js:266
+#: 3.2/extension.js:274 extension.js:277
 msgid "Edit desklet main file"
 msgstr ""
 
-#: 3.2/extension.js:325 extension.js:308
+#: 3.2/extension.js:316 extension.js:319
 #, javascript-format
 msgid ""
 "Do you want to remove '%s' from your desktop?\n"
 "Instance ID: %s"
 msgstr ""
 
-#: 3.2/extension.js:757 extension.js:811
+#: 3.2/extension.js:993 extension.js:1069
 msgid ""
 "If you updated this extension from an older version, <b>you must check its "
 "settings window</b>."
 msgstr ""
 
-#: 3.2/extension.js:758 extension.js:812
+#: 3.2/extension.js:994 extension.js:1070
 msgid "Some preferences may have been changed to their default values."
 msgstr ""
 
-#: 3.2/extension.js:759 extension.js:813
+#: 3.2/extension.js:995 extension.js:1071
 msgid "This message will not be displayed again."
 msgstr ""
 
@@ -197,11 +196,10 @@ msgstr ""
 msgid "These tweaks affect only Cinnamon's UI tooltips."
 msgstr ""
 
-#. 3.2->settings-
-#. schema.json->pref_desklets_add_open_folder_item_to_context->description
+#. 3.2->settings-schema.json->pref_desktop_tweaks_enabled->description
 #. 0dyseus@CinnamonTweaks->settings-
-#. schema.json->pref_desklets_add_open_folder_item_to_context->description
-msgid "(*) Display \"Open desklet folder\" on context menu for desklets"
+#. schema.json->pref_desktop_tweaks_enabled->description
+msgid "Enable Desktop tweaks"
 msgstr ""
 
 #. 3.2->settings-
@@ -209,6 +207,59 @@ msgstr ""
 #. 0dyseus@CinnamonTweaks->settings-
 #. schema.json->pref_applets_add_edit_file_item_to_context->description
 msgid "(*) Display \"Edit applet main file\" on context menu for applets"
+msgstr ""
+
+#. 3.2->settings-schema.json->restart_cinnamon_button->description
+msgid "Restart Cinnamon"
+msgstr ""
+
+#. 3.2->settings-schema.json->section_desklets_tweaks->title
+#. 0dyseus@CinnamonTweaks->settings-schema.json->head1->description
+msgid "Desklets tweaks"
+msgstr ""
+
+#. 3.2->settings-schema.json->section_tooltips_tweaks->title
+#. 0dyseus@CinnamonTweaks->settings-schema.json->head5->description
+msgid "Tooltips tweaks"
+msgstr ""
+
+#. 3.2->settings-schema.json->section_restart_cinnamon->title
+msgid ""
+"After changing any option marked with asterisks (*), Cinnamon needs to be "
+"restarted."
+msgstr ""
+
+#. 3.2->settings-schema.json->section_applets_tweaks->title
+#. 0dyseus@CinnamonTweaks->settings-schema.json->head0->description
+msgid "Applets tweaks"
+msgstr ""
+
+#. 3.2->settings-schema.json->section_notifications_tweaks->title
+#. 0dyseus@CinnamonTweaks->settings-schema.json->head2->description
+msgid "Notifications tweaks"
+msgstr ""
+
+#. 3.2->settings-schema.json->section_win_focus_tweaks->title
+#. 0dyseus@CinnamonTweaks->settings-schema.json->head3->description
+msgid "Window Focus tweaks"
+msgstr ""
+
+#. 3.2->settings-schema.json->page_02->title
+msgid "Page 2"
+msgstr ""
+
+#. 3.2->settings-schema.json->page_01->title
+msgid "Page 1"
+msgstr ""
+
+#. 3.2->settings-schema.json->section_desktop_tweaks->title
+#. 0dyseus@CinnamonTweaks->settings-schema.json->head6->description
+msgid "Desktop tweaks"
+msgstr ""
+
+#. 3.2->settings-schema.json->section_popups_tweaks->title
+#. 0dyseus@CinnamonTweaks->settings-schema.json->head7->description
+msgid "Popup menus tweaks"
 msgstr ""
 
 #. 3.2->settings-schema.json->pref_applets_tweaks_enabled->description
@@ -221,13 +272,6 @@ msgstr ""
 #. 0dyseus@CinnamonTweaks->settings-
 #. schema.json->pref_notifications_enable_animation->description
 msgid "Enable notifications open/close animation"
-msgstr ""
-
-#. 3.2->settings-schema.json->label0->description
-#. 0dyseus@CinnamonTweaks->settings-schema.json->head00->description
-msgid ""
-"After changing any option marked with asterisks (*), Cinnamon needs to be "
-"restarted."
 msgstr ""
 
 #. 3.2->settings-schema.json->pref_notifications_right_margin->description
@@ -265,11 +309,6 @@ msgstr ""
 #. 0dyseus@CinnamonTweaks->settings-
 #. schema.json->pref_desklets_tweaks_enabled->description
 msgid "Enable Desklets tweaks"
-msgstr ""
-
-#. 3.2->settings-schema.json->head5->description
-#. 0dyseus@CinnamonTweaks->settings-schema.json->head5->description
-msgid "Tooltips tweaks"
 msgstr ""
 
 #. 3.2->settings-schema.json->pref_notifications_position->description
@@ -330,9 +369,49 @@ msgstr ""
 msgid "Ask for confirmation on applet removal"
 msgstr ""
 
-#. 3.2->settings-schema.json->head2->description
-#. 0dyseus@CinnamonTweaks->settings-schema.json->head2->description
-msgid "Notifications tweaks"
+#. 3.2->settings-
+#. schema.json->pref_popup_menu_manager_tweaks_enabled->description
+#. 0dyseus@CinnamonTweaks->settings-
+#. schema.json->pref_popup_menu_manager_tweaks_enabled->description
+msgid "Enable Popup menus tweaks"
+msgstr ""
+
+#. 3.2->settings-
+#. schema.json->pref_popup_menu_manager_applets_menus_behavior->description
+#. 0dyseus@CinnamonTweaks->settings-
+#. schema.json->pref_popup_menu_manager_applets_menus_behavior->description
+msgid "(*) Panel menus behavior"
+msgstr ""
+
+#. 3.2->settings-
+#. schema.json->pref_popup_menu_manager_applets_menus_behavior->tooltip
+#. 0dyseus@CinnamonTweaks->settings-
+#. schema.json->pref_popup_menu_manager_applets_menus_behavior->tooltip
+msgid ""
+"This setting affects only the behavior of menus that belongs to applets placed on any panel.\n"
+"Emulate Gnome Shell behavior: When a menu is open on Genome Shell, and then the mouse cursor is moved to another button on the top panel, the menu of the hovered buttons will automatically open without the need to click on them. With this option enabled, that same behavior can be reproduced on Cinnamon.\n"
+"Don't eat clicks: By default, when one opens an applet's menu on Cinnamon and then click on another applet to open its menu, the first click is used to close the first opened menu, and then another click has to be performed to open the menu of the second applet. With this option enabled, one can directly open the menu of any applet even if another applet has its menu open."
+msgstr ""
+
+#. 3.2->settings-
+#. schema.json->pref_popup_menu_manager_applets_menus_behavior->options
+#. 0dyseus@CinnamonTweaks->settings-
+#. schema.json->pref_popup_menu_manager_applets_menus_behavior->options
+msgid "Emulate Gnome Shell menus"
+msgstr ""
+
+#. 3.2->settings-
+#. schema.json->pref_popup_menu_manager_applets_menus_behavior->options
+#. 0dyseus@CinnamonTweaks->settings-
+#. schema.json->pref_popup_menu_manager_applets_menus_behavior->options
+msgid "Don't \"eat\" clicks"
+msgstr ""
+
+#. 3.2->settings-
+#. schema.json->pref_popup_menu_manager_applets_menus_behavior->options
+#. 0dyseus@CinnamonTweaks->settings-
+#. schema.json->pref_popup_menu_manager_applets_menus_behavior->options
+msgid "Default behavior"
 msgstr ""
 
 #. 3.2->settings-
@@ -350,9 +429,20 @@ msgid ""
 "For notifications displayed at the bottom-right of screen: this is the distance between the top border of the bottom panel (if no bottom panel, from the bottom of the screen) to the bottom border of the notification popup."
 msgstr ""
 
-#. 3.2->settings-schema.json->head3->description
-#. 0dyseus@CinnamonTweaks->settings-schema.json->head3->description
-msgid "Window Focus tweaks"
+#. 3.2->settings-
+#. schema.json->pref_desktop_tweaks_allow_drop_to_desktop->description
+#. 0dyseus@CinnamonTweaks->settings-
+#. schema.json->pref_desktop_tweaks_allow_drop_to_desktop->description
+msgid "(*) Enable applications drop to the Desktop"
+msgstr ""
+
+#. 3.2->settings-
+#. schema.json->pref_desktop_tweaks_allow_drop_to_desktop->tooltip
+#. 0dyseus@CinnamonTweaks->settings-
+#. schema.json->pref_desktop_tweaks_allow_drop_to_desktop->tooltip
+msgid ""
+"With this option enabled, applications can be dragged from the menu applet "
+"and from the panel launchers applet and dropped into the desktop."
 msgstr ""
 
 #. 3.2->settings-
@@ -362,14 +452,11 @@ msgstr ""
 msgid "(*) Display \"Edit desklet main file\" on context menu for desklets"
 msgstr ""
 
-#. 3.2->settings-schema.json->head1->description
-#. 0dyseus@CinnamonTweaks->settings-schema.json->head1->description
-msgid "Desklets tweaks"
-msgstr ""
-
-#. 3.2->settings-schema.json->head0->description
-#. 0dyseus@CinnamonTweaks->settings-schema.json->head0->description
-msgid "Applets tweaks"
+#. 3.2->settings-
+#. schema.json->pref_desklets_add_open_folder_item_to_context->description
+#. 0dyseus@CinnamonTweaks->settings-
+#. schema.json->pref_desklets_add_open_folder_item_to_context->description
+msgid "(*) Display \"Open desklet folder\" on context menu for desklets"
 msgstr ""
 
 #. 3.2->settings-
@@ -446,6 +533,12 @@ msgstr ""
 #. 0dyseus@CinnamonTweaks->settings-
 #. schema.json->pref_hotcorners_delay_top_right->tooltip
 msgid "Set a delay in milliseconds to activate this hot corner."
+msgstr ""
+
+#. 0dyseus@CinnamonTweaks->settings-schema.json->head00->description
+msgid ""
+"After changing any option marked with asterisks (*), Cinnamon needs to be "
+"restarted.\n"
 msgstr ""
 
 #. 0dyseus@CinnamonTweaks->settings-

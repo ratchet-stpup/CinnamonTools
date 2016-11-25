@@ -20,6 +20,8 @@ const DESKTOP_SCHEMA = 'org.cinnamon.desktop.interface';
 const CURSOR_SIZE_KEY = 'cursor-size';
 const Tooltips = imports.ui.tooltips;
 const St = imports.gi.St;
+const DND = imports.ui.dnd;
+const FileUtils = imports.misc.fileUtils;
 
 let $,
     HotCornerPatched,
@@ -36,6 +38,8 @@ function _(aStr) {
 }
 
 let IDS = {
+    DTD: 0, // CT_DropToDesktopPatch toggle ID.
+    PPMM: 0, // CT_PopupMenuManagerPatch toggle ID.
     TTP: 0, // CT_TooltipsPatch toggle ID.
     HCP: 0, // CT_HotCornersPatch toggle ID.
     MTP: 0, // CT_MessageTrayPatch toggle ID.
@@ -50,6 +54,7 @@ let IDS = {
  * Container for old attributes and functions for later restore.
  */
 let STG = {
+    PPMM: {},
     TTP: {},
     HCP: {},
     MTP: {},
@@ -674,6 +679,231 @@ const CT_TooltipsPatch = {
             case "positioning":
                 return $.versionCompare(CINNAMON_VERSION, "3.0.7") <= 0;
         }
+        return false;
+    }
+};
+
+const CT_PopupMenuManagerPatch = {
+    enable: function() {
+
+        if (settings.pref_popup_menu_manager_applets_menus_behavior > 0) {
+            STG.PPMM._onEventCapture = PopupMenu.PopupMenuManager.prototype["_onEventCapture"];
+            PopupMenu.PopupMenuManager.prototype["_onEventCapture"] = function(actor, event) {
+                if (!this.grabbed)
+                    return false;
+
+                if (Main.keyboard.shouldTakeEvent(event))
+                    return Clutter.EVENT_PROPAGATE;
+
+                if (this._owner.menuEventFilter &&
+                    this._owner.menuEventFilter(event))
+                    return true;
+
+                if (this._activeMenu !== null && this._activeMenu.passEvents)
+                    return false;
+
+                if (this._didPop) {
+                    this._didPop = false;
+                    return true;
+                }
+
+                let activeMenuContains = this._eventIsOnActiveMenu(event);
+                let eventType = event.type();
+
+                if (eventType == Clutter.EventType.BUTTON_RELEASE) {
+                    if (activeMenuContains) {
+                        return false;
+                    } else {
+                        this._closeMenu();
+                        return false;
+                    }
+                } else if (eventType == Clutter.EventType.BUTTON_PRESS && !activeMenuContains) {
+                    this._closeMenu();
+                    return false;
+                } else if (!this._shouldBlockEvent(event)) {
+                    return false;
+                }
+
+                return false;
+            };
+        }
+
+        if (settings.pref_popup_menu_manager_applets_menus_behavior === 1) {
+            if (!Main.CT_PopupMenuManagerPatch_allAppletsMenus)
+                Main.CT_PopupMenuManagerPatch_allAppletsMenus = [];
+
+            STG.PPMM.addMenu = PopupMenu.PopupMenuManager.prototype["addMenu"];
+            PopupMenu.PopupMenuManager.prototype["addMenu"] = function(menu, position) {
+                this._signals.connect(menu, 'open-state-changed', this._onMenuOpenState);
+                this._signals.connect(menu, 'child-menu-added', this._onChildMenuAdded);
+                this._signals.connect(menu, 'child-menu-removed', this._onChildMenuRemoved);
+                this._signals.connect(menu, 'destroy', this._onMenuDestroy);
+
+                let source = menu.sourceActor;
+
+                if (source) {
+                    this._signals.connect(source, 'enter-event', function() {
+                        this._onMenuSourceEnter(menu);
+                    });
+                    this._signals.connect(source, 'key-focus-in', function() {
+                        this._onMenuSourceEnter(menu);
+                    });
+                    this._signals.connect(source, 'leave-event', Lang.bind(this, this._onMenuSourceExit));
+
+                    if (Main.CT_PopupMenuManagerPatch_allAppletsMenus.indexOf(menu) === -1 &&
+                        source._applet &&
+                        menu instanceof Applet.AppletPopupMenu)
+                        Main.CT_PopupMenuManagerPatch_allAppletsMenus.push(menu);
+                }
+
+                if (position === undefined)
+                    this._menus.push(menu);
+                else
+                    this._menus.splice(position, 0, menu);
+            };
+
+            // No need to override, just inject.
+            STG.PPMM.removeMenu = $.injectToFunction(PopupMenu.PopupMenuManager.prototype, "removeMenu", function(menu) {
+                if (Main.CT_PopupMenuManagerPatch_allAppletsMenus.indexOf(menu) !== -1)
+                    Main.CT_PopupMenuManagerPatch_allAppletsMenus.splice(Main.CT_PopupMenuManagerPatch_allAppletsMenus.indexOf(menu), 1);
+            });
+
+            STG.PPMM._onMenuSourceEnter = PopupMenu.PopupMenuManager.prototype["_onMenuSourceEnter"];
+            PopupMenu.PopupMenuManager.prototype["_onMenuSourceEnter"] = function(menu) {
+                if (menu.sourceActor && menu.sourceActor._applet && menu instanceof Applet.AppletPopupMenu) {
+                    if (menu == this._activeMenu)
+                        return false;
+
+                    if (this._open_menu_id > 0) {
+                        Mainloop.source_remove(this._open_menu_id);
+                        this._open_menu_id = 0;
+                    }
+
+                    this._open_menu_id = Mainloop.timeout_add(50, Lang.bind(this, function() {
+                        let allowToOpen = false;
+                        try {
+                            for (let i = Main.CT_PopupMenuManagerPatch_allAppletsMenus.length - 1; i >= 0; i--) {
+                                if (Main.CT_PopupMenuManagerPatch_allAppletsMenus[i].isOpen) {
+                                    allowToOpen = true;
+                                    break;
+                                }
+                            }
+                        } finally {
+                            allowToOpen && menu.open(true);
+                            return false;
+                        }
+                    }));
+                }
+
+                if (!this.grabbed || menu == this._activeMenu)
+                    return false;
+
+                if (this._activeMenu && this._activeMenu.isChildMenu(menu))
+                    return false;
+
+                if (this._menuStack.indexOf(menu) != -1)
+                    return false;
+
+                if (this._menuStack.length > 0 && this._menuStack[0].isChildMenu(menu))
+                    return false;
+
+                this._changeMenu(menu);
+                return false;
+            };
+
+            // Doesn't exists by default. So go ahead and create it.
+            PopupMenu.PopupMenuManager.prototype["_onMenuSourceExit"] = function() {
+                if (this._open_menu_id > 0) {
+                    Mainloop.source_remove(this._open_menu_id);
+                    this._open_menu_id = 0;
+                }
+            };
+        }
+    },
+
+    disable: function() {
+        if (STG.PPMM._onEventCapture) {
+            PopupMenu.PopupMenuManager.prototype["_onEventCapture"] = STG.PPMM._onEventCapture;
+            delete STG.PPMM._onEventCapture;
+        }
+        if (STG.PPMM.addMenu) {
+            PopupMenu.PopupMenuManager.prototype["addMenu"] = STG.PPMM.addMenu;
+            delete STG.PPMM.addMenu;
+        }
+        if (STG.PPMM.removeMenu) {
+            $.removeInjection(PopupMenu.PopupMenuManager.prototype, STG.PPMM, "removeMenu");
+        }
+        if (STG.PPMM._onMenuSourceEnter) {
+            PopupMenu.PopupMenuManager.prototype["_onMenuSourceEnter"] = STG.PPMM._onMenuSourceEnter;
+            delete STG.PPMM._onMenuSourceEnter;
+        }
+        if (PopupMenu.PopupMenuManager.prototype["_onMenuSourceExit"]) {
+            delete PopupMenu.PopupMenuManager.prototype["_onMenuSourceExit"];
+        }
+    },
+
+    toggle: function() {
+        togglePatch(CT_PopupMenuManagerPatch, "PPMM", settings.pref_popup_menu_manager_tweaks_enabled);
+    }
+};
+
+const CT_NemoDesktopAreaClass = new Lang.Class({
+    Name: "CT_NemoDesktopAreaClass",
+
+    _init: function() {
+        this.actor = global.stage;
+        if (!this.actor.hasOwnProperty("_delegate"))
+            this.actor._delegate = this;
+    },
+
+    acceptDrop: function(source, actor, x, y, time) {
+        let app = source.app;
+        if (app === null || app.is_window_backed())
+            return false;
+        let backgroundActor = global.stage.get_actor_at_pos(Clutter.PickMode.ALL, x, y);
+        if (backgroundActor != global.window_group)
+            return false;
+        let file = Gio.file_new_for_path(app.get_app_info().get_filename());
+        let fPath = FileUtils.getUserDesktopDir() + "/" + app.get_id();
+        let destFile = Gio.file_new_for_path(fPath);
+        try {
+            file.copy(destFile, 0, null, function() {});
+            if (FileUtils.hasOwnProperty("changeModeGFile"))
+                FileUtils.changeModeGFile(destFile, 755);
+            else
+                Util.spawnCommandLine('chmod +x "' + fPath + '"');
+        } catch (aErr) {
+            global.log(aErr);
+            return false;
+        }
+        return true;
+    },
+
+    handleDragOver: function(source, actor, x, y, time) {
+        let app = source.app;
+        if (app === null || app.is_window_backed())
+            return DND.DragMotionResult.NO_DROP;
+        let backgroundActor = global.stage.get_actor_at_pos(Clutter.PickMode.ALL, x, y);
+        if (backgroundActor != global.window_group)
+            return DND.DragMotionResult.NO_DROP;
+        return DND.DragMotionResult.COPY_DROP;
+    }
+});
+
+const CT_DropToDesktopPatch = {
+    enable: function() {
+        if (!Main.layoutManager.CT_DropToDesktopPatch_desktop &&
+            settings.pref_desktop_tweaks_allow_drop_to_desktop)
+            Main.layoutManager.CT_DropToDesktopPatch_desktop = new CT_NemoDesktopAreaClass();
+    },
+
+    disable: function() {
+        if (Main.layoutManager.CT_DropToDesktopPatch_desktop)
+            delete Main.layoutManager.CT_DropToDesktopPatch_desktop;
+    },
+
+    toggle: function() {
+        togglePatch(CT_DropToDesktopPatch, "DTD", settings.pref_desktop_tweaks_enabled);
     }
 };
 
@@ -704,6 +934,10 @@ SettingsHandler.prototype = {
     _init: function(aUUID) {
         this.settings = new Settings.ExtensionSettings(this, aUUID);
         let settingsArray = [
+            ["pref_desktop_tweaks_enabled", CT_DropToDesktopPatch.toggle],
+            ["pref_desktop_tweaks_allow_drop_to_desktop", CT_DropToDesktopPatch.toggle],
+            ["pref_popup_menu_manager_tweaks_enabled", CT_PopupMenuManagerPatch.toggle],
+            ["pref_popup_menu_manager_applets_menus_behavior", CT_PopupMenuManagerPatch.toggle],
             ["pref_applets_tweaks_enabled", CT_AppletManagerPatch.toggle],
             ["pref_applets_ask_confirmation_applet_removal", CT_AppletManagerPatch.toggle],
             ["pref_applets_add_open_folder_item_to_context", CT_AppletManagerPatch.toggle],
@@ -813,6 +1047,20 @@ function enable() {
             global.logError(aErr.message);
         }
 
+        try {
+            if (settings.pref_popup_menu_manager_tweaks_enabled)
+                CT_PopupMenuManagerPatch.enable();
+        } catch (aErr) {
+            global.logError(aErr.message);
+        }
+
+        try {
+            if (settings.pref_desktop_tweaks_enabled)
+                CT_DropToDesktopPatch.enable();
+        } catch (aErr) {
+            global.logError(aErr.message);
+        }
+
         let msg = [
             _("If you updated this extension from an older version, <b>you must check its settings window</b>."),
             _("Some preferences may have been changed to their default values."),
@@ -840,4 +1088,6 @@ function disable() {
     CT_WindowDemandsAttentionBehavior.disable();
     CT_HotCornersPatch.disable();
     CT_TooltipsPatch.disable();
+    CT_PopupMenuManagerPatch.disable();
+    CT_DropToDesktopPatch.disable();
 }
