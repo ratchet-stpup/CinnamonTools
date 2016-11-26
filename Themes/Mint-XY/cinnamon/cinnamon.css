@@ -161,6 +161,16 @@ StScrollBar StButton#vhandle:hover {
 	min-width: 100px;
 }
 
+.menu {
+	color: rgb(70, 70, 70);
+	min-width: 100px;
+	border-radius: 4px;
+	background-color: #ececec;
+	border-width: 1px;
+	border-color: rgba(40, 40, 40, 0.3);
+}
+
+.menu StEntry,
 .popup-menu StEntry {
 	padding: 4px 12px;
 	color: #2b2b2b;
@@ -175,6 +185,7 @@ StScrollBar StButton#vhandle:hover {
 	transition-duration: 150;
 }
 
+.menu StEntry:focus,
 .popup-menu StEntry:focus {
 	padding: 4px 12px;
 	color: #2b2b2b;
@@ -2131,6 +2142,7 @@ StScrollBar StButton#vhandle:hover {
 	padding-top: 1px;
 }
 
+.applet-box:checked,
 .applet-box:hover {
 	border-image: url("panel-assets/hover-1.png") 6;
 }
@@ -2143,6 +2155,7 @@ StScrollBar StButton#vhandle:hover {
 	color: rgb(66, 66, 66);
 }
 
+.applet-label:checked,
 .applet-label:hover {
 	font-weight: bold;
 }
@@ -2151,6 +2164,8 @@ StScrollBar StButton#vhandle:hover {
 	icon-size: 22px;
 }
 
+.applet-icon:checked,
+.applet-box:checked > .applet-icon,
 .applet-icon:hover,
 .applet-box:hover > .applet-icon {
 }
@@ -2418,19 +2433,24 @@ StScrollBar StButton#vhandle:hover {
 	padding-left: 4px;
 	padding-right: 4px;
 }
+
 .applet-box.vertical:hover {
 }
+
 .applet-box:highlight {
 	background-color: #accd8a;
 }
+
 .applet-box.vertical:hover > .applet-label {
 }
+
 .applet-box.vertical:hover .applet-icon {
 }
 
 /* ===================================================================
  * About Dialog (applet.js and desklet.js) Tweaks
  * ===================================================================*/
+
 /* Make the about dialog a little bigger */
 .about-content {
 	width: 550px;
