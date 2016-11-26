@@ -31,6 +31,7 @@ Compatible only with Cinnamon 3+
 - The padding of certain menu elements can be customized to override the current theme stylesheets.
 - Recently installed applications highlighting can be disabled.
 - Recently used applications can be remembered and will be displayed on a category called **Recent Apps**. The applications will be sorted by execution time and the name and icon of the category can be customized.
+- Categories can be seleceted on hover (system default) or by clicking on them.
 - The default **Add to panel**, **Add to desktop** and **Uninstall** context menu items can be hidden.
 - The menu editor can be directly opened from this applet context menu without the need to open it from the settings windows of this applet.
 - The context menu for applications has 5 new items:

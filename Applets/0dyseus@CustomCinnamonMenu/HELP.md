@@ -13,19 +13,9 @@ Never delete any of the files found inside this applet folder. It might break th
 - **Menu** and **Alt + Enter** keys: Opens and closes the context menu (if any) of the currently highlighted menu item.
 - **Enter** key: Executes the currently highlighted menu item.
 - **Escape** key: It closes the main menu. If a context menu is open, it will close the context menu instead and a second tap of this key will close the main menu.
-
-### Applet localization
-
-- If this applet was installed from Cinnamon Settings, all of these applet's localizations where automatically installed.
-- If this applet was installed manually and not trough Cinnamon Settings, localizations can be installed by executing the script called **localizations.sh** from a terminal opened inside the applet's folder.
-- If this applet has no locale available for your language, you could create it by following [these instructions](https://github.com/Odyseus/CinnamonTools/wiki/Xlet-localizations) and send the .po file to me.
-    - If you have a GitHub account:
-        - You could send a pull request with the new locale file.
-        - If you don't want to clone the repository, just create a Gist and send me the link.
-    - If you don't have/want a GitHub account:
-        - You can send me a [Pastebin](http://pastebin.com/) (or similar service) to my [Mint Forums account](https://forums.linuxmint.com/memberlist.php?mode=viewprofile&u=164858).
-- If the source text (in English) and/or my translation to Spanish has errors/inconsistencies, feel free to report them.
-
+- **Shift + Enter:** Executes application as root.
+- **Ctrl + Enter:** Open a terminal and run application from there.
+- **Ctrl + Shift + Enter:** Open a terminal and run application from there, but the application is executed as root.
 ***
 
 ### Applications left click extra actions
@@ -57,3 +47,16 @@ By default, these options will use the system's default terminal emulator (**x-t
 
 3. There is a folder named **icons** inside this applet directory. It contains several symbolic icons (most of them are from the Faenza icon theme) and each icon can be used directly by name (on a custom launcher, for example).
 
+***
+
+### Applet localization
+
+- If this applet was installed from Cinnamon Settings, all of these applet's localizations where automatically installed.
+- If this applet was installed manually and not trough Cinnamon Settings, localizations can be installed by executing the script called **localizations.sh** from a terminal opened inside the applet's folder.
+- If this applet has no locale available for your language, you could create it by following [these instructions](https://github.com/Odyseus/CinnamonTools/wiki/Xlet-localizations) and send the .po file to me.
+    - If you have a GitHub account:
+        - You could send a pull request with the new locale file.
+        - If you don't want to clone the repository, just create a Gist and send me the link.
+    - If you don't have/want a GitHub account:
+        - You can send me a [Pastebin](http://pastebin.com/) (or similar service) to my [Mint Forums account](https://forums.linuxmint.com/memberlist.php?mode=viewprofile&u=164858).
+- If the source text (in English) and/or my translation to Spanish has errors/inconsistencies, feel free to report them.
