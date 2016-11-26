@@ -583,7 +583,7 @@ MyApplet.prototype = {
      */
     store_extension_data: function() {
         try {
-            Util.spawn_async(["python", this.main_applet_dir + "/appletHelper.py", "--list"],
+            Util.spawn_async(["python2", this.main_applet_dir + "/appletHelper.py", "--list"],
                 Lang.bind(this, function(aResponse) {
                     let extensionData;
                     try {

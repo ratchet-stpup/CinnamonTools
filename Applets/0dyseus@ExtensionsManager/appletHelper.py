@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/python2
 
 import os
 import argparse
@@ -190,16 +190,16 @@ class ExtensionsManager:
                             "version_supported": version_supported,
                             "extension_dir": extension_dir
                         }
-                    except Exception, detail:
-                        print("Failed to load extension %s: %s" % (extension, detail))
+                    except Exception as detail:
+                        print "Failed to load extension %s: %s" % (extension, detail)
 
-                except Exception, detail:
-                    print("Failed to load extension %s: %s" % (extension, detail))
+                except Exception as detail:
+                    print "Failed to load extension %s: %s" % (extension, detail)
                     continue
 
         finally:
             if do_return:
-                print(json.dumps(self.all_extensions))
+                print json.dumps(self.all_extensions)
 
 
 def main(argv=None):
