@@ -6,6 +6,9 @@ This theme is basically the default **Mint-X** theme with some graphics (check/r
 
 ## Change Log
 
+##### 1.04
+- Added support for Cinnamon 3.2.x.
+
 ##### 1.03
 - Tweaks to the about dialogs (for Cinnamon applets/desklets).
 
