@@ -7,15 +7,24 @@ Never delete any of the files found inside this applet folder. It might break th
 
 ### Keyboard navigation
 
-- **Left Arrow**, **Right Arrow**, **Tab** and **Shift + Tab** keys: Cycles through favorites box, applications box and categories box.
-- **Up Arrow** and **Down Arrow** keys: Cycles through menu items in the currently highlighted box.
-- **Page Up** and **Page Down** keys: Jumps to the first and last item of the currently selected box.
-- **Menu** and **Alt + Enter** keys: Opens and closes the context menu (if any) of the currently highlighted menu item.
-- **Enter** key: Executes the currently highlighted menu item.
+- **Left Arrow** and **Right Arrow** keys:
+    - Cycles through the favorites box, applications box and categories box if the focus is in one of these boxes.
+    - If the focus is on the custom launchers box, these keys will cycle through this box buttons.
+- **Tab** key :
+    - If the favorites box, applications box or categories box are currently focused, the **Tab** key will switch the focus to the custom launchers box.
+    - If the focus is on the custom launchers box, the focus will go back to the categories box.
+    - If the custom launchers box isn't part of the menu, the **Tab** key alone or **Ctrl**/**Shit** + **Tab** key are pressed, it will cycle through the favorites box, applications box and categories box.
+- **Up Arrow** and **Down Arrow** keys:
+    - If the favorites box, applications box or categories box are currently focused, these keys will cycle through the items in the currently highlighted box.
+    - If the focus is on the custom launchers box, the focus will go back to the categories box.
+- **Page Up** and **Page Down** keys: Jumps to the first and last item of the currently selected box. This doesn't affect the custom launchers.
+- **Menu** or **Alt + Enter** keys: Opens and closes the context menu (if any) of the currently highlighted item.
+- **Enter** key: Executes the currently highlighted item.
 - **Escape** key: It closes the main menu. If a context menu is open, it will close the context menu instead and a second tap of this key will close the main menu.
-- **Shift + Enter:** Executes application as root.
-- **Ctrl + Enter:** Open a terminal and run application from there.
-- **Ctrl + Shift + Enter:** Open a terminal and run application from there, but the application is executed as root.
+- **Shift + Enter:** Executes application as root. This doesn't affect the custom launchers.
+- **Ctrl + Enter:** Open a terminal and run application from there. This doesn't affect the custom launchers.
+- **Ctrl + Shift + Enter:** Open a terminal and run application from there, but the application is executed as root. This doesn't affect the custom launchers.
+
 ***
 
 ### Applications left click extra actions

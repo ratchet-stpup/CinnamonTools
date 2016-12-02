@@ -2,6 +2,15 @@
 
 **Note:** Upstream fixes/features are changes made to the original Cinnamon Menu applet that I ported to this applet.
 
+##### 1.17
+- Fixed the know issue with the option **Display separator after "Recent Applications" category** breaking keyboard navigation.
+- Added keyboard navigation to the **Custom Launchers** box.
+
+##### 1.16
+- Added the possibility to customize the placement of each mayor elements of the menu (**Search box**, **Applications/Categories boxes**, **Info box** and **Custom Launchers box**). There is a new section on the settings window called **Menu layout** that groups all options that modify the menu layout.
+- Some minor performance improvements.
+- [Upstream fix] Fixed removal of key bindings.
+
 ##### 1.15
 - Added option to choose an alternate method for selecting categories. This method is based on **lestcape**'s [Configurable Menu applet](https://github.com/lestcape/Configurable-Menu) and it might improve the menu performance while selecting categories.
 - Updated some context menu icons to be less generic. Thanks to [NikoKrause](https://github.com/NikoKrause).

@@ -1,5 +1,7 @@
 Custom Cinnamon Menu applet ToDo list:
-  [ ] **Keyboard navigation for Custom Launchers box:** Currently, the keyboard navigation of this applet ignores the Custom Launchers box. I was avoiding the implementation of this due the complexity of the code. But now that the keyboard navigation code is more organized, I might give it a try. @low
-  [ ] **Fix the known issue with keyboard navigation:** When enabled, the option **Display separator after "Recent Applications" category** will break the menu keyboard navigation. I was planning on removing this option all together, but I opted for keeping it and put a warning on the settings window until I figure out how to fix it.
-＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿
+ [ ] **Make the list of recently executed applications global:** Currently, the list of recently executed applications (**Recent applications** category) is stored in a per applet manner. If there are various menu applets placed in different panels, each of them will have its own list of recent applications and each of those lists will be different.
+
+＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿
 Archive:
+ [x] **Keyboard navigation for Custom Launchers box:** Currently, the keyboard navigation of this applet ignores the Custom Launchers box. I was avoiding the implementation of this due the complexity of the code. But now that the keyboard navigation code is more organized, I might give it a try. @implemented @project(Custom Cinnamon Menu applet ToDo list)
+ [x] **Fix the known issue with keyboard navigation:** When enabled, the option **Display separator after "Recent Applications" category** will break the menu keyboard navigation. I was planning on removing this option all together, but I opted for keeping it and put a warning on the settings window until I figure out how to fix it. @fixed @project(Custom Cinnamon Menu applet ToDo list)

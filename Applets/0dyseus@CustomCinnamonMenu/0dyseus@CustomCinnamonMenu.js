@@ -24,9 +24,10 @@ const ModalDialog = imports.ui.modalDialog;
 // and are directed to translators only.
 function _(aStr) {
     let customTrans = Gettext.dgettext(appletUUID, aStr);
-    if (customTrans !== aStr) {
+
+    if (customTrans !== aStr)
         return customTrans;
-    }
+
     return Gettext.gettext(aStr);
 }
 
@@ -329,8 +330,8 @@ ApplicationContextMenuItem.prototype = {
 
 };
 
-function GenericApplicationButton(appsMenuButton, app) {
-    this._init(appsMenuButton, app);
+function GenericApplicationButton(appsMenuButton, app, withMenu) {
+    this._init(appsMenuButton, app, withMenu);
 }
 
 GenericApplicationButton.prototype = {
@@ -344,6 +345,7 @@ GenericApplicationButton.prototype = {
         });
 
         this.withMenu = withMenu;
+
         if (this.withMenu) {
             this.menu = new PopupMenu.PopupSubMenu(this.actor);
             this.menu.actor.set_style_class_name('menu-context-menu');
@@ -352,8 +354,7 @@ GenericApplicationButton.prototype = {
     },
 
     highlight: function() {
-        if (!this.appsMenuButton.pref_disable_new_apps_highlighting)
-            this.actor.add_style_pseudo_class('highlighted');
+        this.actor.add_style_pseudo_class('highlighted');
     },
 
     unhighlight: function() {
@@ -449,7 +450,8 @@ GenericApplicationButton.prototype = {
                 this.menu.box.remove_actor(children[i]);
             }
             let menuItem;
-            if (!this.appsMenuButton.pref_hide_add_to_panel_on_context) {
+
+            if (this.appsMenuButton.pref_show_add_to_panel_on_context) {
                 // NOTE: This string could be left blank because it's a default string,
                 // so it's already translated by Cinnamon. It's up to the translators.
                 menuItem = new ApplicationContextMenuItem(this,
@@ -459,7 +461,8 @@ GenericApplicationButton.prototype = {
                 menuItem._tooltip.set_text(_("Add this application to the Panel launchers applet."));
                 this.menu.addMenuItem(menuItem);
             }
-            if (USER_DESKTOP_PATH && !this.appsMenuButton.pref_hide_add_to_desktop_on_context) {
+
+            if (USER_DESKTOP_PATH && this.appsMenuButton.pref_show_add_to_desktop_on_context) {
                 // NOTE: This string could be left blank because it's a default string,
                 // so it's already translated by Cinnamon. It's up to the translators.
                 menuItem = new ApplicationContextMenuItem(this,
@@ -469,46 +472,51 @@ GenericApplicationButton.prototype = {
                 menuItem._tooltip.set_text(_("Add this application to the Desktop."));
                 this.menu.addMenuItem(menuItem);
             }
+
             if (AppFavorites.getAppFavorites().isFavorite(this.app.get_id())) {
-                // NOTE: This string could be left blank because it's a default string,
-                // so it's already translated by Cinnamon. It's up to the translators.
                 menuItem = new ApplicationContextMenuItem(this,
+                    // NOTE: This string could be left blank because it's a default string,
+                    // so it's already translated by Cinnamon. It's up to the translators.
                     _("Remove from favorites"),
                     "remove_from_favorites",
                     "non-starred");
                 menuItem._tooltip.set_text(_("Remove application from your favorites."));
                 this.menu.addMenuItem(menuItem);
             } else {
-                // NOTE: This string could be left blank because it's a default string,
-                // so it's already translated by Cinnamon. It's up to the translators.
                 menuItem = new ApplicationContextMenuItem(this,
+                    // NOTE: This string could be left blank because it's a default string,
+                    // so it's already translated by Cinnamon. It's up to the translators.
                     _("Add to favorites"),
                     "add_to_favorites",
                     "starred");
                 menuItem._tooltip.set_text(_("Add application to your favorites."));
                 this.menu.addMenuItem(menuItem);
             }
-            if (this.appsMenuButton._canUninstallApps &&
-                !this.appsMenuButton.pref_hide_uninstall_on_context) {
-                // NOTE: This string could be left blank because it's a default string,
-                // so it's already translated by Cinnamon. It's up to the translators.
+
+            // The preference check is done when _canUninstallApps is defined.
+            if (this.appsMenuButton._canUninstallApps) {
                 menuItem = new ApplicationContextMenuItem(this,
+                    // NOTE: This string could be left blank because it's a default string,
+                    // so it's already translated by Cinnamon. It's up to the translators.
                     _("Uninstall"),
                     "uninstall",
                     "edit-delete");
                 menuItem._tooltip.set_text(_("Uninstall application from your system."));
                 this.menu.addMenuItem(menuItem);
             }
+
+            // The preference check is done when _isBumblebeeInstalled is defined.
             if (this.appsMenuButton._isBumblebeeInstalled) {
-                // NOTE: This string could be left blank because it's a default string,
-                // so it's already translated by Cinnamon. It's up to the translators.
                 menuItem = new ApplicationContextMenuItem(this,
-                    _("Run with nVidia GPU"),
+                    // NOTE: This string could be left blank because it's a default string,
+                    // so it's already translated by Cinnamon. It's up to the translators.
+                    _("Run with NVIDIA GPU"),
                     "run_with_nvidia_gpu",
                     "custom-entypo-swarm");
                 menuItem._tooltip.set_text(_("Run application through optirun command (Bumblebee)."));
                 this.menu.addMenuItem(menuItem);
             }
+
             if (this.appsMenuButton.pref_show_run_as_root_on_context) {
                 menuItem = new ApplicationContextMenuItem(this,
                     _("Run as root"),
@@ -517,6 +525,7 @@ GenericApplicationButton.prototype = {
                 menuItem._tooltip.set_text(_("Run application as root."));
                 this.menu.addMenuItem(menuItem);
             }
+
             if (this.appsMenuButton.pref_show_edit_desktop_file_on_context) {
                 menuItem = new ApplicationContextMenuItem(this,
                     _("Edit .desktop file"),
@@ -525,6 +534,7 @@ GenericApplicationButton.prototype = {
                 menuItem._tooltip.set_text(_("Edit this application .desktop file with a text editor."));
                 this.menu.addMenuItem(menuItem);
             }
+
             if (this.appsMenuButton.pref_show_desktop_file_folder_on_context) {
                 menuItem = new ApplicationContextMenuItem(this,
                     _("Open .desktop file folder"),
@@ -533,6 +543,7 @@ GenericApplicationButton.prototype = {
                 menuItem._tooltip.set_text(_("Open the folder containg this application .desktop file."));
                 this.menu.addMenuItem(menuItem);
             }
+
             if (this.appsMenuButton.pref_show_run_from_terminal_on_context &&
                 this.appsMenuButton._terminalReady) {
                 menuItem = new ApplicationContextMenuItem(this,
@@ -542,6 +553,7 @@ GenericApplicationButton.prototype = {
                 menuItem._tooltip.set_text(_("Run application from a terminal."));
                 this.menu.addMenuItem(menuItem);
             }
+
             if (this.appsMenuButton.pref_show_run_from_terminal_as_root_on_context &&
                 this.appsMenuButton._terminalReady) {
                 menuItem = new ApplicationContextMenuItem(this,
@@ -703,6 +715,7 @@ ApplicationButton.prototype = {
         this.category = [];
         this.appsMenuButton = appsMenuButton;
         this.actor.set_style_class_name('menu-application-button');
+
         if (showIcon) {
             /**
              * START mark Odyseus
@@ -711,6 +724,7 @@ ApplicationButton.prototype = {
             this.icon = this.app.create_icon_texture(this.appsMenuButton.pref_application_icon_size);
             this.addActor(this.icon);
         }
+
         this.name = this.app.get_name();
         this.label = new St.Label({
             text: this.name,
@@ -723,13 +737,15 @@ ApplicationButton.prototype = {
         this._draggable.connect('drag-end', Lang.bind(this, this._onDragEnd));
         this.isDraggableApp = true;
         this.actor.label_actor = this.label;
+
         if (showIcon) {
             this.icon.realize();
         }
+
         this.label.realize();
 
         this.tooltip = new Tooltips.Tooltip(this.actor, "");
-        this.tooltip._tooltip.set_style("text-align: left;max-width: " + 450 + "px;");
+        this.tooltip._tooltip.set_style("text-align: left;max-width: 450px;");
         this.tooltip._tooltip.get_clutter_text().set_line_wrap(true);
         this.tooltip._tooltip.get_clutter_text().set_line_wrap_mode(Pango.WrapMode.WORD_CHAR);
         this.tooltip._tooltip.get_clutter_text().ellipsize = Pango.EllipsizeMode.NONE; // Just in case
@@ -755,6 +771,7 @@ ApplicationButton.prototype = {
          */
         if (icon_size > this.appsMenuButton.pref_max_fav_icon_size)
             icon_size = this.appsMenuButton.pref_max_fav_icon_size;
+
         return this.app.create_icon_texture(icon_size);
     },
 
@@ -806,6 +823,7 @@ SearchProviderResultButton.prototype = {
         };
 
         this.icon = null;
+
         if (result.icon) {
             this.icon = result.icon;
         } else if (result.icon_app) {
@@ -830,15 +848,18 @@ SearchProviderResultButton.prototype = {
         if (this.icon) {
             this.addActor(this.icon);
         }
+
         this.label = new St.Label({
             text: result.label,
             style_class: 'menu-application-button-label'
         });
         this.addActor(this.label);
         this.isDraggableApp = false;
+
         if (this.icon) {
             this.icon.realize();
         }
+
         this.label.realize();
     },
 
@@ -881,6 +902,7 @@ PlaceButton.prototype = {
         });
         this.label.clutter_text.ellipsize = Pango.EllipsizeMode.END;
         this.label.set_style(this.appsMenuButton.max_width_for_buttons);
+
         if (showIcon) {
             /**
              * START mark Odyseus
@@ -900,19 +922,23 @@ PlaceButton.prototype = {
             if (this.icon)
                 this.addActor(this.icon);
         }
+
         this.addActor(this.label);
+
         if (showIcon)
             this.icon.realize();
+
         this.label.realize();
 
         let placeURI = decodeURIComponent(this.place.id);
         placeURI = placeURI.substr(placeURI.indexOf(":") + 1);
         let fileIndex = placeURI.indexOf("file:///");
+
         if (fileIndex !== -1)
             placeURI = placeURI.substr(fileIndex + 7);
 
         this.tooltip = new Tooltips.Tooltip(this.actor, "");
-        this.tooltip._tooltip.set_style("text-align: left;max-width: " + 450 + "px;");
+        this.tooltip._tooltip.set_style("text-align: left;max-width: 450px;");
         this.tooltip._tooltip.get_clutter_text().set_line_wrap(true);
         this.tooltip._tooltip.get_clutter_text().set_line_wrap_mode(Pango.WrapMode.WORD_CHAR);
         this.tooltip._tooltip.get_clutter_text().ellipsize = Pango.EllipsizeMode.NONE; // Just in case
@@ -986,6 +1012,7 @@ RecentButton.prototype = {
         });
         this.label.clutter_text.ellipsize = Pango.EllipsizeMode.END;
         this.label.set_style(this.appsMenuButton.max_width_for_buttons);
+
         if (showIcon) {
             /**
              * START mark Odyseus
@@ -995,8 +1022,10 @@ RecentButton.prototype = {
             this.addActor(this.icon);
         }
         this.addActor(this.label);
+
         if (showIcon)
             this.icon.realize();
+
         this.label.realize();
 
         this.menu = new PopupMenu.PopupSubMenu(this.actor);
@@ -1005,11 +1034,12 @@ RecentButton.prototype = {
 
         let fileURI = decodeURIComponent(this.file.uri);
         let fileIndex = fileURI.indexOf("file:///");
+
         if (fileIndex !== -1)
             fileURI = fileURI.substr(fileIndex + 7);
 
         this.tooltip = new Tooltips.Tooltip(this.actor, "");
-        this.tooltip._tooltip.set_style("text-align: left;max-width: " + 450 + "px;");
+        this.tooltip._tooltip.set_style("text-align: left;max-width: 450px;");
         this.tooltip._tooltip.get_clutter_text().set_line_wrap(true);
         this.tooltip._tooltip.get_clutter_text().set_line_wrap_mode(Pango.WrapMode.WORD_CHAR);
         this.tooltip._tooltip.get_clutter_text().ellipsize = Pango.EllipsizeMode.NONE; // Just in case
@@ -1023,15 +1053,18 @@ RecentButton.prototype = {
         if (event.get_button() == 1) {
             this.activate(event);
         }
+
         if (event.get_button() == 3) {
             this.activateContextMenus(event);
         }
+
         return true;
     },
 
     activateContextMenus: function(event) {
         if (!this.menu.isOpen)
             this.appsMenuButton.closeContextMenus(this, true);
+
         this.toggleMenu();
     },
 
@@ -1305,6 +1338,7 @@ CategoryButton.prototype = {
         this.actor.set_style_class_name('menu-category-button');
         var label;
         let icon = null;
+
         if (category) {
             if (showIcon) {
                 /**
@@ -1331,6 +1365,7 @@ CategoryButton.prototype = {
             } else {
                 this.icon_name = "";
             }
+
             label = category.get_name();
         } else
         // NOTE: This string could be left blank because it's a default string,
@@ -1386,6 +1421,7 @@ PlaceCategoryButton.prototype = {
             text: _("Places"),
             style_class: 'menu-category-button-label'
         });
+
         if (showIcon) {
             /**
              * START mark Odyseus
@@ -1401,6 +1437,7 @@ PlaceCategoryButton.prototype = {
         } else {
             this.icon = null;
         }
+
         this.addActor(this.label);
         this.label.realize();
     }
@@ -1426,6 +1463,7 @@ RecentCategoryButton.prototype = {
             text: _("Recent Files"),
             style_class: 'menu-category-button-label'
         });
+
         if (showIcon) {
             /**
              * START mark Odyseus
@@ -1441,6 +1479,7 @@ RecentCategoryButton.prototype = {
         } else {
             this.icon = null;
         }
+
         this.addActor(this.label);
         this.label.realize();
     }
@@ -1465,7 +1504,9 @@ FavoritesButton.prototype = {
          */
         if (icon_size > this.appsMenuButton.pref_max_fav_icon_size)
             icon_size = this.appsMenuButton.pref_max_fav_icon_size;
-        this.actor.style = "padding-top: " + (icon_size / 3) + "px;padding-bottom: " + (icon_size / 3) + "px; margin:auto;";
+
+        this.actor.style = "padding-top: " + (icon_size / 3) + "px;padding-bottom: " +
+            (icon_size / 3) + "px; margin:auto;";
 
         this.actor.add_style_class_name('menu-favorites-button');
         let icon = app.create_icon_texture(icon_size);
@@ -1478,7 +1519,7 @@ FavoritesButton.prototype = {
         this.isDraggableApp = true;
 
         this.tooltip = new Tooltips.Tooltip(this.actor, "");
-        this.tooltip._tooltip.set_style("text-align: left;max-width: " + 450 + "px;");
+        this.tooltip._tooltip.set_style("text-align: left;max-width: 450px;");
         this.tooltip._tooltip.get_clutter_text().set_line_wrap(true);
         this.tooltip._tooltip.get_clutter_text().set_line_wrap_mode(Pango.WrapMode.WORD_CHAR);
         this.tooltip._tooltip.get_clutter_text().ellipsize = Pango.EllipsizeMode.NONE; // Just in case
@@ -1533,6 +1574,7 @@ SystemButton.prototype = {
          */
         if (icon_size > this.appsMenuButton.pref_max_fav_icon_size)
             icon_size = this.appsMenuButton.pref_max_fav_icon_size;
+
         this.actor.style = "padding-top: " + (icon_size / 3) + "px;padding-bottom: " + (icon_size / 3) + "px; margin:auto;";
         this.actor.add_style_class_name('menu-favorites-button');
 
@@ -1686,11 +1728,14 @@ FavoritesBox.prototype = {
                 children[i] == this._dragPlaceholder.actor)
                 continue;
 
-            if (!(children[i]._delegate instanceof FavoritesButton)) continue;
+            if (!(children[i]._delegate instanceof FavoritesButton))
+                continue;
 
             let childId = children[i]._delegate.app.get_id();
+
             if (childId == id)
                 continue;
+
             if (childId in favorites)
                 favPos++;
         }
@@ -1698,10 +1743,12 @@ FavoritesBox.prototype = {
         Meta.later_add(Meta.LaterType.BEFORE_REDRAW, Lang.bind(this,
             function() {
                 let appFavorites = AppFavorites.getAppFavorites();
+
                 if (srcIsFavorite)
                     appFavorites.moveFavoriteToPos(id, favPos);
                 else
                     appFavorites.addFavoriteAtPos(id, favPos);
+
                 return false;
             }));
 
@@ -1734,6 +1781,7 @@ SeparatorBox.prototype = {
 
     setSpace: function(aSpace) {
         this.space = aSpace;
+
         if (this.actor.get_vertical()) {
             this.actor.set_width(-1);
             this.actor.set_height(aSpace);
@@ -1749,36 +1797,29 @@ SeparatorBox.prototype = {
     }
 };
 
-function MyCustomCommandButton(aApplet, aApp, aCallback) {
-    this._init(aApplet, aApp, aCallback);
+function MyCustomCommandButton(appsMenuButton, app, aCallback) {
+    this._init(appsMenuButton, app, aCallback);
 }
 
 MyCustomCommandButton.prototype = {
-    __proto__: PopupMenu.PopupBaseMenuItem.prototype,
+    __proto__: PopupMenu.PopupSubMenuMenuItem.prototype,
 
-    _init: function(appsMenuButton, aApp, aCallback) {
-        this.app = aApp;
+    _init: function(appsMenuButton, app, aCallback) {
+        this.app = app;
         this.appsMenuButton = appsMenuButton;
         this.callback = aCallback;
-
         PopupMenu.PopupBaseMenuItem.prototype._init.call(this, {
-            hover: true
+            hover: false
         });
+        this.actor.set_style_class_name('menu-application-button');
 
-        this.actor = new St.Bin({
-            style_class: 'customcommand-button-container'
-        });
-
-        this.button = new St.Button({
-            style_class: 'customcommand-button'
-        });
-        let icon_size = this.app.icon_size;
         let icon_type = (this.app.icon.search("-symbolic") !== -1) ? 0 : 1;
         let iconObj = {
-            icon_size: icon_size,
+            icon_size: this.appsMenuButton.pref_custom_command_icon_size,
             icon_type: icon_type,
             style_class: "customcommand-button-icon",
         };
+
         if (this.app.icon.indexOf("/") !== -1)
             iconObj["gicon"] = new Gio.FileIcon({
                 file: Gio.file_new_for_path(this.app.icon)
@@ -1787,18 +1828,13 @@ MyCustomCommandButton.prototype = {
             iconObj["icon_name"] = this.app.icon;
 
         this.icon = new St.Icon(iconObj);
-        this.button.set_child(this.icon);
-        this.actor.add_actor(this.button);
+        this.addActor(this.icon);
 
-        this.button.set_style_class_name("menu-application-button");
-        this.button.connect("clicked", Lang.bind(this, this._activate, aCallback));
-        this.button.connect("enter-event", Lang.bind(this, this._enterEvent));
-        this.button.connect("leave-event", Lang.bind(this, this._leaveEvent));
-
+        this.name = this.app.label;
         this.isDraggableApp = false;
 
-        this.tooltip = new Tooltips.Tooltip(this.button, "");
-        this.tooltip._tooltip.set_style("text-align: left;max-width: " + 450 + "px;");
+        this.tooltip = new Tooltips.Tooltip(this.actor, "");
+        this.tooltip._tooltip.set_style("text-align: left;max-width: 450px;");
         this.tooltip._tooltip.get_clutter_text().set_line_wrap(true);
         this.tooltip._tooltip.get_clutter_text().set_line_wrap_mode(Pango.WrapMode.WORD_CHAR);
         this.tooltip._tooltip.get_clutter_text().ellipsize = Pango.EllipsizeMode.NONE; // Just in case
@@ -1808,21 +1844,14 @@ MyCustomCommandButton.prototype = {
         }));
     },
 
-    _enterEvent: function() {
-        this.button.style_class = "menu-application-button-selected";
-        this.actor.add_style_pseudo_class("hover");
-        this.appsMenuButton.setSelectedItemTitleAndDescription(this,
-            this.app.label,
-            this.app.description || "");
+    _onButtonReleaseEvent: function(actor, event) {
+        if (event.get_button() == 1) {
+            this.activate(event);
+        }
+        return true;
     },
 
-    _leaveEvent: function() {
-        this.button.style_class = "menu-application-button";
-        this.actor.remove_style_pseudo_class("hover");
-        this.appsMenuButton.setSelectedItemTitleAndDescription(this, "", "");
-    },
-
-    _activate: function(event, aCallback) {
+    activate: function(event) {
         if (this.callback) {
             this.callback();
         } else {
@@ -1838,8 +1867,9 @@ MyCustomCommandButton.prototype = {
                 }
             }
         }
+        this.actor.set_style_class_name('menu-application-button');
         this.appsMenuButton.menu.close(this.appsMenuButton.pref_animate_menu);
-    },
+    }
 };
 
 function RecentAppsCategoryButton(appsMenuButton, app, showIcon) {
@@ -1860,6 +1890,7 @@ RecentAppsCategoryButton.prototype = {
             text: _("Recent Applications"),
             style_class: 'menu-category-button-label'
         });
+
         if (showIcon) {
             this.icon = new St.Icon({
                 icon_name: this.appsMenuButton.pref_recently_used_apps_custom_icon,
@@ -1871,6 +1902,7 @@ RecentAppsCategoryButton.prototype = {
         } else {
             this.icon = null;
         }
+
         this.addActor(this.label);
         this.label.realize();
     }
@@ -1927,8 +1959,12 @@ ShellOutputProcess.prototype = {
     },
 
     spawn_async: function() {
-        let [success, pid, standard_input_file_descriptor,
-            standard_output_file_descriptor, standard_error_file_descriptor
+        let [
+            success,
+            pid,
+            standard_input_file_descriptor,
+            standard_output_file_descriptor,
+            standard_error_file_descriptor
         ] = GLib.spawn_async_with_pipes(
             null,
             this.command_argv,

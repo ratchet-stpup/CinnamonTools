@@ -6,10 +6,10 @@
 msgid ""
 msgstr ""
 
-"Project-Id-Version: 1.15\n"
+"Project-Id-Version: 1.17\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-11-08 03:31-0300\n"
-"PO-Revision-Date: 2016-11-23 18:29-0300\n"
+"PO-Revision-Date: 2016-12-02 06:26-0300\n"
 "Last-Translator: Odyseus <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -20,211 +20,219 @@ msgstr ""
 #. NOTE: This string could be left blank because it's a default string,
 #. so it's already translated by Cinnamon. It's up to the translators.
 #. 3.2->settings-schema.json->page_menu->title
-#: applet.js:116 3.2/applet.js:116
+#: applet.js:123 3.2/applet.js:123
 msgid "Menu"
 msgstr ""
 
-#: applet.js:1665 3.2/applet.js:1665
+#: applet.js:1778 3.2/applet.js:1778
 msgid "This file is no longer available"
 msgstr ""
 
 #. NOTE: This string could be left blank because it's a default string,
 #. so it's already translated by Cinnamon. It's up to the translators.
-#: applet.js:1696 3.2/applet.js:1696
+#: applet.js:1809 3.2/applet.js:1809
 msgid "No recent documents"
 msgstr ""
 
-#: applet.js:1818 3.2/applet.js:1818
+#: applet.js:1933 3.2/applet.js:1933
 msgid "No recent applications"
 msgstr ""
 
-#: applet.js:1905 3.2/applet.js:1905
+#: applet.js:2020 3.2/applet.js:2020
 msgid "Favorites"
 msgstr ""
 
 #. NOTE: This string could be left blank because it's a default string,
 #. so it's already translated by Cinnamon. It's up to the translators.
-#: applet.js:2260 applet.js:2818 3.2/applet.js:2260 3.2/applet.js:2818
+#: applet.js:2373 applet.js:3015 3.2/applet.js:2373 3.2/applet.js:3015
 msgid "Lock screen"
 msgstr ""
 
 #. NOTE: This string could be left blank because it's a default string,
 #. so it's already translated by Cinnamon. It's up to the translators.
-#: applet.js:2263 applet.js:2817 3.2/applet.js:2263 3.2/applet.js:2817
+#: applet.js:2376 applet.js:3014 3.2/applet.js:2376 3.2/applet.js:3014
 msgid "Lock the screen"
 msgstr ""
 
 #. NOTE: This string could be left blank because it's a default string,
 #. so it's already translated by Cinnamon. It's up to the translators.
-#: applet.js:2296 applet.js:2847 3.2/applet.js:2296 3.2/applet.js:2847
+#: applet.js:2409 applet.js:3046 3.2/applet.js:2409 3.2/applet.js:3046
 msgid "Logout"
 msgstr ""
 
 #. NOTE: This string could be left blank because it's a default string,
 #. so it's already translated by Cinnamon. It's up to the translators.
-#: applet.js:2299 applet.js:2846 3.2/applet.js:2299 3.2/applet.js:2846
+#: applet.js:2412 applet.js:3045 3.2/applet.js:2412 3.2/applet.js:3045
 msgid "Leave the session"
 msgstr ""
 
 #. NOTE: This string could be left blank because it's a default string,
 #. so it's already translated by Cinnamon. It's up to the translators.
-#: applet.js:2319 applet.js:2863 3.2/applet.js:2319 3.2/applet.js:2863
+#: applet.js:2432 applet.js:3064 3.2/applet.js:2432 3.2/applet.js:3064
 msgid "Quit"
 msgstr ""
 
 #. NOTE: This string could be left blank because it's a default string,
 #. so it's already translated by Cinnamon. It's up to the translators.
-#: applet.js:2322 applet.js:2862 3.2/applet.js:2322 3.2/applet.js:2862
+#: applet.js:2435 applet.js:3063 3.2/applet.js:2435 3.2/applet.js:3063
 msgid "Shutdown the computer"
 msgstr ""
 
 #. NOTE: This string could be left blank because it's a default string,
 #. so it's already translated by Cinnamon. It's up to the translators.
-#: applet.js:2573 3.2/applet.js:2573
+#: applet.js:2695 3.2/applet.js:2695
 msgid "Type to search..."
 msgstr ""
 
 #. NOTE: This string could be left blank because it's a default string,
 #. so it's already translated by Cinnamon. It's up to the translators.
-#: applet.js:2879 3.2/applet.js:2879
+#: applet.js:3082 3.2/applet.js:3082
 msgid "Open the menu editor"
 msgstr ""
 
-#: applet.js:2884 3.2/applet.js:2884
+#: applet.js:3087 3.2/applet.js:3087
 msgid "Help"
 msgstr ""
 
 #. NOTE: This string could be left blank because it's a default string,
 #. so it's already translated by Cinnamon. It's up to the translators.
-#: appletModules.js:184
+#: 0dyseus@CustomCinnamonMenu.js:185
 msgid "Please provide your password to uninstall this application"
 msgstr ""
 
-#: appletModules.js:456
+#: 0dyseus@CustomCinnamonMenu.js:458
 msgid "Add to panel"
 msgstr ""
 
-#: appletModules.js:459
+#: 0dyseus@CustomCinnamonMenu.js:461
 msgid "Add this application to the Panel launchers applet."
 msgstr ""
 
-#: appletModules.js:466
+#: 0dyseus@CustomCinnamonMenu.js:469
 msgid "Add to desktop"
 msgstr ""
 
-#: appletModules.js:469
+#: 0dyseus@CustomCinnamonMenu.js:472
 msgid "Add this application to the Desktop."
 msgstr ""
 
-#: appletModules.js:476
+#. NOTE: This string could be left blank because it's a default string,
+#. so it's already translated by Cinnamon. It's up to the translators.
+#: 0dyseus@CustomCinnamonMenu.js:480
 msgid "Remove from favorites"
 msgstr ""
 
-#: appletModules.js:479
+#: 0dyseus@CustomCinnamonMenu.js:483
 msgid "Remove application from your favorites."
 msgstr ""
 
-#: appletModules.js:485
+#. NOTE: This string could be left blank because it's a default string,
+#. so it's already translated by Cinnamon. It's up to the translators.
+#: 0dyseus@CustomCinnamonMenu.js:489
 msgid "Add to favorites"
 msgstr ""
 
-#: appletModules.js:488
+#: 0dyseus@CustomCinnamonMenu.js:492
 msgid "Add application to your favorites."
 msgstr ""
 
-#: appletModules.js:496
+#. NOTE: This string could be left blank because it's a default string,
+#. so it's already translated by Cinnamon. It's up to the translators.
+#: 0dyseus@CustomCinnamonMenu.js:501
 msgid "Uninstall"
 msgstr ""
 
-#: appletModules.js:499
+#: 0dyseus@CustomCinnamonMenu.js:504
 msgid "Uninstall application from your system."
 msgstr ""
 
-#: appletModules.js:506
-msgid "Run with nVidia GPU"
+#. NOTE: This string could be left blank because it's a default string,
+#. so it's already translated by Cinnamon. It's up to the translators.
+#: 0dyseus@CustomCinnamonMenu.js:513
+msgid "Run with NVIDIA GPU"
 msgstr ""
 
-#: appletModules.js:509
+#: 0dyseus@CustomCinnamonMenu.js:516
 msgid "Run application through optirun command (Bumblebee)."
 msgstr ""
 
-#: appletModules.js:514
+#: 0dyseus@CustomCinnamonMenu.js:522
 msgid "Run as root"
 msgstr ""
 
-#: appletModules.js:517
+#: 0dyseus@CustomCinnamonMenu.js:525
 msgid "Run application as root."
 msgstr ""
 
-#: appletModules.js:522
+#: 0dyseus@CustomCinnamonMenu.js:531
 msgid "Edit .desktop file"
 msgstr ""
 
-#: appletModules.js:525
+#: 0dyseus@CustomCinnamonMenu.js:534
 msgid "Edit this application .desktop file with a text editor."
 msgstr ""
 
-#: appletModules.js:530
+#: 0dyseus@CustomCinnamonMenu.js:540
 msgid "Open .desktop file folder"
 msgstr ""
 
-#: appletModules.js:533
+#: 0dyseus@CustomCinnamonMenu.js:543
 msgid "Open the folder containg this application .desktop file."
 msgstr ""
 
-#: appletModules.js:539
+#: 0dyseus@CustomCinnamonMenu.js:550
 msgid "Run from terminal"
 msgstr ""
 
-#: appletModules.js:542
+#: 0dyseus@CustomCinnamonMenu.js:553
 msgid "Run application from a terminal."
 msgstr ""
 
-#: appletModules.js:548
+#: 0dyseus@CustomCinnamonMenu.js:560
 msgid "Run from terminal as root"
 msgstr ""
 
-#: appletModules.js:551
+#: 0dyseus@CustomCinnamonMenu.js:563
 msgid "Run application from a terminal as root."
 msgstr ""
 
 #. NOTE: This string could be left blank because it's a default string,
 #. so it's already translated by Cinnamon. It's up to the translators.
-#: appletModules.js:1061
+#: 0dyseus@CustomCinnamonMenu.js:1094
 msgid "Open with"
 msgstr ""
 
 #. NOTE: This string could be left blank because it's a default string,
 #. so it's already translated by Cinnamon. It's up to the translators.
-#: appletModules.js:1113
+#: 0dyseus@CustomCinnamonMenu.js:1146
 msgid "Other application..."
 msgstr ""
 
 #. NOTE: This string could be left blank because it's a default string,
 #. so it's already translated by Cinnamon. It's up to the translators.
-#: appletModules.js:1208 appletModules.js:1259
+#: 0dyseus@CustomCinnamonMenu.js:1241 0dyseus@CustomCinnamonMenu.js:1292
 msgid "Clear list"
 msgstr ""
 
 #. NOTE: This string could be left blank because it's a default string,
 #. so it's already translated by Cinnamon. It's up to the translators.
-#: appletModules.js:1338
+#: 0dyseus@CustomCinnamonMenu.js:1373
 msgid "All Applications"
 msgstr ""
 
 #. NOTE: This string could be left blank because it's a default string,
 #. so it's already translated by Cinnamon. It's up to the translators.
-#: appletModules.js:1386
+#: 0dyseus@CustomCinnamonMenu.js:1421
 msgid "Places"
 msgstr ""
 
 #. NOTE: This string could be left blank because it's a default string,
 #. so it's already translated by Cinnamon. It's up to the translators.
-#: appletModules.js:1426
+#: 0dyseus@CustomCinnamonMenu.js:1463
 msgid "Recent Files"
 msgstr ""
 
-#: appletModules.js:1860
+#: 0dyseus@CustomCinnamonMenu.js:1890
 msgid "Recent Applications"
 msgstr ""
 
@@ -242,37 +250,11 @@ msgid ""
 "Applications\" category."
 msgstr ""
 
-#. 3.2->settings-schema.json->pref_command_8_description->description
-#. 3.2->settings-schema.json->pref_command_7_description->description
-#. 3.2->settings-schema.json->pref_command_5_description->description
-#. 3.2->settings-schema.json->pref_command_4_description->description
-#. 3.2->settings-schema.json->pref_command_2_description->description
-#. 3.2->settings-schema.json->pref_command_1_description->description
-#. 3.2->settings-schema.json->pref_command_6_description->description
-#. 3.2->settings-schema.json->pref_command_9_description->description
-#. 3.2->settings-schema.json->pref_command_10_description->description
-#. 3.2->settings-schema.json->pref_command_3_description->description
+#. 3.2->settings-
+#. schema.json->pref_hide_applications_list_scrollbar->description
 #. 0dyseus@CustomCinnamonMenu->settings-
-#. schema.json->pref_command_8_description->description
-#. 0dyseus@CustomCinnamonMenu->settings-
-#. schema.json->pref_command_7_description->description
-#. 0dyseus@CustomCinnamonMenu->settings-
-#. schema.json->pref_command_9_description->description
-#. 0dyseus@CustomCinnamonMenu->settings-
-#. schema.json->pref_command_5_description->description
-#. 0dyseus@CustomCinnamonMenu->settings-
-#. schema.json->pref_command_4_description->description
-#. 0dyseus@CustomCinnamonMenu->settings-
-#. schema.json->pref_command_2_description->description
-#. 0dyseus@CustomCinnamonMenu->settings-
-#. schema.json->pref_command_1_description->description
-#. 0dyseus@CustomCinnamonMenu->settings-
-#. schema.json->pref_command_6_description->description
-#. 0dyseus@CustomCinnamonMenu->settings-
-#. schema.json->pref_command_10_description->description
-#. 0dyseus@CustomCinnamonMenu->settings-
-#. schema.json->pref_command_3_description->description
-msgid "Description:"
+#. schema.json->pref_hide_applications_list_scrollbar->description
+msgid "Hide applications list scrollbar"
 msgstr ""
 
 #. 3.2->settings-schema.json->pref_category_icon_size->description
@@ -284,8 +266,10 @@ msgstr ""
 #. 3.2->settings-schema.json->pref_category_icon_size->units
 #. 3.2->settings-schema.json->pref_search_box_padding_top->units
 #. 3.2->settings-schema.json->pref_categories_box_padding_top->units
+#. 3.2->settings-schema.json->pref_info_box_padding_left->units
 #. 3.2->settings-schema.json->pref_custom_command_box_padding_left->units
 #. 3.2->settings-schema.json->pref_separator_heigth->units
+#. 3.2->settings-schema.json->pref_info_box_padding_right->units
 #. 3.2->settings-schema.json->pref_custom_command_box_padding_bottom->units
 #. 3.2->settings-schema.json->pref_custom_command_icon_size->units
 #. 3.2->settings-schema.json->pref_categories_box_padding_right->units
@@ -310,9 +294,13 @@ msgstr ""
 #. 0dyseus@CustomCinnamonMenu->settings-
 #. schema.json->pref_categories_box_padding_top->units
 #. 0dyseus@CustomCinnamonMenu->settings-
+#. schema.json->pref_info_box_padding_left->units
+#. 0dyseus@CustomCinnamonMenu->settings-
 #. schema.json->pref_custom_command_box_padding_left->units
 #. 0dyseus@CustomCinnamonMenu->settings-
 #. schema.json->pref_separator_heigth->units
+#. 0dyseus@CustomCinnamonMenu->settings-
+#. schema.json->pref_info_box_padding_right->units
 #. 0dyseus@CustomCinnamonMenu->settings-
 #. schema.json->pref_custom_command_box_padding_bottom->units
 #. 0dyseus@CustomCinnamonMenu->settings-
@@ -383,6 +371,39 @@ msgstr ""
 msgid "Label:"
 msgstr ""
 
+#. 3.2->settings-schema.json->pref_command_7_description->description
+#. 3.2->settings-schema.json->pref_command_5_description->description
+#. 3.2->settings-schema.json->pref_command_4_description->description
+#. 3.2->settings-schema.json->pref_command_8_description->description
+#. 3.2->settings-schema.json->pref_command_2_description->description
+#. 3.2->settings-schema.json->pref_command_1_description->description
+#. 3.2->settings-schema.json->pref_command_6_description->description
+#. 3.2->settings-schema.json->pref_command_9_description->description
+#. 3.2->settings-schema.json->pref_command_10_description->description
+#. 3.2->settings-schema.json->pref_command_3_description->description
+#. 0dyseus@CustomCinnamonMenu->settings-
+#. schema.json->pref_command_8_description->description
+#. 0dyseus@CustomCinnamonMenu->settings-
+#. schema.json->pref_command_7_description->description
+#. 0dyseus@CustomCinnamonMenu->settings-
+#. schema.json->pref_command_9_description->description
+#. 0dyseus@CustomCinnamonMenu->settings-
+#. schema.json->pref_command_5_description->description
+#. 0dyseus@CustomCinnamonMenu->settings-
+#. schema.json->pref_command_4_description->description
+#. 0dyseus@CustomCinnamonMenu->settings-
+#. schema.json->pref_command_2_description->description
+#. 0dyseus@CustomCinnamonMenu->settings-
+#. schema.json->pref_command_1_description->description
+#. 0dyseus@CustomCinnamonMenu->settings-
+#. schema.json->pref_command_6_description->description
+#. 0dyseus@CustomCinnamonMenu->settings-
+#. schema.json->pref_command_10_description->description
+#. 0dyseus@CustomCinnamonMenu->settings-
+#. schema.json->pref_command_3_description->description
+msgid "Description:"
+msgstr ""
+
 #. 3.2->settings-schema.json->pref_command_9_icon->description
 #. 3.2->settings-schema.json->pref_command_3_icon->description
 #. 3.2->settings-schema.json->pref_command_6_icon->description
@@ -416,12 +437,6 @@ msgstr ""
 msgid "*Icon:"
 msgstr ""
 
-#. 3.2->settings-schema.json->pref_hide_add_to_desktop_on_context->description
-#. 0dyseus@CustomCinnamonMenu->settings-
-#. schema.json->pref_hide_add_to_desktop_on_context->description
-msgid "Hide \"Add to desktop\""
-msgstr ""
-
 #. 3.2->settings-schema.json->pref_search_box_padding_top->description
 #. 3.2->settings-schema.json->pref_categories_box_padding_top->description
 #. 3.2->settings-schema.json->pref_search_entry_padding_top->description
@@ -446,7 +461,7 @@ msgstr ""
 #. 3.2->settings-schema.json->pref_custom_commands_box_alignment->description
 #. 0dyseus@CustomCinnamonMenu->settings-
 #. schema.json->pref_custom_commands_box_alignment->description
-msgid "Alignment of buttons inside the custom launchers box"
+msgid "Custom launchers buttons alignment"
 msgstr ""
 
 #. 3.2->settings-schema.json->pref_custom_commands_box_alignment->options
@@ -479,10 +494,32 @@ msgstr ""
 msgid "Enable opening the menu when the mouse enters the applet."
 msgstr ""
 
-#. 3.2->settings-schema.json->pref_hide_add_to_panel_on_context->description
+#. 3.2->settings-schema.json->pref_info_box_padding_left->description
+#. 3.2->settings-
+#. schema.json->pref_custom_command_box_padding_left->description
+#. 3.2->settings-schema.json->pref_search_box_padding_left->description
+#. 3.2->settings-schema.json->pref_categories_box_padding_left->description
+#. 3.2->settings-schema.json->pref_search_entry_padding_left->description
 #. 0dyseus@CustomCinnamonMenu->settings-
-#. schema.json->pref_hide_add_to_panel_on_context->description
-msgid "Hide \"Add to panel\""
+#. schema.json->pref_info_box_padding_left->description
+#. 0dyseus@CustomCinnamonMenu->settings-
+#. schema.json->pref_custom_command_box_padding_left->description
+#. 0dyseus@CustomCinnamonMenu->settings-
+#. schema.json->pref_search_box_padding_left->description
+#. 0dyseus@CustomCinnamonMenu->settings-
+#. schema.json->pref_categories_box_padding_left->description
+#. 0dyseus@CustomCinnamonMenu->settings-
+#. schema.json->pref_search_entry_padding_left->description
+msgid "Box left padding:"
+msgstr ""
+
+#. 3.2->settings-schema.json->custom_launchers_label->description
+msgid ""
+"Fields marked with asterisks (*) are mandatory. Otherwise, the button will not appear on the menu.\n"
+"Icons can be any icon name or path to an icon file (symbolic or full color).\n"
+"Commands can be any command (as entered in a terminal) or a path to a file.\n"
+"If the file is an executable script, an attempt to execute it will be made.\n"
+"Otherwise, the file will be opened with the systems handler for that file type."
 msgstr ""
 
 #. 3.2->settings-schema.json->pref_show_places->description
@@ -526,20 +563,73 @@ msgid ""
 "This message is only temporary until I figure out how to fix this."
 msgstr ""
 
-#. 3.2->settings-
-#. schema.json->pref_custom_command_box_padding_left->description
-#. 3.2->settings-schema.json->pref_search_box_padding_left->description
-#. 3.2->settings-schema.json->pref_categories_box_padding_left->description
-#. 3.2->settings-schema.json->pref_search_entry_padding_left->description
+#. 3.2->settings-schema.json->pref_menu_layout_first_place->description
 #. 0dyseus@CustomCinnamonMenu->settings-
-#. schema.json->pref_custom_command_box_padding_left->description
+#. schema.json->pref_menu_layout_first_place->description
+msgid "First place element"
+msgstr ""
+
+#. 3.2->settings-schema.json->pref_menu_layout_first_place->options
+#. 3.2->settings-schema.json->section_appearance_search_box->title
+#. 3.2->settings-schema.json->pref_menu_layout_second_place->options
+#. 3.2->settings-schema.json->pref_menu_layout_fourth_place->options
+#. 3.2->settings-schema.json->pref_menu_layout_third_place->options
 #. 0dyseus@CustomCinnamonMenu->settings-
-#. schema.json->pref_search_box_padding_left->description
+#. schema.json->pref_menu_layout_first_place->options
 #. 0dyseus@CustomCinnamonMenu->settings-
-#. schema.json->pref_categories_box_padding_left->description
+#. schema.json->pref_menu_layout_second_place->options
+#. 0dyseus@CustomCinnamonMenu->settings-schema.json->head4->description
+#. 0dyseus@CustomCinnamonMenu->settings-schema.json->appearance3->description
 #. 0dyseus@CustomCinnamonMenu->settings-
-#. schema.json->pref_search_entry_padding_left->description
-msgid "Box left padding:"
+#. schema.json->pref_menu_layout_fourth_place->options
+#. 0dyseus@CustomCinnamonMenu->settings-
+#. schema.json->pref_menu_layout_third_place->options
+msgid "Search box"
+msgstr ""
+
+#. 3.2->settings-schema.json->pref_menu_layout_first_place->options
+#. 3.2->settings-schema.json->pref_menu_layout_second_place->options
+#. 3.2->settings-schema.json->pref_menu_layout_fourth_place->options
+#. 3.2->settings-schema.json->pref_menu_layout_third_place->options
+#. 0dyseus@CustomCinnamonMenu->settings-
+#. schema.json->pref_menu_layout_first_place->options
+#. 0dyseus@CustomCinnamonMenu->settings-
+#. schema.json->pref_menu_layout_second_place->options
+#. 0dyseus@CustomCinnamonMenu->settings-
+#. schema.json->pref_menu_layout_fourth_place->options
+#. 0dyseus@CustomCinnamonMenu->settings-
+#. schema.json->pref_menu_layout_third_place->options
+msgid "Applications info box"
+msgstr ""
+
+#. 3.2->settings-schema.json->pref_menu_layout_first_place->options
+#. 3.2->settings-schema.json->pref_menu_layout_second_place->options
+#. 3.2->settings-schema.json->pref_menu_layout_fourth_place->options
+#. 3.2->settings-schema.json->pref_menu_layout_third_place->options
+#. 0dyseus@CustomCinnamonMenu->settings-
+#. schema.json->pref_menu_layout_first_place->options
+#. 0dyseus@CustomCinnamonMenu->settings-
+#. schema.json->pref_menu_layout_second_place->options
+#. 0dyseus@CustomCinnamonMenu->settings-
+#. schema.json->pref_menu_layout_fourth_place->options
+#. 0dyseus@CustomCinnamonMenu->settings-
+#. schema.json->pref_menu_layout_third_place->options
+msgid "Applications/Categories boxes"
+msgstr ""
+
+#. 3.2->settings-schema.json->pref_menu_layout_first_place->options
+#. 3.2->settings-schema.json->pref_menu_layout_second_place->options
+#. 3.2->settings-schema.json->pref_menu_layout_fourth_place->options
+#. 3.2->settings-schema.json->pref_menu_layout_third_place->options
+#. 0dyseus@CustomCinnamonMenu->settings-
+#. schema.json->pref_menu_layout_first_place->options
+#. 0dyseus@CustomCinnamonMenu->settings-
+#. schema.json->pref_menu_layout_second_place->options
+#. 0dyseus@CustomCinnamonMenu->settings-
+#. schema.json->pref_menu_layout_fourth_place->options
+#. 0dyseus@CustomCinnamonMenu->settings-
+#. schema.json->pref_menu_layout_third_place->options
+msgid "Custom Launchers box"
 msgstr ""
 
 #. 3.2->settings-schema.json->pref_separator_heigth->description
@@ -552,6 +642,25 @@ msgstr ""
 #. 0dyseus@CustomCinnamonMenu->settings-
 #. schema.json->pref_separator_heigth->tooltip
 msgid "Size of separator between \"Favorites\" box and \"Quit\" box."
+msgstr ""
+
+#. 3.2->settings-schema.json->pref_info_box_padding_right->description
+#. 3.2->settings-schema.json->pref_categories_box_padding_right->description
+#. 3.2->settings-schema.json->pref_search_box_padding_right->description
+#. 3.2->settings-
+#. schema.json->pref_custom_command_box_padding_right->description
+#. 3.2->settings-schema.json->pref_search_entry_padding_right->description
+#. 0dyseus@CustomCinnamonMenu->settings-
+#. schema.json->pref_info_box_padding_right->description
+#. 0dyseus@CustomCinnamonMenu->settings-
+#. schema.json->pref_categories_box_padding_right->description
+#. 0dyseus@CustomCinnamonMenu->settings-
+#. schema.json->pref_search_box_padding_right->description
+#. 0dyseus@CustomCinnamonMenu->settings-
+#. schema.json->pref_custom_command_box_padding_right->description
+#. 0dyseus@CustomCinnamonMenu->settings-
+#. schema.json->pref_search_entry_padding_right->description
+msgid "Box right padding:"
 msgstr ""
 
 #. 3.2->settings-schema.json->section_menu_settings->title
@@ -567,6 +676,12 @@ msgstr ""
 msgid "Custom Launchers"
 msgstr ""
 
+#. 3.2->settings-schema.json->section_custom_launchers_010->title
+#. 0dyseus@CustomCinnamonMenu->settings-
+#. schema.json->pref_command_10->description
+msgid "Custom launcher 10"
+msgstr ""
+
 #. 3.2->settings-schema.json->section_custom_launchers_002->title
 #. 0dyseus@CustomCinnamonMenu->settings-
 #. schema.json->pref_command_2->description
@@ -579,8 +694,8 @@ msgstr ""
 msgid "Custom launcher 3"
 msgstr ""
 
-#. 3.2->settings-schema.json->section_custom_launchers_000->title
-msgid "Custom launchers settings"
+#. 3.2->settings-schema.json->section_appearance_icons_display->title
+msgid "Icons display"
 msgstr ""
 
 #. 3.2->settings-schema.json->section_custom_launchers_001->title
@@ -626,6 +741,7 @@ msgid "Custom launcher 9"
 msgstr ""
 
 #. 3.2->settings-schema.json->page_appearance->title
+#. 0dyseus@CustomCinnamonMenu->settings-schema.json->appearance1->description
 msgid "Appearance"
 msgstr ""
 
@@ -633,10 +749,8 @@ msgstr ""
 msgid "Extras"
 msgstr ""
 
-#. 3.2->settings-schema.json->section_custom_launchers_010->title
-#. 0dyseus@CustomCinnamonMenu->settings-
-#. schema.json->pref_command_10->description
-msgid "Custom launcher 10"
+#. 3.2->settings-schema.json->page_layout->title
+msgid "Layout"
 msgstr ""
 
 #. 3.2->settings-schema.json->section_search_box_settings->title
@@ -649,7 +763,7 @@ msgid "Save settings"
 msgstr ""
 
 #. 3.2->settings-schema.json->section_appearance_boxes_padding->title
-#. 0dyseus@CustomCinnamonMenu->settings-schema.json->appearance3->description
+#. 0dyseus@CustomCinnamonMenu->settings-schema.json->appearance6->description
 msgid ""
 "Note: Most themes stylesheets come with hardcoded sizes for certain elemets.\n"
 "This section is for overriding those stylesheets."
@@ -672,13 +786,23 @@ msgstr ""
 msgid "Context menus settings"
 msgstr ""
 
+#. 3.2->settings-schema.json->section_layout_001->title
+#. 0dyseus@CustomCinnamonMenu->settings-schema.json->head2->description
+msgid "Menu layout"
+msgstr ""
+
+#. 3.2->settings-schema.json->section_layout_002->title
+#. 0dyseus@CustomCinnamonMenu->settings-schema.json->head22->description
+msgid "Placement on main elements on menu"
+msgstr ""
+
 #. 3.2->settings-
 #. schema.json->section_recently_used_applications_settings->title
 msgid "Recently used applications settings"
 msgstr ""
 
 #. 3.2->settings-schema.json->section_appearance_icon_sizes->title
-#. 0dyseus@CustomCinnamonMenu->settings-schema.json->appearance1->description
+#. 0dyseus@CustomCinnamonMenu->settings-schema.json->appearance2->description
 msgid "Icon sizes"
 msgstr ""
 
@@ -688,12 +812,13 @@ msgid ""
 "Press any of the \"Save settings\" buttons for the settings to take effect."
 msgstr ""
 
-#. 3.2->settings-schema.json->section_appearance_buttons_width->title
-msgid "Buttons width"
+#. 3.2->settings-schema.json->section_appearance_applicatons_box->title
+#. 0dyseus@CustomCinnamonMenu->settings-schema.json->appearance5->description
+msgid "Applications box"
 msgstr ""
 
 #. 3.2->settings-schema.json->section_appearance_favorites_box->title
-#. 0dyseus@CustomCinnamonMenu->settings-schema.json->appearance2->description
+#. 0dyseus@CustomCinnamonMenu->settings-schema.json->appearance4->description
 msgid "Favorites box"
 msgstr ""
 
@@ -711,16 +836,24 @@ msgid ""
 "hovering."
 msgstr ""
 
+#. 3.2->settings-schema.json->pref_show_add_to_panel_on_context->description
+#. 0dyseus@CustomCinnamonMenu->settings-
+#. schema.json->pref_show_add_to_panel_on_context->description
+msgid "Show \"Add to panel\" on context"
+msgstr ""
+
 #. 3.2->settings-schema.json->pref_command_6_command->description
-#. 3.2->settings-schema.json->pref_command_7_command->description
 #. 3.2->settings-schema.json->pref_command_8_command->description
+#. 3.2->settings-schema.json->pref_command_1_command->description
+#. 3.2->settings-schema.json->pref_command_7_command->description
 #. 3.2->settings-schema.json->pref_command_2_command->description
 #. 3.2->settings-schema.json->pref_command_9_command->description
 #. 3.2->settings-schema.json->pref_command_5_command->description
-#. 3.2->settings-schema.json->pref_command_1_command->description
 #. 3.2->settings-schema.json->pref_command_10_command->description
 #. 3.2->settings-schema.json->pref_command_4_command->description
 #. 3.2->settings-schema.json->pref_command_3_command->description
+#. 0dyseus@CustomCinnamonMenu->settings-
+#. schema.json->pref_command_1_command->description
 #. 0dyseus@CustomCinnamonMenu->settings-
 #. schema.json->pref_command_7_command->description
 #. 0dyseus@CustomCinnamonMenu->settings-
@@ -728,32 +861,18 @@ msgstr ""
 #. 0dyseus@CustomCinnamonMenu->settings-
 #. schema.json->pref_command_8_command->description
 #. 0dyseus@CustomCinnamonMenu->settings-
+#. schema.json->pref_command_10_command->description
+#. 0dyseus@CustomCinnamonMenu->settings-
 #. schema.json->pref_command_2_command->description
 #. 0dyseus@CustomCinnamonMenu->settings-
 #. schema.json->pref_command_9_command->description
 #. 0dyseus@CustomCinnamonMenu->settings-
 #. schema.json->pref_command_5_command->description
 #. 0dyseus@CustomCinnamonMenu->settings-
-#. schema.json->pref_command_1_command->description
-#. 0dyseus@CustomCinnamonMenu->settings-
-#. schema.json->pref_command_10_command->description
-#. 0dyseus@CustomCinnamonMenu->settings-
 #. schema.json->pref_command_4_command->description
 #. 0dyseus@CustomCinnamonMenu->settings-
 #. schema.json->pref_command_3_command->description
 msgid "*Command or path to file:"
-msgstr ""
-
-#. 3.2->settings-schema.json->pref_display_fav_box->description
-#. 0dyseus@CustomCinnamonMenu->settings-
-#. schema.json->pref_display_fav_box->description
-msgid "Show favorites and quit options"
-msgstr ""
-
-#. 3.2->settings-schema.json->pref_display_fav_box->tooltip
-#. 0dyseus@CustomCinnamonMenu->settings-
-#. schema.json->pref_display_fav_box->tooltip
-msgid "Choose whether or not to show the left pane of the menu."
 msgstr ""
 
 #. 3.2->settings-schema.json->pref_set_search_box_padding->description
@@ -797,37 +916,58 @@ msgstr ""
 msgid "Box bottom padding:"
 msgstr ""
 
-#. 3.2->settings-schema.json->pref_menu_hover_delay->description
+#. 3.2->settings-
+#. schema.json->pref_apps_info_box_alignment_to_the_left->description
 #. 0dyseus@CustomCinnamonMenu->settings-
-#. schema.json->pref_menu_hover_delay->description
-msgid "Menu hover delay:"
+#. schema.json->pref_apps_info_box_alignment_to_the_left->description
+msgid "Align application info box text to the left"
 msgstr ""
 
-#. 3.2->settings-schema.json->pref_menu_hover_delay->tooltip
+#. 3.2->settings-schema.json->pref_menu_layout_second_place->description
 #. 0dyseus@CustomCinnamonMenu->settings-
-#. schema.json->pref_menu_hover_delay->tooltip
-msgid "Delay before the menu is opened on entering the applet."
+#. schema.json->pref_menu_layout_second_place->description
+msgid "Second place element"
 msgstr ""
 
-#. 3.2->settings-schema.json->pref_menu_hover_delay->units
-#. 3.2->settings-schema.json->pref_cat_hover_delay->units
+#. 3.2->settings-schema.json->pref_menu_layout_second_place->options
+#. 3.2->settings-schema.json->pref_appinfo_display_method->options
+#. 3.2->settings-schema.json->pref_menu_layout_fourth_place->options
+#. 3.2->settings-schema.json->pref_menu_layout_third_place->options
 #. 0dyseus@CustomCinnamonMenu->settings-
-#. schema.json->pref_menu_hover_delay->units
+#. schema.json->pref_menu_layout_second_place->options
 #. 0dyseus@CustomCinnamonMenu->settings-
-#. schema.json->pref_cat_hover_delay->units
-msgid "milliseconds"
-msgstr ""
-
-#. 3.2->settings-schema.json->pref_hide_uninstall_on_context->description
+#. schema.json->pref_appinfo_display_method->options
 #. 0dyseus@CustomCinnamonMenu->settings-
-#. schema.json->pref_hide_uninstall_on_context->description
-msgid "Hide \"Uninstall\""
+#. schema.json->pref_menu_layout_fourth_place->options
+#. 0dyseus@CustomCinnamonMenu->settings-
+#. schema.json->pref_menu_layout_third_place->options
+msgid "None"
 msgstr ""
 
 #. 3.2->settings-schema.json->pref_show_logout_button->description
 #. 0dyseus@CustomCinnamonMenu->settings-
 #. schema.json->pref_show_logout_button->description
 msgid "Show \"Logout\" button"
+msgstr ""
+
+#. 3.2->settings-schema.json->pref_lock_button_custom_icon->description
+#. 0dyseus@CustomCinnamonMenu->settings-
+#. schema.json->pref_lock_button_custom_icon->description
+msgid "Custom icon for \"Lock screen\" button:"
+msgstr ""
+
+#. 3.2->settings-schema.json->pref_lock_button_custom_icon->tooltip
+#. 3.2->settings-schema.json->pref_logout_button_custom_icon->tooltip
+#. 3.2->settings-schema.json->pref_shutdown_button_custom_icon->tooltip
+#. 0dyseus@CustomCinnamonMenu->settings-
+#. schema.json->pref_lock_button_custom_icon->tooltip
+#. 0dyseus@CustomCinnamonMenu->settings-
+#. schema.json->pref_logout_button_custom_icon->tooltip
+#. 0dyseus@CustomCinnamonMenu->settings-
+#. schema.json->pref_shutdown_button_custom_icon->tooltip
+msgid ""
+"Only valid if the System buttons box is placed next to the Custom launchers box.\n"
+"Leave blank to use default."
 msgstr ""
 
 #. 3.2->settings-schema.json->pref_display_application_icons->description
@@ -896,6 +1036,8 @@ msgid "Enable fuzzy search (EXPERIMENTAL)"
 msgstr ""
 
 #. 3.2->settings-schema.json->pref_fuzzy_search_enabled->tooltip
+#. 0dyseus@CustomCinnamonMenu->settings-
+#. schema.json->pref_fuzzy_search_enabled->tooltip
 msgid ""
 "This option enables an infinitelly better sorting of search results. It's "
 "marked as experimental because it has a huge impact on performance every "
@@ -928,26 +1070,22 @@ msgstr ""
 msgid "gksudo"
 msgstr ""
 
-#. 3.2->settings-schema.json->pref_categories_box_padding_right->description
-#. 3.2->settings-schema.json->pref_search_box_padding_right->description
-#. 3.2->settings-
-#. schema.json->pref_custom_command_box_padding_right->description
-#. 3.2->settings-schema.json->pref_search_entry_padding_right->description
+#. 3.2->settings-schema.json->pref_display_fav_box->description
 #. 0dyseus@CustomCinnamonMenu->settings-
-#. schema.json->pref_categories_box_padding_right->description
+#. schema.json->pref_display_fav_box->description
+msgid "Show favorites and quit options"
+msgstr ""
+
+#. 3.2->settings-schema.json->pref_display_fav_box->tooltip
 #. 0dyseus@CustomCinnamonMenu->settings-
-#. schema.json->pref_search_box_padding_right->description
-#. 0dyseus@CustomCinnamonMenu->settings-
-#. schema.json->pref_custom_command_box_padding_right->description
-#. 0dyseus@CustomCinnamonMenu->settings-
-#. schema.json->pref_search_entry_padding_right->description
-msgid "Box right padding:"
+#. schema.json->pref_display_fav_box->tooltip
+msgid "Choose whether or not to show the left pane of the menu."
 msgstr ""
 
 #. 3.2->settings-schema.json->pref_system_buttons_display->description
 #. 0dyseus@CustomCinnamonMenu->settings-
 #. schema.json->pref_system_buttons_display->description
-msgid "Where to display the Quit buttons"
+msgid "Quit buttons placement"
 msgstr ""
 
 #. 3.2->settings-schema.json->pref_system_buttons_display->options
@@ -963,8 +1101,6 @@ msgid "Hide all"
 msgstr ""
 
 #. 3.2->settings-schema.json->pref_system_buttons_display->options
-#. 0dyseus@CustomCinnamonMenu->settings-
-#. schema.json->pref_system_buttons_display->options
 msgid "Next to Custom launchers box"
 msgstr ""
 
@@ -974,16 +1110,10 @@ msgstr ""
 msgid "Set a custom padding for the Custom launchers box"
 msgstr ""
 
-#. 3.2->settings-schema.json->pref_display_category_icons->description
+#. 3.2->settings-schema.json->pref_logout_button_custom_icon->description
 #. 0dyseus@CustomCinnamonMenu->settings-
-#. schema.json->pref_display_category_icons->description
-msgid "Show category icons"
-msgstr ""
-
-#. 3.2->settings-schema.json->pref_display_category_icons->tooltip
-#. 0dyseus@CustomCinnamonMenu->settings-
-#. schema.json->pref_display_category_icons->tooltip
-msgid "Choose whether or not to show icons on categories."
+#. schema.json->pref_logout_button_custom_icon->description
+msgid "Custom icon for \"Logout\" button:"
 msgstr ""
 
 #. 3.2->settings-schema.json->pref_animate_menu->description
@@ -996,13 +1126,6 @@ msgstr ""
 #. 0dyseus@CustomCinnamonMenu->settings-
 #. schema.json->pref_application_icon_size->description
 msgid "Applications icon size:"
-msgstr ""
-
-#. 3.2->settings-
-#. schema.json->pref_hide_applications_list_scrollbar->description
-#. 0dyseus@CustomCinnamonMenu->settings-
-#. schema.json->pref_hide_applications_list_scrollbar->description
-msgid "Hide applications list scrollbar"
 msgstr ""
 
 #. 3.2->settings-schema.json->pref_max_recently_used_apps->description
@@ -1023,20 +1146,25 @@ msgstr ""
 msgid "Show \"Shutdown\" button"
 msgstr ""
 
-#. 3.2->settings-
-#. schema.json->pref_apps_info_box_alignment_to_the_left->description
+#. 3.2->settings-schema.json->pref_menu_hover_delay->description
 #. 0dyseus@CustomCinnamonMenu->settings-
-#. schema.json->pref_apps_info_box_alignment_to_the_left->description
-msgid "Align application info box text to the left"
+#. schema.json->pref_menu_hover_delay->description
+msgid "Menu hover delay:"
 msgstr ""
 
-#. 3.2->settings-schema.json->custom_launchers_label->description
-msgid ""
-"Fields marked with asterisks (*) are mandatory. Otherwise, the button will not appear on the menu.\n"
-"Icons can be any icon name or path to an icon file (symbolic or full color).\n"
-"Commands can be any command (as entered in a terminal) or a path to a file.\n"
-"If the file is an executable script, an attempt to execute it will be made.\n"
-"Otherwise, the file will be opened with the systems handler for that file type."
+#. 3.2->settings-schema.json->pref_menu_hover_delay->tooltip
+#. 0dyseus@CustomCinnamonMenu->settings-
+#. schema.json->pref_menu_hover_delay->tooltip
+msgid "Delay before the menu is opened on entering the applet."
+msgstr ""
+
+#. 3.2->settings-schema.json->pref_menu_hover_delay->units
+#. 3.2->settings-schema.json->pref_cat_hover_delay->units
+#. 0dyseus@CustomCinnamonMenu->settings-
+#. schema.json->pref_menu_hover_delay->units
+#. 0dyseus@CustomCinnamonMenu->settings-
+#. schema.json->pref_cat_hover_delay->units
+msgid "milliseconds"
 msgstr ""
 
 #. 3.2->settings-schema.json->pref_max_fav_icon_size->description
@@ -1121,6 +1249,12 @@ msgid ""
 "IMPORTANT!!! The terminal emulator has to support the -e argument."
 msgstr ""
 
+#. 3.2->settings-schema.json->pref_show_bumblebee_on_context->description
+#. 0dyseus@CustomCinnamonMenu->settings-
+#. schema.json->pref_show_bumblebee_on_context->description
+msgid "Show \"Run with NVIDIA GPU\" on context"
+msgstr ""
+
 #. 3.2->settings-schema.json->pref_appinfo_display_method->description
 #. 0dyseus@CustomCinnamonMenu->settings-
 #. schema.json->pref_appinfo_display_method->description
@@ -1136,33 +1270,25 @@ msgstr ""
 #. 3.2->settings-schema.json->pref_appinfo_display_method->options
 #. 0dyseus@CustomCinnamonMenu->settings-
 #. schema.json->pref_appinfo_display_method->options
-msgid "None"
-msgstr ""
-
-#. 3.2->settings-schema.json->pref_appinfo_display_method->options
-#. 0dyseus@CustomCinnamonMenu->settings-
-#. schema.json->pref_appinfo_display_method->options
 msgid "Info box"
 msgstr ""
 
-#. 3.2->settings-schema.json->pref_logout_button_custom_icon->description
+#. 3.2->settings-schema.json->pref_set_info_box_padding->description
 #. 0dyseus@CustomCinnamonMenu->settings-
-#. schema.json->pref_logout_button_custom_icon->description
-msgid "Custom icon for \"Logout\" button:"
+#. schema.json->pref_set_info_box_padding->description
+msgid "Set a custom padding for the Applications info box"
 msgstr ""
 
-#. 3.2->settings-schema.json->pref_logout_button_custom_icon->tooltip
-#. 3.2->settings-schema.json->pref_shutdown_button_custom_icon->tooltip
-#. 3.2->settings-schema.json->pref_lock_button_custom_icon->tooltip
+#. 3.2->settings-schema.json->pref_display_category_icons->description
 #. 0dyseus@CustomCinnamonMenu->settings-
-#. schema.json->pref_logout_button_custom_icon->tooltip
+#. schema.json->pref_display_category_icons->description
+msgid "Show category icons"
+msgstr ""
+
+#. 3.2->settings-schema.json->pref_display_category_icons->tooltip
 #. 0dyseus@CustomCinnamonMenu->settings-
-#. schema.json->pref_shutdown_button_custom_icon->tooltip
-#. 0dyseus@CustomCinnamonMenu->settings-
-#. schema.json->pref_lock_button_custom_icon->tooltip
-msgid ""
-"Only valid if the System buttons box is placed next to the Custom launchers box.\n"
-"Leave blank to use default."
+#. schema.json->pref_display_category_icons->tooltip
+msgid "Choose whether or not to show icons on categories."
 msgstr ""
 
 #. 3.2->settings-
@@ -1199,40 +1325,16 @@ msgstr ""
 msgid "Show \"Lock screen\" button"
 msgstr ""
 
-#. 3.2->settings-schema.json->pref_custom_launchers_box_placement->description
+#. 3.2->settings-schema.json->pref_menu_layout_fourth_place->description
 #. 0dyseus@CustomCinnamonMenu->settings-
-#. schema.json->pref_custom_launchers_box_placement->description
-msgid "Custom launchers box placement"
+#. schema.json->pref_menu_layout_fourth_place->description
+msgid "Fourth place element"
 msgstr ""
 
-#. 3.2->settings-schema.json->pref_custom_launchers_box_placement->options
+#. 3.2->settings-schema.json->pref_menu_layout_third_place->description
 #. 0dyseus@CustomCinnamonMenu->settings-
-#. schema.json->pref_custom_launchers_box_placement->options
-msgid "Disabled"
-msgstr ""
-
-#. 3.2->settings-schema.json->pref_custom_launchers_box_placement->options
-#. 0dyseus@CustomCinnamonMenu->settings-
-#. schema.json->pref_custom_launchers_box_placement->options
-msgid "Left of search box"
-msgstr ""
-
-#. 3.2->settings-schema.json->pref_custom_launchers_box_placement->options
-#. 0dyseus@CustomCinnamonMenu->settings-
-#. schema.json->pref_custom_launchers_box_placement->options
-msgid "At the top of menu"
-msgstr ""
-
-#. 3.2->settings-schema.json->pref_custom_launchers_box_placement->options
-#. 0dyseus@CustomCinnamonMenu->settings-
-#. schema.json->pref_custom_launchers_box_placement->options
-msgid "At the bottom of menu"
-msgstr ""
-
-#. 3.2->settings-schema.json->pref_custom_launchers_box_placement->options
-#. 0dyseus@CustomCinnamonMenu->settings-
-#. schema.json->pref_custom_launchers_box_placement->options
-msgid "Right of search box"
+#. schema.json->pref_menu_layout_third_place->description
+msgid "Third place element"
 msgstr ""
 
 #. 3.2->settings-schema.json->pref_custom_icon_for_applet->description
@@ -1289,6 +1391,12 @@ msgid ""
 "applications list."
 msgstr ""
 
+#. 3.2->settings-schema.json->pref_show_add_to_desktop_on_context->description
+#. 0dyseus@CustomCinnamonMenu->settings-
+#. schema.json->pref_show_add_to_desktop_on_context->description
+msgid "Show \"Add to desktop\" on context"
+msgstr ""
+
 #. 3.2->settings-schema.json->pref_disable_new_apps_highlighting->description
 #. 0dyseus@CustomCinnamonMenu->settings-
 #. schema.json->pref_disable_new_apps_highlighting->description
@@ -1307,10 +1415,10 @@ msgstr ""
 msgid "Set to 0 (zero) for not setting a width."
 msgstr ""
 
-#. 3.2->settings-schema.json->pref_lock_button_custom_icon->description
+#. 3.2->settings-schema.json->pref_show_uninstall_on_context->description
 #. 0dyseus@CustomCinnamonMenu->settings-
-#. schema.json->pref_lock_button_custom_icon->description
-msgid "Custom icon for \"Lock screen\" button:"
+#. schema.json->pref_show_uninstall_on_context->description
+msgid "Show \"Uninstall\" on context"
 msgstr ""
 
 #. 3.2->settings-schema.json->pref_cat_hover_delay->description
@@ -1404,28 +1512,28 @@ msgstr ""
 msgid "ems"
 msgstr ""
 
-#. 3.2->settings-schema.json->pref_search_box_position->description
+#. 3.2->settings-schema.json->pref_custom_commands_box_placement->description
 #. 0dyseus@CustomCinnamonMenu->settings-
-#. schema.json->pref_search_box_position->description
-msgid "Search box position on menu"
+#. schema.json->pref_custom_commands_box_placement->description
+msgid "Custom launchers box placement"
 msgstr ""
 
-#. 3.2->settings-schema.json->pref_search_box_position->options
+#. 3.2->settings-schema.json->pref_custom_commands_box_placement->options
 #. 0dyseus@CustomCinnamonMenu->settings-
-#. schema.json->pref_search_box_position->options
-msgid "Top of menu"
+#. schema.json->pref_custom_commands_box_placement->options
+msgid "Left of search box"
 msgstr ""
 
-#. 3.2->settings-schema.json->pref_search_box_position->options
+#. 3.2->settings-schema.json->pref_custom_commands_box_placement->options
 #. 0dyseus@CustomCinnamonMenu->settings-
-#. schema.json->pref_search_box_position->options
-msgid "Hide"
+#. schema.json->pref_custom_commands_box_placement->options
+msgid "Right of search box"
 msgstr ""
 
-#. 3.2->settings-schema.json->pref_search_box_position->options
+#. 3.2->settings-schema.json->pref_custom_commands_box_placement->options
 #. 0dyseus@CustomCinnamonMenu->settings-
-#. schema.json->pref_search_box_position->options
-msgid "Bottom of menu"
+#. schema.json->pref_custom_commands_box_placement->options
+msgid "On its own"
 msgstr ""
 
 #. 3.2->settings-schema.json->pref_show_icons_on_context->description
@@ -1451,6 +1559,11 @@ msgstr ""
 msgid "Click here to save settings"
 msgstr ""
 
+#. 0dyseus@CustomCinnamonMenu->settings-
+#. schema.json->pref_system_buttons_display->options
+msgid "Next to \"Custom launchers\" box"
+msgstr ""
+
 #. 0dyseus@CustomCinnamonMenu->settings-schema.json->head->description
 msgid ""
 "Most settings are not automatically saved when modified.\n"
@@ -1469,10 +1582,6 @@ msgstr ""
 msgid "Applications context menu extras"
 msgstr ""
 
-#. 0dyseus@CustomCinnamonMenu->settings-schema.json->head4->description
-msgid "Search box"
-msgstr ""
-
 #. 0dyseus@CustomCinnamonMenu->settings-schema.json->head3->description
 msgid "Quit buttons"
 msgstr ""
@@ -1485,8 +1594,4 @@ msgid ""
 "Commands can be any command (as entered in a terminal) or a path to a file.\n"
 "If the file is an executable script, an attempt to execute it will be made.\n"
 "Otherwise, the file will be opened with the systems handler for that file type."
-msgstr ""
-
-#. 0dyseus@CustomCinnamonMenu->settings-schema.json->appearance4->description
-msgid "Applications box"
 msgstr ""

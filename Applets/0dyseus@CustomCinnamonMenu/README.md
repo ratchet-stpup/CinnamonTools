@@ -13,17 +13,19 @@ Compatible only with Cinnamon 3+
 
 ## Added options/features
 
-- The searchbox can be moved to the bottom or completely hidden. It can also have a fixed width or an automatic width to fit the menu width.
-- The applications info box can be aligned to the left, be hidden or replaced by traditional tooltips.
-- The size of the Favorites/Categories/Applications icons can be customized.
-- The amount of recent files can be customized.
-- The **Quit** buttons can be hidden all at once or individually.
-- The **Recent Files** category can be hidden. This is for people who want the **Recent Files** category hidden without disabling recent files globally.
+**Note:** Read the help file for this applet (Help item on this applet context menu) for detailed information about this applet keyboard navigation and other features.
+
+- All mayor elements of the menu can be hidden or placed anywhere on the menu.
 - Added Fuzzy search. Based on [Sane Menu](https://cinnamon-spices.linuxmint.com/applets/view/258s) applet by **nooulaif**.
 - Added a custom launchers box that can run any command/script/file and can be placed at the top/bottom of the menu or to the left/right of the searchbox.
 - Custom launchers icons can have a custom size and can be symbolic or full color.
 - Custom launchers can execute any command (as entered in a terminal) or a path to a file. If the file is an executable script, an attempt to execute it will be made. Otherwise, the file will be opened with the systems handler for that file type.
-- The **Quit buttons** can now be moved next the the custom launchers box and can have custom icons (ONLY when they are placed next to the custom launchers box).
+- The **Quit buttons** can now be moved next the the custom launchers box and can have custom icons (ONLY when they are placed next to the custom launchers box). They also can be hidden all at once or individually.
+- The searchbox can have a fixed width or an automatic width to fit the menu width.
+- The applications info box can be hidden or replaced by traditional tooltips. Its text can also be aligned to the left.
+- The size of the Favorites/Categories/Applications icons can be customized.
+- The amount of recent files can be customized.
+- The **Recent Files** category can be hidden. This is for people who want the **Recent Files** category hidden without disabling recent files globally.
 - The **All Applications** category can be removed from the menu.
 - The **Favorites** can now be displayed as one more category. The **All Applications** category has to be hidden.
 - The placement of the categories box and the applications box can be swapped.
@@ -31,7 +33,7 @@ Compatible only with Cinnamon 3+
 - The padding of certain menu elements can be customized to override the current theme stylesheets.
 - Recently installed applications highlighting can be disabled.
 - Recently used applications can be remembered and will be displayed on a category called **Recent Apps**. The applications will be sorted by execution time and the name and icon of the category can be customized.
-- Categories can be seleceted on hover (system default) or by clicking on them.
+- Categories can be selected on hover (system default) or by clicking on them.
 - The default **Add to panel**, **Add to desktop** and **Uninstall** context menu items can be hidden.
 - The menu editor can be directly opened from this applet context menu without the need to open it from the settings windows of this applet.
 - The context menu for applications has 5 new items:
@@ -51,7 +53,7 @@ Spices comments system is absolutely useless to report bugs with any king of leg
 </span>
 
 ## Known issues
-- When enabled, the option **Display separator after "Recent Applications" category** will break the menu keyboard navigation. I was planning on removing this option all together, but I opted for keeping it and put a warning on the settings window until I figure out how to fix it.
+- No known issues.
 
 ## Contributors/Mentions
 - [NikoKrause](https://github.com/NikoKrause): Bug fixes.
@@ -60,6 +62,15 @@ Spices comments system is absolutely useless to report bugs with any king of leg
 ## Change Log
 
 **Note:** Upstream fixes/features are changes made to the original Cinnamon Menu applet that I ported to this applet.
+
+##### 1.17
+- Fixed the know issue with the option **Display separator after "Recent Applications" category** breaking keyboard navigation.
+- Added keyboard navigation to the **Custom Launchers** box.
+
+##### 1.16
+- Added the possibility to customize the placement of each mayor elements of the menu (**Search box**, **Applications/Categories boxes**, **Info box** and **Custom Launchers box**). There is a new section on the settings window called **Menu layout** that groups all options that modify the menu layout.
+- Some minor performance improvements.
+- [Upstream fix] Fixed removal of key bindings.
 
 ##### 1.15
 - Added option to choose an alternate method for selecting categories. This method is based on **lestcape**'s [Configurable Menu applet](https://github.com/lestcape/Configurable-Menu) and it might improve the menu performance while selecting categories.
