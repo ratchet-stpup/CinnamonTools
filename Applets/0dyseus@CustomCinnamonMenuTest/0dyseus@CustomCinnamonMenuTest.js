@@ -330,8 +330,8 @@ ApplicationContextMenuItem.prototype = {
 
 };
 
-function GenericApplicationButton(appsMenuButton, app) {
-    this._init(appsMenuButton, app);
+function GenericApplicationButton(appsMenuButton, app, withMenu) {
+    this._init(appsMenuButton, app, withMenu);
 }
 
 GenericApplicationButton.prototype = {
@@ -474,18 +474,18 @@ GenericApplicationButton.prototype = {
             }
 
             if (AppFavorites.getAppFavorites().isFavorite(this.app.get_id())) {
-                // NOTE: This string could be left blank because it's a default string,
-                // so it's already translated by Cinnamon. It's up to the translators.
                 menuItem = new ApplicationContextMenuItem(this,
+                    // NOTE: This string could be left blank because it's a default string,
+                    // so it's already translated by Cinnamon. It's up to the translators.
                     _("Remove from favorites"),
                     "remove_from_favorites",
                     "non-starred");
                 menuItem._tooltip.set_text(_("Remove application from your favorites."));
                 this.menu.addMenuItem(menuItem);
             } else {
-                // NOTE: This string could be left blank because it's a default string,
-                // so it's already translated by Cinnamon. It's up to the translators.
                 menuItem = new ApplicationContextMenuItem(this,
+                    // NOTE: This string could be left blank because it's a default string,
+                    // so it's already translated by Cinnamon. It's up to the translators.
                     _("Add to favorites"),
                     "add_to_favorites",
                     "starred");
@@ -495,9 +495,9 @@ GenericApplicationButton.prototype = {
 
             // The preference check is done when _canUninstallApps is defined.
             if (this.appsMenuButton._canUninstallApps) {
-                // NOTE: This string could be left blank because it's a default string,
-                // so it's already translated by Cinnamon. It's up to the translators.
                 menuItem = new ApplicationContextMenuItem(this,
+                    // NOTE: This string could be left blank because it's a default string,
+                    // so it's already translated by Cinnamon. It's up to the translators.
                     _("Uninstall"),
                     "uninstall",
                     "edit-delete");
@@ -507,10 +507,10 @@ GenericApplicationButton.prototype = {
 
             // The preference check is done when _isBumblebeeInstalled is defined.
             if (this.appsMenuButton._isBumblebeeInstalled) {
-                // NOTE: This string could be left blank because it's a default string,
-                // so it's already translated by Cinnamon. It's up to the translators.
                 menuItem = new ApplicationContextMenuItem(this,
-                    _("Run with nVidia GPU"),
+                    // NOTE: This string could be left blank because it's a default string,
+                    // so it's already translated by Cinnamon. It's up to the translators.
+                    _("Run with NVIDIA GPU"),
                     "run_with_nvidia_gpu",
                     "custom-entypo-swarm");
                 menuItem._tooltip.set_text(_("Run application through optirun command (Bumblebee)."));
@@ -745,7 +745,7 @@ ApplicationButton.prototype = {
         this.label.realize();
 
         this.tooltip = new Tooltips.Tooltip(this.actor, "");
-        this.tooltip._tooltip.set_style("text-align: left;max-width: " + 450 + "px;");
+        this.tooltip._tooltip.set_style("text-align: left;max-width: 450px;");
         this.tooltip._tooltip.get_clutter_text().set_line_wrap(true);
         this.tooltip._tooltip.get_clutter_text().set_line_wrap_mode(Pango.WrapMode.WORD_CHAR);
         this.tooltip._tooltip.get_clutter_text().ellipsize = Pango.EllipsizeMode.NONE; // Just in case
@@ -938,7 +938,7 @@ PlaceButton.prototype = {
             placeURI = placeURI.substr(fileIndex + 7);
 
         this.tooltip = new Tooltips.Tooltip(this.actor, "");
-        this.tooltip._tooltip.set_style("text-align: left;max-width: " + 450 + "px;");
+        this.tooltip._tooltip.set_style("text-align: left;max-width: 450px;");
         this.tooltip._tooltip.get_clutter_text().set_line_wrap(true);
         this.tooltip._tooltip.get_clutter_text().set_line_wrap_mode(Pango.WrapMode.WORD_CHAR);
         this.tooltip._tooltip.get_clutter_text().ellipsize = Pango.EllipsizeMode.NONE; // Just in case
@@ -1039,7 +1039,7 @@ RecentButton.prototype = {
             fileURI = fileURI.substr(fileIndex + 7);
 
         this.tooltip = new Tooltips.Tooltip(this.actor, "");
-        this.tooltip._tooltip.set_style("text-align: left;max-width: " + 450 + "px;");
+        this.tooltip._tooltip.set_style("text-align: left;max-width: 450px;");
         this.tooltip._tooltip.get_clutter_text().set_line_wrap(true);
         this.tooltip._tooltip.get_clutter_text().set_line_wrap_mode(Pango.WrapMode.WORD_CHAR);
         this.tooltip._tooltip.get_clutter_text().ellipsize = Pango.EllipsizeMode.NONE; // Just in case
@@ -1505,7 +1505,8 @@ FavoritesButton.prototype = {
         if (icon_size > this.appsMenuButton.pref_max_fav_icon_size)
             icon_size = this.appsMenuButton.pref_max_fav_icon_size;
 
-        this.actor.style = "padding-top: " + (icon_size / 3) + "px;padding-bottom: " + (icon_size / 3) + "px; margin:auto;";
+        this.actor.style = "padding-top: " + (icon_size / 3) + "px;padding-bottom: " +
+            (icon_size / 3) + "px; margin:auto;";
 
         this.actor.add_style_class_name('menu-favorites-button');
         let icon = app.create_icon_texture(icon_size);
@@ -1518,7 +1519,7 @@ FavoritesButton.prototype = {
         this.isDraggableApp = true;
 
         this.tooltip = new Tooltips.Tooltip(this.actor, "");
-        this.tooltip._tooltip.set_style("text-align: left;max-width: " + 450 + "px;");
+        this.tooltip._tooltip.set_style("text-align: left;max-width: 450px;");
         this.tooltip._tooltip.get_clutter_text().set_line_wrap(true);
         this.tooltip._tooltip.get_clutter_text().set_line_wrap_mode(Pango.WrapMode.WORD_CHAR);
         this.tooltip._tooltip.get_clutter_text().ellipsize = Pango.EllipsizeMode.NONE; // Just in case
@@ -1796,33 +1797,25 @@ SeparatorBox.prototype = {
     }
 };
 
-function MyCustomCommandButton(aApplet, aApp, aCallback) {
-    this._init(aApplet, aApp, aCallback);
+function MyCustomCommandButton(appsMenuButton, app, aCallback) {
+    this._init(appsMenuButton, app, aCallback);
 }
 
 MyCustomCommandButton.prototype = {
-    __proto__: PopupMenu.PopupBaseMenuItem.prototype,
+    __proto__: PopupMenu.PopupSubMenuMenuItem.prototype,
 
-    _init: function(appsMenuButton, aApp, aCallback) {
-        this.app = aApp;
+    _init: function(appsMenuButton, app, aCallback) {
+        this.app = app;
         this.appsMenuButton = appsMenuButton;
         this.callback = aCallback;
-
         PopupMenu.PopupBaseMenuItem.prototype._init.call(this, {
-            hover: true
+            hover: false
         });
+        this.actor.set_style_class_name('menu-application-button');
 
-        this.actor = new St.Bin({
-            style_class: 'customcommand-button-container'
-        });
-
-        this.button = new St.Button({
-            style_class: 'customcommand-button'
-        });
-        let icon_size = this.app.icon_size;
         let icon_type = (this.app.icon.search("-symbolic") !== -1) ? 0 : 1;
         let iconObj = {
-            icon_size: icon_size,
+            icon_size: this.appsMenuButton.pref_custom_command_icon_size,
             icon_type: icon_type,
             style_class: "customcommand-button-icon",
         };
@@ -1835,18 +1828,13 @@ MyCustomCommandButton.prototype = {
             iconObj["icon_name"] = this.app.icon;
 
         this.icon = new St.Icon(iconObj);
-        this.button.set_child(this.icon);
-        this.actor.add_actor(this.button);
+        this.addActor(this.icon);
 
-        this.button.set_style_class_name("menu-application-button");
-        this.button.connect("clicked", Lang.bind(this, this._activate, aCallback));
-        this.button.connect("enter-event", Lang.bind(this, this._enterEvent));
-        this.button.connect("leave-event", Lang.bind(this, this._leaveEvent));
-
+        this.name = this.app.label;
         this.isDraggableApp = false;
 
-        this.tooltip = new Tooltips.Tooltip(this.button, "");
-        this.tooltip._tooltip.set_style("text-align: left;max-width: " + 450 + "px;");
+        this.tooltip = new Tooltips.Tooltip(this.actor, "");
+        this.tooltip._tooltip.set_style("text-align: left;max-width: 450px;");
         this.tooltip._tooltip.get_clutter_text().set_line_wrap(true);
         this.tooltip._tooltip.get_clutter_text().set_line_wrap_mode(Pango.WrapMode.WORD_CHAR);
         this.tooltip._tooltip.get_clutter_text().ellipsize = Pango.EllipsizeMode.NONE; // Just in case
@@ -1856,21 +1844,14 @@ MyCustomCommandButton.prototype = {
         }));
     },
 
-    _enterEvent: function() {
-        this.button.style_class = "menu-application-button-selected";
-        this.actor.add_style_pseudo_class("hover");
-        this.appsMenuButton.setSelectedItemTitleAndDescription(this,
-            this.app.label,
-            this.app.description || "");
+    _onButtonReleaseEvent: function(actor, event) {
+        if (event.get_button() == 1) {
+            this.activate(event);
+        }
+        return true;
     },
 
-    _leaveEvent: function() {
-        this.button.style_class = "menu-application-button";
-        this.actor.remove_style_pseudo_class("hover");
-        this.appsMenuButton.setSelectedItemTitleAndDescription(this, "", "");
-    },
-
-    _activate: function(event, aCallback) {
+    activate: function(event) {
         if (this.callback) {
             this.callback();
         } else {
@@ -1886,8 +1867,9 @@ MyCustomCommandButton.prototype = {
                 }
             }
         }
+        this.actor.set_style_class_name('menu-application-button');
         this.appsMenuButton.menu.close(this.appsMenuButton.pref_animate_menu);
-    },
+    }
 };
 
 function RecentAppsCategoryButton(appsMenuButton, app, showIcon) {

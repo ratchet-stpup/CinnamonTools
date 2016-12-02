@@ -571,7 +571,7 @@
     "pref_show_bumblebee_on_context": {
         "type": "switch",
         "default": true,
-        "description": "Show \"Run with NVIDIA\" on context"
+        "description": "Show \"Run with NVIDIA GPU\" on context"
     },
     "pref_show_run_from_terminal_on_context": {
         "type": "switch",
