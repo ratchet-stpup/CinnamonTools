@@ -94,6 +94,13 @@
         "description": "Disable newly installed applications highlighting",
         "tooltip": ""
     },
+    "pref_use_hover_feedback": {
+        "type": "checkbox",
+        "indent": true,
+        "default": false,
+        "description": "Use hover feedback",
+        "tooltip": "If enabled, and the user picture is shown, every time an application/favorite/place/recent file is hovered or selected with keyboard navigation, its icon will be displayed where the user picture is located."
+    },
     "pref_cat_select_on_hover": {
         "type": "checkbox",
         "indent": true,
@@ -205,6 +212,18 @@
         "description": "Align application info box text to the left",
         "tooltip": ""
     },
+    "pref_user_picture_placement": {
+        "type": "combobox",
+        "indent": true,
+        "default": 0,
+        "description": "User picture placement",
+        "options": {
+            "Do not show": 0,
+            "Left of applications info box": 1,
+            "Right of applications info box": 2
+        },
+        "tooltip": "This option allows to display the user picture on the menu. Clicking on the picture will open \"Account details\". For the image to be shown, the applications info box also has to be displayed."
+    },
     "pref_custom_commands_box_placement": {
         "type": "combobox",
         "indent": true,
@@ -240,7 +259,7 @@
     },
     "head22": {
         "type": "header",
-        "description": "Placement on main elements on menu"
+        "description": "Placement of main elements on menu"
     },
     "pref_menu_layout_first_place": {
         "type": "combobox",
@@ -270,7 +289,7 @@
     "pref_menu_layout_third_place": {
         "type": "combobox",
         "indent": true,
-        "default": "selectedAppBox",
+        "default": "myCustomLaunchersBox",
         "description": "Third place element",
         "options": {
             "None": "none",
@@ -283,7 +302,7 @@
     "pref_menu_layout_fourth_place": {
         "type": "combobox",
         "indent": true,
-        "default": "none",
+        "default": "selectedAppBox",
         "description": "Fourth place element",
         "options": {
             "None": "none",
@@ -383,6 +402,12 @@
         "indent": true,
         "default": true,
         "description": "Show \"Add to desktop\" on context"
+    },
+    "pref_show_add_remove_favorite_on_context": {
+        "type": "checkbox",
+        "indent": true,
+        "default": true,
+        "description": "Show \"Add/Remove to/from favorites\" on context"
     },
     "pref_show_uninstall_on_context": {
         "type": "checkbox",
@@ -513,10 +538,6 @@
         "units": "applications",
         "description": "Max recently used apps:",
         "tooltip": ""
-    },
-    "pref_recently_used_apps": {
-        "type": "generic",
-        "default": []
     },
     "sep7": {
         "type": "separator"
@@ -915,7 +936,49 @@
         "description": "Custom launchers icon size:",
         "tooltip": ""
     },
+    "pref_user_picture_size": {
+        "type": "spinbutton",
+        "indent": true,
+        "default": 48,
+        "min": 16,
+        "max": 256,
+        "step": 2,
+        "units": "pixels",
+        "description": "User picture size:",
+        "tooltip": ""
+    },
     "appearance3": {
+        "type": "header",
+        "description": "Applications info box"
+    },
+    "pref_info_box_title_font_size": {
+        "type": "spinbutton",
+        "default": 1.0,
+        "min": 0.1,
+        "max": 5.0,
+        "step": 0.1,
+        "indent": true,
+        "units": "ems",
+        "description": "Applications info box title font size:"
+    },
+    "pref_info_box_description_font_size": {
+        "type": "spinbutton",
+        "default": 1.0,
+        "min": 0.1,
+        "max": 5.0,
+        "step": 0.1,
+        "indent": true,
+        "units": "ems",
+        "description": "Applications info box description font size:"
+    },
+    "pref_user_picture_stylized": {
+        "type": "checkbox",
+        "indent": true,
+        "default": true,
+        "description": "Stylize the user image",
+        "tooltip": "With this option enabled, the box containing the user picture will have the same style as the Favorites box."
+    },
+    "appearance4": {
         "type": "header",
         "description": "Search box"
     },
@@ -937,7 +1000,7 @@
         "description": "Custom width for search box:",
         "tooltip": "Set to 0 (zero) for not setting a width."
     },
-    "appearance4": {
+    "appearance5": {
         "type": "header",
         "description": "Favorites box"
     },
@@ -952,7 +1015,7 @@
         "description": "Favorites box separator height:",
         "tooltip": "Size of separator between \"Favorites\" box and \"Quit\" box."
     },
-    "appearance5": {
+    "appearance6": {
         "type": "header",
         "description": "Applications box"
     },
@@ -967,7 +1030,7 @@
         "description": "Maximum button width:",
         "tooltip": "Define the maximum width of menu items inside the applications box."
     },
-    "appearance6": {
+    "appearance7": {
         "type": "header",
         "description": "Note: Most themes stylesheets come with hardcoded sizes for certain elemets.\nThis section is for overriding those stylesheets."
     },
@@ -1221,5 +1284,9 @@
         "type": "button",
         "description": "Click here to save settings",
         "callback": "_hardRefreshAll"
+    },
+    "pref_recently_used_apps": {
+        "type": "generic",
+        "default": []
     }
 }
