@@ -21,6 +21,9 @@ Spices comments system is absolutely useless to report bugs with any king of leg
 
 ## Change Log
 
+##### 1.03
+- Some fixes/improvements for Cinnamon 3.2.x.
+
 ##### 1.02
 - Reverted back to use Python 2 on the helper script and force to use Python 2 to execute it.
 

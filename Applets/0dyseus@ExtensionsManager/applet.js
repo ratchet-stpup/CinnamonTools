@@ -360,7 +360,7 @@ CustomSwitchMenuItem.prototype = {
         } catch (aErr) {
             global.logError(aErr);
         } finally {
-            this.applet.appletMenu.close(false);
+            this.applet.menu.close(false);
         }
     },
 
@@ -370,7 +370,7 @@ CustomSwitchMenuItem.prototype = {
         } catch (aErr) {
             global.logError(aErr);
         } finally {
-            this.applet.appletMenu.close(false);
+            this.applet.menu.close(false);
         }
     },
 
@@ -380,7 +380,7 @@ CustomSwitchMenuItem.prototype = {
         } catch (aErr) {
             global.logError(aErr);
         } finally {
-            this.applet.appletMenu.close(false);
+            this.applet.menu.close(false);
         }
     },
 
@@ -390,7 +390,7 @@ CustomSwitchMenuItem.prototype = {
         } catch (aErr) {
             global.logError(aErr);
         } finally {
-            this.applet.appletMenu.close(false);
+            this.applet.menu.close(false);
         }
     }
 };
@@ -403,7 +403,7 @@ MyApplet.prototype = {
     __proto__: Applet.TextIconApplet.prototype,
 
     _init: function(aMetadata, aOrientation, aPanel_height, aInstance_id) {
-        Applet.TextIconApplet.prototype._init.call(this, aOrientation, aPanel_height);
+        Applet.TextIconApplet.prototype._init.call(this, aOrientation, aPanel_height, aInstance_id);
 
         try {
             // Needed for retro-compatibility
@@ -444,7 +444,7 @@ MyApplet.prototype = {
 
                 global.settings.connect("changed::extensions-enabled",
                     Lang.bind(this, function() {
-                        this._forceMenuRebuild = !this.appletMenu.isOpen;
+                        this._forceMenuRebuild = !this.menu.isOpen;
                         this._forceMenuRebuildDelay = 1000;
                         this._populateSubMenus();
                     }));
@@ -467,6 +467,27 @@ MyApplet.prototype = {
         } catch (aErr) {
             global.logError(aErr);
         }
+    },
+
+    updateLabelVisibility: function() {
+        // Condition needed for retro-compatibility.
+        // Mark for deletion on EOL.
+        if (typeof this.hide_applet_label !== "function")
+            return;
+
+        if (this.orientation == St.Side.LEFT || this.orientation == St.Side.RIGHT)
+            this.hide_applet_label(true);
+        else
+            this.hide_applet_label(false);
+    },
+
+    on_orientation_changed: function(orientation) {
+        this.orientation = orientation;
+        this.menu.destroy();
+        this.menu = new Applet.AppletPopupMenu(this, orientation);
+        this.menuManager.addMenu(this.menu);
+        this.menu.connect("open-state-changed", Lang.bind(this, this._onOpenStateChanged));
+        this._updateIconAndLabel();
     },
 
     _expand_applet_context_menu: function() {
@@ -549,7 +570,7 @@ MyApplet.prototype = {
             ["pref_custom_label_for_applet", this._updateIconAndLabel],
         ];
         let bindingDirection = Settings.BindingDirection.BIDIRECTIONAL || null;
-        let bindingType = this.settings.hasOwnProperty("bind");
+        let bindingType = typeof this.settings.bind === "function";
         for (let [property_name, callback] of settingsArray) {
             if (bindingType)
                 this.settings.bind(property_name, property_name, callback);
@@ -559,7 +580,7 @@ MyApplet.prototype = {
     },
 
     on_applet_clicked: function() {
-        this.appletMenu.toggle(true);
+        this.menu.toggle(true);
     },
 
     /**
@@ -687,14 +708,14 @@ MyApplet.prototype = {
         }
 
         this._buildMenuId = Mainloop.timeout_add(500, Lang.bind(this, function() {
-            if (this.appletMenu) {
-                this.menuManager.removeMenu(this.appletMenu);
-                this.appletMenu.destroy();
+            if (this.menu) {
+                this.menuManager.removeMenu(this.menu);
+                this.menu.destroy();
             }
 
-            this.appletMenu = new Applet.AppletPopupMenu(this, this.orientation);
-            this.appletMenu.connect("open-state-changed", Lang.bind(this, this._onOpenStateChanged));
-            this.menuManager.addMenu(this.appletMenu);
+            this.menu = new Applet.AppletPopupMenu(this, this.orientation);
+            this.menu.connect("open-state-changed", Lang.bind(this, this._onOpenStateChanged));
+            this.menuManager.addMenu(this.menu);
 
             this._forceMenuRebuild = true;
             this._populateSubMenus();
@@ -712,16 +733,16 @@ MyApplet.prototype = {
 
         this._populateSubMenusId = Mainloop.timeout_add(this._forceMenuRebuildDelay, Lang.bind(this, function() {
             if (this.pref_all_extensions_list.length === 0) {
-                this.appletMenu.removeAll();
+                this.menu.removeAll();
                 let label = new GenericButton(_("There aren't any extensions installed on your system. Or you may need to refresh the list of extensions from this applet context menu."));
                 label.label.set_style("text-align: left;max-width: 20em;");
                 label.label.get_clutter_text().set_line_wrap(true);
                 label.label.get_clutter_text().set_line_wrap_mode(Pango.WrapMode.WORD_CHAR);
                 label.label.get_clutter_text().ellipsize = Pango.EllipsizeMode.NONE; // Just in case
-                this.appletMenu.addMenuItem(label);
+                this.menu.addMenuItem(label);
             }
 
-            if (!this._forceMenuRebuild || this.appletMenu.isOpen)
+            if (!this._forceMenuRebuild || this.menu.isOpen)
                 return;
 
             if (this.enabledExtSubmenu)
@@ -733,12 +754,12 @@ MyApplet.prototype = {
             this.enabledExtSubmenu = new PopupMenu.PopupSubMenuMenuItem("");
             this.enabledExtSubmenu.menu.connect("open-state-changed",
                 Lang.bind(this, this._subMenuOpenStateChanged));
-            this.appletMenu.addMenuItem(this.enabledExtSubmenu);
+            this.menu.addMenuItem(this.enabledExtSubmenu);
 
             this.disabledExtSubmenu = new PopupMenu.PopupSubMenuMenuItem("");
             this.disabledExtSubmenu.menu.connect("open-state-changed",
                 Lang.bind(this, this._subMenuOpenStateChanged));
-            this.appletMenu.addMenuItem(this.disabledExtSubmenu);
+            this.menu.addMenuItem(this.disabledExtSubmenu);
 
             this.enabledExtSubmenu.menu.removeAll();
             this.disabledExtSubmenu.menu.removeAll();
@@ -921,6 +942,8 @@ MyApplet.prototype = {
             else
                 this.set_applet_label("");
         }
+
+        this.updateLabelVisibility();
     },
 
     on_applet_removed_from_panel: function() {
