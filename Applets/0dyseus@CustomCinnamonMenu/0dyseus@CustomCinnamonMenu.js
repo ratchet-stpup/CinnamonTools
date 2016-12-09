@@ -18,6 +18,14 @@ const SearchProviderManager = imports.ui.searchProviderManager;
 const Tooltips = imports.ui.tooltips;
 const Gettext = imports.gettext;
 const ModalDialog = imports.ui.modalDialog;
+const AccountsService = imports.gi.AccountsService;
+
+/**
+ * Used by portOverrides.
+ * Revisit in the future.
+ */
+// const Mainloop = imports.mainloop;
+// const GObject = imports.gi.GObject;
 
 // For translation mechanism.
 // Comments that start with // NOTE: are to be extracted by xgettext
@@ -33,6 +41,36 @@ function _(aStr) {
 
 const USER_DESKTOP_PATH = FileUtils.getUserDesktopDir();
 
+/**
+ * Overrides needed for retro-compatibility.
+ * Mark for deletion on EOL.
+ */
+// function portOverrides() {
+//     if (!Mainloop.hasOwnProperty("PRIORITY_HIGH"))
+//         Mainloop.PRIORITY_HIGH = -100; /* G_PRIORITY_HIGH */
+
+//     if (!Mainloop.hasOwnProperty("PRIORITY_DEFAULT"))
+//         Mainloop.PRIORITY_DEFAULT = 0; /* G_PRIORITY_DEFAULT */
+
+//     if (!Mainloop.hasOwnProperty("PRIORITY_HIGH_IDLE"))
+//         Mainloop.PRIORITY_HIGH_IDLE = 100; /* etc.. */
+
+//     if (!Mainloop.hasOwnProperty("PRIORITY_DEFAULT_IDLE"))
+//         Mainloop.PRIORITY_DEFAULT_IDLE = 200;
+
+//     if (!Mainloop.hasOwnProperty("PRIORITY_LOW"))
+//         Mainloop.PRIORITY_LOW = 300;
+
+//     if (!Mainloop.hasOwnProperty("idle_add_full")) {
+//         Mainloop.idle_add_full = function(priority, handler) {
+//             let s = GLib.idle_source_new();
+//             GObject.source_set_closure(s, handler);
+//             s.set_priority(priority);
+//             return s.attach(null);
+//         };
+//     }
+// }
+
 /* VisibleChildIterator takes a container (boxlayout, etc.)
  * and creates an array of its visible children and their index
  * positions.  We can then work through that list without
@@ -45,6 +83,15 @@ const USER_DESKTOP_PATH = FileUtils.getUserDesktopDir();
  * but we really only need it when we start keyboard
  * navigating, so increase speed, we reload only when we
  * want to use it.
+ */
+
+/**
+ * Note to myself:
+ *     I had problems when inserting anything other than
+ *     a PopupSeparatorMenuItem into the menu (keyboard nav. broken).
+ *     It took me a sweet load of time figuring out why the malfunction!!! /&·$/&%$&%
+ *     For future reference, I could add another condition to
+ *     reloadVisible so it can filter other elements.
  */
 
 function VisibleChildIterator(container) {
@@ -473,24 +520,26 @@ GenericApplicationButton.prototype = {
                 this.menu.addMenuItem(menuItem);
             }
 
-            if (AppFavorites.getAppFavorites().isFavorite(this.app.get_id())) {
-                menuItem = new ApplicationContextMenuItem(this,
-                    // NOTE: This string could be left blank because it's a default string,
-                    // so it's already translated by Cinnamon. It's up to the translators.
-                    _("Remove from favorites"),
-                    "remove_from_favorites",
-                    "non-starred");
-                menuItem._tooltip.set_text(_("Remove application from your favorites."));
-                this.menu.addMenuItem(menuItem);
-            } else {
-                menuItem = new ApplicationContextMenuItem(this,
-                    // NOTE: This string could be left blank because it's a default string,
-                    // so it's already translated by Cinnamon. It's up to the translators.
-                    _("Add to favorites"),
-                    "add_to_favorites",
-                    "starred");
-                menuItem._tooltip.set_text(_("Add application to your favorites."));
-                this.menu.addMenuItem(menuItem);
+            if (this.appsMenuButton.pref_show_add_remove_favorite_on_context) {
+                if (AppFavorites.getAppFavorites().isFavorite(this.app.get_id())) {
+                    menuItem = new ApplicationContextMenuItem(this,
+                        // NOTE: This string could be left blank because it's a default string,
+                        // so it's already translated by Cinnamon. It's up to the translators.
+                        _("Remove from favorites"),
+                        "remove_from_favorites",
+                        "non-starred");
+                    menuItem._tooltip.set_text(_("Remove application from your favorites."));
+                    this.menu.addMenuItem(menuItem);
+                } else {
+                    menuItem = new ApplicationContextMenuItem(this,
+                        // NOTE: This string could be left blank because it's a default string,
+                        // so it's already translated by Cinnamon. It's up to the translators.
+                        _("Add to favorites"),
+                        "add_to_favorites",
+                        "starred");
+                    menuItem._tooltip.set_text(_("Add application to your favorites."));
+                    this.menu.addMenuItem(menuItem);
+                }
             }
 
             // The preference check is done when _canUninstallApps is defined.
@@ -693,7 +742,7 @@ TransientButton.prototype = {
             // Try anyway, even though we probably shouldn't.
             try {
                 Util.spawn(['gvfs-open', this.file.get_uri()]);
-            } catch (e) {
+            } catch (aErr) {
                 global.logError("No handler available to open " + this.file.get_uri());
             }
 
@@ -745,7 +794,7 @@ ApplicationButton.prototype = {
         this.label.realize();
 
         this.tooltip = new Tooltips.Tooltip(this.actor, "");
-        this.tooltip._tooltip.set_style("text-align: left;max-width: 450px;");
+        this.tooltip._tooltip.set_style("text-align: left;width:auto;max-width: 450px;");
         this.tooltip._tooltip.get_clutter_text().set_line_wrap(true);
         this.tooltip._tooltip.get_clutter_text().set_line_wrap_mode(Pango.WrapMode.WORD_CHAR);
         this.tooltip._tooltip.get_clutter_text().ellipsize = Pango.EllipsizeMode.NONE; // Just in case
@@ -874,8 +923,8 @@ SearchProviderResultButton.prototype = {
         try {
             this.provider.on_result_selected(this.result);
             this.appsMenuButton.menu.close(this.appsMenuButton.pref_animate_menu);
-        } catch (e) {
-            global.logError(e);
+        } catch (aErr) {
+            global.logError(aErr);
         }
     }
 };
@@ -938,7 +987,7 @@ PlaceButton.prototype = {
             placeURI = placeURI.substr(fileIndex + 7);
 
         this.tooltip = new Tooltips.Tooltip(this.actor, "");
-        this.tooltip._tooltip.set_style("text-align: left;max-width: 450px;");
+        this.tooltip._tooltip.set_style("text-align: left;width:auto;max-width: 450px;");
         this.tooltip._tooltip.get_clutter_text().set_line_wrap(true);
         this.tooltip._tooltip.get_clutter_text().set_line_wrap_mode(Pango.WrapMode.WORD_CHAR);
         this.tooltip._tooltip.get_clutter_text().ellipsize = Pango.EllipsizeMode.NONE; // Just in case
@@ -1039,7 +1088,7 @@ RecentButton.prototype = {
             fileURI = fileURI.substr(fileIndex + 7);
 
         this.tooltip = new Tooltips.Tooltip(this.actor, "");
-        this.tooltip._tooltip.set_style("text-align: left;max-width: 450px;");
+        this.tooltip._tooltip.set_style("text-align: left;width:auto;max-width: 450px;");
         this.tooltip._tooltip.get_clutter_text().set_line_wrap(true);
         this.tooltip._tooltip.get_clutter_text().set_line_wrap_mode(Pango.WrapMode.WORD_CHAR);
         this.tooltip._tooltip.get_clutter_text().ellipsize = Pango.EllipsizeMode.NONE; // Just in case
@@ -1519,7 +1568,7 @@ FavoritesButton.prototype = {
         this.isDraggableApp = true;
 
         this.tooltip = new Tooltips.Tooltip(this.actor, "");
-        this.tooltip._tooltip.set_style("text-align: left;max-width: 450px;");
+        this.tooltip._tooltip.set_style("text-align: left;width:auto;max-width: 450px;");
         this.tooltip._tooltip.get_clutter_text().set_line_wrap(true);
         this.tooltip._tooltip.get_clutter_text().set_line_wrap_mode(Pango.WrapMode.WORD_CHAR);
         this.tooltip._tooltip.get_clutter_text().ellipsize = Pango.EllipsizeMode.NONE; // Just in case
@@ -1759,52 +1808,14 @@ FavoritesBox.prototype = {
 /**
  * START mark Odyseus
  */
-function SeparatorBox(aHaveLine, aSpace, aIsVertical) {
-    this._init(aHaveLine, aSpace, aIsVertical);
-}
-
-SeparatorBox.prototype = {
-    _init: function(aHaveLine, aSpace, aIsVertical) {
-        this.actor = new St.BoxLayout({
-            vertical: aIsVertical
-        });
-        this.separatorLine = new PopupMenu.PopupSeparatorMenuItem();
-        this.actor.add_actor(this.separatorLine.actor);
-        this.setLineVisible(aHaveLine);
-        this.setSpace(aSpace);
-    },
-
-    destroy: function() {
-        this.separatorLine.destroy();
-        this.actor.destroy();
-    },
-
-    setSpace: function(aSpace) {
-        this.space = aSpace;
-
-        if (this.actor.get_vertical()) {
-            this.actor.set_width(-1);
-            this.actor.set_height(aSpace);
-        } else {
-            this.actor.set_width(aSpace);
-            this.actor.set_height(-1);
-        }
-    },
-
-    setLineVisible: function(aShow) {
-        this.haveLine = aShow;
-        this.separatorLine.actor.visible = aShow;
-    }
-};
-
-function MyCustomCommandButton(appsMenuButton, app, aCallback) {
-    this._init(appsMenuButton, app, aCallback);
+function MyCustomCommandButton(appsMenuButton, app, aCallback, aCustomIconSize) {
+    this._init(appsMenuButton, app, aCallback, aCustomIconSize);
 }
 
 MyCustomCommandButton.prototype = {
     __proto__: PopupMenu.PopupSubMenuMenuItem.prototype,
 
-    _init: function(appsMenuButton, app, aCallback) {
+    _init: function(appsMenuButton, app, aCallback, aCustomIconSize) {
         this.app = app;
         this.appsMenuButton = appsMenuButton;
         this.callback = aCallback;
@@ -1815,7 +1826,9 @@ MyCustomCommandButton.prototype = {
 
         let icon_type = (this.app.icon.search("-symbolic") !== -1) ? 0 : 1;
         let iconObj = {
-            icon_size: this.appsMenuButton.pref_custom_command_icon_size,
+            icon_size: (aCustomIconSize ?
+                aCustomIconSize :
+                this.appsMenuButton.pref_custom_command_icon_size),
             icon_type: icon_type,
             style_class: "customcommand-button-icon",
         };
@@ -1834,7 +1847,7 @@ MyCustomCommandButton.prototype = {
         this.isDraggableApp = false;
 
         this.tooltip = new Tooltips.Tooltip(this.actor, "");
-        this.tooltip._tooltip.set_style("text-align: left;max-width: 450px;");
+        this.tooltip._tooltip.set_style("text-align: left;width:auto;max-width: 450px;");
         this.tooltip._tooltip.get_clutter_text().set_line_wrap(true);
         this.tooltip._tooltip.get_clutter_text().set_line_wrap_mode(Pango.WrapMode.WORD_CHAR);
         this.tooltip._tooltip.get_clutter_text().ellipsize = Pango.EllipsizeMode.NONE; // Just in case
@@ -1980,4 +1993,182 @@ ShellOutputProcess.prototype = {
         this.standard_error_file_descriptor = standard_error_file_descriptor;
     },
 
+};
+
+function UserPicture(appsMenuButton, iconSize) {
+    this._init(appsMenuButton, iconSize);
+}
+
+UserPicture.prototype = {
+    __proto__: PopupMenu.PopupSubMenuMenuItem.prototype,
+
+    _init: function(appsMenuButton, iconSize) {
+        PopupMenu.PopupBaseMenuItem.prototype._init.call(this, {
+            hover: false,
+            focusOnHover: false
+        });
+        try {
+            this.appsMenuButton = appsMenuButton;
+            this.iconSize = iconSize;
+
+            this.container = new St.BoxLayout({
+                vertical: false
+            });
+            this.container.add_actor(this.actor);
+
+            if (this.appsMenuButton.pref_user_picture_stylized) {
+                this.container.set_style_class_name('menu-favorites-box');
+                this.container.add_style_class_name('menu-hover-icon-box');
+            }
+
+            this.actor.set_height(this.iconSize);
+            this._userIcon = new St.Icon({
+                icon_size: this.iconSize
+            });
+            this.icon = new St.Icon({
+                icon_size: this.iconSize,
+                icon_type: St.IconType.FULLCOLOR
+            });
+
+            this._user = AccountsService.UserManager.get_default().get_user(GLib.get_user_name());
+            this._userLoadedId = this._user.connect('notify::is_loaded',
+                Lang.bind(this, this._onUserChanged));
+            this._userChangedId = this._user.connect('changed',
+                Lang.bind(this, this._onUserChanged));
+
+            this._onUserChanged();
+            this.refreshFace();
+            this.actor.style = "padding:0;margin:auto;";
+
+            // NOTE: This string could be left blank because it's a default string,
+            // so it's already translated by Cinnamon. It's up to the translators.
+            this.tooltip = new Tooltips.Tooltip(this.actor, _("Account details"));
+            this.connect("destroy", Lang.bind(this, function() {
+                this.tooltip.destroy();
+            }));
+        } catch (aErr) {
+            global.logError(aErr.message);
+        }
+    },
+
+    destroy: function() {
+        PopupMenu.PopupSubMenuMenuItem.prototype.destroy.call(this);
+        this.container.destroy();
+    },
+
+    setIconSize: function(iconSize) {
+        this.iconSize = iconSize;
+        if (this._userIcon)
+            this._userIcon.set_icon_size(this.iconSize);
+
+        if (this.icon)
+            this.icon.set_icon_size(this.iconSize);
+
+        if (this.lastApp)
+            this.lastApp.set_icon_size(this.iconSize);
+
+        this.actor.set_height(this.iconSize);
+    },
+
+    _onButtonReleaseEvent: function(actor, event) {
+        if (event.get_button() == 1) {
+            this.activate(event);
+        }
+        return true;
+    },
+
+    activate: function(event) {
+        this.appsMenuButton.menu.close(false);
+        Util.spawnCommandLine("cinnamon-settings user");
+    },
+
+    _onUserChanged: function() {
+        if (this._user.is_loaded && this._userIcon) {
+            let iconFileName = this._user.get_icon_file();
+            let iconFile = Gio.file_new_for_path(iconFileName);
+            let icon;
+
+            if (iconFile.query_exists(null)) {
+                icon = new Gio.FileIcon({
+                    file: iconFile
+                });
+            } else {
+                icon = new Gio.ThemedIcon({
+                    name: 'avatar-default'
+                });
+            }
+
+            this._userIcon.set_gicon(icon);
+            this._userIcon.show();
+        }
+    },
+
+    refresh: function(icon) {
+        if (this.actor.visible) {
+            if (icon && this.icon) {
+                this._removeIcon();
+                this.icon.set_icon_name(icon);
+                this.addActor(this.icon, 0);
+            } else {
+                this.refreshFace();
+            }
+        }
+    },
+
+    refreshApp: function(app) {
+        if (this.actor.visible) {
+            this._removeIcon();
+            this.lastApp = app.create_icon_texture(this.iconSize);
+
+            if (this.lastApp) {
+                this.addActor(this.lastApp, 0);
+            }
+        }
+    },
+
+    refreshPlace: function(place) {
+        if (this.actor.visible) {
+            this._removeIcon();
+            this.lastApp = place.iconFactory(this.iconSize);
+
+            if (this.lastApp) {
+                this.addActor(this.lastApp, 0);
+            }
+        }
+    },
+
+    refreshFile: function(file) {
+        if (this.actor.visible) {
+            this._removeIcon();
+            this.lastApp = file.createIcon(this.iconSize);
+
+            if (this.lastApp) {
+                this.addActor(this.lastApp, 0);
+            }
+        }
+    },
+
+    refreshFace: function() {
+        if (this.actor.visible) {
+            this._removeIcon();
+
+            if (this._userIcon) {
+                this.addActor(this._userIcon, 0);
+            }
+        }
+    },
+
+    _removeIcon: function() {
+        if (this.lastApp) {
+            this.removeActor(this.lastApp);
+            this.lastApp.destroy();
+            this.lastApp = null;
+        }
+
+        if (this.icon && this.icon.get_parent() == this.actor)
+            this.removeActor(this.icon);
+
+        if ((this._userIcon) && (this._userIcon.get_parent() == this.actor))
+            this.removeActor(this._userIcon);
+    }
 };

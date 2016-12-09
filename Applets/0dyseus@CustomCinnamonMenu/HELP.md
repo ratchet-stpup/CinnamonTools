@@ -6,6 +6,7 @@ Never delete any of the files found inside this applet folder. It might break th
 ***
 
 ### Keyboard navigation
+**Note:** Almost all keyboard shortcuts on this menu are the same as the original menu. There are just a couple of differences that I was forced to add to my menu to make some of its features to work.
 
 - **Left Arrow** and **Right Arrow** keys:
     - Cycles through the favorites box, applications box and categories box if the focus is in one of these boxes.
@@ -41,6 +42,15 @@ When left clicking an application on the menu, certain key modifiers can be pres
 These options are meant for debugging purposes (to see the console output after opening/closing a program to detect possible errors). Instead of opening a terminal to launch a program of which one might not know its command, one can do it directly from the menu and in just one step. Options to run from a terminal an application listed on the menu can be found on the applications context menu and can be hidden/shown from this applet settings window.
 
 By default, these options will use the system's default terminal emulator (**x-terminal-emulator** on Debian based distros). Any other terminal emulator can be specified inside the settings window of this applet, as long as said emulator has support for the **-e** argument. I did my tests with **gnome-terminal**, **xterm** and **terminator**. Additional arguments could be passed to the terminal emulator, but it's not supported by me.
+
+***
+
+### Favorites handling
+
+- If the favorites box is **displayed**, favorites can be added/removed from the context menu for applications and by dragging and dropping applications to/from the favorites box.
+    **Note:** To remove a favorite, drag a favorite outside the favorites box into any part of the menu.
+- If the favorites box is **hidden** and the favorites category is enabled, favorites can be added/removed from the context menu for applications and by dragging and dropping applications to the favorites category. Its simple, if a favorite is dragged into the favorites category, the favorite will be removed. If what you drag into the favorites category is a non bookmarked application, then that application will be added to the favorites.
+    **Note:** The favorites category will update its content after changing to another category and going back to the favorites category.
 
 ***
 
