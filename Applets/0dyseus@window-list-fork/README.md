@@ -4,12 +4,18 @@ This applet is a fork of the default Window-list applet shipped with Cinnamon.
 
 ## Compatibility
 
-Tested and working on Cinnamon version 3.0.7.
+Tested and working on Cinnamon versions 3.0.7 and 3.2.x.
 
-## Differences with the original
+## Differences with the original applet
 - Added option to remove the label from the window list buttons.
 - Added option to remove the tooltips from the window list buttons.
 - Added icons to the window list button's context menu.
+- Added option to invert the contex menu items.
+- Added option to hide/move the **Preferences** sub menu.
+
+## Inverted menu on top panel
+
+![Inverted menu on top panel](https://raw.githubusercontent.com/Odyseus/CinnamonTools/master/Applets/0dyseus%40window-list-fork/screenshot2.png "Inverted menu on top panel")
 
 <h2 style="color:red;"> Bug report and feature request</h2>
 <span style="color:red;">
@@ -20,6 +26,14 @@ Spices comments system is absolutely useless to report bugs with any king of leg
 - [NikoKrause](https://github.com/NikoKrause): German localization and bug fixes.
 
 ## Change Log
+
+##### 1.06
+- Re-based on the Window list applet that comes with Cinnamon 3.2.x to add support for vertical panels.
+- Added option to invert the context menu items order.
+- Added option to hide/move to top/move to bottom the **Preferences** sub-menu.
+- Added option to set a custom size for windows thumbnails.
+- Fixed the removal of focused style from windows buttons on right click.
+- Now all preferences will take effect without the need to restart Cinnamon.
 
 ##### 1.05
 - Fixed icon resizing. Thanks to [NikoKrause](https://github.com/NikoKrause).
