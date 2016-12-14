@@ -2,6 +2,17 @@
 
 **Note:** Upstream fixes/features are changes made to the original Cinnamon Menu applet that I ported to this applet.
 
+##### 1.19
+- Added German localization. Thanks to [NikoKrause](https://github.com/NikoKrause).
+- [Upstream fix] Fixed a crash produced by certain recent files URIs.
+
+##### 1.18
+- Some fixes/improvements for Cinnamon 3.2.x.
+- Fixed keyboard navigation in the Favorites box caused by a custom separator element.
+- Added option to change the font size for the text on the applications info box.
+- Added option to display the user's picture on the menu.
+- Added option to display hover feedback. If the user picture is displayed and the option "hover feedback" is enabled, every time an element on the menu is hovered or selected with keyboard navigation, the image/icon of said element will be displayed in the place where the user picture is placed.
+
 ##### 1.17
 - Fixed the know issue with the option **Display separator after "Recent Applications" category** breaking keyboard navigation.
 - Added keyboard navigation to the **Custom Launchers** box.

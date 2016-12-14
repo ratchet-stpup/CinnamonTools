@@ -41,6 +41,41 @@ function _(aStr) {
 
 const USER_DESKTOP_PATH = FileUtils.getUserDesktopDir();
 
+
+/**
+ * Use this function instead of decodeURIComponent
+ */
+const escapeUnescapeReplacer = {
+    escapeHash: {
+        _: function(input) {
+            var ret = escapeUnescapeReplacer.escapeHash[input];
+            if (!ret) {
+                if (input.length - 1) {
+                    ret = String.fromCharCode(parseInt(input.substring(input.length - 3 ? 2 : 1), 16));
+                } else {
+                    var code = input.charCodeAt(0);
+                    ret = code < 256 ? "%" + (0 + code.toString(16)).slice(-2).toUpperCase() : "%u" + ("000" + code.toString(16)).slice(-4).toUpperCase();
+                }
+                escapeUnescapeReplacer.escapeHash[ret] = input;
+                escapeUnescapeReplacer.escapeHash[input] = ret;
+            }
+            return ret;
+        }
+    },
+
+    escape: function(aStr) {
+        return aStr.toString().replace(/[^\w @\*\-\+\.\/]/g, function(aChar) {
+            return escapeUnescapeReplacer.escapeHash._(aChar);
+        });
+    },
+
+    unescape: function(aStr) {
+        return aStr.toString().replace(/%(u[\da-f]{4}|[\da-f]{2})/gi, function(aSeq) {
+            return escapeUnescapeReplacer.escapeHash._(aSeq);
+        });
+    }
+};
+
 /**
  * Overrides needed for retro-compatibility.
  * Mark for deletion on EOL.

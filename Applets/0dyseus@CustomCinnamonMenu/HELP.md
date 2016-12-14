@@ -39,7 +39,7 @@ When left clicking an application on the menu, certain key modifiers can be pres
 
 ### About "Run from terminal" options
 
-These options are meant for debugging purposes (to see the console output after opening/closing a program to detect possible errors). Instead of opening a terminal to launch a program of which one might not know its command, one can do it directly from the menu and in just one step. Options to run from a terminal an application listed on the menu can be found on the applications context menu and can be hidden/shown from this applet settings window.
+These options are meant for debugging purposes (to see the console output after opening/closing a program to detect possible errors, for example). Instead of opening a terminal to launch a program of which one might not know its command, one can do it directly from the menu and in just one step. Options to run from a terminal an application listed on the menu can be found on the applications context menu and can be hidden/shown from this applet settings window.
 
 By default, these options will use the system's default terminal emulator (**x-terminal-emulator** on Debian based distros). Any other terminal emulator can be specified inside the settings window of this applet, as long as said emulator has support for the **-e** argument. I did my tests with **gnome-terminal**, **xterm** and **terminator**. Additional arguments could be passed to the terminal emulator, but it's not supported by me.
 
@@ -70,7 +70,7 @@ By default, these options will use the system's default terminal emulator (**x-t
 
 ### Applet localization
 
-- If this applet was installed from Cinnamon Settings, all of these applet's localizations where automatically installed.
+- If this applet was installed from Cinnamon Settings, all of this applet's localizations were automatically installed.
 - If this applet was installed manually and not trough Cinnamon Settings, localizations can be installed by executing the script called **localizations.sh** from a terminal opened inside the applet's folder.
 - If this applet has no locale available for your language, you could create it by following [these instructions](https://github.com/Odyseus/CinnamonTools/wiki/Xlet-localizations) and send the .po file to me.
     - If you have a GitHub account:

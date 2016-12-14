@@ -1698,7 +1698,7 @@ MyApplet.prototype = {
                 this._addEnterEvent(button, Lang.bind(this, function() {
                     this._clearPrevSelection(button.actor);
                     button.actor.style_class = "menu-application-button-selected";
-                    let selectedAppId = decodeURIComponent(button.place.id);
+                    let selectedAppId = $.escapeUnescapeReplacer.unescape(button.place.id);
                     selectedAppId = selectedAppId.substr(selectedAppId.indexOf(":") + 1);
                     let fileIndex = selectedAppId.indexOf("file:///");
 
@@ -1821,12 +1821,13 @@ MyApplet.prototype = {
                     this._addEnterEvent(button, Lang.bind(this, function() {
                         this._clearPrevSelection(button.actor);
                         button.actor.style_class = "menu-application-button-selected";
-
-                        let selectedAppUri = decodeURIComponent(button.file.uri);
+                        let selectedAppUri = $.escapeUnescapeReplacer.unescape(button.file.uri);
                         let file = Gio.file_new_for_uri(selectedAppUri);
                         let fileIndex = selectedAppUri.indexOf("file:///");
+
                         if (fileIndex !== -1)
                             selectedAppUri = selectedAppUri.substr(fileIndex + 7);
+
                         this.setSelectedItemTitleAndDescription(button,
                             (file.query_exists(null) ?
                                 "" :
@@ -1844,7 +1845,8 @@ MyApplet.prototype = {
                         if (this._useHoverFeedback)
                             this.userPicture.refreshFace();
                     }));
-                    let file = Gio.file_new_for_uri(decodeURIComponent(button.file.uri));
+                    let file = Gio.file_new_for_uri($.escapeUnescapeReplacer.unescape(button.file.uri));
+
                     if (file.query_exists(null)) {
                         this._recentButtons.push(button);
                         this.applicationsBox.add_actor(button.actor);
