@@ -7,7 +7,7 @@ Never delete any of the files found inside this applet folder. It might break th
 
 ### Applet localization
 
-- If this applet was installed from Cinnamon Settings, all of these applet's localizations where automatically installed.
+- If this applet was installed from Cinnamon Settings, all of this applet's localizations were automatically installed.
 - If this applet was installed manually and not trough Cinnamon Settings, localizations can be installed by executing the script called **localizations.sh** from a terminal opened inside the applet's folder.
 - If this applet has no locale available for your language, you could create it by following [these instructions](https://github.com/Odyseus/CinnamonTools/wiki/Xlet-localizations) and send the .po file to me.
     - If you have a GitHub account:

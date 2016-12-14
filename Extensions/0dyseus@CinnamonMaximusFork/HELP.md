@@ -7,7 +7,7 @@ Never delete any of the files found inside this extension folder. It might break
 
 ### Applet localization
 
-- If this extension was installed from Cinnamon Settings, all of these extension's localizations where automatically installed.
+- If this extension was installed from Cinnamon Settings, all of this extension's localizations were automatically installed.
 - If this extension was installed manually and not trough Cinnamon Settings, localizations can be installed by executing the script called **localizations.sh** from a terminal opened inside the extension's folder.
 - If this extension has no locale available for your language, you could create it by following [these instructions](https://github.com/Odyseus/CinnamonTools/wiki/Xlet-localizations) and send the .po file to me.
     - If you have a GitHub account:
