@@ -6,22 +6,23 @@
         "tooltip": "Restart Cinnamon"
     },
     "head0": {
-        "type": "header",
+        "type": "section",
         "description": "General settings"
     },
     "pref_use_smooth_graphs": {
-        "type": "checkbox",
+        "type": "switch",
         "default": true,
         "description": "Use smooth graphs"
     },
     "pref_align_tooltip_text_to_the_left": {
-        "type": "checkbox",
+        "type": "switch",
         "default": true,
         "description": "Align tooltip text to the left",
         "tooltip": "For those of us who suffer from the stupidity of using a theme with tooltips aligned to the center. ¬¬"
     },
     "pref_custom_command": {
         "type": "entry",
+        "expand-width": true,
         "default": "gnome-system-monitor",
         "description": "Custom command on applet click:"
     },
@@ -35,7 +36,7 @@
         "description": "Refresh rate:"
     },
     "pref_draw_background": {
-        "type": "checkbox",
+        "type": "switch",
         "default": false,
         "description": "Draw graph background"
     },
@@ -47,7 +48,7 @@
         "description": "Background color:"
     },
     "pref_draw_border": {
-        "type": "checkbox",
+        "type": "switch",
         "default": false,
         "description": "Draw graph border"
     },
@@ -59,15 +60,12 @@
         "description": "Border color:"
     },
 
-    "sep1": {
-        "type": "separator"
-    },
     "head1": {
-        "type": "header",
+        "type": "section",
         "description": "CPU graph"
     },
     "pref_show_cpu_graph": {
-        "type": "checkbox",
+        "type": "switch",
         "default": true,
         "description": "Show CPU graph:"
     },
@@ -81,7 +79,7 @@
         "description": "CPU graph width"
     },
     "head11": {
-        "type": "header",
+        "type": "section",
         "description": "CPU graph colors"
     },
     "pref_cpu_graph_color_user": {
@@ -109,15 +107,12 @@
         "description": "IOWait:"
     },
 
-    "sep2": {
-        "type": "separator"
-    },
     "head2": {
-        "type": "header",
+        "type": "section",
         "description": "Memory graph"
     },
     "pref_show_memmory_graph": {
-        "type": "checkbox",
+        "type": "switch",
         "default": true,
         "description": "Show Memory graph:"
     },
@@ -131,7 +126,7 @@
         "description": "Memory graph width"
     },
     "head22": {
-        "type": "header",
+        "type": "section",
         "description": "Memory graph colors"
     },
     "pref_memory_graph_color_used": {
@@ -147,15 +142,12 @@
         "description": "Cached:"
     },
 
-    "sep3": {
-        "type": "separator"
-    },
     "head3": {
-        "type": "header",
+        "type": "section",
         "description": "Swap graph"
     },
     "pref_show_swap_graph": {
-        "type": "checkbox",
+        "type": "switch",
         "default": true,
         "description": "Show Swap graph:"
     },
@@ -169,7 +161,7 @@
         "description": "Swap graph width"
     },
     "head33": {
-        "type": "header",
+        "type": "section",
         "description": "Swap graph colors"
     },
     "pref_swap_graph_color_used": {
@@ -179,15 +171,12 @@
         "description": "Used:"
     },
 
-    "sep4": {
-        "type": "separator"
-    },
     "head4": {
-        "type": "header",
+        "type": "section",
         "description": "Network graph"
     },
     "pref_show_network_graph": {
-        "type": "checkbox",
+        "type": "switch",
         "default": true,
         "description": "Show Network graph:"
     },
@@ -201,7 +190,7 @@
         "description": "Network graph width"
     },
     "head44": {
-        "type": "header",
+        "type": "section",
         "description": "Network graph colors"
     },
     "pref_network_graph_color_download": {
@@ -217,15 +206,12 @@
         "description": "Upload:"
     },
 
-    "sep5": {
-        "type": "separator"
-    },
     "head5": {
-        "type": "header",
+        "type": "section",
         "description": "Load graph"
     },
     "pref_show_load_graph": {
-        "type": "checkbox",
+        "type": "switch",
         "default": true,
         "description": "Show Load graph:"
     },
@@ -239,7 +225,7 @@
         "description": "Load graph width"
     },
     "head55": {
-        "type": "header",
+        "type": "section",
         "description": "Load graph colors"
     },
     "pref_load_graph_color_load": {

@@ -7,11 +7,11 @@ This applet is a fork of [System Monitor](https://cinnamon-spices.linuxmint.com/
 - I added an option to use a custom command on applet click.
 - I added an option to set a custom width for each graph individually.
 - I added an option to align this applet tooltip text to the left.
-- Removed NetworkManager dependency.
+- Removed NetworkManager dependency (only for distros that don't support certain **gtop** library calls).
 
 ## Compatibility
 
-Tested and working on Cinnamon version 3.0.7.
+Tested and working on Cinnamon version 2.8.8, 3.0.7 and 3.2.x.
 
 ## Dependencies
 
@@ -29,6 +29,9 @@ Spices comments system is absolutely useless to report bugs with any king of leg
 </div>
 
 ## Change Log
+
+##### 1.8
+- Re-added compatibility for Cinnamon 2.8.8 (Linux Mint 17.3). Compatibility for this version of Cinnamon was accidentally lost when the dependency on NetworkManager was removed.
 
 ##### 1.7
 - Removed dependency on NetworkManager. Thanks to [buzz](https://github.com/buzz).
