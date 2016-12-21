@@ -2,9 +2,16 @@
 
 The function of this applet is very simple, create a menu based on the files/folders found inside a main folder (specified on this applet settings window). The files will be used to create menu items and the sub folders will be used to create sub-menus.
 
+I mainly created this applet to replicate the functionality of the XFCE plugin called **Directory Menu** and the KDE widget called **Quick access**.
+
+<h2 style="color:red;"> Warning</h2>
+<span style="font-weight:bold; color:red;">
+This applet has to read every single file/folder inside a main folder to create its menu. So, do not try to use this applet to create a menu based on a folder that contains thousands of files!!! Your system may slow down, freeze or even crash!!!
+</span>
+
 ## Compatibility
 
-Tested and working on Cinnamon version 3.0.7 (stable and nightly).
+Tested and working on Cinnamon versions 2.8.8 (Linux Mint 17.3), 3.0.7 (Linux Mint 18) and 3.2.x (Linux Mint 18.1).
 
 ## Features
 
@@ -12,6 +19,7 @@ Tested and working on Cinnamon version 3.0.7 (stable and nightly).
 - A hotkey can be assigned to open/close the menu.
 - Menu items to .desktop files will be displayed with the icon and name declared inside the .desktop files themselves.
 - The menu can be kept open while activating menu items by pressing **Ctrl** + left click or with middle click.
+- This applet can create menu and sub-menu items even from symbolic links found inside the main folder.
 
 ## Options
 
@@ -53,6 +61,14 @@ Spices comments system is absolutely useless to report bugs with any king of leg
 </span>
 
 ## Change Log
+
+##### 1.05
+- Improved support for Cinnamon 3.2.x.
+- Improved hotkey handling.
+- Improved application's icon recognition for use on the menu items.
+- Improved support for files launching. Now, if there isn't a handler for certain file types, the **"Open with"** dialog will appear.
+- Added support for symbolic links.
+- Fixed the display of symbolic icons for the applet.
 
 ##### 1.04
 - Added option to auto-hide opened sub-menus.

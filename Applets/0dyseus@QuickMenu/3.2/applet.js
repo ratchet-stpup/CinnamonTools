@@ -287,11 +287,8 @@ MyApplet.prototype = {
 
             this.menuManager = new PopupMenu.PopupMenuManager(this);
 
-            if (this.pref_directory === "") {
-                // NOTE: This string could be left blank because it's a default string,
-                // so it's already translated by Cinnamon. It's up to the translators.
-                this.pref_directory = GLib.get_home_dir() + "/" + _("Desktop");
-            }
+            if (this.pref_directory === "")
+                this.pref_directory = GLib.get_home_dir() + "/Desktop";
 
             this.directory_last = this.pref_directory;
 
