@@ -4,7 +4,7 @@ This applet is based on [Smart Panel](https://cinnamon-spices.linuxmint.com/exte
 
 ## Compatibility
 
-Tested and working on Cinnamon version 3.0.7.
+Tested and working on Cinnamon versions 2.8.8 (Linux Mint 17.3), 3.0.7 (Linux Mint 18) and 3.2.x (Linux Mint 18.1).
 
 ## Features
 
@@ -37,6 +37,13 @@ Spices comments system is absolutely useless to report bugs with any king of leg
 </span>
 
 ## Change Log
+
+##### 1.05
+- Improved support for Cinnamon 3.2.x.
+- Improved icon display on window list menu.
+- Fixed missing icon on window list menu.
+- Fixed some missing translated strings.
+- Fixed the applications switcher option.
 
 ##### 1.04
 - Added support for localizations. If someone wants to contribute with translations, inside the Help section of this applet (found in the applet context menu or the Help.md file inside this applet folder) you will find some pointers on how to do it.

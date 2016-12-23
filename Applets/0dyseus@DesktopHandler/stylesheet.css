@@ -1,7 +1,0 @@
-
-/* Cinnamon tooltips use id="Tooltip", but the default theme (and most others
- * use text-align: center. */
-#Tooltip.desktop-handler-applet-tooltip {
-	text-align: left;
-}
-
