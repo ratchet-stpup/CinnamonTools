@@ -62,6 +62,9 @@ Spices comments system is absolutely useless to report bugs with any king of leg
 
 ## Change Log
 
+##### 1.06
+- Fixed menu breakage after changing main folder under Cinnamon 3.2.x.
+
 ##### 1.05
 - Improved support for Cinnamon 3.2.x.
 - Improved hotkey handling.
