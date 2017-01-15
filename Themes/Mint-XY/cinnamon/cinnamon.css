@@ -2023,7 +2023,7 @@ StScrollBar StButton#vhandle:hover {
     -slider-height: 0.5em;
     -slider-background-color: #7a7a7a;
     -slider-border-color: rgba(0, 0, 0, 0);
-    -slider-active-background-color: #398ee7;
+    -slider-active-background-color: #accd8a;
     -slider-active-border-color: rgba(0, 0, 0, 0);
     -slider-border-width: 0px;
     -slider-handle-radius: 0px;
@@ -2320,9 +2320,9 @@ StScrollBar StButton#vhandle:hover {
     icon-size: 22px;
 }
 
+.applet-icon:hover,
 .applet-icon:checked,
 .applet-box:checked > .applet-icon,
-.applet-icon:hover,
 .applet-box:hover > .applet-icon {
 }
 

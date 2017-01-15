@@ -2320,9 +2320,9 @@ StScrollBar StButton#vhandle:hover {
     icon-size: 22px;
 }
 
+.applet-icon:hover,
 .applet-icon:checked,
 .applet-box:checked > .applet-icon,
-.applet-icon:hover,
 .applet-box:hover > .applet-icon {
 }
 
