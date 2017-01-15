@@ -1,0 +1,13 @@
+{
+    "dangerous": false,
+    "uuid": "0dyseus@PopupTranslator",
+    "description": "Simple translator applet that will allow to display any selected text from any application on a system in a popup.",
+    "multiversion": true,
+    "version": "1.00-prototype",
+    "name": "Popup Translator",
+    "cinnamon-version": [
+        "2.8",
+        "3.0",
+        "3.2"
+    ]
+}
