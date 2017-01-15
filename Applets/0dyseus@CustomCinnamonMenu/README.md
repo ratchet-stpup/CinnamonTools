@@ -57,6 +57,7 @@ Spices comments system is absolutely useless to report bugs with any king of leg
 
 ## Contributors/Mentions
 - [NikoKrause](https://github.com/NikoKrause): Bug fixes and German localization.
+- [Radek71](https://github.com/Radek71): Czech localization.
 - Some advanced features on this applet are based on [lestcape](https://github.com/lestcape)'s [Configurable Menu applet](https://github.com/lestcape/Configurable-Menu)
 - Fuzzy search feature based on [Sane Menu](https://cinnamon-spices.linuxmint.com/applets/view/258s) applet by [nooulaif](https://github.com/nooulaif).
 - Some icons used by this menu are from [Entypo pictograms](www.entypo.com) by Daniel Bruce.
@@ -64,6 +65,10 @@ Spices comments system is absolutely useless to report bugs with any king of leg
 ## Change Log
 
 **Note:** Upstream fixes/features are changes made to the original Cinnamon Menu applet that I ported to this applet.
+
+##### 1.20
+- Added Czech localization. Thanks to [Radek71](https://github.com/Radek71).
+- Several upstream fixes.
 
 ##### 1.19
 - Added German localization. Thanks to [NikoKrause](https://github.com/NikoKrause).
