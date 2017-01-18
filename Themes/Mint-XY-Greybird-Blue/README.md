@@ -29,11 +29,13 @@ This theme is basically the default **Mint-X** theme with some graphics (check/r
 
 ##### 1.03
 - Tweaks to the about dialogs (for Cinnamon applets/desklets).
+    - **Before**:
 
-    - ###### Before:
-![Before image](https://raw.githubusercontent.com/Odyseus/CinnamonTools/master/0MiscFiles/About-Dialog-Size-Before.png "Before image")
-    - ###### After:
-![After image](https://raw.githubusercontent.com/Odyseus/CinnamonTools/master/0MiscFiles/About-Dialog-Size-After.png "After image")
+    ![Before image](https://odyseus.github.io/CinnamonTools/lib/img/About-Dialog-Size-Before.png "Before image")
+
+    - **After**:
+
+    ![After image](https://odyseus.github.io/CinnamonTools/lib/img/About-Dialog-Size-After.png "After image")
 
 ##### 1.02
 - Added compatibility for vertical panels. Vertical panels are only present on Cinnamon nightly builds.
@@ -42,11 +44,13 @@ This theme is basically the default **Mint-X** theme with some graphics (check/r
 
 ##### 1.01
 - Now all switches have an uniform look across tolkits.
+    - **Before**:
 
-    - ###### Before:
-![Before image](https://raw.githubusercontent.com/Odyseus/CinnamonTools/master/0MiscFiles/Mint-XY-Greybird-Blue-001.png "Before image")
-    - ###### After:
-![After image](https://raw.githubusercontent.com/Odyseus/CinnamonTools/master/0MiscFiles/Mint-XY-Greybird-Blue-002.png "After image")
+    ![Before image](https://odyseus.github.io/CinnamonTools/lib/img/Mint-XY-Greybird-Blue-001.png "Before image")
+
+    - **After**:
+
+    ![After image](https://odyseus.github.io/CinnamonTools/lib/img/Mint-XY-Greybird-Blue-002.png "After image")
 
 ##### 1.0
 - Initial release.
