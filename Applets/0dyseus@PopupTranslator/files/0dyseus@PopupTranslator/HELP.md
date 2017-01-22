@@ -39,12 +39,6 @@ Never delete any of the files found inside this applet folder. It might break th
 
 ***
 
-### About translation history
-
-I added the translation history to this applet for one main reason. **To avoid abuse of the translation services**.
-
-***
-
 ### Applet localization
 
 - If this applet was installed from Cinnamon Settings, all of this applet's localizations were automatically installed.

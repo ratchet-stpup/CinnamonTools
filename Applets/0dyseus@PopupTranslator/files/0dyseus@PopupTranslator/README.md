@@ -1,6 +1,6 @@
 ## Popup Translator applet description
 
-This applet is a custom version of the default Cinnamon Menu applet, but infinitely more customizable.
+Simple translator applet that will allow to display the translation of any selected text from any application on a system in a popup.
 
 ## Compatibility
 

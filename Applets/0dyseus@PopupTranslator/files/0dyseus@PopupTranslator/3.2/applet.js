@@ -6,7 +6,6 @@ const Gio = imports.gi.Gio;
 const GLib = imports.gi.GLib;
 const Lang = imports.lang;
 const Settings = imports.ui.settings;
-const Pango = imports.gi.Pango;
 const St = imports.gi.St;
 const PopupMenu = imports.ui.popupMenu;
 const Gettext = imports.gettext;
@@ -15,6 +14,15 @@ const Tooltips = imports.ui.tooltips;
 const Cinnamon = imports.gi.Cinnamon;
 const Clutter = imports.gi.Clutter;
 const Mainloop = imports.mainloop;
+
+const OrnamentType = {
+    NONE: 0,
+    CHECK: 1,
+    DOT: 2,
+    ICON: 3
+};
+
+var $;
 
 // For translation mechanism.
 // Comments that start with // NOTE: are to be extracted by xgettext
@@ -28,246 +36,6 @@ function _(aStr) {
     return Gettext.gettext(aStr);
 }
 
-function TranslationMenuItem(appsMenuButton) {
-    this._init(appsMenuButton);
-}
-
-TranslationMenuItem.prototype = {
-    __proto__: PopupMenu.PopupBaseMenuItem.prototype,
-
-    _init: function(appsMenuButton) {
-        PopupMenu.PopupBaseMenuItem.prototype._init.call(this, {
-            hover: false,
-            focusOnHover: false
-        });
-
-        this.appsMenuButton = appsMenuButton;
-        // Dinamically set when popup is shown.
-        this._sourceText = "";
-        this._providerURI = "";
-        this._providerURL = "";
-
-        let table = new St.BoxLayout({
-            vertical: true
-        });
-        table.set_style("min-width: 30em; max-width: 30em;");
-
-        this.languagePair = new St.Label({
-            text: "",
-            style: this.appsMenuButton.pref_style_for_language_pair
-        });
-        this.languagePair.get_clutter_text().ellipsize = Pango.EllipsizeMode.NONE;
-
-        table.add(this.languagePair, {
-            x_align: St.Align.START
-        });
-
-        this.translatedText = new St.Label({
-            text: "",
-            style: this.appsMenuButton.pref_style_for_translated_text
-        });
-
-        this.translatedText.get_clutter_text().set_line_wrap(true);
-        this.translatedText.get_clutter_text().set_line_wrap_mode(Pango.WrapMode.WORD_CHAR);
-        this.translatedText.get_clutter_text().ellipsize = Pango.EllipsizeMode.NONE;
-
-        table.add(this.translatedText, {
-            x_align: St.Align.START
-        });
-
-        let toolbar = new St.BoxLayout({
-            vertical: false
-        });
-
-        let icon1 = new St.Icon({
-            icon_size: 18,
-            icon_name: "custom-edit-copy",
-            icon_type: St.IconType.SYMBOLIC,
-            style_class: "popup-menu-icon"
-        });
-        this.button1 = new St.Button({
-            child: icon1,
-            style: "padding-right: 5px;"
-        });
-
-        let icon2 = new St.Icon({
-            icon_size: 18,
-            icon_name: "custom-translate",
-            icon_type: St.IconType.SYMBOLIC,
-            style_class: "popup-menu-icon"
-        });
-
-        this.button2 = new St.Button({
-            child: icon2,
-            style: "padding-right: 5px;"
-        });
-
-        let icon3 = new St.Icon({
-            icon_size: 18,
-            icon_name: "custom-document-open-recent",
-            icon_type: St.IconType.SYMBOLIC,
-            style_class: "popup-menu-icon"
-        });
-
-        this.button3 = new St.Button({
-            child: icon3,
-            style: "padding-right: 5px;"
-        });
-
-        this.footerLabel = new St.Label({
-            text: "",
-            style: this.appsMenuButton.pref_style_for_footer
-        });
-        this.footerButton = new St.Button({
-            child: this.footerLabel
-        });
-
-        this._addConnectionsAndTooltipToButton(
-            "button1",
-            _("Copy translated text to clipboard"),
-            "_copyToClipboard"
-        );
-
-        this._addConnectionsAndTooltipToButton(
-            "button2",
-            _("Translate text on provider's website"),
-            "_translateOnProviderWebsite"
-        );
-
-        this._addConnectionsAndTooltipToButton(
-            "button3",
-            _("Open translation history"),
-            "_openTranslationHistory"
-        );
-
-        this._addConnectionsAndTooltipToButton(
-            "footerButton",
-            "", // Dinamically set when popup is shown.
-            "_openProviderWebsite"
-        );
-
-        toolbar.add(this.button1, {
-            x_align: St.Align.START,
-            x_fill: false
-        });
-
-        toolbar.add(this.button2, {
-            x_align: St.Align.START,
-            x_fill: false
-        });
-
-        toolbar.add(this.button3, {
-            x_align: St.Align.START,
-            x_fill: false
-        });
-
-        // Spacer
-        toolbar.add(new St.BoxLayout(), {
-            expand: true,
-            x_fill: true
-        });
-
-        toolbar.add(this.footerButton, {
-            x_align: St.Align.END,
-            x_fill: false
-        });
-
-        table.add(toolbar, {
-            x_fill: true,
-            y_fill: true,
-            expand: true,
-            y_align: St.Align.MIDDLE,
-            x_align: St.Align.START
-        });
-
-        this.addActor(table, {
-            expand: true,
-            span: 1,
-            align: St.Align.START
-        });
-    },
-
-    _copyToClipboard: function() {
-        let text = this.translatedText.get_text();
-        St.Clipboard.get_default().set_text(text);
-        this.closeMenu();
-    },
-
-    _openTranslationHistory: function() {
-        try {
-            Util.spawn([
-                "python3",
-                this.appsMenuButton.main_applet_dir + "/appletHelper.py",
-                "history",
-                this.appsMenuButton.pref_history_initial_window_width + "," +
-                this.appsMenuButton.pref_history_initial_window_height + "," +
-                this.appsMenuButton.pref_history_width_to_trigger_word_wrap
-            ]);
-            this.closeMenu();
-        } catch (aErr) {
-            global.logError(aErr);
-        }
-    },
-
-    _translateOnProviderWebsite: function() {
-        Util.spawn(['gvfs-open', this.providerURI]);
-        this.closeMenu();
-    },
-
-    _openProviderWebsite: function() {
-        Util.spawn(['gvfs-open', this.providerURL]);
-        this.closeMenu();
-    },
-
-    _addConnectionsAndTooltipToButton: function(aButton, aSourceText, aCallback) {
-        this[aButton].connect("clicked", Lang.bind(this, this[aCallback]));
-        this[aButton].connect("enter-event", Lang.bind(this, this._onButtonEnterEvent, aButton));
-        this[aButton].connect("leave-event", Lang.bind(this, this._onButtonLeaveEvent, aButton));
-        this[aButton].tooltip = new Tooltips.Tooltip(this[aButton], aSourceText);
-        // Ensure tooltip is destroyed when this button is destroyed
-        this[aButton].connect("destroy", Lang.bind(this, function() {
-            this[aButton].tooltip.destroy();
-        }));
-    },
-
-    _onButtonEnterEvent: function(aE, aButton) {
-        global.set_cursor(Cinnamon.Cursor.POINTING_HAND);
-        return false;
-    },
-
-    _onButtonLeaveEvent: function(aE, aButton) {
-        global.unset_cursor();
-    },
-
-    closeMenu: function(aE, aButton) {
-        this.appsMenuButton.menu.close(true);
-    },
-
-    set sourceText(aText) {
-        this._sourceText = aText;
-    },
-
-    get sourceText() {
-        return this._sourceText;
-    },
-
-    set providerURI(aURI) {
-        this._providerURI = aURI;
-    },
-
-    get providerURI() {
-        return this._providerURI;
-    },
-
-    set providerURL(aURL) {
-        this._providerURL = aURL;
-    },
-
-    get providerURL() {
-        return this._providerURL;
-    }
-};
-
 function MyApplet(aMetadata, aOrientation, aPanel_height, aInstance_id) {
     this._init(aMetadata, aOrientation, aPanel_height, aInstance_id);
 }
@@ -277,6 +45,9 @@ MyApplet.prototype = {
 
     _init: function(aMetadata, aOrientation, aPanel_height, aInstance_id) {
         Applet.TextIconApplet.prototype._init.call(this, aOrientation, aPanel_height, aInstance_id);
+
+        this.settings = new Settings.AppletSettings(this, aMetadata.uuid, aInstance_id);
+        this._bindSettings();
 
         this.applet_dir = aMetadata.path;
         this.metadata = aMetadata;
@@ -293,11 +64,14 @@ MyApplet.prototype = {
                 this.main_applet_dir = tempFile.get_parent().get_path();
             }
 
-            // Gtk.IconTheme.get_default().append_search_path(this.main_applet_dir + "/icons/");
-            Gettext.bindtextdomain(this.metadata.uuid, GLib.get_home_dir() + "/.local/share/locale");
+            // Import from main applet directory, not from "Cinnamon version" sub folders.
+            imports.searchPath.push(this.main_applet_dir);
+            // ALWAYS use the xlet UUID for the name of the "modules file".
+            // Otherwise, it will import the wrong file and generate conflicts with other xlets
+            // using a "modules file" with the exact same name. I learned this the hard way!!! ¬¬
+            $ = imports[aMetadata.uuid];
 
-            this.settings = new Settings.AppletSettings(this, aMetadata.uuid, aInstance_id);
-            this._bindSettings();
+            Gettext.bindtextdomain(this.metadata.uuid, GLib.get_home_dir() + "/.local/share/locale");
 
             this.menuManager = new PopupMenu.PopupMenuManager(this);
             this._buildMenu();
@@ -307,41 +81,102 @@ MyApplet.prototype = {
 
             this._updateIconAndLabel();
             this.set_applet_tooltip(_(aMetadata.name));
-            this._expand_applet_context_menu();
+            this._expandAppletContextMenu();
             this.ensureHistoryFileExists();
+
+            if (!this.pref_all_dependencies_met)
+                this.checkDependencies();
         } catch (aErr) {
             global.logError(aErr);
         }
 
     },
 
-    _expand_applet_context_menu: function() {
-        let menuItem = new PopupMenu.PopupIconMenuItem(
-            _("Open translation history"),
-            "custom-document-open-recent",
-            St.IconType.SYMBOLIC);
+    _expandAppletContextMenu: function() {
+        try {
+            this.google_context_check = new PopupMenu.PopupIndicatorMenuItem(this.providerData.google.name);
+            this.google_context_check.tooltip = new Tooltips.Tooltip(
+                this.google_context_check.actor,
+                _("Set %s as default translation engine.").format(this.providerData.google.name)
+            );
+            this.google_context_check.setOrnament(OrnamentType.DOT, this.service_provider === "google");
+            this.google_context_check.connect("activate", Lang.bind(this, function() {
+                this._setContextCheckboxes("google");
+            }));
+            this._applet_context_menu.addMenuItem(this.google_context_check);
+
+            this.yandex_context_check = new PopupMenu.PopupIndicatorMenuItem(this.providerData.yandex.name);
+            this.yandex_context_check.tooltip = new Tooltips.Tooltip(
+                this.yandex_context_check.actor,
+                _("Set %s as default translation engine.").format(this.providerData.yandex.name)
+            );
+            this.yandex_context_check.setOrnament(OrnamentType.DOT, this.service_provider === "yandex");
+            this.yandex_context_check.connect("activate", Lang.bind(this, function() {
+                this._setContextCheckboxes("yandex");
+            }));
+            this._applet_context_menu.addMenuItem(this.yandex_context_check);
+        } catch (aErr) {
+            global.logError(aErr);
+        }
+
+        let menuItem = new PopupMenu.PopupSeparatorMenuItem();
+        this._applet_context_menu.addMenuItem(menuItem);
+
+        menuItem = new PopupMenu.PopupIconMenuItem(
+            _("Translation history"),
+            "popup-translator-document-open-recent",
+            St.IconType.SYMBOLIC
+        );
+        menuItem.tooltip = new Tooltips.Tooltip(
+            menuItem.actor,
+            _("Open translation history window.")
+        );
         menuItem.connect("activate", Lang.bind(this, function() {
             try {
-                Util.spawn([
-                    "python3",
-                    this.main_applet_dir + "/appletHelper.py",
-                    "history",
-                    this.pref_history_initial_window_width + "," +
-                    this.pref_history_initial_window_height + "," +
-                    this.pref_history_width_to_trigger_word_wrap
-                ]);
+                this.openTranslationHistory();
             } catch (aErr) {
                 global.logError(aErr);
             }
         }));
         this._applet_context_menu.addMenuItem(menuItem);
 
-        menuItem = new PopupMenu.PopupIconMenuItem(_("Help"),
-            "dialog-information", St.IconType.SYMBOLIC);
+        menuItem = new PopupMenu.PopupIconMenuItem(
+            _("Check dependencies"),
+            "popup-translator-edit-find",
+            St.IconType.SYMBOLIC
+        );
+        menuItem.tooltip = new Tooltips.Tooltip(
+            menuItem.actor,
+            _("Check whether the dependencies for this applet are met.")
+        );
+        menuItem.connect("activate", Lang.bind(this, function() {
+            this.checkDependencies();
+        }));
+        this._applet_context_menu.addMenuItem(menuItem);
+
+        menuItem = new PopupMenu.PopupIconMenuItem(
+            _("Help"),
+            "dialog-information",
+            St.IconType.SYMBOLIC
+        );
+        menuItem.tooltip = new Tooltips.Tooltip(
+            menuItem.actor,
+            _("Open this applet help file.")
+        );
         menuItem.connect("activate", Lang.bind(this, function() {
             Util.spawn(["xdg-open", this.main_applet_dir + "/HELP.md"]);
         }));
         this._applet_context_menu.addMenuItem(menuItem);
+    },
+
+    _setContextCheckboxes: function(aProvider) {
+        try {
+            this.pref_service_provider = aProvider;
+            this.google_context_check._ornament.child._delegate.setToggleState(aProvider === "google");
+            this.yandex_context_check._ornament.child._delegate.setToggleState(aProvider === "yandex");
+        } catch (aErr) {
+            global.logError(aErr);
+        }
     },
 
     _updateIconAndLabel: function() {
@@ -414,9 +249,6 @@ MyApplet.prototype = {
     on_orientation_changed: function(orientation) {
         this.orientation = orientation;
         this._buildMenu();
-
-        // this.menu.connect('open-state-changed', Lang.bind(this, this._onOpenStateChanged));
-
         this._updateIconAndLabel();
     },
 
@@ -428,7 +260,7 @@ MyApplet.prototype = {
             }
 
             this.menu = new Applet.AppletPopupMenu(this, this.orientation);
-            this.menu._transTable = new TranslationMenuItem(this);
+            this.menu._transTable = new $.TranslationMenuItem(this);
             this.menu.addMenuItem(this.menu._transTable);
             this.menuManager.addMenu(this.menu);
         } catch (aErr) {
@@ -451,15 +283,15 @@ MyApplet.prototype = {
             let m = this.menu._transTable;
             if (m) {
                 m.sourceText = aSourceText;
-                m.providerURL = this.providerData[this.pref_service_provider].websiteURL;
-                m.providerURI = (this.providerData[this.pref_service_provider].websiteURI)
+                m.providerURL = this.providerData[this.service_provider].websiteURL;
+                m.providerURI = (this.providerData[this.service_provider].websiteURI)
                     .format(aTargetLang, encodeURIComponent(aSourceText));
-                m.languagePair.set_text(this.langs[aDetectedLang] + " > " + this.langs[aTargetLang]);
+                m.languagePair.set_text($.langs[aDetectedLang] + " > " + $.langs[aTargetLang]);
                 m.translatedText.set_text(aTranslatedText);
                 m.footerButton.tooltip._tooltip.set_text(_("Go to %s's website")
-                    .format(this.providerData[this.pref_service_provider].name));
+                    .format(this.providerData[this.service_provider].name));
                 m.footerLabel.set_text(("Powered By %s")
-                    .format(this.providerData[this.pref_service_provider].name));
+                    .format(this.providerData[this.service_provider].name));
             }
         } finally {
             if (!this.menu.isOpen)
@@ -474,7 +306,7 @@ MyApplet.prototype = {
             [bD.IN, "pref_custom_label_for_applet", this._updateIconAndLabel],
             [bD.IN, "pref_translate_key", this._updateKeybindings],
             [bD.IN, "pref_force_translate_key", this._updateKeybindings],
-            [bD.IN, "pref_service_provider", null],
+            [bD.BIDIRECTIONAL, "pref_service_provider", null],
             [bD.IN, "pref_source_lang", null],
             [bD.IN, "pref_target_lang", null],
             [bD.IN, "pref_style_for_language_pair", null],
@@ -486,6 +318,7 @@ MyApplet.prototype = {
             [bD.IN, "pref_history_initial_window_height", null],
             [bD.IN, "pref_history_width_to_trigger_word_wrap", null],
             [bD.IN, "pref_yandex_api_keys", null],
+            [bD.BIDIRECTIONAL, "pref_all_dependencies_met", null],
         ];
         let newBinding = typeof this.settings.bind === "function";
         for (let [binding, property_name, callback] of settingsArray) {
@@ -516,7 +349,7 @@ MyApplet.prototype = {
             return;
         }
 
-        switch (this.pref_service_provider) {
+        switch (this.service_provider) {
             case "google":
                 let GoogleURL = "https://translate.googleapis.com/translate_a/single?client=gtx&sl=%s&tl=%s&dt=t&q=".format(
                     this.pref_source_lang === "" ? "auto" : this.pref_source_lang,
@@ -532,13 +365,23 @@ MyApplet.prototype = {
 
     Yandex_provider: function(aURL, aSourceText) {
         try {
-            let langPair = (this.pref_source_lang === "") ?
-                this.pref_target_lang :
-                this.pref_source_lang + "-" + this.pref_target_lang;
             let APIKeys = this.pref_yandex_api_keys.split("\n").filter(function(aKey) { // Filter possible empty elements.
                 if (aKey !== "")
                     return true;
             });
+
+            if (APIKeys.length === 0) {
+                Main.criticalNotify(_(this.metadata.name), [
+                    _("No Yandex API keys were found!!!"),
+                    _("Check this applet HELP.md file for instructions."),
+                    _("It can be accessed from this applet context menu.")
+                ].join("\n"));
+                return;
+            }
+
+            let langPair = (this.pref_source_lang === "") ?
+                this.pref_target_lang :
+                this.pref_source_lang + "-" + this.pref_target_lang;
             let randomKey = APIKeys[Math.floor(Math.random() * APIKeys.length - 1) + 1];
 
             Util.spawn_async([
@@ -561,7 +404,7 @@ MyApplet.prototype = {
                         switch (result.code) {
                             case 200:
                                 informError = false;
-                                transText = (result.text[0]).trim();
+                                transText = result.text[0];
 
                                 if (this.pref_source_lang === "")
                                     detectedLang = result.detected.lang || "?";
@@ -582,7 +425,7 @@ MyApplet.prototype = {
 
                                 this._displayPopup(
                                     detectedLang,
-                                    langPair,
+                                    targetLang,
                                     aSourceText,
                                     transText
                                 );
@@ -684,8 +527,12 @@ MyApplet.prototype = {
     },
 
     on_applet_clicked: function() {
-        let ctrlKey = (Clutter.ModifierType.CONTROL_MASK & global.get_pointer()[2]) !== 0;
-        this.translate(ctrlKey);
+        if (this.pref_all_dependencies_met) {
+            let ctrlKey = (Clutter.ModifierType.CONTROL_MASK & global.get_pointer()[2]) !== 0;
+            this.translate(ctrlKey);
+        } else {
+            this.informAboutMissingDependencies();
+        }
     },
 
     _updateKeybindings: function() {
@@ -706,119 +553,9 @@ MyApplet.prototype = {
     },
 
     _notifyParseError: function(aProvider) {
-        Main.warningNotify(_(this.metadata.name),
+        Main.criticalNotify(_(this.metadata.name),
             _("Error parsing %s's request.").format(aProvider) + "\n" +
             _("A detailed error has been logged into ~/.cinnamon/glass.log file."));
-    },
-
-    langs: {
-        "?": "Unknown",
-        "": "Auto",
-        "af": "Afrikaans (G)",
-        "sq": "Albanian",
-        "am": "Amharic",
-        "ar": "Arabic",
-        "hy": "Armenian",
-        "az": "Azerbaijani",
-        "eu": "Basque (G)",
-        "be": "Belarusian",
-        "bn": "Bengali (G)",
-        "bs": "Bosnian (Y)",
-        "bg": "Bulgarian",
-        "ca": "Catalan",
-        "ny": "Cebuano",
-        "ceb": "Chichewa",
-        "zh": "Chinese (Y)",
-        "zh-CN": "Chinese (G)",
-        "co": "Corsican",
-        "hr": "Croatian",
-        "cs": "Czech",
-        "da": "Danish",
-        "nl": "Dutch",
-        "en": "English",
-        "eo": "Esperanto (G)",
-        "et": "Estonian",
-        "tl": "Filipino (G)",
-        "fi": "Finnish",
-        "fr": "French",
-        "fy": "Frisian (G)",
-        "gl": "Galician (G)",
-        "ka": "Georgian",
-        "de": "German",
-        "el": "Greek",
-        "gu": "Gujarati (G)",
-        "ht": "Haitian Creole",
-        "ha": "Hausa (G)",
-        "haw": "Hawaiian (G)",
-        "he": "Hebrew (Y)",
-        "iw": "Hebrew (G)",
-        "hi": "Hindi",
-        "hmn": "Hmong",
-        "hu": "Hungarian",
-        "is": "Icelandic",
-        "ig": "Igbo",
-        "id": "Indonesian",
-        "ga": "Irish (G)",
-        "it": "Italian",
-        "ja": "Japanese",
-        "jw": "Javanese",
-        "kn": "Kannada (G)",
-        "kk": "Kazakh (G)",
-        "km": "Khmer (G)",
-        "ko": "Korean",
-        "ku": "Kurdish (Kurmanji) (G)",
-        "ky": "Kyrgyz (G)",
-        "lo": "Lao (G)",
-        "la": "Latin (G)",
-        "lv": "Latvian",
-        "lt": "Lithuanian",
-        "lb": "Luxembourgish",
-        "mk": "Macedonian",
-        "mg": "Malagasy",
-        "ms": "Malay",
-        "ml": "Malayalam",
-        "mt": "Maltese",
-        "mi": "Maori (G)",
-        "mr": "Marathi (G)",
-        "mn": "Mongolian (G)",
-        "my": "Myanmar (Burmese) (G)",
-        "ne": "Nepali (G)",
-        "no": "Norwegian",
-        "ps": "Pashto",
-        "fa": "Persian",
-        "pl": "Polish",
-        "pt": "Portuguese",
-        "pa": "Punjabi (G)",
-        "ro": "Romanian",
-        "ru": "Russian",
-        "sm": "Samoan (G)",
-        "gd": "Scots Gaelic (G)",
-        "sr": "Serbian",
-        "st": "Sesotho (G)",
-        "sn": "Shona (G)",
-        "sd": "Sindhi (G)",
-        "si": "Sinhala (G)",
-        "sk": "Slovak",
-        "sl": "Slovenian",
-        "so": "Somali",
-        "es": "Spanish",
-        "su": "Sundanese (G)",
-        "sw": "Swahili (G)",
-        "sv": "Swedish",
-        "tg": "Tajik (G)",
-        "ta": "Tamil (G)",
-        "te": "Telugu (G)",
-        "th": "Thai",
-        "tr": "Turkish",
-        "uk": "Ukrainian",
-        "ur": "Urdu",
-        "uz": "Uzbek (G)",
-        "vi": "Vietnamese",
-        "cy": "Welsh",
-        "xh": "Xhosa (G)",
-        "yi": "Yiddish (G)",
-        "yo": "Yoruba (G)",
-        "zu": "Zulu (G)",
     },
 
     _getTimeStamp: function(aDate) {
@@ -916,6 +653,58 @@ MyApplet.prototype = {
         out_file.close(null);
     },
 
+    informAboutMissingDependencies: function() {
+        Main.criticalNotify(_(this.metadata.name),
+            _("Unmet dependencies found!!!") + "\n" +
+            _("A detailed error has been logged into ~/.cinnamon/glass.log file."));
+    },
+
+    checkDependencies: function() {
+        Util.spawn_async([
+                "python3",
+                this.main_applet_dir + "/appletHelper.py",
+                "check-dependencies"
+            ],
+            Lang.bind(this, function(aResponse) {
+                let res = (aResponse.split("<!--SEPARATOR-->")[1])
+                    // Preserve line breaks.
+                    .replace(/\n+/g, "<br>")
+                    .replace(/\s+/g, " ")
+                    .replace(/<br>/g, "\n");
+                res = res.trim();
+
+                if (res.length > 1) {
+                    global.logError(
+                        "\n# [" + _("Popup Translator") + "]" + "\n" +
+                        "# " + _("Unmet dependencies found!!!") + "\n" +
+                        res + "\n" +
+                        "# " + _("Check this applet HELP.md file for instructions.") + "\n" +
+                        "# " + _("It can be accessed from this applet context menu.")
+                    );
+                    this.informAboutMissingDependencies();
+                    this.pref_all_dependencies_met = false;
+                } else {
+                    this.pref_all_dependencies_met = true;
+                }
+            }));
+    },
+
+    openTranslationHistory: function() {
+        try {
+            Util.spawn([
+                "python3",
+                this.main_applet_dir + "/appletHelper.py",
+                "history",
+                this.pref_history_initial_window_width + "," +
+                this.pref_history_initial_window_height + "," +
+                this.pref_history_width_to_trigger_word_wrap
+            ]);
+            this.menu.close(true);
+        } catch (aErr) {
+            global.logError(aErr);
+        }
+    },
+
     get transHistory() {
         return this._translation_history;
     },
@@ -928,7 +717,7 @@ MyApplet.prototype = {
     get selection() {
         let str = "";
         try {
-            let process = new ShellOutputProcess(["xsel", "-o"]);
+            let process = new $.ShellOutputProcess(["xsel", "-o"]);
             // Remove possible "ilegal" characters.
             str = process.spawn_sync_and_get_output().replace(/[\"'<>]/g, "");
             // Replace line breaks and duplicated white spaces with a single space.
@@ -938,83 +727,13 @@ MyApplet.prototype = {
         } finally {
             return str;
         }
+    },
+
+    get service_provider() {
+        return this.pref_service_provider;
     }
 };
 
 function main(aMetadata, aOrientation, aPanel_height, aInstance_id) {
     return new MyApplet(aMetadata, aOrientation, aPanel_height, aInstance_id);
 }
-
-function ShellOutputProcess(command_argv) {
-    this._init(command_argv);
-}
-
-ShellOutputProcess.prototype = {
-
-    _init: function(command_argv) {
-        this.command_argv = command_argv;
-        this.flags = GLib.SpawnFlags.SEARCH_PATH;
-        this.success = false;
-        this.standard_output_content = "";
-        this.standard_error_content = "";
-        this.pid = -1;
-        this.standard_input_file_descriptor = -1;
-        this.standard_output_file_descriptor = -1;
-        this.standard_error_file_descriptor = -1;
-    },
-
-    spawn_sync_and_get_output: function() {
-        this.spawn_sync();
-        let output = this.get_standard_output_content();
-        return output;
-    },
-
-    spawn_sync: function() {
-        let [success, standard_output_content, standard_error_content] = GLib.spawn_sync(
-            null,
-            this.command_argv,
-            null,
-            this.flags,
-            null);
-        this.success = success;
-        this.standard_output_content = standard_output_content;
-        this.standard_error_content = standard_error_content;
-    },
-
-    get_standard_output_content: function() {
-        return this.standard_output_content.toString();
-    },
-
-    spawn_sync_and_get_error: function() {
-        this.spawn_sync();
-        let output = this.get_standard_error_content();
-        return output;
-    },
-
-    get_standard_error_content: function() {
-        return this.standard_error_content.toString();
-    },
-
-    spawn_async: function() {
-        let [
-            success,
-            pid,
-            standard_input_file_descriptor,
-            standard_output_file_descriptor,
-            standard_error_file_descriptor
-        ] = GLib.spawn_async_with_pipes(
-            null,
-            this.command_argv,
-            null,
-            this.flags,
-            null,
-            null);
-
-        this.success = success;
-        this.pid = pid;
-        this.standard_input_file_descriptor = standard_input_file_descriptor;
-        this.standard_output_file_descriptor = standard_output_file_descriptor;
-        this.standard_error_file_descriptor = standard_error_file_descriptor;
-    },
-
-};
