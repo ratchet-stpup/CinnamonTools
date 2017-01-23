@@ -71,6 +71,11 @@ MyApplet.prototype = {
             // using a "modules file" with the exact same name. I learned this the hard way!!! ¬¬
             $ = imports[aMetadata.uuid];
 
+            // This shouldn't be needed because it's executed by the Cinnamon's "applets module".
+            // But it seems that when using multiversion option, the icons folder is looked at the
+            // version sub-directory, not in the main applet folder.
+            // And the multiversion annoyances keep piling up!!!
+            Gtk.IconTheme.get_default().append_search_path(this.main_applet_dir + "/icons/");
             Gettext.bindtextdomain(this.metadata.uuid, GLib.get_home_dir() + "/.local/share/locale");
 
             this.menuManager = new PopupMenu.PopupMenuManager(this);

@@ -4,9 +4,9 @@
         "description": "Applet settings"
     },
     "pref_custom_icon_for_applet": {
-        "type": "iconentry",
+        "type": "iconfilechooser",
         "expand-width": true,
-        "default": "custom-translate-symbolic",
+        "default": "popup-translator-translate-symbolic",
         "description": "Custom icon"
     },
     "pref_custom_label_for_applet": {
@@ -274,12 +274,14 @@
         "description": "Language pair style"
     },
     "pref_style_for_translated_text": {
-        "expand-width": "entry",
+        "type": "entry",
+        "expand-width": true,
         "default": "font-size: 1.2em; padding-bottom: 5px;",
         "description": "Translated text style"
     },
     "pref_style_for_footer": {
-        "expand-width": "entry",
+        "type": "entry",
+        "expand-width": true,
         "default": "font-weight: bold; font-size: 1.2em;",
         "description": "Footer style"
     },
@@ -343,8 +345,8 @@
         "tooltip": "Enter one API key per line.\nRead the HELP.md file (Help item on this applet context menu) found inside this applet folder to know how to get free Yandex API keys.",
         "height": 150
     },
-    "pref_translation_history": {
+    "pref_all_dependencies_met": {
         "type": "generic",
-        "default": {}
+        "default": false
     }
 }

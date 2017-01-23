@@ -4,7 +4,7 @@
         "description": "Applet settings"
     },
     "pref_custom_icon_for_applet": {
-        "type": "entry",
+        "type": "iconfilechooser",
         "indent": true,
         "default": "popup-translator-translate-symbolic",
         "description": "Custom icon"
