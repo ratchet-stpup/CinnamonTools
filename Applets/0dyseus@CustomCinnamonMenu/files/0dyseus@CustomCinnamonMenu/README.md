@@ -60,4 +60,4 @@ This applet is a custom version of the default Cinnamon Menu applet, but infinit
 
 [Full change log](https://github.com/Odyseus/CinnamonTools/blob/master/Applets/0dyseus%40CustomCinnamonMenu/CHANGELOG.md)
 
-[ToDo](https://github.com/Odyseus/CinnamonTools/blob/master/Applets/0dyseus%40CustomCinnamonMenu/TODO.md)
+[ToDo](https://github.com/Odyseus/CinnamonTools/blob/master/Applets/0dyseus%40CustomCinnamonMenu/files/0dyseus%40CustomCinnamonMenu/TODO.md)
