@@ -139,7 +139,7 @@ langList = {
 translations = {}
 
 
-def trans(string):
+def _(string):
     # check for a translation for this xlet
     if appletUUID not in translations:
         try:
@@ -166,7 +166,7 @@ def trans(string):
 
         if result != string:
             return result
-    return _(string)
+    return gettext.gettext(string)
 
 
 class YandexTranslator:
@@ -219,12 +219,12 @@ class HistoryWindow():
         builder.add_from_string(file_content)
         self.window = builder.get_object("main_window")
         self.window.set_icon_from_file(os.path.join(appletDir, "icon.png"))
-        self.window.set_title(trans("Popup Translator history"))
+        self.window.set_title(_("Popup Translator history"))
         self.window.connect("destroy", self.quit_window)
 
         self.treeview = builder.get_object("treeview_history")
 
-        column1 = Gtk.TreeViewColumn(trans("Date"), Gtk.CellRendererText(), text=1)
+        column1 = Gtk.TreeViewColumn(_("Date"), Gtk.CellRendererText(), text=1)
         column1.set_sort_column_id(1)
         column1.set_resizable(True)
 
@@ -232,12 +232,12 @@ class HistoryWindow():
         cr2.set_property('wrap-mode', Pango.WrapMode.WORD_CHAR)
         cr2.set_property('wrap-width', int(width_to_trigger_word_wrap))
         cr2.set_property('editable', True)
-        column2 = Gtk.TreeViewColumn(trans("Source text"), cr2, text=0)
+        column2 = Gtk.TreeViewColumn(_("Source text"), cr2, text=0)
         column2.set_sort_column_id(0)
         column2.set_resizable(True)
 
         cr3 = Gtk.CellRendererText()
-        column3 = Gtk.TreeViewColumn(trans("Language Pair"), cr3, markup=2)
+        column3 = Gtk.TreeViewColumn(_("Language Pair"), cr3, markup=2)
         column3.set_sort_column_id(2)
         column3.set_resizable(True)
 
@@ -245,7 +245,7 @@ class HistoryWindow():
         cr4.set_property('wrap-mode', Pango.WrapMode.WORD_CHAR)
         cr4.set_property('wrap-width', int(width_to_trigger_word_wrap))
         cr4.set_property('editable', True)
-        column4 = Gtk.TreeViewColumn(trans("Target text"), cr4, text=3)
+        column4 = Gtk.TreeViewColumn(_("Target text"), cr4, text=3)
         column4.set_sort_column_id(3)
         column4.set_resizable(True)
 
@@ -267,8 +267,8 @@ class HistoryWindow():
         close_button.connect("clicked", self.quit_window)
 
         reload_button = builder.get_object("button_reload")
-        reload_button.set_label(trans("Reload"))
-        reload_button.set_tooltip_text(trans("Reload translation history"))
+        reload_button.set_label(_("Reload"))
+        reload_button.set_tooltip_text(_("Reload translation history"))
         reload_button.connect("clicked", self.populate)
         img_path = os.path.join(appletDir, "icons", "popup-translator-document-open-recent-symbolic.svg")
         img_file = Gio.File.new_for_path(img_path)

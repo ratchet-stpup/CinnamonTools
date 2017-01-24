@@ -1,3 +1,4 @@
+const appletUUID = "0dyseus@PopupTranslator";
 const Util = imports.misc.util;
 const GLib = imports.gi.GLib;
 const Lang = imports.lang;
@@ -6,6 +7,19 @@ const St = imports.gi.St;
 const PopupMenu = imports.ui.popupMenu;
 const Tooltips = imports.ui.tooltips;
 const Cinnamon = imports.gi.Cinnamon;
+const Gettext = imports.gettext;
+
+// For translation mechanism.
+// Comments that start with // NOTE: are to be extracted by xgettext
+// and are directed to translators only.
+function _(aStr) {
+    let customTrans = Gettext.dgettext(appletUUID, aStr);
+
+    if (customTrans !== aStr)
+        return customTrans;
+
+    return Gettext.gettext(aStr);
+}
 
 const langs = {
     "?": "Unknown",

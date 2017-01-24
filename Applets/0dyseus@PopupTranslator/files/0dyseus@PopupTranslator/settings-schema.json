@@ -19,13 +19,15 @@
         "type": "keybinding",
         "indent": true,
         "description": "Keyboard shortcut to perform a translation",
-        "default": ""
+        "default": "",
+        "tooltip": "Choose a key binding to perform a translation."
     },
     "pref_force_translate_key": {
         "type": "keybinding",
         "indent": true,
-        "description": "Keyboard shortcut to perform a forced translation",
-        "default": ""
+        "description": "Keyboard shortcut to perform a FORCED translation",
+        "default": "",
+        "tooltip": "Choose a key binding to perform a FORCED translation. A \"forced translation\" forces the translation of any string stored on the translation history and overwrites the existent one."
     },
     "sep1": {
         "type": "separator"
@@ -42,7 +44,8 @@
         "options": {
             "Google Translator": "google",
             "Yandex Translator": "yandex"
-        }
+        },
+        "tooltip": "Choose the default translation service provider."
     },
     "pref_source_lang": {
         "type": "combobox",
@@ -156,7 +159,8 @@
             "Yiddish (G)": "yi",
             "Yoruba (G)": "yo",
             "Zulu (G)": "zu"
-        }
+        },
+        "tooltip": "(G) = Language supported only by Google Translate.\n(Y) = Language supported only by Yandex Translate."
     },
     "pref_target_lang": {
         "type": "combobox",
@@ -269,7 +273,8 @@
             "Yiddish (G)": "yi",
             "Yoruba (G)": "yo",
             "Zulu (G)": "zu"
-        }
+        },
+        "tooltip": "(G) = Language supported only by Google Translate.\n(Y) = Language supported only by Yandex Translate."
     },
     "sep2": {
         "type": "separator"
@@ -359,12 +364,12 @@
         "type": "header",
         "description": "Yandex translator settings"
     },
-    "pref_yandex_api_keys" : {
-        "type" : "textview",
-        "description" : "API keys",
-        "default" : "",
-        "tooltip" : "Enter one API key per line.\nRead the HELP.md file (Help item on this applet context menu) found inside this applet folder to know how to get free Yandex API keys.",
-        "height" : 150
+    "pref_yandex_api_keys": {
+        "type": "textview",
+        "description": "API keys",
+        "default": "",
+        "tooltip": "Enter one API key per line.\nRead the HELP.md file (Help item on this applet context menu) found inside this applet folder to know how to get free Yandex API keys.",
+        "height": 150
     },
     "pref_all_dependencies_met": {
         "type": "generic",
