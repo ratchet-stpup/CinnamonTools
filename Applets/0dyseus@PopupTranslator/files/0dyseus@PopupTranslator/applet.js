@@ -295,7 +295,7 @@ MyApplet.prototype = {
                 m.translatedText.set_text(aTranslatedText);
                 m.footerButton.tooltip._tooltip.set_text(_("Go to %s's website")
                     .format(this.providerData[this.service_provider].name));
-                m.footerLabel.set_text(("Powered By %s")
+                m.footerLabel.set_text(_("Powered By %s")
                     .format(this.providerData[this.service_provider].name));
             }
         } finally {
