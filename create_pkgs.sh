@@ -1,7 +1,9 @@
 #!/bin/bash
 
+# For this script to work, the gh-pages branch should be checked out inside
+# a folder located in the root of the main repository.
+# The gh-pages folder then is set to ignore in the main .gitignore file.
 
-# rm /path/to/directory/*
 ROOT_PATH="`dirname \"$0\"`"                 # relative
 ROOT_PATH="`( cd \"$ROOT_PATH\" && pwd )`"   # absolutized and normalized
 
