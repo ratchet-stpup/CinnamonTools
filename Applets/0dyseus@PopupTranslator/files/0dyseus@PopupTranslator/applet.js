@@ -90,7 +90,8 @@ MyApplet.prototype = {
             this.detectedLang = "";
 
             this._updateIconAndLabel();
-            this.set_applet_tooltip(_(aMetadata.name));
+            // this.set_applet_tooltip(_(aMetadata.name));
+            this._setAppletTooltip();
             this._expandAppletContextMenu();
             this.ensureHistoryFileExists();
 
@@ -100,6 +101,77 @@ MyApplet.prototype = {
             global.logError(aErr);
         }
 
+    },
+
+    escHTML: function(aStr) {
+        aStr = String(aStr)
+            .replace(/&/g, "&amp;")
+            .replace(/</g, "&lt;")
+            .replace(/>/g, "&gt;")
+            .replace(/"/g, "&quot;")
+            .replace(/'/g, "&apos;");
+        return aStr;
+    },
+
+    getLegibleKeybinding: function(aHKStr) {
+        aHKStr = aHKStr.toLowerCase();
+
+        if (aHKStr.search("<alt>") !== -1)
+            aHKStr = aHKStr.replace("<alt>", "Alt + ");
+
+        if (aHKStr.search("<primary>") !== -1)
+            aHKStr = aHKStr.replace("<primary>", "Ctrl + ");
+
+        if (aHKStr.search("<shift>") !== -1)
+            aHKStr = aHKStr.replace("<shift>", "Shift + ");
+
+        if (aHKStr.search("<super>") !== -1)
+            aHKStr = aHKStr.replace("<super>", "Super + ");
+
+        return aHKStr;
+    },
+
+    _setAppletTooltip: function() {
+        if (this.tooltip)
+            this.tooltip.destroy();
+
+        let boldSpan = function(aStr) {
+            return '<span weight="bold">' + aStr + '</span>';
+        };
+
+        let tt = boldSpan(_(this.metadata.name)) + "\n\n";
+        tt += boldSpan(_("Service provider") + ": ") + this.providerData[this.pref_service_provider].name + "\n";
+        tt += boldSpan(_("Language pair") + ": ") + $.langs[this.pref_source_lang] + " > " +
+            $.langs[this.pref_target_lang] + "\n";
+
+        if (this.pref_translate_key !== "") {
+            let [leftKB, rightKB] = this.pref_translate_key.split("::");
+            tt += boldSpan(_("Key combination to translate") + ": ") + "\n" +
+                (leftKB === "" ? "" : "\t" + this.getLegibleKeybinding(leftKB) + "\n") +
+                (rightKB === "" ? "" : "\t" + this.getLegibleKeybinding(rightKB) + "\n");
+        }
+
+        if (this.pref_force_translate_key !== "") {
+            let [leftKB, rightKB] = this.pref_force_translate_key.split("::");
+            tt += boldSpan(_("Key combination to force translation") + ": ") + "\n" +
+                (leftKB === "" ? "" : "\t" + this.getLegibleKeybinding(leftKB) + "\n") +
+                (rightKB === "" ? "" : "\t" + this.getLegibleKeybinding(rightKB) + "\n");
+        }
+
+        if (!this.pref_all_dependencies_met) {
+            tt += "\n<span color=\"red\">" + boldSpan(_("Unmet dependencies found!!!") + "\n" +
+                _("A detailed error has been logged into ~/.cinnamon/glass.log file.")) + "</span>";
+        }
+
+        this.tooltip = new Tooltips.PanelItemTooltip(this, "", this.orientation);
+
+        this.tooltip._tooltip.set_style("text-align: left;");
+        this.tooltip._tooltip.get_clutter_text().set_line_wrap(true);
+        this.tooltip._tooltip.get_clutter_text().set_markup(tt);
+
+        this.connect("destroy", Lang.bind(this, function() {
+            this.tooltip.destroy();
+        }));
     },
 
     _expandAppletContextMenu: function() {
@@ -278,15 +350,24 @@ MyApplet.prototype = {
 
     _buildMenu: function() {
         try {
-            if (this.menu) {
-                this.menuManager.removeMenu(this.menu);
-                this.menu.destroy();
+            if (this._buildMenuId > 0) {
+                Mainloop.source_remove(this._buildMenuId);
+                this._buildMenuId = 0;
             }
 
-            this.menu = new Applet.AppletPopupMenu(this, this.orientation);
-            this.menu._transTable = new $.TranslationMenuItem(this);
-            this.menu.addMenuItem(this.menu._transTable);
-            this.menuManager.addMenu(this.menu);
+            this._buildMenuId = Mainloop.timeout_add(500,
+                Lang.bind(this, function() {
+                    if (this.menu) {
+                        this.menuManager.removeMenu(this.menu);
+                        this.menu.destroy();
+                    }
+
+                    this.menu = new Applet.AppletPopupMenu(this, this.orientation);
+                    this.menu._transTable = new $.TranslationMenuItem(this);
+                    this.menu.addMenuItem(this.menu._transTable);
+                    this.menuManager.addMenu(this.menu);
+                })
+            );
         } catch (aErr) {
             global.logError(aErr);
         }
@@ -330,12 +411,12 @@ MyApplet.prototype = {
             [bD.IN, "pref_custom_label_for_applet", this._updateIconAndLabel],
             [bD.IN, "pref_translate_key", this._updateKeybindings],
             [bD.IN, "pref_force_translate_key", this._updateKeybindings],
-            [bD.BIDIRECTIONAL, "pref_service_provider", null],
-            [bD.IN, "pref_source_lang", null],
-            [bD.IN, "pref_target_lang", null],
-            [bD.IN, "pref_style_for_language_pair", null],
-            [bD.IN, "pref_style_for_translated_text", null],
-            [bD.IN, "pref_style_for_footer", null],
+            [bD.BIDIRECTIONAL, "pref_service_provider", this._setAppletTooltip],
+            [bD.IN, "pref_source_lang", this._setAppletTooltip],
+            [bD.IN, "pref_target_lang", this._setAppletTooltip],
+            [bD.IN, "pref_style_for_language_pair", this._buildMenu],
+            [bD.IN, "pref_style_for_translated_text", this._buildMenu],
+            [bD.IN, "pref_style_for_footer", this._buildMenu],
             [bD.IN, "pref_history_timestamp", null],
             [bD.IN, "pref_history_timestamp_custom", null],
             [bD.IN, "pref_history_initial_window_width", null],
@@ -392,6 +473,7 @@ MyApplet.prototype = {
             let APIKeys = this.pref_yandex_api_keys.split("\n").filter(function(aKey) { // Filter possible empty elements.
                 if (aKey !== "")
                     return true;
+                return false;
             });
 
             if (APIKeys.length === 0) {
@@ -574,6 +656,8 @@ MyApplet.prototype = {
                 this.translate(true);
             })
         );
+
+        this._setAppletTooltip();
     },
 
     _notifyParseError: function(aProvider) {

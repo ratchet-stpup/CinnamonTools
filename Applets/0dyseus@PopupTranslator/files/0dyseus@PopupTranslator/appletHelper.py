@@ -3,7 +3,7 @@
 try:
     import requests
 except ImportError:
-    raise ImportError('ImportError')
+    print('ImportError: requests')
 
 import os
 import sys
@@ -206,13 +206,21 @@ class GoogleTranslator:
 class HistoryWindow():
 
     def __init__(self):
-        gladefile = os.path.join(appletDir, "assets", "history.ui")
+        glade_file_path = os.path.join(appletDir, "assets", "history.ui")
         [initial_window_width, initial_window_height,
             width_to_trigger_word_wrap] = sys.argv[2].split(",")
 
+        # Path(gladefile).read_text() doesn't work on Python 3.4. ¬¬
+        # And the Python nonsense continues!!!! (/%$(/%$/$%/&$%))!!!!!!
+        try:
+            file_content = str(Path(glade_file_path).read_text())
+        except:
+            glade_file = open(glade_file_path)
+            file_content = str(glade_file.read())
+            glade_file.close()
+
         # The following crap is done so I can set a custom width/height for the window. ¬¬
-        file_content = str(Path(gladefile).read_text()).replace(
-            "<default_width>", initial_window_width)
+        file_content = file_content.replace("<default_width>", initial_window_width)
         file_content = file_content.replace("<default_height>", initial_window_height)
 
         builder = Gtk.Builder()
