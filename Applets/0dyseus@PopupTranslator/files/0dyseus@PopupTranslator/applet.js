@@ -46,6 +46,11 @@ MyApplet.prototype = {
     _init: function(aMetadata, aOrientation, aPanel_height, aInstance_id) {
         Applet.TextIconApplet.prototype._init.call(this, aOrientation, aPanel_height, aInstance_id);
 
+        // Condition needed for retro-compatibility.
+        // Mark for deletion on EOL.
+        if (Applet.hasOwnProperty("AllowedLayout"))
+            this.setAllowedLayout(Applet.AllowedLayout.BOTH);
+
         this.settings = new Settings.AppletSettings(this, aMetadata.uuid, aInstance_id);
         this._bindSettings();
 
@@ -142,6 +147,20 @@ MyApplet.prototype = {
             } catch (aErr) {
                 global.logError(aErr);
             }
+        }));
+        this._applet_context_menu.addMenuItem(menuItem);
+
+        menuItem = new PopupMenu.PopupIconMenuItem(
+            _("History storage"),
+            "folder",
+            St.IconType.SYMBOLIC
+        );
+        menuItem.tooltip = new Tooltips.Tooltip(
+            menuItem.actor,
+            _("Open the location where the translation history file is stored.")
+        );
+        menuItem.connect("activate", Lang.bind(this, function() {
+            Util.spawn(["xdg-open", [GLib.get_home_dir(), ".cinnamon", "configs", this.metadata.uuid + "History"].join("/")]);
         }));
         this._applet_context_menu.addMenuItem(menuItem);
 
@@ -689,6 +708,8 @@ MyApplet.prototype = {
                     this.informAboutMissingDependencies();
                     this.pref_all_dependencies_met = false;
                 } else {
+                    Main.notify(_(this.metadata.name),
+                        _("All dependencies seem to be met."));
                     this.pref_all_dependencies_met = true;
                 }
             }));

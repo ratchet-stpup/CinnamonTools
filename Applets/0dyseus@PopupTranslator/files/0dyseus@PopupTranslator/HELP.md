@@ -23,9 +23,25 @@ Never delete any of the files found inside this applet folder. It might break th
 
 ***
 
+### Usage
+- **Left click**: Translates any selected text from any application on your system. A hotkey can be assigned to perform this task.
+- **Ctrl + Left click**: Same as **Left click**, but it will bypass the translation history. A hotkey can be assigned to perform this task.
+
+All translations are stored into the translation history. If a string of text was already translated in the past, the popup will display that stored translated text without making use of the provider's translation service.
+
+***
+
+### About translation history
+I created the translation history mechanism mainly to avoid the abuse of the translation services.
+
+- If the Google Translate service is *abused*, Google may block temporarily your IP. Or what is worse, they could change the translation mechanism making this applet useless and forcing me to update its code.
+- If the Yandex Translate service is *abused*, you are *wasting* your API keys quota and they will be blocked (temporarily or permanently).
+
+In the context menu of this applet is an item that can open the folder were the translation history file is stored. From there, the translation history file can be backed up or deleted.
+
+***
 
 ### How to get Yandex translator API keys
-
 - Visit one of the following links and register a Yandex account (or use one of the available social services).
     - **English:** https://tech.yandex.com/keys/get/?service=trnsl
     - **Russian:** https://tech.yandex.ru/keys/get/?service=trnsl

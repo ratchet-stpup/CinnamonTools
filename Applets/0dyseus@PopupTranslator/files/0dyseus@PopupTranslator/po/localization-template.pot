@@ -6,10 +6,10 @@
 msgid ""
 msgstr ""
 
-"Project-Id-Version: 1.00\n"
+"Project-Id-Version: 1.00-prototype4\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-01-23 05:25-0300\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2017-01-29 08:35-0300\n"
 "Last-Translator: Odyseus <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -17,96 +17,113 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: \n"
 
-#: applet.js:105 applet.js:116 3.2/applet.js:105 3.2/applet.js:116
+#: applet.js:110 applet.js:121 3.2/applet.js:110 3.2/applet.js:121
 #, javascript-format
 msgid "Set %s as default translation engine."
 msgstr ""
 
-#: applet.js:131 3.2/applet.js:131
+#: applet.js:136 3.2/applet.js:136
 msgid "Translation history"
 msgstr ""
 
-#: applet.js:137 3.2/applet.js:137
+#: applet.js:142 3.2/applet.js:142
 msgid "Open translation history window."
 msgstr ""
 
-#: applet.js:149 3.2/applet.js:149
+#: applet.js:154 3.2/applet.js:154
+msgid "History storage"
+msgstr ""
+
+#: applet.js:160 3.2/applet.js:160
+msgid "Open the location where the translation history file is stored."
+msgstr ""
+
+#: applet.js:168 3.2/applet.js:168
 msgid "Check dependencies"
 msgstr ""
 
-#: applet.js:155 3.2/applet.js:155
+#: applet.js:174 3.2/applet.js:174
 msgid "Check whether the dependencies for this applet are met."
 msgstr ""
 
-#: applet.js:163 3.2/applet.js:163
+#: applet.js:182 3.2/applet.js:182
 msgid "Help"
 msgstr ""
 
-#: applet.js:169 3.2/applet.js:169
+#: applet.js:188 3.2/applet.js:188
 msgid "Open this applet help file."
 msgstr ""
 
-#: applet.js:282 3.2/applet.js:282
+#: applet.js:301 3.2/applet.js:301
 msgid "History"
 msgstr ""
 
-#: applet.js:296 3.2/applet.js:296
+#: applet.js:315 3.2/applet.js:315
 #, javascript-format
 msgid "Go to %s's website"
 msgstr ""
 
-#: applet.js:380 3.2/applet.js:380
+#: applet.js:317 3.2/applet.js:317
+#, javascript-format
+msgid "Powered By %s"
+msgstr ""
+
+#: applet.js:399 3.2/applet.js:399
 msgid "No Yandex API keys were found!!!"
 msgstr ""
 
-#: applet.js:381 applet.js:686 3.2/applet.js:381 3.2/applet.js:686
+#: applet.js:400 applet.js:705 3.2/applet.js:400 3.2/applet.js:705
 msgid "Check this applet HELP.md file for instructions."
 msgstr ""
 
-#: applet.js:382 applet.js:687 3.2/applet.js:382 3.2/applet.js:687
+#: applet.js:401 applet.js:706 3.2/applet.js:401 3.2/applet.js:706
 msgid "It can be accessed from this applet context menu."
 msgstr ""
 
-#: applet.js:439 3.2/applet.js:439
+#: applet.js:458 3.2/applet.js:458
 msgid "API key is invalid"
 msgstr ""
 
-#: applet.js:442 3.2/applet.js:442
+#: applet.js:461 3.2/applet.js:461
 msgid "Blocked API key"
 msgstr ""
 
-#: applet.js:445 3.2/applet.js:445
+#: applet.js:464 3.2/applet.js:464
 msgid "Exceeded the daily limit on the amount of translated text"
 msgstr ""
 
-#: applet.js:448 3.2/applet.js:448
+#: applet.js:467 3.2/applet.js:467
 msgid "Exceeded the maximum text size"
 msgstr ""
 
-#: applet.js:451 3.2/applet.js:451
+#: applet.js:470 3.2/applet.js:470
 msgid "The text cannot be translated"
 msgstr ""
 
-#: applet.js:454 3.2/applet.js:454
+#: applet.js:473 3.2/applet.js:473
 msgid "The specified translation direction is not supported"
 msgstr ""
 
-#: applet.js:562 3.2/applet.js:562
+#: applet.js:581 3.2/applet.js:581
 #, javascript-format
 msgid "Error parsing %s's request."
 msgstr ""
 
-#: applet.js:563 applet.js:664 3.2/applet.js:563 3.2/applet.js:664
+#: applet.js:582 applet.js:683 3.2/applet.js:582 3.2/applet.js:683
 msgid "A detailed error has been logged into ~/.cinnamon/glass.log file."
 msgstr ""
 
-#: applet.js:663 applet.js:684 3.2/applet.js:663 3.2/applet.js:684
+#: applet.js:682 applet.js:703 3.2/applet.js:682 3.2/applet.js:703
 msgid "Unmet dependencies found!!!"
 msgstr ""
 
 #. 0dyseus@PopupTranslator->metadata.json->name
-#: applet.js:683 3.2/applet.js:683
+#: applet.js:702 3.2/applet.js:702
 msgid "Popup Translator"
+msgstr ""
+
+#: applet.js:712 3.2/applet.js:712
+msgid "All dependencies seem to be met."
 msgstr ""
 
 #: 0dyseus@PopupTranslator.js:230
@@ -937,16 +954,18 @@ msgid "Hawaiian (G)"
 msgstr ""
 
 #. 3.2->settings-schema.json->pref_force_translate_key->description
-msgid "Keyboard shortcut to perform a forced translation"
+#. 0dyseus@PopupTranslator->settings-
+#. schema.json->pref_force_translate_key->description
+msgid "Keyboard shortcut to perform a FORCED translation"
 msgstr ""
 
 #. 3.2->settings-schema.json->pref_force_translate_key->tooltip
 #. 0dyseus@PopupTranslator->settings-
 #. schema.json->pref_force_translate_key->tooltip
 msgid ""
-"Choose a key binding to perform a FORCED translation. A \"forced "
+"Choose a keybinding to perform a FORCED translation. A \"forced "
 "translation\" forces the translation of any string stored on the translation"
-" history and overwrites the existent one."
+" history and overwrites the existing one."
 msgstr ""
 
 #. 3.2->settings-schema.json->pref_service_provider->description
@@ -981,7 +1000,7 @@ msgstr ""
 
 #. 3.2->settings-schema.json->pref_translate_key->tooltip
 #. 0dyseus@PopupTranslator->settings-schema.json->pref_translate_key->tooltip
-msgid "Choose a key binding to perform a translation."
+msgid "Choose a keybinding to perform a translation."
 msgstr ""
 
 #. 3.2->settings-schema.json->pref_custom_icon_for_applet->description
@@ -1109,13 +1128,14 @@ msgstr ""
 msgid "Language pair style"
 msgstr ""
 
+#. 0dyseus@PopupTranslator->metadata.json->comments
+msgid ""
+"Bug reports and feature requests should be reported on this applet "
+"repository linked below."
+msgstr ""
+
 #. 0dyseus@PopupTranslator->metadata.json->description
 msgid ""
 "Simple translator applet that will allow to display any selected text from "
 "any application on a system in a popup."
-msgstr ""
-
-#. 0dyseus@PopupTranslator->settings-
-#. schema.json->pref_force_translate_key->description
-msgid "Keyboard shortcut to perform a FORCED translation"
 msgstr ""

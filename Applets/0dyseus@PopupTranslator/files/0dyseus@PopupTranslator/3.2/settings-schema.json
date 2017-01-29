@@ -19,13 +19,13 @@
         "type": "keybinding",
         "description": "Keyboard shortcut to perform a translation",
         "default": "",
-        "tooltip": "Choose a key binding to preform a translation."
+        "tooltip": "Choose a keybinding to perform a translation."
     },
     "pref_force_translate_key": {
         "type": "keybinding",
         "description": "Keyboard shortcut to perform a FORCED translation",
         "default": "",
-        "tooltip": "Choose a key binding to preform a FORCED translation. A \"forced translation\" forces the translation of any string stored on the translation history and overwrites the existent one."
+        "tooltip": "Choose a keybinding to perform a FORCED translation. A \"forced translation\" forces the translation of any string stored on the translation history and overwrites the existing one."
     },
     "head1": {
         "type": "section",

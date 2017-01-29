@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-01-23 11:24-0300\n"
-"PO-Revision-Date: 2017-01-23 11:32-0300\n"
+"POT-Creation-Date: 2017-01-29 08:47-0300\n"
+"PO-Revision-Date: 2017-01-29 08:50-0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: es\n"
@@ -18,99 +18,117 @@ msgstr ""
 "X-Generator: Poedit 1.8.7.1\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: applet.js:105 applet.js:116 3.2/applet.js:105 3.2/applet.js:116
+#: applet.js:110 applet.js:121 3.2/applet.js:110 3.2/applet.js:121
 #, javascript-format
 msgid "Set %s as default translation engine."
 msgstr "Establecer %s como motor de traducción predeterminado."
 
-#: applet.js:131 3.2/applet.js:131
+#: applet.js:136 3.2/applet.js:136
 msgid "Translation history"
 msgstr "Historial de traducción"
 
-#: applet.js:137 3.2/applet.js:137
+#: applet.js:142 3.2/applet.js:142
 msgid "Open translation history window."
 msgstr "Abrir ventana del historial de traducción."
 
-#: applet.js:149 3.2/applet.js:149
+#: applet.js:154 3.2/applet.js:154
+msgid "History storage"
+msgstr "Almacenamiento del historial"
+
+#: applet.js:160 3.2/applet.js:160
+msgid "Open the location where the translation history file is stored."
+msgstr ""
+"Abrir la ubicación donde se almacena el archivo de historial de traducción."
+
+#: applet.js:168 3.2/applet.js:168
 msgid "Check dependencies"
 msgstr "Comprobar dependencias"
 
-#: applet.js:155 3.2/applet.js:155
+#: applet.js:174 3.2/applet.js:174
 msgid "Check whether the dependencies for this applet are met."
 msgstr "Comprobar si se cumplen las dependencias para este applet."
 
-#: applet.js:163 3.2/applet.js:163
+#: applet.js:182 3.2/applet.js:182
 msgid "Help"
 msgstr "Ayuda"
 
-#: applet.js:169 3.2/applet.js:169
+#: applet.js:188 3.2/applet.js:188
 msgid "Open this applet help file."
 msgstr "Abra el archivo de ayuda de este applet."
 
-#: applet.js:282 3.2/applet.js:282
+#: applet.js:301 3.2/applet.js:301
 msgid "History"
 msgstr "Historial"
 
-#: applet.js:296 3.2/applet.js:296
+#: applet.js:315 3.2/applet.js:315
 #, javascript-format
 msgid "Go to %s's website"
 msgstr "Ir al sitio web de %s"
 
-#: applet.js:380 3.2/applet.js:380
+#: applet.js:317 3.2/applet.js:317
+#, javascript-format
+msgid "Powered By %s"
+msgstr "Powered by %s"
+
+#: applet.js:399 3.2/applet.js:399
 msgid "No Yandex API keys were found!!!"
 msgstr "¡No se encontraron claves de API de Yandex!"
 
-#: applet.js:381 applet.js:686 3.2/applet.js:381 3.2/applet.js:686
+#: applet.js:400 applet.js:705 3.2/applet.js:400 3.2/applet.js:705
 msgid "Check this applet HELP.md file for instructions."
 msgstr ""
 "Comprobar el archivo HELP.md de este applet para obtener instrucciones."
 
-#: applet.js:382 applet.js:687 3.2/applet.js:382 3.2/applet.js:687
+#: applet.js:401 applet.js:706 3.2/applet.js:401 3.2/applet.js:706
 msgid "It can be accessed from this applet context menu."
 msgstr "Se puede acceder a él desde el menú contextual de este applet."
 
-#: applet.js:439 3.2/applet.js:439
+#: applet.js:458 3.2/applet.js:458
 msgid "API key is invalid"
 msgstr "La clave de la API no es válida"
 
-#: applet.js:442 3.2/applet.js:442
+#: applet.js:461 3.2/applet.js:461
 msgid "Blocked API key"
 msgstr "Clave de API bloqueada"
 
-#: applet.js:445 3.2/applet.js:445
+#: applet.js:464 3.2/applet.js:464
 msgid "Exceeded the daily limit on the amount of translated text"
 msgstr "Excedió el límite diario de la cantidad de texto traducido"
 
-#: applet.js:448 3.2/applet.js:448
+#: applet.js:467 3.2/applet.js:467
 msgid "Exceeded the maximum text size"
 msgstr "Ha superado el tamaño máximo de texto"
 
-#: applet.js:451 3.2/applet.js:451
+#: applet.js:470 3.2/applet.js:470
 msgid "The text cannot be translated"
 msgstr "El texto no puede ser traducido"
 
-#: applet.js:454 3.2/applet.js:454
+#: applet.js:473 3.2/applet.js:473
 msgid "The specified translation direction is not supported"
 msgstr "No se admite la dirección de traducción especificada"
 
-#: applet.js:562 3.2/applet.js:562
+#: applet.js:581 3.2/applet.js:581
 #, javascript-format
 msgid "Error parsing %s's request."
 msgstr "Error al analizar la solicitud a %s."
 
-#: applet.js:563 applet.js:664 3.2/applet.js:563 3.2/applet.js:664
+#: applet.js:582 applet.js:683 3.2/applet.js:582 3.2/applet.js:683
 msgid "A detailed error has been logged into ~/.cinnamon/glass.log file."
 msgstr ""
 "Se ha registrado un error detallado en el archivo ~/.cinnamon/glass.log."
 
-#: applet.js:663 applet.js:684 3.2/applet.js:663 3.2/applet.js:684
+#: applet.js:682 applet.js:703 3.2/applet.js:682 3.2/applet.js:703
 msgid "Unmet dependencies found!!!"
 msgstr "¡Dependencias no satisfechas encontradas!"
 
 #. 0dyseus@PopupTranslator->metadata.json->name
-#: applet.js:683 3.2/applet.js:683
+#: applet.js:702 3.2/applet.js:702
 msgid "Popup Translator"
 msgstr "Traductor emergente"
+
+#: applet.js:712 3.2/applet.js:712
+msgid "All dependencies seem to be met."
+msgstr "Todas las dependencias parecen ser cumplidas."
 
 #: 0dyseus@PopupTranslator.js:230
 msgid "Copy translated text to clipboard"
@@ -950,20 +968,22 @@ msgid "Hawaiian (G)"
 msgstr ""
 
 #. 3.2->settings-schema.json->pref_force_translate_key->description
-msgid "Keyboard shortcut to perform a forced translation"
-msgstr "Atforzadaajo de teclado para realizar una traducción "
+#. 0dyseus@PopupTranslator->settings-
+#. schema.json->pref_force_translate_key->description
+msgid "Keyboard shortcut to perform a FORCED translation"
+msgstr "Atajo de teclado para realizar una traducción FORZADA"
 
 #. 3.2->settings-schema.json->pref_force_translate_key->tooltip
 #. 0dyseus@PopupTranslator->settings-
 #. schema.json->pref_force_translate_key->tooltip
 msgid ""
-"Choose a key binding to perform a FORCED translation. A \"forced translation"
+"Choose a keybinding to perform a FORCED translation. A \"forced translation"
 "\" forces the translation of any string stored on the translation history "
-"and overwrites the existent one."
+"and overwrites the existing one."
 msgstr ""
 "Elija una combinación de teclas para realizar una traducción FORZADA. Una "
 "\"traducción forzada\" fuerza la traducción de cualquier cadena almacenada "
-"en el historial de traducción, sobre-escribiéndola."
+"en el historial de traducción y sobrescribe la existente."
 
 #. 3.2->settings-schema.json->pref_service_provider->description
 #. 0dyseus@PopupTranslator->settings-
@@ -997,7 +1017,7 @@ msgstr "Atajo de teclado para realizar una traducción"
 
 #. 3.2->settings-schema.json->pref_translate_key->tooltip
 #. 0dyseus@PopupTranslator->settings-schema.json->pref_translate_key->tooltip
-msgid "Choose a key binding to perform a translation."
+msgid "Choose a keybinding to perform a translation."
 msgstr "Elija una combinación de teclas para realizar una traducción."
 
 #. 3.2->settings-schema.json->pref_custom_icon_for_applet->description
@@ -1132,6 +1152,14 @@ msgstr "Personalizado"
 msgid "Language pair style"
 msgstr "Estilo para el par de idiomas"
 
+#. 0dyseus@PopupTranslator->metadata.json->comments
+msgid ""
+"Bug reports and feature requests should be reported on this applet "
+"repository linked below."
+msgstr ""
+"Los reportes de errores y las solicitudes de características deben ser "
+"reportadas en el repositorio de este applet, que se enlaza a continuación."
+
 #. 0dyseus@PopupTranslator->metadata.json->description
 msgid ""
 "Simple translator applet that will allow to display any selected text from "
@@ -1140,7 +1168,22 @@ msgstr ""
 "Simple applet que permite traducir cualquier texto seleccionado desde "
 "cualquier aplicación en un sistema y mostrarlo en una ventana emergente."
 
-#. 0dyseus@PopupTranslator->settings-
-#. schema.json->pref_force_translate_key->description
-msgid "Keyboard shortcut to perform a FORCED translation"
-msgstr "Atajo de teclado para realizar una traducción FORZADA"
+#~ msgid "Open the location were the translation history file is stored."
+#~ msgstr ""
+#~ "Abrir la ubicación donde se almacena el archivo de historial de "
+#~ "traducción."
+
+#~ msgid ""
+#~ "Choose a key binding to perform a FORCED translation. A \"forced "
+#~ "translation\" forces the translation of any string stored on the "
+#~ "translation history and overwrites the existent one."
+#~ msgstr ""
+#~ "Elija una combinación de teclas para realizar una traducción FORZADA. Una "
+#~ "\"traducción forzada\" fuerza la traducción de cualquier cadena "
+#~ "almacenada en el historial de traducción, sobre-escribiéndola."
+
+#~ msgid "Choose a key binding to perform a translation."
+#~ msgstr "Elija una combinación de teclas para realizar una traducción."
+
+#~ msgid "Keyboard shortcut to perform a forced translation"
+#~ msgstr "Atforzadaajo de teclado para realizar una traducción "
