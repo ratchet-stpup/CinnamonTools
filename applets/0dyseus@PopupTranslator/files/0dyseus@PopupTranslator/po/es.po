@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-01-29 14:48-0300\n"
-"PO-Revision-Date: 2017-01-29 14:49-0300\n"
+"POT-Creation-Date: 2017-02-01 15:01-0300\n"
+"PO-Revision-Date: 2017-02-01 15:01-0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: es\n"
@@ -25,7 +25,7 @@ msgstr ""
 msgid "Service provider"
 msgstr "Proveedor de servicio"
 
-#: applet.js:144 3.2/applet.js:144
+#: applet.js:144 3.2/applet.js:144 appletHelper.py:329
 msgid "Language pair"
 msgstr "Par de idiomas"
 
@@ -163,31 +163,27 @@ msgstr "Traducir texto en el sitio web del proveedor"
 msgid "Open translation history"
 msgstr "Abrir historial de traducción"
 
-#: appletHelper.py:230
+#: appletHelper.py:311
 msgid "Popup Translator history"
 msgstr "Historial del Traductor Emergente"
 
-#: appletHelper.py:235
+#: appletHelper.py:316
 msgid "Date"
 msgstr "Fecha"
 
-#: appletHelper.py:243
+#: appletHelper.py:324
 msgid "Source text"
 msgstr "Texto de origen"
 
-#: appletHelper.py:248
-msgid "Language Pair"
-msgstr "Par de idiomas"
-
-#: appletHelper.py:256
+#: appletHelper.py:337
 msgid "Target text"
 msgstr "Texto de destino"
 
-#: appletHelper.py:278
+#: appletHelper.py:359
 msgid "Reload"
 msgstr "Recargar"
 
-#: appletHelper.py:279
+#: appletHelper.py:360
 msgid "Reload translation history"
 msgstr "Recargar el historial de traducciones"
 
@@ -419,3 +415,6 @@ msgid ""
 msgstr ""
 "Simple applet que permite traducir cualquier texto seleccionado desde "
 "cualquier aplicación en un sistema y mostrarlo en una ventana emergente."
+
+#~ msgid "Language Pair"
+#~ msgstr "Par de idiomas"

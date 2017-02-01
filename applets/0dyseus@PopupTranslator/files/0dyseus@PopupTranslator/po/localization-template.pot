@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 
-"Project-Id-Version: 1.00-prototype5\n"
+"Project-Id-Version: 1.00\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-01-23 05:25-0300\n"
 "PO-Revision-Date: 2017-01-29 08:35-0300\n"
@@ -24,7 +24,7 @@ msgstr ""
 msgid "Service provider"
 msgstr ""
 
-#: applet.js:144 3.2/applet.js:144
+#: applet.js:144 3.2/applet.js:144 appletHelper.py:329
 msgid "Language pair"
 msgstr ""
 
@@ -159,31 +159,27 @@ msgstr ""
 msgid "Open translation history"
 msgstr ""
 
-#: appletHelper.py:230
+#: appletHelper.py:311
 msgid "Popup Translator history"
 msgstr ""
 
-#: appletHelper.py:235
+#: appletHelper.py:316
 msgid "Date"
 msgstr ""
 
-#: appletHelper.py:243
+#: appletHelper.py:324
 msgid "Source text"
 msgstr ""
 
-#: appletHelper.py:248
-msgid "Language Pair"
-msgstr ""
-
-#: appletHelper.py:256
+#: appletHelper.py:337
 msgid "Target text"
 msgstr ""
 
-#: appletHelper.py:278
+#: appletHelper.py:359
 msgid "Reload"
 msgstr ""
 
-#: appletHelper.py:279
+#: appletHelper.py:360
 msgid "Reload translation history"
 msgstr ""
 

@@ -25,4 +25,8 @@ Simple translator applet that will allow to display the translation of any selec
 
 **Note:** I don't use any other type of Linux distribution (Gentoo based, Slackware based, etc.). If any of the previous packages/modules are named differently, please, let me know.
 
+## Translation history window
+
+![Translation history window](https://odyseus.github.io/CinnamonTools/lib/img/PopupTranslator-001.png "Translation history window")
+
 [Full change log](https://github.com/Odyseus/CinnamonTools/blob/master/applets/0dyseus%40PopupTranslator/CHANGELOG.md)
