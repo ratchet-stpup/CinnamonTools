@@ -1,0 +1,67 @@
+﻿doctype html
+html
+    head
+        meta(http-equiv='content-type', content='text/html;charset=utf-8')
+        title Cinnamon tools wiki - By Odyseus
+        link(rel='shortcut icon', type='image/x-icon', href='lib/img/cinnamon-logo.svg')
+        meta(name='viewport', content='width=device-width, initial-scale=1')
+        link(type='text/css', rel='stylesheet', href='lib/css/bootstrap.min.css')
+        link(type='text/css', rel='stylesheet', href='lib/css/highlight.css')
+        link(type='text/css', rel='stylesheet', href='lib/css/tweaks.css')
+        link(type='text/css', rel='stylesheet', href='lib/css/docs.css')
+
+        script(type='text/javascript').
+            var metadata = {
+                "pageType": "cb_documentation"
+            };
+
+    body(style='position: relative;')
+
+        include ./includes/_noscript.pug
+
+        div
+            span#headmenu
+                include ./includes/_navbar.pug
+
+            a#effing_index
+            .container.cb-docs-container
+                #cb_jumbotron.jumbotron
+                    .container
+                        h2 Cinnamon tools wiki
+                        p This wiki is basically a list of *how-tos* about basic tasks. I created it to keep track of the things I am learning about Cinnamon customizations. It is oriented mainly to beginners as myself (Odyseus).
+                .row
+                    .col-md-9(role='main')
+                        .alert.alert-info
+                            strong
+                                p I will use the word xlet throughout this wiki to refer to any Cinnamon applet, extension or desklet.
+
+                        h1 GitHub tips &amp; tricks
+                        include:markdown-it(html langPrefix='highlight-') ../CinnamonTools.wiki/GitHub-tips-&-tricks.md
+                        h1 Xlet development
+                        include:markdown-it(html langPrefix='highlight-') ../CinnamonTools.wiki/Xlet-development.md
+                        h1 Xlet instalation
+                        include:markdown-it(html langPrefix='highlight-') ../CinnamonTools.wiki/Xlet-instalation.md
+                        h1 Xlet localization
+                        include:markdown-it(html langPrefix='highlight-') ../CinnamonTools.wiki/Xlet-localization.md
+
+                    .col-md-3(role='complementary')
+                        //- nav whithout hidden-xs and hidden-sm breaks the EFFING affix!!!
+                        nav#index-sidebar.hidden-print.hidden-xs.hidden-sm
+                            div(style='padding-top:1px;padding-bottom:1px;padding-left:20px;')
+                                br
+                                a.btn.btn-info.btn-xs(style='font-size:12px;font-weight:bold;' data-toggle='tooltip', data-placement='left', data-original-title= 'Download this wiki as an standalone HTML file.',rel='nofollow', title='Download this wiki as an standalone HTML file.', href='wiki_standalone.html', download)
+                                    span.glyphicon.glyphicon-download-alt
+                                    |  Download
+                                | 
+                                br
+                            include ./includes/_wiki_index.pug
+
+            div#footer.navbar.navbar-default
+                include ./includes/_footer.pug
+
+        include ./includes/_linktotop.pug
+
+        include ./includes/_scriptsatbottom.pug
+
+        script(type='text/javascript', src='lib/js/highlight.pack.js')
+        script(type='text/javascript', src='lib/js/myFunctions.js')

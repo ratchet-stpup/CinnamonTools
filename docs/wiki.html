@@ -1,0 +1,366 @@
+<!DOCTYPE html><html><head><meta http-equiv="content-type" content="text/html;charset=utf-8"><title>Cinnamon tools wiki - By Odyseus</title><link rel="shortcut icon" type="image/x-icon" href="lib/img/cinnamon-logo.svg"><meta name="viewport" content="width=device-width, initial-scale=1"><link type="text/css" rel="stylesheet" href="lib/css/bootstrap.min.css"><link type="text/css" rel="stylesheet" href="lib/css/highlight.css"><link type="text/css" rel="stylesheet" href="lib/css/tweaks.css"><link type="text/css" rel="stylesheet" href="lib/css/docs.css"><script type="text/javascript">var metadata = {
+    "pageType": "cb_documentation"
+};
+</script></head><body style="position: relative"><noscript><style type="text/css">#autohide_navbar {
+    display: none !important;
+}
+#noscript-navbar {
+    display: inline-block !important;
+}
+#noscript-navbar > li {
+    float: left !important;
+    margin: 2px !important;
+    padding: 2px !important;
+    top: 0 !important;
+    display: inline-block !important;
+}
+#noscript-navbar li > ul {
+    margin: 1px !important;
+    padding: 1px !important;
+}
+#noscript-navbar li {
+    list-style: none !important;
+    list-style-type: none !important;
+}
+</style><div class="alert alert-danger"><p><strong>Oh snap! This page needs JavaScript enabled to display correctly.</strong></p><p><strong>This page uses JavaScript only to add extra functionality to it. There are no tracking services of any kind and never will be (at least, not from my side).</strong></p></div><ul id="noscript-navbar"><li><a class="navbar-brand" href="wiki.html" title="Cinnamon Tools Wiki">Wiki</a></li><li><a class="navbar-brand" href="https://github.com/Odyseus/CinnamonTools" title="GitHub repository">GitHub</a></li></ul></noscript><div><span id="headmenu"><nav class="navbar navbar-default navbar-fixed-top" id="autohide_navbar" role="navigation"><div class="container-fluid"><div class="navbar-header"><button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-collapse"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a class="navbar-brand" href="index.html" title="Cinnamon tools - By Odyseus">Cinnamon tools</a></div><div class="container-fluid"><div class="navbar-collapse collapse navbar-right"><ul class="nav navbar-nav"><li><a class="navbar-brand" href="wiki.html" title="Cinnamon Tools Wiki">Wiki</a></li><li><a class="navbar-brand" href="https://github.com/Odyseus/CinnamonTools" title="GitHub repository">GitHub</a></li></ul></div></div></div></nav></span><a id="effing_index"></a><div class="container cb-docs-container"><div class="jumbotron" id="cb_jumbotron"><div class="container"><h2>Cinnamon tools wiki</h2><p>This wiki is basically a list of *how-tos* about basic tasks. I created it to keep track of the things I am learning about Cinnamon customizations. It is oriented mainly to beginners as myself (Odyseus).</p></div></div><div class="row"><div class="col-md-9" role="main"><div class="alert alert-info"><strong><p>I will use the word xlet throughout this wiki to refer to any Cinnamon applet, extension or desklet.</p></strong></div><h1>GitHub tips &amp; tricks</h1><span id="github_tips_tricks">
+<p>A series of how-tos about advanced (from a beginners standpoint) GitHub tasks.</p>
+<span id="contribute_to_someone_repository">
+<h2>Contribute to someone's repository - <a href="http://kbroman.org/github_tutorial/pages/fork.html">Source</a></h2>
+<p>Say you want to contribute changes to someone else’s repository (eg, <a href="https://github.com/linuxmint/Cinnamon">Cinnamon</a>'s repository). The basic concept is as follows:</p>
+<ul>
+<li>Fork the original repository into your GitHub account.</li>
+<li>Clone your fork locally and make changes to it.</li>
+<li>Commit and push the local changes to your on-line repository.</li>
+<li>Create a pull request to <em>send</em> to the original repository.</li>
+<li>Pull requests can then be reviewed and approved/rejected by the repository's administrators.</li>
+</ul>
+<span id="contribute_to_someone_repository-1">
+<h3>Detailed steps</h3>
+<ol>
+<li>
+<p>Go to the repository on GitHub and click the <strong>Fork</strong> button at the top right. You’ll now have your own copy of that repository in your GitHub account.</p>
+</li>
+<li>
+<p>Open a terminal/shell inside a directory where you want to store your cloned repositories and type:</p>
+<pre><code class="highlight-shell">git clone git@github.com:your_github_username/Cinnamon
+</code></pre>
+</li>
+<li>
+<p>You’ll now have a local copy of your version of Cinnamon's repository. Change into that project directory (Cinnamon):</p>
+<pre><code class="highlight-shell">cd Cinnamon
+</code></pre>
+</li>
+<li>
+<p>Add a connection to the original owner’s repository.</p>
+<pre><code class="highlight-shell">git remote add upstream git://github.com/linuxmint/Cinnamon
+</code></pre>
+<p><strong>Note:</strong> The remote's name can be anything other than <em>upstream</em>, but I will use only this name. Mainly because it makes sense. And also because I will use it in several parts of this Wiki.</p>
+</li>
+<li>
+<p>At this point, we can start making changes to files to fix bugs and/or add features and then commit and push those changes to our fork of the repository. To keep things organized on both ends (our fork and the original repository), it's better to work with branches and keep the <em>master</em> branch of your fork untouched.</p>
+<ol>
+<li>
+<p>Make sure that the currently checked out branch is <em>master</em>.</p>
+<pre><code class="highlight-shell">git checkout master
+</code></pre>
+</li>
+<li>
+<p>Create a new branch and check it out.</p>
+<pre><code class="highlight-shell">git checkout -b my-branch-with-a-fix
+</code></pre>
+</li>
+<li>
+<p>Make all changes, commit and push (always create detailed commit messages). Then proceed with point <strong>6</strong> bellow.</p>
+</li>
+</ol>
+</li>
+<li>
+<p>Go to your version of the repository on GitHub.</p>
+<ol>
+<li>You most likely will see your recently pushed commit/branch and next to it a button called <strong>Compare &amp; pull request</strong>. Click that button.</li>
+<li>You will be presented with a comparison between the original repository and your fork and with a text box that will let you set a title and a message for your pull request.</li>
+<li>After setting a succinct and informative title and a detailed explanation of the changes introduced by your pull request, click the <strong>Create pull request</strong> button.</li>
+</ol>
+</li>
+<li>
+<p>At this point your pull request is <em>queued</em> to be reviewed and approved/rejected by the repository's administrators.</p>
+</li>
+</ol>
+<span id="contribute_to_someone_repository-2">
+<h3>Keep your forked repositories synchronized with the original repositories</h3>
+<p><strong>Perform these steps periodically to ensure that you are working with updated code.</strong></p>
+<ol>
+<li>
+<p>Make sure you are on the branch you are supposed to be, if you don’t know, you want <em>master</em>. To ensure you’re on the local <em>master</em> branch, do this:</p>
+<pre><code class="highlight-shell">git checkout master
+</code></pre>
+</li>
+<li>
+<p>Fetch updates from the original repository into your local copy of your fork.</p>
+<pre><code class="highlight-shell">git fetch upstream
+</code></pre>
+</li>
+<li>
+<p>Re-base the local <em>master</em> branch the upstream's <em>master</em> branch.</p>
+<pre><code class="highlight-shell">git rebase upstream/master
+</code></pre>
+</li>
+<li>
+<p>Synchronize the local repository with the on-line one.</p>
+<pre><code class="highlight-shell">git push origin master
+</code></pre>
+</li>
+</ol>
+<hr>
+<span id="avoid_user_password_prompts_when_pushing">
+<h2>Avoid user/password prompts when pushing - <a href="http://stackoverflow.com/questions/8588768/git-push-username-password-how-to-avoid">Source</a></h2>
+<h3>1. Generate an SSH key</h3>
+<h4>Linux/Mac</h4>
+<p>Open terminal to create ssh keys:</p>
+<pre><code class="highlight-shell">cd ~                 # Your home directory
+ssh-keygen -t rsa    # Press enter for all values
+</code></pre>
+<h4>For Windows</h4>
+<p>(Only works if the commit program is capable of using certificates/private &amp; public ssh keys)</p>
+<ul>
+<li>Use Putty Gen to generate a key</li>
+<li>Export the key as an open SSH key</li>
+</ul>
+<p>Here is a <a href="http://ask-leo.com/how_do_i_create_and_use_public_keys_with_ssh.html">walkthrough</a> on putty gen for the above steps</p>
+<h3>2. Associate the SSH key with the remote repository</h3>
+<p>This step varies, depending on how your remote is set up.</p>
+<ul>
+<li>
+<p>If it is a GitHub repository and you have administrative privileges, go to settings and click 'add SSH key'. Copy the contents of your ~/.ssh/id_rsa.pub into the field labeled 'Key'.</p>
+</li>
+<li>
+<p>If your repository is administered by somebody else, give the administrator your id_rsa.pub.</p>
+</li>
+</ul>
+<h3>3. Set your remote URL to a form that supports SSH 1</h3>
+<p>If you have done the steps above and are still getting the password prompt, make sure your repo URL is in the form...</p>
+<pre><code class="highlight-shell">git+ssh://git@github.com/user_name/repo_name.git
+</code></pre>
+<p>...as opposed to...</p>
+<pre><code class="highlight-shell">https://github.com/user_name/repo_name.git
+</code></pre>
+<p>To see your repository's current URL, run:</p>
+<pre><code class="highlight-shell">git remote show origin
+</code></pre>
+<p>You can change the URL with:</p>
+<pre><code class="highlight-shell">git remote set-url origin git+ssh://git@github.com/user_name/repo_name.git
+</code></pre>
+<span id="avoid_user_password_prompts_when_pushing-1">
+<h3>Summarized steps for Linux</h3>
+<h4>1. Create the SSH keys</h4>
+<pre><code class="highlight-shell">ssh-keygen -t rsa -f ~/.ssh/file_name -b 4096 -C &quot;Comment&quot;
+</code></pre>
+<p>It will ask for passphrase and then create the files <strong>~/.ssh/file_name</strong> and <strong>~/.ssh/file_name.pub</strong>.</p>
+<h4>2. Add the public key <strong>~/.ssh/file_name.pub</strong> to GitHub account SSH section.</h4>
+<h4>3. Add the private key to ssh-agent</h4>
+<pre><code class="highlight-shell">ssh-add ~/.ssh/file_name
+</code></pre>
+<h4>4. Add remote url to your local git repository</h4>
+<pre><code class="highlight-shell">git remote set-url origin git+ssh://git@github.com/user_name/repo_name.git
+</code></pre>
+<hr>
+<span id="working_with_big_repositories">
+<h2>Working with big repositories - <a href="http://stackoverflow.com/a/28039894">Source</a></h2>
+<p><strong>Note:</strong> The minimum git version required for this to work is 1.9.</p>
+<p>You can combine the <em>sparse checkout</em> and the <em>shallow clone</em> features. The <em>shallow clone</em> cuts off the history and the <em>sparse checkout</em> only pulls the files matching your patterns.</p>
+<ol>
+<li>
+<p>Create an empty local repository.</p>
+<pre><code class="highlight-shell">git init &lt;repository&gt;
+cd &lt;repository&gt;
+</code></pre>
+</li>
+<li>
+<p>Add remote URL to it.</p>
+<pre><code class="highlight-shell">git remote add origin https://github.com/user_name/repository.git
+</code></pre>
+</li>
+<li>
+<p>Enable <em>sparce checkout</em>.</p>
+<pre><code class="highlight-shell">git config core.sparsecheckout true
+</code></pre>
+</li>
+<li>
+<p>Specify the directories and/or files that one wants to checkout.</p>
+<pre><code class="highlight-shell">echo &quot;directory1/*&quot; &gt;&gt; .git/info/sparse-checkout
+echo &quot;directory2/*&quot; &gt;&gt; .git/info/sparse-checkout
+</code></pre>
+<ul>
+<li>One could simply edit the <code>.git/info/sparse-checkout</code> file with any text editor and add the list of files/directories to it.</li>
+</ul>
+</li>
+<li>
+<p>Create a <em>shallow clone</em>.</p>
+<pre><code class="highlight-shell">git pull --depth=1 origin master
+</code></pre>
+</li>
+</ol>
+<p>At this point, all the repository data will be downloaded, but only the files/folders specified inside the <code>.git/info/sparse-checkout</code> file will be checked out.</p>
+<hr>
+<span id="closing_issues_via_commit_messages">
+<h2>Closing issues via commit messages - <a href="https://help.github.com/articles/closing-issues-via-commit-messages/">Source</a></h2>
+<p>You can include keywords in your commit messages to automatically close issues in GitHub.</p>
+<span id="closing_issues_via_commit_messages-1">
+<h3>Closing an issue in the same repository</h3>
+<p>To close an issue in the same repository, use one of the keywords in the list below followed by a reference to the issue number in the commit message. For example, a commit message with <code>Fixes #45</code> will close issue 45 in that repository once the commit is merged into the default branch.</p>
+<p>If the commit is in a non-default branch, the issue will remain open and the issue will be referenced with a tooltip.</p>
+<span id="closing_issues_via_commit_messages-2">
+<h3>Keywords for closing issues</h3>
+<p>The following keywords will close an issue via commit message:</p>
+<ul>
+<li>close</li>
+<li>closes</li>
+<li>closed</li>
+<li>fix</li>
+<li>fixes</li>
+<li>fixed</li>
+<li>resolve</li>
+<li>resolves</li>
+<li>resolved</li>
+</ul>
+<span id="closing_issues_via_commit_messages-3">
+<h3>Closing an issue in a different repository</h3>
+<p>To close an issue in another repository, use the <code>user_name/repo_name#issue_number</code> syntax, as described in &quot;<a href="https://help.github.com/articles/autolinked-references-and-urls/#issues-and-pull-requests">Autolinked references and URLs</a>&quot;.</p>
+<p>For example, including Closes <code>example_user/example_repo#76</code> will close the referenced issue in that repository, provided you have push access to that repository.</p>
+<span id="closing_issues_via_commit_messages-4">
+<h3>Closing multiple issues</h3>
+<p>To close multiple issues, preface each issue reference with one of the above keywords.</p>
+<p>For example, <code>This closes #34, closes #23, and closes example_user/example_repo#42</code> would close issues #34 and #23 in the same repository, and issue #42 in the &quot;example_user/example_repo&quot; repository.</p>
+<hr>
+<span id="various">
+<h2>Various</h2>
+<span id="various-1">
+<h3>Verify repository database</h3>
+<pre><code class="highlight-shell">git fsck
+</code></pre>
+<span id="various-2">
+<h3>Remove dangling commits from repository</h3>
+<p><strong>WARNING!!! Read the documentation of the following commands before any action!!!</strong></p>
+<pre><code class="highlight-shell">git reflog expire --expire=now --all
+git gc --prune=now
+</code></pre>
+<span id="various-3">
+<h3>Open git GUI</h3>
+<p>A Tcl/Tk based graphical user interface to Git. git gui focuses on allowing users to make changes to their repository by making new commits, amending existing ones, creating branches, performing local merges, and fetching/pushing to remote repositories. See more: <code>man git-gui</code></p>
+<pre><code class="highlight-shell">git gui
+</code></pre>
+<h1>Xlet development</h1><span id="xlet_development">
+<h1>How to create xlets for Cinnamon</h1>
+<p>The <a href="https://github.com/linuxmint/Cinnamon/wiki">Cinnamon Wiki</a> and the <a href="http://developer.linuxmint.com/reference/index.html">Cinnamon Documentation</a> have basic information to get us started.</p>
+<h1>Xlet instalation</h1><span id="xlet_instalation">
+<h1>How to install xlets in Cinnamon</h1>
+<p><strong>Note:</strong> I will use the word xlet throughout this wiki to refer to any Cinnamon applet, extension or desklet.</p>
+<span id="xlet_instalation-1">
+<h3>Some generalities</h3>
+<ul>
+<li>Xlets in Cinnamon can be easily installed from Cinnamon Settings. These xlets are hosted on the <a href="https://cinnamon-spices.linuxmint.com/">Spices website</a>.</li>
+<li>By default, all xlets are installed into the user's home folder inside <code>~/.local/share/cinnamon/[xlet]</code>. To install them globally for all users, refer to the section called <strong>Installing xlets for all users</strong>.</li>
+<li>The name of an xlet folder is also its <strong>UUID</strong> (<a href="https://en.wikipedia.org/wiki/Universally_unique_identifier">Universally Unique IDentifier</a>). So, without exceptions, an xlet folder always have to be named exactly as it is declared inside its metadata.json file. <strong>NEVER RENAME AN XLET FOLDER!!!</strong></li>
+<li>Never delete any folder or file of any type inside an xlet folder unless you are absolutely sure that that folder/file isn't used by the xlet itself.</li>
+<li>Xlets can be downloaded from the Spices website and installed manually on their respective locations.</li>
+</ul>
+<span id="xlet_instalation-2">
+<h3>Applets locations</h3>
+<ul>
+<li><strong>User specific location:</strong> ~/.local/share/cinnamon/applets</li>
+<li><strong>System wide:</strong> /usr/share/cinnamon/applets</li>
+</ul>
+<span id="xlet_instalation-3">
+<h3>Extensions locations</h3>
+<ul>
+<li><strong>User specific location:</strong> ~/.local/share/cinnamon/extensions</li>
+<li><strong>System wide:</strong> /usr/share/cinnamon/extensions</li>
+</ul>
+<span id="xlet_instalation-4">
+<h3>Desklets locations</h3>
+<ul>
+<li><strong>User specific location:</strong> ~/.local/share/cinnamon/desklets</li>
+<li><strong>System wide:</strong> /usr/share/cinnamon/desklets</li>
+</ul>
+<span id="xlet_instalation-5">
+<h3>Installing xlets for all users</h3>
+<ul>
+<li>For xlets to be available for all users, they can be installed into <code>/usr/share/cinnamon/[xlet]</code>.</li>
+<li>For all users be able to see the xlets in their Cinnamon Settings, the xlet folder has to have the right permissions.</li>
+</ul>
+<pre><code class="highlight-bash">cd /usr/share/cinnamon/[xlet]
+sudo chmod ugo+rx xlet@folder_name
+</code></pre>
+<div class="alert alert-warning">
+<strong>Important note:</strong> This is only worth doing it for xlets not published on Spices website. Because every time an update is found by the xlets managers, it will be installed on the user specific location, overriding the xlet installed on the system wide location.
+</div>
+<h1>Xlet localization</h1><span id="xlet_localization">
+<h1>How to localize xlets</h1>
+<p><strong>Note:</strong> I will use the word xlet throughout this wiki to refer to any Cinnamon applet, extension or desklet.</p>
+<span id="xlet_localization-1">
+<h2>For end users/contributors</h2>
+<span id="xlet_localization-1-1">
+<h3>Some technical facts</h3>
+<p>These <em>facts</em> are based on documentations and source code that I read.</p>
+<ul>
+<li>.po files can be added to a &quot;po&quot; folder in your xlet's directory, and will be compiled and installed into the system when the xlet is installed via Cinnamon Settings.</li>
+<li>If the xlet is installed manually and not trough Cinnamon Settings, localizations can be installed with the command <code>cinnamon-json-makepot -i</code> executed from a terminal opened inside the xlet's folder. Assuming that a folder called <strong>po</strong> with .po files exists inside the xlet's folder.</li>
+<li>Most xlets with support for localizations comes with a template file (a .pot file) that can be used to create .po files. But, in case that a .pot file isn't available, an existent .po file can be copied and renamed and then make the translations on that newly created file.</li>
+</ul>
+<span id="xlet_localization-1-2">
+<h3>How to create localization files (.po files)</h3>
+<p>The easiest (and <em>safer</em>) way would be using <a href="https://poedit.net/">Poedit</a>. This program can be installed from the repositories of almost all Linux distributions and also can be installed on Windows and OS X.</p>
+<p><strong>Note:</strong> .po and .pot files are simply text files. They could be edited manually with a text editor, but I will only explain .po and .pot files manipulation using Poedit. Editing .po files manually could lead to errors that would render the .po file useless. And a .pot file should never be edited by other than the xlet's developer.</p>
+<span id="xlet_localization-1-3">
+<h4>Poedit usage</h4>
+<span id="xlet_localization-1-3-1">
+<h6>Creating a translation file from scratch</h6>
+<ul>
+<li>Open Poedit and click on <strong>Create new translation</strong>.
+<ul>
+<li>Open a .pot file if it was made available for the xlet. This file is created by the xlet developer from the source code of the xlet. Therefore, this file will be the most up-to-date and will contain the most amount of strings to translate from.</li>
+<li>If no .pot file if available, any .po file containing any locale can be used to create a new translation (.po file).</li>
+</ul>
+</li>
+<li>Once the file is loaded, Poedit will ask you to choose a language for the translation.</li>
+<li>At this point, the .po file can be saved and the name will automatically reflect the locale code.</li>
+<li>Poedit usage is pretty much straight forward:
+<ul>
+<li>There is the <strong>Source text</strong> box that contains the string to be translated (usually in English).</li>
+<li>There is the <strong>Translation</strong> box that will contain the translated text.</li>
+<li>There is a button called <strong>Add comment</strong> that will allow you to add comments for other translators to read. <strong>Never delete comments!!!</strong></li>
+<li>If there is a .mo file saved when you save your .po file, the .mo file can be deleted (it isn't used by Cinnamon xlets). You could also disable MO files creation from Poedit preferences (go to <strong>Edit</strong> &gt; <strong>Preferences</strong> &gt; <strong>General</strong> tab and uncheck the option called <strong>Automatically compile MO file when saving</strong>).</li>
+</ul>
+</li>
+</ul>
+<span id="xlet_localization-1-3-2">
+<h6>Updating and existing translation file</h6>
+<ul>
+<li>Open the .po file with Poedit.</li>
+<li>Go to the menu <strong>Catalog</strong> and choose <strong>Update from POT file...</strong> menu item.</li>
+<li>Select a .pot file from which your .po file was based on.</li>
+<li>You will be presented with a window with 2 lists (<strong>New strings</strong> and <strong>Obsolete strings</strong>).
+<ul>
+<li><strong>New strings</strong> are strings that will be added to the .po file and will need to be translated.</li>
+<li><strong>Obsolete strings</strong> are strings that aren't used any more and will be removed from the to the .po file.</li>
+</ul>
+</li>
+</ul>
+<span id="xlet_localization-1-4">
+<h4>Adding languages to Poedit's spell checker</h4>
+<p>Extracted from <a href="https://poedit.net/trac/wiki/Doc/SpellcheckerLinux">Poedit's documentation</a>:</p>
+<blockquote>
+<h4>Adding languages to spellchecker on Linux</h4>
+<p>Poedit uses system spellchecker. To add support for catalog's language, you need to install appropriate dictionary package. The details of this are distribution specific; typically, the package would be called myspell-<language code>, aspell-<language code> or similarly.</p>
+<p>TODO: add instructions for popular distributions</p>
+</blockquote>
+<p>I tried the three types of dictionaries that I could find on Linux Mint's repositories. Use the one that you prefer.</p>
+<ul>
+<li>myspell-<language code>: It wasn't recognised by Poedit in my system.</li>
+<li>aspell-<language code>: It was recognised by Poedit.</li>
+<li>hunspell-<language code>: It was recognised by Poedit.</li>
+</ul>
+<span id="xlet_localization-2">
+<h2>For xlet developers</h2>
+<p>Under construction</p>
+</div><div class="col-md-3" role="complementary"><nav class="hidden-print hidden-xs hidden-sm" id="index-sidebar"><div style="padding-top:1px;padding-bottom:1px;padding-left:20px"><br><a class="btn btn-info btn-xs" style="font-size:12px;font-weight:bold" data-toggle="tooltip" data-placement="left" data-original-title="Download this wiki as an standalone HTML file." rel="nofollow" title="Download this wiki as an standalone HTML file." href="wiki_standalone.html" download><span class="glyphicon glyphicon-download-alt"></span> Download</a> <br></div><ul class="nav cb-docs-sidenav"><li class="effing_index"><a href="#effing_index">Index</a></li><li><a href="#github_tips_tricks">GitHub tips &amp; tricks</a><ul class="nav"><li><a href="#contribute_to_someone_repository">Contribute to someone's repository</a><ul class="nav"><li><a href="#contribute_to_someone_repository-1">Detailed steps</a></li><li><a href="#contribute_to_someone_repository-2">Keep your forked repositories synchronized with the original repositories</a></li></ul></li><li><a href="#avoid_user_password_prompts_when_pushing">Avoid user/password prompts when pushing</a><ul class="nav"><li><a href="#avoid_user_password_prompts_when_pushing-1">Summarized steps for Linux</a></li></ul></li><li><a href="#working_with_big_repositories">Working with big repositories</a></li><li><a href="#closing_issues_via_commit_messages">Closing issues via commit messages</a><ul class="nav"><li><a href="#closing_issues_via_commit_messages-1">Closing an issue in the same repository</a></li><li><a href="#closing_issues_via_commit_messages-2">Keywords for closing issues</a></li><li><a href="#closing_issues_via_commit_messages-3">Closing an issue in a different repository</a></li><li><a href="#closing_issues_via_commit_messages-4">Closing multiple issues</a></li></ul></li><li><a href="#various">Various</a><ul class="nav"><li><a href="#various-1">Verify repository database</a></li><li><a href="#various-2">Remove dangling commits from repository</a></li><li><a href="#various-3">Open git GUI</a></li></ul></li></ul></li><li><a href="#xlet_instalation">Xlet instalation</a><ul class="nav"><li><a href="#xlet_instalation-1">Some generalities</a></li><li><a href="#xlet_instalation-2">Applets locations</a></li><li><a href="#xlet_instalation-3">Extensions locations</a></li><li><a href="#xlet_instalation-4">Desklets locations</a></li><li><a href="#xlet_instalation-5">Installing xlets for all users</a></li></ul></li><li><a href="#xlet_localization">Xlet localization</a><ul class="nav"><li><a href="#xlet_localization-1">For end users/contributors</a><ul class="nav"><li><a href="#xlet_localization-1-1">Some technical facts</a></li><li><a href="#xlet_localization-1-2">How to create localization files (.po files)</a></li><li><a href="#xlet_localization-1-3">Poedit usage</a><ul class="nav"><li><a href="#xlet_localization-1-3-1">Creating a translation file from scratch</a></li><li><a href="#xlet_localization-1-3-2">Updating and existing translation file</a></li></ul></li><li><a href="#xlet_localization-1-4">Adding languages to Poedit's spell checker</a></li></ul></li><li><a href="#xlet_localization-2">For xlet developers</a></li></ul></li></ul></nav></div></div></div><div class="navbar navbar-default" id="footer"><div class="container footer-inner" id="footer_inner"><div class="navbar-inner"><ul class="list-unstyled"><li><p>Website created with <a href="http://getbootstrap.com"><b>Bootstrap</b></a> version 3.3.7.</p></li><li><p>Bootstrap theme based on themes from <a href="http://bootswatch.com/"><b>Bootswatch</b></a>.</p></li><li><p>Code syntax highlighting powered by <a href="https://highlightjs.org/"><b>highlight.js</b></a> version 9.9.0.</p></li><li><p>The top navigation bar uses <a href="https://github.com/dymk/ScrollNav"><b>Smart jQuery Scrolling Navigation Bar Plugin</b></a>.</p></li><li><p>This website is hosted on <a href="https://github.com"><b>GitHub</b></a> and its source code can be found <a href="https://github.com/Odyseus/CinnamonTools/tree/master/docs"><b>here</b></a>.</p></li></ul></div></div></div></div><span class="hidden" id="top-link-block"><a class="well" id="top-link" href="#top" rel="nofollow"><i class="glyphicon glyphicon-chevron-up"></i></a></span><script type="text/javascript" src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script><script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script><script type="text/javascript" src="lib/js/highlight.pack.js"></script><script type="text/javascript" src="lib/js/myFunctions.js"></script></body></html>

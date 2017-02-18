@@ -1,0 +1,33 @@
+noscript
+    style(type='text/css').
+        #autohide_navbar {
+            display: none !important;
+        }
+        #noscript-navbar {
+            display: inline-block !important;
+        }
+        #noscript-navbar > li {
+            float: left !important;
+            margin: 2px !important;
+            padding: 2px !important;
+            top: 0 !important;
+            display: inline-block !important;
+        }
+        #noscript-navbar li > ul {
+            margin: 1px !important;
+            padding: 1px !important;
+        }
+        #noscript-navbar li {
+            list-style: none !important;
+            list-style-type: none !important;
+        }
+
+    .alert.alert-danger
+        p: strong Oh snap! This page needs JavaScript enabled to display correctly.
+        p: strong This page uses JavaScript only to add extra functionality to it. There are no tracking services of any kind and never will be (at least, not from my side).
+
+    ul(id='noscript-navbar')
+        li
+            a.navbar-brand(href='wiki.html' title='Cinnamon Tools Wiki') Wiki
+        li
+            a.navbar-brand(href='https://github.com/Odyseus/CinnamonTools' title='GitHub repository') GitHub

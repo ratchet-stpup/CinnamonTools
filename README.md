@@ -1,3 +1,5 @@
+## [Cinnamon Tools - by Odyseus](https://odyseus.github.io/CinnamonTools)
+
 ### Applets, Extensions and Themes for the Cinnamon Desktop Environment
 
 All this applets/extensions/themes can be installed directly from Cinnamon's applet/extension/theme managers.
@@ -22,9 +24,3 @@ All this applets/extensions/themes can be installed directly from Cinnamon's app
 
 ### This repository's wiki
 It contains various how-tos about basic tasks.
-
-- [Home](https://github.com/Odyseus/CinnamonTools/wiki)
-- [GitHub basics](https://github.com/Odyseus/CinnamonTools/wiki/GitHub-basics)
-- [Xlet development](https://github.com/Odyseus/CinnamonTools/wiki/Xlet-development)
-- [Xlet instalation](https://github.com/Odyseus/CinnamonTools/wiki/Xlet-instalation)
-- [Xlet localizations](https://github.com/Odyseus/CinnamonTools/wiki/Xlet-localizations)
