@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: 1.04\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-01-23 05:25-0300\n"
-"PO-Revision-Date: 2017-02-13 06:57-0300\n"
+"PO-Revision-Date: 2017-02-19 16:40-0300\n"
 "Last-Translator: Odyseus <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -169,7 +169,7 @@ msgid "No Yandex API keys were found!!!"
 msgstr ""
 
 #: applet.js:637 applet.js:1021 3.2/applet.js:637 3.2/applet.js:1021
-msgid "Check this applet HELP.md file for instructions."
+msgid "Check this applet help file for instructions."
 msgstr ""
 
 #: applet.js:638 applet.js:1022 3.2/applet.js:638 3.2/applet.js:1022
@@ -354,7 +354,7 @@ msgstr ""
 #. schema.json->pref_yandex_api_keys->tooltip
 msgid ""
 "Enter one API key per line.\n"
-"Read the HELP.md file (Help item on this applet context menu) found inside this applet folder to know how to get free Yandex API keys."
+"Read the help file (Help item on this applet context menu) found inside this applet folder to know how to get free Yandex API keys."
 msgstr ""
 
 #. 3.2->settings-schema.json->debugging_label->description

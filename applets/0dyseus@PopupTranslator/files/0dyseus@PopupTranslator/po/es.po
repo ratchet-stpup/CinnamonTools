@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-13 06:58-0300\n"
-"PO-Revision-Date: 2017-02-13 06:58-0300\n"
+"POT-Creation-Date: 2017-02-19 16:43-0300\n"
+"PO-Revision-Date: 2017-02-19 16:44-0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: es\n"
@@ -174,9 +174,9 @@ msgid "No Yandex API keys were found!!!"
 msgstr "¡No se encontraron claves de API de Yandex!"
 
 #: applet.js:637 applet.js:1021 3.2/applet.js:637 3.2/applet.js:1021
-msgid "Check this applet HELP.md file for instructions."
+msgid "Check this applet help file for instructions."
 msgstr ""
-"Comprobar el archivo HELP.md de este applet para obtener instrucciones."
+"Comprobar el archivo de ayuda de este applet para obtener instrucciones."
 
 #: applet.js:638 applet.js:1022 3.2/applet.js:638 3.2/applet.js:1022
 msgid "It can be accessed from this applet context menu."
@@ -368,13 +368,13 @@ msgstr "Claves API"
 #. schema.json->pref_yandex_api_keys->tooltip
 msgid ""
 "Enter one API key per line.\n"
-"Read the HELP.md file (Help item on this applet context menu) found inside "
-"this applet folder to know how to get free Yandex API keys."
+"Read the help file (Help item on this applet context menu) found inside this "
+"applet folder to know how to get free Yandex API keys."
 msgstr ""
 "Introduzca una clave de API por línea.\n"
-"Lea el archivo HELP.md (elemento Ayuda en el menú contextual de este applet) "
-"que se encuentra dentro de la carpeta de este applet para saber cómo obtener "
-"las claves de API gratuitas de Yandex."
+"Lea el archivo de ayuda (elemento Ayuda en el menú contextual de este "
+"applet) que se encuentra dentro de la carpeta de este applet para saber cómo "
+"obtener las claves de API gratuitas de Yandex."
 
 #. 3.2->settings-schema.json->debugging_label->description
 #. 0dyseus@PopupTranslator->settings-schema.json->label5->description
@@ -587,24 +587,3 @@ msgid ""
 msgstr ""
 "Simple applet que permite traducir cualquier texto seleccionado desde "
 "cualquier aplicación en un sistema y mostrarlo en una ventana emergente."
-
-#~ msgid "Reload"
-#~ msgstr "Recargar"
-
-#~ msgid "Reload translation history"
-#~ msgstr "Recargar el historial de traducciones"
-
-#~ msgid "Key combination to translate"
-#~ msgstr "Combinación de teclas para traducir"
-
-#~ msgid "Key combination to force translation"
-#~ msgstr "Combinación de teclas para forzar la traducción"
-
-#~ msgid "Choose the default translation service provider."
-#~ msgstr "Seleccione el proveedor de servicios de traducción predeterminado."
-
-#~ msgid "Translation settings"
-#~ msgstr "Configuración de traducción"
-
-#~ msgid "Language Pair"
-#~ msgstr "Par de idiomas"
