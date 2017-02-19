@@ -385,7 +385,7 @@ MyApplet.prototype = {
             _("Open this applet help file.")
         );
         menuItem.connect("activate", Lang.bind(this, function() {
-            Util.spawn(["xdg-open", this.main_applet_dir + "/HELP.md"]);
+            Util.spawn(["xdg-open", this.main_applet_dir + "/HELP.html"]);
         }));
         subMenu.menu.addMenuItem(menuItem);
     },
@@ -634,7 +634,7 @@ MyApplet.prototype = {
             if (APIKeys.length === 0) {
                 Main.criticalNotify(_(this.metadata.name), [
                     _("No Yandex API keys were found!!!"),
-                    _("Check this applet HELP.md file for instructions."),
+                    _("Check this applet help file for instructions."),
                     _("It can be accessed from this applet context menu.")
                 ].join("\n"));
                 return;
@@ -1018,7 +1018,7 @@ MyApplet.prototype = {
                         "\n# [" + _(this.metadata.name) + "]" + "\n" +
                         "# " + _("Unmet dependencies found!!!") + "\n" +
                         res + "\n" +
-                        "# " + _("Check this applet HELP.md file for instructions.") + "\n" +
+                        "# " + _("Check this applet help file for instructions.") + "\n" +
                         "# " + _("It can be accessed from this applet context menu.")
                     );
                     this.informAboutMissingDependencies();

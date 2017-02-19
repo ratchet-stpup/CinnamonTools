@@ -1,7 +1,7 @@
 #!/bin/bash
 
 prompt="Pick an option and press Enter:"
-options+=("Render pug files" "Create packages" "Clone wiki")
+options+=("Render main site" "Render help files" "Create packages" "Clone wiki")
 
 ROOT_PATH="`dirname \"$0\"`"                 # relative
 ROOT_PATH="`( cd \"$ROOT_PATH\" && pwd )`"   # absolutized and normalized
@@ -12,7 +12,7 @@ echoInfo() {
     [ $# -gt 0 ] && echo -e "$(tput bold)$(tput setaf 10)$1$(tput sgr0)" >&2
 }
 
-renderPugFiles() {
+renderMainSite() {
     # This requires to have the repository wiki cloned into a folder inside the docs folder.
     for pug_file in "${all_pug_files[@]}" ; do
         echo " "
@@ -23,6 +23,40 @@ renderPugFiles() {
             pug $pug_file -o ../
         )
     done
+}
+
+renderHelpFiles() {
+    (
+        cd applets
+        for applet in *; do
+            if [ -d ${applet} ]; then
+                (
+                    cd "$applet"
+                    if [ -f HELP.pug ]; then
+                        echo " "
+                        echoInfo "====== Rendering help file for $applet ======"
+                        pug HELP.pug -o "files/$applet"
+                   fi
+                )
+            fi
+        done
+    )
+
+    (
+        cd extensions
+        for extension in *; do
+            if [ -d ${extension} ]; then
+                (
+                    cd "$extension"
+                    if [ -f HELP.pug ]; then
+                        echo " "
+                        echoInfo "====== Rendering help file for $extension ======"
+                        pug HELP.pug -o "files/$extension"
+                   fi
+                )
+            fi
+        done
+    )
 }
 
 createPackages() {
@@ -88,14 +122,17 @@ cloneWiki() {
 PS3="$prompt "
 select opt in "${options[@]}" "Abort"; do
     case "$REPLY" in
-        1 ) # Render pug files
-            renderPugFiles
+        1 ) # Render main site pug files
+            renderMainSite
             ;;
-        2 ) # Create packages
+        2 ) # Render help pug files
+            renderHelpFiles
+            ;;
+        3 ) # Create packages
             createPackages
             break
             ;;
-        3 ) # Clone wiki
+        4 ) # Clone wiki
             cloneWiki
             break
             ;;

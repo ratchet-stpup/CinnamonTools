@@ -1,4 +1,5 @@
-# Help for System Monitor applet
+
+# Help for Desktop Handler applet
 
 ### IMPORTANT!!!
 Never delete any of the files found inside this applet folder. It might break this applet functionality.

@@ -1,7 +1,7 @@
+﻿
 # Help for Popup Translator applet
 
 ### IMPORTANT!!!
-
 Never delete any of the files found inside this applet folder. It might break this applet functionality.
 
 ***
@@ -30,9 +30,9 @@ Never delete any of the files found inside this applet folder. It might break th
 There are 4 *translations mechanisms* (**Left click**, **Middle click**, **Hotkey #1** and **Hotkey #2**). Each translation mechanism can be configured with their own service providers, language pairs and hotkeys.
 
 - **First translation mechanism (Left click):** Translates any selected text from any application on your system. A hotkey can be assigned to perform this task.
-- **First translation mechanism (Ctrl + Left click):** Same as **Left click**, but it will bypass the translation history. A hotkey can be assigned to perform this task.
+- **First translation mechanism (<kbd>Ctrl</kbd> + Left click):** Same as **Left click**, but it will bypass the translation history. A hotkey can be assigned to perform this task.
 - **Second translation mechanism (Middle click):** Same as **Left click**.
-- **Second translation mechanism (Ctrl + Middle click):** Same as **Ctrl + Left click**.
+- **Second translation mechanism (<kbd>Ctrl</kbd> + Middle click):** Same as **<kbd>Ctrl</kbd> + Left click**.
 - **Third translation mechanism (Hotkey #1):** Two hotkeys can be configured to perform a translation and a forced translation.
 - **Fourth translation mechanism (Hotkey #2):** Two hotkeys can be configured to perform a translation and a forced translation.
 
@@ -82,4 +82,3 @@ In the context menu of this applet is an item that can open the folder were the 
     - If you don't have/want a GitHub account:
         - You can send me a [Pastebin](http://pastebin.com/) (or similar service) to my [Mint Forums account](https://forums.linuxmint.com/memberlist.php?mode=viewprofile&u=164858).
 - If the source text (in English) and/or my translation to Spanish has errors/inconsistencies, feel free to report them.
-

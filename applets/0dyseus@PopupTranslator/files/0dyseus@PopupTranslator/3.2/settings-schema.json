@@ -1200,7 +1200,7 @@
         "type": "textview",
         "description": "API keys",
         "default": "",
-        "tooltip": "Enter one API key per line.\nRead the HELP.md file (Help item on this applet context menu) found inside this applet folder to know how to get free Yandex API keys.",
+        "tooltip": "Enter one API key per line.\nRead the help file (Help item on this applet context menu) found inside this applet folder to know how to get free Yandex API keys.",
         "height": 150
     },
 

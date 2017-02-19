@@ -1,4 +1,5 @@
-# Help for Cinnamon Maximus (Fork By Odyseus) extension
+
+# Help for Window demands attention behavior extension
 
 ### IMPORTANT!!!
 Never delete any of the files found inside this extension folder. It might break this extension functionality.

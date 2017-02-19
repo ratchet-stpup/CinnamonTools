@@ -1,4 +1,5 @@
-# Help for Desktop Handler applet
+
+# Help for Window list (Fork By Odyseus) applet
 
 ### IMPORTANT!!!
 Never delete any of the files found inside this applet folder. It might break this applet functionality.
