@@ -73,7 +73,7 @@ By default, these options will use the system's default terminal emulator (**x-t
 
 - If this applet was installed from Cinnamon Settings, all of this applet's localizations were automatically installed.
 - If this applet was installed manually and not trough Cinnamon Settings, localizations can be installed by executing the script called **localizations.sh** from a terminal opened inside the applet's folder.
-- If this applet has no locale available for your language, you could create it by following [these instructions](https://github.com/Odyseus/CinnamonTools/wiki/Xlet-localizations) and send the .po file to me.
+- If this applet has no locale available for your language, you could create it by following [these instructions](https://github.com/Odyseus/CinnamonTools/wiki/Xlet-localization) and send the .po file to me.
     - If you have a GitHub account:
         - You could send a pull request with the new locale file.
         - If you don't want to clone the repository, just create a Gist and send me the link.

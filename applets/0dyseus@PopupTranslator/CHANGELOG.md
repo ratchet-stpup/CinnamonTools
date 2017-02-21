@@ -9,7 +9,6 @@
 - Removed unused import from appletHelper.py file.
 - Added new icons to the icons folder that represent the translation services used by this applet.
 - Added debugging options to facilitate development.
-- Added LICENSE.md file to applet.
 
 ##### 1.03
 - Fixed keybinding display on applet tooltip.
