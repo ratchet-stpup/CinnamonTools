@@ -1,0 +1,16 @@
+{
+    "uuid": "0dyseus@MultiTranslatorExtension",
+    "cinnamon-version": [
+        "2.8",
+        "3.0",
+        "3.2"
+    ],
+    "url": "https://github.com/Odyseus/CinnamonTools",
+    "website": "https://github.com/Odyseus/CinnamonTools",
+    "dangerous": true,
+    "name": "Multi Translator",
+    "version": "1.00-PROTOTYPE",
+    "contributors": "gufoe: Original gnome-shell extension author (https://github.com/gufoe/text-translator).",
+    "comments": "Bug reports and feature requests should be reported on this applet's repository linked below.",
+    "description": "Translation of text by different translation providers (currently Google.Translate, Yandex.Translate)."
+}

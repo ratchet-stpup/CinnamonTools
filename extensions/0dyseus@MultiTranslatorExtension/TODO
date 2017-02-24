@@ -1,0 +1,27 @@
+Multi Translator extension ToDo list:
+ ☐ **Implement translation history** @critical
+ ☐ **Implement a mechanism to check for dependencies** @critical
+ ☐ **Change all synchronous functions to asynchronous** @high
+ ☐ **Add Yandex API keys configuration** @high
+ ☐ **Make Yandex API keys usage random** @high
+ ☐ **Add more translation providers:** At least as much as translate-shell supports. @high
+ ☐ **Add the possibility to select a custom theme** @high
+ ☐ **Keep looking for a way to reload the themes without the need to restart Cinnamon** Keep in mind the comment block in extension.js>TranslatorExtension>_loadTheme(). @high
+ ☐ **Create the dark Linux Mint theme** @low
+
+Multi Translator applet (Not started yet) ToDo list:
+  Clicking on applet:
+    ☐ Can bring up the extension dialog.
+    ☐ Can translate selection/clipboard and show result in a popup menu (Just like Popup Translator applet).
+    ☐ Can translate selection/clipboard and show result in a notification.
+
+  Ideas:
+    ☐ Make the applet complement with the extension, but not depend on it.
+    ☐ Make the translation mechanism shared between the extension and the applet.
+      ☐ It will require to store the history file in a place that can be accessed by the extension and the applet.
+      ☐ It will require to ship the extension and the applet with the exact same Python script.
+    ☐ Add several translation mechanisms that doesn't depend on the extension, but just on the **trans** command.
+    ☐ Create a couple of key bindings to trigger several types of translations.
+    ☐ Add options to choose between a **brief** and a **detailed** translation result.
+＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿
+Archive:

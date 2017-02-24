@@ -1,0 +1,125 @@
+{
+    "pref_enable_shortcuts": {
+        "type": "checkbox",
+        "default": true,
+        "description": "Enable shortcuts"
+    },
+    "pref_open_translator_dialog_keybinding": {
+        "type": "keybinding",
+        "indent": true,
+        "default": "<Super>T",
+        "description": "Translate hotkey",
+        "tooltip": "Open translator dialog hotkey."
+    },
+    "pref_translate_from_clipboard_keybinding": {
+        "type": "keybinding",
+        "indent": true,
+        "default": "<Super><Shift>T",
+        "description": "Translate text from clipboard hotkey",
+        "tooltip": "Open translator dialog and translate text from clipboard hotkey."
+    },
+    "pref_translate_from_selection_keybinding": {
+        "type": "keybinding",
+        "indent": true,
+        "default": "<Super><Alt>T",
+        "description": "Translate from selection hotkey",
+        "tooltip": "Open translator dialog and translate from primary selection hotkey."
+    },
+    "pref_sync_entries_scrolling": {
+        "type": "checkbox",
+        "default": true,
+        "description": "Synchronize scroll entries"
+    },
+    "pref_default_translator": {
+        "type": "combobox",
+        "default": "Google.Translate",
+        "description": "Display method for information about applications:",
+        "options": {
+            "Google Translate": "Google.Translate",
+            "Yandex Translate": "Yandex.Translate"
+        }
+    },
+    "pref_translators_prefs": {
+        "type": "generic",
+        "default": {
+            "Google.Translate": {
+                "default_source": "auto",
+                "default_target": "en",
+                "last_source": "",
+                "last_target": "",
+                "remember_last_lang": true
+            },
+            "Yandex.Translate": {
+                "default_source": "auto",
+                "default_target": "en",
+                "last_source": "",
+                "last_target": "",
+                "remember_last_lang": true
+            }
+        }
+    },
+    "pref_remember_last_translator": {
+        "type": "checkbox",
+        "default": true,
+        "description": "Remember last translator"
+    },
+    "pref_last_translator": {
+        "type": "generic",
+        "default": ""
+    },
+    "pref_width_percents": {
+        "type": "spinbutton",
+        "default": 80,
+        "min": 20,
+        "max": 100,
+        "step": 5,
+        "units": "percent",
+        "description": "Percentage of screen width"
+    },
+    "pref_height_percents": {
+        "type": "spinbutton",
+        "default": 60,
+        "min": 20,
+        "max": 100,
+        "step": 5,
+        "units": "percent",
+        "description": "Percentage of screen height"
+    },
+    "pref_font_size": {
+        "type": "spinbutton",
+        "default": 15,
+        "min": 8,
+        "max": 32,
+        "step": 1,
+        "units": "pixel",
+        "description": "Font size"
+    },
+    "pref_languages_stats": {
+        "type": "generic",
+        "default": "{}"
+    },
+    "pref_show_most_used": {
+        "type": "checkbox",
+        "default": true,
+        "description": "Show most used languages"
+    },
+    "pref_dialog_theme": {
+        "type": "combobox",
+        "default": "Mint-X-Greybird-Blue",
+        "description": "Dialog theme (Needs Cinnamon restart)",
+        "options": {
+            "Default (gnome-shell)": "default",
+            "Mint-X": "Mint-X",
+            "Mint-X-Aqua": "Mint-X-Aqua",
+            "Mint-X-Blue": "Mint-X-Blue",
+            "Mint-X-Brown": "Mint-X-Brown",
+            "Mint-X-Greybird-Blue": "Mint-X-Greybird-Blue",
+            "Mint-X-Orange": "Mint-X-Orange",
+            "Mint-X-Pink": "Mint-X-Pink",
+            "Mint-X-Purple": "Mint-X-Purple",
+            "Mint-X-Red": "Mint-X-Red",
+            "Mint-X-Sand": "Mint-X-Sand",
+            "Mint-X-Teal": "Mint-X-Teal"
+        }
+    }
+}
