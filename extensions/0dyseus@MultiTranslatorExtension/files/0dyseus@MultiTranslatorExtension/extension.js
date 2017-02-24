@@ -8,8 +8,6 @@ const Gettext = imports.gettext;
 const GLib = imports.gi.GLib;
 const Gio = imports.gi.Gio;
 
-const CINN_THEME_KEY = "org.cinnamon.theme";
-
 const TIMEOUT_IDS = {};
 
 const TRIGGERS = {
@@ -17,8 +15,15 @@ const TRIGGERS = {
 };
 
 const CONNECTION_IDS = {
-    show_icon: 0,
     enable_shortcuts: 0
+};
+
+const State = {
+    OPENED: 0,
+    CLOSED: 1,
+    OPENING: 2,
+    CLOSING: 3,
+    FADED_OUT: 4
 };
 
 var $;
@@ -50,6 +55,8 @@ TranslatorExtension.prototype = {
                 this
             );
 
+            this.oldTheme = "";
+
             this._dialog.source.max_length =
                 this._translators_manager.current.limit;
             this._dialog.source.connect("activate", Lang.bind(this, this._translate));
@@ -64,6 +71,13 @@ TranslatorExtension.prototype = {
             settings.connect(
                 "changed::pref_show_most_used",
                 Lang.bind(this, this._init_most_used)
+            );
+
+            settings.connect(
+                "changed::pref_dialog_theme",
+                Lang.bind(this, Lang.bind(this, function() {
+                    this._loadTheme(true);
+                }))
             );
 
             this._loadTheme();
@@ -129,20 +143,25 @@ TranslatorExtension.prototype = {
 
     _init_languages_chooser: function() {
         this._source_language_chooser = new $.LanguageChooser(
-            _("Choose source language:")
+            _("Choose source language") + ":"
         );
         this._source_language_chooser.connect("language-chose", Lang.bind(this,
             this._on_source_language_chose
         ));
 
         this._target_language_chooser = new $.LanguageChooser(
-            _("Choose target language:")
+            _("Choose target language") + ":"
         );
         this._target_language_chooser.connect("language-chose", Lang.bind(this,
             this._on_target_language_chose
         ));
     },
 
+    /**
+     * Since the removal of certain features from the original extension,
+     * this function is not used.
+     * Keep it just in case it's usefull in the future.
+     */
     _remove_timeouts: function(timeout_key) {
         if (!$.is_blank(timeout_key)) {
             if (TIMEOUT_IDS[timeout_key] > 0) {
@@ -163,19 +182,18 @@ TranslatorExtension.prototype = {
         let code = event.get_key_code();
 
         let cyrillic_control = 8196;
-        let cyrillic_shift = 8192;
+        // Not used, but keep it anyways.
+        // let cyrillic_shift = 8192;
 
         if (symbol == Clutter.Escape) {
             this.close();
-        }
-        // ctrl+shift+c - copy translated text to clipboard
-        else if (
+        } else if (
             (
                 state == Clutter.ModifierType.SHIFT_MASK + Clutter.ModifierType.CONTROL_MASK ||
                 state == Clutter.ModifierType.SHIFT_MASK + cyrillic_control
             ) &&
             code == 54
-        ) {
+        ) { // ctrl+shift+c - copy translated text to clipboard
             let text = this._dialog.target.text;
 
             if ($.is_blank(text)) {
@@ -195,23 +213,17 @@ TranslatorExtension.prototype = {
                     false
                 );
             }
-        }
-        // ctr+s - swap languages
-        else if (
+        } else if (
             (state == Clutter.ModifierType.CONTROL_MASK || state == cyrillic_control) &&
             code == 39
-        ) {
+        ) { // ctr+s - swap languages
             this._swap_languages();
-        }
-        // ctrl+d - reset languages to default
-        else if (
+        } else if (
             (state == Clutter.ModifierType.CONTROL_MASK || state == cyrillic_control) &&
             code == 40
-        ) {
+        ) { // ctrl+d - reset languages to default
             this._reset_languages();
-        }
-        // Super - close
-        else if (symbol == Clutter.KEY_Super_L || symbol == Clutter.KEY_Super_R) {
+        } else if (symbol == Clutter.KEY_Super_L || symbol == Clutter.KEY_Super_R) { // Super - close
             this.close();
         } else {
             // let t = {
@@ -224,7 +236,7 @@ TranslatorExtension.prototype = {
     },
 
     _set_current_translator: function(name) {
-        this._translators_button.label = '<i>%s</i>'.format(name);
+        this._translators_button.label = "<u>%s</u>".format(name);
 
         this._translators_manager.current = name;
         this._dialog.source.max_length =
@@ -263,7 +275,6 @@ TranslatorExtension.prototype = {
     },
 
     _swap_languages: function() {
-        let current = this._translators_manager.current;
         let source = this._current_source_lang;
         let target = this._current_target_lang;
         this._set_current_source(target);
@@ -329,13 +340,19 @@ TranslatorExtension.prototype = {
 
     _current_langs_changed: function() {
         this._source_lang_button.label =
-            _("From <i>%s</i>").format(
+            "%s <u>%s</u>".format(
+                // TO TRANSLATORS: Full sentence:
+                // "»From« source language to target language with service provider."
+                _("From"),
                 this._translators_manager.current.get_language_name(
                     this._current_source_lang
                 )
             );
         this._target_lang_button.label =
-            _("to <i>%s</i>").format(
+            "%s <u>%s</u>".format(
+                // TO TRANSLATORS: Full sentence:
+                // "From source language »to« target language with service provider."
+                _("to"),
                 this._translators_manager.current.get_language_name(
                     this._current_target_lang
                 )
@@ -376,7 +393,8 @@ TranslatorExtension.prototype = {
         };
         let button = new $.ButtonsBarButton(
             false,
-            _("<u>To: %s</u>").format(
+            "<u>%s: %s</u>".format(
+                _("to"),
                 this._translators_manager.current.get_language_name(
                     this._current_target_lang
                 )
@@ -477,7 +495,7 @@ TranslatorExtension.prototype = {
 
     _get_help_button: function() {
         let button_params = {
-            button_style_class: 'translator-dialog-menu-button',
+            button_style_class: "translator-dialog-menu-button",
             statusbar: this._dialog.statusbar
         };
 
@@ -545,7 +563,9 @@ TranslatorExtension.prototype = {
         this._dialog.topbar.add_button(this._target_lang_button);
 
         let by_label = new $.ButtonsBarLabel(
-            " with ",
+            // TO TRANSLATORS: Full sentence:
+            // "From source language to target language »with« service provider."
+            " %s ".format(_("with")),
             "tranlator-top-bar-button"
         );
         this._dialog.topbar.add_button(by_label);
@@ -645,7 +665,10 @@ TranslatorExtension.prototype = {
             "open_translator_dialog_keybinding",
             settings.getValue("pref_open_translator_dialog_keybinding"),
             Lang.bind(this, function() {
-                this.open();
+                if (this._dialog.state === State.OPENED || this._dialog.state === State.OPENING)
+                    this.close();
+                else
+                    this.open();
             })
         );
 
@@ -732,10 +755,6 @@ TranslatorExtension.prototype = {
         this._target_language_chooser.destroy();
         this._remove_keybindings();
 
-        if (CONNECTION_IDS.show_icon > 0) {
-            settings.disconnect(CONNECTION_IDS.show_icon);
-        }
-
         if (CONNECTION_IDS.enable_shortcuts > 0) {
             settings.disconnect(CONNECTION_IDS.enable_shortcuts);
         }
@@ -749,14 +768,20 @@ TranslatorExtension.prototype = {
             return;
 
         /**
-         * With the following call, the themes used by this extension are correctly loaded,
+         * With the following call to Main.loadTheme(), the themes used by this extension are correctly loaded,
          * but absolutely all style sheets from every single freaking xlet currently loaded
          * in the system will be unloaded.
-         * Without it, the themes used by this extension are not loaded correctly.
+         * Without the call to Main.loadTheme(), the themes used by this extension are not loaded correctly.
          * Gave up and chose to force a Cinnamon restart every time the themes are switched. ¬¬
          */
         // if (aFullReload)
         //     Main.loadTheme();
+        /**
+         * Giving it a shot to Main.themeManager._changeTheme().
+         * It seems that it isn't affecting the style sheets set by other xlets at the moment.
+         */
+        if (aFullReload)
+            Main.themeManager._changeTheme();
 
         // Saves us from having to do this twice.
         let theme = St.ThemeContext.get_for_stage(global.stage).get_theme();
@@ -778,12 +803,12 @@ TranslatorExtension.prototype = {
     },
 
     _getCssPath: function(theme) {
-        // Get CSS of new theme, and check it exists, falling back to 'default'
+        // Get CSS of new theme, and check it exists, falling back to "default"
         let cssPath = main_extension_dir + "/themes/" + theme + ".css";
         let cssFile = Gio.file_new_for_path(cssPath);
 
         if (!cssFile.query_exists(null)) {
-            cssPath = main_extension_dir + '/themes/default.css';
+            cssPath = main_extension_dir + "/themes/default.css";
         }
 
         return cssPath;

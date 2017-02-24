@@ -238,7 +238,7 @@ Translator.prototype = {
             ));
             return {
                 error: true,
-                message: "Can't translate text, please try later."
+                message: _("Can't translate text, please try later.")
             };
         }
 
@@ -249,7 +249,7 @@ Translator.prototype = {
         } else {
             result = {
                 error: true,
-                message: "Error code: %s".format(json.code)
+                message: "%s: %s".format(_("Error code"), json.code)
             };
         }
 

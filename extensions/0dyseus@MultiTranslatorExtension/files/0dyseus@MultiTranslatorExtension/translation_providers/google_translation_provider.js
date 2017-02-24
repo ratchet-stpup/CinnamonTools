@@ -258,14 +258,6 @@ Translator.prototype = {
     },
 
     parse_response: function(data) {
-        function escapeRegExp(str) {
-            return str.replace(/([.*+?^=!:${}()|\[\]\/\\])/g, "\\$1");
-        }
-
-        function replaceAll(str, find, replace) {
-            return str.replace(new RegExp(escapeRegExp(find), "g"), replace);
-        }
-
         let stuff = {
             "\x1B[1m": "<b>",
             "\x1B[22m": "</b>",
@@ -274,7 +266,7 @@ Translator.prototype = {
         };
         try {
             for (let hex in stuff) {
-                data = replaceAll(data, hex, stuff[hex]);
+                data = $.replaceAll(data, hex, stuff[hex]);
             }
             return data;
         } catch (aErr) {
@@ -331,6 +323,8 @@ Translator.prototype = {
         let command = ["trans"];
         let options = [
             "-e", "google",
+            // "-brief",
+            // "-no-theme",
             "--show-original", "n",
             "--show-languages", "n",
             "--show-prompt-message", "n",
@@ -349,7 +343,7 @@ Translator.prototype = {
         let _this = this;
         let data = exec(command.concat(options).concat(subjects), function(data) {
             if (!data) {
-                data = "Error while translating, check your internet connection";
+                data = _("Error while translating, check your internet connection");
             } else {
                 data = _this.parse_response(data);
             }

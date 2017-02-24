@@ -8,6 +8,13 @@ This extension adds some options to modify the default behaviour of certain Cinn
 - ![Cinnamon 3.0](https://odyseus.github.io/CinnamonTools/lib/badges/cinn-3.0.svg) ![Linux Mint 18](https://odyseus.github.io/CinnamonTools/lib/badges/lm-18.svg)
 - ![Cinnamon 3.2](https://odyseus.github.io/CinnamonTools/lib/badges/cinn-3.2.svg) ![Linux Mint 18.1](https://odyseus.github.io/CinnamonTools/lib/badges/lm-18.1.svg)
 
+## Dependencies
+
+**If one or more of these dependencies are missing in your system, you will not be able to use this extension.**
+
+- **xsel** command: XSel is a command-line program for getting and setting the contents of the X selection.
+- **trans** command: Command provided by the package translate-shell. Is a simple command line interface several translation providers (Google Translate, Yandex Translate, Bing Translate and Apertium) which allows you to translate strings in your terminal.
+
 <span style="color:red;">
 <h2>Bug report and feature request</h2>
 

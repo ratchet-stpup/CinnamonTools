@@ -8,7 +8,7 @@ Never delete any of the files found inside this extension folder. It might break
 
 ### Dependencies
 
-**If one or more of these dependencies are missing in your system, you will not be able to use this applet.**
+**If one or more of these dependencies are missing in your system, you will not be able to use this extension.**
 
 - **xsel** command: XSel is a command-line program for getting and setting the contents of the X selection.
 - **trans** command: Command provided by the package translate-shell. Is a simple command line interface several translation providers (Google Translate, Yandex Translate, Bing Translate and Apertium) which allows you to translate strings in your terminal.

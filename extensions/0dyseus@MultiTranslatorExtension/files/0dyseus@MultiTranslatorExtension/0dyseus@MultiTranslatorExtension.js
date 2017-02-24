@@ -347,7 +347,7 @@ ButtonsBarButton.prototype = {
         }));
 
         if (!this._icon && !this._label) {
-            throw new Error("Icon and label are both false");
+            throw new Error(_("Icon and label are both false."));
         }
     },
 
@@ -629,7 +629,7 @@ CharsCounter.prototype = {
 
     _max_length_changed: function() {
         this._maybe_show();
-        let markup = '<b>%s</b>'.format(this._max_length.toString());
+        let markup = "<b>%s</b>".format(this._max_length.toString());
         let clutter_text = this._max_length_label.get_clutter_text();
 
         Tweener.addTween(this._max_length_label, {
@@ -1513,8 +1513,8 @@ TranslationProviderPrefs.prototype = {
         }
 
         prefs = prefs[this._name];
-        this._default_source = prefs.default_source || "en";
-        this._default_target = prefs.default_target || "ru";
+        this._default_source = prefs.default_source || "auto";
+        this._default_target = prefs.default_target || "en";
         this._last_source = prefs.last_source || "";
         this._last_target = prefs.last_target || "";
         this._remember_last_lang = prefs.remember_last_lang || false;
@@ -2534,6 +2534,14 @@ var asyncLoop = function(o) {
 
     loop(); //init
 };
+
+function replaceAll(str, find, replace) {
+    return str.replace(new RegExp(escapeRegExp(find), "g"), replace);
+}
+
+function escapeRegExp(str) {
+    return str.replace(/([.*+?^=!:${}()|\[\]\/\\])/g, "\\$1");
+}
 
 /**
  * END utils.js

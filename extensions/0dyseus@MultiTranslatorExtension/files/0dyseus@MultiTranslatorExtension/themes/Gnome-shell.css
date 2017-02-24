@@ -1,19 +1,19 @@
 .translator-box {
-    background-color: rgba(63,63,63,0.95);
+    background-color: #222224;
     padding: 20px;
-    color: #ccc;
-    font-family: "Noto Sans", "sans-serif";
-    border-radius: 4px;
-    border: 1px solid #8b8b8b;
+    color: #fff;
+    font-family: 'ubuntu', 'sans-serif';
+    border-radius: 3px;
+    border: 1px solid #111;
 }
 
 .translator-source-text-box,
 .translator-target-text-box {
-    background: #4c4c4c;
-    border: 1px solid #8b8b8b;
+    background: #1a1a1a;
+    border: 1px solid #333;
     overflow: hidden;
     margin: 0;
-    padding: 3px;
+    padding: 3px;    /*border-radius: 3px;*/
 }
 
 .translator-source-text-box {
@@ -25,30 +25,32 @@
 }
 
 .translator-entry {
-    caret-color: #a8a8a8;
+    caret-color: #0af;
     caret-size: 2px;
     selected-color: black;
     background: transparent;
-    color: #fff;
+    color: #eee;
 }
 
 .translator-statusbar-box {
     font-size: 14px;
-    color: #ccc;
+    color: #ff0;
 }
 
 .translator-buttons-bar-box {
 }
 
 .translator-buttons-bar-icon {
-    color: #ccc;
     icon-size: 18px;
     padding: 4px;
 }
 
-.translator-buttons-bar-icon:hover,
+.translator-buttons-bar-icon:hover {
+    color: #0af;
+}
+
 .translator-buttons-bar-icon:active {
-    color: #fff;
+    color: #f00;
 }
 
 .translator-top-bar-box {
@@ -60,72 +62,85 @@
 }
 
 .tranlator-top-bar-button-reactive {
-    color: #ccc;
     font-size: 20px;
     font-weight: bold;
 }
 
-.tranlator-top-bar-button-reactive:hover,
+.tranlator-top-bar-button-reactive:hover {
+    color: #0af;
+}
+
 .tranlator-top-bar-button-reactive:active {
-    color: #fff;
+    color: #0af;
 }
 
 .tranlator-top-bar-go-button {
     font-size: 20px;
     font-weight: bold;
     padding: 0 10px;
-    border: 1px solid #8b8b8b;
+    border: 1px solid #aaa;
 }
 
-.tranlator-top-bar-go-button:hover,
+.tranlator-top-bar-go-button:hover {
+    background-color: #0af;
+}
+
 .tranlator-top-bar-go-button:active {
-    color: #fff;
+    background-color: rgba(0, 0, 255, 1);
 }
 
 .translator-dialog-menu-button {
     font-size: 20px;
     padding-top: 2px;
-    color: #ccc;
+    color: #fff;
 }
 
-.translator-dialog-menu-button:hover,
+.translator-dialog-menu-button:hover {
+    color: #f55;
+}
+
 .translator-dialog-menu-button:active {
-    color: #fff;
+    color: #f00;
 }
 
 .translator-dialog-menu-toggle-button {
     padding-top: 2px;
-    color: #ccc;
+    color: #555;
 }
 
-.translator-dialog-menu-toggle-button:hover,
+.translator-dialog-menu-toggle-button:hover {
+    color: #5f5;
+}
+
 .translator-dialog-menu-toggle-button:active {
-    color: #fff;
+    color: #0f0;
 }
 
 .translator-language-chooser {
+    background-color: #1a1a1a;
     padding: 20px;
     border-radius: 4px;
-    border: 1px solid #8b8b8b;
+    border: 1px solid #444;
 }
 
 .translator-language-chooser-box {
-    border: 1px solid #8b8b8b;
+    border: 1px solid #222;
+    background-color: #181818;
     margin: 10px 0;
 }
 
 .translator-language-chooser-title {
-    color: #ccc;
+    color: #eee;
     font-size: 17px;
     font-weight: bold;
 }
 
 .translator-language-chooser-entry {
     size: 10px;
-    color: #ccc;
+    color: #fff;
     padding: 3px;
     width: 150px;
-    /*background-color: rgba(64, 64, 64, 0.5);*/
+    background-color: rgba(64, 64, 64, 0.5);
     caret-color: rgb(0, 0, 0);
     caret-size: 2px;
     selected-color: white;
@@ -134,16 +149,16 @@
 .translator-language-chooser-button {
     padding: 3px;
     font-size: 16px;
-    color: #ccc;
+    color: #fff;
 }
 
 .translator-language-chooser-button:hover {
-    color: #fff;
+    background-color: rgba(64, 64, 64, 0.3);
 }
 
 .translator-language-chooser-button:active {
     font-weight: bold;
-    color: #fff;
+    background-color: rgba(64, 64, 64, 0.3);
 }
 
 .translator-chars-counter-box {
@@ -157,14 +172,15 @@
 }
 
 .translator-help-box {
-    border: 1px solid #8b8b8b;
+    border: 1px solid #222;
+    background-color: #181818;
     margin: 10px 0;
 }
 
 .translator-help-text {
     font-size: 15px;
     padding: 15px;
-    color: #ccc;
+    color: #eee;
 }
 
 .translator-translators-popup-escape-label {
@@ -195,21 +211,24 @@
 
 .translator-lang-button {
     font-size: 14px;
-    color: #ccc;
+    color: #fff;
 }
 
-.translator-lang-button:hover,
+.translator-lang-button:hover {
+}
+
 .translator-lang-button:active {
-    color: #fff;
+    color: #0af;
 }
 
 .listen-button {
     margin-top: 10px;
-    color: #ccc;
+    color: #555;
 }
 
 .listen-button:hover {
-    color: #fff;
+    color: #0af;
+    text-shadow: 0 0 10px #fff;
 }
 
 .listen-button:active {
