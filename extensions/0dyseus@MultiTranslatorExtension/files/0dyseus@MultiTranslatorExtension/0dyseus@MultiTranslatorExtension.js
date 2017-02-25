@@ -43,14 +43,18 @@ const TTS_TEXT_MAX_LEN = 100;
 
 const LNG_CHOOSER_COLUMNS = 4;
 
-const STATS_TYPE_SOURCE = "source";
-const STATS_TYPE_TARGET = "target";
+const STATS_TYPE_SOURCE = "source"; // jshint ignore:line
+const STATS_TYPE_TARGET = "target"; // jshint ignore:line
 
 const STATUS_BAR_MESSAGE_TYPES = {
     error: 0,
     info: 1,
     success: 2
 };
+
+var settings = "new SettingsHandler(ExtensionUUID).settings";
+
+const ANIMATED_ICON_UPDATE_TIMEOUT = 16;
 
 const STATUS_BAR_MAX_MESSAGE_LENGTH = 60;
 
@@ -173,10 +177,6 @@ SettingsHandler.prototype = {
 /**
  * START animation.js
  */
-
-var settings = new SettingsHandler(ExtensionUUID).settings;
-
-const ANIMATED_ICON_UPDATE_TIMEOUT = 16;
 
 function Animation(file, width, height, speed) {
     this._init(file, width, height, speed);
@@ -351,7 +351,7 @@ ButtonsBarButton.prototype = {
         }
     },
 
-    _on_enter_event: function(object, event) {
+    _on_enter_event: function(object, event) { // jshint ignore:line
         if (this._icon && this._label) {
             this._label.opacity = 0;
             this._label.show();
@@ -364,7 +364,7 @@ ButtonsBarButton.prototype = {
         }
     },
 
-    _on_leave_event: function(object, event) {
+    _on_leave_event: function(object, event) { // jshint ignore:line
         if (this._icon && this._label) {
             Tweener.addTween(this._label, {
                 time: 0.3,
@@ -427,7 +427,7 @@ ButtonsBarButton.prototype = {
     },
 
     set icon_name(name) {
-        this._icon.icon_name;
+        this._icon.icon_name = name;
     },
 
     get has_icon() {
@@ -1344,13 +1344,13 @@ StatusBarMessage.prototype = {
     }
 };
 
-function StatusBar(params) {
-    this._init(params);
+function StatusBar() {
+    this._init();
 }
 
 StatusBar.prototype = {
 
-    _init: function(params) {
+    _init: function() {
         this.actor = new St.BoxLayout({
             style_class: "translator-statusbar-box",
             visible: false
@@ -1653,11 +1653,11 @@ TranslationProviderBase.prototype = {
         return LANGUAGES_LIST[lang_code] || false;
     },
 
-    get_pairs: function(language) {
+    get_pairs: function(language) { // jshint ignore:line
         throw new Error(_("Not implemented"));
     },
 
-    parse_response: function(helper_source_data) {
+    parse_response: function(helper_source_data) { // jshint ignore:line
         throw new Error(_("Not implemented"));
     },
 
@@ -1766,14 +1766,16 @@ EntryBase.prototype = {
         let state = e.get_state();
 
         let cyrillic_control = 8196;
-        let cyrillic_shift = 8192;
+        // Not used, but keep it anyways.
+        // let cyrillic_shift = 8192;
 
         let control_mask =
-            // state === Clutter.ModifierType.CONTROL_MASK ||
+            state === Clutter.ModifierType.CONTROL_MASK ||
             state === cyrillic_control;
-        let shift_mask =
-            // state === Clutter.ModifierType.SHIFT_MASK ||
-            state === cyrillic_shift;
+        // Not used, but keep it anyways.
+        // let shift_mask =
+        //     // state === Clutter.ModifierType.SHIFT_MASK ||
+        //     state === cyrillic_shift;
 
         if (symbol == Clutter.Right) {
             let sel = this._clutter_text.get_selection_bound();
@@ -1785,14 +1787,10 @@ EntryBase.prototype = {
             }
 
             return false;
-        }
-        // cyrillic Ctrl+A
-        else if (control_mask && code == 38) {
+        } else if (control_mask && code == 38) { // cyrillic Ctrl+A
             this._clutter_text.set_selection(0, this._clutter_text.text.length);
             return true;
-        }
-        // cyrillic Ctrl+C
-        else if (control_mask && code == 54) {
+        } else if (control_mask && code == 54) { // cyrillic Ctrl+C
             let clipboard = St.Clipboard.get_default();
             let selection = this._clutter_text.get_selection();
             let text;
@@ -1804,9 +1802,7 @@ EntryBase.prototype = {
 
             clipboard.set_text(text);
             return true;
-        }
-        // cyrillic Ctrl+V
-        else if (control_mask && code == 55) {
+        } else if (control_mask && code == 55) { // cyrillic Ctrl+V
             let clipboard = St.Clipboard.get_default();
             clipboard.get_text(Lang.bind(this, function(clipboard, text) {
                 if (!is_blank(text)) {
@@ -2142,7 +2138,7 @@ TranslatorDialog.prototype = {
 
         this._connection_ids.show_most_used = settings.connect(
             "changed::pref_show_most_used",
-            Lang.bind(this, function(a, b, c) {
+            Lang.bind(this, function() {
                 if (settings.getValue("pref_show_most_used")) {
                     this._show_most_used_bar();
                 } else {
@@ -2520,7 +2516,7 @@ function get_unichar(keyval) {
 }
 
 // http://stackoverflow.com/a/7654602
-var asyncLoop = function(o) {
+var asyncLoop = function(o) { // jshint ignore:line
     var i = -1;
 
     var loop = function() {
@@ -2535,12 +2531,49 @@ var asyncLoop = function(o) {
     loop(); //init
 };
 
-function replaceAll(str, find, replace) {
+function replaceAll(str, find, replace) { // jshint ignore:line
     return str.replace(new RegExp(escapeRegExp(find), "g"), replace);
 }
 
 function escapeRegExp(str) {
     return str.replace(/([.*+?^=!:${}()|\[\]\/\\])/g, "\\$1");
+}
+
+function exec(cmd, exec_cb) { // jshint ignore:line
+    let out_reader;
+
+    try {
+        let [res, pid, in_fd, out_fd, err_fd] = GLib.spawn_async_with_pipes(null, cmd, null, GLib.SpawnFlags.SEARCH_PATH, null); // jshint ignore:line
+        out_reader = new Gio.DataInputStream({
+            base_stream: new Gio.UnixInputStream({
+                fd: out_fd
+            })
+        });
+    } catch (aErr) {
+        exec_cb("%s: ".format(_("Error executing translate-shell")) + aErr);
+        return;
+    }
+
+    let output = "";
+
+    function _SocketRead(source_object, res) {
+        const [chunk, length] = out_reader.read_upto_finish(res); // jshint ignore:line
+        if (chunk !== null) {
+            output += chunk + "\n";
+            out_reader.read_line_async(null, null, _SocketRead);
+        } else {
+            exec_cb(output);
+        }
+    }
+    out_reader.read_line_async(null, null, _SocketRead);
+}
+
+function execSync(cmd) { // jshint ignore:line
+    try {
+        return GLib.spawn_command_line_sync(cmd)[1].toString().trim();
+    } catch (aErr) {
+        return false;
+    }
 }
 
 /**

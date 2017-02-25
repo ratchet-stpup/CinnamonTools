@@ -2,8 +2,6 @@ const ExtensionUUID = "0dyseus@MultiTranslatorExtension";
 const St = imports.gi.St;
 const Clutter = imports.gi.Clutter;
 const Lang = imports.lang;
-const GLib = imports.gi.GLib;
-const Gio = imports.gi.Gio;
 const Tweener = imports.ui.tweener;
 const Gettext = imports.gettext;
 
@@ -121,7 +119,7 @@ Dictionary.prototype = {
     _show_terms: function(word, dict_data) {
         for (let i = 0; i < dict_data.length; i++) {
             let pos = dict_data[i][0]; //.pos;
-            let terms = dict_data[i][1]; //.terms;
+            let terms = dict_data[i][1]; // jshint ignore:line
             let entry = dict_data[i][2]; //.entry;
 
             if ($.is_blank(pos)) continue;
@@ -244,7 +242,7 @@ Translator.prototype = {
         return result;
     },
 
-    get_pairs: function(language) {
+    get_pairs: function(language) { // jshint ignore:line
         let temp = {};
 
         for (let key in $.LANGUAGES_LIST) {
@@ -275,49 +273,11 @@ Translator.prototype = {
     },
 
     do_translation: function(source_lang, target_lang, text, callback) {
-
-        function exec(cmd, exec_cb) {
-            let out_reader;
-
-            try {
-                let [res, pid, in_fd, out_fd, err_fd] = GLib.spawn_async_with_pipes(null, cmd, null, GLib.SpawnFlags.SEARCH_PATH, null);
-                out_reader = new Gio.DataInputStream({
-                    base_stream: new Gio.UnixInputStream({
-                        fd: out_fd
-                    })
-                });
-            } catch (aErr) {
-                exec_cb("%s: ".format(_("Error executing translate-shell")) + aErr);
-                return;
-            }
-
-            let output = "";
-
-            function _SocketRead(source_object, res) {
-                const [chunk, length] = out_reader.read_upto_finish(res);
-                if (chunk !== null) {
-                    output += chunk + "\n";
-                    out_reader.read_line_async(null, null, _SocketRead);
-                } else {
-                    exec_cb(output);
-                }
-            }
-            out_reader.read_line_async(null, null, _SocketRead);
-        }
-
-        function execSync(cmd) {
-            try {
-                return GLib.spawn_command_line_sync(cmd)[1].toString().trim();
-            } catch (aErr) {
-                return false;
-            }
-        }
-
         var proxy = false;
-        if (execSync("gsettings get org.gnome.system.proxy mode") == "manual") {
-            proxy = execSync("gsettings get org.gnome.system.proxy.http host").slice(1, -1);
+        if ($.execSync("gsettings get org.gnome.system.proxy mode") == "manual") {
+            proxy = $.execSync("gsettings get org.gnome.system.proxy.http host").slice(1, -1);
             proxy += ":";
-            proxy += execSync("gsettings get org.gnome.system.proxy.http port");
+            proxy += $.execSync("gsettings get org.gnome.system.proxy.http port");
         }
 
         let command = ["trans"];
@@ -341,7 +301,7 @@ Translator.prototype = {
         }
 
         let _this = this;
-        let data = exec(command.concat(options).concat(subjects), function(data) {
+        $.exec(command.concat(options).concat(subjects), function(data) {
             if (!data) {
                 data = _("Error while translating, check your internet connection");
             } else {

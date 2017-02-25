@@ -1,5 +1,4 @@
 const ExtensionUUID = "0dyseus@MultiTranslatorExtension";
-const Lang = imports.lang;
 const Gettext = imports.gettext;
 
 function _(aStr) {
