@@ -52,8 +52,6 @@ const STATUS_BAR_MESSAGE_TYPES = {
     success: 2
 };
 
-var settings = "new SettingsHandler(ExtensionUUID).settings";
-
 const ANIMATED_ICON_UPDATE_TIMEOUT = 16;
 
 const STATUS_BAR_MAX_MESSAGE_LENGTH = 60;
@@ -173,6 +171,8 @@ SettingsHandler.prototype = {
         }
     }
 };
+
+var settings = new SettingsHandler(ExtensionUUID).settings;
 
 /**
  * START animation.js
