@@ -122,5 +122,100 @@
             "Mint-X-Sand": "Mint-X-Sand",
             "Mint-X-Teal": "Mint-X-Teal"
         }
+    },
+    "sep3": {
+        "type": "separator"
+    },
+    "head3": {
+        "type": "header",
+        "description": "Translation history settings"
+    },
+    "pref_history_timestamp": {
+        "type": "combobox",
+        "indent": true,
+        "default": 0,
+        "description": "Timestamp for translation history entries",
+        "options": {
+            "Custom": 0,
+            "YYYY MM-DD hh:mm:ss (ISO8601)": 1,
+            "YYYY DD-MM hh:mm:ss (European)": 2
+        }
+    },
+    "pref_history_timestamp_custom": {
+        "type": "entry",
+        "indent": true,
+        "default": "YYYY-MM-DD hh:mm:ss",
+        "description": "Custom timestamp",
+        "tooltip": "Choose a custom timestamp for the translation history entries.\nYYYY: year\nMM: month\nDD: day\nhh: hours\nmm: minutes\nss: seconds"
+    },
+    "pref_history_initial_window_width": {
+        "type": "spinbutton",
+        "indent": true,
+        "default": 800,
+        "min": 400,
+        "max": 2048,
+        "step": 50,
+        "units": "pixels",
+        "description": "History window initial width"
+    },
+    "pref_history_initial_window_height": {
+        "type": "spinbutton",
+        "indent": true,
+        "default": 600,
+        "min": 400,
+        "max": 2048,
+        "step": 50,
+        "units": "pixels",
+        "description": "History window initial height"
+    },
+    "pref_history_width_to_trigger_word_wrap": {
+        "type": "spinbutton",
+        "indent": true,
+        "default": 300,
+        "min": 100,
+        "max": 1024,
+        "step": 10,
+        "units": "pixels",
+        "description": "Width to trigger word wrap",
+        "tooltip": "The \"Source text\" and \"Target text\" columns on the history window will wrap its text at the width defined by this setting."
+    },
+    "sep4": {
+        "type": "separator"
+    },
+    "head4": {
+        "type": "header",
+        "description": "Yandex translator settings"
+    },
+    "pref_yandex_api_keys": {
+        "type": "textview",
+        "description": "API keys",
+        "default": "",
+        "tooltip": "Enter one API key per line.\nRead the help file found inside this extension folder to know how to get free Yandex API keys.",
+        "height": 150
+    },
+    "sep5": {
+        "type": "separator"
+    },
+    "head5": {
+        "type": "header",
+        "description": "Debugging settings"
+    },
+    "label5": {
+        "type": "label",
+        "description": "(*) This options are only useful for the extension developer"
+    },
+    "pref_loggin_enabled": {
+        "type": "checkbox",
+        "indent": true,
+        "default": false,
+        "description": "Enable logging",
+        "tooltip": "It enables the ability to log the output of several functions used by the extension."
+    },
+    "pref_loggin_save_history_indented": {
+        "type": "checkbox",
+        "indent": true,
+        "default": false,
+        "description": "Indent translation history data",
+        "tooltip": "It allows to save the translation history data with indentation."
     }
 }

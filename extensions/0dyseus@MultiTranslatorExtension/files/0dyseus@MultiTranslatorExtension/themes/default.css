@@ -125,7 +125,7 @@
     color: #ccc;
     padding: 3px;
     width: 150px;
-    /*background-color: rgba(64, 64, 64, 0.5);*/
+    background-color: rgba(63,63,63,0.95);
     caret-color: rgb(0, 0, 0);
     caret-size: 2px;
     selected-color: white;
@@ -157,6 +157,7 @@
 }
 
 .translator-help-box {
+    background-color: rgba(63,63,63,0.95);
     border: 1px solid #8b8b8b;
     margin: 10px 0;
 }

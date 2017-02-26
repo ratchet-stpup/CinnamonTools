@@ -289,9 +289,9 @@ Translator.prototype = {
             "--show-languages", "n",
             "--show-prompt-message", "n",
             "--no-bidi",
-        ];
+        ]; /*--show-original n --show-languages n  --show-prompt-message n --no-bidi*/
         let subjects = [
-            source_lang + ":" + target_lang,
+            (source_lang === "auto" ? "" : source_lang) + ":" + target_lang,
             text
         ];
 

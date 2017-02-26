@@ -7,6 +7,7 @@ const Mainloop = imports.mainloop;
 const Gettext = imports.gettext;
 const GLib = imports.gi.GLib;
 const Gio = imports.gi.Gio;
+const Cinnamon = imports.gi.Cinnamon;
 
 const TIMEOUT_IDS = {};
 
@@ -81,6 +82,10 @@ TranslatorExtension.prototype = {
             );
 
             this._loadTheme();
+
+            this.historyFile = null;
+            this._translation_history = null;
+            this.ensureHistoryFileExists();
         } catch (aErr) {
             global.logError(aErr);
         }
@@ -322,6 +327,22 @@ TranslatorExtension.prototype = {
         help_dialog.open();
     },
 
+    _openTranslationHistory: function() {
+        try {
+            this.close();
+            Util.spawn_async([
+                /*"python3",*/
+                main_extension_dir + "/extensionHelper.py",
+                "history",
+                settings.getValue("pref_history_initial_window_width") + "," +
+                settings.getValue("pref_history_initial_window_height") + "," +
+                settings.getValue("pref_history_width_to_trigger_word_wrap")
+            ], null);
+        } catch (aErr) {
+            global.logError(aErr);
+        }
+    },
+
     _on_source_language_chose: function(object, language) {
         this._most_used_bar_select_current();
         this._set_current_source(language.code);
@@ -493,6 +514,50 @@ TranslatorExtension.prototype = {
         return button;
     },
 
+    _get_menu_button: function() {
+        let button_params = {
+            button_style_class: "translator-dialog-menu-button",
+            statusbar: this._dialog.statusbar
+        };
+
+        let button = new $.ButtonsBarButton(
+            $.ICONS.hamburger,
+            "",
+            _("Main menu"),
+            button_params,
+            Lang.bind(this, function() {
+                let menu_popup = new $.TranslatorsPopup(
+                    button,
+                    this._dialog
+                );
+                let items = [
+                    [
+                        _("Preferences"),
+                        Lang.bind(this, function() {
+                            this.close();
+                            Util.spawn(["cinnamon-settings", "extensions", metadata.uuid]);
+                        }),
+                        $.ICONS.preferences
+                    ],
+                    [
+                        _("Translation history"),
+                        Lang.bind(this, this._openTranslationHistory),
+                        $.ICONS.history
+                    ]
+                ];
+
+                for (let i = 0; i < items.length; i++) {
+                    //                  name,        action     , icon
+                    menu_popup.add_item(items[i][0], items[i][1], items[i][2]);
+                }
+
+                menu_popup.open();
+            })
+        );
+
+        return button;
+    },
+
     _get_help_button: function() {
         let button_params = {
             button_style_class: "translator-dialog-menu-button",
@@ -509,24 +574,24 @@ TranslatorExtension.prototype = {
         return button;
     },
 
-    _get_prefs_button: function() {
-        let button_params = {
-            button_style_class: "translator-dialog-menu-button",
-            statusbar: this._dialog.statusbar
-        };
-        let button = new $.ButtonsBarButton(
-            $.ICONS.preferences,
-            "",
-            _("Preferences"),
-            button_params,
-            Lang.bind(this, function() {
-                this.close();
-                Util.spawn(["cinnamon-settings", "extensions", metadata.uuid]);
-            })
-        );
+    // _get_prefs_button: function() {
+    //     let button_params = {
+    //         button_style_class: "translator-dialog-menu-button",
+    //         statusbar: this._dialog.statusbar
+    //     };
+    //     let button = new $.ButtonsBarButton(
+    //         $.ICONS.preferences,
+    //         "",
+    //         _("Preferences"),
+    //         button_params,
+    //         Lang.bind(this, function() {
+    //             this.close();
+    //             Util.spawn(["cinnamon-settings", "extensions", metadata.uuid]);
+    //         })
+    //     );
 
-        return button;
-    },
+    //     return button;
+    // },
 
     _get_close_button: function() {
         let button_params = {
@@ -584,11 +649,14 @@ TranslatorExtension.prototype = {
     },
 
     _add_dialog_menu_buttons: function() {
+        let menu_button = this._get_menu_button();
+        this._dialog.dialog_menu.add_button(menu_button, true);
+
         let help_button = this._get_help_button();
         this._dialog.dialog_menu.add_button(help_button, true);
 
-        let prefs_button = this._get_prefs_button();
-        this._dialog.dialog_menu.add_button(prefs_button, true);
+        // let prefs_button = this._get_prefs_button();
+        // this._dialog.dialog_menu.add_button(prefs_button, true);
 
         let close_button = this._get_close_button();
         this._dialog.dialog_menu.add_button(close_button, true);
@@ -812,6 +880,64 @@ TranslatorExtension.prototype = {
         }
 
         return cssPath;
+    },
+
+    ensureHistoryFileExists: function() {
+        let configPath = [GLib.get_home_dir(), ".cinnamon", "configs", "0dyseus@MultiTranslatorHistory"].join("/");
+        let configDir = Gio.file_new_for_path(configPath);
+
+        if (!configDir.query_exists(null))
+            configDir.make_directory_with_parents(null);
+
+        this.historyFile = configDir.get_child("translation_history.json");
+
+        let data,
+            forceSaving;
+
+        try {
+            if (this.historyFile.query_exists(null)) {
+                forceSaving = false;
+                data = JSON.parse(Cinnamon.get_file_contents_utf8_sync(this.historyFile.get_path()));
+            } else {
+                forceSaving = true;
+                data = {
+                    __version__: 1
+                };
+            }
+        } finally {
+            try {
+                // Implemented __version__ in case that in the future I decide
+                // to change again the history mechanism. Not likely (LOL).
+                this._translation_history = data;
+            } finally {
+                if (forceSaving)
+                    this.saveHistoryToFile();
+            }
+        }
+    },
+
+    saveHistoryToFile: function() {
+        let rawData;
+
+        if (settings.getValue("pref_loggin_save_history_indented"))
+            rawData = JSON.stringify(this._translation_history, null, "    ");
+        else
+            rawData = JSON.stringify(this._translation_history);
+
+        let raw = this.historyFile.replace(null, false, Gio.FileCreateFlags.NONE, null);
+        let out_file = Gio.BufferedOutputStream.new_sized(raw, 4096);
+        Cinnamon.write_string_to_stream(out_file, rawData);
+        out_file.close(null);
+    },
+
+    get transHistory() {
+        return this._translation_history;
+    },
+
+    setTransHistory: function(aSourceText, aTransObj) {
+        this._translation_history[aTransObj.tL] = this._translation_history[aTransObj.tL] || {};
+        this._translation_history[aTransObj.tL][aSourceText] = aTransObj;
+        this.saveHistoryToFile();
     },
 
     get current_target_lang() {

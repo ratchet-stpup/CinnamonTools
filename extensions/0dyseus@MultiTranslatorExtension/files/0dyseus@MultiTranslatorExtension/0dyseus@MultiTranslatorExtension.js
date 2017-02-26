@@ -61,76 +61,119 @@ const ICONS = {
     preferences: "preferences-system-symbolic",
     close: "window-close-symbolic",
     shutdown: "system-shutdown-symbolic",
-    listen: "audio-volume-high-symbolic"
+    listen: "audio-volume-high-symbolic",
+    history: "multi-translator-document-open-recent-symbolic",
+    hamburger: "multi-translator-hamburger-menu-symbolic",
 };
 
 const LANGUAGES_LIST = {
     "auto": "Detect language",
     "af": "Afrikaans",
+    "am": "Amharic",
     "ar": "Arabic",
     "az": "Azerbaijani",
     "be": "Belarusian",
     "bg": "Bulgarian",
     "bn": "Bengali",
+    "bs": "Bosnian (Y)",
     "ca": "Catalan",
+    "ceb": "Chichewa",
+    "co": "Corsican",
     "cs": "Czech",
     "cy": "Welsh",
     "da": "Danish",
     "de": "German",
     "el": "Greek",
     "en": "English",
+    "eo": "Esperanto",
     "es": "Spanish",
     "et": "Estonian",
     "eu": "Basque",
     "fa": "Persian",
     "fi": "Finnish",
     "fr": "French",
+    "fy": "Frisian",
     "ga": "Irish",
+    "gd": "Scots Gaelic",
     "gl": "Galician",
     "gu": "Gujarati",
+    "ha": "Hausa",
+    "haw": "Hawaiian",
+    "he": "Hebrew (Y)",
     "hi": "Hindi",
+    "hmn": "Hmong",
     "hr": "Croatian",
-    "ht": "HaitianCreole",
+    "ht": "Haitian Creole",
     "hu": "Hungarian",
     "hy": "Armenian",
     "id": "Indonesian",
+    "ig": "Igbo",
     "is": "Icelandic",
     "it": "Italian",
     "iw": "Hebrew",
     "ja": "Japanese",
+    "jw": "Javanese",
     "ka": "Georgian",
+    "kk": "Kazakh",
+    "km": "Khmer",
     "kn": "Kannada",
     "ko": "Korean",
+    "ku": "Kurdish (Kurmanji)",
+    "ky": "Kyrgyz",
     "la": "Latin",
+    "lb": "Luxembourgish",
     "lo": "Lao",
     "lt": "Lithuanian",
     "lv": "Latvian",
+    "mg": "Malagasy",
+    "mi": "Maori",
     "mk": "Macedonian",
+    "ml": "Malayalam",
+    "mn": "Mongolian",
+    "mr": "Marathi",
     "ms": "Malay",
     "mt": "Maltese",
+    "my": "Myanmar (Burmese)",
+    "ne": "Nepali",
     "nl": "Dutch",
     "no": "Norwegian",
+    "ny": "Cebuano",
+    "pa": "Punjabi",
     "pl": "Polish",
+    "ps": "Pashto",
     "pt": "Portuguese",
     "ro": "Romanian",
     "ru": "Russian",
+    "sd": "Sindhi",
+    "si": "Sinhala",
     "sk": "Slovak",
     "sl": "Slovenian",
+    "sm": "Samoan",
+    "sn": "Shona",
+    "so": "Somali",
     "sq": "Albanian",
     "sr": "Serbian",
+    "st": "Sesotho",
+    "su": "Sundanese",
     "sv": "Swedish",
     "sw": "Swahili",
     "ta": "Tamil",
     "te": "Telugu",
+    "tg": "Tajik",
     "th": "Thai",
     "tl": "Filipino",
     "tr": "Turkish",
     "uk": "Ukrainian",
     "ur": "Urdu",
+    "uz": "Uzbek",
     "vi": "Vietnamese",
+    "xh": "Xhosa",
     "yi": "Yiddish",
+    "yo": "Yoruba",
+    "zh": "Chinese (Y)",
     "zh-CN": "Chinese Simplified",
-    "zh-TW": "Chinese Traditional"
+    "zh-TW": "Chinese Traditional",
+    "zu": "Zulu"
 };
 
 function SettingsHandler(aUUID) {
@@ -159,6 +202,11 @@ SettingsHandler.prototype = {
             [bD.BIDIRECTIONAL, "pref_languages_stats", null],
             [bD.IN, "pref_show_most_used", null],
             [bD.IN, "pref_dialog_theme", null],
+            [bD.IN, "pref_history_timestamp", null],
+            [bD.IN, "pref_history_timestamp_custom", null],
+            [bD.IN, "pref_history_initial_window_width", null],
+            [bD.IN, "pref_history_initial_window_height", null],
+            [bD.IN, "pref_history_width_to_trigger_word_wrap", null],
         ];
         let newBinding = typeof this.settings.bind === "function";
         for (let [binding, property_name, callback] of settingsArray) {
@@ -1358,7 +1406,7 @@ StatusBar.prototype = {
         this._message_label = new St.Label();
         this._message_label.get_clutter_text().use_markup = true;
 
-        let spinner_icon = ExtensionPath + "/icons/process-working.svg";
+        let spinner_icon = ExtensionPath + "/icons/multi-translator-process-working.svg";
         this._spinner = new AnimatedIcon(
             spinner_icon,
             16
@@ -2367,6 +2415,7 @@ TranslatorsManager.prototype = {
             let translator = new translators_imports[module_name].Translator(
                 this._extension_object
             );
+
             translator.file_name = file_name;
             translators.push(translator);
         }
@@ -2691,8 +2740,19 @@ TranslatorsPopup.prototype = {
         );
     },
 
-    add_item: function(name, action) {
-        let item = new PopupMenu.PopupMenuItem(name);
+    add_item: function(name, action, icon_name) {
+        let item;
+
+        if (icon_name) {
+            item = new PopupMenu.PopupIconMenuItem(
+                name,
+                icon_name,
+                St.IconType.SYMBOLIC
+            );
+        } else {
+            item = new PopupMenu.PopupMenuItem(name);
+        }
+
         item.connect("activate", Lang.bind(this, function() {
             action();
             this.close();

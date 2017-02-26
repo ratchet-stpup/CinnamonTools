@@ -20,6 +20,38 @@ const LIMIT = 9800;
 const PROVIDER_URL = "https://translate.yandex.net/api/v1.5/tr.json/translate?key=" + KEY + "&lang=%s-%s&text=%s";
 
 const LANGUAGE_PAIRS = [
+    "auto-az",
+    "auto-be",
+    "auto-bg",
+    "auto-ca",
+    "auto-cs",
+    "auto-da",
+    "auto-de",
+    "auto-el",
+    "auto-en",
+    "auto-es",
+    "auto-et",
+    "auto-fi",
+    "auto-fr",
+    "auto-hr",
+    "auto-hu",
+    "auto-hy",
+    "auto-it",
+    "auto-lt",
+    "auto-lv",
+    "auto-mk",
+    "auto-nl",
+    "auto-no",
+    "auto-pl",
+    "auto-pt",
+    "auto-ro",
+    "auto-sk",
+    "auto-sl",
+    "auto-sq",
+    "auto-sr",
+    "auto-sv",
+    "auto-tr",
+    "auto-uk",
     "az-ru",
     "be-bg",
     "be-cs",
@@ -196,32 +228,39 @@ Translator.prototype = {
     get_languages: function() {
         let temp = {};
 
-        for (let i = 0; i < LANGUAGE_PAIRS.length; i++) {
-            let pair = LANGUAGE_PAIRS[i];
-            let lang_code = pair.slice(0, 2);
-            let lang_name = this.get_language_name(lang_code);
+        try {
+            let i = 0,
+            iLen = LANGUAGE_PAIRS.length;
+            for (; i < iLen; i++) {
+                let [lang_code, target_lang_code] = LANGUAGE_PAIRS[i].split("-"); // jshint ignore:line
+                let lang_name = this.get_language_name(lang_code);
 
-            temp[lang_code] = lang_name;
+                if (temp[lang_code])
+                    continue;
+
+                temp[lang_code] = lang_name;
+            }
+
+        } finally {
+            return temp;
         }
-
-        return temp;
     },
 
     get_pairs: function(language) {
         let temp = {};
 
-        for (let i = 0; i < LANGUAGE_PAIRS.length; i++) {
-            let pair = LANGUAGE_PAIRS[i];
-            let source_lang_code = pair.slice(0, 2);
-            let target_lang_code = pair.slice(-2);
+        try {
+            let i = 0,
+            iLen = LANGUAGE_PAIRS.length;
+            for (; i < iLen; i++) {
+                let [source_lang_code, target_lang_code] = LANGUAGE_PAIRS[i].split("-");
 
-            if (source_lang_code.toLowerCase() == language.toLowerCase()) {
-                temp[target_lang_code] =
-                    $.LANGUAGES_LIST[target_lang_code];
+                if (source_lang_code.toLowerCase() == language.toLowerCase())
+                    temp[target_lang_code] = $.LANGUAGES_LIST[target_lang_code];
             }
+        } finally {
+            return temp;
         }
-
-        return temp;
     },
 
     parse_response: function(response_data) {

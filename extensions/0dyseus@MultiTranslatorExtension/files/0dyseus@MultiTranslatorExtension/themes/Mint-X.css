@@ -142,11 +142,11 @@
 
 .translator-language-chooser-button:active,
 .translator-language-chooser-button:hover {
+    color: #fff;
     background-color: #accd8a;
 }
 
 .translator-language-chooser-button:active {
-    color: #fff;
     font-weight: bold;
 }
 

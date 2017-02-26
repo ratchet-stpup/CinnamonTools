@@ -145,11 +145,11 @@
 
 .translator-language-chooser-button:active,
 .translator-language-chooser-button:hover {
+    color: #fff;
     background-color: #c15b58;
 }
 
 .translator-language-chooser-button:active {
-    color: #fff;
     font-weight: bold;
 }
 
