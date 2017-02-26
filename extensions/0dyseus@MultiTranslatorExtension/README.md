@@ -1,3 +1,9 @@
+<span style="color:red;">
+<h2>Bug reports, feature requests and contributions</h2>
+
+<strong>If anyone has bugs to report, a feature request or a contribution, do so on <a href="https://github.com/Odyseus/CinnamonTools">this xlet GitHub page</a>.</strong>
+</span>
+
 ## Multi Translator extension description
 
 This extension adds some options to modify the default behaviour of certain Cinnamon features.
@@ -14,12 +20,6 @@ This extension adds some options to modify the default behaviour of certain Cinn
 
 - **xsel** command: XSel is a command-line program for getting and setting the contents of the X selection.
 - **trans** command: Command provided by the package translate-shell. Is a simple command line interface several translation providers (Google Translate, Yandex Translate, Bing Translate and Apertium) which allows you to translate strings in your terminal.
-
-<span style="color:red;">
-<h2>Bug report and feature request</h2>
-
-**If anyone has bugs to report or a feature request, do so on [this xlet GitHub page](https://github.com/Odyseus/CinnamonTools).**
-</span>
 
 ## Contributors
 - **[gufoe](https://github.com/gufoe):** Original author of the gnome-shell extension called [Text Translator](https://github.com/gufoe/text-translator).

@@ -1,4 +1,4 @@
-<!DOCTYPE html><html><head><meta http-equiv="content-type" content="text/html;charset=utf-8"><title>Custom Cinnamon Menu applet help</title><link rel="shortcut icon" type="image/x-icon" href="./icon.png"><meta name="viewport" content="width=device-width, initial-scale=1"><style type="text/css">/*!
+<!DOCTYPE html><html><head><meta http-equiv="content-type" content="text/html;charset=utf-8"><title>Multi Translator extension help</title><link rel="shortcut icon" type="image/x-icon" href="./icon.png"><meta name="viewport" content="width=device-width, initial-scale=1"><style type="text/css">/*!
  * bootswatch v3.3.7
  * Homepage: http://bootswatch.com
  * Copyright 2012-2016 Thomas Park
@@ -218,89 +218,22 @@ pre {
 	padding-right: 15px !important;
 }
 /* pre tag tweaks */
-</style></head><body><div id="mainarea"><div class="container boxed"><h1>Help for Custom Cinnamon Menu applet</h1>
+</style></head><body><div id="mainarea"><div class="container boxed"><h1>Help for Multi Translator extension</h1>
 <h3>IMPORTANT!!!</h3>
-<p>Never delete any of the files found inside this applet folder. It might break this applet functionality.</p>
+<p>Never delete any of the files found inside this extension folder. It might break this extension functionality.</p>
 <hr>
-<h3>Keyboard navigation</h3>
-<p><strong>Note:</strong> Almost all keyboard shortcuts on this menu are the same as the original menu. There are just a couple of differences that I was forced to add to my menu to make some of its features to work.</p>
+<h3>Dependencies</h3>
+<p><strong>If one or more of these dependencies are missing in your system, you will not be able to use this extension.</strong></p>
 <ul>
-<li><kbd>Left Arrow</kbd> and <kbd>Right Arrow</kbd> keys:
-<ul>
-<li>Cycles through the favorites box, applications box and categories box if the focus is in one of these boxes.</li>
-<li>If the focus is on the custom launchers box, these keys will cycle through this box buttons.</li>
-</ul>
-</li>
-<li><kbd>Tab</kbd> key :
-<ul>
-<li>If the favorites box, applications box or categories box are currently focused, the <kbd>Tab</kbd> key will switch the focus to the custom launchers box.</li>
-<li>If the focus is on the custom launchers box, the focus will go back to the categories box.</li>
-<li>If the custom launchers box isn't part of the menu, the <kbd>Tab</kbd> key alone or <kbd>Ctrl</kbd>/<kbd>Shit</kbd> + <kbd>Tab</kbd> key are pressed, it will cycle through the favorites box, applications box and categories box.</li>
-</ul>
-</li>
-<li><kbd>Up Arrow</kbd> and <kbd>Down Arrow</kbd> keys:
-<ul>
-<li>If the favorites box, applications box or categories box are currently focused, these keys will cycle through the items in the currently highlighted box.</li>
-<li>If the focus is on the custom launchers box, the focus will go back to the categories box.</li>
-</ul>
-</li>
-<li><kbd>Page Up</kbd> and <kbd>Page Down</kbd> keys: Jumps to the first and last item of the currently selected box. This doesn't affect the custom launchers.</li>
-<li><kbd>Menu</kbd> or <kbd>Alt</kbd> + <kbd>Enter</kbd> keys: Opens and closes the context menu (if any) of the currently highlighted item.</li>
-<li><kbd>Enter</kbd>key: Executes the currently highlighted item.</li>
-<li><kbd>Escape</kbd> key: It closes the main menu. If a context menu is open, it will close the context menu instead and a second tap of this key will close the main menu.</li>
-<li><kbd>Shift</kbd> + <kbd>Enter</kbd>: Executes application as root. This doesn't affect the custom launchers.</li>
-<li><kbd>Ctrl</kbd> + <kbd>Enter</kbd>: Open a terminal and run application from there. This doesn't affect the custom launchers.</li>
-<li><kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>Enter</kbd>: Open a terminal and run application from there, but the application is executed as root. This doesn't affect the custom launchers.</li>
+<li><strong>xsel</strong> command: XSel is a command-line program for getting and setting the contents of the X selection.</li>
+<li><strong>trans</strong> command: Command provided by the package translate-shell. Is a simple command line interface several translation providers (Google Translate, Yandex Translate, Bing Translate and Apertium) which allows you to translate strings in your terminal.</li>
 </ul>
 <hr>
-<h3>Applications left click extra actions</h3>
-<p>When left clicking an application on the menu, certain key modifiers can be pressed to execute an application in a special way.</p>
+<h3>Extension localization</h3>
 <ul>
-<li><kbd>Shift</kbd> + <strong>Left click</strong>: Executes application as root.</li>
-<li><kbd>Ctrl</kbd> + <strong>Left click</strong>: Open a terminal and run application from there.</li>
-<li><kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <strong>Left click</strong>: Open a terminal and run application from there, but the application is executed as root.</li>
-</ul>
-<hr>
-<h3>About &quot;Run from terminal&quot; options</h3>
-<p>These options are meant for debugging purposes (to see the console output after opening/closing a program to detect possible errors, for example). Instead of opening a terminal to launch a program of which one might not know its command, one can do it directly from the menu and in just one step. Options to run from a terminal an application listed on the menu can be found on the applications context menu and can be hidden/shown from this applet settings window.</p>
-<p>By default, these options will use the system's default terminal emulator (<strong>x-terminal-emulator</strong> on Debian based distros). Any other terminal emulator can be specified inside the settings window of this applet, as long as said emulator has support for the <strong>-e</strong> argument. I did my tests with <strong>gnome-terminal</strong>, <strong>xterm</strong> and <strong>terminator</strong>. Additional arguments could be passed to the terminal emulator, but it's not supported by me.</p>
-<hr>
-<h3>Favorites handling</h3>
-<ul>
-<li>If the favorites box is <strong>displayed</strong>, favorites can be added/removed from the context menu for applications and by dragging and dropping applications to/from the favorites box.
-<strong>Note:</strong> To remove a favorite, drag a favorite outside the favorites box into any part of the menu.</li>
-<li>If the favorites box is <strong>hidden</strong> and the favorites category is enabled, favorites can be added/removed from the context menu for applications and by dragging and dropping applications to the favorites category. Its simple, if a favorite is dragged into the favorites category, the favorite will be removed. If what you drag into the favorites category is a non bookmarked application, then that application will be added to the favorites.
-<strong>Note:</strong> The favorites category will update its content after changing to another category and going back to the favorites category.</li>
-</ul>
-<hr>
-<h3>Troubleshooting/extra information</h3>
-<ol>
-<li>
-<p>Run from terminal.</p>
-<ol>
-<li><strong>For Debian based distros:</strong> If the command <strong>x-terminal-emulator</strong> doesn't run the terminal emulator that one wants to be the default, run the following command to set a different default terminal emulator.</li>
-</ol>
-<ul>
-<li><code>sudo update-alternatives --config x-terminal-emulator</code></li>
-<li>Type in the number of the selection and hit enter.</li>
-</ul>
-<ol start="2">
-<li><strong>For other distros:</strong> Just set the terminal executable of your choice on this applet settings window.</li>
-</ol>
-</li>
-<li>
-<p>There is a file inside this applet directory called <strong>run_from_terminal.sh</strong>. <strong><em>Do not remove, rename or edit this file</em></strong>. Otherwise, all of the <em>Run from terminal</em> options will break.</p>
-</li>
-<li>
-<p>There is a folder named <strong>icons</strong> inside this applet directory. It contains several symbolic icons (most of them are from the Faenza icon theme) and each icon can be used directly by name (on a custom launcher, for example).</p>
-</li>
-</ol>
-<hr>
-<h3>Applet localization</h3>
-<ul>
-<li>If this applet was installed from Cinnamon Settings, all of this applet's localizations were automatically installed.</li>
-<li>If this applet was installed manually and not trough Cinnamon Settings, localizations can be installed by executing the script called <strong>localizations.sh</strong> from a terminal opened inside the applet's folder.</li>
-<li>If this applet has no locale available for your language, you could create it by following <a href="https://github.com/Odyseus/CinnamonTools/wiki/Xlet-localization">these instructions</a> and send the .po file to me.
+<li>If this extension was installed from Cinnamon Settings, all of this extension's localizations were automatically installed.</li>
+<li>If this extension was installed manually and not trough Cinnamon Settings, localizations can be installed by executing the script called <strong>localizations.sh</strong> from a terminal opened inside the extension's folder.</li>
+<li>If this extension has no locale available for your language, you could create it by following <a href="https://github.com/Odyseus/CinnamonTools/wiki/Xlet-localization">these instructions</a> and send the .po file to me.
 <ul>
 <li>If you have a GitHub account:
 <ul>

@@ -113,7 +113,7 @@ Once installed and enabled, the following shortcuts will be available.
 `pastebin ~/.cinnamon/glass.log`
 `pastebin ~/.xsession-errors`
 
-[Download prototype extension](https://odyseus.github.io/CinnamonTools/pkg/0dyseus@MultiTranslatorExtension.tar.gz)
+## [Download prototype extension](https://odyseus.github.io/CinnamonTools/pkg/0dyseus@MultiTranslatorExtension.tar.gz)
 
 **References to anyone that could be interested in testing the extension.**
 
