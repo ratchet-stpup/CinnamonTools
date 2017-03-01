@@ -64,116 +64,261 @@ const ICONS = {
     listen: "audio-volume-high-symbolic",
     history: "multi-translator-document-open-recent-symbolic",
     hamburger: "multi-translator-hamburger-menu-symbolic",
+    dictionary: "multi-translator-dictionary-symbolic",
+};
+
+/**
+ * Implemented to avoid having to reset settings to
+ * their defaults every time I add a new engine.
+ */
+const DEFAULT_ENGINES = {
+    "Apertium.Translate": {
+        "default_source": "auto",
+        "default_target": "en",
+        "last_source": "",
+        "last_target": "",
+        "remember_last_lang": true
+    },
+    "Bing.Translate": {
+        "default_source": "auto",
+        "default_target": "en",
+        "last_source": "",
+        "last_target": "",
+        "remember_last_lang": true
+    },
+    "Google.Translate": {
+        "default_source": "auto",
+        "default_target": "en",
+        "last_source": "",
+        "last_target": "",
+        "remember_last_lang": true
+    },
+    "Yandex.Translate": {
+        "default_source": "auto",
+        "default_target": "en",
+        "last_source": "",
+        "last_target": "",
+        "remember_last_lang": true
+    }
 };
 
 const LANGUAGES_LIST = {
-    "auto": "Detect language",
-    "af": "Afrikaans",
-    "am": "Amharic",
-    "ar": "Arabic",
-    "az": "Azerbaijani",
-    "be": "Belarusian",
-    "bg": "Bulgarian",
-    "bn": "Bengali",
-    "bs": "Bosnian (Y)",
-    "ca": "Catalan",
-    "ceb": "Chichewa",
-    "co": "Corsican",
-    "cs": "Czech",
-    "cy": "Welsh",
-    "da": "Danish",
-    "de": "German",
-    "el": "Greek",
-    "en": "English",
-    "eo": "Esperanto",
-    "es": "Spanish",
-    "et": "Estonian",
-    "eu": "Basque",
-    "fa": "Persian",
-    "fi": "Finnish",
-    "fr": "French",
-    "fy": "Frisian",
-    "ga": "Irish",
-    "gd": "Scots Gaelic",
-    "gl": "Galician",
-    "gu": "Gujarati",
-    "ha": "Hausa",
-    "haw": "Hawaiian",
-    "he": "Hebrew (Y)",
-    "hi": "Hindi",
-    "hmn": "Hmong",
-    "hr": "Croatian",
-    "ht": "Haitian Creole",
-    "hu": "Hungarian",
-    "hy": "Armenian",
-    "id": "Indonesian",
-    "ig": "Igbo",
-    "is": "Icelandic",
-    "it": "Italian",
-    "iw": "Hebrew",
-    "ja": "Japanese",
-    "jw": "Javanese",
-    "ka": "Georgian",
-    "kk": "Kazakh",
-    "km": "Khmer",
-    "kn": "Kannada",
-    "ko": "Korean",
-    "ku": "Kurdish (Kurmanji)",
-    "ky": "Kyrgyz",
-    "la": "Latin",
-    "lb": "Luxembourgish",
-    "lo": "Lao",
-    "lt": "Lithuanian",
-    "lv": "Latvian",
-    "mg": "Malagasy",
-    "mi": "Maori",
-    "mk": "Macedonian",
-    "ml": "Malayalam",
-    "mn": "Mongolian",
-    "mr": "Marathi",
-    "ms": "Malay",
-    "mt": "Maltese",
-    "my": "Myanmar (Burmese)",
-    "ne": "Nepali",
-    "nl": "Dutch",
-    "no": "Norwegian",
-    "ny": "Cebuano",
-    "pa": "Punjabi",
-    "pl": "Polish",
-    "ps": "Pashto",
-    "pt": "Portuguese",
-    "ro": "Romanian",
-    "ru": "Russian",
-    "sd": "Sindhi",
-    "si": "Sinhala",
-    "sk": "Slovak",
-    "sl": "Slovenian",
-    "sm": "Samoan",
-    "sn": "Shona",
-    "so": "Somali",
-    "sq": "Albanian",
-    "sr": "Serbian",
-    "st": "Sesotho",
-    "su": "Sundanese",
-    "sv": "Swedish",
-    "sw": "Swahili",
-    "ta": "Tamil",
-    "te": "Telugu",
-    "tg": "Tajik",
-    "th": "Thai",
-    "tl": "Filipino",
-    "tr": "Turkish",
-    "uk": "Ukrainian",
-    "ur": "Urdu",
-    "uz": "Uzbek",
-    "vi": "Vietnamese",
-    "xh": "Xhosa",
-    "yi": "Yiddish",
-    "yo": "Yoruba",
-    "zh": "Chinese (Y)",
-    "zh-CN": "Chinese Simplified",
-    "zh-TW": "Chinese Traditional",
-    "zu": "Zulu"
+    "auto": _("Detect language"),
+    "af": _("Afrikaans"),
+    "am": _("Amharic"),
+    "ar": _("Arabic"),
+    "az": _("Azerbaijani"),
+    "be": _("Belarusian"),
+    "bg": _("Bulgarian"),
+    "bn": _("Bengali"),
+    "bs": _("Bosnian (Y)"),
+    "ca": _("Catalan"),
+    "ceb": _("Chichewa"),
+    "co": _("Corsican"),
+    "cs": _("Czech"),
+    "cy": _("Welsh"),
+    "da": _("Danish"),
+    "de": _("German"),
+    "el": _("Greek"),
+    "en": _("English"),
+    "eo": _("Esperanto"),
+    "es": _("Spanish"),
+    "et": _("Estonian"),
+    "eu": _("Basque"),
+    "fa": _("Persian"),
+    "fi": _("Finnish"),
+    "fr": _("French"),
+    "fy": _("Frisian"),
+    "ga": _("Irish"),
+    "gd": _("Scots Gaelic"),
+    "gl": _("Galician"),
+    "gu": _("Gujarati"),
+    "ha": _("Hausa"),
+    "haw": _("Hawaiian"),
+    "he": _("Hebrew (Y)"),
+    "hi": _("Hindi"),
+    "hmn": _("Hmong"),
+    "hr": _("Croatian"),
+    "ht": _("Haitian Creole"),
+    "hu": _("Hungarian"),
+    "hy": _("Armenian"),
+    "id": _("Indonesian"),
+    "ig": _("Igbo"),
+    "is": _("Icelandic"),
+    "it": _("Italian"),
+    "iw": _("Hebrew"),
+    "ja": _("Japanese"),
+    "jw": _("Javanese"),
+    "ka": _("Georgian"),
+    "kk": _("Kazakh"),
+    "km": _("Khmer"),
+    "kn": _("Kannada"),
+    "ko": _("Korean"),
+    "ku": _("Kurdish (Kurmanji)"),
+    "ky": _("Kyrgyz"),
+    "la": _("Latin"),
+    "lb": _("Luxembourgish"),
+    "lo": _("Lao"),
+    "lt": _("Lithuanian"),
+    "lv": _("Latvian"),
+    "mg": _("Malagasy"),
+    "mi": _("Maori"),
+    "mk": _("Macedonian"),
+    "ml": _("Malayalam"),
+    "mn": _("Mongolian"),
+    "mr": _("Marathi"),
+    "ms": _("Malay"),
+    "mt": _("Maltese"),
+    "my": _("Myanmar (Burmese)"),
+    "ne": _("Nepali"),
+    "nl": _("Dutch"),
+    "no": _("Norwegian"),
+    "ny": _("Cebuano"),
+    "pa": _("Punjabi"),
+    "pl": _("Polish"),
+    "ps": _("Pashto"),
+    "pt": _("Portuguese"),
+    "ro": _("Romanian"),
+    "ru": _("Russian"),
+    "sd": _("Sindhi"),
+    "si": _("Sinhala"),
+    "sk": _("Slovak"),
+    "sl": _("Slovenian"),
+    "sm": _("Samoan"),
+    "sn": _("Shona"),
+    "so": _("Somali"),
+    "sq": _("Albanian"),
+    "sr": _("Serbian"),
+    "st": _("Sesotho"),
+    "su": _("Sundanese"),
+    "sv": _("Swedish"),
+    "sw": _("Swahili"),
+    "ta": _("Tamil"),
+    "te": _("Telugu"),
+    "tg": _("Tajik"),
+    "th": _("Thai"),
+    "tl": _("Filipino"),
+    "tr": _("Turkish"),
+    "uk": _("Ukrainian"),
+    "ur": _("Urdu"),
+    "uz": _("Uzbek"),
+    "vi": _("Vietnamese"),
+    "xh": _("Xhosa"),
+    "yi": _("Yiddish"),
+    "yo": _("Yoruba"),
+    "zh": _("Chinese (Y)"),
+    "zh-CN": _("Chinese Simplified"),
+    "zh-TW": _("Chinese Traditional"),
+    "zu": _("Zulu")
+};
+
+/* exported LANGUAGES_LIST_ENDONYMS */
+const LANGUAGES_LIST_ENDONYMS = {
+    "Afrikaans": "Afrikaans",
+    "አማርኛ": "Amharic",
+    "العربية": "Arabic",
+    "Azərbaycanca": "Azerbaijani",
+    "беларуская": "Belarusian",
+    "български": "Bulgarian",
+    "বাংলা": "Bengali",
+    "Bosanski": "Bosnian (Y)",
+    "Català": "Catalan",
+    "Nyanja": "Chichewa",
+    "Corsu": "Corsican",
+    "Čeština": "Czech",
+    "Cymraeg": "Welsh",
+    "Dansk": "Danish",
+    "Deutsch": "German",
+    "Ελληνικά": "Greek",
+    "English": "English",
+    "Esperanto": "Esperanto",
+    "Español": "Spanish",
+    "Eesti": "Estonian",
+    "Euskara": "Basque",
+    "فارسی": "Persian",
+    "Suomi": "Finnish",
+    "Français": "French",
+    "Frysk": "Frisian",
+    "Gaeilge": "Irish",
+    "Gàidhlig": "Scots Gaelic",
+    "Galego": "Galician",
+    "ગુજરાતી": "Gujarati",
+    "Hausa": "Hausa",
+    "ʻŌlelo Hawaiʻi": "Hawaiian",
+    "हिन्दी": "Hindi",
+    "Hmoob": "Hmong",
+    "Hrvatski": "Croatian",
+    "Kreyòl Ayisyen": "Haitian Creole",
+    "Magyar": "Hungarian",
+    "Հայերեն": "Armenian",
+    "Bahasa Indonesia": "Indonesian",
+    "Igbo": "Igbo",
+    "Íslenska": "Icelandic",
+    "Italiano": "Italian",
+    "עִבְרִית": "Hebrew",
+    "日本語": "Japanese",
+    "Basa Jawa": "Javanese",
+    "ქართული": "Georgian",
+    "Қазақ тілі": "Kazakh",
+    "ភាសាខ្មែរ": "Khmer",
+    "ಕನ್ನಡ": "Kannada",
+    "한국어": "Korean",
+    "Kurdî": "Kurdish (Kurmanji)",
+    "Кыргызча": "Kyrgyz",
+    "Latina": "Latin",
+    "Lëtzebuergesch": "Luxembourgish",
+    "ຄຳ​ແປ​ສຳລັບ": "Lao",
+    "Lietuvių": "Lithuanian",
+    "Latviešu": "Latvian",
+    "Malagasy": "Malagasy",
+    "Māori": "Maori",
+    "Македонски": "Macedonian",
+    "മലയാളം": "Malayalam",
+    "Монгол": "Mongolian",
+    "मराठी": "Marathi",
+    "Bahasa Melayu": "Malay",
+    "Malti": "Maltese",
+    "မြန်မာစာ": "Myanmar (Burmese)",
+    "नेपाली": "Nepali",
+    "Nederlands": "Dutch",
+    "Norsk": "Norwegian",
+    "Cebuano": "Cebuano",
+    "ਪੰਜਾਬੀ": "Punjabi",
+    "Polski": "Polish",
+    "پښتو": "Pashto",
+    "Português": "Portuguese",
+    "Română": "Romanian",
+    "Русский": "Russian",
+    "سنڌي": "Sindhi",
+    "සිංහල": "Sinhala",
+    "Slovenčina": "Slovak",
+    "Slovenščina": "Slovenian",
+    "Gagana Sāmoa": "Samoan",
+    "chiShona": "Shona",
+    "Soomaali": "Somali",
+    "Shqip": "Albanian",
+    "српски": "Serbian",
+    "srpski": "Serbian",
+    "Sesotho": "Sesotho",
+    "Basa Sunda": "Sundanese",
+    "Svenska": "Swedish",
+    "Kiswahili": "Swahili",
+    "தமிழ்": "Tamil",
+    "తెలుగు": "Telugu",
+    "Тоҷикӣ": "Tajik",
+    "ไทย": "Thai",
+    "Tagalog": "Filipino",
+    "Türkçe": "Turkish",
+    "Українська": "Ukrainian",
+    "اُردُو": "Urdu",
+    "Oʻzbek tili": "Uzbek",
+    "Tiếng Việt": "Vietnamese",
+    "isiXhosa": "Xhosa",
+    "ייִדיש": "Yiddish",
+    "Yorùbá": "Yoruba",
+    "简体中文": "Chinese Simplified",
+    "正體中文": "Chinese Traditional",
+    "isiZulu": "Zulu"
 };
 
 function SettingsHandler(aUUID) {
@@ -348,9 +493,16 @@ ButtonsBarButton.prototype = {
         this._button_box.add_actor(this._button);
 
         if (typeof action === "function") {
-            this._button.connect("clicked", Lang.bind(this, function() {
+            this._button.connect("button-press-event", Lang.bind(this, function(actor, event) {
                 if (this._sensitive)
-                    action();
+                    action(actor, event);
+
+                // Since I changed the event from "clicked" to "button-press-event"
+                // (to be able to pass the event to the callback to detect modifier keys),
+                // and if the action defined above is the closing of the dialog ("Quit" button),
+                // the Cinnamon UI kind of "gets stuck". The following return fixes that.
+                // Keep an eye on this in case it has negative repercussions.
+                return true;
             }));
         }
 
@@ -380,9 +532,8 @@ ButtonsBarButton.prototype = {
                 y_align: St.Align.MIDDLE
             });
 
-            if (this._icon) {
+            if (this._icon)
                 this._label.visible = false;
-            }
         }
 
         this._button.connect("enter-event", Lang.bind(this, this._on_enter_event));
@@ -394,9 +545,8 @@ ButtonsBarButton.prototype = {
             this._button.tooltip.destroy();
         }));
 
-        if (!this._icon && !this._label) {
+        if (!this._icon && !this._label)
             throw new Error(_("Icon and label are both false."));
-        }
     },
 
     _on_enter_event: function(object, event) { // jshint ignore:line
@@ -430,11 +580,10 @@ ButtonsBarButton.prototype = {
     },
 
     set_checked: function(checked) {
-        if (checked) {
+        if (checked)
             this.button.add_style_pseudo_class("active");
-        } else {
+        else
             this.button.remove_style_pseudo_class("active");
-        }
 
         this.button.set_checked(checked);
     },
@@ -805,6 +954,8 @@ HelpDialog.prototype = {
                 _("Open translator dialog and translate from primary selection.")) +
             base.format(escape_html("<Ctrl><Enter>"),
                 _("Translate text.")) +
+            base.format(escape_html("<Shift><Enter>"),
+                _("Translate text (Forced).")) +
             base.format(escape_html("<Ctrl><Shift>C"),
                 _("Copy translated text to clipboard.")) +
             base.format(escape_html("<Ctrl>S"),
@@ -836,9 +987,8 @@ HelpDialog.prototype = {
     _on_key_press_event: function(object, event) {
         let symbol = event.get_key_symbol();
 
-        if (symbol == Clutter.Escape) {
+        if (symbol == Clutter.Escape)
             this.close();
-        }
     },
 
     _get_close_button: function() {
@@ -1010,7 +1160,8 @@ LanguageChooser.prototype = {
             let lang_code = key;
             let search_text = this._search_entry.get_text().toLowerCase();
 
-            if (!starts_with(lang_name.toLowerCase(), search_text)) continue;
+            if (!starts_with(lang_name.toLowerCase(), search_text))
+                continue;
 
             filtered[lang_code] = lang_name;
         }
@@ -1091,7 +1242,8 @@ LanguageChooser.prototype = {
         let column = 0;
         let languages = this._languages;
 
-        if (!is_blank(list)) languages = list;
+        if (!is_blank(list))
+            languages = list;
 
         let keys = Object.keys(languages);
         keys.sort(Lang.bind(this, function(a, b) {
@@ -1100,7 +1252,11 @@ LanguageChooser.prototype = {
 
             a = languages[a];
             b = languages[b];
-            return a > b;
+            return a.localeCompare(b);
+
+            // a = languages[a];
+            // b = languages[b];
+            // return a > b;
         }));
 
         for each(let code in keys) {
@@ -1179,7 +1335,9 @@ LanguagesButtons.prototype = {
             this._label.hide();
             this.buttons.actor.show();
 
-            for (let i = 0; i < this._langs.length; i++) {
+            let i = 0,
+                iLen = this._langs.length;
+            for (; i < iLen; i++) {
                 let button_params = {
                     button_style_class: "translator-lang-button",
                     box_style_class: "translator-lang-button-box",
@@ -1219,7 +1377,9 @@ LanguagesButtons.prototype = {
     },
 
     select: function(lang_code) {
-        for (let i = 0; i < this._langs.length; i++) {
+        let i = 0,
+            iLen = this._langs.length;
+        for (; i < iLen; i++) {
             let lang = this._langs[i];
 
             if (lang.lang_code === lang_code) {
@@ -1267,9 +1427,8 @@ LanguagesStats.prototype = {
         this._json_data = settings.getValue("pref_languages_stats");
         this._storage = JSON.parse(this._json_data);
 
-        if (this._storage instanceof Array) {
+        if (this._storage instanceof Array)
             this._storage = {};
-        }
     },
 
     increment: function(translator_name, type, lang_data) {
@@ -1308,9 +1467,11 @@ LanguagesStats.prototype = {
         }));
 
         let result = [];
-
-        for (let i = 0; i < filtered.length; i++) {
-            if (i >= n) break;
+        let i = 0,
+            iLen = filtered.length;
+        for (; i < iLen; i++) {
+            if (i >= n)
+                break;
 
             let clone = JSON.parse(JSON.stringify(this._storage[filtered[i]]));
             result.push(clone);
@@ -1352,7 +1513,7 @@ StatusBarMessage.prototype = {
         message = message.slice(0, STATUS_BAR_MAX_MESSAGE_LENGTH);
         message = escape_html(message);
 
-        let message_markup = '<span color="%s">%s</span>';
+        let message_markup = '<span color="%s"><b>%s</b></span>';
 
         switch (type) {
             case STATUS_BAR_MESSAGE_TYPES.error:
@@ -1504,12 +1665,14 @@ StatusBar.prototype = {
 
     remove_last: function() {
         let max_id = this._get_max_id();
-        if (max_id > 0) this.remove_message(max_id);
+        if (max_id > 0)
+            this.remove_message(max_id);
     },
 
     show_last: function() {
         let max_id = this._get_max_id();
-        if (max_id > 0) this.show_message(max_id);
+        if (max_id > 0)
+            this.show_message(max_id);
     },
 
     clear: function() {
@@ -1556,9 +1719,11 @@ TranslationProviderPrefs.prototype = {
     _load_prefs: function() {
         let prefs = settings.getValue("pref_translators_prefs");
 
-        if (prefs[this._name] === undefined) {
-            throw new Error(_("Can't load prefs for %s").format(this._name));
-        }
+        if (!prefs[this._name])
+            prefs = DEFAULT_ENGINES;
+
+        if (!prefs[this._name])
+            throw new Error(_("Can't load preferences for %s").format(this._name));
 
         prefs = prefs[this._name];
         this._default_source = prefs.default_source || "auto";
@@ -1574,9 +1739,8 @@ TranslationProviderPrefs.prototype = {
         try {
             let temp = {};
 
-            if (current_prefs[this._name] !== undefined) {
+            if (current_prefs[this._name] !== undefined)
                 temp = current_prefs[this._name];
-            }
 
             for (let key in new_prefs) {
                 temp[key] = new_prefs[key];
@@ -1590,9 +1754,8 @@ TranslationProviderPrefs.prototype = {
     },
 
     destroy: function() {
-        if (this._settings_connect_id > 0) {
+        if (this._settings_connect_id > 0)
             settings.disconnect(this._settings_connect_id);
-        }
     },
 
     get last_source() {
@@ -1685,11 +1848,26 @@ TranslationProviderBase.prototype = {
     },
 
     make_url: function(source_lang, target_lang, text) {
-        let result = this._url.format(
-            source_lang,
-            target_lang,
-            encodeURIComponent(text)
-        );
+        let result = "";
+
+        switch (this.name) {
+            case "Yandex.Translate":
+                result = this._url.format(
+                    this.YandexAPIKey,
+                    (source_lang === "auto" ? "" : source_lang + "-") + target_lang,
+                    encodeURIComponent(text)
+                );
+                break;
+                // Not used for now
+                // Google, Bing and Apertium all use translate-shell
+            default:
+                result = this._url.format(
+                    (source_lang === "auto" ? "" : source_lang + "-") + target_lang,
+                    encodeURIComponent(text)
+                );
+                break;
+        }
+
         return result;
     },
 
@@ -1808,22 +1986,20 @@ EntryBase.prototype = {
         this.scroll.add_actor(this._box);
     },
 
-    _on_key_press_event: function(o, e) {
-        let symbol = e.get_key_symbol();
-        let code = e.get_key_code();
-        let state = e.get_state();
+    _on_key_press_event: function(object, event) {
+        let symbol = event.get_key_symbol();
+        let code = event.get_key_code();
+        let state = event.get_state();
 
         let cyrillic_control = 8196;
-        // Not used, but keep it anyways.
-        // let cyrillic_shift = 8192;
+        let cyrillic_shift = 8192;
 
         let control_mask =
             state === Clutter.ModifierType.CONTROL_MASK ||
             state === cyrillic_control;
-        // Not used, but keep it anyways.
-        // let shift_mask =
-        //     // state === Clutter.ModifierType.SHIFT_MASK ||
-        //     state === cyrillic_shift;
+        let shift_mask =
+            state === Clutter.ModifierType.SHIFT_MASK ||
+            state === cyrillic_shift;
 
         if (symbol == Clutter.Right) {
             let sel = this._clutter_text.get_selection_bound();
@@ -1863,28 +2039,25 @@ EntryBase.prototype = {
 
                 return false;
             }));
-        } else if (
-            (state == Clutter.ModifierType.CONTROL_MASK || state == cyrillic_control) &&
-            (symbol == Clutter.Return || symbol == Clutter.KP_Enter)
-        ) {
-            this.emit("activate");
+        } else if ((shift_mask || control_mask) && (symbol == Clutter.Return || symbol == Clutter.KP_Enter)) {
+            this.emit("activate", event);
             return Clutter.EVENT_STOP;
         } else {
-            // let t = {
-            //     state: state,
-            //     symbol: symbol,
-            //     code: code
-            // };
-            // log(JSON.stringify(t, null, '\t'));
+            if (settings.getValue("pref_loggin_enabled")) {
+                global.logError(JSON.stringify({
+                    state: state,
+                    symbol: symbol,
+                    code: code
+                }, null, '\t'));
+            }
         }
 
         return false;
     },
 
     destroy: function() {
-        if (this._font_connection_id > 0) {
+        if (this._font_connection_id > 0)
             settings.disconnect(this._font_connection_id);
-        }
 
         this.actor.destroy();
     },
@@ -2105,12 +2278,23 @@ TranslatorDialog.prototype = {
         this._listen_target_button.hide();
         this._listen_target_button.actor.connect("clicked",
             Lang.bind(this, function() {
-                let lines_count = this._source.text.split("\n").length;
-                let translation = this._target.text.split("\n").slice(0, lines_count).join("\n");
-                this.google_tts.speak(
-                    translation,
-                    this._text_translator.current_target_lang
-                );
+                try {
+                    let regExp = new RegExp("[" + _("History") + "]");
+                    let lines_count = this._source.text.split("\n").length;
+                    let translation = this._target.text.split("\n").slice(0, lines_count).join("\n");
+
+                    // Keep an eye on this.
+                    // I don't know if this is the best approach.
+                    if (regExp.test(translation))
+                        translation = this._target.text.split("\n").slice(1, lines_count + 1).join("\n");
+
+                    this.google_tts.speak(
+                        translation,
+                        this._text_translator.current_target_lang
+                    );
+                } catch (aErr) {
+                    global.logError(aErr);
+                }
             }));
 
         this._grid_layout = new Clutter.GridLayout({
@@ -2152,19 +2336,22 @@ TranslatorDialog.prototype = {
     _on_source_changed: function() {
         this._chars_counter.current_length = this._source.length;
 
-        if (!this._source.is_empty) this._listen_source_button.show();
-        else this._listen_source_button.hide();
+        if (!this._source.is_empty)
+            this._listen_source_button.show();
+        else
+            this._listen_source_button.hide();
     },
 
     _on_target_changed: function() {
-        if (!this._target.is_empty) this._listen_target_button.show();
-        else this._listen_target_button.hide();
+        if (!this._target.is_empty)
+            this._listen_target_button.show();
+        else
+            this._listen_target_button.hide();
     },
 
     _init_scroll_sync: function() {
-        if (settings.getValue("pref_sync_entries_scrolling")) {
+        if (settings.getValue("pref_sync_entries_scrolling"))
             this.sync_entries_scroll();
-        }
 
         this._connection_ids.sync_scroll_settings = settings.connect(
             "changed::pref_sync_entries_scrolling",
@@ -2180,18 +2367,16 @@ TranslatorDialog.prototype = {
     },
 
     _init_most_used_bar: function() {
-        if (settings.getValue("pref_show_most_used")) {
+        if (settings.getValue("pref_show_most_used"))
             this._show_most_used_bar();
-        }
 
         this._connection_ids.show_most_used = settings.connect(
             "changed::pref_show_most_used",
             Lang.bind(this, function() {
-                if (settings.getValue("pref_show_most_used")) {
+                if (settings.getValue("pref_show_most_used"))
                     this._show_most_used_bar();
-                } else {
+                else
                     this._hide_most_used_bar();
-                }
             })
         );
     },
@@ -2322,12 +2507,11 @@ TranslatorDialog.prototype = {
     },
 
     destroy: function() {
-        if (this._connection_ids.sync_scroll_settings > 0) {
+        if (this._connection_ids.sync_scroll_settings > 0)
             settings.disconnect(this._connection_ids.sync_scroll_settings);
-        }
-        if (this._connection_ids.show_most_used > 0) {
+
+        if (this._connection_ids.show_most_used > 0)
             settings.disconnect(this._connection_ids.show_most_used);
-        }
 
         delete this._text_translator;
 
@@ -2430,9 +2614,8 @@ TranslatorsManager.prototype = {
         for (let i = 0; i < this._translators.length; i++) {
             let translator = this._translators[i];
 
-            if (translator.name.toLowerCase() == name.toLowerCase()) {
+            if (translator.name.toLowerCase() == name.toLowerCase())
                 return translator;
-            }
         }
 
         return false;
@@ -2446,11 +2629,10 @@ TranslatorsManager.prototype = {
         let name = translator_object_or_name;
         let translator = translator_object_or_name;
 
-        if (translator_object_or_name instanceof TranslationProviderBase) {
+        if (translator_object_or_name instanceof TranslationProviderBase)
             name = translator_object_or_name.name;
-        } else {
+        else
             translator = this.get_by_name(name);
-        }
 
         this._current = translator;
 
@@ -2460,6 +2642,7 @@ TranslatorsManager.prototype = {
     get last_used() {
         let name = settings.getValue("pref_last_translator");
         let translator = this.get_by_name(name);
+
         if (!translator)
             return false;
 
@@ -2543,7 +2726,8 @@ function get_files_in_dir(path) {
     while ((info = file_enum.next_file(null)) !== null) {
         let file_type = info.get_file_type();
 
-        if (file_type != Gio.FileType.REGULAR) continue;
+        if (file_type != Gio.FileType.REGULAR)
+            continue;
 
         let file_name = info.get_name();
         result.push(file_name);
@@ -2557,11 +2741,10 @@ function get_files_in_dir(path) {
 function get_unichar(keyval) {
     let ch = Clutter.keysym_to_unicode(keyval);
 
-    if (ch) {
+    if (ch)
         return String.fromCharCode(ch);
-    } else {
+    else
         return false;
-    }
 }
 
 // http://stackoverflow.com/a/7654602
@@ -2588,7 +2771,8 @@ function escapeRegExp(str) {
     return str.replace(/([.*+?^=!:${}()|\[\]\/\\])/g, "\\$1");
 }
 
-function exec(cmd, exec_cb) { // jshint ignore:line
+/* exported exec */
+function exec(cmd, exec_cb) {
     let out_reader;
 
     try {
@@ -2617,12 +2801,24 @@ function exec(cmd, exec_cb) { // jshint ignore:line
     out_reader.read_line_async(null, null, _SocketRead);
 }
 
-function execSync(cmd) { // jshint ignore:line
+/* exported execSync */
+function execSync(cmd) {
     try {
         return GLib.spawn_command_line_sync(cmd)[1].toString().trim();
     } catch (aErr) {
         return false;
     }
+}
+
+/* exported getKeyByValue */
+function getKeyByValue(object, value) {
+    for (let key in object) {
+        if (object.hasOwnProperty(key)) {
+            if (object[key] === value)
+                return key;
+        }
+    }
+    return null;
 }
 
 /**
@@ -2743,20 +2939,25 @@ TranslatorsPopup.prototype = {
     add_item: function(name, action, icon_name) {
         let item;
 
-        if (icon_name) {
-            item = new PopupMenu.PopupIconMenuItem(
-                name,
-                icon_name,
-                St.IconType.SYMBOLIC
-            );
+        if (name === "separator") {
+            item = new PopupMenu.PopupSeparatorMenuItem();
         } else {
-            item = new PopupMenu.PopupMenuItem(name);
+            if (icon_name) {
+                item = new PopupMenu.PopupIconMenuItem(
+                    name,
+                    icon_name,
+                    St.IconType.SYMBOLIC
+                );
+            } else {
+                item = new PopupMenu.PopupMenuItem(name);
+            }
+
+            item.connect("activate", Lang.bind(this, function() {
+                action();
+                this.close();
+            }));
         }
 
-        item.connect("activate", Lang.bind(this, function() {
-            action();
-            this.close();
-        }));
         this.addMenuItem(item);
     },
 

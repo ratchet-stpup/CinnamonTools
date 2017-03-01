@@ -9,32 +9,34 @@
         "indent": true,
         "default": "<Super>T",
         "description": "Translate hotkey",
-        "tooltip": "Open translator dialog hotkey."
+        "tooltip": "Hotkey to open the translator dialog."
     },
     "pref_translate_from_clipboard_keybinding": {
         "type": "keybinding",
         "indent": true,
         "default": "<Super><Shift>T",
-        "description": "Translate text from clipboard hotkey",
-        "tooltip": "Open translator dialog and translate text from clipboard hotkey."
+        "description": "Translate from clipboard hotkey",
+        "tooltip": "Hotkey to open the translator dialog and translate text from clipboard."
     },
     "pref_translate_from_selection_keybinding": {
         "type": "keybinding",
         "indent": true,
         "default": "<Super><Alt>T",
         "description": "Translate from selection hotkey",
-        "tooltip": "Open translator dialog and translate from primary selection hotkey."
+        "tooltip": "Hotkey to open the translator dialog and translate from primary selection."
     },
     "pref_sync_entries_scrolling": {
         "type": "checkbox",
-        "default": true,
+        "default": false,
         "description": "Synchronize scroll entries"
     },
     "pref_default_translator": {
         "type": "combobox",
         "default": "Google.Translate",
-        "description": "Display method for information about applications:",
+        "description": "Default translation provider",
         "options": {
+            "Apertium Translate": "Apertium.Translate",
+            "Bing Translate": "Bing.Translate",
             "Google Translate": "Google.Translate",
             "Yandex Translate": "Yandex.Translate"
         }
@@ -42,6 +44,20 @@
     "pref_translators_prefs": {
         "type": "generic",
         "default": {
+            "Apertium.Translate": {
+                "default_source": "auto",
+                "default_target": "en",
+                "last_source": "",
+                "last_target": "",
+                "remember_last_lang": true
+            },
+            "Bing.Translate": {
+                "default_source": "auto",
+                "default_target": "en",
+                "last_source": "",
+                "last_target": "",
+                "remember_last_lang": true
+            },
             "Google.Translate": {
                 "default_source": "auto",
                 "default_target": "en",

@@ -9,7 +9,11 @@ const GLib = imports.gi.GLib;
 const Gio = imports.gi.Gio;
 const Cinnamon = imports.gi.Cinnamon;
 
-const TIMEOUT_IDS = {};
+const LOAD_THEME_DELAY = 1000; // milliseconds
+
+const TIMEOUT_IDS = {
+    load_theme_id: 0
+};
 
 const TRIGGERS = {
     translate: true
@@ -29,6 +33,7 @@ const State = {
 
 var $;
 var metadata;
+var main_extension_path;
 var main_extension_dir;
 var settings;
 
@@ -56,10 +61,7 @@ TranslatorExtension.prototype = {
                 this
             );
 
-            this.oldTheme = "";
-
-            this._dialog.source.max_length =
-                this._translators_manager.current.limit;
+            this._dialog.source.max_length = this._translators_manager.current.limit;
             this._dialog.source.connect("activate", Lang.bind(this, this._translate));
 
             this._languages_stats = new $.LanguagesStats();
@@ -81,11 +83,22 @@ TranslatorExtension.prototype = {
                 }))
             );
 
-            this._loadTheme();
+            Main.themeManager.connect("theme-set", Lang.bind(this, function() {
+                try {
+                    this.unloadStylesheet();
+                } finally {
+                    this.loadStylesheet(this.stylesheet);
+                }
+            }));
 
+            this.theme = null;
+            this.stylesheet = null;
+            this.forceTranslation = false;
             this.historyFile = null;
             this._translation_history = null;
+
             this.ensureHistoryFileExists();
+            this._loadTheme();
         } catch (aErr) {
             global.logError(aErr);
         }
@@ -165,18 +178,16 @@ TranslatorExtension.prototype = {
     /**
      * Since the removal of certain features from the original extension,
      * this function is not used.
-     * Keep it just in case it's usefull in the future.
+     * Keep it just in case it's useful in the future.
      */
     _remove_timeouts: function(timeout_key) {
         if (!$.is_blank(timeout_key)) {
-            if (TIMEOUT_IDS[timeout_key] > 0) {
+            if (TIMEOUT_IDS[timeout_key] > 0)
                 Mainloop.source_remove(TIMEOUT_IDS[timeout_key]);
-            }
         } else {
             for (let key in TIMEOUT_IDS) {
-                if (TIMEOUT_IDS[key] > 0) {
+                if (TIMEOUT_IDS[key] > 0)
                     Mainloop.source_remove(TIMEOUT_IDS[key]);
-                }
             }
         }
     },
@@ -231,12 +242,13 @@ TranslatorExtension.prototype = {
         } else if (symbol == Clutter.KEY_Super_L || symbol == Clutter.KEY_Super_R) { // Super - close
             this.close();
         } else {
-            // let t = {
-            //     state: state,
-            //     symbol: symbol,
-            //     code: code
-            // };
-            // log(JSON.stringify(t, null, '\t'));
+            if (settings.getValue("pref_loggin_enabled")) {
+                global.logError(JSON.stringify({
+                    state: state,
+                    symbol: symbol,
+                    code: code
+                }, null, '\t'));
+            }
         }
     },
 
@@ -282,6 +294,10 @@ TranslatorExtension.prototype = {
     _swap_languages: function() {
         let source = this._current_source_lang;
         let target = this._current_target_lang;
+
+        if (source === "auto")
+            return;
+
         this._set_current_source(target);
         this._set_current_target(source);
         this._current_langs_changed();
@@ -332,7 +348,7 @@ TranslatorExtension.prototype = {
             this.close();
             Util.spawn_async([
                 /*"python3",*/
-                main_extension_dir + "/extensionHelper.py",
+                main_extension_path + "/extensionHelper.py",
                 "history",
                 settings.getValue("pref_history_initial_window_width") + "," +
                 settings.getValue("pref_history_initial_window_height") + "," +
@@ -479,9 +495,9 @@ TranslatorExtension.prototype = {
 
                     for (let i = 0; i < names.length; i++) {
                         let name = names[i];
-                        if (name === this._translators_manager.current.name) {
+
+                        if (name === this._translators_manager.current.name)
                             continue;
-                        }
 
                         translators_popup.add_item(name,
                             Lang.bind(this, function() {
@@ -543,6 +559,17 @@ TranslatorExtension.prototype = {
                         _("Translation history"),
                         Lang.bind(this, this._openTranslationHistory),
                         $.ICONS.history
+                    ],
+                    [
+                        "separator"
+                    ],
+                    [
+                        _("Extended help"),
+                        Lang.bind(this, function() {
+                            this.close();
+                            Util.spawnCommandLine("xdg-open " + main_extension_path + "/HELP.html");
+                        }),
+                        $.ICONS.help
                     ]
                 ];
 
@@ -567,31 +594,12 @@ TranslatorExtension.prototype = {
         let button = new $.ButtonsBarButton(
             $.ICONS.help,
             "",
-            _("Help"),
+            _("Quick help"),
             button_params,
             Lang.bind(this, this._show_help));
 
         return button;
     },
-
-    // _get_prefs_button: function() {
-    //     let button_params = {
-    //         button_style_class: "translator-dialog-menu-button",
-    //         statusbar: this._dialog.statusbar
-    //     };
-    //     let button = new $.ButtonsBarButton(
-    //         $.ICONS.preferences,
-    //         "",
-    //         _("Preferences"),
-    //         button_params,
-    //         Lang.bind(this, function() {
-    //             this.close();
-    //             Util.spawn(["cinnamon-settings", "extensions", metadata.uuid]);
-    //         })
-    //     );
-
-    //     return button;
-    // },
 
     _get_close_button: function() {
         let button_params = {
@@ -655,16 +663,37 @@ TranslatorExtension.prototype = {
         let help_button = this._get_help_button();
         this._dialog.dialog_menu.add_button(help_button, true);
 
-        // let prefs_button = this._get_prefs_button();
-        // this._dialog.dialog_menu.add_button(prefs_button, true);
-
         let close_button = this._get_close_button();
         this._dialog.dialog_menu.add_button(close_button, true);
     },
 
-    _translate: function() {
+    _translate: function(actor, event) {
         if ($.is_blank(this._dialog.source.text))
             return;
+
+        try {
+            let state = event.get_state();
+            let cyrillic_shift = 8192;
+            let shift_mask =
+                (state === Clutter.ModifierType.SHIFT_MASK || state === cyrillic_shift) || // For key press
+                (Clutter.ModifierType.SHIFT_MASK & global.get_pointer()[2]) !== 0; // For mouse button press
+
+            this.forceTranslation = shift_mask;
+
+        } catch (aErr) {
+            global.logError(aErr);
+        }
+        let historyEntry = this.transHistory[this._current_target_lang] ?
+            this.transHistory[this._current_target_lang][this._dialog.source.text] :
+            false;
+
+        if (this.forceTranslation)
+            historyEntry = false;
+
+        if (historyEntry && this._current_target_lang === historyEntry["tL"]) {
+            this._displayHistory(this._dialog.source.text);
+            return;
+        }
 
         this._update_stats();
         this._dialog.target.text = "";
@@ -689,7 +718,22 @@ TranslatorExtension.prototype = {
                         $.STATUS_BAR_MESSAGE_TYPES.error
                     );
                 } else {
-                    this._dialog.target.markup = "%s".format(result);
+                    this._dialog.target.markup = "%s".format(result.message);
+
+                    // Do not save history if the source text is equal to the
+                    // translated text.
+                    if (this._dialog.source.text !== this._dialog.target.text) {
+                        this.setTransHistory(
+                            this._dialog.source.text, {
+                                d: this._getTimeStamp(new Date().getTime()),
+                                sL: (this._current_source_lang === "auto" ?
+                                    this._getDetectedLang(result) :
+                                    this._current_source_lang),
+                                tL: this._current_target_lang,
+                                tT: result.message
+                            }
+                        );
+                    }
                 }
             })
         );
@@ -698,33 +742,54 @@ TranslatorExtension.prototype = {
     _translate_from_clipboard: function(aTranslateSelection) {
         this.open();
 
-        try {
-            let clipboard = St.Clipboard.get_default();
-            let selection = this.selection;
+        let clipboard = St.Clipboard.get_default();
+        let selection = this.selection;
 
-            if (aTranslateSelection) {
+        if (aTranslateSelection) {
+            TRIGGERS.translate = false;
+            this._dialog.source.text = selection;
+            this._translate();
+        } else {
+            clipboard.get_text(Lang.bind(this, function(clipboard, text) {
+                if ($.is_blank(text)) {
+                    this._dialog.statusbar.add_message(
+                        _("Clipboard is empty."),
+                        2000,
+                        $.STATUS_BAR_MESSAGE_TYPES.error,
+                        false
+                    );
+                    return;
+                }
+
                 TRIGGERS.translate = false;
-                this._dialog.source.text = selection;
+                this._dialog.source.text = text;
                 this._translate();
-            } else {
-                clipboard.get_text(Lang.bind(this, function(clipboard, text) {
-                    if ($.is_blank(text)) {
-                        this._dialog.statusbar.add_message(
-                            _("Clipboard is empty."),
-                            2000,
-                            $.STATUS_BAR_MESSAGE_TYPES.error,
-                            false
-                        );
-                        return;
-                    }
+            }));
+        }
+    },
 
-                    TRIGGERS.translate = false;
-                    this._dialog.source.text = text;
-                    this._translate();
-                }));
-            }
-        } catch (aErr) {
-            global.logError(aErr);
+    _getDetectedLang: function(aResult) {
+        switch (this._translators_manager.current.name) {
+            case "Google.Translate":
+                let lines = aResult.message.split("\n");
+                let i = 0,
+                    iLen = lines.length;
+                for (; i < iLen; i++) {
+                    if (/^\[/.test(lines[i]) && /\]$/.test(lines[i])) {
+                        let str = (lines[i].replace(/<[^>]*>/g, "")).split("->")[0];
+                        str = str.slice(1, str.length).trim();
+                        return $.getKeyByValue($.LANGUAGES_LIST, $.LANGUAGES_LIST_ENDONYMS[str]) ||
+                            this._current_source_lang;
+                    } else {
+                        continue;
+                    }
+                }
+
+                return this._current_source_lang;
+            case "Yandex.Translate":
+                return aResult.detected.lang || this._current_source_lang;
+            default:
+                return this._current_source_lang;
         }
     },
 
@@ -764,29 +829,25 @@ TranslatorExtension.prototype = {
     },
 
     open: function() {
-        try {
-            if (settings.getValue("pref_remember_last_translator")) {
-                let translator =
-                    this._translators_manager.last_used ?
-                    this._translators_manager.last_used.name :
-                    this._translators_manager.default.name;
-                this._set_current_translator(translator);
-            } else {
-                this._set_current_translator(this._translators_manager.default.name);
-            }
-
-            this._dialog.open();
-            this._dialog.source.clutter_text.set_selection(
-                0,
-                this._dialog.source.length
-            );
-            this._dialog.source.clutter_text.grab_key_focus();
-            this._dialog.source.max_length = this._translators_manager.current.limit;
-            this._set_current_languages();
-            this._show_most_used();
-        } catch (aErr) {
-            global.logError(aErr);
+        if (settings.getValue("pref_remember_last_translator")) {
+            let translator =
+                this._translators_manager.last_used ?
+                this._translators_manager.last_used.name :
+                this._translators_manager.default.name;
+            this._set_current_translator(translator);
+        } else {
+            this._set_current_translator(this._translators_manager.default.name);
         }
+
+        this._dialog.open();
+        this._dialog.source.clutter_text.set_selection(
+            0,
+            this._dialog.source.length
+        );
+        this._dialog.source.clutter_text.grab_key_focus();
+        this._dialog.source.max_length = this._translators_manager.current.limit;
+        this._set_current_languages();
+        this._show_most_used();
     },
 
     close: function() {
@@ -794,89 +855,99 @@ TranslatorExtension.prototype = {
     },
 
     enable: function() {
-        try {
-            if (settings.getValue("pref_enable_shortcuts")) {
-                this._add_keybindings();
-            }
+        if (settings.getValue("pref_enable_shortcuts"))
+            this._add_keybindings();
 
-            CONNECTION_IDS.enable_shortcuts =
-                settings.connect("changed::pref_enable_shortcuts",
-                    Lang.bind(this, function() {
-                        let enable = settings.getValue("pref_enable_shortcuts");
+        CONNECTION_IDS.enable_shortcuts =
+            settings.connect("changed::pref_enable_shortcuts",
+                Lang.bind(this, function() {
+                    let enable = settings.getValue("pref_enable_shortcuts");
 
-                        if (enable)
-                            this._add_keybindings();
-                        else
-                            this._remove_keybindings();
-                    })
-                );
-        } catch (aErr) {
-            global.logError(aErr);
-        }
+                    if (enable)
+                        this._add_keybindings();
+                    else
+                        this._remove_keybindings();
+                })
+            );
     },
 
     disable: function() {
         this.close();
+        this.unloadStylesheet();
         this._dialog.destroy();
         this._translators_manager.destroy();
         this._source_language_chooser.destroy();
         this._target_language_chooser.destroy();
         this._remove_keybindings();
 
-        if (CONNECTION_IDS.enable_shortcuts > 0) {
+        if (CONNECTION_IDS.enable_shortcuts > 0)
             settings.disconnect(CONNECTION_IDS.enable_shortcuts);
-        }
     },
 
     _loadTheme: function(aFullReload) {
-        let newTheme = settings.getValue("pref_dialog_theme");
-
-        // Nothing to do here.
-        if (newTheme === this.oldTheme)
-            return;
-
-        /**
-         * With the following call to Main.loadTheme(), the themes used by this extension are correctly loaded,
-         * but absolutely all style sheets from every single freaking xlet currently loaded
-         * in the system will be unloaded.
-         * Without the call to Main.loadTheme(), the themes used by this extension are not loaded correctly.
-         * Gave up and chose to force a Cinnamon restart every time the themes are switched. ¬¬
-         */
-        // if (aFullReload)
-        //     Main.loadTheme();
-        /**
-         * Giving it a shot to Main.themeManager._changeTheme().
-         * It seems that it isn't affecting the style sheets set by other xlets at the moment.
-         */
-        if (aFullReload)
-            Main.themeManager._changeTheme();
-
-        // Saves us from having to do this twice.
-        let theme = St.ThemeContext.get_for_stage(global.stage).get_theme();
+        this._remove_timeouts("load_theme_id");
+        let newTheme = this._getCssPath(settings.getValue("pref_dialog_theme"));
 
         try {
-            // Unload old theme so we can hotswap it for a new shiny one.
-            if (this.oldTheme !== "") {
-                theme.unload_stylesheet(this._getCssPath(this.oldTheme));
-            }
-
+            this.unloadStylesheet();
+        } catch (aErr) {
+            global.logError(aErr);
         } finally {
-            // Apply new theme. Old method, no longer requires restart really. ;)
-            theme.load_stylesheet(this._getCssPath(newTheme));
+            TIMEOUT_IDS.load_theme_id = Mainloop.timeout_add(
+                LOAD_THEME_DELAY,
+                Lang.bind(this, function() {
+                    // This block doesn't make any sense, but it's what it works.
+                    // So I will leave it as is or else. ¬¬
+                    try {
+                        this.loadStylesheet(newTheme);
+                    } catch (aErr) {
+                        global.logError(aErr);
+                    } finally {
+                        if (aFullReload)
+                            Main.themeManager._changeTheme();
+                    }
+                })
+            );
+        }
+    },
 
-            // Remember old theme so we can hotswap it later.
-            this.oldTheme = newTheme;
+    loadStylesheet: function(aThemePath) {
+        try {
+            let themeContext = St.ThemeContext.get_for_stage(global.stage);
+            this.theme = themeContext.get_theme();
+        } catch (aErr) {
+            throw this.logError(_("Error trying to get theme"), aErr);
+        }
 
+        try {
+            this.theme.load_stylesheet(aThemePath);
+            this.stylesheet = aThemePath;
+        } catch (aErr) {
+            throw this.logError(_("Stylesheet parse error"), aErr);
+        }
+    },
+
+    unloadStylesheet: function() {
+        if (this.theme && this.stylesheet) {
+            try {
+                this.theme.unload_stylesheet(this.stylesheet);
+            } catch (e) {
+                global.logError(_("Error unloading stylesheet"), e);
+            }
         }
     },
 
     _getCssPath: function(theme) {
         // Get CSS of new theme, and check it exists, falling back to "default"
-        let cssPath = main_extension_dir + "/themes/" + theme + ".css";
-        let cssFile = Gio.file_new_for_path(cssPath);
+        let cssPath = main_extension_path + "/themes/" + theme + ".css";
 
-        if (!cssFile.query_exists(null)) {
-            cssPath = main_extension_dir + "/themes/default.css";
+        try {
+            let cssFile = Gio.file_new_for_path(cssPath);
+
+            if (!cssFile.query_exists(null))
+                cssPath = main_extension_path + "/themes/default.css";
+        } catch (aErr) {
+            global.logError(aErr);
         }
 
         return cssPath;
@@ -930,6 +1001,20 @@ TranslatorExtension.prototype = {
         out_file.close(null);
     },
 
+    _displayHistory: function(aSourceText) {
+        let historyEntry = this.transHistory[this._current_target_lang][aSourceText];
+
+        if (settings.getValue("pref_loggin_enabled"))
+            global.logError("\n_displayHistory()>historyEntry:\n" + JSON.stringify(historyEntry));
+
+        try {
+            this._dialog.target.markup = "%s".format("[" + _("History") + "]\n" + historyEntry["tT"]);
+        } catch (aErr) {
+            global.logError(aErr);
+            this._dialog.target.text = "[" + _("History") + "]\n" + historyEntry["tT"];
+        }
+    },
+
     get transHistory() {
         return this._translation_history;
     },
@@ -938,6 +1023,50 @@ TranslatorExtension.prototype = {
         this._translation_history[aTransObj.tL] = this._translation_history[aTransObj.tL] || {};
         this._translation_history[aTransObj.tL][aSourceText] = aTransObj;
         this.saveHistoryToFile();
+    },
+
+    _getTimeStamp: function(aDate) {
+        let ts;
+        switch (settings.getValue("pref_history_timestamp")) {
+            case 0:
+                ts = settings.getValue("pref_history_timestamp_custom"); // Custom
+                break;
+            case 1:
+                ts = "YYYY MM-DD hh.mm.ss"; // ISO8601
+                break;
+            case 2:
+                ts = "YYYY DD.MM hh.mm.ss"; // European
+                break;
+        }
+        let dte = new Date(parseInt(aDate));
+        let YYYY = String(dte.getFullYear());
+        let MM = String(dte.getMonth() + 1);
+        if (MM.length === 1)
+            MM = "0" + MM;
+
+        let DD = String(dte.getDate());
+        if (DD.length === 1)
+            DD = "0" + DD;
+
+        let hh = String(dte.getHours());
+        if (hh.length === 1)
+            hh = "0" + hh;
+
+        let mm = String(dte.getMinutes());
+        if (mm.length === 1)
+            mm = "0" + mm;
+
+        let ss = String(dte.getSeconds());
+        if (ss.length === 1)
+            ss = "0" + ss;
+
+        ts = ts.replace("YYYY", YYYY);
+        ts = ts.replace("MM", MM);
+        ts = ts.replace("DD", DD);
+        ts = ts.replace("hh", hh);
+        ts = ts.replace("mm", mm);
+        ts = ts.replace("ss", ss);
+        return ts;
     },
 
     get current_target_lang() {
@@ -957,7 +1086,7 @@ TranslatorExtension.prototype = {
             // Replace line breaks and duplicated white spaces with a single space.
             str = (str.replace(/\s+/g, " ")).trim();
 
-            if (this.pref_loggin_enabled)
+            if (settings.getValue("pref_loggin_enabled"))
                 global.logError("\nselection()>str:\n" + str);
         } catch (aErr) {
             global.logError(aErr);
@@ -972,31 +1101,37 @@ let translator = null;
 function init(aExtensionMeta) {
     metadata = aExtensionMeta;
     Gettext.bindtextdomain(metadata.uuid, GLib.get_home_dir() + "/.local/share/locale");
-    let extension_dir = metadata.path;
-    main_extension_dir = extension_dir;
+    let extension_path = metadata.path;
+    main_extension_path = extension_path;
+    main_extension_dir = Gio.file_new_for_path(main_extension_path);
 
     try {
-        // Use the main_extension_dir directory for imports shared by all
+        // Use the main_extension_path directory for imports shared by all
         // supported Cinnamon versions.
-        // If I use just extension_dir, I would be forced to put the
+        // If I use just extension_path, I would be forced to put the
         // files to be imported repeatedly inside each version folder. ¬¬
         let regExp = new RegExp("(" + metadata.uuid + ")$", "g");
-        if (!regExp.test(main_extension_dir)) {
-            let tempFile = Gio.file_new_for_path(main_extension_dir);
-            main_extension_dir = tempFile.get_parent().get_path();
+        if (!regExp.test(main_extension_path)) {
+            let tempFile = Gio.file_new_for_path(main_extension_path);
+            main_extension_path = tempFile.get_parent().get_path();
         }
     } finally {
-        imports.searchPath.push(main_extension_dir);
+        imports.searchPath.push(main_extension_path);
 
         $ = imports[metadata.uuid];
     }
 
     settings = new $.SettingsHandler(metadata.uuid).settings;
+
+    this.dummyTransObject = {
+        1: _("Dialog theme"),
+    };
 }
 
 function enable() {
     translator = new TranslatorExtension();
     translator.enable();
+    translator.settings = settings;
 }
 
 function disable() {

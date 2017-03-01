@@ -6,7 +6,7 @@ import gettext
 import json
 from inspect import getsourcefile
 from os.path import abspath
-from pkgutil import iter_modules
+# from pkgutil import iter_modules
 
 import gi
 gi.require_version('Gtk', '3.0')
@@ -268,7 +268,7 @@ class HistoryApplication(Gtk.Application):
             self.window.set_position(Gtk.WindowPosition.CENTER)
             self.window.set_size_request(width=-1, height=300)
             self.window.set_icon_from_file(os.path.join(extensionDir, "icon.png"))
-            self.window.set_title(_("Popup Translator history"))
+            self.window.set_title(_("Multi Translator history"))
             self.window.set_default_size(int(self.sizes[0]), int(self.sizes[1]))
             self.window.connect("destroy", self.on_quit)
             self.window.add(self.box)
@@ -360,7 +360,7 @@ class HistoryApplication(Gtk.Application):
             home, ".cinnamon", "configs", "0dyseus@MultiTranslatorHistory", "translation_history.json")
 
         if (os.path.exists(path)):
-            data = metadata = open(path, 'r').read()
+            data = open(path, 'r').read()
             transList = json.loads(data)
 
             for lang in transList:
@@ -412,8 +412,8 @@ class HistoryApplication(Gtk.Application):
         self.quit()
 
 
-def module_exists(module_name):
-    return module_name in (name for loader, name, ispkg in iter_modules())
+# def module_exists(module_name):
+#     return module_name in (name for loader, name, ispkg in iter_modules())
 
 
 def main():

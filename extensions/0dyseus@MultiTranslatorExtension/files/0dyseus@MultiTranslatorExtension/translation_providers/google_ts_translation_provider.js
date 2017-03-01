@@ -286,10 +286,10 @@ Translator.prototype = {
             // "-brief",
             // "-no-theme",
             "--show-original", "n",
-            "--show-languages", "n",
+            "--show-languages", (source_lang === "auto" ? "y" : "n"),
             "--show-prompt-message", "n",
             "--no-bidi",
-        ]; /*--show-original n --show-languages n  --show-prompt-message n --no-bidi*/
+        ];
         let subjects = [
             (source_lang === "auto" ? "" : source_lang) + ":" + target_lang,
             text
@@ -300,15 +300,17 @@ Translator.prototype = {
             options.push(proxy);
         }
 
-        let _this = this;
-        $.exec(command.concat(options).concat(subjects), function(data) {
+        $.exec(command.concat(options).concat(subjects), Lang.bind(this, function(data) {
             if (!data) {
                 data = _("Error while translating, check your internet connection");
             } else {
-                data = _this.parse_response(data);
+                data = this.parse_response(data);
             }
-            callback(data);
-        });
+            callback({
+                error: false,
+                message: data
+            });
+        }));
     },
 
     translate: function(source_lang, target_lang, text, callback) {

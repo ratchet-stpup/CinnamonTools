@@ -1,0 +1,915 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-02-27 21:49-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: \n"
+
+#: 0dyseus@MultiTranslatorExtension.js:72
+msgid "Detect language"
+msgstr ""
+
+#: 0dyseus@MultiTranslatorExtension.js:73
+msgid "Afrikaans"
+msgstr ""
+
+#: 0dyseus@MultiTranslatorExtension.js:74
+msgid "Amharic"
+msgstr ""
+
+#: 0dyseus@MultiTranslatorExtension.js:75
+msgid "Arabic"
+msgstr ""
+
+#: 0dyseus@MultiTranslatorExtension.js:76
+msgid "Azerbaijani"
+msgstr ""
+
+#: 0dyseus@MultiTranslatorExtension.js:77
+msgid "Belarusian"
+msgstr ""
+
+#: 0dyseus@MultiTranslatorExtension.js:78
+msgid "Bulgarian"
+msgstr ""
+
+#: 0dyseus@MultiTranslatorExtension.js:79
+msgid "Bengali"
+msgstr ""
+
+#: 0dyseus@MultiTranslatorExtension.js:80
+msgid "Bosnian (Y)"
+msgstr ""
+
+#: 0dyseus@MultiTranslatorExtension.js:81
+msgid "Catalan"
+msgstr ""
+
+#: 0dyseus@MultiTranslatorExtension.js:82
+msgid "Chichewa"
+msgstr ""
+
+#: 0dyseus@MultiTranslatorExtension.js:83
+msgid "Corsican"
+msgstr ""
+
+#: 0dyseus@MultiTranslatorExtension.js:84
+msgid "Czech"
+msgstr ""
+
+#: 0dyseus@MultiTranslatorExtension.js:85
+msgid "Welsh"
+msgstr ""
+
+#: 0dyseus@MultiTranslatorExtension.js:86
+msgid "Danish"
+msgstr ""
+
+#: 0dyseus@MultiTranslatorExtension.js:87
+msgid "German"
+msgstr ""
+
+#: 0dyseus@MultiTranslatorExtension.js:88
+msgid "Greek"
+msgstr ""
+
+#: 0dyseus@MultiTranslatorExtension.js:89
+msgid "English"
+msgstr ""
+
+#: 0dyseus@MultiTranslatorExtension.js:90
+msgid "Esperanto"
+msgstr ""
+
+#: 0dyseus@MultiTranslatorExtension.js:91
+msgid "Spanish"
+msgstr ""
+
+#: 0dyseus@MultiTranslatorExtension.js:92
+msgid "Estonian"
+msgstr ""
+
+#: 0dyseus@MultiTranslatorExtension.js:93
+msgid "Basque"
+msgstr ""
+
+#: 0dyseus@MultiTranslatorExtension.js:94
+msgid "Persian"
+msgstr ""
+
+#: 0dyseus@MultiTranslatorExtension.js:95
+msgid "Finnish"
+msgstr ""
+
+#: 0dyseus@MultiTranslatorExtension.js:96
+msgid "French"
+msgstr ""
+
+#: 0dyseus@MultiTranslatorExtension.js:97
+msgid "Frisian"
+msgstr ""
+
+#: 0dyseus@MultiTranslatorExtension.js:98
+msgid "Irish"
+msgstr ""
+
+#: 0dyseus@MultiTranslatorExtension.js:99
+msgid "Scots Gaelic"
+msgstr ""
+
+#: 0dyseus@MultiTranslatorExtension.js:100
+msgid "Galician"
+msgstr ""
+
+#: 0dyseus@MultiTranslatorExtension.js:101
+msgid "Gujarati"
+msgstr ""
+
+#: 0dyseus@MultiTranslatorExtension.js:102
+msgid "Hausa"
+msgstr ""
+
+#: 0dyseus@MultiTranslatorExtension.js:103
+msgid "Hawaiian"
+msgstr ""
+
+#: 0dyseus@MultiTranslatorExtension.js:104
+msgid "Hebrew (Y)"
+msgstr ""
+
+#: 0dyseus@MultiTranslatorExtension.js:105
+msgid "Hindi"
+msgstr ""
+
+#: 0dyseus@MultiTranslatorExtension.js:106
+msgid "Hmong"
+msgstr ""
+
+#: 0dyseus@MultiTranslatorExtension.js:107
+msgid "Croatian"
+msgstr ""
+
+#: 0dyseus@MultiTranslatorExtension.js:108
+msgid "Haitian Creole"
+msgstr ""
+
+#: 0dyseus@MultiTranslatorExtension.js:109
+msgid "Hungarian"
+msgstr ""
+
+#: 0dyseus@MultiTranslatorExtension.js:110
+msgid "Armenian"
+msgstr ""
+
+#: 0dyseus@MultiTranslatorExtension.js:111
+msgid "Indonesian"
+msgstr ""
+
+#: 0dyseus@MultiTranslatorExtension.js:112
+msgid "Igbo"
+msgstr ""
+
+#: 0dyseus@MultiTranslatorExtension.js:113
+msgid "Icelandic"
+msgstr ""
+
+#: 0dyseus@MultiTranslatorExtension.js:114
+msgid "Italian"
+msgstr ""
+
+#: 0dyseus@MultiTranslatorExtension.js:115
+msgid "Hebrew"
+msgstr ""
+
+#: 0dyseus@MultiTranslatorExtension.js:116
+msgid "Japanese"
+msgstr ""
+
+#: 0dyseus@MultiTranslatorExtension.js:117
+msgid "Javanese"
+msgstr ""
+
+#: 0dyseus@MultiTranslatorExtension.js:118
+msgid "Georgian"
+msgstr ""
+
+#: 0dyseus@MultiTranslatorExtension.js:119
+msgid "Kazakh"
+msgstr ""
+
+#: 0dyseus@MultiTranslatorExtension.js:120
+msgid "Khmer"
+msgstr ""
+
+#: 0dyseus@MultiTranslatorExtension.js:121
+msgid "Kannada"
+msgstr ""
+
+#: 0dyseus@MultiTranslatorExtension.js:122
+msgid "Korean"
+msgstr ""
+
+#: 0dyseus@MultiTranslatorExtension.js:123
+msgid "Kurdish (Kurmanji)"
+msgstr ""
+
+#: 0dyseus@MultiTranslatorExtension.js:124
+msgid "Kyrgyz"
+msgstr ""
+
+#: 0dyseus@MultiTranslatorExtension.js:125
+msgid "Latin"
+msgstr ""
+
+#: 0dyseus@MultiTranslatorExtension.js:126
+msgid "Luxembourgish"
+msgstr ""
+
+#: 0dyseus@MultiTranslatorExtension.js:127
+msgid "Lao"
+msgstr ""
+
+#: 0dyseus@MultiTranslatorExtension.js:128
+msgid "Lithuanian"
+msgstr ""
+
+#: 0dyseus@MultiTranslatorExtension.js:129
+msgid "Latvian"
+msgstr ""
+
+#: 0dyseus@MultiTranslatorExtension.js:130
+msgid "Malagasy"
+msgstr ""
+
+#: 0dyseus@MultiTranslatorExtension.js:131
+msgid "Maori"
+msgstr ""
+
+#: 0dyseus@MultiTranslatorExtension.js:132
+msgid "Macedonian"
+msgstr ""
+
+#: 0dyseus@MultiTranslatorExtension.js:133
+msgid "Malayalam"
+msgstr ""
+
+#: 0dyseus@MultiTranslatorExtension.js:134
+msgid "Mongolian"
+msgstr ""
+
+#: 0dyseus@MultiTranslatorExtension.js:135
+msgid "Marathi"
+msgstr ""
+
+#: 0dyseus@MultiTranslatorExtension.js:136
+msgid "Malay"
+msgstr ""
+
+#: 0dyseus@MultiTranslatorExtension.js:137
+msgid "Maltese"
+msgstr ""
+
+#: 0dyseus@MultiTranslatorExtension.js:138
+msgid "Myanmar (Burmese)"
+msgstr ""
+
+#: 0dyseus@MultiTranslatorExtension.js:139
+msgid "Nepali"
+msgstr ""
+
+#: 0dyseus@MultiTranslatorExtension.js:140
+msgid "Dutch"
+msgstr ""
+
+#: 0dyseus@MultiTranslatorExtension.js:141
+msgid "Norwegian"
+msgstr ""
+
+#: 0dyseus@MultiTranslatorExtension.js:142
+msgid "Cebuano"
+msgstr ""
+
+#: 0dyseus@MultiTranslatorExtension.js:143
+msgid "Punjabi"
+msgstr ""
+
+#: 0dyseus@MultiTranslatorExtension.js:144
+msgid "Polish"
+msgstr ""
+
+#: 0dyseus@MultiTranslatorExtension.js:145
+msgid "Pashto"
+msgstr ""
+
+#: 0dyseus@MultiTranslatorExtension.js:146
+msgid "Portuguese"
+msgstr ""
+
+#: 0dyseus@MultiTranslatorExtension.js:147
+msgid "Romanian"
+msgstr ""
+
+#: 0dyseus@MultiTranslatorExtension.js:148
+msgid "Russian"
+msgstr ""
+
+#: 0dyseus@MultiTranslatorExtension.js:149
+msgid "Sindhi"
+msgstr ""
+
+#: 0dyseus@MultiTranslatorExtension.js:150
+msgid "Sinhala"
+msgstr ""
+
+#: 0dyseus@MultiTranslatorExtension.js:151
+msgid "Slovak"
+msgstr ""
+
+#: 0dyseus@MultiTranslatorExtension.js:152
+msgid "Slovenian"
+msgstr ""
+
+#: 0dyseus@MultiTranslatorExtension.js:153
+msgid "Samoan"
+msgstr ""
+
+#: 0dyseus@MultiTranslatorExtension.js:154
+msgid "Shona"
+msgstr ""
+
+#: 0dyseus@MultiTranslatorExtension.js:155
+msgid "Somali"
+msgstr ""
+
+#: 0dyseus@MultiTranslatorExtension.js:156
+msgid "Albanian"
+msgstr ""
+
+#: 0dyseus@MultiTranslatorExtension.js:157
+msgid "Serbian"
+msgstr ""
+
+#: 0dyseus@MultiTranslatorExtension.js:158
+msgid "Sesotho"
+msgstr ""
+
+#: 0dyseus@MultiTranslatorExtension.js:159
+msgid "Sundanese"
+msgstr ""
+
+#: 0dyseus@MultiTranslatorExtension.js:160
+msgid "Swedish"
+msgstr ""
+
+#: 0dyseus@MultiTranslatorExtension.js:161
+msgid "Swahili"
+msgstr ""
+
+#: 0dyseus@MultiTranslatorExtension.js:162
+msgid "Tamil"
+msgstr ""
+
+#: 0dyseus@MultiTranslatorExtension.js:163
+msgid "Telugu"
+msgstr ""
+
+#: 0dyseus@MultiTranslatorExtension.js:164
+msgid "Tajik"
+msgstr ""
+
+#: 0dyseus@MultiTranslatorExtension.js:165
+msgid "Thai"
+msgstr ""
+
+#: 0dyseus@MultiTranslatorExtension.js:166
+msgid "Filipino"
+msgstr ""
+
+#: 0dyseus@MultiTranslatorExtension.js:167
+msgid "Turkish"
+msgstr ""
+
+#: 0dyseus@MultiTranslatorExtension.js:168
+msgid "Ukrainian"
+msgstr ""
+
+#: 0dyseus@MultiTranslatorExtension.js:169
+msgid "Urdu"
+msgstr ""
+
+#: 0dyseus@MultiTranslatorExtension.js:170
+msgid "Uzbek"
+msgstr ""
+
+#: 0dyseus@MultiTranslatorExtension.js:171
+msgid "Vietnamese"
+msgstr ""
+
+#: 0dyseus@MultiTranslatorExtension.js:172
+msgid "Xhosa"
+msgstr ""
+
+#: 0dyseus@MultiTranslatorExtension.js:173
+msgid "Yiddish"
+msgstr ""
+
+#: 0dyseus@MultiTranslatorExtension.js:174
+msgid "Yoruba"
+msgstr ""
+
+#: 0dyseus@MultiTranslatorExtension.js:175
+msgid "Chinese (Y)"
+msgstr ""
+
+#: 0dyseus@MultiTranslatorExtension.js:176
+msgid "Chinese Simplified"
+msgstr ""
+
+#: 0dyseus@MultiTranslatorExtension.js:177
+msgid "Chinese Traditional"
+msgstr ""
+
+#: 0dyseus@MultiTranslatorExtension.js:178
+msgid "Zulu"
+msgstr ""
+
+#: 0dyseus@MultiTranslatorExtension.js:509
+msgid "Icon and label are both false."
+msgstr ""
+
+#: 0dyseus@MultiTranslatorExtension.js:910
+msgid "Shortcuts"
+msgstr ""
+
+#: 0dyseus@MultiTranslatorExtension.js:912
+msgid "Open translator dialog."
+msgstr ""
+
+#: 0dyseus@MultiTranslatorExtension.js:914
+msgid "Open translator dialog and translate text from clipboard."
+msgstr ""
+
+#: 0dyseus@MultiTranslatorExtension.js:916
+msgid "Open translator dialog and translate from primary selection."
+msgstr ""
+
+#: 0dyseus@MultiTranslatorExtension.js:918
+msgid "Translate text."
+msgstr ""
+
+#: 0dyseus@MultiTranslatorExtension.js:920
+msgid "Translate text (Forced)."
+msgstr ""
+
+#: 0dyseus@MultiTranslatorExtension.js:922
+msgid "Copy translated text to clipboard."
+msgstr ""
+
+#: 0dyseus@MultiTranslatorExtension.js:924
+msgid "Swap languages."
+msgstr ""
+
+#: 0dyseus@MultiTranslatorExtension.js:926
+msgid "Reset languages to default."
+msgstr ""
+
+#: 0dyseus@MultiTranslatorExtension.js:928
+msgid "Toggle transliteration of result text."
+msgstr ""
+
+#: 0dyseus@MultiTranslatorExtension.js:930
+msgid "Close dialog."
+msgstr ""
+
+#: 0dyseus@MultiTranslatorExtension.js:1282
+msgid "Most used languages​​."
+msgstr ""
+
+#: 0dyseus@MultiTranslatorExtension.js:1678
+#, javascript-format
+msgid "Can't load preferences for %s"
+msgstr ""
+
+#: 0dyseus@MultiTranslatorExtension.js:1795
+#: translation_providers/yandex_translation_provider.js:275
+msgid "Error"
+msgstr ""
+
+#. jshint ignore:line
+#: 0dyseus@MultiTranslatorExtension.js:1841
+#: 0dyseus@MultiTranslatorExtension.js:1845
+msgid "Not implemented"
+msgstr ""
+
+#: 0dyseus@MultiTranslatorExtension.js:2354
+msgid "Sample message 1."
+msgstr ""
+
+#: 0dyseus@MultiTranslatorExtension.js:2737
+msgid "Error executing translate-shell"
+msgstr ""
+
+#: 0dyseus@MultiTranslatorExtension.js:2873
+msgid "Press <Esc> to close"
+msgstr ""
+
+#: translation_providers/google_translation_provider.js:271
+msgid "Error while parsing data"
+msgstr ""
+
+#: translation_providers/google_translation_provider.js:305
+msgid "Error while translating, check your internet connection"
+msgstr ""
+
+#: translation_providers/yandex_translation_provider.js:280
+msgid "Can't translate text, please try later."
+msgstr ""
+
+#: translation_providers/yandex_translation_provider.js:296
+msgid "API key is invalid"
+msgstr ""
+
+#: translation_providers/yandex_translation_provider.js:299
+msgid "Blocked API key"
+msgstr ""
+
+#: translation_providers/yandex_translation_provider.js:302
+msgid "Exceeded the daily limit on the amount of translated text"
+msgstr ""
+
+#: translation_providers/yandex_translation_provider.js:305
+msgid "Exceeded the maximum text size"
+msgstr ""
+
+#: translation_providers/yandex_translation_provider.js:308
+msgid "The text cannot be translated"
+msgstr ""
+
+#: translation_providers/yandex_translation_provider.js:311
+msgid "The specified translation direction is not supported"
+msgstr ""
+
+#. 0dyseus@MultiTranslatorExtension->metadata.json->name
+#: translation_providers/yandex_translation_provider.js:335
+msgid "Multi Translator"
+msgstr ""
+
+#: translation_providers/yandex_translation_provider.js:336
+msgid "No Yandex API keys were found!!!"
+msgstr ""
+
+#: translation_providers/yandex_translation_provider.js:337
+msgid "Check this extension help file for instructions."
+msgstr ""
+
+#: extension.js:152 extension.js:395
+msgid "Choose source language"
+msgstr ""
+
+#: extension.js:159 extension.js:424
+msgid "Choose target language"
+msgstr ""
+
+#: extension.js:207
+msgid "There is nothing to copy."
+msgstr ""
+
+#: extension.js:216
+msgid "Translated text copied to clipboard."
+msgstr ""
+
+#. TO TRANSLATORS: Full sentence:
+#. "»From« source language to target language with service provider."
+#: extension.js:368 extension.js:392
+msgid "From"
+msgstr ""
+
+#. TO TRANSLATORS: Full sentence:
+#. "From source language »to« target language with service provider."
+#: extension.js:377 extension.js:419
+msgid "to"
+msgstr ""
+
+#: extension.js:448
+msgid "Swap languages"
+msgstr ""
+
+#: extension.js:472
+msgid "Choose translation provider"
+msgstr ""
+
+#: extension.js:509
+msgid "Go!"
+msgstr ""
+
+#: extension.js:510
+msgid "Translate text (<Ctrl> + <Enter>)"
+msgstr ""
+
+#: extension.js:527
+msgid "Main menu"
+msgstr ""
+
+#: extension.js:536
+msgid "Preferences"
+msgstr ""
+
+#: extension.js:544
+msgid "Translation history"
+msgstr ""
+
+#: extension.js:552
+msgid "Extended help"
+msgstr ""
+
+#: extension.js:582
+msgid "Quick help"
+msgstr ""
+
+#: extension.js:597
+msgid "Quit"
+msgstr ""
+
+#. TO TRANSLATORS: Full sentence:
+#. "From source language to target language »with« service provider."
+#: extension.js:626
+msgid "with"
+msgstr ""
+
+#: extension.js:682
+msgid "Translating..."
+msgstr ""
+
+#: extension.js:737
+msgid "Clipboard is empty."
+msgstr ""
+
+#: extension.js:977
+msgid "History"
+msgstr ""
+
+#: extension.js:1089
+msgid "Dialog theme"
+msgstr ""
+
+#: extensionHelper.py:271
+msgid "Multi Translator history"
+msgstr ""
+
+#: extensionHelper.py:295
+msgid "Date"
+msgstr ""
+
+#: extensionHelper.py:303
+msgid "Source text"
+msgstr ""
+
+#: extensionHelper.py:308
+msgid "Language pair"
+msgstr ""
+
+#: extensionHelper.py:316
+msgid "Target text"
+msgstr ""
+
+#. 0dyseus@MultiTranslatorExtension->metadata.json->description
+msgid ""
+"Translation of text by different translation providers (currently "
+"Google.Translate, Yandex.Translate)."
+msgstr ""
+
+#. 0dyseus@MultiTranslatorExtension->metadata.json->comments
+msgid ""
+"Bug reports and feature requests should be reported on this applet's "
+"repository linked below."
+msgstr ""
+
+#. 0dyseus@MultiTranslatorExtension->metadata.json->contributors
+msgid ""
+"gufoe: Original gnome-shell extension author (https://github.com/gufoe/text-"
+"translator)."
+msgstr ""
+
+#. 0dyseus@MultiTranslatorExtension->settings-
+#. schema.json->pref_translate_from_clipboard_keybinding->description
+msgid "Translate from clipboard hotkey"
+msgstr ""
+
+#. 0dyseus@MultiTranslatorExtension->settings-
+#. schema.json->pref_translate_from_clipboard_keybinding->tooltip
+msgid ""
+"Hotkey to open the translator dialog and translate text from clipboard."
+msgstr ""
+
+#. 0dyseus@MultiTranslatorExtension->settings-
+#. schema.json->pref_history_timestamp_custom->description
+msgid "Custom timestamp"
+msgstr ""
+
+#. 0dyseus@MultiTranslatorExtension->settings-
+#. schema.json->pref_history_timestamp_custom->tooltip
+msgid ""
+"Choose a custom timestamp for the translation history entries.\n"
+"YYYY: year\n"
+"MM: month\n"
+"DD: day\n"
+"hh: hours\n"
+"mm: minutes\n"
+"ss: seconds"
+msgstr ""
+
+#. 0dyseus@MultiTranslatorExtension->settings-
+#. schema.json->pref_height_percents->description
+msgid "Percentage of screen height"
+msgstr ""
+
+#. 0dyseus@MultiTranslatorExtension->settings-
+#. schema.json->pref_height_percents->units
+#. 0dyseus@MultiTranslatorExtension->settings-
+#. schema.json->pref_width_percents->units
+msgid "percent"
+msgstr ""
+
+#. 0dyseus@MultiTranslatorExtension->settings-
+#. schema.json->pref_remember_last_translator->description
+msgid "Remember last translator"
+msgstr ""
+
+#. 0dyseus@MultiTranslatorExtension->settings-
+#. schema.json->pref_translate_from_selection_keybinding->description
+msgid "Translate from selection hotkey"
+msgstr ""
+
+#. 0dyseus@MultiTranslatorExtension->settings-
+#. schema.json->pref_translate_from_selection_keybinding->tooltip
+msgid ""
+"Hotkey to open the translator dialog and translate from primary selection."
+msgstr ""
+
+#. 0dyseus@MultiTranslatorExtension->settings-
+#. schema.json->pref_width_percents->description
+msgid "Percentage of screen width"
+msgstr ""
+
+#. 0dyseus@MultiTranslatorExtension->settings-schema.json->label5->description
+msgid "(*) This options are only useful for the extension developer"
+msgstr ""
+
+#. 0dyseus@MultiTranslatorExtension->settings-
+#. schema.json->pref_default_translator->description
+msgid "Default translation provider"
+msgstr ""
+
+#. 0dyseus@MultiTranslatorExtension->settings-
+#. schema.json->pref_default_translator->options
+msgid "Yandex Translate"
+msgstr ""
+
+#. 0dyseus@MultiTranslatorExtension->settings-
+#. schema.json->pref_default_translator->options
+msgid "Google Translate"
+msgstr ""
+
+#. 0dyseus@MultiTranslatorExtension->settings-
+#. schema.json->pref_loggin_save_history_indented->description
+msgid "Indent translation history data"
+msgstr ""
+
+#. 0dyseus@MultiTranslatorExtension->settings-
+#. schema.json->pref_loggin_save_history_indented->tooltip
+msgid "It allows to save the translation history data with indentation."
+msgstr ""
+
+#. 0dyseus@MultiTranslatorExtension->settings-
+#. schema.json->pref_font_size->description
+msgid "Font size"
+msgstr ""
+
+#. 0dyseus@MultiTranslatorExtension->settings-
+#. schema.json->pref_font_size->units
+msgid "pixel"
+msgstr ""
+
+#. 0dyseus@MultiTranslatorExtension->settings-
+#. schema.json->pref_history_initial_window_height->description
+msgid "History window initial height"
+msgstr ""
+
+#. 0dyseus@MultiTranslatorExtension->settings-
+#. schema.json->pref_history_initial_window_height->units
+#. 0dyseus@MultiTranslatorExtension->settings-
+#. schema.json->pref_history_width_to_trigger_word_wrap->units
+#. 0dyseus@MultiTranslatorExtension->settings-
+#. schema.json->pref_history_initial_window_width->units
+msgid "pixels"
+msgstr ""
+
+#. 0dyseus@MultiTranslatorExtension->settings-
+#. schema.json->pref_yandex_api_keys->description
+msgid "API keys"
+msgstr ""
+
+#. 0dyseus@MultiTranslatorExtension->settings-
+#. schema.json->pref_yandex_api_keys->tooltip
+msgid ""
+"Enter one API key per line.\n"
+"Read the help file found inside this extension folder to know how to get free Yandex API keys."
+msgstr ""
+
+#. 0dyseus@MultiTranslatorExtension->settings-
+#. schema.json->pref_open_translator_dialog_keybinding->description
+msgid "Translate hotkey"
+msgstr ""
+
+#. 0dyseus@MultiTranslatorExtension->settings-
+#. schema.json->pref_open_translator_dialog_keybinding->tooltip
+msgid "Hotkey to open the translator dialog."
+msgstr ""
+
+#. 0dyseus@MultiTranslatorExtension->settings-
+#. schema.json->pref_history_width_to_trigger_word_wrap->description
+msgid "Width to trigger word wrap"
+msgstr ""
+
+#. 0dyseus@MultiTranslatorExtension->settings-
+#. schema.json->pref_history_width_to_trigger_word_wrap->tooltip
+msgid ""
+"The \"Source text\" and \"Target text\" columns on the history window will "
+"wrap its text at the width defined by this setting."
+msgstr ""
+
+#. 0dyseus@MultiTranslatorExtension->settings-
+#. schema.json->pref_history_initial_window_width->description
+msgid "History window initial width"
+msgstr ""
+
+#. 0dyseus@MultiTranslatorExtension->settings-schema.json->head5->description
+msgid "Debugging settings"
+msgstr ""
+
+#. 0dyseus@MultiTranslatorExtension->settings-schema.json->head4->description
+msgid "Yandex translator settings"
+msgstr ""
+
+#. 0dyseus@MultiTranslatorExtension->settings-schema.json->head3->description
+msgid "Translation history settings"
+msgstr ""
+
+#. 0dyseus@MultiTranslatorExtension->settings-
+#. schema.json->pref_loggin_enabled->description
+msgid "Enable logging"
+msgstr ""
+
+#. 0dyseus@MultiTranslatorExtension->settings-
+#. schema.json->pref_loggin_enabled->tooltip
+msgid ""
+"It enables the ability to log the output of several functions used by the "
+"extension."
+msgstr ""
+
+#. 0dyseus@MultiTranslatorExtension->settings-
+#. schema.json->pref_show_most_used->description
+msgid "Show most used languages"
+msgstr ""
+
+#. 0dyseus@MultiTranslatorExtension->settings-
+#. schema.json->pref_history_timestamp->description
+msgid "Timestamp for translation history entries"
+msgstr ""
+
+#. 0dyseus@MultiTranslatorExtension->settings-
+#. schema.json->pref_history_timestamp->options
+msgid "YYYY MM-DD hh:mm:ss (ISO8601)"
+msgstr ""
+
+#. 0dyseus@MultiTranslatorExtension->settings-
+#. schema.json->pref_history_timestamp->options
+msgid "YYYY DD-MM hh:mm:ss (European)"
+msgstr ""
+
+#. 0dyseus@MultiTranslatorExtension->settings-
+#. schema.json->pref_history_timestamp->options
+msgid "Custom"
+msgstr ""
+
+#. 0dyseus@MultiTranslatorExtension->settings-
+#. schema.json->pref_sync_entries_scrolling->description
+msgid "Synchronize scroll entries"
+msgstr ""
+
+#. 0dyseus@MultiTranslatorExtension->settings-
+#. schema.json->pref_enable_shortcuts->description
+msgid "Enable shortcuts"
+msgstr ""

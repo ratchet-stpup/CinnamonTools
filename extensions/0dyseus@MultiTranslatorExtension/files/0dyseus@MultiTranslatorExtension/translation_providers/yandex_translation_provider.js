@@ -1,5 +1,6 @@
 const ExtensionUUID = "0dyseus@MultiTranslatorExtension";
 const Gettext = imports.gettext;
+const Main = imports.ui.main;
 
 function _(aStr) {
     let customTrans = Gettext.dgettext(ExtensionUUID, aStr);
@@ -14,10 +15,9 @@ imports.searchPath.push(imports.ui.extensionSystem.extensionMeta[ExtensionUUID].
 
 var $ = imports[ExtensionUUID];
 
-const KEY = "trnsl.1.1.20131012T133604Z.058afe97adb43930.4289d5089e7cf72449ffcefc1c623e76f5f281dd";
 const NAME = "Yandex.Translate";
 const LIMIT = 9800;
-const PROVIDER_URL = "https://translate.yandex.net/api/v1.5/tr.json/translate?key=" + KEY + "&lang=%s-%s&text=%s";
+const PROVIDER_URL = "https://translate.yandex.net/api/v1.5/tr.json/translate?key=%s&lang=%s&text=%s&format=plain&options=1";
 
 const LANGUAGE_PAIRS = [
     "auto-az",
@@ -214,15 +214,16 @@ const LANGUAGE_PAIRS = [
     "uk-tr"
 ];
 
-function Translator() {
-    this._init(arguments);
+function Translator(extension_object) {
+    this._init(extension_object);
 }
 
 Translator.prototype = {
     __proto__: $.TranslationProviderBase.prototype,
 
-    _init: function() {
+    _init: function(extension_object) {
         $.TranslationProviderBase.prototype._init.call(this, NAME, LIMIT, PROVIDER_URL);
+        this._extension_object = extension_object;
     },
 
     get_languages: function() {
@@ -230,7 +231,7 @@ Translator.prototype = {
 
         try {
             let i = 0,
-            iLen = LANGUAGE_PAIRS.length;
+                iLen = LANGUAGE_PAIRS.length;
             for (; i < iLen; i++) {
                 let [lang_code, target_lang_code] = LANGUAGE_PAIRS[i].split("-"); // jshint ignore:line
                 let lang_name = this.get_language_name(lang_code);
@@ -240,7 +241,6 @@ Translator.prototype = {
 
                 temp[lang_code] = lang_name;
             }
-
         } finally {
             return temp;
         }
@@ -251,7 +251,7 @@ Translator.prototype = {
 
         try {
             let i = 0,
-            iLen = LANGUAGE_PAIRS.length;
+                iLen = LANGUAGE_PAIRS.length;
             for (; i < iLen; i++) {
                 let [source_lang_code, target_lang_code] = LANGUAGE_PAIRS[i].split("-");
 
@@ -280,23 +280,66 @@ Translator.prototype = {
             };
         }
 
-        let result = "";
+        let result = {};
 
         if (json.code == 200) {
-            result = json.text.join(" ");
+            result = {
+                error: false,
+                message: $.escape_html(json.text.join(" "))
+            };
         } else {
+            let errorMessage;
+
+            switch (json.code) {
+                case 401:
+                    errorMessage = _("API key is invalid");
+                    break;
+                case 402:
+                    errorMessage = _("Blocked API key");
+                    break;
+                case 404:
+                    errorMessage = _("Exceeded the daily limit on the amount of translated text");
+                    break;
+                case 413:
+                    errorMessage = _("Exceeded the maximum text size");
+                    break;
+                case 422:
+                    errorMessage = _("The text cannot be translated");
+                    break;
+                case 501:
+                    errorMessage = _("The specified translation direction is not supported");
+            }
+
+            if (json.code === 401 || json.code === 402)
+                global.logError("API key: " + this._APIKey);
+
             result = {
                 error: true,
-                message: "%s: %s".format(_("Error code"), json.code)
+                message: errorMessage
             };
         }
 
-        result = $.escape_html(result);
         return result;
     },
 
-    // translate: function(source_lang, target_lang, text, callback) {
-    //     if(source_lang == 'auto') source_lang = '';
-    //     this.parent(source_lang, target_lang, text, callback);
-    // },
+    get YandexAPIKey() {
+        let APIKeys = this._extension_object.settings.getValue("pref_yandex_api_keys").split("\n")
+            .filter(function(aKey) { // Filter possible empty elements.
+                if (aKey !== "")
+                    return true;
+                return false;
+            });
+
+        if (APIKeys.length === 0) {
+            Main.criticalNotify(_("Multi Translator"), [
+                _("No Yandex API keys were found!!!"),
+                _("Check this extension help file for instructions.")
+            ].join("\n"));
+            return false;
+        }
+
+        this._APIKey = APIKeys[Math.floor(Math.random() * APIKeys.length - 1) + 1];
+
+        return this._APIKey;
+    }
 };

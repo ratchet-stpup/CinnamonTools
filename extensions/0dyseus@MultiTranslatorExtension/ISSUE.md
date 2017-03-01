@@ -73,18 +73,20 @@ Once installed and enabled, the following shortcuts will be available.
 
 ### Multi Translator extension ToDo list:
 
-* [ ] **Implement translation history** ![@critical](https://img.shields.io/badge/Priority-Critical-red.svg)
 * [ ] **Implement a mechanism to check for dependencies** ![@critical](https://img.shields.io/badge/Priority-Critical-red.svg)
+* [ ] **Add more translation providers that doesn't require the use of translate-shell** ![@high](https://img.shields.io/badge/Priority-High-red.svg)
 * [ ] **Provide alternate methods in case translate-shell breaks or doesn't exists (manually configurable or automatic)** ![@high](https://img.shields.io/badge/Priority-High-red.svg)
 * [ ] **Change all synchronous functions to asynchronous** ![@high](https://img.shields.io/badge/Priority-High-red.svg)
-* [ ] **Add Yandex API keys configuration** ![@high](https://img.shields.io/badge/Priority-High-red.svg)
-* [ ] **Make Yandex API keys usage random** ![@high](https://img.shields.io/badge/Priority-High-red.svg)
-* [ ] **Add more translation providers:** At least as much as translate-shell supports. ![@high](https://img.shields.io/badge/Priority-High-red.svg)
 * [ ] **Add the possibility to select a custom theme** ![@high](https://img.shields.io/badge/Priority-High-red.svg)
-* [ ] **Create the translation template** ![@high](https://img.shields.io/badge/Priority-High-red.svg)
-* [x] **Keep looking for a way to reload the themes without the need to restart Cinnamon** Keep in mind the comment block in extension.js>TranslatorExtension>_loadTheme(). ![@high](https://img.shields.io/badge/Priority-High-red.svg)
-* [x] **Create the dark Linux Mint theme** ![@low](https://img.shields.io/badge/Priority-Low-yellowgreen.svg)
-* [x] **Add translation mechanism** ![@high](https://img.shields.io/badge/Priority-High-red.svg)
+* [ ] **Create a mechanism to display statistics** Statistics are already stored and used by the option called **Show most used languages**. ![@high](https://img.shields.io/badge/Priority-High-red.svg)
+* [x] **Create the translation template**
+* [x] **Add more translation providers:** At least as much as translate-shell supports.
+* [x] **Add Yandex API keys configuration**
+* [x] **Make Yandex API keys usage random**
+* [x] **Implement translation history**
+* [x] **Keep looking for a way to reload the themes without the need to restart Cinnamon** Keep in mind the comment block in extension.js>TranslatorExtension>_loadTheme().
+* [x] **Create the dark Linux Mint theme**
+* [x] **Add translation mechanism**
 
 ### Multi Translator applet ToDo list:
 
