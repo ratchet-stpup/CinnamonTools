@@ -5,7 +5,7 @@
     "contributors": "buzz: Bug fixes.", 
     "dangerous": true, 
     "description": "Displays CPU, memory, swap, network usage and load in graphs.", 
-    "comments": "Bug reports and feature requests should be reported on this applet's repository linked below.", 
+    "comments": "Bug reports, feature requests and contributions should be done on this xlet's repository linked below.", 
     "name": "System Monitor (Fork By Odyseus)", 
     "version": "1.09", 
     "cinnamon-version": [
