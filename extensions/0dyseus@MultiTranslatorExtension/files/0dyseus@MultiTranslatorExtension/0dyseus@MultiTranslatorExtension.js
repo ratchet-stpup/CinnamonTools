@@ -1,5 +1,6 @@
 const ExtensionUUID = "0dyseus@MultiTranslatorExtension";
 const ExtensionPath = imports.ui.extensionSystem.extensionMeta[ExtensionUUID].path;
+const Util = imports.misc.util;
 const St = imports.gi.St;
 const Lang = imports.lang;
 const Params = imports.misc.params;
@@ -65,6 +66,27 @@ const ICONS = {
     history: "multi-translator-document-open-recent-symbolic",
     hamburger: "multi-translator-hamburger-menu-symbolic",
     dictionary: "multi-translator-dictionary-symbolic",
+    find: "multi-translator-edit-find-symbolic",
+};
+
+/* exported PROVIDERS_WEBSITES */
+const PROVIDERS_WEBSITES = {
+    "Yandex.Translate": "https://translate.yandex.net",
+    "Google.Translate": "https://translate.google.com",
+    "Google.TranslateTS": "https://translate.google.com",
+    "Bing.TranslateTS": "https://www.bing.com/translator/",
+    "Apertium.TranslateTS": "https://www.apertium.org",
+    "Transltr": "http://transltr.org"
+};
+
+/* exported PROVIDERS_NAMES */
+const PROVIDERS_NAMES = {
+    "Yandex.Translate": "Yandex.Translate",
+    "Google.Translate": "Google Translate",
+    "Google.TranslateTS": "Google Translate",
+    "Bing.TranslateTS": "Bing Translate",
+    "Apertium.TranslateTS": "Apertium",
+    "Transltr": "Transltr"
 };
 
 /**
@@ -72,14 +94,21 @@ const ICONS = {
  * their defaults every time I add a new engine.
  */
 const DEFAULT_ENGINES = {
-    "Apertium.Translate": {
+    "Apertium.TranslateTS": {
         "default_source": "auto",
         "default_target": "en",
         "last_source": "",
         "last_target": "",
         "remember_last_lang": true
     },
-    "Bing.Translate": {
+    "Bing.TranslateTS": {
+        "default_source": "auto",
+        "default_target": "en",
+        "last_source": "",
+        "last_target": "",
+        "remember_last_lang": true
+    },
+    "Google.TranslateTS": {
         "default_source": "auto",
         "default_target": "en",
         "last_source": "",
@@ -87,6 +116,13 @@ const DEFAULT_ENGINES = {
         "remember_last_lang": true
     },
     "Google.Translate": {
+        "default_source": "auto",
+        "default_target": "en",
+        "last_source": "",
+        "last_target": "",
+        "remember_last_lang": true
+    },
+    "Transltr": {
         "default_source": "auto",
         "default_target": "en",
         "last_source": "",
@@ -955,7 +991,7 @@ HelpDialog.prototype = {
             base.format(escape_html("<Ctrl><Enter>"),
                 _("Translate text.")) +
             base.format(escape_html("<Shift><Enter>"),
-                _("Translate text (Forced).")) +
+                _("Force text translation. Ignores translation history.")) +
             base.format(escape_html("<Ctrl><Shift>C"),
                 _("Copy translated text to clipboard.")) +
             base.format(escape_html("<Ctrl>S"),
@@ -1690,6 +1726,78 @@ StatusBar.prototype = {
  * END status_bar.js
  */
 
+function ProviderBar(extension_object) {
+    this._init(extension_object);
+}
+
+ProviderBar.prototype = {
+
+    _init: function(extension_object) {
+        this._extension_object = extension_object;
+        this._providerURL = null;
+
+        this.actor = new St.BoxLayout({
+            style_class: "translator-providerbar-box",
+            visible: true
+        });
+        this._label = new St.Label({
+            text: ""
+        });
+        this._button = new St.Button({
+            child: this._label
+        });
+
+        this._button.connect("clicked", Lang.bind(this, this._openProviderWebsite));
+        this._button.connect("enter-event", Lang.bind(this, this._onButtonEnterEvent, this._button));
+        this._button.connect("leave-event", Lang.bind(this, this._onButtonLeaveEvent, this._button));
+        this._button.tooltip = new Tooltips.Tooltip(
+            this._button,
+            ""
+        );
+        // Ensure tooltip is destroyed when this button is destroyed
+        this._button.connect("destroy", Lang.bind(this, function() {
+            this._button.tooltip.destroy();
+        }));
+
+        this.actor.add(this._button, {
+            x_align: St.Align.END,
+            x_fill: false
+        });
+    },
+
+    clear: function() {
+        this.actor.hide();
+    },
+
+    destroy: function() {
+        this.clear();
+        this.actor.destroy();
+    },
+
+    _openProviderWebsite: function() {
+        this._extension_object.close();
+        Util.spawn_async(["gvfs-open", this.providerURL], null);
+    },
+
+    _onButtonEnterEvent: function(aE, aButton) { // jshint ignore:line
+        global.set_cursor(Cinnamon.Cursor.POINTING_HAND);
+        return false;
+    },
+
+    _onButtonLeaveEvent: function(aE, aButton) { // jshint ignore:line
+        global.unset_cursor();
+    },
+
+    set providerURL(aURL) {
+        this._providerURL = aURL;
+    },
+
+    get providerURL() {
+        return this._providerURL;
+    }
+
+};
+
 /**
  * START translation_provider_base.js
  */
@@ -1821,15 +1929,22 @@ function TranslationProviderBase(name, limit, url) {
 }
 
 TranslationProviderBase.prototype = {
-    _init: function(name, limit, url) {
+    _init: function(name, limit, url, headers) {
         this._name = name;
         this._limit = limit;
         this._url = url;
+        this._headers = headers;
         this.prefs = new TranslationProviderPrefs(this._name);
     },
 
     _get_data_async: function(url, callback) {
         let request = Soup.Message.new("GET", url);
+
+        if (this._headers) {
+            for (let key in this._headers) {
+                request.request_headers.append(key, this._headers[key]);
+            }
+        }
 
         _httpSession.queue_message(request, Lang.bind(this,
             function(_httpSession, message) {
@@ -1851,6 +1966,20 @@ TranslationProviderBase.prototype = {
         let result = "";
 
         switch (this.name) {
+            case "Transltr":
+                result = this._url.format(
+                    encodeURIComponent(text),
+                    target_lang,
+                    (source_lang === "auto" ? "" : "&from=" + source_lang)
+                );
+                break;
+            case "Google.Translate":
+                result = this._url.format(
+                    source_lang,
+                    target_lang,
+                    encodeURIComponent(text)
+                );
+                break;
             case "Yandex.Translate":
                 result = this._url.format(
                     this.YandexAPIKey,
@@ -1861,10 +1990,11 @@ TranslationProviderBase.prototype = {
                 // Not used for now
                 // Google, Bing and Apertium all use translate-shell
             default:
-                result = this._url.format(
-                    (source_lang === "auto" ? "" : source_lang + "-") + target_lang,
-                    encodeURIComponent(text)
-                );
+                result = "";
+                // result = this._url.format(
+                //     (source_lang === "auto" ? "" : source_lang + "-") + target_lang,
+                //     encodeURIComponent(text)
+                // );
                 break;
         }
 
@@ -2205,19 +2335,19 @@ ListenButton.prototype = {
     }
 };
 
-function TranslatorDialog(text_translator) {
-    this._init(text_translator);
+function TranslatorDialog(extension_object) {
+    this._init(extension_object);
 }
 
 TranslatorDialog.prototype = {
     __proto__: ModalDialog.ModalDialog.prototype,
 
-    _init: function(text_translator) {
+    _init: function(extension_object) {
         ModalDialog.ModalDialog.prototype._init.call(this, {
             cinnamonReactive: false
         });
 
-        this._text_translator = text_translator;
+        this._extension_object = extension_object;
 
         this._dialogLayout =
             typeof this.dialogLayout === "undefined" ? this._dialogLayout : this.dialogLayout;
@@ -2271,7 +2401,7 @@ TranslatorDialog.prototype = {
             Lang.bind(this, function() {
                 this.google_tts.speak(
                     this._source.text,
-                    this._text_translator.current_source_lang
+                    this._extension_object.current_source_lang
                 );
             }));
         this._listen_target_button = new ListenButton();
@@ -2279,38 +2409,44 @@ TranslatorDialog.prototype = {
         this._listen_target_button.actor.connect("clicked",
             Lang.bind(this, function() {
                 try {
-                    let regExp = new RegExp("[" + _("History") + "]");
                     let lines_count = this._source.text.split("\n").length;
-                    let translation = this._target.text.split("\n").slice(0, lines_count).join("\n");
+                    let translation = this._target.text.split("\n");
 
-                    // Keep an eye on this.
-                    // I don't know if this is the best approach.
-                    if (regExp.test(translation))
-                        translation = this._target.text.split("\n").slice(1, lines_count + 1).join("\n");
+                    if (translation[0] === "[" + _("History") + "]")
+                        translation.shift();
 
                     this.google_tts.speak(
-                        translation,
-                        this._text_translator.current_target_lang
+                        translation.slice(0, lines_count).join("\n"),
+                        this._extension_object.current_target_lang
                     );
                 } catch (aErr) {
                     global.logError(aErr);
                 }
             }));
 
+        this._providerbar = new ProviderBar(this._extension_object);
+        this._providerbar.actor.x_align = St.Align.MIDDLE;
+
         this._grid_layout = new Clutter.GridLayout({
             orientation: Clutter.Orientation.VERTICAL
         });
+
+        this._grid_layout.row_spacing = 2;
+        this._grid_layout.column_spacing = 4;
+
         this._table = new St.Widget({
             layout_manager: this._grid_layout
         });
+
         this._grid_layout.attach(this._topbar.actor, 0, 0, 4, 1);
         this._grid_layout.attach(this._dialog_menu.actor, 3, 0, 2, 1);
         this._grid_layout.attach(this._source.actor, 0, 2, 2, 1);
         this._grid_layout.attach(this._target.actor, 2, 2, 2, 1);
-        this._grid_layout.attach(this._listen_source_button.actor, 1, 3, 1, 1);
-        this._grid_layout.attach(this._chars_counter.actor, 0, 3, 1, 2);
-        this._grid_layout.attach(this._listen_target_button.actor, 3, 3, 1, 1);
-        this._grid_layout.attach(this._statusbar.actor, 2, 3, 2, 1);
+        this._grid_layout.attach(this._providerbar.actor, 2, 3, 2, 1);
+        this._grid_layout.attach(this._listen_source_button.actor, 1, 4, 1, 1);
+        this._grid_layout.attach(this._chars_counter.actor, 0, 4, 1, 2);
+        this._grid_layout.attach(this._listen_target_button.actor, 3, 4, 1, 1);
+        this._grid_layout.attach(this._statusbar.actor, 2, 4, 2, 1);
 
         this.contentLayout.add_child(this._table);
 
@@ -2403,7 +2539,7 @@ TranslatorDialog.prototype = {
     },
 
     _get_statusbar_height: function() {
-        let message_id = this._statusbar.add_message(_("Sample message 1."));
+        let message_id = this._statusbar.add_message("Dummy message.");
         let result = this._statusbar.actor.get_preferred_height(-1)[1];
         this._statusbar.remove_message(message_id);
         return result;
@@ -2513,7 +2649,7 @@ TranslatorDialog.prototype = {
         if (this._connection_ids.show_most_used > 0)
             settings.disconnect(this._connection_ids.show_most_used);
 
-        delete this._text_translator;
+        delete this._extension_object;
 
         this._source.destroy();
         this._target.destroy();
@@ -2545,6 +2681,10 @@ TranslatorDialog.prototype = {
 
     get statusbar() {
         return this._statusbar;
+    },
+
+    get providerbar() {
+        return this._providerbar;
     },
 
     get dialog_layout() {

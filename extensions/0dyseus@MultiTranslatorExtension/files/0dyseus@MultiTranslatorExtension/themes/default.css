@@ -37,6 +37,11 @@
     color: #ccc;
 }
 
+.translator-providerbar-box {
+    font-size: 12px;
+    font-weight: bold;
+}
+
 .translator-buttons-bar-box {
 }
 

@@ -10,7 +10,7 @@
     "dangerous": true,
     "name": "Multi Translator",
     "version": "1.00-PROTOTYPE",
-    "contributors": "gufoe: Original gnome-shell extension author (https://github.com/gufoe/text-translator).",
-    "comments": "Bug reports and feature requests should be reported on this applet's repository linked below.",
-    "description": "Translation of text by different translation providers (currently Google.Translate, Yandex.Translate)."
+    "contributors": "gufoe: Original gnome-shell extension author (https://github.com/gufoe/text-translator).\nsoimort: Author of the translate-shell script (https://github.com/soimort/translate-shell).",
+    "comments": "Bug reports, feature requests and contributions should be done on this xlet's repository linked below.",
+    "description": "Translation of text by different translation providers (currently Google, Yandex, Bing and Apertium)."
 }

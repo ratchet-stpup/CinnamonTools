@@ -39,6 +39,11 @@
     color: rgb(70, 70, 70);
 }
 
+.translator-providerbar-box {
+    font-size: 12px;
+    font-weight: bold;
+}
+
 .translator-buttons-bar-box {;
 }
 
@@ -151,11 +156,12 @@
 }
 
 .translator-chars-counter-box {
-    font-size: 13px;
+    font-size: 14px;
     padding: 5px;
 }
 
-.translator-chars-counter-text {;
+.translator-chars-counter-text {
+    padding-bottom: 5px;
 }
 
 .translator-help-box {

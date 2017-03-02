@@ -23,62 +23,62 @@ extensionUUID = str(os.path.basename(extensionDir))
 langList = {
     "?": "Unknown",
     "": "Auto",
-    "af": "Afrikaans (G)",
+    "af": "Afrikaans",
     "sq": "Albanian",
     "am": "Amharic",
     "ar": "Arabic",
     "hy": "Armenian",
     "az": "Azerbaijani",
-    "eu": "Basque (G)",
+    "eu": "Basque",
     "be": "Belarusian",
-    "bn": "Bengali (G)",
+    "bn": "Bengali",
     "bs": "Bosnian (Y)",
     "bg": "Bulgarian",
     "ca": "Catalan",
     "ny": "Cebuano",
     "ceb": "Chichewa",
     "zh": "Chinese (Y)",
-    "zh-CN": "Chinese (G)",
+    "zh-CN": "Chinese",
     "co": "Corsican",
     "hr": "Croatian",
     "cs": "Czech",
     "da": "Danish",
     "nl": "Dutch",
     "en": "English",
-    "eo": "Esperanto (G)",
+    "eo": "Esperanto",
     "et": "Estonian",
-    "tl": "Filipino (G)",
+    "tl": "Filipino",
     "fi": "Finnish",
     "fr": "French",
-    "fy": "Frisian (G)",
-    "gl": "Galician (G)",
+    "fy": "Frisian",
+    "gl": "Galician",
     "ka": "Georgian",
     "de": "German",
     "el": "Greek",
-    "gu": "Gujarati (G)",
+    "gu": "Gujarati",
     "ht": "Haitian Creole",
-    "ha": "Hausa (G)",
-    "haw": "Hawaiian (G)",
+    "ha": "Hausa",
+    "haw": "Hawaiian",
     "he": "Hebrew (Y)",
-    "iw": "Hebrew (G)",
+    "iw": "Hebrew",
     "hi": "Hindi",
     "hmn": "Hmong",
     "hu": "Hungarian",
     "is": "Icelandic",
     "ig": "Igbo",
     "id": "Indonesian",
-    "ga": "Irish (G)",
+    "ga": "Irish",
     "it": "Italian",
     "ja": "Japanese",
     "jw": "Javanese",
-    "kn": "Kannada (G)",
-    "kk": "Kazakh (G)",
-    "km": "Khmer (G)",
+    "kn": "Kannada",
+    "kk": "Kazakh",
+    "km": "Khmer",
     "ko": "Korean",
-    "ku": "Kurdish (Kurmanji) (G)",
-    "ky": "Kyrgyz (G)",
-    "lo": "Lao (G)",
-    "la": "Latin (G)",
+    "ku": "Kurdish (Kurmanji)",
+    "ky": "Kyrgyz",
+    "lo": "Lao",
+    "la": "Latin",
     "lv": "Latvian",
     "lt": "Lithuanian",
     "lb": "Luxembourgish",
@@ -87,47 +87,47 @@ langList = {
     "ms": "Malay",
     "ml": "Malayalam",
     "mt": "Maltese",
-    "mi": "Maori (G)",
-    "mr": "Marathi (G)",
-    "mn": "Mongolian (G)",
-    "my": "Myanmar (Burmese) (G)",
-    "ne": "Nepali (G)",
+    "mi": "Maori",
+    "mr": "Marathi",
+    "mn": "Mongolian",
+    "my": "Myanmar (Burmese)",
+    "ne": "Nepali",
     "no": "Norwegian",
     "ps": "Pashto",
     "fa": "Persian",
     "pl": "Polish",
     "pt": "Portuguese",
-    "pa": "Punjabi (G)",
+    "pa": "Punjabi",
     "ro": "Romanian",
     "ru": "Russian",
-    "sm": "Samoan (G)",
-    "gd": "Scots Gaelic (G)",
+    "sm": "Samoan",
+    "gd": "Scots Gaelic",
     "sr": "Serbian",
-    "st": "Sesotho (G)",
-    "sn": "Shona (G)",
-    "sd": "Sindhi (G)",
-    "si": "Sinhala (G)",
+    "st": "Sesotho",
+    "sn": "Shona",
+    "sd": "Sindhi",
+    "si": "Sinhala",
     "sk": "Slovak",
     "sl": "Slovenian",
     "so": "Somali",
     "es": "Spanish",
-    "su": "Sundanese (G)",
-    "sw": "Swahili (G)",
+    "su": "Sundanese",
+    "sw": "Swahili",
     "sv": "Swedish",
-    "tg": "Tajik (G)",
-    "ta": "Tamil (G)",
-    "te": "Telugu (G)",
+    "tg": "Tajik",
+    "ta": "Tamil",
+    "te": "Telugu",
     "th": "Thai",
     "tr": "Turkish",
     "uk": "Ukrainian",
     "ur": "Urdu",
-    "uz": "Uzbek (G)",
+    "uz": "Uzbek",
     "vi": "Vietnamese",
     "cy": "Welsh",
-    "xh": "Xhosa (G)",
-    "yi": "Yiddish (G)",
-    "yo": "Yoruba (G)",
-    "zu": "Zulu (G)"
+    "xh": "Xhosa",
+    "yi": "Yiddish",
+    "yo": "Yoruba",
+    "zu": "Zulu"
 }
 
 # button_reload is commented out in case I have to come back to it.
@@ -252,7 +252,7 @@ class HistoryWindow(Gtk.ApplicationWindow):
 class HistoryApplication(Gtk.Application):
 
     def __init__(self, *args, **kwargs):
-        super().__init__(*args, application_id="org.cinnamon.applets.popup-translator-history",
+        super().__init__(*args, application_id="org.cinnamon.extensions.multi-translator-history",
                          flags=Gio.ApplicationFlags.HANDLES_COMMAND_LINE,
                          **kwargs)
 
@@ -422,28 +422,30 @@ def main():
     if arg == "history":
         app = HistoryApplication()
         app.run(sys.argv)
-    # elif arg == "check-dependencies":
-    #     # Some of these "dependencies" could easily be checked on JavaScript side.
-    #     # But since I also have to check the existence of a Python module,
-    #     # I thought convenient to make all checks from here.
-    #     import subprocess
+    elif arg == "check-dependencies":
+        import subprocess
 
-    #     msg = "<!--SEPARATOR-->"
+        msg = "<!--SEPARATOR-->"
 
-    #     try:
-    #         subprocess.check_call(["xsel", "--version"])
-    #     except OSError:
-    #         msg += "# xsel command not found!!!\n"
+        try:
+            subprocess.check_call(["xsel", "--version"])
+        except OSError:
+            msg += "# xsel command not found!!!\n"
 
-    #     try:
-    #         subprocess.check_call(["xdg-open", "--version"])
-    #     except OSError:
-    #         msg += "# xdg-open command not found!!!\n"
+        try:
+            subprocess.check_call(["xdg-open", "--version"])
+        except OSError:
+            msg += "# xdg-open command not found!!!\n"
 
-    #     if not module_exists("requests"):
-    #         msg += "# requests Python module not found!!!\n"
+        try:
+            subprocess.check_call(["trans", "-V"])
+        except OSError:
+            msg += "# trans command not found or it isn't in your path!!!\n"
 
-    #     print(msg)
+        # if not module_exists("requests"):
+        #     msg += "# requests Python module not found!!!\n"
+
+        print(msg)
 
 if __name__ == "__main__":
     main()

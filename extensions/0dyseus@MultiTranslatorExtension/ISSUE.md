@@ -58,6 +58,7 @@ Once installed and enabled, the following shortcuts will be available.
 #### Shortcuts available on the translation dialog
 
 - **<kbd>Ctrl</kbd> + <kbd>Enter</kbd>:** Translate text.
+- **<kbd>Shift</kbd> + <kbd>Enter</kbd>:** Translate text (Forced).
 - **<kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>C</kbd>:** Copy translated text to clipboard.
 - **<kbd>Ctrl</kbd> + <kbd>S</kbd>:** Swap languages.
 - **<kbd>Ctrl</kbd> + <kbd>D</kbd>:** Reset languages to default.
@@ -73,12 +74,16 @@ Once installed and enabled, the following shortcuts will be available.
 
 ### Multi Translator extension ToDo list:
 
-* [ ] **Implement a mechanism to check for dependencies** ![@critical](https://img.shields.io/badge/Priority-Critical-red.svg)
-* [ ] **Add more translation providers that doesn't require the use of translate-shell** ![@high](https://img.shields.io/badge/Priority-High-red.svg)
-* [ ] **Provide alternate methods in case translate-shell breaks or doesn't exists (manually configurable or automatic)** ![@high](https://img.shields.io/badge/Priority-High-red.svg)
 * [ ] **Change all synchronous functions to asynchronous** ![@high](https://img.shields.io/badge/Priority-High-red.svg)
 * [ ] **Add the possibility to select a custom theme** ![@high](https://img.shields.io/badge/Priority-High-red.svg)
-* [ ] **Create a mechanism to display statistics** Statistics are already stored and used by the option called **Show most used languages**. ![@high](https://img.shields.io/badge/Priority-High-red.svg)
+* [ ] **Create a mechanism to display statistics** Statistics are already stored and used by the option called **Show most used languages**. ![@low](https://img.shields.io/badge/Priority-Low-yellowgreen.svg)
+* [x] **Add "Service provided by Service provider name" notice** This is needed to comply with the terms of use for the translation services.
+* [x] **Implement a mechanism to check for dependencies**
+* [x] **Provide alternate methods in case translate-shell breaks or doesn't exists (manually configurable or automatic)**
+    - There are a total of 3 translation services that doesn't require translate-shell. For now, this should suffice.
+* [x] **Add more translation providers that doesn't require the use of translate-shell**
+    - Added another Google Translate method that makes use of the mechanism used by the Google Translate Chrome extension.
+    - Added **Transltr** service. The only translation service on the face of the earth with a public API and that makes no use of API keys. Lets enjoy it while it lasts (LOL).
 * [x] **Create the translation template**
 * [x] **Add more translation providers:** At least as much as translate-shell supports.
 * [x] **Add Yandex API keys configuration**
@@ -90,7 +95,7 @@ Once installed and enabled, the following shortcuts will be available.
 
 ### Multi Translator applet ToDo list:
 
-**The development of this applet has not started yet. Will start it when the extension reached a stable stage and it's published on the Spices website.**
+**The development of this applet has not started yet. Will start it when the extension reaches a stable stage and it's published on the Spices website.**
 
 #### Clicking on applet
    * [ ] Can bring up the extension dialog.

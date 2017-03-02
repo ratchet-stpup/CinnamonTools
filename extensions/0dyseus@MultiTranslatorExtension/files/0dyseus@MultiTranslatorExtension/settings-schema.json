@@ -32,11 +32,12 @@
     },
     "pref_default_translator": {
         "type": "combobox",
-        "default": "Google.Translate",
+        "default": "Google.TranslateTS",
         "description": "Default translation provider",
         "options": {
-            "Apertium Translate": "Apertium.Translate",
-            "Bing Translate": "Bing.Translate",
+            "Apertium Translate (TS)": "Apertium.TranslateTS",
+            "Bing Translate (TS)": "Bing.TranslateTS",
+            "Google Translate (TS)": "Google.TranslateTS",
             "Google Translate": "Google.Translate",
             "Yandex Translate": "Yandex.Translate"
         }
@@ -44,14 +45,21 @@
     "pref_translators_prefs": {
         "type": "generic",
         "default": {
-            "Apertium.Translate": {
+            "Apertium.TranslateTS": {
                 "default_source": "auto",
                 "default_target": "en",
                 "last_source": "",
                 "last_target": "",
                 "remember_last_lang": true
             },
-            "Bing.Translate": {
+            "Bing.TranslateTS": {
+                "default_source": "auto",
+                "default_target": "en",
+                "last_source": "",
+                "last_target": "",
+                "remember_last_lang": true
+            },
+            "Google.TranslateTS": {
                 "default_source": "auto",
                 "default_target": "en",
                 "last_source": "",
@@ -59,6 +67,13 @@
                 "remember_last_lang": true
             },
             "Google.Translate": {
+                "default_source": "auto",
+                "default_target": "en",
+                "last_source": "",
+                "last_target": "",
+                "remember_last_lang": true
+            },
+            "Transltr": {
                 "default_source": "auto",
                 "default_target": "en",
                 "last_source": "",
@@ -205,7 +220,7 @@
     "pref_yandex_api_keys": {
         "type": "textview",
         "description": "API keys",
-        "default": "",
+        "default": "trnsl.1.1.20131012T133604Z.058afe97adb43930.4289d5089e7cf72449ffcefc1c623e76f5f281dd",
         "tooltip": "Enter one API key per line.\nRead the help file found inside this extension folder to know how to get free Yandex API keys.",
         "height": 150
     },
@@ -233,5 +248,9 @@
         "default": false,
         "description": "Indent translation history data",
         "tooltip": "It allows to save the translation history data with indentation."
+    },
+    "pref_all_dependencies_met": {
+        "type": "generic",
+        "default": false
     }
 }

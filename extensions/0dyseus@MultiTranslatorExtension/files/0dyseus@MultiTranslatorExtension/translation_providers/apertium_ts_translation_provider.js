@@ -15,9 +15,11 @@ imports.searchPath.push(imports.ui.extensionSystem.extensionMeta[ExtensionUUID].
 
 var $ = imports[ExtensionUUID];
 
-const NAME = "Apertium.Translate";
-const LIMIT = 1400;
-const MAX_QUERIES = 3;
+const PROVIDER_NAME = "Apertium.TranslateTS";
+const PROVIDER_LIMIT = 1400;
+const PROVIDER_MAX_QUERIES = 3;
+const PROVIDER_URL = "";
+const PROVIDER_HEADERS = null;
 
 const SENTENCES_REGEXP = /\n|([^\r\n.!?]+([.!?]+|\n|$))/gim;
 
@@ -29,7 +31,13 @@ Translator.prototype = {
     __proto__: $.TranslationProviderBase.prototype,
 
     _init: function(extension_object) {
-        $.TranslationProviderBase.prototype._init.call(this, NAME, LIMIT * MAX_QUERIES, "");
+        $.TranslationProviderBase.prototype._init.call(
+            this,
+            PROVIDER_NAME,
+            PROVIDER_LIMIT * PROVIDER_MAX_QUERIES,
+            PROVIDER_URL,
+            PROVIDER_HEADERS
+        );
         this._results = [];
         this._extension_object = extension_object;
     },
@@ -37,9 +45,8 @@ Translator.prototype = {
     _split_text: function(text) {
         let sentences = text.match(SENTENCES_REGEXP);
 
-        if (sentences === null) {
+        if (sentences === null)
             return false;
-        }
 
         let temp = "";
         let result = [];
@@ -52,12 +59,13 @@ Translator.prototype = {
                 continue;
             }
 
-            if (sentence.length + temp.length > LIMIT) {
+            if (sentence.length + temp.length > PROVIDER_LIMIT) {
                 result.push(temp);
                 temp = sentence;
             } else {
                 temp += sentence;
-                if (i == (sentences.length - 1)) result.push(temp);
+                if (i == (sentences.length - 1))
+                    result.push(temp);
             }
         }
 
@@ -124,11 +132,11 @@ Translator.prototype = {
         global.logError(command.concat(options).concat(subjects));
 
         $.exec(command.concat(options).concat(subjects), Lang.bind(this, function(data) {
-            if (!data) {
+            if (!data)
                 data = _("Error while translating, check your internet connection");
-            } else {
+            else
                 data = this.parse_response(data);
-            }
+
             callback({
                 error: false,
                 message: data
@@ -145,7 +153,8 @@ Translator.prototype = {
         let splitted = this._split_text(text);
 
         if (!splitted || splitted.length === 1) {
-            if (splitted) text = splitted[0];
+            if (splitted)
+                text = splitted[0];
 
             this.do_translation(source_lang, target_lang, text, callback);
         } else {

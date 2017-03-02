@@ -15,10 +15,6 @@ const TIMEOUT_IDS = {
     load_theme_id: 0
 };
 
-const TRIGGERS = {
-    translate: true
-};
-
 const CONNECTION_IDS = {
     enable_shortcuts: 0
 };
@@ -99,6 +95,9 @@ TranslatorExtension.prototype = {
 
             this.ensureHistoryFileExists();
             this._loadTheme();
+
+            if (!settings.getValue("pref_all_dependencies_met"))
+                this.checkDependencies();
         } catch (aErr) {
             global.logError(aErr);
         }
@@ -260,8 +259,17 @@ TranslatorExtension.prototype = {
             this._translators_manager.current.limit;
         this._set_current_languages();
         this._show_most_used();
+        this._set_providerbar(name);
 
         this._dialog.source.grab_key_focus();
+    },
+
+    _set_providerbar: function(name) {
+        this._dialog.providerbar.providerURL = $.PROVIDERS_WEBSITES[name];
+        this._dialog.providerbar._button.tooltip._tooltip.set_text(_("Go to %s's website")
+            .format($.PROVIDERS_NAMES[name]));
+        this._dialog.providerbar._label.set_text(_("Service provided by %s")
+            .format($.PROVIDERS_NAMES[name]));
     },
 
     _set_current_source: function(lang_code) {
@@ -344,19 +352,15 @@ TranslatorExtension.prototype = {
     },
 
     _openTranslationHistory: function() {
-        try {
-            this.close();
-            Util.spawn_async([
-                /*"python3",*/
-                main_extension_path + "/extensionHelper.py",
-                "history",
-                settings.getValue("pref_history_initial_window_width") + "," +
-                settings.getValue("pref_history_initial_window_height") + "," +
-                settings.getValue("pref_history_width_to_trigger_word_wrap")
-            ], null);
-        } catch (aErr) {
-            global.logError(aErr);
-        }
+        this.close();
+        Util.spawn_async([
+            /*"python3",*/
+            main_extension_path + "/extensionHelper.py",
+            "history",
+            settings.getValue("pref_history_initial_window_width") + "," +
+            settings.getValue("pref_history_initial_window_height") + "," +
+            settings.getValue("pref_history_width_to_trigger_word_wrap")
+        ], null);
     },
 
     _on_source_language_chose: function(object, language) {
@@ -564,10 +568,22 @@ TranslatorExtension.prototype = {
                         "separator"
                     ],
                     [
+                        _("Check dependencies"),
+                        Lang.bind(this, function() {
+                            this.close();
+                            this.checkDependencies();
+                        }),
+                        $.ICONS.find
+                    ],
+                    [
                         _("Extended help"),
                         Lang.bind(this, function() {
                             this.close();
-                            Util.spawnCommandLine("xdg-open " + main_extension_path + "/HELP.html");
+                            Util.spawn_async([
+                                "xdg-open",
+                                main_extension_path + "/HELP.html"
+                            ], null);
+                            // Util.spawnCommandLine("xdg-open " + main_extension_path + "/HELP.html");
                         }),
                         $.ICONS.help
                     ]
@@ -672,17 +688,23 @@ TranslatorExtension.prototype = {
             return;
 
         try {
+            // The event used by this block is passed by mouse clicks and key press events.
             let state = event.get_state();
             let cyrillic_shift = 8192;
             let shift_mask =
-                (state === Clutter.ModifierType.SHIFT_MASK || state === cyrillic_shift) || // For key press
-                (Clutter.ModifierType.SHIFT_MASK & global.get_pointer()[2]) !== 0; // For mouse button press
+                // For key press
+                (state === Clutter.ModifierType.SHIFT_MASK || state === cyrillic_shift) ||
+                // For mouse button press
+                (Clutter.ModifierType.SHIFT_MASK & global.get_pointer()[2]) !== 0;
 
             this.forceTranslation = shift_mask;
-
         } catch (aErr) {
-            global.logError(aErr);
+            if (settings.getValue("pref_loggin_enabled"))
+                global.logError(aErr);
+
+            this.forceTranslation = false;
         }
+
         let historyEntry = this.transHistory[this._current_target_lang] ?
             this.transHistory[this._current_target_lang][this._dialog.source.text] :
             false;
@@ -711,29 +733,34 @@ TranslatorExtension.prototype = {
             Lang.bind(this, function(result) {
                 this._dialog.statusbar.remove_message(message_id);
 
-                if (result.error) {
-                    this._dialog.statusbar.add_message(
-                        result.message,
-                        4000,
-                        $.STATUS_BAR_MESSAGE_TYPES.error
-                    );
-                } else {
-                    this._dialog.target.markup = "%s".format(result.message);
-
-                    // Do not save history if the source text is equal to the
-                    // translated text.
-                    if (this._dialog.source.text !== this._dialog.target.text) {
-                        this.setTransHistory(
-                            this._dialog.source.text, {
-                                d: this._getTimeStamp(new Date().getTime()),
-                                sL: (this._current_source_lang === "auto" ?
-                                    this._getDetectedLang(result) :
-                                    this._current_source_lang),
-                                tL: this._current_target_lang,
-                                tT: result.message
-                            }
+                // Leave this try{}catch{} block
+                try {
+                    if (result.error) {
+                        this._dialog.statusbar.add_message(
+                            result.message,
+                            4000,
+                            $.STATUS_BAR_MESSAGE_TYPES.error
                         );
+                    } else {
+                        this._dialog.target.markup = "%s".format(result.message);
+
+                        // Do not save history if the source text is equal to the
+                        // translated text.
+                        if (this._dialog.source.text !== this._dialog.target.text) {
+                            this.setTransHistory(
+                                this._dialog.source.text, {
+                                    d: this._getTimeStamp(new Date().getTime()),
+                                    sL: (this._current_source_lang === "auto" ?
+                                        this._getDetectedLang(result) :
+                                        this._current_source_lang),
+                                    tL: this._current_target_lang,
+                                    tT: result.message
+                                }
+                            );
+                        }
                     }
+                } catch (aErr) {
+                    global.logError(aErr);
                 }
             })
         );
@@ -746,7 +773,6 @@ TranslatorExtension.prototype = {
         let selection = this.selection;
 
         if (aTranslateSelection) {
-            TRIGGERS.translate = false;
             this._dialog.source.text = selection;
             this._translate();
         } else {
@@ -761,7 +787,6 @@ TranslatorExtension.prototype = {
                     return;
                 }
 
-                TRIGGERS.translate = false;
                 this._dialog.source.text = text;
                 this._translate();
             }));
@@ -770,7 +795,10 @@ TranslatorExtension.prototype = {
 
     _getDetectedLang: function(aResult) {
         switch (this._translators_manager.current.name) {
+            case "Transltr":
             case "Google.Translate":
+                return aResult.detectedLang;
+            case "Google.TranslateTS":
                 let lines = aResult.message.split("\n");
                 let i = 0,
                     iLen = lines.length;
@@ -795,7 +823,7 @@ TranslatorExtension.prototype = {
 
     _add_keybindings: function() {
         Main.keybindingManager.addHotKey(
-            "open_translator_dialog_keybinding",
+            "multi_translator_open_translator_dialog_keybinding",
             settings.getValue("pref_open_translator_dialog_keybinding"),
             Lang.bind(this, function() {
                 if (this._dialog.state === State.OPENED || this._dialog.state === State.OPENING)
@@ -806,7 +834,7 @@ TranslatorExtension.prototype = {
         );
 
         Main.keybindingManager.addHotKey(
-            "translate_from_clipboard_keybinding",
+            "multi_translator_translate_from_clipboard_keybinding",
             settings.getValue("pref_translate_from_clipboard_keybinding"),
             Lang.bind(this, function() {
                 this._translate_from_clipboard(false);
@@ -814,7 +842,7 @@ TranslatorExtension.prototype = {
         );
 
         Main.keybindingManager.addHotKey(
-            "translate_from_selection_keybinding",
+            "multi_translator_translate_from_selection_keybinding",
             settings.getValue("pref_translate_from_selection_keybinding"),
             Lang.bind(this, function() {
                 this._translate_from_clipboard(true);
@@ -823,9 +851,9 @@ TranslatorExtension.prototype = {
     },
 
     _remove_keybindings: function() {
-        Main.keybindingManager.removeHotKey(settings.getValue("pref_open_translator_dialog_keybinding"));
-        Main.keybindingManager.removeHotKey(settings.getValue("pref_translate_from_clipboard_keybinding"));
-        Main.keybindingManager.removeHotKey(settings.getValue("pref_translate_from_selection_keybinding"));
+        Main.keybindingManager.removeHotKey("multi_translator_open_translator_dialog_keybinding");
+        Main.keybindingManager.removeHotKey("multi_translator_translate_from_clipboard_keybinding");
+        Main.keybindingManager.removeHotKey("multi_translator_translate_from_selection_keybinding");
     },
 
     open: function() {
@@ -1067,6 +1095,46 @@ TranslatorExtension.prototype = {
         ts = ts.replace("mm", mm);
         ts = ts.replace("ss", ss);
         return ts;
+    },
+
+    checkDependencies: function() {
+        Util.spawn_async([
+                // "python3",
+                main_extension_path + "/extensionHelper.py",
+                "check-dependencies"
+            ],
+            Lang.bind(this, function(aResponse) {
+                if (this.pref_loggin_enabled)
+                    global.logError("\ncheckDependencies()>aResponse:\n" + aResponse);
+
+                let res = (aResponse.split("<!--SEPARATOR-->")[1])
+                    // Preserve line breaks.
+                    .replace(/\n+/g, "<br>")
+                    .replace(/\s+/g, " ")
+                    .replace(/<br>/g, "\n");
+                res = res.trim();
+
+                if (res.length > 1) {
+                    global.logError(
+                        "\n# [" + _(metadata.name) + "]" + "\n" +
+                        "# " + _("Unmet dependencies found!!!") + "\n" +
+                        res + "\n" +
+                        "# " + _("Check this extension help file for instructions.") + "\n" +
+                        "# " + _("It can be accessed from the translation dialog main menu.")
+                    );
+                    this.informAboutMissingDependencies();
+                    settings.setValue("pref_all_dependencies_met", false);
+                } else {
+                    Main.notify(_(metadata.name), _("All dependencies seem to be met."));
+                    settings.setValue("pref_all_dependencies_met", true);
+                }
+            }));
+    },
+
+    informAboutMissingDependencies: function() {
+        Main.criticalNotify(_(metadata.name),
+            _("Unmet dependencies found!!!") + "\n" +
+            _("A detailed error has been logged into ~/.cinnamon/glass.log file."));
     },
 
     get current_target_lang() {

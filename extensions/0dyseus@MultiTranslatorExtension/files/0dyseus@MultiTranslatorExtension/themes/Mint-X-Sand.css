@@ -39,6 +39,11 @@
     color: rgb(70, 70, 70);
 }
 
+.translator-providerbar-box {
+    font-size: 12px;
+    font-weight: bold;
+}
+
 .translator-buttons-bar-box {
 }
 

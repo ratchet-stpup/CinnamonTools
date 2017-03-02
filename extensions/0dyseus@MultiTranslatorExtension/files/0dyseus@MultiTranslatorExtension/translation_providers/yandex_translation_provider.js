@@ -15,9 +15,14 @@ imports.searchPath.push(imports.ui.extensionSystem.extensionMeta[ExtensionUUID].
 
 var $ = imports[ExtensionUUID];
 
-const NAME = "Yandex.Translate";
-const LIMIT = 9800;
+const PROVIDER_NAME = "Yandex.Translate";
+const PROVIDER_LIMIT = 9800;
 const PROVIDER_URL = "https://translate.yandex.net/api/v1.5/tr.json/translate?key=%s&lang=%s&text=%s&format=plain&options=1";
+const PROVIDER_HEADERS = {
+    "user-agent": "Mozilla/5.0",
+    "Referer": "https://translate.yandex.net/",
+    "Content-Type": "application/x-www-form-urlencoded"
+};
 
 const LANGUAGE_PAIRS = [
     "auto-az",
@@ -222,7 +227,13 @@ Translator.prototype = {
     __proto__: $.TranslationProviderBase.prototype,
 
     _init: function(extension_object) {
-        $.TranslationProviderBase.prototype._init.call(this, NAME, LIMIT, PROVIDER_URL);
+        $.TranslationProviderBase.prototype._init.call(
+            this,
+            PROVIDER_NAME,
+            PROVIDER_LIMIT,
+            PROVIDER_URL,
+            PROVIDER_HEADERS
+        );
         this._extension_object = extension_object;
     },
 

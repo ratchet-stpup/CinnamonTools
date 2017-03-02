@@ -21,7 +21,8 @@ This extension adds some options to modify the default behaviour of certain Cinn
 - **xsel** command: XSel is a command-line program for getting and setting the contents of the X selection.
 - **trans** command: Command provided by the package translate-shell. Is a simple command line interface several translation providers (Google Translate, Yandex Translate, Bing Translate and Apertium) which allows you to translate strings in your terminal.
 
-## Contributors
+## Contributors/Mentions
 - **[gufoe](https://github.com/gufoe):** Original author of the gnome-shell extension called [Text Translator](https://github.com/gufoe/text-translator).
+- **[soimort](https://github.com/soimort):** Author of the [translate-shell script](https://github.com/soimort/translate-shell).
 
 [Full change log](https://github.com/Odyseus/CinnamonTools/blob/master/extensions/0dyseus%40MultiTranslatorExt/CHANGELOG.md)
