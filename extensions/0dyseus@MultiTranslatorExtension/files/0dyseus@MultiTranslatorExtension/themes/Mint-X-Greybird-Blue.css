@@ -58,12 +58,12 @@
 }
 
 .tranlator-top-bar-button {
-    font-size: 20px;
+    font-size: 18px;
     font-weight: bold;
 }
 
 .tranlator-top-bar-button-reactive {
-    font-size: 20px;
+    font-size: 18px;
     font-weight: bold;
 }
 
@@ -73,7 +73,7 @@
 }
 
 .tranlator-top-bar-go-button {
-    font-size: 20px;
+    font-size: 18px;
     font-weight: bold;
     padding: 0 10px;
     border: 1px solid rgb(70, 70, 70);
@@ -86,7 +86,7 @@
 }
 
 .translator-dialog-menu-button {
-    font-size: 20px;
+    font-size: 18px;
     padding-top: 2px;
     color: rgb(70, 70, 70);
 }
@@ -157,11 +157,11 @@
 
 .translator-chars-counter-box {
     font-size: 14px;
-    padding: 5px;
+    padding-bottom: 8px;
 }
 
 .translator-chars-counter-text {
-    padding-bottom: 5px;
+    padding-bottom: 8px;
 }
 
 .translator-help-box {

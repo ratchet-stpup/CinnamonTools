@@ -382,7 +382,7 @@ SettingsHandler.prototype = {
             [bD.IN, "pref_font_size", null],
             [bD.BIDIRECTIONAL, "pref_languages_stats", null],
             [bD.IN, "pref_show_most_used", null],
-            [bD.IN, "pref_dialog_theme", null],
+            [bD.BIDIRECTIONAL, "pref_dialog_theme", null],
             [bD.IN, "pref_history_timestamp", null],
             [bD.IN, "pref_history_timestamp_custom", null],
             [bD.IN, "pref_history_initial_window_width", null],
@@ -724,11 +724,11 @@ ButtonsBar.prototype = {
         this._buttons = [];
     },
 
-    add_button: function(button, aAlignEnd) {
+    add_button: function(button) {
         this._buttons.push(button);
         this.actor.add(button.actor, {
             x_fill: false,
-            x_align: aAlignEnd ? St.Align.END : St.Align.START
+            x_align: St.Align.START
         });
     },
 
@@ -967,8 +967,9 @@ HelpDialog.prototype = {
     _init: function() {
         ModalDialog.ModalDialog.prototype._init.call(this);
 
-        this._dialogLayout =
-            typeof this.dialogLayout === "undefined" ? this._dialogLayout : this.dialogLayout;
+        this._dialogLayout = typeof this.dialogLayout === "undefined" ?
+            this._dialogLayout :
+            this.dialogLayout;
         this._dialogLayout.connect("key-press-event", Lang.bind(this,
             this._on_key_press_event
         ));
@@ -1088,8 +1089,9 @@ LanguageChooser.prototype = {
     _init: function(title, languages) {
         ModalDialog.ModalDialog.prototype._init.call(this);
 
-        this._dialogLayout =
-            typeof this.dialogLayout === "undefined" ? this._dialogLayout : this.dialogLayout;
+        this._dialogLayout = typeof this.dialogLayout === "undefined" ?
+            this._dialogLayout :
+            this.dialogLayout;
         this._dialogLayout.connect("key-press-event", Lang.bind(this,
             this._on_key_press_event
         ));
@@ -1267,7 +1269,8 @@ LanguageChooser.prototype = {
 
         let scroll_width = Math.round(chooser_width * 0.9);
         let scroll_height = Math.round(
-            chooser_height - this._title.height - this._info_label.height - this._dialogLayout.get_theme_node().get_padding(St.Side.BOTTOM) * 3
+            chooser_height - this._title.height - this._info_label.height -
+            this._dialogLayout.get_theme_node().get_padding(St.Side.BOTTOM) * 3
         );
         this._scroll.set_width(scroll_width);
         this._scroll.set_height(scroll_height);
@@ -1289,9 +1292,6 @@ LanguageChooser.prototype = {
             a = languages[a];
             b = languages[b];
             return a.localeCompare(b);
-
-            // a = languages[a];
-            // b = languages[b];
             // return a > b;
         }));
 
@@ -1329,8 +1329,13 @@ LanguageChooser.prototype = {
     },
 
     open: function() {
-        this._resize();
+        /**
+         * Had to invert the two following calls.
+         * Otherwise, the resizing wasn't correct.
+         * In the original gnome-shell extension the resizing is done correctly. ¬¬
+         */
         ModalDialog.ModalDialog.prototype.open.call(this);
+        this._resize();
     },
 };
 Signals.addSignalMethods(LanguageChooser.prototype);
@@ -2348,9 +2353,9 @@ TranslatorDialog.prototype = {
         });
 
         this._extension_object = extension_object;
-
-        this._dialogLayout =
-            typeof this.dialogLayout === "undefined" ? this._dialogLayout : this.dialogLayout;
+        this._dialogLayout = typeof this.dialogLayout === "undefined" ?
+            this._dialogLayout :
+            this.dialogLayout;
         this._dialogLayout.set_style_class_name("translator-box");
 
         this._source = new SourceEntry();

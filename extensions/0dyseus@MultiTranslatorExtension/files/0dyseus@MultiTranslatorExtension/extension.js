@@ -79,6 +79,13 @@ TranslatorExtension.prototype = {
                 }))
             );
 
+            settings.connect(
+                "changed::pref_dialog_theme_custom",
+                Lang.bind(this, Lang.bind(this, function() {
+                    this._loadTheme(true);
+                }))
+            );
+
             Main.themeManager.connect("theme-set", Lang.bind(this, function() {
                 try {
                     this.unloadStylesheet();
@@ -674,13 +681,13 @@ TranslatorExtension.prototype = {
 
     _add_dialog_menu_buttons: function() {
         let menu_button = this._get_menu_button();
-        this._dialog.dialog_menu.add_button(menu_button, true);
+        this._dialog.dialog_menu.add_button(menu_button);
 
         let help_button = this._get_help_button();
-        this._dialog.dialog_menu.add_button(help_button, true);
+        this._dialog.dialog_menu.add_button(help_button);
 
         let close_button = this._get_close_button();
-        this._dialog.dialog_menu.add_button(close_button, true);
+        this._dialog.dialog_menu.add_button(close_button);
     },
 
     _translate: function(actor, event) {
@@ -914,7 +921,15 @@ TranslatorExtension.prototype = {
 
     _loadTheme: function(aFullReload) {
         this._remove_timeouts("load_theme_id");
-        let newTheme = this._getCssPath(settings.getValue("pref_dialog_theme"));
+        let newTheme;
+
+        if (settings.getValue("pref_dialog_theme") !== "custom")
+            newTheme = this._getCssPath(settings.getValue("pref_dialog_theme"));
+        else
+            newTheme = this._getCustomCssPath(settings.getValue("pref_dialog_theme_custom"));
+
+        if (!newTheme)
+            return;
 
         try {
             this.unloadStylesheet();
@@ -972,13 +987,35 @@ TranslatorExtension.prototype = {
         try {
             let cssFile = Gio.file_new_for_path(cssPath);
 
-            if (!cssFile.query_exists(null))
+            if (!cssFile.query_exists(null)) {
                 cssPath = main_extension_path + "/themes/default.css";
+                settings.setValue("pref_dialog_theme", "default");
+            }
         } catch (aErr) {
             global.logError(aErr);
         }
 
         return cssPath;
+    },
+
+    _getCustomCssPath: function(aPath) {
+        if (/^file:\/\//.test(aPath))
+            aPath = aPath.substr(7);
+
+        let cssPath = aPath;
+
+        try {
+            let cssFile = Gio.file_new_for_path(cssPath);
+
+            if (!cssFile.query_exists(null)) {
+                cssPath = main_extension_path + "/themes/default.css";
+                settings.setValue("pref_dialog_theme", "default");
+            }
+        } catch (aErr) {
+            global.logError(aErr);
+        } finally {
+            return cssPath;
+        }
     },
 
     ensureHistoryFileExists: function() {

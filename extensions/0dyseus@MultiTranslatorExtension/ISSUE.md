@@ -58,7 +58,7 @@ Once installed and enabled, the following shortcuts will be available.
 #### Shortcuts available on the translation dialog
 
 - **<kbd>Ctrl</kbd> + <kbd>Enter</kbd>:** Translate text.
-- **<kbd>Shift</kbd> + <kbd>Enter</kbd>:** Translate text (Forced).
+- **<kbd>Shift</kbd> + <kbd>Enter</kbd>:** Force text translation. Ignores translation history.
 - **<kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>C</kbd>:** Copy translated text to clipboard.
 - **<kbd>Ctrl</kbd> + <kbd>S</kbd>:** Swap languages.
 - **<kbd>Ctrl</kbd> + <kbd>D</kbd>:** Reset languages to default.
@@ -74,9 +74,10 @@ Once installed and enabled, the following shortcuts will be available.
 
 ### Multi Translator extension ToDo list:
 
+* [ ] **Switch back to a custom settings window** Cinnamon's native settings system is very practical, but it's also very limited. There are certain settings that can be modified in the gnome-shell extension (the extension Multi Translator is based on) that aren't possible to modify using Cinnamon's native settings system. So, I will give a try to a custom one.
 * [ ] **Change all synchronous functions to asynchronous** ![@high](https://img.shields.io/badge/Priority-High-red.svg)
-* [ ] **Add the possibility to select a custom theme** ![@high](https://img.shields.io/badge/Priority-High-red.svg)
 * [ ] **Create a mechanism to display statistics** Statistics are already stored and used by the option called **Show most used languages**. ![@low](https://img.shields.io/badge/Priority-Low-yellowgreen.svg)
+* [x] **Add the possibility to select a custom theme**
 * [x] **Add "Service provided by Service provider name" notice** This is needed to comply with the terms of use for the translation services.
 * [x] **Implement a mechanism to check for dependencies**
 * [x] **Provide alternate methods in case translate-shell breaks or doesn't exists (manually configurable or automatic)**

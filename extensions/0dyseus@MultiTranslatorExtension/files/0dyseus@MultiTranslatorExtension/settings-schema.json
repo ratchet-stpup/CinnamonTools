@@ -139,6 +139,7 @@
         "default": "default",
         "description": "Dialog theme",
         "options": {
+            "Custom": "custom",
             "Default (Linux Mint)": "default",
             "Gnome-shell": "Gnome-shell",
             "Mint-X": "Mint-X",
@@ -153,6 +154,12 @@
             "Mint-X-Sand": "Mint-X-Sand",
             "Mint-X-Teal": "Mint-X-Teal"
         }
+    },
+    "pref_dialog_theme_custom": {
+        "type": "filechooser",
+        "select-dir": false,
+        "default": "",
+        "description": "Custom theme"
     },
     "sep3": {
         "type": "separator"
