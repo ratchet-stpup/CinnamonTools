@@ -1,4 +1,6 @@
 {
+    "external-configuration-app": "settings.py",
+    "schema-file": "schemas/org.cinnamon.extensions.MultiTranslatorExtension.gschema.xml",
     "uuid": "0dyseus@MultiTranslatorExtension",
     "cinnamon-version": [
         "2.8",

@@ -129,8 +129,6 @@ Translator.prototype = {
             options.push(proxy);
         }
 
-        global.logError(command.concat(options).concat(subjects));
-
         $.exec(command.concat(options).concat(subjects), Lang.bind(this, function(data) {
             if (!data)
                 data = _("Error while translating, check your internet connection");

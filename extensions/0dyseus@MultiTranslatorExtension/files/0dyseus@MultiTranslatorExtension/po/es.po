@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-02 14:58-0300\n"
-"PO-Revision-Date: 2017-03-02 14:59-0300\n"
+"POT-Creation-Date: 2017-03-06 06:08-0300\n"
+"PO-Revision-Date: 2017-03-06 06:08-0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: es\n"
@@ -18,493 +18,489 @@ msgstr ""
 "X-Generator: Poedit 1.8.7.1\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: 0dyseus@MultiTranslatorExtension.js:142
+#: 0dyseus@MultiTranslatorExtension.js:171 settings.py:52
 msgid "Detect language"
 msgstr "Detectar idioma"
 
-#: 0dyseus@MultiTranslatorExtension.js:143
+#: 0dyseus@MultiTranslatorExtension.js:172 settings.py:53
 msgid "Afrikaans"
 msgstr "Afrikaans"
 
-#: 0dyseus@MultiTranslatorExtension.js:144
+#: 0dyseus@MultiTranslatorExtension.js:173 settings.py:54
 msgid "Amharic"
 msgstr "Amárico"
 
-#: 0dyseus@MultiTranslatorExtension.js:145
+#: 0dyseus@MultiTranslatorExtension.js:174 settings.py:55
 msgid "Arabic"
 msgstr "Árabe"
 
-#: 0dyseus@MultiTranslatorExtension.js:146
+#: 0dyseus@MultiTranslatorExtension.js:175 settings.py:56
 msgid "Azerbaijani"
 msgstr "Azerbaiyano"
 
-#: 0dyseus@MultiTranslatorExtension.js:147
+#: 0dyseus@MultiTranslatorExtension.js:176 settings.py:57
 msgid "Belarusian"
 msgstr "Bielorruso"
 
-#: 0dyseus@MultiTranslatorExtension.js:148
+#: 0dyseus@MultiTranslatorExtension.js:177 settings.py:58
 msgid "Bulgarian"
 msgstr "Búlgaro"
 
-#: 0dyseus@MultiTranslatorExtension.js:149
+#: 0dyseus@MultiTranslatorExtension.js:178 settings.py:59
 msgid "Bengali"
 msgstr "Bengalí"
 
-#: 0dyseus@MultiTranslatorExtension.js:150
+#: 0dyseus@MultiTranslatorExtension.js:179 settings.py:60
 msgid "Bosnian (Y)"
 msgstr "Bosnio (Y)"
 
-#: 0dyseus@MultiTranslatorExtension.js:151
+#: 0dyseus@MultiTranslatorExtension.js:180 settings.py:61
 msgid "Catalan"
 msgstr "Catalán"
 
-#: 0dyseus@MultiTranslatorExtension.js:152
+#: 0dyseus@MultiTranslatorExtension.js:181 settings.py:62
 msgid "Chichewa"
 msgstr "Chichewa"
 
-#: 0dyseus@MultiTranslatorExtension.js:153
+#: 0dyseus@MultiTranslatorExtension.js:182 settings.py:63
 msgid "Corsican"
 msgstr "Corso"
 
-#: 0dyseus@MultiTranslatorExtension.js:154
+#: 0dyseus@MultiTranslatorExtension.js:183 settings.py:64
 msgid "Czech"
 msgstr "Checo"
 
-#: 0dyseus@MultiTranslatorExtension.js:155
+#: 0dyseus@MultiTranslatorExtension.js:184 settings.py:65
 msgid "Welsh"
 msgstr "Galés"
 
-#: 0dyseus@MultiTranslatorExtension.js:156
+#: 0dyseus@MultiTranslatorExtension.js:185 settings.py:66
 msgid "Danish"
 msgstr "Danés"
 
-#: 0dyseus@MultiTranslatorExtension.js:157
+#: 0dyseus@MultiTranslatorExtension.js:186 settings.py:67
 msgid "German"
 msgstr "Alemán"
 
-#: 0dyseus@MultiTranslatorExtension.js:158
+#: 0dyseus@MultiTranslatorExtension.js:187 settings.py:68
 msgid "Greek"
 msgstr "Griego"
 
-#: 0dyseus@MultiTranslatorExtension.js:159
+#: 0dyseus@MultiTranslatorExtension.js:188 settings.py:69
 msgid "English"
 msgstr "Inglés"
 
-#: 0dyseus@MultiTranslatorExtension.js:160
+#: 0dyseus@MultiTranslatorExtension.js:189 settings.py:70
 msgid "Esperanto"
 msgstr "Esperanto"
 
-#: 0dyseus@MultiTranslatorExtension.js:161
+#: 0dyseus@MultiTranslatorExtension.js:190 settings.py:71
 msgid "Spanish"
 msgstr "Español"
 
-#: 0dyseus@MultiTranslatorExtension.js:162
+#: 0dyseus@MultiTranslatorExtension.js:191 settings.py:72
 msgid "Estonian"
 msgstr "Estonio"
 
-#: 0dyseus@MultiTranslatorExtension.js:163
+#: 0dyseus@MultiTranslatorExtension.js:192 settings.py:73
 msgid "Basque"
 msgstr "Vasco"
 
-#: 0dyseus@MultiTranslatorExtension.js:164
+#: 0dyseus@MultiTranslatorExtension.js:193 settings.py:74
 msgid "Persian"
 msgstr "Persa"
 
-#: 0dyseus@MultiTranslatorExtension.js:165
+#: 0dyseus@MultiTranslatorExtension.js:194 settings.py:75
 msgid "Finnish"
 msgstr "Finlandés"
 
-#: 0dyseus@MultiTranslatorExtension.js:166
+#: 0dyseus@MultiTranslatorExtension.js:195 settings.py:76
 msgid "French"
 msgstr "Francés"
 
-#: 0dyseus@MultiTranslatorExtension.js:167
+#: 0dyseus@MultiTranslatorExtension.js:196 settings.py:77
 msgid "Frisian"
 msgstr "Frisón"
 
-#: 0dyseus@MultiTranslatorExtension.js:168
+#: 0dyseus@MultiTranslatorExtension.js:197 settings.py:78
 msgid "Irish"
 msgstr "Irlandés"
 
-#: 0dyseus@MultiTranslatorExtension.js:169
+#: 0dyseus@MultiTranslatorExtension.js:198 settings.py:79
 msgid "Scots Gaelic"
 msgstr "Gaélico escocés"
 
-#: 0dyseus@MultiTranslatorExtension.js:170
+#: 0dyseus@MultiTranslatorExtension.js:199 settings.py:80
 msgid "Galician"
 msgstr "Gallego"
 
-#: 0dyseus@MultiTranslatorExtension.js:171
+#: 0dyseus@MultiTranslatorExtension.js:200 settings.py:81
 msgid "Gujarati"
 msgstr "Gujarati"
 
-#: 0dyseus@MultiTranslatorExtension.js:172
+#: 0dyseus@MultiTranslatorExtension.js:201 settings.py:82
 msgid "Hausa"
 msgstr "Hausa"
 
-#: 0dyseus@MultiTranslatorExtension.js:173
+#: 0dyseus@MultiTranslatorExtension.js:202 settings.py:83
 msgid "Hawaiian"
 msgstr "Hawaiano"
 
-#: 0dyseus@MultiTranslatorExtension.js:174
+#: 0dyseus@MultiTranslatorExtension.js:203 settings.py:84
 msgid "Hebrew (Y)"
 msgstr "Hebreo (Y)"
 
-#: 0dyseus@MultiTranslatorExtension.js:175
+#: 0dyseus@MultiTranslatorExtension.js:204 settings.py:85
 msgid "Hindi"
 msgstr "Hindú"
 
-#: 0dyseus@MultiTranslatorExtension.js:176
+#: 0dyseus@MultiTranslatorExtension.js:205 settings.py:86
 msgid "Hmong"
 msgstr "Hmong"
 
-#: 0dyseus@MultiTranslatorExtension.js:177
+#: 0dyseus@MultiTranslatorExtension.js:206 settings.py:87
 msgid "Croatian"
 msgstr "Croata"
 
-#: 0dyseus@MultiTranslatorExtension.js:178
+#: 0dyseus@MultiTranslatorExtension.js:207 settings.py:88
 msgid "Haitian Creole"
 msgstr "Creole haitiano"
 
-#: 0dyseus@MultiTranslatorExtension.js:179
+#: 0dyseus@MultiTranslatorExtension.js:208 settings.py:89
 msgid "Hungarian"
 msgstr "Húngaro"
 
-#: 0dyseus@MultiTranslatorExtension.js:180
+#: 0dyseus@MultiTranslatorExtension.js:209 settings.py:90
 msgid "Armenian"
 msgstr "Armenio"
 
-#: 0dyseus@MultiTranslatorExtension.js:181
+#: 0dyseus@MultiTranslatorExtension.js:210 settings.py:91
 msgid "Indonesian"
 msgstr "Indonesio"
 
-#: 0dyseus@MultiTranslatorExtension.js:182
+#: 0dyseus@MultiTranslatorExtension.js:211 settings.py:92
 msgid "Igbo"
 msgstr "Igbo"
 
-#: 0dyseus@MultiTranslatorExtension.js:183
+#: 0dyseus@MultiTranslatorExtension.js:212 settings.py:93
 msgid "Icelandic"
 msgstr "Islandés"
 
-#: 0dyseus@MultiTranslatorExtension.js:184
+#: 0dyseus@MultiTranslatorExtension.js:213 settings.py:94
 msgid "Italian"
 msgstr "Italiano"
 
-#: 0dyseus@MultiTranslatorExtension.js:185
+#: 0dyseus@MultiTranslatorExtension.js:214 settings.py:95
 msgid "Hebrew"
 msgstr "Hebreo"
 
-#: 0dyseus@MultiTranslatorExtension.js:186
+#: 0dyseus@MultiTranslatorExtension.js:215 settings.py:96
 msgid "Japanese"
 msgstr "Japonés"
 
-#: 0dyseus@MultiTranslatorExtension.js:187
+#: 0dyseus@MultiTranslatorExtension.js:216 settings.py:97
 msgid "Javanese"
 msgstr "Javanés"
 
-#: 0dyseus@MultiTranslatorExtension.js:188
+#: 0dyseus@MultiTranslatorExtension.js:217 settings.py:98
 msgid "Georgian"
 msgstr "Georgiano"
 
-#: 0dyseus@MultiTranslatorExtension.js:189
+#: 0dyseus@MultiTranslatorExtension.js:218 settings.py:99
 msgid "Kazakh"
 msgstr "Kazakh"
 
-#: 0dyseus@MultiTranslatorExtension.js:190
+#: 0dyseus@MultiTranslatorExtension.js:219 settings.py:100
 msgid "Khmer"
 msgstr "Jemer"
 
-#: 0dyseus@MultiTranslatorExtension.js:191
+#: 0dyseus@MultiTranslatorExtension.js:220 settings.py:101
 msgid "Kannada"
 msgstr "Kannada"
 
-#: 0dyseus@MultiTranslatorExtension.js:192
+#: 0dyseus@MultiTranslatorExtension.js:221 settings.py:102
 msgid "Korean"
 msgstr "Koreano"
 
-#: 0dyseus@MultiTranslatorExtension.js:193
+#: 0dyseus@MultiTranslatorExtension.js:222 settings.py:103
 msgid "Kurdish (Kurmanji)"
 msgstr "Kurdo (Kurmanji)"
 
-#: 0dyseus@MultiTranslatorExtension.js:194
+#: 0dyseus@MultiTranslatorExtension.js:223 settings.py:104
 msgid "Kyrgyz"
 msgstr "Kirguís"
 
-#: 0dyseus@MultiTranslatorExtension.js:195
+#: 0dyseus@MultiTranslatorExtension.js:224 settings.py:105
 msgid "Latin"
 msgstr "Latín"
 
-#: 0dyseus@MultiTranslatorExtension.js:196
+#: 0dyseus@MultiTranslatorExtension.js:225 settings.py:106
 msgid "Luxembourgish"
 msgstr "Luxemburgués"
 
-#: 0dyseus@MultiTranslatorExtension.js:197
+#: 0dyseus@MultiTranslatorExtension.js:226 settings.py:107
 msgid "Lao"
 msgstr "Lao"
 
-#: 0dyseus@MultiTranslatorExtension.js:198
+#: 0dyseus@MultiTranslatorExtension.js:227 settings.py:108
 msgid "Lithuanian"
 msgstr "Lituano"
 
-#: 0dyseus@MultiTranslatorExtension.js:199
+#: 0dyseus@MultiTranslatorExtension.js:228 settings.py:109
 msgid "Latvian"
 msgstr "Letón"
 
-#: 0dyseus@MultiTranslatorExtension.js:200
+#: 0dyseus@MultiTranslatorExtension.js:229 settings.py:110
 msgid "Malagasy"
 msgstr "Madagascarí"
 
-#: 0dyseus@MultiTranslatorExtension.js:201
+#: 0dyseus@MultiTranslatorExtension.js:230 settings.py:111
 msgid "Maori"
 msgstr "Maorí"
 
-#: 0dyseus@MultiTranslatorExtension.js:202
+#: 0dyseus@MultiTranslatorExtension.js:231 settings.py:112
 msgid "Macedonian"
 msgstr "Macedonio"
 
-#: 0dyseus@MultiTranslatorExtension.js:203
+#: 0dyseus@MultiTranslatorExtension.js:232 settings.py:113
 msgid "Malayalam"
 msgstr "Malayalam"
 
-#: 0dyseus@MultiTranslatorExtension.js:204
+#: 0dyseus@MultiTranslatorExtension.js:233 settings.py:114
 msgid "Mongolian"
 msgstr "Mongol"
 
-#: 0dyseus@MultiTranslatorExtension.js:205
+#: 0dyseus@MultiTranslatorExtension.js:234 settings.py:115
 msgid "Marathi"
 msgstr "Maratí"
 
-#: 0dyseus@MultiTranslatorExtension.js:206
+#: 0dyseus@MultiTranslatorExtension.js:235 settings.py:116
 msgid "Malay"
 msgstr "Malayo"
 
-#: 0dyseus@MultiTranslatorExtension.js:207
+#: 0dyseus@MultiTranslatorExtension.js:236 settings.py:117
 msgid "Maltese"
 msgstr "Maltés"
 
-#: 0dyseus@MultiTranslatorExtension.js:208
+#: 0dyseus@MultiTranslatorExtension.js:237 settings.py:118
 msgid "Myanmar (Burmese)"
 msgstr "Myanmar (Birmano)"
 
-#: 0dyseus@MultiTranslatorExtension.js:209
+#: 0dyseus@MultiTranslatorExtension.js:238 settings.py:119
 msgid "Nepali"
 msgstr "Nepalí"
 
-#: 0dyseus@MultiTranslatorExtension.js:210
+#: 0dyseus@MultiTranslatorExtension.js:239 settings.py:120
 msgid "Dutch"
 msgstr "Holandés"
 
-#: 0dyseus@MultiTranslatorExtension.js:211
+#: 0dyseus@MultiTranslatorExtension.js:240 settings.py:121
 msgid "Norwegian"
 msgstr "Noruego"
 
-#: 0dyseus@MultiTranslatorExtension.js:212
+#: 0dyseus@MultiTranslatorExtension.js:241 settings.py:122
 msgid "Cebuano"
 msgstr "Cebuano"
 
-#: 0dyseus@MultiTranslatorExtension.js:213
+#: 0dyseus@MultiTranslatorExtension.js:242 settings.py:123
 msgid "Punjabi"
 msgstr "Punjabí"
 
-#: 0dyseus@MultiTranslatorExtension.js:214
+#: 0dyseus@MultiTranslatorExtension.js:243 settings.py:124
 msgid "Polish"
 msgstr "Polaco"
 
-#: 0dyseus@MultiTranslatorExtension.js:215
+#: 0dyseus@MultiTranslatorExtension.js:244 settings.py:125
 msgid "Pashto"
 msgstr "Pashto"
 
-#: 0dyseus@MultiTranslatorExtension.js:216
+#: 0dyseus@MultiTranslatorExtension.js:245 settings.py:126
 msgid "Portuguese"
 msgstr "Portugués"
 
-#: 0dyseus@MultiTranslatorExtension.js:217
+#: 0dyseus@MultiTranslatorExtension.js:246 settings.py:127
 msgid "Romanian"
 msgstr "Rumano"
 
-#: 0dyseus@MultiTranslatorExtension.js:218
+#: 0dyseus@MultiTranslatorExtension.js:247 settings.py:128
 msgid "Russian"
 msgstr "Ruso"
 
-#: 0dyseus@MultiTranslatorExtension.js:219
+#: 0dyseus@MultiTranslatorExtension.js:248 settings.py:129
 msgid "Sindhi"
 msgstr "Sindhi"
 
-#: 0dyseus@MultiTranslatorExtension.js:220
+#: 0dyseus@MultiTranslatorExtension.js:249 settings.py:130
 msgid "Sinhala"
 msgstr "Sinhala"
 
-#: 0dyseus@MultiTranslatorExtension.js:221
+#: 0dyseus@MultiTranslatorExtension.js:250 settings.py:131
 msgid "Slovak"
 msgstr "Eslovaco"
 
-#: 0dyseus@MultiTranslatorExtension.js:222
+#: 0dyseus@MultiTranslatorExtension.js:251 settings.py:132
 msgid "Slovenian"
 msgstr "Esloveno"
 
-#: 0dyseus@MultiTranslatorExtension.js:223
+#: 0dyseus@MultiTranslatorExtension.js:252 settings.py:133
 msgid "Samoan"
 msgstr "Samoano"
 
-#: 0dyseus@MultiTranslatorExtension.js:224
+#: 0dyseus@MultiTranslatorExtension.js:253 settings.py:134
 msgid "Shona"
 msgstr "Shona"
 
-#: 0dyseus@MultiTranslatorExtension.js:225
+#: 0dyseus@MultiTranslatorExtension.js:254 settings.py:135
 msgid "Somali"
 msgstr "Somalí"
 
-#: 0dyseus@MultiTranslatorExtension.js:226
+#: 0dyseus@MultiTranslatorExtension.js:255 settings.py:136
 msgid "Albanian"
 msgstr "Albano"
 
-#: 0dyseus@MultiTranslatorExtension.js:227
+#: 0dyseus@MultiTranslatorExtension.js:256 settings.py:137
 msgid "Serbian"
 msgstr "Serbio"
 
-#: 0dyseus@MultiTranslatorExtension.js:228
+#: 0dyseus@MultiTranslatorExtension.js:257 settings.py:138
 msgid "Sesotho"
 msgstr "Sesotho"
 
-#: 0dyseus@MultiTranslatorExtension.js:229
+#: 0dyseus@MultiTranslatorExtension.js:258 settings.py:139
 msgid "Sundanese"
 msgstr "Sundanese"
 
-#: 0dyseus@MultiTranslatorExtension.js:230
+#: 0dyseus@MultiTranslatorExtension.js:259 settings.py:140
 msgid "Swedish"
 msgstr "Sueco"
 
-#: 0dyseus@MultiTranslatorExtension.js:231
+#: 0dyseus@MultiTranslatorExtension.js:260 settings.py:141
 msgid "Swahili"
 msgstr "Swahili"
 
-#: 0dyseus@MultiTranslatorExtension.js:232
+#: 0dyseus@MultiTranslatorExtension.js:261 settings.py:142
 msgid "Tamil"
 msgstr "Tamil"
 
-#: 0dyseus@MultiTranslatorExtension.js:233
+#: 0dyseus@MultiTranslatorExtension.js:262 settings.py:143
 msgid "Telugu"
 msgstr "Telugu"
 
-#: 0dyseus@MultiTranslatorExtension.js:234
+#: 0dyseus@MultiTranslatorExtension.js:263 settings.py:144
 msgid "Tajik"
 msgstr "Tajik"
 
-#: 0dyseus@MultiTranslatorExtension.js:235
+#: 0dyseus@MultiTranslatorExtension.js:264 settings.py:145
 msgid "Thai"
 msgstr "Tailandés"
 
-#: 0dyseus@MultiTranslatorExtension.js:236
+#: 0dyseus@MultiTranslatorExtension.js:265 settings.py:146
 msgid "Filipino"
 msgstr "Filipino"
 
-#: 0dyseus@MultiTranslatorExtension.js:237
+#: 0dyseus@MultiTranslatorExtension.js:266 settings.py:147
 msgid "Turkish"
 msgstr "Turco"
 
-#: 0dyseus@MultiTranslatorExtension.js:238
+#: 0dyseus@MultiTranslatorExtension.js:267 settings.py:148
 msgid "Ukrainian"
 msgstr "Ukraniano"
 
-#: 0dyseus@MultiTranslatorExtension.js:239
+#: 0dyseus@MultiTranslatorExtension.js:268 settings.py:149
 msgid "Urdu"
 msgstr "Urdu"
 
-#: 0dyseus@MultiTranslatorExtension.js:240
+#: 0dyseus@MultiTranslatorExtension.js:269 settings.py:150
 msgid "Uzbek"
 msgstr "Uzbeko"
 
-#: 0dyseus@MultiTranslatorExtension.js:241
+#: 0dyseus@MultiTranslatorExtension.js:270 settings.py:151
 msgid "Vietnamese"
 msgstr "Vietnamita"
 
-#: 0dyseus@MultiTranslatorExtension.js:242
+#: 0dyseus@MultiTranslatorExtension.js:271 settings.py:152
 msgid "Xhosa"
 msgstr "Xhosa"
 
-#: 0dyseus@MultiTranslatorExtension.js:243
+#: 0dyseus@MultiTranslatorExtension.js:272 settings.py:153
 msgid "Yiddish"
 msgstr "Yídish"
 
-#: 0dyseus@MultiTranslatorExtension.js:244
+#: 0dyseus@MultiTranslatorExtension.js:273 settings.py:154
 msgid "Yoruba"
 msgstr "Yoruba"
 
-#: 0dyseus@MultiTranslatorExtension.js:245
+#: 0dyseus@MultiTranslatorExtension.js:274 settings.py:155
 msgid "Chinese (Y)"
 msgstr "Chino (Y)"
 
-#: 0dyseus@MultiTranslatorExtension.js:246
+#: 0dyseus@MultiTranslatorExtension.js:275 settings.py:156
 msgid "Chinese Simplified"
 msgstr "Chino Simplificado"
 
-#: 0dyseus@MultiTranslatorExtension.js:247
+#: 0dyseus@MultiTranslatorExtension.js:276 settings.py:157
 msgid "Chinese Traditional"
 msgstr "Chino Tradicional"
 
-#: 0dyseus@MultiTranslatorExtension.js:248
+#: 0dyseus@MultiTranslatorExtension.js:277 settings.py:158
 msgid "Zulu"
 msgstr "Zulú"
 
-#: 0dyseus@MultiTranslatorExtension.js:585
+#: 0dyseus@MultiTranslatorExtension.js:597
 msgid "Icon and label are both false."
 msgstr "El ícono y la etiqueta son ambos falsos."
 
-#: 0dyseus@MultiTranslatorExtension.js:984
+#: 0dyseus@MultiTranslatorExtension.js:997 settings.py:346
 msgid "Shortcuts"
 msgstr "Accesos directos"
 
-#: 0dyseus@MultiTranslatorExtension.js:986
+#: 0dyseus@MultiTranslatorExtension.js:999
 msgid "Open translator dialog."
 msgstr "Abrir diálogo del traductor."
 
-#: 0dyseus@MultiTranslatorExtension.js:988
+#: 0dyseus@MultiTranslatorExtension.js:1001
 msgid "Open translator dialog and translate text from clipboard."
 msgstr ""
 "Abra el diálogo del traductor y traducir el texto desde el portapapeles."
 
-#: 0dyseus@MultiTranslatorExtension.js:990
+#: 0dyseus@MultiTranslatorExtension.js:1003
 msgid "Open translator dialog and translate from primary selection."
 msgstr "Abrir diálogo de traductor y traducir la selección primaria."
 
-#: 0dyseus@MultiTranslatorExtension.js:992
+#: 0dyseus@MultiTranslatorExtension.js:1005
 msgid "Translate text."
 msgstr "Traducir texto."
 
-#: 0dyseus@MultiTranslatorExtension.js:994
+#: 0dyseus@MultiTranslatorExtension.js:1007
 msgid "Force text translation. Ignores translation history."
 msgstr "Forzar la traducción del texto. Ignora el historial de traducción."
 
-#: 0dyseus@MultiTranslatorExtension.js:996
+#: 0dyseus@MultiTranslatorExtension.js:1009
 msgid "Copy translated text to clipboard."
 msgstr "Copiar el texto traducido al portapapeles."
 
-#: 0dyseus@MultiTranslatorExtension.js:998
+#: 0dyseus@MultiTranslatorExtension.js:1011
 msgid "Swap languages."
 msgstr "Cambiar idiomas."
 
-#: 0dyseus@MultiTranslatorExtension.js:1000
+#: 0dyseus@MultiTranslatorExtension.js:1013
 msgid "Reset languages to default."
 msgstr "Restablecer los idiomas predeterminados."
 
-#: 0dyseus@MultiTranslatorExtension.js:1002
-msgid "Toggle transliteration of result text."
-msgstr "Cambiar la transliteración del texto del resultado."
-
-#: 0dyseus@MultiTranslatorExtension.js:1004
+#: 0dyseus@MultiTranslatorExtension.js:1015
 msgid "Close dialog."
 msgstr "Cerrar diálogo."
 
-#: 0dyseus@MultiTranslatorExtension.js:1356
+#: 0dyseus@MultiTranslatorExtension.js:1371
 msgid "Most used languages​​."
 msgstr "Idiomas más utilizados."
 
-#: 0dyseus@MultiTranslatorExtension.js:1834
+#: 0dyseus@MultiTranslatorExtension.js:1850
 #, javascript-format
 msgid "Can't load preferences for %s"
 msgstr "No se pueden cargar las preferencias de %s"
 
-#: 0dyseus@MultiTranslatorExtension.js:1955
+#: 0dyseus@MultiTranslatorExtension.js:1972
 #: translation_providers/google_translation_provider.js:90
 #: translation_providers/transltr_translation_provider.js:79
 #: translation_providers/yandex_translation_provider.js:285
@@ -512,20 +508,21 @@ msgid "Error"
 msgstr "Error"
 
 #. jshint ignore:line
-#: 0dyseus@MultiTranslatorExtension.js:2013
-#: 0dyseus@MultiTranslatorExtension.js:2017
+#: 0dyseus@MultiTranslatorExtension.js:2030
+#: 0dyseus@MultiTranslatorExtension.js:2034
 msgid "Not implemented"
 msgstr "No implementado"
 
-#: 0dyseus@MultiTranslatorExtension.js:2415 extension.js:1039 extension.js:1042
+#: 0dyseus@MultiTranslatorExtension.js:2432 extension.js:1077 extension.js:1080
+#: settings.py:290
 msgid "History"
 msgstr "Historial"
 
-#: 0dyseus@MultiTranslatorExtension.js:2926
+#: 0dyseus@MultiTranslatorExtension.js:2946
 msgid "Error executing translate-shell"
 msgstr "Error al ejecutar translate-shell"
 
-#: 0dyseus@MultiTranslatorExtension.js:3058
+#: 0dyseus@MultiTranslatorExtension.js:3078
 msgid "Press <Esc> to close"
 msgstr "Presione <Esc> para cerrar"
 
@@ -536,7 +533,7 @@ msgid "Error while parsing data"
 msgstr "Error al analizar datos"
 
 #: translation_providers/google_ts_translation_provider.js:135
-#: translation_providers/apertium_ts_translation_provider.js:136
+#: translation_providers/apertium_ts_translation_provider.js:134
 #: translation_providers/bing_ts_translation_provider.js:135
 msgid "Error while translating, check your internet connection"
 msgstr "Error al traducir, comprobar conexión a Internet"
@@ -580,137 +577,137 @@ msgstr "Multi Traductor"
 msgid "No Yandex API keys were found!!!"
 msgstr "¡No se encontraron claves de API de Yandex!"
 
-#: translation_providers/yandex_translation_provider.js:347 extension.js:1122
+#: translation_providers/yandex_translation_provider.js:347 extension.js:1159
 msgid "Check this extension help file for instructions."
 msgstr ""
 "Comprobar el archivo de ayuda de esta extensión para obtener instrucciones."
 
-#: extension.js:163 extension.js:414
+#: extension.js:171 extension.js:421
 msgid "Choose source language"
 msgstr "Elegir idioma de origen"
 
-#: extension.js:170 extension.js:443
+#: extension.js:178 extension.js:450
 msgid "Choose target language"
 msgstr "Elegir idioma de destino"
 
-#: extension.js:216
+#: extension.js:224
 msgid "There is nothing to copy."
 msgstr "No hay nada que copiar."
 
-#: extension.js:225
+#: extension.js:233
 msgid "Translated text copied to clipboard."
 msgstr "Texto traducido copiado al portapapeles."
 
-#: extension.js:269
+#: extension.js:277
 #, javascript-format
 msgid "Go to %s's website"
 msgstr "Ir al sitio de %s"
 
-#: extension.js:271
+#: extension.js:279
 #, javascript-format
 msgid "Service provided by %s"
 msgstr "Servicio proporcionado por %s"
 
 #. TO TRANSLATORS: Full sentence:
 #. "»From« source language to target language with service provider."
-#: extension.js:387 extension.js:411
+#: extension.js:394 extension.js:418
 msgid "From"
 msgstr "Desde"
 
 #. TO TRANSLATORS: Full sentence:
 #. "From source language »to« target language with service provider."
-#: extension.js:396 extension.js:438
+#: extension.js:403 extension.js:445
 msgid "to"
 msgstr "hacia"
 
-#: extension.js:467
+#: extension.js:474
 msgid "Swap languages"
 msgstr "Cambiar idiomas"
 
-#: extension.js:491
+#: extension.js:498
 msgid "Choose translation provider"
 msgstr "Elegir proveedor de traducción"
 
-#: extension.js:528
+#: extension.js:535
 msgid "Go!"
 msgstr "¡Ir!"
 
-#: extension.js:529
+#: extension.js:536
 msgid "Translate text (<Ctrl> + <Enter>)"
 msgstr "Traducir texto (<Ctrl> + <Intro>)"
 
-#: extension.js:546
+#: extension.js:553
 msgid "Main menu"
 msgstr "Menú principal"
 
-#: extension.js:555
+#: extension.js:562
 msgid "Preferences"
 msgstr "Preferencias"
 
-#: extension.js:563
+#: extension.js:570
 msgid "Translation history"
 msgstr "Historial de traducción"
 
-#: extension.js:571
+#: extension.js:578
 msgid "Check dependencies"
 msgstr "Comprobar dependencias"
 
-#: extension.js:579
+#: extension.js:586
 msgid "Extended help"
 msgstr "Ayuda extendida"
 
-#: extension.js:613
+#: extension.js:619
 msgid "Quick help"
 msgstr "Ayuda rápida"
 
-#: extension.js:628
+#: extension.js:634
 msgid "Quit"
 msgstr "Salir"
 
 #. TO TRANSLATORS: Full sentence:
 #. "From source language to target language »with« service provider."
-#: extension.js:657
+#: extension.js:663
 msgid "with"
 msgstr "con"
 
-#: extension.js:723
+#: extension.js:729
 msgid "Translating..."
 msgstr "Traduciendo..."
 
-#: extension.js:782
+#: extension.js:787
 msgid "Clipboard is empty."
 msgstr "El portapapeles está vacío."
 
-#: extension.js:947
+#: extension.js:963
 msgid "Error trying to get theme"
 msgstr "Error al intentar obtener el tema"
 
-#: extension.js:954
+#: extension.js:970
 msgid "Stylesheet parse error"
 msgstr "Error de análisis de hoja de estilo"
 
-#: extension.js:963
+#: extension.js:979
 msgid "Error unloading stylesheet"
 msgstr "Error al descargar la hoja de estilos"
 
-#: extension.js:1120 extension.js:1136
+#: extension.js:1157 extension.js:1173
 msgid "Unmet dependencies found!!!"
 msgstr "¡Dependencias no satisfechas encontradas!"
 
-#: extension.js:1123
+#: extension.js:1160
 msgid "It can be accessed from the translation dialog main menu."
 msgstr "Se puede acceder desde el menú principal del diálogo de traducción."
 
-#: extension.js:1128
+#: extension.js:1165
 msgid "All dependencies seem to be met."
 msgstr "Todas las dependencias parecen ser cumplidas."
 
-#: extension.js:1137
+#: extension.js:1174
 msgid "A detailed error has been logged into ~/.cinnamon/glass.log file."
 msgstr ""
 "Se ha registrado un error detallado en el archivo ~/.cinnamon/glass.log."
 
-#: extension.js:1195
+#: extension.js:1232 settings.py:226
 msgid "Dialog theme"
 msgstr "Tema de diálogo"
 
@@ -734,53 +731,132 @@ msgstr "Par de idiomas"
 msgid "Target text"
 msgstr "Texto de destino"
 
-#. 0dyseus@MultiTranslatorExtension->metadata.json->description
+#: settings.py:168
+msgid "Global"
+msgstr "Global"
+
+#: settings.py:169
+msgid "Extension's global settings."
+msgstr "Configuración global de la extensión."
+
+#: settings.py:174
+msgid "Default translation provider"
+msgstr "Proveedor de traducción predeterminado"
+
+#: settings.py:175
+msgid "Select the default translation provider."
+msgstr "Seleccionar el proveedor de traducción predeterminado."
+
+#: settings.py:188
+msgid "Remember last translator"
+msgstr "Recordar el último traductor"
+
+#: settings.py:189
+msgid "Remember last used translation provider."
+msgstr "Recordar el último proveedor de traducción utilizado."
+
+#: settings.py:195
+msgid "Show most used languages"
+msgstr "Mostrar los idiomas más utilizados"
+
+#: settings.py:196
+msgid "Display a list of most used languages."
+msgstr "Mostrar una lista de los idiomas más utilizados."
+
+#: settings.py:202
+msgid "Synchronize scroll entries"
+msgstr "Sincronizar las entradas de desplazamiento"
+
+#: settings.py:203
+msgid "Make the source and target entries scroll synchronously."
+msgstr ""
+"Hacer que las entradas de origen y destino se desplacen de forma síncrona."
+
+#: settings.py:209
+msgid "Translators"
+msgstr "Traductores"
+
+#: settings.py:210
+msgid "Set default settings for each available translation service."
+msgstr ""
+"Establecer la configuración predeterminada para cada servicio de traducción "
+"disponible."
+
+#: settings.py:220
+msgid "Appearance"
+msgstr "Apariencia"
+
+#: settings.py:221
+msgid "Translation dialog appearance."
+msgstr "Apariencia del diálogo de traducción."
+
+#: settings.py:227
+msgid "Select a theme for the translation dialog."
+msgstr "Seleccionar un tema para el diálogo de traducción."
+
+#: settings.py:250
+msgid "Custom theme"
+msgstr "Tema personalizado"
+
+#: settings.py:251
+msgid "Select a custom theme for the translation dialog."
+msgstr "Seleccionar un tema personalizado para el diálogo de traducción."
+
+#: settings.py:257
+msgid "Font size"
+msgstr "Tamaño de fuente"
+
+#: settings.py:258
+msgid "Select a font size for the source text and target text entries."
+msgstr ""
+"Seleccionar tamaño de fuente para las entradas de texto de origen y de texto "
+"de destino."
+
+#: settings.py:268
+msgid "Percentage of screen width"
+msgstr "Porcentaje de ancho de pantalla"
+
+#: settings.py:269
+msgid "What percentage of screen width should the translation dialog fill."
+msgstr ""
+"¿Qué porcentaje de ancho de pantalla debe llenar el cuadro de diálogo de "
+"traducción?"
+
+#: settings.py:279
+msgid "Percentage of screen height"
+msgstr "Porcentaje de altura de la pantalla"
+
+#: settings.py:280
+msgid "What percentage of screen height should the translation dialog fill."
+msgstr ""
+"¿Qué porcentaje de altura de pantalla debe llenar el cuadro de diálogo de "
+"traducción?"
+
+#: settings.py:291
+msgid "Translation history settings."
+msgstr "Configuración del historial de traducción."
+
+#: settings.py:296
+msgid "Timestamp for history entries"
+msgstr "Marca de tiempo para las entradas del historial"
+
+#: settings.py:297
 msgid ""
-"Translation of text by different translation providers (currently Google, "
-"Yandex, Bing and Apertium)."
+"Timestamp format for the translation history entries.\n"
+"Note: After changing this setting, only new entries in the translation "
+"history will be saved with the new timestamp format. Old entries will still "
+"have the previous timestamp format."
 msgstr ""
-"Traducción de texto proporcionado por diferentes proveedores de traducción "
-"(actualmente Google, Yandex, Bing, Translatr and Apertium)."
+"Formato de fecha y hora para las entradas del historial de traducción.\n"
+"Nota: Después de cambiar este ajuste, sólo las nuevas entradas en el "
+"historial de traducción se guardarán con el nuevo formato. Las entradas "
+"antiguas seguirán teniendo el formato de marca de hora anterior."
 
-#. 0dyseus@MultiTranslatorExtension->metadata.json->comments
-msgid ""
-"Bug reports and feature requests should be reported on this xlet's "
-"repository linked below."
-msgstr ""
-"Los reportes de fallos y solicitudes de características deben ser reportados "
-"en el repositorio de esta xlet, que se enlaza a continuación."
-
-#. 0dyseus@MultiTranslatorExtension->metadata.json->contributors
-msgid ""
-"gufoe: Original gnome-shell extension author (https://github.com/gufoe/text-"
-"translator).\n"
-"soimort: Author of the translate-shell script (https://github.com/soimort/"
-"translate-shell)."
-msgstr ""
-"gufoe: Author original de la extensión para gnome-shell llamada Text "
-"Translator (https://github.com/gufoe/text-translator).\n"
-"soimort: Autor del script llamado translate-shell (https://github.com/"
-"soimort/translate-shell)."
-
-#. 0dyseus@MultiTranslatorExtension->settings-
-#. schema.json->pref_translate_from_clipboard_keybinding->description
-msgid "Translate from clipboard hotkey"
-msgstr "Tecla de acceso rápido para traducir desde el portapapeles"
-
-#. 0dyseus@MultiTranslatorExtension->settings-
-#. schema.json->pref_translate_from_clipboard_keybinding->tooltip
-msgid "Hotkey to open the translator dialog and translate text from clipboard."
-msgstr ""
-"Tecla de acceso directo para abrir el diálogo del traductor y traducir el "
-"texto del portapapeles."
-
-#. 0dyseus@MultiTranslatorExtension->settings-
-#. schema.json->pref_history_timestamp_custom->description
+#: settings.py:308
 msgid "Custom timestamp"
 msgstr "Marca de tiempo personalizada"
 
-#. 0dyseus@MultiTranslatorExtension->settings-
-#. schema.json->pref_history_timestamp_custom->tooltip
+#: settings.py:309
 msgid ""
 "Choose a custom timestamp for the translation history entries.\n"
 "YYYY: year\n"
@@ -799,87 +875,63 @@ msgstr ""
 "mm: minutos\n"
 "ss: segundos"
 
-#. 0dyseus@MultiTranslatorExtension->settings-
-#. schema.json->pref_height_percents->description
-msgid "Percentage of screen height"
-msgstr "Porcentaje de altura de la pantalla"
+#: settings.py:315
+msgid "History window initial width"
+msgstr "Ancho inicial de la ventana de historial"
 
-#. 0dyseus@MultiTranslatorExtension->settings-
-#. schema.json->pref_height_percents->units
-#. 0dyseus@MultiTranslatorExtension->settings-
-#. schema.json->pref_width_percents->units
-msgid "percent"
-msgstr "porcentage"
-
-#. 0dyseus@MultiTranslatorExtension->settings-
-#. schema.json->pref_remember_last_translator->description
-msgid "Remember last translator"
-msgstr "Recordar el último traductor"
-
-#. 0dyseus@MultiTranslatorExtension->settings-
-#. schema.json->pref_translate_from_selection_keybinding->description
-msgid "Translate from selection hotkey"
-msgstr "Tecla de acceso rápido para traducir desde la selección"
-
-#. 0dyseus@MultiTranslatorExtension->settings-
-#. schema.json->pref_translate_from_selection_keybinding->tooltip
-msgid ""
-"Hotkey to open the translator dialog and translate from primary selection."
-msgstr ""
-"Tecla de acceso directo para abrir el diálogo del traductor y traducir desde "
-"la selección principal."
-
-#. 0dyseus@MultiTranslatorExtension->settings-
-#. schema.json->pref_width_percents->description
-msgid "Percentage of screen width"
-msgstr "Porcentaje de ancho de pantalla"
-
-#. 0dyseus@MultiTranslatorExtension->settings-schema.json->label5->description
-msgid "(*) This options are only useful for the extension developer"
-msgstr ""
-"(*) Estas opciones sólo son útiles para el desarrollador de la extensión"
-
-#. 0dyseus@MultiTranslatorExtension->settings-
-#. schema.json->pref_loggin_save_history_indented->description
-msgid "Indent translation history data"
-msgstr "Indentar los datos del historial de traducciones"
-
-#. 0dyseus@MultiTranslatorExtension->settings-
-#. schema.json->pref_loggin_save_history_indented->tooltip
-msgid "It allows to save the translation history data with indentation."
-msgstr "Permite guardar los datos del historial de traducción con sangría."
-
-#. 0dyseus@MultiTranslatorExtension->settings-
-#. schema.json->pref_font_size->description
-msgid "Font size"
-msgstr "Tamaño de fuente"
-
-#. 0dyseus@MultiTranslatorExtension->settings-
-#. schema.json->pref_font_size->units
-msgid "pixel"
-msgstr "píxel"
-
-#. 0dyseus@MultiTranslatorExtension->settings-
-#. schema.json->pref_history_initial_window_height->description
+#: settings.py:325
 msgid "History window initial height"
 msgstr "Altura inicial de la ventana del historial"
 
-#. 0dyseus@MultiTranslatorExtension->settings-
-#. schema.json->pref_history_initial_window_height->units
-#. 0dyseus@MultiTranslatorExtension->settings-
-#. schema.json->pref_history_width_to_trigger_word_wrap->units
-#. 0dyseus@MultiTranslatorExtension->settings-
-#. schema.json->pref_history_initial_window_width->units
-msgid "pixels"
-msgstr "pixeles"
+#: settings.py:335
+msgid "Width to trigger word wrap"
+msgstr "Ancho para activar el ajuste de palabras"
 
-#. 0dyseus@MultiTranslatorExtension->settings-
-#. schema.json->pref_yandex_api_keys->description
-msgid "API keys"
-msgstr "Claves API"
+#: settings.py:336
+msgid ""
+"The \"Source text\" and \"Target text\" columns on the history window will "
+"wrap its text at the width defined by this setting."
+msgstr ""
+"Las columnas \"Texto de origen\" y \"Texto de destino\" de la ventana del "
+"historial contendrán el texto con el ancho definido por esta configuración."
 
-#. 0dyseus@MultiTranslatorExtension->settings-
-#. schema.json->pref_yandex_api_keys->tooltip
+#: settings.py:347
+msgid "Keyboard shortcuts settings."
+msgstr "Ajustes de atajos de teclado."
+
+#: settings.py:352
+msgid "Enable shortcuts"
+msgstr "Habilitar accesos directos"
+
+#: settings.py:353
+msgid "Enable/Disable the use of keyboard shortcuts."
+msgstr "Habilitar/Deshabilitar el uso de atajos de teclado."
+
+#: settings.py:359
+msgid "Translate hotkey"
+msgstr "Tecla de acceso rápido para traducir"
+
+#: settings.py:360
+msgid "Translate from clipboard hotkey"
+msgstr "Tecla de acceso rápido para traducir desde el portapapeles"
+
+#: settings.py:361
+msgid "Translate from selection hotkey"
+msgstr "Tecla de acceso rápido para traducir desde la selección"
+
+#: settings.py:368
+msgid "Yandex"
+msgstr "Yandex"
+
+#: settings.py:369
+msgid "API keys for Yandex translate provider."
+msgstr "Claves de API para el proveedor de traducción de Yandex."
+
+#: settings.py:375
+msgid "Yandex API keys"
+msgstr "Claves de la API de Yandex"
+
+#: settings.py:376
 msgid ""
 "Enter one API key per line.\n"
 "Read the help file found inside this extension folder to know how to get "
@@ -890,54 +942,19 @@ msgstr ""
 "extensión) que se encuentra dentro de la carpeta de este applet para saber "
 "cómo obtener las claves de API gratuitas de Yandex."
 
-#. 0dyseus@MultiTranslatorExtension->settings-
-#. schema.json->pref_open_translator_dialog_keybinding->description
-msgid "Translate hotkey"
-msgstr "Tecla de acceso rápido para traducir"
+#: settings.py:382
+msgid "Debug"
+msgstr "Depurar"
 
-#. 0dyseus@MultiTranslatorExtension->settings-
-#. schema.json->pref_open_translator_dialog_keybinding->tooltip
-msgid "Hotkey to open the translator dialog."
-msgstr "Tecla de acceso directo para abrir el diálogo del traductor."
+#: settings.py:383 settings.py:387
+msgid "This options are only useful for the extension developer."
+msgstr "Estas opciones sólo son útiles para el desarrollador de la extensión"
 
-#. 0dyseus@MultiTranslatorExtension->settings-
-#. schema.json->pref_history_width_to_trigger_word_wrap->description
-msgid "Width to trigger word wrap"
-msgstr "Ancho para activar el ajuste de palabras"
-
-#. 0dyseus@MultiTranslatorExtension->settings-
-#. schema.json->pref_history_width_to_trigger_word_wrap->tooltip
-msgid ""
-"The \"Source text\" and \"Target text\" columns on the history window will "
-"wrap its text at the width defined by this setting."
-msgstr ""
-"Las columnas \"Texto de origen\" y \"Texto de destino\" de la ventana del "
-"historial contendrán el texto con el ancho definido por esta configuración."
-
-#. 0dyseus@MultiTranslatorExtension->settings-
-#. schema.json->pref_history_initial_window_width->description
-msgid "History window initial width"
-msgstr "Ancho inicial de la ventana de historial"
-
-#. 0dyseus@MultiTranslatorExtension->settings-schema.json->head5->description
-msgid "Debugging settings"
-msgstr "Configuración de depuración"
-
-#. 0dyseus@MultiTranslatorExtension->settings-schema.json->head4->description
-msgid "Yandex translator settings"
-msgstr "Configuración del traductor de Yandex"
-
-#. 0dyseus@MultiTranslatorExtension->settings-schema.json->head3->description
-msgid "Translation history settings"
-msgstr "Configuración del historial de traducción"
-
-#. 0dyseus@MultiTranslatorExtension->settings-
-#. schema.json->pref_loggin_enabled->description
+#: settings.py:395
 msgid "Enable logging"
 msgstr "Habilitar el registro"
 
-#. 0dyseus@MultiTranslatorExtension->settings-
-#. schema.json->pref_loggin_enabled->tooltip
+#: settings.py:396
 msgid ""
 "It enables the ability to log the output of several functions used by the "
 "extension."
@@ -945,106 +962,129 @@ msgstr ""
 "Permite la capacidad de registrar la salida de varias funciones utilizadas "
 "por el applet."
 
-#. 0dyseus@MultiTranslatorExtension->settings-
-#. schema.json->pref_show_most_used->description
-msgid "Show most used languages"
-msgstr "Mostrar los idiomas más utilizados"
+#: settings.py:402
+msgid "Indent translation history data"
+msgstr "Indentar los datos del historial de traducciones"
 
-#. 0dyseus@MultiTranslatorExtension->settings-
-#. schema.json->pref_history_timestamp->description
-msgid "Timestamp for translation history entries"
-msgstr "Marca de tiempo para las entradas del historial de traducción"
+#: settings.py:403
+msgid "It allows to save the translation history data with indentation."
+msgstr "Permite guardar los datos del historial de traducción con sangría."
 
-#. 0dyseus@MultiTranslatorExtension->settings-
-#. schema.json->pref_history_timestamp->options
-msgid "YYYY MM-DD hh:mm:ss (ISO8601)"
-msgstr "YYYY MM-DD hh:mm:ss (ISO8601)"
+#: settings.py:687
+msgid "Select a directory to use"
+msgstr "Seleccionar un directorio para usarlo"
 
-#. 0dyseus@MultiTranslatorExtension->settings-
-#. schema.json->pref_history_timestamp->options
-msgid "YYYY DD-MM hh:mm:ss (European)"
-msgstr "YYYY DD-MM hh:mm:ss (Europeo)"
+#: settings.py:690
+msgid "Select a file"
+msgstr "Seleccionar un archivo"
 
-#. 0dyseus@MultiTranslatorExtension->settings-
-#. schema.json->pref_history_timestamp->options
-msgid "Custom"
-msgstr "Personalizado"
+#. TO TRANSLATORS: Could be left blank.
+#: settings.py:695 settings.py:1093 settings.py:1099
+msgid "_Cancel"
+msgstr "_Cancelar"
 
-#. 0dyseus@MultiTranslatorExtension->settings-
-#. schema.json->pref_sync_entries_scrolling->description
-msgid "Synchronize scroll entries"
-msgstr "Sincronizar las entradas de desplazamiento"
+#. TO TRANSLATORS: Could be left blank.
+#: settings.py:697 settings.py:1101
+msgid "_Open"
+msgstr "_Abrir"
 
-#. 0dyseus@MultiTranslatorExtension->settings-
-#. schema.json->pref_enable_shortcuts->description
-msgid "Enable shortcuts"
-msgstr "Habilitar accesos directos"
+#: settings.py:700
+msgid "Directories"
+msgstr "Directorios"
 
-#~ msgid "Default translation provider"
-#~ msgstr "Proveedor de traducción predeterminado"
+#: settings.py:833
+msgid "Default source language:"
+msgstr "Idioma de origen predeterminado:"
 
-#~ msgid "Yandex Translate"
-#~ msgstr "Yandex Translate"
+#: settings.py:841
+msgid "Default target language:"
+msgstr "Idioma de destino predeterminado:"
 
-#~ msgid "Google Translate"
-#~ msgstr "Google Translate"
+#: settings.py:848
+msgid "Remember the last used languages:"
+msgstr "Recordar los últimos idiomas usados:"
 
-#~ msgid "Sample message 1."
-#~ msgstr "Ejemplo de mensaje 1."
+#: settings.py:1012
+msgid "Multi Translator Preferences"
+msgstr "Preferencias de Multi Translator"
 
-#~ msgid ""
-#~ "Translation of text by different translation providers (currently Google."
-#~ "Translate, Yandex.Translate)."
-#~ msgstr ""
-#~ "Traducción de texto por diferentes proveedores de traducción (actualmente "
-#~ "Google.Translate, Yandex.Translate)."
+#: settings.py:1040
+msgid "Reset settings to defaults"
+msgstr "Restablecer preferencias a los valores predeterminados"
 
-#~ msgid ""
-#~ "gufoe: Original gnome-shell extension author (https://github.com/gufoe/"
-#~ "text-translator)."
-#~ msgstr ""
-#~ "gufoe: Autor original de la extensión para gnome-shell (https://github."
-#~ "com/gufoe/text-translator)."
+#: settings.py:1048
+msgid "Import settings from a file"
+msgstr "Importar preferencias desde un archivo"
 
-#~ msgid "Apertium Translate"
-#~ msgstr "Apertium Translate"
+#: settings.py:1056
+msgid "Export settings to a file"
+msgstr "Exportar preferencias a un archivo"
 
-#~ msgid "Bing Translate"
-#~ msgstr "Bing Translate"
+#: settings.py:1078
+msgid "Reset all Multi Translator settings to default?"
+msgstr ""
+"Restablecer todos los valores de Multi Translator a los valores "
+"predeterminados?"
 
-#~ msgid "Translate text (Forced)."
-#~ msgstr "Traducir texto (Forzado)."
+#: settings.py:1091
+msgid "Select or enter file to export to"
+msgstr "Seleccionar o ingresar el archivo hacia el cual exportar"
 
-#~ msgid ""
-#~ "Bug reports and feature requests should be reported on this applet's "
-#~ "repository linked below."
-#~ msgstr ""
-#~ "Los reportes de fallos y solicitudes de características deben ser "
-#~ "reportados en el repositorio de esta extensión, que se enlaza a "
-#~ "continuación."
+#: settings.py:1094
+msgid "_Save"
+msgstr "_Guardar"
 
-#~ msgid "Popup Translator history"
-#~ msgstr "Historial de Multi Traductor"
+#: settings.py:1097
+msgid "Select a file to import"
+msgstr "Seleccionar un archivo desde el cual importar"
 
-#~ msgid "Translate text from clipboard hotkey"
-#~ msgstr "Tecla de acceso rápido para traducir desde el portapapeles"
+#: settings.py:1113
+msgid "DCONF files"
+msgstr "Archivos DCONF"
 
-#~ msgid "Open translator dialog and translate text from clipboard hotkey."
-#~ msgstr ""
-#~ "Tecla de acceso directo para abrir el diálogo del traductor y traducir el "
-#~ "texto del portapapeles."
+#. TO TRANSLATORS: Could be left blank.
+#: settings.py:1165
+#, python-format
+msgid ""
+"Please enter your password to install the required settings schema for %s"
+msgstr ""
+"Por favor, introduzca su contraseña para instalar el esquema de "
+"configuración necesario para %s"
 
-#~ msgid "Open translator dialog and translate from primary selection hotkey."
-#~ msgstr ""
-#~ "Tecla de acceso directo para abrir el diálogo del traductor y traducir "
-#~ "desde la selección principal."
+#. TO TRANSLATORS: Could be left blank.
+#: settings.py:1176
+#, python-format
+msgid ""
+"Could not install the settings schema for %s.  You will have to perform this "
+"step yourself."
+msgstr ""
+"No se ha podido instalar el esquema de configuración para %s. Tendrá que "
+"realizar este paso usted mismo."
 
-#~ msgid "Display method for information about applications:"
-#~ msgstr ""
-#~ "Método de visualización para obtener información sobre las aplicaciones:"
+#. 0dyseus@MultiTranslatorExtension->metadata.json->description
+msgid ""
+"Translation of text by different translation providers (currently Google, "
+"Yandex, Bing and Apertium)."
+msgstr ""
+"Traducción de texto proporcionado por diferentes proveedores de traducción "
+"(actualmente Google, Yandex, Bing, Translatr and Apertium)."
 
-#~ msgid "Default (Linux Mint)"
-#~ msgstr "Predefinido (Linux Mint)"
+#. 0dyseus@MultiTranslatorExtension->metadata.json->comments
+msgid ""
+"Bug reports, feature requests and contributions should be done on this "
+"xlet's repository linked below."
+msgstr ""
+"Los reportes de fallos, peticiones de características y contribuciones deben "
+"hacerse en el repositorio de este xlet vinculado a continuación."
 
-#~ msgid "Open translator dialog hotkey."
-#~ msgstr "Tecla de acceso directo para abrir el diálogo del traductor."
+#. 0dyseus@MultiTranslatorExtension->metadata.json->contributors
+msgid ""
+"gufoe: Original gnome-shell extension author (https://github.com/gufoe/text-"
+"translator).\n"
+"soimort: Author of the translate-shell script (https://github.com/soimort/"
+"translate-shell)."
+msgstr ""
+"gufoe: Author original de la extensión para gnome-shell llamada Text "
+"Translator (https://github.com/gufoe/text-translator).\n"
+"soimort: Autor del script llamado translate-shell (https://github.com/"
+"soimort/translate-shell)."

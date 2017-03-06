@@ -226,7 +226,46 @@ pre {
 <p><strong>If one or more of these dependencies are missing in your system, you will not be able to use this extension.</strong></p>
 <ul>
 <li><strong>xsel</strong> command: XSel is a command-line program for getting and setting the contents of the X selection.</li>
-<li><strong>trans</strong> command: Command provided by the package translate-shell. Is a simple command line interface several translation providers (Google Translate, Yandex Translate, Bing Translate and Apertium) which allows you to translate strings in your terminal.</li>
+<li><strong>trans</strong> command: Command provided by the package translate-shell. Is a simple command line interface for several translation providers (Google Translate, Yandex Translate, Bing Translate and Apertium) which allows you to translate strings in your terminal.
+<ul>
+<li>Check translate-shell <a href="https://github.com/soimort/translate-shell#dependencies">dependencies</a> and <a href="https://github.com/soimort/translate-shell#recommended-dependencies">recommended dependencies</a>.</li>
+</ul>
+</li>
+</ul>
+<p><strong>Note:</strong> The translate-shell package available on Ubuntu 16.04.x/Linux Mint 18.x repositories is outdated and broken. It can be installed anyway so it will also install its dependencies. But updating to the latest version should be done as described bellow.</p>
+<h3>How to install latest version of translate-shell</h3>
+<h4>Option 1. Direct Download</h4>
+<p>This method will only install the trans script into the specified locations.</p>
+<p>For the current user only. <strong>~/.local/bin</strong> needs to be in your PATH.</p>
+<pre><code class="language-shell">$ wget -O ~/.local/bin/trans git.io/trans &amp;&amp; chmod ugo+rx ~/.local/bin/trans
+</code></pre>
+<p>For all users without overwriting the installed version.</p>
+<pre><code class="language-shell">$ sudo wget -O /usr/local/bin/trans git.io/trans &amp;&amp; sudo chmod ugo+rx /usr/local/bin/trans
+</code></pre>
+<h4>Option 2. From Git - <a href="https://github.com/soimort/translate-shell/blob/develop/README.md#option-3-from-git-recommended-for-seasoned-hackers">More details</a></h4>
+<p>This method will not just install the trans script but also its man pages. Refer to the link above for more installation details.</p>
+<pre><code class="language-shell">$ git clone https://github.com/soimort/translate-shell
+$ cd translate-shell
+$ make
+$ sudo make install
+</code></pre>
+<hr>
+<h2>Extension usage</h2>
+<p>Once installed and enabled, the following shortcuts will be available.</p>
+<h4>Global shortcuts (configurable from the extension settings)</h4>
+<ul>
+<li><strong><kbd>Super</kbd> + <kbd>T</kbd>:</strong> Open translator dialog.</li>
+<li><strong><kbd>Super</kbd> + <kbd>Shift</kbd> + <kbd>T</kbd>:</strong> Open translator dialog and translate text from clipboard.</li>
+<li><strong><kbd>Super</kbd> + <kbd>Alt</kbd> + <kbd>T</kbd>:</strong> Open translator dialog and translate from primary selection.</li>
+</ul>
+<h4>Shortcuts available on the translation dialog</h4>
+<ul>
+<li><strong><kbd>Ctrl</kbd> + <kbd>Enter</kbd>:</strong> Translate text.</li>
+<li><strong><kbd>Shift</kbd> + <kbd>Enter</kbd>:</strong> Force text translation. Ignores translation history.</li>
+<li><strong><kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>C</kbd>:</strong> Copy translated text to clipboard.</li>
+<li><strong><kbd>Ctrl</kbd> + <kbd>S</kbd>:</strong> Swap languages.</li>
+<li><strong><kbd>Ctrl</kbd> + <kbd>D</kbd>:</strong> Reset languages to default.</li>
+<li><strong><kbd>Escape</kbd>:</strong> Close dialog.</li>
 </ul>
 <hr>
 <h3>Extension localization</h3>

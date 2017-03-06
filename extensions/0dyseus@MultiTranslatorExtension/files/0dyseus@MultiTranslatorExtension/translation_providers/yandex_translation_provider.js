@@ -334,7 +334,7 @@ Translator.prototype = {
     },
 
     get YandexAPIKey() {
-        let APIKeys = this._extension_object.settings.getValue("pref_yandex_api_keys").split("\n")
+        let APIKeys = this._extension_object.settings.get_string($.P.YANDEX_API_KEYS).split("\n")
             .filter(function(aKey) { // Filter possible empty elements.
                 if (aKey !== "")
                     return true;

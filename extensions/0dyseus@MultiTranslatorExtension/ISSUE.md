@@ -4,7 +4,7 @@ The Multi Translator extension is an extension ported from a gnome-shell extensi
 
 * [x] Removed instant translation and auto-speak options to avoid translation service *abuse*.
 * [x] Themable interface.
-* [x] Migrated to Cinnamon's native settings system.
+* [x] ~Migrated to Cinnamon's native settings system.~ Came back to a custom settings window.
 * [x] Unified all .js files into just one.
 * [x] Obvious needed changes like changing all gnome-shell APIs usage to Cinnamon's, changed the use of JavaScript classes to prototypes, etc.
 
@@ -62,7 +62,6 @@ Once installed and enabled, the following shortcuts will be available.
 - **<kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>C</kbd>:** Copy translated text to clipboard.
 - **<kbd>Ctrl</kbd> + <kbd>S</kbd>:** Swap languages.
 - **<kbd>Ctrl</kbd> + <kbd>D</kbd>:** Reset languages to default.
-- **<kbd>Tab</kbd>:** Toggle transliteration of result text.
 
 ## Tested environments
 
@@ -74,9 +73,7 @@ Once installed and enabled, the following shortcuts will be available.
 
 ### Multi Translator extension ToDo list:
 
-* [ ] **Switch back to a custom settings window** Cinnamon's native settings system is very practical, but it's also very limited. There are certain settings that can be modified in the gnome-shell extension (the extension Multi Translator is based on) that aren't possible to modify using Cinnamon's native settings system. So, I will give a try to a custom one.
-* [ ] **Change all synchronous functions to asynchronous** ![@high](https://img.shields.io/badge/Priority-High-red.svg)
-* [ ] **Create a mechanism to display statistics** Statistics are already stored and used by the option called **Show most used languages**. ![@low](https://img.shields.io/badge/Priority-Low-yellowgreen.svg)
+* [x] **Switch back to a custom settings window** Cinnamon's native settings system is very practical, but it's also very limited. There are certain settings that can be modified in the gnome-shell extension (the extension Multi Translator is based on) that aren't possible to modify using Cinnamon's native settings system. So, I will give a try to a custom one.
 * [x] **Add the possibility to select a custom theme**
 * [x] **Add "Service provided by Service provider name" notice** This is needed to comply with the terms of use for the translation services.
 * [x] **Implement a mechanism to check for dependencies**
@@ -93,6 +90,23 @@ Once installed and enabled, the following shortcuts will be available.
 * [x] **Keep looking for a way to reload the themes without the need to restart Cinnamon** Keep in mind the comment block in extension.js>TranslatorExtension>_loadTheme().
 * [x] **Create the dark Linux Mint theme**
 * [x] **Add translation mechanism**
+* [x] ~**Change all synchronous functions to asynchronous**~ Abandoned idea.
+* [x] ~**Create a mechanism to display statistics**~ Abandoned idea.
+
+### Images
+
+##### Dialog translation images
+
+![multitranslator-001](https://cloud.githubusercontent.com/assets/3822556/23602981/cfe98e78-0231-11e7-91f0-ec5e865181c0.png)
+
+[1](https://cloud.githubusercontent.com/assets/3822556/23602982/cfeea296-0231-11e7-84c4-4f3cdf5e47c4.png) -  [2](https://cloud.githubusercontent.com/assets/3822556/23602984/cff224ca-0231-11e7-9bc3-6d398b347a8b.png) - [3](https://cloud.githubusercontent.com/assets/3822556/23602985/cff670a2-0231-11e7-85da-fdc09f8979d7.png) - [4](https://cloud.githubusercontent.com/assets/3822556/23602988/cffc78ee-0231-11e7-9770-284648fd80ec.png)
+
+##### Settings window images
+
+![multitranslator-006](https://cloud.githubusercontent.com/assets/3822556/23602986/cff7d532-0231-11e7-9ac5-e9fb3cf93ebe.png)
+
+[1](https://cloud.githubusercontent.com/assets/3822556/23602987/cffaf320-0231-11e7-8fdd-5ad16322bcc1.png) - [2](https://cloud.githubusercontent.com/assets/3822556/23602983/cff092d6-0231-11e7-8056-f656dbd8ea59.png) - [3](https://cloud.githubusercontent.com/assets/3822556/23602989/d00dac68-0231-11e7-9b60-0c48cf6cf56b.png) - [4](https://cloud.githubusercontent.com/assets/3822556/23602990/d0137cce-0231-11e7-95e5-137851ae1b38.png) - [5](https://cloud.githubusercontent.com/assets/3822556/23602991/d01620a0-0231-11e7-91e6-0d70722ab583.png) - [6](https://cloud.githubusercontent.com/assets/3822556/23602992/d018623e-0231-11e7-83d9-79c9f8e3544e.png)
+
 
 ### Multi Translator applet ToDo list:
 

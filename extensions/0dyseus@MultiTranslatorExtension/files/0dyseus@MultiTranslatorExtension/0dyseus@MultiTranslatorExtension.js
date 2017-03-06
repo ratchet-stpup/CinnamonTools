@@ -22,6 +22,7 @@ const Settings = imports.ui.settings;
 const Tooltips = imports.ui.tooltips;
 const PopupMenu = imports.ui.popupMenu;
 const Gettext = imports.gettext;
+const GioSSS = Gio.SettingsSchemaSource;
 
 function _(aStr) {
     let customTrans = Gettext.dgettext(ExtensionUUID, aStr);
@@ -56,6 +57,34 @@ const STATUS_BAR_MESSAGE_TYPES = {
 const ANIMATED_ICON_UPDATE_TIMEOUT = 16;
 
 const STATUS_BAR_MAX_MESSAGE_LENGTH = 60;
+
+const P = {
+    ALL_DEPENDENCIES_MET: "pref-all-dependencies-met",
+    DEFAULT_TRANSLATOR: "pref-default-translator",
+    DIALOG_THEME: "pref-dialog-theme",
+    DIALOG_THEME_CUSTOM: "pref-dialog-theme-custom",
+    ENABLE_SHORTCUTS: "pref-enable-shortcuts",
+    FONT_SIZE: "pref-font-size",
+    HEIGHT_PERCENTS: "pref-height-percents",
+    HISTORY_INITIAL_WINDOW_HEIGHT: "pref-history-initial-window-height",
+    HISTORY_INITIAL_WINDOW_WIDTH: "pref-history-initial-window-width",
+    HISTORY_TIMESTAMP: "pref-history-timestamp",
+    HISTORY_TIMESTAMP_CUSTOM: "pref-history-timestamp-custom",
+    HISTORY_WIDTH_TO_TRIGGER_WORD_WRAP: "pref-history-width-to-trigger-word-wrap",
+    LANGUAGES_STATS: "pref-languages-stats",
+    LAST_TRANSLATOR: "pref-last-translator",
+    LOGGIN_ENABLED: "pref-loggin-enabled",
+    LOGGIN_SAVE_HISTORY_INDENTED: "pref-loggin-save-history-indented",
+    OPEN_TRANSLATOR_DIALOG_KEYBINDING: "pref-open-translator-dialog-keybinding",
+    REMEMBER_LAST_TRANSLATOR: "pref-remember-last-translator",
+    SHOW_MOST_USED: "pref-show-most-used",
+    SYNC_ENTRIES_SCROLLING: "pref-sync-entries-scrolling",
+    TRANSLATE_FROM_CLIPBOARD_KEYBINDING: "pref-translate-from-clipboard-keybinding",
+    TRANSLATE_FROM_SELECTION_KEYBINDING: "pref-translate-from-selection-keybinding",
+    TRANSLATORS_PREFS: "pref-translators-prefs",
+    WIDTH_PERCENTS: "pref-width-percents",
+    YANDEX_API_KEYS: "pref-yandex-api-keys",
+};
 
 const ICONS = {
     help: "dialog-question-symbolic",
@@ -357,51 +386,34 @@ const LANGUAGES_LIST_ENDONYMS = {
     "isiZulu": "Zulu"
 };
 
-function SettingsHandler(aUUID) {
-    this._init(aUUID);
-}
+const SETTINGS_SHECMA = "org.cinnamon.extensions.MultiTranslatorExtension";
 
-SettingsHandler.prototype = {
-    __proto__: Settings.ExtensionSettings.prototype,
+const settings = getSettings();
 
-    _init: function(aUUID) {
-        this.settings = new Settings.ExtensionSettings(this, aUUID);
-        let bD = Settings.BindingDirection || null;
-        let settingsArray = [
-            [bD.IN, "pref_open_translator_dialog_keybinding", null],
-            [bD.IN, "pref_translate_from_clipboard_keybinding", null],
-            [bD.IN, "pref_translate_from_selection_keybinding", null],
-            [bD.IN, "pref_sync_entries_scrolling", null],
-            [bD.BIDIRECTIONAL, "pref_default_translator", null],
-            [bD.BIDIRECTIONAL, "pref_translators_prefs", null],
-            [bD.IN, "pref_remember_last_translator", null],
-            [bD.BIDIRECTIONAL, "pref_last_translator", null],
-            [bD.IN, "pref_enable_shortcuts", null],
-            [bD.IN, "pref_width_percents", null],
-            [bD.IN, "pref_height_percents", null],
-            [bD.IN, "pref_font_size", null],
-            [bD.BIDIRECTIONAL, "pref_languages_stats", null],
-            [bD.IN, "pref_show_most_used", null],
-            [bD.BIDIRECTIONAL, "pref_dialog_theme", null],
-            [bD.IN, "pref_history_timestamp", null],
-            [bD.IN, "pref_history_timestamp_custom", null],
-            [bD.IN, "pref_history_initial_window_width", null],
-            [bD.IN, "pref_history_initial_window_height", null],
-            [bD.IN, "pref_history_width_to_trigger_word_wrap", null],
-        ];
-        let newBinding = typeof this.settings.bind === "function";
-        for (let [binding, property_name, callback] of settingsArray) {
-            // Condition needed for retro-compatibility.
-            // Mark for deletion on EOL.
-            if (newBinding)
-                this.settings.bind(property_name, property_name, callback);
-            else
-                this.settings.bindProperty(binding, property_name, property_name, callback, null);
-        }
+function getSettings(aSchema) {
+    let schema = aSchema || SETTINGS_SHECMA;
+
+    let schemaDir = Gio.file_new_for_path(ExtensionPath + "/schemas");
+    let schemaSource;
+
+    if (schemaDir.query_exists(null)) {
+        schemaSource = GioSSS.new_from_directory(schemaDir.get_path(),
+            GioSSS.get_default(),
+            false);
+    } else {
+        schemaSource = GioSSS.get_default();
     }
-};
 
-var settings = new SettingsHandler(ExtensionUUID).settings;
+    let schemaObj = schemaSource.lookup(schema, true);
+
+    if (!schemaObj)
+        throw new Error("Schema " + schema + " could not be found for extension " +
+            ExtensionUUID + ". Please check your installation.");
+
+    return new Gio.Settings({
+        settings_schema: schemaObj
+    });
+}
 
 /**
  * START animation.js
@@ -983,11 +995,11 @@ HelpDialog.prototype = {
         let base = "<b>%s:</b> %s\n";
         let markup =
             "<span size='x-large'><b>%s:</b></span>\n".format(_("Shortcuts")) +
-            base.format(escape_html(settings.getValue("pref_open_translator_dialog_keybinding")),
+            base.format(escape_html(settings.get_strv(P.OPEN_TRANSLATOR_DIALOG_KEYBINDING)),
                 _("Open translator dialog.")) +
-            base.format(escape_html(settings.getValue("pref_translate_from_clipboard_keybinding")),
+            base.format(escape_html(settings.get_strv(P.TRANSLATE_FROM_CLIPBOARD_KEYBINDING)),
                 _("Open translator dialog and translate text from clipboard.")) +
-            base.format(escape_html(settings.getValue("pref_translate_from_selection_keybinding")),
+            base.format(escape_html(settings.get_strv(P.TRANSLATE_FROM_SELECTION_KEYBINDING)),
                 _("Open translator dialog and translate from primary selection.")) +
             base.format(escape_html("<Ctrl><Enter>"),
                 _("Translate text.")) +
@@ -999,8 +1011,6 @@ HelpDialog.prototype = {
                 _("Swap languages.")) +
             base.format(escape_html("<Ctrl>D"),
                 _("Reset languages to default.")) +
-            base.format(escape_html("<Tab>"),
-                _("Toggle transliteration of result text.")) +
             base.format(escape_html("<Escape>"),
                 _("Close dialog."));
         this._label.clutter_text.set_markup(markup);
@@ -1047,8 +1057,8 @@ HelpDialog.prototype = {
     },
 
     _resize: function() {
-        let width_percents = settings.getValue("pref_width_percents");
-        let height_percents = settings.getValue("pref_height_percents");
+        let width_percents = settings.get_int(P.WIDTH_PERCENTS);
+        let height_percents = settings.get_int(P.HEIGHT_PERCENTS);
         let primary = Main.layoutManager.primaryMonitor;
 
         let translator_width = Math.round(primary.width / 100 * width_percents);
@@ -1255,8 +1265,8 @@ LanguageChooser.prototype = {
     },
 
     _resize: function() {
-        let width_percents = settings.getValue("pref_width_percents");
-        let height_percents = settings.getValue("pref_height_percents");
+        let width_percents = settings.get_int(P.WIDTH_PERCENTS);
+        let height_percents = settings.get_int(P.HEIGHT_PERCENTS);
         let primary = Main.layoutManager.primaryMonitor;
 
         let translator_width = Math.round(primary.width / 100 * width_percents);
@@ -1465,7 +1475,7 @@ LanguagesStats.prototype = {
     },
 
     _reload: function() {
-        this._json_data = settings.getValue("pref_languages_stats");
+        this._json_data = settings.get_string(P.LANGUAGES_STATS);
         this._storage = JSON.parse(this._json_data);
 
         if (this._storage instanceof Array)
@@ -1522,7 +1532,7 @@ LanguagesStats.prototype = {
     },
 
     save: function() {
-        settings.setValue("pref_languages_stats", JSON.stringify(this._storage));
+        settings.set_string(P.LANGUAGES_STATS, JSON.stringify(this._storage));
         this.emit("stats-changed");
     }
 };
@@ -1816,7 +1826,7 @@ TranslationProviderPrefs.prototype = {
         this._name = provider_name;
 
         this._settings_connect_id = settings.connect(
-            "changed::pref_translators_prefs",
+            "changed::" + P.TRANSLATORS_PREFS,
             Lang.bind(this, this._load_prefs)
         );
 
@@ -1830,7 +1840,8 @@ TranslationProviderPrefs.prototype = {
     },
 
     _load_prefs: function() {
-        let prefs = settings.getValue("pref_translators_prefs");
+        let json_string = settings.get_string(P.TRANSLATORS_PREFS);
+        let prefs = JSON.parse(json_string);
 
         if (!prefs[this._name])
             prefs = DEFAULT_ENGINES;
@@ -1847,12 +1858,13 @@ TranslationProviderPrefs.prototype = {
     },
 
     save_prefs: function(new_prefs) {
-        let current_prefs = settings.getValue("pref_translators_prefs");
+        let json_string = settings.get_string(P.TRANSLATORS_PREFS);
+        let current_prefs = JSON.parse(json_string);
 
         try {
             let temp = {};
 
-            if (current_prefs[this._name] !== undefined)
+            if (current_prefs[this._name] !== "undefined")
                 temp = current_prefs[this._name];
 
             for (let key in new_prefs) {
@@ -1862,7 +1874,7 @@ TranslationProviderPrefs.prototype = {
             current_prefs[this._name] = temp;
 
         } finally {
-            settings.setValue("pref_translators_prefs", current_prefs);
+            settings.set_string(P.TRANSLATORS_PREFS, JSON.stringify(current_prefs));
         }
     },
 
@@ -2101,12 +2113,12 @@ EntryBase.prototype = {
         this._clutter_text.set_line_wrap_mode(Pango.WrapMode.WORD_CHAR);
         this._clutter_text.set_max_length(0);
         this._clutter_text.connect("key-press-event", Lang.bind(this, this._on_key_press_event));
-        this.set_font_size(settings.getValue("pref_font_size"));
+        this.set_font_size(settings.get_int(P.FONT_SIZE));
 
         this._font_connection_id = settings.connect(
-            "changed::pref_font_size",
+            "changed::" + P.FONT_SIZE,
             Lang.bind(this, function() {
-                this.set_font_size(settings.getValue("pref_font_size"));
+                this.set_font_size(settings.get_int(P.FONT_SIZE));
             })
         );
 
@@ -2178,7 +2190,7 @@ EntryBase.prototype = {
             this.emit("activate", event);
             return Clutter.EVENT_STOP;
         } else {
-            if (settings.getValue("pref_loggin_enabled")) {
+            if (settings.get_boolean(P.LOGGIN_ENABLED)) {
                 global.logError(JSON.stringify({
                     state: state,
                     symbol: symbol,
@@ -2491,13 +2503,13 @@ TranslatorDialog.prototype = {
     },
 
     _init_scroll_sync: function() {
-        if (settings.getValue("pref_sync_entries_scrolling"))
+        if (settings.get_boolean(P.SYNC_ENTRIES_SCROLLING))
             this.sync_entries_scroll();
 
         this._connection_ids.sync_scroll_settings = settings.connect(
-            "changed::pref_sync_entries_scrolling",
+            "changed::" + P.SYNC_ENTRIES_SCROLLING,
             Lang.bind(this, function() {
-                let sync = settings.getValue("pref_sync_entries_scrolling");
+                let sync = settings.get_boolean(P.SYNC_ENTRIES_SCROLLING);
 
                 if (sync)
                     this.sync_entries_scroll();
@@ -2508,13 +2520,13 @@ TranslatorDialog.prototype = {
     },
 
     _init_most_used_bar: function() {
-        if (settings.getValue("pref_show_most_used"))
+        if (settings.get_boolean(P.SHOW_MOST_USED))
             this._show_most_used_bar();
 
         this._connection_ids.show_most_used = settings.connect(
-            "changed::pref_show_most_used",
+            "changed::" + P.SHOW_MOST_USED,
             Lang.bind(this, function() {
-                if (settings.getValue("pref_show_most_used"))
+                if (settings.get_boolean(P.SHOW_MOST_USED))
                     this._show_most_used_bar();
                 else
                     this._hide_most_used_bar();
@@ -2551,8 +2563,8 @@ TranslatorDialog.prototype = {
     },
 
     _resize: function() {
-        let width_percents = settings.getValue("pref_width_percents");
-        let height_percents = settings.getValue("pref_height_percents");
+        let width_percents = settings.get_int(P.WIDTH_PERCENTS);
+        let height_percents = settings.get_int(P.HEIGHT_PERCENTS);
         let primary = Main.layoutManager.primaryMonitor;
 
         let box_width = Math.round(primary.width / 100 * width_percents);
@@ -2648,6 +2660,8 @@ TranslatorDialog.prototype = {
     },
 
     destroy: function() {
+        this.unsync_entries_scroll();
+
         if (this._connection_ids.sync_scroll_settings > 0)
             settings.disconnect(this._connection_ids.sync_scroll_settings);
 
@@ -2725,7 +2739,7 @@ TranslatorsManager.prototype = {
     _init: function(extension_object) {
         this._extension_object = extension_object;
         this._translators = this._load_translators();
-        this._default = this.get_by_name(settings.getValue("pref_default_translator"));
+        this._default = this.get_by_name(settings.get_string(P.DEFAULT_TRANSLATOR));
         this._current = this._default;
     },
 
@@ -2781,11 +2795,11 @@ TranslatorsManager.prototype = {
 
         this._current = translator;
 
-        settings.setValue("pref_default_translator", name);
+        settings.set_string(P.LAST_TRANSLATOR, name);
     },
 
     get last_used() {
-        let name = settings.getValue("pref_last_translator");
+        let name = settings.get_string(P.LAST_TRANSLATOR);
         let translator = this.get_by_name(name);
 
         if (!translator)
@@ -2844,7 +2858,8 @@ function ends_with(str1, str2) {
 }
 
 function escape_html(unsafe) {
-    return unsafe
+    let str = String(unsafe);
+    return str
         .replace(/&/g, "&amp;")
         .replace(/</g, "&lt;")
         .replace(/>/g, "&gt;")
@@ -3107,15 +3122,11 @@ TranslatorsPopup.prototype = {
     },
 
     open: function() {
-        try {
-            this._button.set_sensitive(false);
-            this._button.actor.add_style_pseudo_class("active");
-            this.box.add(this._label_menu_item);
-            PopupMenu.PopupMenu.prototype.open.call(this, true);
-            this.firstMenuItem.actor.grab_key_focus();
-        } catch (aErr) {
-            global.logError(aErr);
-        }
+        this._button.set_sensitive(false);
+        this._button.actor.add_style_pseudo_class("active");
+        this.box.add(this._label_menu_item);
+        PopupMenu.PopupMenu.prototype.open.call(this, true);
+        this.firstMenuItem.actor.grab_key_focus();
     },
 
     close: function() {
