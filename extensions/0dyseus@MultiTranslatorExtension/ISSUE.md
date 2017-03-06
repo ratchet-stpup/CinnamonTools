@@ -73,6 +73,7 @@ Once installed and enabled, the following shortcuts will be available.
 
 ### Multi Translator extension ToDo list:
 
+* [ ] **Test extension on all currently supported versions of Cinnamon** ![@high](https://img.shields.io/badge/Priority-High-red.svg)
 * [x] **Switch back to a custom settings window** Cinnamon's native settings system is very practical, but it's also very limited. There are certain settings that can be modified in the gnome-shell extension (the extension Multi Translator is based on) that aren't possible to modify using Cinnamon's native settings system. So, I will give a try to a custom one.
 * [x] **Add the possibility to select a custom theme**
 * [x] **Add "Service provided by Service provider name" notice** This is needed to comply with the terms of use for the translation services.
@@ -103,9 +104,9 @@ Once installed and enabled, the following shortcuts will be available.
 
 ##### Settings window images
 
-![multitranslator-006](https://cloud.githubusercontent.com/assets/3822556/23602986/cff7d532-0231-11e7-9ac5-e9fb3cf93ebe.png)
+![multitranslator-006](https://cloud.githubusercontent.com/assets/3822556/23626488/d8adad5a-028b-11e7-92ab-bb5e0322170c.png)
 
-[1](https://cloud.githubusercontent.com/assets/3822556/23602987/cffaf320-0231-11e7-8fdd-5ad16322bcc1.png) - [2](https://cloud.githubusercontent.com/assets/3822556/23602983/cff092d6-0231-11e7-8056-f656dbd8ea59.png) - [3](https://cloud.githubusercontent.com/assets/3822556/23602989/d00dac68-0231-11e7-9b60-0c48cf6cf56b.png) - [4](https://cloud.githubusercontent.com/assets/3822556/23602990/d0137cce-0231-11e7-95e5-137851ae1b38.png) - [5](https://cloud.githubusercontent.com/assets/3822556/23602991/d01620a0-0231-11e7-91e6-0d70722ab583.png) - [6](https://cloud.githubusercontent.com/assets/3822556/23602992/d018623e-0231-11e7-83d9-79c9f8e3544e.png)
+[1](https://cloud.githubusercontent.com/assets/3822556/23626489/d8b6072a-028b-11e7-932a-1d7b20c84b45.png) - [2](https://cloud.githubusercontent.com/assets/3822556/23626491/d8bb077a-028b-11e7-8c6d-697a916b0a4c.png) - [3](https://cloud.githubusercontent.com/assets/3822556/23626490/d8b967b2-028b-11e7-8468-7f15a6a9008a.png) - [4](https://cloud.githubusercontent.com/assets/3822556/23626492/d8c14d1a-028b-11e7-8a14-2120a6f9fe1f.png) - [5](https://cloud.githubusercontent.com/assets/3822556/23626493/d8c15a12-028b-11e7-97d3-8aad71fa5cef.png) - [6](https://cloud.githubusercontent.com/assets/3822556/23626494/d8c94218-028b-11e7-99dd-38397836423f.png)
 
 
 ### Multi Translator applet ToDo list:
