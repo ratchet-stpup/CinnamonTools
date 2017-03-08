@@ -60,22 +60,22 @@
 /*.translator-top-bar-box {
 }
 */
-.tranlator-top-bar-button {
+.translator-top-bar-button {
     font-size: 18px;
     font-weight: bold;
 }
 
-.tranlator-top-bar-button-reactive {
+.translator-top-bar-button-reactive {
     font-size: 18px;
     font-weight: bold;
 }
 
-.tranlator-top-bar-button-reactive:hover,
-.tranlator-top-bar-button-reactive:active {
+.translator-top-bar-button-reactive:hover,
+.translator-top-bar-button-reactive:active {
     color: #c15b58;
 }
 
-.tranlator-top-bar-go-button {
+.translator-top-bar-go-button {
     font-size: 18px;
     font-weight: bold;
     padding: 0 10px;
@@ -83,8 +83,8 @@
     border-radius: 4px;
 }
 
-.tranlator-top-bar-go-button:hover,
-.tranlator-top-bar-go-button:active {
+.translator-top-bar-go-button:hover,
+.translator-top-bar-go-button:active {
     background-color: #c15b58;
 }
 
@@ -142,6 +142,10 @@
     selected-color: white;
 }
 
+.translator-language-chooser-entry-placeholder {
+    color: rgb(70, 70, 70);
+}
+
 .translator-language-chooser-button {
     padding: 3px;
     font-size: 16px;
@@ -179,7 +183,7 @@
     color: rgb(70, 70, 70);
 }
 
-.translator-translators-popup-escape-label {
+.translator-popup-escape-label {
     padding-left: 10px;
     padding-top: 5px;
     size: 5px;

@@ -1,19 +1,5 @@
-const ExtensionUUID = "0dyseus@MultiTranslatorExtension";
-const Gettext = imports.gettext;
-const Main = imports.ui.main;
-
-function _(aStr) {
-    let customTrans = Gettext.dgettext(ExtensionUUID, aStr);
-
-    if (customTrans != aStr)
-        return customTrans;
-
-    return Gettext.gettext(aStr);
-}
-
-imports.searchPath.push(imports.ui.extensionSystem.extensionMeta[ExtensionUUID].path);
-
-var $ = imports[ExtensionUUID];
+const $ = imports.extension.__init__;
+const _ = $._;
 
 const PROVIDER_NAME = "Google.Translate";
 const PROVIDER_LIMIT = 4200;

@@ -1,4 +1,4 @@
 ## Change Log
 
-##### 1.00-PROTOTYPE
+##### 1.00
 - Initial release.

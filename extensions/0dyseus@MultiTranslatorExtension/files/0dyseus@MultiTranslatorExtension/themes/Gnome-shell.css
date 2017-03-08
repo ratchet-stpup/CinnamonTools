@@ -61,36 +61,36 @@
 .translator-top-bar-box {
 }
 
-.tranlator-top-bar-button {
+.translator-top-bar-button {
     font-size: 18px;
     font-weight: bold;
 }
 
-.tranlator-top-bar-button-reactive {
+.translator-top-bar-button-reactive {
     font-size: 18px;
     font-weight: bold;
 }
 
-.tranlator-top-bar-button-reactive:hover {
+.translator-top-bar-button-reactive:hover {
     color: #0af;
 }
 
-.tranlator-top-bar-button-reactive:active {
+.translator-top-bar-button-reactive:active {
     color: #0af;
 }
 
-.tranlator-top-bar-go-button {
+.translator-top-bar-go-button {
     font-size: 18px;
     font-weight: bold;
     padding: 0 10px;
     border: 1px solid #aaa;
 }
 
-.tranlator-top-bar-go-button:hover {
+.translator-top-bar-go-button:hover {
     background-color: #0af;
 }
 
-.tranlator-top-bar-go-button:active {
+.translator-top-bar-go-button:active {
     background-color: rgba(0, 0, 255, 1);
 }
 
@@ -151,6 +151,10 @@
     selected-color: white;
 }
 
+.translator-language-chooser-entry-placeholder {
+    color: #0af;
+}
+
 .translator-language-chooser-button {
     padding: 3px;
     font-size: 16px;
@@ -187,7 +191,7 @@
     color: #eee;
 }
 
-.translator-translators-popup-escape-label {
+.translator-popup-escape-label {
     padding-left: 10px;
     padding-top: 5px;
     size: 5px;

@@ -159,9 +159,9 @@ LANGUAGES_LIST = {
 }
 
 # Doesn't go anywhere
-# pref_last_translator
-# pref_all_dependencies_met
-# pref_languages_stats
+# pref-last-translator
+# pref-all-dependencies-met
+# pref-languages-stats
 
 
 MAIN_TAB = {
@@ -172,12 +172,15 @@ MAIN_TAB = {
         "args": {
             "key": "pref-default-translator",
             "label": _("Default translation provider"),
-            "tooltip": _("Select the default translation provider."),
+            "tooltip": _("Select the default translation provider.") + "\n" +
+                _("Providers marked with (*) require translate-shell package to work.") + "\n" +
+                _("See the extended help for this extension for more information."),
             "values": {
-                "Apertium.TranslateTS": "Apertium Translate (TS)",
-                "Bing.TranslateTS": "Bing Translate (TS)",
-                "Google.TranslateTS": "Google Translate (TS)",
+                "Apertium.TS": "Apertium (*)",
+                "Bing.TranslatorTS": "Bing Translator (*)",
+                "Google.TranslateTS": "Google Translate (*)",
                 "Google.Translate": "Google Translate",
+                "Transltr": "Transltr",
                 "Yandex.Translate": "Yandex Translate"
             }
         }
@@ -226,9 +229,9 @@ APPEARANCE_TAB = {
             "label": _("Dialog theme"),
             "tooltip": _("Select a theme for the translation dialog."),
             "values": {
-                "custom": "Custom",
-                "default": "Default (Linux Mint)",
-                "Gnome-shell": "Gnome-shell",
+                "custom": _("Custom"),
+                "default": "Linux Mint (Default)",
+                "Gnome-shell": "Gnome shell",
                 "Mint-X": "Mint-X",
                 "Mint-X-Aqua": "Mint-X-Aqua",
                 "Mint-X-Blue": "Mint-X-Blue",

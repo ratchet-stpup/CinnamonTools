@@ -20,8 +20,8 @@
     </key>
 
     <key type="s" name="pref-translators-prefs">
-        <default>'{"Apertium.TranslateTS": {"default_source": "auto", "default_target": "en", "last_source": "", "last_target": "", "remember_last_lang": true},
-"Bing.TranslateTS": {"default_source": "auto", "default_target": "en", "last_source": "", "last_target": "", "remember_last_lang": true},
+        <default>'{"Apertium.TS": {"default_source": "auto", "default_target": "en", "last_source": "", "last_target": "", "remember_last_lang": true},
+"Bing.TranslatorTS": {"default_source": "auto", "default_target": "en", "last_source": "", "last_target": "", "remember_last_lang": true},
 "Google.TranslateTS": {"default_source": "auto", "default_target": "en", "last_source": "", "last_target": "", "remember_last_lang": true},
 "Google.Translate": {"default_source": "auto", "default_target": "en", "last_source": "", "last_target": "", "remember_last_lang": true},
 "Transltr": {"default_source": "auto", "default_target": "en", "last_source": "", "last_target": "", "remember_last_lang": true},

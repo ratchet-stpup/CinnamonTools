@@ -1,26 +1,12 @@
-const ExtensionUUID = "0dyseus@MultiTranslatorExtension";
+const $ = imports.extension.__init__;
+const _ = $._;
 const Lang = imports.lang;
-const Gettext = imports.gettext;
 
-function _(aStr) {
-    let customTrans = Gettext.dgettext(ExtensionUUID, aStr);
-
-    if (customTrans != aStr)
-        return customTrans;
-
-    return Gettext.gettext(aStr);
-}
-
-imports.searchPath.push(imports.ui.extensionSystem.extensionMeta[ExtensionUUID].path);
-
-var $ = imports[ExtensionUUID];
-
-const PROVIDER_NAME = "Apertium.TranslateTS";
+const PROVIDER_NAME = "Apertium.TS";
 const PROVIDER_LIMIT = 1400;
 const PROVIDER_MAX_QUERIES = 3;
 const PROVIDER_URL = "";
 const PROVIDER_HEADERS = null;
-
 const SENTENCES_REGEXP = /\n|([^\r\n.!?]+([.!?]+|\n|$))/gim;
 
 function Translator(extension_object) {

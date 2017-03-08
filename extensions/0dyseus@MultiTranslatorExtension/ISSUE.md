@@ -13,7 +13,7 @@ The Multi Translator extension is an extension ported from a gnome-shell extensi
 **If one or more of these dependencies are missing in your system, you will not be able to use this extension.**
 
 - **xsel** command: XSel is a command-line program for getting and setting the contents of the X selection.
-- **trans** command: Command provided by the package translate-shell. Is a simple command line interface for several translation providers (Google Translate, Yandex Translate, Bing Translate and Apertium) which allows you to translate strings in your terminal.
+- **trans** command: Command provided by the package translate-shell. Is a simple command line interface for several translation providers (Google Translate, Yandex Translate, Bing Translator and Apertium) which allows you to translate strings in your terminal.
     - Check translate-shell [dependencies](https://github.com/soimort/translate-shell#dependencies) and [recommended dependencies](https://github.com/soimort/translate-shell#recommended-dependencies).
 
 **Note:** The translate-shell package available on Ubuntu 16.04.x/Linux Mint 18.x repositories is outdated and broken. It can be installed anyway so it will also install its dependencies. But updating to the latest version should be done as described bellow.
@@ -67,7 +67,7 @@ Once installed and enabled, the following shortcuts will be available.
 
 * [ ] ![Cinnamon 2.8](https://odyseus.github.io/CinnamonTools/lib/badges/cinn-2.8.svg) ![Linux Mint 17.3](https://odyseus.github.io/CinnamonTools/lib/badges/lm-17.3.svg)
 * [x] ![Cinnamon 3.0](https://odyseus.github.io/CinnamonTools/lib/badges/cinn-3.0.svg) ![Linux Mint 18](https://odyseus.github.io/CinnamonTools/lib/badges/lm-18.svg)
-* [ ] ![Cinnamon 3.2](https://odyseus.github.io/CinnamonTools/lib/badges/cinn-3.2.svg) ![Linux Mint 18.1](https://odyseus.github.io/CinnamonTools/lib/badges/lm-18.1.svg)
+* [x] ![Cinnamon 3.2](https://odyseus.github.io/CinnamonTools/lib/badges/cinn-3.2.svg) ![Linux Mint 18.1](https://odyseus.github.io/CinnamonTools/lib/badges/lm-18.1.svg)
 
 ## ToDo
 
@@ -98,16 +98,15 @@ Once installed and enabled, the following shortcuts will be available.
 
 ##### Dialog translation images
 
-![multitranslator-001](https://cloud.githubusercontent.com/assets/3822556/23602981/cfe98e78-0231-11e7-91f0-ec5e865181c0.png)
+![MultiTranslator-001](https://odyseus.github.io/CinnamonTools/lib/img/MultiTranslator-001.png)
 
-[1](https://cloud.githubusercontent.com/assets/3822556/23602982/cfeea296-0231-11e7-84c4-4f3cdf5e47c4.png) -  [2](https://cloud.githubusercontent.com/assets/3822556/23602984/cff224ca-0231-11e7-9bc3-6d398b347a8b.png) - [3](https://cloud.githubusercontent.com/assets/3822556/23602985/cff670a2-0231-11e7-85da-fdc09f8979d7.png) - [4](https://cloud.githubusercontent.com/assets/3822556/23602988/cffc78ee-0231-11e7-9770-284648fd80ec.png)
+[1](https://odyseus.github.io/CinnamonTools/lib/img/MultiTranslator-002.png)
 
 ##### Settings window images
 
-![multitranslator-006](https://cloud.githubusercontent.com/assets/3822556/23626488/d8adad5a-028b-11e7-92ab-bb5e0322170c.png)
+![MultiTranslator-003](https://odyseus.github.io/CinnamonTools/lib/img/MultiTranslator-003.png)
 
-[1](https://cloud.githubusercontent.com/assets/3822556/23626489/d8b6072a-028b-11e7-932a-1d7b20c84b45.png) - [2](https://cloud.githubusercontent.com/assets/3822556/23626491/d8bb077a-028b-11e7-8c6d-697a916b0a4c.png) - [3](https://cloud.githubusercontent.com/assets/3822556/23626490/d8b967b2-028b-11e7-8468-7f15a6a9008a.png) - [4](https://cloud.githubusercontent.com/assets/3822556/23626492/d8c14d1a-028b-11e7-8a14-2120a6f9fe1f.png) - [5](https://cloud.githubusercontent.com/assets/3822556/23626493/d8c15a12-028b-11e7-97d3-8aad71fa5cef.png) - [6](https://cloud.githubusercontent.com/assets/3822556/23626494/d8c94218-028b-11e7-99dd-38397836423f.png)
-
+[1](https://odyseus.github.io/CinnamonTools/lib/img/MultiTranslator-004.png) - [2](https://odyseus.github.io/CinnamonTools/lib/img/MultiTranslator-005.png) - [3](https://odyseus.github.io/CinnamonTools/lib/img/MultiTranslator-006.png) - [4](https://odyseus.github.io/CinnamonTools/lib/img/MultiTranslator-007.png) - [5](https://odyseus.github.io/CinnamonTools/lib/img/MultiTranslator-008.png) - [6](https://odyseus.github.io/CinnamonTools/lib/img/MultiTranslator-009.png)
 
 ### Multi Translator applet ToDo list:
 

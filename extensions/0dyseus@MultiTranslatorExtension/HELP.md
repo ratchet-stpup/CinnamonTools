@@ -45,7 +45,7 @@ $ sudo make install
 
 ***
 
-## Extension usage
+### Extension usage
 
 Once installed and enabled, the following shortcuts will be available.
 

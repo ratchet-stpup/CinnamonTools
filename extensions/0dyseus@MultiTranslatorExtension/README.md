@@ -21,8 +21,30 @@ This extension adds some options to modify the default behaviour of certain Cinn
 - **xsel** command: XSel is a command-line program for getting and setting the contents of the X selection.
 - **trans** command: Command provided by the package translate-shell. Is a simple command line interface several translation providers (Google Translate, Yandex Translate, Bing Translate and Apertium) which allows you to translate strings in your terminal.
 
+**Read this extension help file for more details.**
+
+## Extension usage
+
+Once installed and enabled, the following shortcuts will be available.
+
+### Global shortcuts (configurable from the extension settings)
+
+- **<kbd>Super</kbd> + <kbd>T</kbd>:** Open translator dialog.
+- **<kbd>Super</kbd> + <kbd>Shift</kbd> + <kbd>T</kbd>:** Open translator dialog and translate text from clipboard.
+- **<kbd>Super</kbd> + <kbd>Alt</kbd> + <kbd>T</kbd>:** Open translator dialog and translate from primary selection.
+
+### Shortcuts available on the translation dialog
+
+- **<kbd>Ctrl</kbd> + <kbd>Enter</kbd>:** Translate text.
+- **<kbd>Shift</kbd> + <kbd>Enter</kbd>:** Force text translation. Ignores translation history.
+- **<kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>C</kbd>:** Copy translated text to clipboard.
+- **<kbd>Ctrl</kbd> + <kbd>S</kbd>:** Swap languages.
+- **<kbd>Ctrl</kbd> + <kbd>D</kbd>:** Reset languages to default.
+- **<kbd>Escape</kbd>:** Close dialog.
+
 ## Contributors/Mentions
-- **[gufoe](https://github.com/gufoe):** Original author of the gnome-shell extension called [Text Translator](https://github.com/gufoe/text-translator).
+- **[awamper](https://github.com/awamper):** Original author of the gnome-shell extension called [Text Translator](https://github.com/awamper/text-translator).
+- **[gufoe](https://github.com/gufoe):** Author of the newer version of [Text Translator](https://github.com/gufoe/text-translator) gnome-shell extension.
 - **[soimort](https://github.com/soimort):** Author of the [translate-shell script](https://github.com/soimort/translate-shell).
 
 [Full change log](https://github.com/Odyseus/CinnamonTools/blob/master/extensions/0dyseus%40MultiTranslatorExt/CHANGELOG.md)

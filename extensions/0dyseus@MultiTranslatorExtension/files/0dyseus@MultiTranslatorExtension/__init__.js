@@ -1,5 +1,8 @@
 const ExtensionUUID = "0dyseus@MultiTranslatorExtension";
-const ExtensionPath = imports.ui.extensionSystem.extensionMeta[ExtensionUUID].path;
+const ExtensionMeta = imports.ui.extensionSystem.extensionMeta[ExtensionUUID];
+const ExtensionPath = ExtensionMeta.path;
+const GLib = imports.gi.GLib;
+const Gettext = imports.gettext;
 const Util = imports.misc.util;
 const St = imports.gi.St;
 const Lang = imports.lang;
@@ -12,17 +15,16 @@ const Cinnamon = imports.gi.Cinnamon;
 const CinnamonEntry = imports.ui.cinnamonEntry;
 const Soup = imports.gi.Soup;
 const _httpSession = new Soup.SessionAsync();
-const GLib = imports.gi.GLib;
 const Mainloop = imports.mainloop;
 const Gst = imports.gi.Gst;
 const Main = imports.ui.main;
 const Clutter = imports.gi.Clutter;
 const ModalDialog = imports.ui.modalDialog;
-const Settings = imports.ui.settings;
 const Tooltips = imports.ui.tooltips;
 const PopupMenu = imports.ui.popupMenu;
-const Gettext = imports.gettext;
 const GioSSS = Gio.SettingsSchemaSource;
+
+Gettext.bindtextdomain(ExtensionUUID, GLib.get_home_dir() + "/.local/share/locale");
 
 function _(aStr) {
     let customTrans = Gettext.dgettext(ExtensionUUID, aStr);
@@ -98,39 +100,49 @@ const ICONS = {
     find: "multi-translator-edit-find-symbolic",
 };
 
-/* exported PROVIDERS_WEBSITES */
-const PROVIDERS_WEBSITES = {
-    "Yandex.Translate": "https://translate.yandex.net",
-    "Google.Translate": "https://translate.google.com",
-    "Google.TranslateTS": "https://translate.google.com",
-    "Bing.TranslateTS": "https://www.bing.com/translator/",
-    "Apertium.TranslateTS": "https://www.apertium.org",
-    "Transltr": "http://transltr.org"
-};
-
-/* exported PROVIDERS_NAMES */
-const PROVIDERS_NAMES = {
-    "Yandex.Translate": "Yandex.Translate",
-    "Google.Translate": "Google Translate",
-    "Google.TranslateTS": "Google Translate",
-    "Bing.TranslateTS": "Bing Translate",
-    "Apertium.TranslateTS": "Apertium",
-    "Transltr": "Transltr"
+/* exported PROVIDERS */
+const PROVIDERS = {
+    website: {
+        "Yandex.Translate": "https://translate.yandex.net",
+        "Google.Translate": "https://translate.google.com",
+        "Google.TranslateTS": "https://translate.google.com",
+        "Bing.TranslatorTS": "https://www.bing.com/translator/",
+        "Apertium.TS": "https://www.apertium.org",
+        "Transltr": "http://transltr.org"
+    },
+    display_name: {
+        "Yandex.Translate": "Yandex.Translate",
+        "Google.Translate": "Google Translate",
+        "Google.TranslateTS": "Google Translate",
+        "Bing.TranslatorTS": "Bing Translator",
+        "Apertium.TS": "Apertium",
+        "Transltr": "Transltr"
+    },
+    icon: {
+        "Yandex.Translate": "multi-translator-yandex-translate",
+        "Google.Translate": "multi-translator-google-translate",
+        "Google.TranslateTS": "multi-translator-google-translate",
+        "Bing.TranslatorTS": "multi-translator-bing-translator",
+        "Apertium.TS": "multi-translator-generic-translator",
+        "Transltr": "multi-translator-generic-translator"
+    }
 };
 
 /**
  * Implemented to avoid having to reset settings to
  * their defaults every time I add a new engine.
+ * This was the case when Cinnamon's native settings system was used.
+ * Now isn't needed, but it doesn't hurt having it.
  */
 const DEFAULT_ENGINES = {
-    "Apertium.TranslateTS": {
+    "Apertium.TS": {
         "default_source": "auto",
         "default_target": "en",
         "last_source": "",
         "last_target": "",
         "remember_last_lang": true
     },
-    "Bing.TranslateTS": {
+    "Bing.TranslatorTS": {
         "default_source": "auto",
         "default_target": "en",
         "last_source": "",
@@ -388,7 +400,7 @@ const LANGUAGES_LIST_ENDONYMS = {
 
 const SETTINGS_SHECMA = "org.cinnamon.extensions.MultiTranslatorExtension";
 
-const settings = getSettings();
+const Settings = getSettings();
 
 function getSettings(aSchema) {
     let schema = aSchema || SETTINGS_SHECMA;
@@ -407,8 +419,8 @@ function getSettings(aSchema) {
     let schemaObj = schemaSource.lookup(schema, true);
 
     if (!schemaObj)
-        throw new Error("Schema " + schema + " could not be found for extension " +
-            ExtensionUUID + ". Please check your installation.");
+        throw new Error(_("Schema %s could not be found for extension %s.")
+            .format(schema, ExtensionUUID) + _("Please check your installation."));
 
     return new Gio.Settings({
         settings_schema: schemaObj
@@ -740,7 +752,9 @@ ButtonsBar.prototype = {
         this._buttons.push(button);
         this.actor.add(button.actor, {
             x_fill: false,
-            x_align: St.Align.START
+            y_fill: false,
+            x_align: St.Align.START,
+            y_align: St.Align.MIDDLE
         });
     },
 
@@ -995,11 +1009,11 @@ HelpDialog.prototype = {
         let base = "<b>%s:</b> %s\n";
         let markup =
             "<span size='x-large'><b>%s:</b></span>\n".format(_("Shortcuts")) +
-            base.format(escape_html(settings.get_strv(P.OPEN_TRANSLATOR_DIALOG_KEYBINDING)),
+            base.format(escape_html(Settings.get_strv(P.OPEN_TRANSLATOR_DIALOG_KEYBINDING)),
                 _("Open translator dialog.")) +
-            base.format(escape_html(settings.get_strv(P.TRANSLATE_FROM_CLIPBOARD_KEYBINDING)),
+            base.format(escape_html(Settings.get_strv(P.TRANSLATE_FROM_CLIPBOARD_KEYBINDING)),
                 _("Open translator dialog and translate text from clipboard.")) +
-            base.format(escape_html(settings.get_strv(P.TRANSLATE_FROM_SELECTION_KEYBINDING)),
+            base.format(escape_html(Settings.get_strv(P.TRANSLATE_FROM_SELECTION_KEYBINDING)),
                 _("Open translator dialog and translate from primary selection.")) +
             base.format(escape_html("<Ctrl><Enter>"),
                 _("Translate text.")) +
@@ -1057,8 +1071,8 @@ HelpDialog.prototype = {
     },
 
     _resize: function() {
-        let width_percents = settings.get_int(P.WIDTH_PERCENTS);
-        let height_percents = settings.get_int(P.HEIGHT_PERCENTS);
+        let width_percents = Settings.get_int(P.WIDTH_PERCENTS);
+        let height_percents = Settings.get_int(P.HEIGHT_PERCENTS);
         let primary = Main.layoutManager.primaryMonitor;
 
         let translator_width = Math.round(primary.width / 100 * width_percents);
@@ -1156,7 +1170,8 @@ LanguageChooser.prototype = {
         );
 
         this._info_label = new St.Label({
-            text: '<span color="black"><i>Type to search...</i></span>',
+            text: "<i>%s</i>".format(_("Type to search...")),
+            style_class: "translator-language-chooser-entry-placeholder",
             x_expand: false,
             y_expand: false
         });
@@ -1190,7 +1205,6 @@ LanguageChooser.prototype = {
             let ch = get_unichar(symbol);
 
             if (ch) {
-                // log(ch);
                 this._info_label.hide();
                 this._search_entry.set_text(ch);
                 this._search_entry.show();
@@ -1265,8 +1279,8 @@ LanguageChooser.prototype = {
     },
 
     _resize: function() {
-        let width_percents = settings.get_int(P.WIDTH_PERCENTS);
-        let height_percents = settings.get_int(P.HEIGHT_PERCENTS);
+        let width_percents = Settings.get_int(P.WIDTH_PERCENTS);
+        let height_percents = Settings.get_int(P.HEIGHT_PERCENTS);
         let primary = Main.layoutManager.primaryMonitor;
 
         let translator_width = Math.round(primary.width / 100 * width_percents);
@@ -1302,7 +1316,6 @@ LanguageChooser.prototype = {
             a = languages[a];
             b = languages[b];
             return a.localeCompare(b);
-            // return a > b;
         }));
 
         for each(let code in keys) {
@@ -1475,7 +1488,7 @@ LanguagesStats.prototype = {
     },
 
     _reload: function() {
-        this._json_data = settings.get_string(P.LANGUAGES_STATS);
+        this._json_data = Settings.get_string(P.LANGUAGES_STATS);
         this._storage = JSON.parse(this._json_data);
 
         if (this._storage instanceof Array)
@@ -1532,7 +1545,7 @@ LanguagesStats.prototype = {
     },
 
     save: function() {
-        settings.set_string(P.LANGUAGES_STATS, JSON.stringify(this._storage));
+        Settings.set_string(P.LANGUAGES_STATS, JSON.stringify(this._storage));
         this.emit("stats-changed");
     }
 };
@@ -1769,7 +1782,6 @@ ProviderBar.prototype = {
             this._button,
             ""
         );
-        // Ensure tooltip is destroyed when this button is destroyed
         this._button.connect("destroy", Lang.bind(this, function() {
             this._button.tooltip.destroy();
         }));
@@ -1825,7 +1837,7 @@ TranslationProviderPrefs.prototype = {
     _init: function(provider_name) {
         this._name = provider_name;
 
-        this._settings_connect_id = settings.connect(
+        this._settings_connect_id = Settings.connect(
             "changed::" + P.TRANSLATORS_PREFS,
             Lang.bind(this, this._load_prefs)
         );
@@ -1840,7 +1852,7 @@ TranslationProviderPrefs.prototype = {
     },
 
     _load_prefs: function() {
-        let json_string = settings.get_string(P.TRANSLATORS_PREFS);
+        let json_string = Settings.get_string(P.TRANSLATORS_PREFS);
         let prefs = JSON.parse(json_string);
 
         if (!prefs[this._name])
@@ -1858,7 +1870,7 @@ TranslationProviderPrefs.prototype = {
     },
 
     save_prefs: function(new_prefs) {
-        let json_string = settings.get_string(P.TRANSLATORS_PREFS);
+        let json_string = Settings.get_string(P.TRANSLATORS_PREFS);
         let current_prefs = JSON.parse(json_string);
 
         try {
@@ -1874,13 +1886,13 @@ TranslationProviderPrefs.prototype = {
             current_prefs[this._name] = temp;
 
         } finally {
-            settings.set_string(P.TRANSLATORS_PREFS, JSON.stringify(current_prefs));
+            Settings.set_string(P.TRANSLATORS_PREFS, JSON.stringify(current_prefs));
         }
     },
 
     destroy: function() {
         if (this._settings_connect_id > 0)
-            settings.disconnect(this._settings_connect_id);
+            Settings.disconnect(this._settings_connect_id);
     },
 
     get last_source() {
@@ -2113,12 +2125,12 @@ EntryBase.prototype = {
         this._clutter_text.set_line_wrap_mode(Pango.WrapMode.WORD_CHAR);
         this._clutter_text.set_max_length(0);
         this._clutter_text.connect("key-press-event", Lang.bind(this, this._on_key_press_event));
-        this.set_font_size(settings.get_int(P.FONT_SIZE));
+        this.set_font_size(Settings.get_int(P.FONT_SIZE));
 
-        this._font_connection_id = settings.connect(
+        this._font_connection_id = Settings.connect(
             "changed::" + P.FONT_SIZE,
             Lang.bind(this, function() {
-                this.set_font_size(settings.get_int(P.FONT_SIZE));
+                this.set_font_size(Settings.get_int(P.FONT_SIZE));
             })
         );
 
@@ -2158,10 +2170,10 @@ EntryBase.prototype = {
             }
 
             return false;
-        } else if (control_mask && code == 38) { // cyrillic Ctrl+A
+        } else if (control_mask && code == 38) { // cyrillic Ctrl + A
             this._clutter_text.set_selection(0, this._clutter_text.text.length);
             return true;
-        } else if (control_mask && code == 54) { // cyrillic Ctrl+C
+        } else if (control_mask && code == 54) { // cyrillic Ctrl + C
             let clipboard = St.Clipboard.get_default();
             let selection = this._clutter_text.get_selection();
             let text;
@@ -2173,7 +2185,7 @@ EntryBase.prototype = {
 
             clipboard.set_text(text);
             return true;
-        } else if (control_mask && code == 55) { // cyrillic Ctrl+V
+        } else if (control_mask && code == 55) { // cyrillic Ctrl + V
             let clipboard = St.Clipboard.get_default();
             clipboard.get_text(Lang.bind(this, function(clipboard, text) {
                 if (!is_blank(text)) {
@@ -2190,7 +2202,7 @@ EntryBase.prototype = {
             this.emit("activate", event);
             return Clutter.EVENT_STOP;
         } else {
-            if (settings.get_boolean(P.LOGGIN_ENABLED)) {
+            if (Settings.get_boolean(P.LOGGIN_ENABLED)) {
                 global.logError(JSON.stringify({
                     state: state,
                     symbol: symbol,
@@ -2204,7 +2216,7 @@ EntryBase.prototype = {
 
     destroy: function() {
         if (this._font_connection_id > 0)
-            settings.disconnect(this._font_connection_id);
+            Settings.disconnect(this._font_connection_id);
 
         this.actor.destroy();
     },
@@ -2400,9 +2412,12 @@ TranslatorDialog.prototype = {
         this._topbar.actor.x_align = St.Align.MIDDLE;
 
         this._dialog_menu = new ButtonsBar();
+        // This doesn't do squat!!!
+        // this._dialog_menu.actor.x_align = St.Align.END;
+        // This does what the previous line should have freaking done!!!
+        this._dialog_menu.actor.align_end = true;
         this._dialog_menu.actor.x_expand = true;
         this._dialog_menu.actor.y_expand = true;
-        this._dialog_menu.actor.x_align = St.Align.END;
         this._dialog_menu.actor.y_align = St.Align.MIDDLE;
 
         this._statusbar = new StatusBar();
@@ -2456,7 +2471,7 @@ TranslatorDialog.prototype = {
         });
 
         this._grid_layout.attach(this._topbar.actor, 0, 0, 4, 1);
-        this._grid_layout.attach(this._dialog_menu.actor, 3, 0, 2, 1);
+        this._grid_layout.attach(this._dialog_menu.actor, 2, 0, 2, 1);
         this._grid_layout.attach(this._source.actor, 0, 2, 2, 1);
         this._grid_layout.attach(this._target.actor, 2, 2, 2, 1);
         this._grid_layout.attach(this._providerbar.actor, 2, 3, 2, 1);
@@ -2503,13 +2518,13 @@ TranslatorDialog.prototype = {
     },
 
     _init_scroll_sync: function() {
-        if (settings.get_boolean(P.SYNC_ENTRIES_SCROLLING))
+        if (Settings.get_boolean(P.SYNC_ENTRIES_SCROLLING))
             this.sync_entries_scroll();
 
-        this._connection_ids.sync_scroll_settings = settings.connect(
+        this._connection_ids.sync_scroll_settings = Settings.connect(
             "changed::" + P.SYNC_ENTRIES_SCROLLING,
             Lang.bind(this, function() {
-                let sync = settings.get_boolean(P.SYNC_ENTRIES_SCROLLING);
+                let sync = Settings.get_boolean(P.SYNC_ENTRIES_SCROLLING);
 
                 if (sync)
                     this.sync_entries_scroll();
@@ -2520,13 +2535,13 @@ TranslatorDialog.prototype = {
     },
 
     _init_most_used_bar: function() {
-        if (settings.get_boolean(P.SHOW_MOST_USED))
+        if (Settings.get_boolean(P.SHOW_MOST_USED))
             this._show_most_used_bar();
 
-        this._connection_ids.show_most_used = settings.connect(
+        this._connection_ids.show_most_used = Settings.connect(
             "changed::" + P.SHOW_MOST_USED,
             Lang.bind(this, function() {
-                if (settings.get_boolean(P.SHOW_MOST_USED))
+                if (Settings.get_boolean(P.SHOW_MOST_USED))
                     this._show_most_used_bar();
                 else
                     this._hide_most_used_bar();
@@ -2563,8 +2578,8 @@ TranslatorDialog.prototype = {
     },
 
     _resize: function() {
-        let width_percents = settings.get_int(P.WIDTH_PERCENTS);
-        let height_percents = settings.get_int(P.HEIGHT_PERCENTS);
+        let width_percents = Settings.get_int(P.WIDTH_PERCENTS);
+        let height_percents = Settings.get_int(P.HEIGHT_PERCENTS);
         let primary = Main.layoutManager.primaryMonitor;
 
         let box_width = Math.round(primary.width / 100 * width_percents);
@@ -2656,6 +2671,7 @@ TranslatorDialog.prototype = {
 
     close: function() {
         this._statusbar.clear();
+        this._extension_object._close_all_menus();
         ModalDialog.ModalDialog.prototype.close.call(this);
     },
 
@@ -2663,10 +2679,10 @@ TranslatorDialog.prototype = {
         this.unsync_entries_scroll();
 
         if (this._connection_ids.sync_scroll_settings > 0)
-            settings.disconnect(this._connection_ids.sync_scroll_settings);
+            Settings.disconnect(this._connection_ids.sync_scroll_settings);
 
         if (this._connection_ids.show_most_used > 0)
-            settings.disconnect(this._connection_ids.show_most_used);
+            Settings.disconnect(this._connection_ids.show_most_used);
 
         delete this._extension_object;
 
@@ -2674,6 +2690,7 @@ TranslatorDialog.prototype = {
         this._target.destroy();
         this._statusbar.destroy();
         this._dialog_menu.destroy();
+        this._providerbar.destroy();
         this._topbar.destroy();
         this._chars_counter.destroy();
         this._listen_source_button.destroy();
@@ -2739,13 +2756,13 @@ TranslatorsManager.prototype = {
     _init: function(extension_object) {
         this._extension_object = extension_object;
         this._translators = this._load_translators();
-        this._default = this.get_by_name(settings.get_string(P.DEFAULT_TRANSLATOR));
+        this._default = this.get_by_name(Settings.get_string(P.DEFAULT_TRANSLATOR));
         this._current = this._default;
     },
 
     _load_translators: function() {
         let translators = [];
-        let translators_imports = imports.translation_providers;
+        let translators_imports = imports.extension.translation_providers;
         let files_list = get_files_in_dir(ExtensionPath + "/translation_providers");
 
         for (let i = 0; i < files_list.length; i++) {
@@ -2795,11 +2812,11 @@ TranslatorsManager.prototype = {
 
         this._current = translator;
 
-        settings.set_string(P.LAST_TRANSLATOR, name);
+        Settings.set_string(P.LAST_TRANSLATOR, name);
     },
 
     get last_used() {
-        let name = settings.get_string(P.LAST_TRANSLATOR);
+        let name = Settings.get_string(P.LAST_TRANSLATOR);
         let translator = this.get_by_name(name);
 
         if (!translator)
@@ -3059,11 +3076,11 @@ ShellOutputProcess.prototype = {
 
 };
 
-function TranslatorsPopup(button, dialog) {
+function DialogPopup(button, dialog) {
     this._init(button, dialog);
 }
 
-TranslatorsPopup.prototype = {
+DialogPopup.prototype = {
     __proto__: PopupMenu.PopupMenu.prototype,
 
     _init: function(button, dialog) {
@@ -3076,7 +3093,7 @@ TranslatorsPopup.prototype = {
 
         this._label_menu_item = new St.Label({
             text: _("Press <Esc> to close"),
-            style_class: "translator-translators-popup-escape-label"
+            style_class: "translator-popup-escape-label"
         });
 
         this.actor.hide();
@@ -3096,20 +3113,28 @@ TranslatorsPopup.prototype = {
         );
     },
 
-    add_item: function(name, action, icon_name) {
-        let item;
+    add_item: function(name, action, icon_name, is_symbolic, is_translators_popup) {
+        let item,
+            requires_ts = /TS$/.test(name);
 
         if (name === "separator") {
             item = new PopupMenu.PopupSeparatorMenuItem();
         } else {
+            let display_name = is_translators_popup ? PROVIDERS.display_name[name] : name;
+
+            if (is_translators_popup && requires_ts)
+                display_name += " (*)";
+
             if (icon_name) {
                 item = new PopupMenu.PopupIconMenuItem(
-                    name,
+                    display_name,
                     icon_name,
-                    St.IconType.SYMBOLIC
+                    is_symbolic ? St.IconType.SYMBOLIC : St.IconType.FULLCOLOR
                 );
+
+                item._icon.set_icon_size(18);
             } else {
-                item = new PopupMenu.PopupMenuItem(name);
+                item = new PopupMenu.PopupMenuItem(display_name);
             }
 
             item.connect("activate", Lang.bind(this, function() {
@@ -3118,11 +3143,24 @@ TranslatorsPopup.prototype = {
             }));
         }
 
+        if (is_translators_popup) {
+            let tt_text = _("This translator provider doesn't require translate-shell to work.");
+
+            if (requires_ts)
+                tt_text = _("This translator provider requires translate-shell to work.") + "\n" +
+                _("See the extended help for this extension for more information.");
+
+            item.tooltip = new Tooltips.Tooltip(item.actor, tt_text);
+            item.tooltip._tooltip.set_style("text-align: left;width:auto;");
+            item.connect("destroy", Lang.bind(this, function() {
+                item.tooltip.destroy();
+            }));
+        }
+
         this.addMenuItem(item);
     },
 
     open: function() {
-        this._button.set_sensitive(false);
         this._button.actor.add_style_pseudo_class("active");
         this.box.add(this._label_menu_item);
         PopupMenu.PopupMenu.prototype.open.call(this, true);
@@ -3131,7 +3169,6 @@ TranslatorsPopup.prototype = {
 
     close: function() {
         PopupMenu.PopupMenu.prototype.close.call(this, true);
-        this._button.set_sensitive(true);
         this._button.actor.remove_style_pseudo_class("active");
         this._dialog.source.grab_key_focus();
         this.destroy();
@@ -3142,8 +3179,5 @@ TranslatorsPopup.prototype = {
         this.actor.destroy();
 
         this.emit("destroy");
-
-        Main.sessionMode.disconnect(this._sessionUpdatedId);
-        this._sessionUpdatedId = 0;
     }
 };
