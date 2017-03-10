@@ -65,7 +65,7 @@ Once installed and enabled, the following shortcuts will be available.
 
 ## Tested environments
 
-* [ ] ![Cinnamon 2.8](https://odyseus.github.io/CinnamonTools/lib/badges/cinn-2.8.svg) ![Linux Mint 17.3](https://odyseus.github.io/CinnamonTools/lib/badges/lm-17.3.svg)
+* [x] ![Cinnamon 2.8](https://odyseus.github.io/CinnamonTools/lib/badges/cinn-2.8.svg) ![Linux Mint 17.3](https://odyseus.github.io/CinnamonTools/lib/badges/lm-17.3.svg)
 * [x] ![Cinnamon 3.0](https://odyseus.github.io/CinnamonTools/lib/badges/cinn-3.0.svg) ![Linux Mint 18](https://odyseus.github.io/CinnamonTools/lib/badges/lm-18.svg)
 * [x] ![Cinnamon 3.2](https://odyseus.github.io/CinnamonTools/lib/badges/cinn-3.2.svg) ![Linux Mint 18.1](https://odyseus.github.io/CinnamonTools/lib/badges/lm-18.1.svg)
 
@@ -73,7 +73,7 @@ Once installed and enabled, the following shortcuts will be available.
 
 ### Multi Translator extension ToDo list:
 
-* [ ] **Test extension on all currently supported versions of Cinnamon** ![@high](https://img.shields.io/badge/Priority-High-red.svg)
+* [x] **Test extension on all currently supported versions of Cinnamon**
 * [x] **Switch back to a custom settings window** Cinnamon's native settings system is very practical, but it's also very limited. There are certain settings that can be modified in the gnome-shell extension (the extension Multi Translator is based on) that aren't possible to modify using Cinnamon's native settings system. So, I will give a try to a custom one.
 * [x] **Add the possibility to select a custom theme**
 * [x] **Add "Service provided by Service provider name" notice** This is needed to comply with the terms of use for the translation services.
@@ -107,24 +107,6 @@ Once installed and enabled, the following shortcuts will be available.
 ![MultiTranslator-003](https://odyseus.github.io/CinnamonTools/lib/img/MultiTranslator-003.png)
 
 [1](https://odyseus.github.io/CinnamonTools/lib/img/MultiTranslator-004.png) - [2](https://odyseus.github.io/CinnamonTools/lib/img/MultiTranslator-005.png) - [3](https://odyseus.github.io/CinnamonTools/lib/img/MultiTranslator-006.png) - [4](https://odyseus.github.io/CinnamonTools/lib/img/MultiTranslator-007.png) - [5](https://odyseus.github.io/CinnamonTools/lib/img/MultiTranslator-008.png) - [6](https://odyseus.github.io/CinnamonTools/lib/img/MultiTranslator-009.png)
-
-### Multi Translator applet ToDo list:
-
-**The development of this applet has not started yet. Will start it when the extension reaches a stable stage and it's published on the Spices website.**
-
-#### Clicking on applet
-   * [ ] Can bring up the extension dialog.
-   * [ ] Can translate selection/clipboard and show result in a popup menu (Just like Popup Translator applet).
-   * [ ] Can translate selection/clipboard and show result in a notification.
-
-#### Ideas
-* [ ] Make the applet complement with the extension, but not depend on it.
-* [ ] Make the translation mechanism shared between the extension and the applet.
-  * [ ] It will require to store the history file in a place that can be accessed by the extension and the applet.
-  * [ ] It will require to ship the extension and the applet with the exact same Python script.
-* [ ] Add several translation mechanisms that doesn't depend on the extension, but just on the **trans** command.
-* [ ] Create a couple of key bindings to trigger several types of translations.
-* [ ] Add options to choose between a **brief** and a **detailed** translation result.
 
 ## Issue reports
 

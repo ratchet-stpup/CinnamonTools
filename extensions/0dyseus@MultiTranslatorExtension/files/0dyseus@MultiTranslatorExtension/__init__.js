@@ -23,6 +23,8 @@ const ModalDialog = imports.ui.modalDialog;
 const Tooltips = imports.ui.tooltips;
 const PopupMenu = imports.ui.popupMenu;
 const GioSSS = Gio.SettingsSchemaSource;
+const CINNAMON_VERSION = GLib.getenv("CINNAMON_VERSION");
+const CINN_2_8 = versionCompare(CINNAMON_VERSION, "2.8.8") <= 0;
 
 Gettext.bindtextdomain(ExtensionUUID, GLib.get_home_dir() + "/.local/share/locale");
 
@@ -474,12 +476,14 @@ Animation.prototype = {
 
     _showFrame: function(frame) {
         let oldFrameActor = this._animations.get_child_at_index(this._frame);
+
         if (oldFrameActor)
             oldFrameActor.hide();
 
         this._frame = (frame % this._animations.get_n_children());
 
         let newFrameActor = this._animations.get_child_at_index(this._frame);
+
         if (newFrameActor)
             newFrameActor.show();
     },
@@ -1124,7 +1128,11 @@ LanguageChooser.prototype = {
         this._languages_grid_layout = new Clutter.GridLayout({
             orientation: Clutter.Orientation.VERTICAL
         });
-        this._languages_table = new St.Widget({
+
+        // Condition needed for retro-compatibility.
+        // Mark for deletion on EOL.
+        let _languages_table_container = CINN_2_8 ? Clutter.Actor : St.Widget;
+        this._languages_table = new _languages_table_container({
             layout_manager: this._languages_grid_layout
         });
 
@@ -1182,7 +1190,11 @@ LanguageChooser.prototype = {
         this._grid_layout = new Clutter.GridLayout({
             orientation: Clutter.Orientation.VERTICAL
         });
-        this._table = new St.Widget({
+
+        // Condition needed for retro-compatibility.
+        // Mark for deletion on EOL.
+        let _table_container = CINN_2_8 ? Clutter.Actor : St.Widget;
+        this._table = new _table_container({
             layout_manager: this._grid_layout
         });
         this._grid_layout.attach(this._title, 0, 0, 1, 1);
@@ -1657,6 +1669,7 @@ StatusBar.prototype = {
 
     show_message: function(id) {
         let message = this._messages[id];
+
         if (message === undefined || !(message instanceof StatusBarMessage))
             return;
 
@@ -1695,6 +1708,7 @@ StatusBar.prototype = {
             return;
 
         let message = this._messages[id];
+
         if (message === undefined || !(message instanceof StatusBarMessage))
             return;
 
@@ -1729,12 +1743,14 @@ StatusBar.prototype = {
 
     remove_last: function() {
         let max_id = this._get_max_id();
+
         if (max_id > 0)
             this.remove_message(max_id);
     },
 
     show_last: function() {
         let max_id = this._get_max_id();
+
         if (max_id > 0)
             this.show_message(max_id);
     },
@@ -2466,7 +2482,10 @@ TranslatorDialog.prototype = {
         this._grid_layout.row_spacing = 2;
         this._grid_layout.column_spacing = 4;
 
-        this._table = new St.Widget({
+        // Condition needed for retro-compatibility.
+        // Mark for deletion on EOL.
+        let _table_container = CINN_2_8 ? Clutter.Actor : St.Widget;
+        this._table = new _table_container({
             layout_manager: this._grid_layout
         });
 
@@ -2480,7 +2499,13 @@ TranslatorDialog.prototype = {
         this._grid_layout.attach(this._listen_target_button.actor, 3, 4, 1, 1);
         this._grid_layout.attach(this._statusbar.actor, 2, 4, 2, 1);
 
-        this.contentLayout.add_child(this._table);
+        /*
+         * Originally: this.contentLayout.add_child(this._table);
+         * But it didn't work on Cinnamon 2.8.8.
+         * The "add" method seems to work everywhere plus, it's used everywhere
+         * on all versions of Cinnamon and Gnome-shell.
+         */
+        this.contentLayout.add(this._table);
 
         this._init_most_used_bar();
         this._init_scroll_sync();
@@ -2490,6 +2515,7 @@ TranslatorDialog.prototype = {
         let modifiers = Cinnamon.get_event_state(keyPressEvent);
         let ctrlAltMask = Clutter.ModifierType.CONTROL_MASK | Clutter.ModifierType.MOD1_MASK;
         let symbol = keyPressEvent.get_key_symbol();
+
         if (symbol === Clutter.Escape && !(modifiers & ctrlAltMask)) {
             this.close();
             return;
@@ -2968,6 +2994,7 @@ function exec(cmd, exec_cb) {
 
     function _SocketRead(source_object, res) {
         const [chunk, length] = out_reader.read_upto_finish(res); // jshint ignore:line
+
         if (chunk !== null) {
             output += chunk + "\n";
             out_reader.read_line_async(null, null, _SocketRead);
@@ -2998,6 +3025,80 @@ function getKeyByValue(object, value) {
     return null;
 }
 
+/**
+ * Compares two software version numbers (e.g. "1.7.1" or "1.2b").
+ *
+ * This function was born in http://stackoverflow.com/a/6832721.
+ *
+ * @param {string} v1 The first version to be compared.
+ * @param {string} v2 The second version to be compared.
+ * @param {object} [options] Optional flags that affect comparison behavior:
+ * <ul>
+ *     <li>
+ *         <tt>lexicographical: true</tt> compares each part of the version strings lexicographically instead of
+ *         naturally; this allows suffixes such as "b" or "dev" but will cause "1.10" to be considered smaller than
+ *         "1.2".
+ *     </li>
+ *     <li>
+ *         <tt>zeroExtend: true</tt> changes the result if one version string has less parts than the other. In
+ *         this case the shorter string will be padded with "zero" parts instead of being considered smaller.
+ *     </li>
+ * </ul>
+ * @returns {number|NaN}
+ * <ul>
+ *    <li>0 if the versions are equal</li>
+ *    <li>a negative integer iff v1 < v2</li>
+ *    <li>a positive integer iff v1 > v2</li>
+ *    <li>NaN if either version string is in the wrong format</li>
+ * </ul>
+ *
+ * @copyright by Jon Papaioannou (["john", "papaioannou"].join(".") + "@gmail.com")
+ * @license This function is in the public domain. Do what you want with it, no strings attached.
+ */
+function versionCompare(v1, v2, options) {
+    var lexicographical = options && options.lexicographical,
+        zeroExtend = options && options.zeroExtend,
+        v1parts = v1.split('.'),
+        v2parts = v2.split('.');
+
+    function isValidPart(x) {
+        return (lexicographical ? /^\d+[A-Za-z]*$/ : /^\d+$/).test(x);
+    }
+
+    if (!v1parts.every(isValidPart) || !v2parts.every(isValidPart)) {
+        return NaN;
+    }
+
+    if (zeroExtend) {
+        while (v1parts.length < v2parts.length) v1parts.push("0");
+        while (v2parts.length < v1parts.length) v2parts.push("0");
+    }
+
+    if (!lexicographical) {
+        v1parts = v1parts.map(Number);
+        v2parts = v2parts.map(Number);
+    }
+
+    for (var i = 0; i < v1parts.length; ++i) {
+        if (v2parts.length == i) {
+            return 1;
+        }
+
+        if (v1parts[i] == v2parts[i]) {
+            continue;
+        } else if (v1parts[i] > v2parts[i]) {
+            return 1;
+        } else {
+            return -1;
+        }
+    }
+
+    if (v1parts.length != v2parts.length) {
+        return -1;
+    }
+
+    return 0;
+}
 /**
  * END utils.js
  */
@@ -3144,11 +3245,11 @@ DialogPopup.prototype = {
         }
 
         if (is_translators_popup) {
-            let tt_text = _("This translator provider doesn't require translate-shell to work.");
+            let tt_text = _("This translation provider doesn't require translate-shell to work.");
 
             if (requires_ts)
-                tt_text = _("This translator provider requires translate-shell to work.") + "\n" +
-                _("See the extended help for this extension for more information.");
+                tt_text = _("This translation provider requires translate-shell to work.") + "\n" +
+                _("See the extended help of this extension for more information.");
 
             item.tooltip = new Tooltips.Tooltip(item.actor, tt_text);
             item.tooltip._tooltip.set_style("text-align: left;width:auto;");

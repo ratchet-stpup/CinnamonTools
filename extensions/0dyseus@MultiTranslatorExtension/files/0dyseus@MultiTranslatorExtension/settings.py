@@ -174,7 +174,7 @@ MAIN_TAB = {
             "label": _("Default translation provider"),
             "tooltip": _("Select the default translation provider.") + "\n" +
                 _("Providers marked with (*) require translate-shell package to work.") + "\n" +
-                _("See the extended help for this extension for more information."),
+                _("See the extended help of this extension for more information."),
             "values": {
                 "Apertium.TS": "Apertium (*)",
                 "Bing.TranslatorTS": "Bing Translator (*)",
@@ -852,7 +852,10 @@ class TranslatorProvidersWidget(BaseGrid):
         label.set_property("hexpand", True)
         label.set_property("halign", Gtk.Align.START)
         self.attach(label, 0, 3, 1, 1)
+
         self._last_used = Gtk.Switch()
+        self._last_used.set_property("halign", Gtk.Align.END)
+        self._last_used.set_property("hexpand", False)
         self._last_used.set_property("active", False)
         self._last_used.connect("notify::active", self._notify_active)
         self.attach(self._last_used, 1, 3, 1, 1)
@@ -995,7 +998,8 @@ class ExtensionPrefsWindow(Gtk.ApplicationWindow):
 class ExtensionPrefsApplication(Gtk.Application):
 
     def __init__(self, *args, **kwargs):
-        super().__init__(*args, application_id=SCHEMA_NAME,
+        super().__init__(*args,
+                         application_id=SCHEMA_NAME,
                          flags=Gio.ApplicationFlags.FLAGS_NONE,
                          **kwargs)
         self.application = Gtk.Application()
@@ -1010,9 +1014,14 @@ class ExtensionPrefsApplication(Gtk.Application):
         Gtk.Application.do_startup(self)
         self._buildUI()
 
+    def createMenuItem(self, text, callback, *args):
+        item = Gtk.MenuItem(text)
+        item.connect("activate", callback, *args)
+        return item
+
     def _buildUI(self):
         self.window = ExtensionPrefsWindow(
-            application=self, title=_("Multi Translator Preferences"))
+            application=self, title=_("Multi Translator extension preferences"))
         self.window.set_position(Gtk.WindowPosition.CENTER)
         self.window.set_size_request(width=-1, height=300)
         self.window.set_icon_from_file(os.path.join(EXTENSION_DIR, "icon.png"))
@@ -1022,47 +1031,29 @@ class ExtensionPrefsApplication(Gtk.Application):
 
         # Buttons box
         box_buttons = BaseGrid()
-        btn_close = Gtk.Button(stock=Gtk.STOCK_CLOSE)
-        btn_close.connect("clicked", self.on_quit)
-        box_buttons.attach(btn_close, 5, 1, 1, 1)
 
-        # Not much use for this. Leave it just in case.
-        # img_restart_cinn = Gtk.Image()
-        # img_restart_cinn.set_from_stock(Gtk.STOCK_REFRESH, 3)
-        # btn_restart_cinn = Gtk.Button()
-        # btn_restart_cinn.set_property("image", img_restart_cinn)
-        # btn_restart_cinn.set_tooltip_text(_("Restart Cinnamon."))
-        # btn_restart_cinn.connect("clicked", self._restart_shell)
-        # box_buttons.pack_start(btn_restart_cinn, False, False, 0)
-        # box_buttons.attach(btn_restart_cinn, 0, 1, 1, 1)
-
-        img_reset_default = Gtk.Image()
-        img_reset_default.set_from_stock(Gtk.STOCK_CLEAR, 1)
-        btn_reset_default = Gtk.Button()
-        btn_reset_default.set_property("image", img_reset_default)
-        btn_reset_default.set_tooltip_text(_("Reset settings to defaults"))
-        btn_reset_default.connect("clicked", self._restore_default_values)
-        box_buttons.attach(btn_reset_default, 0, 1, 1, 1)
-
-        img_import = Gtk.Image()
-        img_import.set_from_stock(Gtk.STOCK_GO_UP, 1)
-        btn_import = Gtk.Button()
-        btn_import.set_property("image", img_import)
-        btn_import.set_tooltip_text(_("Import settings from a file"))
-        btn_import.connect("clicked", self._import_export_settings, False)
-        box_buttons.attach(btn_import, 1, 1, 1, 1)
-
-        img_export = Gtk.Image()
-        img_export.set_from_stock(Gtk.STOCK_GO_DOWN, 1)
-        btn_export = Gtk.Button()
-        btn_export.set_property("image", img_export)
-        btn_export.set_tooltip_text(_("Export settings to a file"))
-        btn_export.connect("clicked", self._import_export_settings, True)
-        box_buttons.attach(btn_export, 2, 1, 1, 1)
+        menu_popup = Gtk.Menu()
+        menu_popup.append(self.createMenuItem(_("Reset settings to defaults"),
+                                              self._restore_default_values))
+        menu_popup.append(self.createMenuItem(_("Import settings from a file"),
+                                              self._import_export_settings, False))
+        menu_popup.append(self.createMenuItem(_("Export settings to a file"),
+                                              self._import_export_settings, True))
+        menu_popup.show_all()
+        menu_button = Gtk.MenuButton()
+        menu_button.set_popup(menu_popup)
+        menu_button.add(Gtk.Image().new_from_stock(Gtk.STOCK_PREFERENCES, Gtk.IconSize.BUTTON))
+        menu_button.set_tooltip_text(_("Manage settings"))
 
         dummy_grid = BaseGrid()
         dummy_grid.set_property("hexpand", True)
-        box_buttons.attach(dummy_grid, 3, 1, 1, 1)
+
+        btn_close = Gtk.Button(stock=Gtk.STOCK_CLOSE)
+        btn_close.connect("clicked", self.on_quit)
+
+        box_buttons.attach(menu_button, 0, 1, 1, 1)
+        box_buttons.attach(dummy_grid, 1, 1, 1, 1)
+        box_buttons.attach(btn_close, 2, 1, 1, 1)
 
         self.settings_box.attach(box_buttons, 0, 1, 1, 1)
 

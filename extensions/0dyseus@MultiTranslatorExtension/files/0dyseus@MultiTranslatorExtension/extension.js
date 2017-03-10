@@ -196,15 +196,14 @@ TranslatorExtension.prototype = {
         let code = event.get_key_code();
 
         let cyrillic_control = 8196;
-        // Not used, but keep it anyways.
-        // let cyrillic_shift = 8192;
+        let cyrillic_shift = 8192;
 
         if (symbol == Clutter.Escape) {
             this.close();
         } else if (
             (
                 state == Clutter.ModifierType.SHIFT_MASK + Clutter.ModifierType.CONTROL_MASK ||
-                state == Clutter.ModifierType.SHIFT_MASK + cyrillic_control
+                state == cyrillic_shift + cyrillic_control
             ) &&
             code == 54
         ) { // ctrl+shift+c - copy translated text to clipboard
@@ -1232,7 +1231,7 @@ TranslatorExtension.prototype = {
     }
 };
 
-let translator = null;
+var translator = null;
 
 function init(aExtensionMeta) {} // jshint ignore:line
 
