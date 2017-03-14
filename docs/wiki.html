@@ -42,17 +42,17 @@
 </li>
 <li>
 <p>Open a terminal/shell inside a directory where you want to store your cloned repositories and type:</p>
-<pre><code class="highlight-shell">git clone git@github.com:your_github_username/Cinnamon
+<pre><code class="highlight-sh">git clone git@github.com:your_github_username/Cinnamon
 </code></pre>
 </li>
 <li>
 <p>You’ll now have a local copy of your version of Cinnamon's repository. Change into that project directory (Cinnamon):</p>
-<pre><code class="highlight-shell">cd Cinnamon
+<pre><code class="highlight-sh">cd Cinnamon
 </code></pre>
 </li>
 <li>
 <p>Add a connection to the original owner’s repository.</p>
-<pre><code class="highlight-shell">git remote add upstream git://github.com/linuxmint/Cinnamon
+<pre><code class="highlight-sh">git remote add upstream git://github.com/linuxmint/Cinnamon
 </code></pre>
 <p><strong>Note:</strong> The remote's name can be anything other than <em>upstream</em>, but I will use only this name. Mainly because it makes sense. And also because I will use it in several parts of this Wiki.</p>
 </li>
@@ -61,12 +61,12 @@
 <ol>
 <li>
 <p>Make sure that the currently checked out branch is <em>master</em>.</p>
-<pre><code class="highlight-shell">git checkout master
+<pre><code class="highlight-sh">git checkout master
 </code></pre>
 </li>
 <li>
 <p>Create a new branch and check it out.</p>
-<pre><code class="highlight-shell">git checkout -b my-branch-with-a-fix
+<pre><code class="highlight-sh">git checkout -b my-branch-with-a-fix
 </code></pre>
 </li>
 <li>
@@ -92,22 +92,22 @@
 <ol>
 <li>
 <p>Make sure you are on the branch you are supposed to be, if you don’t know, you want <em>master</em>. To ensure you’re on the local <em>master</em> branch, do this:</p>
-<pre><code class="highlight-shell">git checkout master
+<pre><code class="highlight-sh">git checkout master
 </code></pre>
 </li>
 <li>
 <p>Fetch updates from the original repository into your local copy of your fork.</p>
-<pre><code class="highlight-shell">git fetch upstream
+<pre><code class="highlight-sh">git fetch upstream
 </code></pre>
 </li>
 <li>
 <p>Re-base the local <em>master</em> branch the upstream's <em>master</em> branch.</p>
-<pre><code class="highlight-shell">git rebase upstream/master
+<pre><code class="highlight-sh">git rebase upstream/master
 </code></pre>
 </li>
 <li>
 <p>Synchronize the local repository with the on-line one.</p>
-<pre><code class="highlight-shell">git push origin master
+<pre><code class="highlight-sh">git push origin master
 </code></pre>
 </li>
 </ol>
@@ -117,7 +117,7 @@
 <h3>1. Generate an SSH key</h3>
 <h4>Linux/Mac</h4>
 <p>Open terminal to create ssh keys:</p>
-<pre><code class="highlight-shell">cd ~                 # Your home directory
+<pre><code class="highlight-sh">cd ~                 # Your home directory
 ssh-keygen -t rsa    # Press enter for all values
 </code></pre>
 <h4>For Windows</h4>
@@ -139,30 +139,207 @@ ssh-keygen -t rsa    # Press enter for all values
 </ul>
 <h3>3. Set your remote URL to a form that supports SSH 1</h3>
 <p>If you have done the steps above and are still getting the password prompt, make sure your repo URL is in the form...</p>
-<pre><code class="highlight-shell">git+ssh://git@github.com/user_name/repo_name.git
+<pre><code class="highlight-sh">git+ssh://git@github.com/user_name/repo_name.git
 </code></pre>
 <p>...as opposed to...</p>
-<pre><code class="highlight-shell">https://github.com/user_name/repo_name.git
+<pre><code class="highlight-sh">https://github.com/user_name/repo_name.git
 </code></pre>
 <p>To see your repository's current URL, run:</p>
-<pre><code class="highlight-shell">git remote show origin
+<pre><code class="highlight-sh">git remote show origin
 </code></pre>
 <p>You can change the URL with:</p>
-<pre><code class="highlight-shell">git remote set-url origin git+ssh://git@github.com/user_name/repo_name.git
+<pre><code class="highlight-sh">git remote set-url origin git+ssh://git@github.com/user_name/repo_name.git
 </code></pre>
 <span id="avoid_user_password_prompts_when_pushing-1">
 <h3>Summarized steps for Linux</h3>
 <h4>1. Create the SSH keys</h4>
-<pre><code class="highlight-shell">ssh-keygen -t rsa -f ~/.ssh/file_name -b 4096 -C &quot;Comment&quot;
+<pre><code class="highlight-sh">ssh-keygen -t rsa -f ~/.ssh/file_name -b 4096 -C &quot;Comment&quot;
 </code></pre>
 <p>It will ask for passphrase and then create the files <strong>~/.ssh/file_name</strong> and <strong>~/.ssh/file_name.pub</strong>.</p>
 <h4>2. Add the public key <strong>~/.ssh/file_name.pub</strong> to GitHub account SSH section.</h4>
 <h4>3. Add the private key to ssh-agent</h4>
-<pre><code class="highlight-shell">ssh-add ~/.ssh/file_name
+<pre><code class="highlight-sh">ssh-add ~/.ssh/file_name
 </code></pre>
 <h4>4. Add remote url to your local git repository</h4>
-<pre><code class="highlight-shell">git remote set-url origin git+ssh://git@github.com/user_name/repo_name.git
+<pre><code class="highlight-sh">git remote set-url origin git+ssh://git@github.com/user_name/repo_name.git
 </code></pre>
+<hr>
+<span id="rewritig_history">
+<h2>Rewriting history - <a href="https://robots.thoughtbot.com/git-interactive-rebase-squash-amend-rewriting-history">Source</a></h2>
+<span id="reword_the_last_commit_message">
+<h3>Reword the last commit message</h3>
+<p>One of the simplest history rewrites we can do with git is changing the last commit message. Let’s say right after making a commit you find a typo in its description, or you find a better way of describing the changeset. To make the correction you run:</p>
+<pre><code class="highlight-sh">git commit --amend
+</code></pre>
+<p>It will open an editor with the last commit message, so you can modify it. After saving, a new commit will be created with the same changes and the new message, replacing the commit with the previous message.</p>
+<p>This can be useful to include files you forgot to track, or include modifications to the files you just commited. To do so, you can add the changes and then perform the amend:</p>
+<pre><code class="highlight-sh">git add file1.md folder/file2.conf
+git rm file3.txt
+git commit --amend
+</code></pre>
+<p>Aside from editing the commit message, the new commit will contain the changes specified with <code>git add</code> and <code>git rm</code>.</p>
+<p><strong>You can now change the last commit of your repository to include newer changes to the files, and/or to improve the commit message. But don’t start amending all-the-things before understanding the last section titled DANGER.</strong></p>
+<span id="rebase_and_interactive_rebase">
+<h3>Rebase and interactive rebase</h3>
+<p>To reword other commit messages, squash commits together and rebase on top of master, <code>git rebase</code> is used. <code>git rebase</code> re-applies commits, one by one, in order, from your current branch onto another. It accepts several options and parameters, so that’s a tip of the iceberg explanation, enough to bridge the gap in between StackOverflow or GitHub comments and the git man pages.</p>
+<p>An interesting option it accepts is <code>--interactive</code> (<code>-i</code> for short), which will open an editor with a list of the commits which are about to be changed. This list accepts commands, allowing the user to edit the list before initiating the rebase action.</p>
+<span id="reword_other_commit_messages">
+<h3>Reword other commit messages</h3>
+<p>Let’s say I want to reword any of the last 4 commits of a repository. I then run <code>git rebase -i HEAD~4</code>, and here is what I see:</p>
+<pre><code>pick 07c5abd Added new feature 1.
+pick 3e7ee36 Fixed an error.
+pick de9b1eb Fixed a type.
+pick fa20af3 Added new feature 2.
+
+# Rebase 8db7e8b..fa20af3 onto 8db7e8b
+#
+# Commands:
+#  p, pick = use commit
+#  r, reword = use commit, but edit the commit message
+#  e, edit = use commit, but stop for amending
+#  s, squash = use commit, but meld into previous commit
+#  f, fixup = like &quot;squash&quot;, but discard this commit's log message
+#  x, exec = run command (the rest of the line) using shell
+#
+# These lines can be re-ordered; they are executed from top to bottom.
+#
+# If you remove a line here THAT COMMIT WILL BE LOST.
+#
+# However, if you remove everything, the rebase will be aborted.
+#
+# Note that empty commits are commented out
+</code></pre>
+<p>We see the four last commits, from older to newer. See the comment below the list of commits? Good job explaining, git! <code>pick</code> (<code>p</code> for short) is the default action. In this case it would reapply the commit as is, no changes in its contents or message. Saving (and executing) this file would make no changes to the repository.</p>
+<p>If I say <code>reword</code> (<code>r</code> for short) in a commit I want to edit:</p>
+<pre><code>pick 07c5abd Added new feature 1.
+pick 3e7ee36 Fixed an error.
+r de9b1eb Fixed a type.
+pick fa20af3 Added new feature 2.
+</code></pre>
+<p>When I save and quit the editor, git will follow the described commands, landing myself into the editor again, as if I had amended commit <code>de9b1eb</code>. I edit that commit message (note that it says <em>type</em> instead of <em>typo</em>), save and quit the editor, and here is the output:</p>
+<pre><code class="highlight-sh">hostname branch-name % git rebase -i HEAD~4
+[detached HEAD dd62a66] Fixed a typo.
+ Author: No Name
+ Date: Fri Oct 31 10:52:26 2017 -0500
+ 2 files changed, 39 insertions(+), 42 deletions(-)
+Successfully rebased and updated refs/heads/branch-name.
+</code></pre>
+<p>Now the commit message says &quot;Fixed a typo.&quot; instead of &quot;Fixed a type.&quot;.</p>
+<p><strong>You can now change the message of any commit you want. You may do so, just make sure you understand the DANGER section.</strong></p>
+<span id="squash_commits_together">
+<h3>Squash commits together</h3>
+<p>Two other commands rebase interactive offers us are:</p>
+<ul>
+<li><code>squash</code> (<code>s</code> for short), which melds the commit into the previous one (the one in the line before).</li>
+<li><code>fixup</code> (<code>f</code> for short), which acts like “squash”, but discards this commit’s message.</li>
+</ul>
+<p>We’ll continue to work on the rebase example we worked before. We had four commits, ther commits that add new features and one commit that fixes a typo on the first commit:</p>
+<pre><code>pick 07c5abd Added new feature 1.
+pick 3e7ee36 Fixed an error.
+pick de9b1eb Fixed a typo.
+pick fa20af3 Added new feature 2.
+</code></pre>
+<p>Let’s say I want to meld the first three commits together, because they belong to the same logical changeset. We’ll want to keep the first commit message, and squash the two subsequent commits into the previous one. I change <code>pick</code> to <code>squash</code> where appropriate:</p>
+<pre><code>pick 07c5abd Added new feature 1.
+s 3e7ee36 Fixed an error.
+s de9b1eb Fixed a typo.
+pick fa20af3 Added new feature 2.
+</code></pre>
+<p>Save, and I land into the editor to decide the commit message of the melded three commits (see how they are concatenated one after the other):</p>
+<pre><code class="highlight-sh"># This is a combination of 3 commits.
+# The first commit's message is:
+Added new feature 1.
+
+# This is the 2nd commit message:
+
+Fixed an error.
+
+# This is the 3rd commit message:
+
+Fixed a typo.
+
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+#
+# Author:    No Name
+# Date:      Tue Sep 2 09:39:07 2017 -0500
+#
+# rebase in progress; onto 71d4789
+# You are currently editing a commit while rebasing branch 'branch-name' on '71d4789'.
+</code></pre>
+<p>I decide to remove the third commit message, and add a more relevant note to the second commit message. Save the editor, and the four commits were transformed into two: the one with the commit message &quot;Added new feature 1&quot; and the other one with commit message &quot;Added new feature 2&quot;.</p>
+<p>We could have used the <code>fixup</code> command, if we had seen earlier that we want the changes, but not the commit message, of the third commit. In that case, the commands would have looked like:</p>
+<pre><code>pick 07c5abd Added new feature 1.
+s 3e7ee36 Fixed an error.
+f de9b1eb Fixed a typo.
+pick fa20af3 Added new feature 2.
+</code></pre>
+<p>When saved, the editor would have included the third commit message already commented out for us:</p>
+<pre><code class="highlight-sh"># This is a combination of 3 commits.
+# The first commit's message is:
+Added new feature 1.
+
+# This is the 2nd commit message:
+
+Fixed an error.
+
+# This is the 3rd commit message:
+
+# Fixed a typo.
+
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+#
+# Author:    No Name
+# Date:      Tue Sep 2 09:39:07 2017 -0500
+#
+# rebase in progress; onto 71d4789
+# You are currently editing a commit while rebasing branch 'branch-name' on '71d4789'.
+</code></pre>
+<p>Save, and outputs:</p>
+<pre><code class="highlight-sh">[detached HEAD 809241b] Added new feature 1.
+ Author: No Name
+ Date: Tue Sep 2 09:39:07 2017 -0500
+ 2 files changed, 1429 insertions(+), 1 deletion(-)
+Successfully rebased and updated refs/heads/branch-name.
+</code></pre>
+<p>Result is the same: 2 commits instead of 4, each with a single, feature added.</p>
+<p><strong>You can now merge commits together. As always, be mindful of the DANGER section.</strong></p>
+<span id="rebase_on_top_of_master">
+<h3>Rebase on top of master</h3>
+<p>We fork a repository, start working on a feature branch, and master in the upstream project moves ahead. Our history looks like:</p>
+<pre><code>       A---B---C feature
+     /
+D---E---F---G upstream/master
+</code></pre>
+<p>The original repository maintainer asks as to <em>rebase on top of master</em>, so we fix any merge conflicts that may arise between both branches, and keep our changeset together. The maintainer would like to see a history like:</p>
+<pre><code>               A---B---C feature
+             /
+D---E---F---G upstream/master
+</code></pre>
+<p>We want to reapply our commits, one by one, in order, onto upstream’s master. Sounds like the description of the rebase command! Let’s see what commands would land us into the desired scenario:</p>
+<p><strong>It is assumed that you already have your forked repository set up to work with an <em>upstream</em> remote. See <a href="#contribute_to_someone_repository">Contribute to someone's repository</a></strong></p>
+<pre><code class="highlight-sh"># Fetch latest commits from `upstream` (the original fork)
+git fetch upstream
+
+# Checkout our feature branch
+git checkout feature
+
+# Reapply it onto upstream's master
+git rebase upstream/master
+
+# Fix conflicts, then `git rebase --continue`, repeat until done
+# Push to our fork
+git push --force origin feature
+</code></pre>
+<p><strong>Your feature branch will be applied on top of latest master of the original fork.</strong></p>
+<span id="danger_you_are_rewriting_history">
+<h2 style="color:red;">DANGER: You are rewriting history</h2>
+<p>See the <code>--force</code> in the last <code>git push</code> command? That means we are overwriting repository’s history. This is always safe to do in commits we don’t share with other team members, or in branches that belong to us.</p>
+<p>But if you force push editions that were already shared with the team (commits that exist outside of my repository), then everyone’s branch gets out of sync.</p>
+<p>Rewriting history means abandoning existing commits and creating new ones, that may be very similar but are different. If others base work on your previous commits, and then you rewrite and force-push your commits, your team members will have to re-merge their work (if they notice the potential loss).</p>
+<p>So rewrite git history, provided rewritten commits exist only in your repository, or you and your team know that no one else should base work off of them.</p>
+<p><strong>You now know how to rebase while being a good citizen.</strong></p>
 <hr>
 <span id="working_with_big_repositories">
 <h2>Working with big repositories - <a href="http://stackoverflow.com/a/28039894">Source</a></h2>
@@ -171,23 +348,23 @@ ssh-keygen -t rsa    # Press enter for all values
 <ol>
 <li>
 <p>Create an empty local repository.</p>
-<pre><code class="highlight-shell">git init &lt;repository&gt;
+<pre><code class="highlight-sh">git init &lt;repository&gt;
 cd &lt;repository&gt;
 </code></pre>
 </li>
 <li>
 <p>Add remote URL to it.</p>
-<pre><code class="highlight-shell">git remote add origin https://github.com/user_name/repository.git
+<pre><code class="highlight-sh">git remote add origin https://github.com/user_name/repository.git
 </code></pre>
 </li>
 <li>
 <p>Enable <em>sparce checkout</em>.</p>
-<pre><code class="highlight-shell">git config core.sparsecheckout true
+<pre><code class="highlight-sh">git config core.sparsecheckout true
 </code></pre>
 </li>
 <li>
 <p>Specify the directories and/or files that one wants to checkout.</p>
-<pre><code class="highlight-shell">echo &quot;directory1/*&quot; &gt;&gt; .git/info/sparse-checkout
+<pre><code class="highlight-sh">echo &quot;directory1/*&quot; &gt;&gt; .git/info/sparse-checkout
 echo &quot;directory2/*&quot; &gt;&gt; .git/info/sparse-checkout
 </code></pre>
 <ul>
@@ -196,7 +373,7 @@ echo &quot;directory2/*&quot; &gt;&gt; .git/info/sparse-checkout
 </li>
 <li>
 <p>Create a <em>shallow clone</em>.</p>
-<pre><code class="highlight-shell">git pull --depth=1 origin master
+<pre><code class="highlight-sh">git pull --depth=1 origin master
 </code></pre>
 </li>
 </ol>
@@ -236,18 +413,18 @@ echo &quot;directory2/*&quot; &gt;&gt; .git/info/sparse-checkout
 <h2>Various</h2>
 <span id="various-1">
 <h3>Verify repository database</h3>
-<pre><code class="highlight-shell">git fsck
+<pre><code class="highlight-sh">git fsck
 </code></pre>
 <span id="various-2">
 <h3>Remove dangling commits from repository</h3>
 <p><strong>WARNING!!! Read the documentation of the following commands before any action!!!</strong></p>
-<pre><code class="highlight-shell">git reflog expire --expire=now --all
+<pre><code class="highlight-sh">git reflog expire --expire=now --all
 git gc --prune=now
 </code></pre>
 <span id="various-3">
 <h3>Open git GUI</h3>
 <p>A Tcl/Tk based graphical user interface to Git. git gui focuses on allowing users to make changes to their repository by making new commits, amending existing ones, creating branches, performing local merges, and fetching/pushing to remote repositories. See more: <code>man git-gui</code></p>
-<pre><code class="highlight-shell">git gui
+<pre><code class="highlight-sh">git gui
 </code></pre>
 <h1>Xlet development</h1><span id="xlet_development">
 <h1>How to create xlets for Cinnamon</h1>
@@ -363,4 +540,4 @@ sudo chmod ugo+rx xlet@folder_name
 <span id="xlet_localization-2">
 <h2>For xlet developers</h2>
 <p>Under construction</p>
-</div><div class="col-md-3" role="complementary"><nav class="hidden-print hidden-xs hidden-sm" id="index-sidebar"><div style="padding-top:1px;padding-bottom:1px;padding-left:20px"><br><a class="btn btn-info btn-xs" style="font-size:12px;font-weight:bold" data-toggle="tooltip" data-placement="left" data-original-title="Download this wiki as an standalone HTML file." rel="nofollow" title="Download this wiki as an standalone HTML file." href="wiki_standalone.html" download><span class="glyphicon glyphicon-download-alt"></span> Download</a> <br></div><ul class="nav cb-docs-sidenav"><li class="effing_index"><a href="#effing_index">Index</a></li><li><a href="#github_tips_tricks">GitHub tips &amp; tricks</a><ul class="nav"><li><a href="#contribute_to_someone_repository">Contribute to someone's repository</a><ul class="nav"><li><a href="#contribute_to_someone_repository-1">Detailed steps</a></li><li><a href="#contribute_to_someone_repository-2">Keep your forked repositories synchronized with the original repositories</a></li></ul></li><li><a href="#avoid_user_password_prompts_when_pushing">Avoid user/password prompts when pushing</a><ul class="nav"><li><a href="#avoid_user_password_prompts_when_pushing-1">Summarized steps for Linux</a></li></ul></li><li><a href="#working_with_big_repositories">Working with big repositories</a></li><li><a href="#closing_issues_via_commit_messages">Closing issues via commit messages</a><ul class="nav"><li><a href="#closing_issues_via_commit_messages-1">Closing an issue in the same repository</a></li><li><a href="#closing_issues_via_commit_messages-2">Keywords for closing issues</a></li><li><a href="#closing_issues_via_commit_messages-3">Closing an issue in a different repository</a></li><li><a href="#closing_issues_via_commit_messages-4">Closing multiple issues</a></li></ul></li><li><a href="#various">Various</a><ul class="nav"><li><a href="#various-1">Verify repository database</a></li><li><a href="#various-2">Remove dangling commits from repository</a></li><li><a href="#various-3">Open git GUI</a></li></ul></li></ul></li><li><a href="#xlet_instalation">Xlet instalation</a><ul class="nav"><li><a href="#xlet_instalation-1">Some generalities</a></li><li><a href="#xlet_instalation-2">Applets locations</a></li><li><a href="#xlet_instalation-3">Extensions locations</a></li><li><a href="#xlet_instalation-4">Desklets locations</a></li><li><a href="#xlet_instalation-5">Installing xlets for all users</a></li></ul></li><li><a href="#xlet_localization">Xlet localization</a><ul class="nav"><li><a href="#xlet_localization-1">For end users/contributors</a><ul class="nav"><li><a href="#xlet_localization-1-1">Some technical facts</a></li><li><a href="#xlet_localization-1-2">How to create localization files (.po files)</a></li><li><a href="#xlet_localization-1-3">Poedit usage</a><ul class="nav"><li><a href="#xlet_localization-1-3-1">Creating a translation file from scratch</a></li><li><a href="#xlet_localization-1-3-2">Updating and existing translation file</a></li></ul></li><li><a href="#xlet_localization-1-4">Adding languages to Poedit's spell checker</a></li></ul></li><li><a href="#xlet_localization-2">For xlet developers</a></li></ul></li></ul></nav></div></div></div><div class="navbar navbar-default" id="footer"><div class="container footer-inner" id="footer_inner"><div class="navbar-inner"><ul class="list-unstyled"><li><p>Website created with <a href="http://getbootstrap.com"><b>Bootstrap</b></a> version 3.3.7.</p></li><li><p>Bootstrap theme based on themes from <a href="http://bootswatch.com/"><b>Bootswatch</b></a>.</p></li><li><p>Code syntax highlighting powered by <a href="https://highlightjs.org/"><b>highlight.js</b></a> version 9.9.0.</p></li><li><p>The top navigation bar uses <a href="https://github.com/dymk/ScrollNav"><b>Smart jQuery Scrolling Navigation Bar Plugin</b></a>.</p></li><li><p>This website is hosted on <a href="https://github.com"><b>GitHub</b></a> and its source code can be found <a href="https://github.com/Odyseus/CinnamonTools/tree/master/docs"><b>here</b></a>.</p></li></ul></div></div></div></div><span class="hidden" id="top-link-block"><a class="well" id="top-link" href="#top" rel="nofollow"><i class="glyphicon glyphicon-chevron-up"></i></a></span><script type="text/javascript" src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script><script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script><script type="text/javascript" src="lib/js/highlight.pack.js"></script><script type="text/javascript" src="lib/js/myFunctions.js"></script></body></html>
+</div><div class="col-md-3" role="complementary"><nav class="hidden-print hidden-xs hidden-sm" id="index-sidebar"><div style="padding-top:1px;padding-bottom:1px;padding-left:20px"><br><a class="btn btn-info btn-xs" style="font-size:12px;font-weight:bold" data-toggle="tooltip" data-placement="left" data-original-title="Download this wiki as an standalone HTML file." rel="nofollow" title="Download this wiki as an standalone HTML file." href="wiki_standalone.html" download><span class="glyphicon glyphicon-download-alt"></span> Download</a> <br></div><ul class="nav cb-docs-sidenav"><li class="effing_index"><a href="#effing_index">Index</a></li><li><a href="#github_tips_tricks">GitHub tips &amp; tricks</a><ul class="nav"><li><a href="#contribute_to_someone_repository">Contribute to someone's repository</a><ul class="nav"><li><a href="#contribute_to_someone_repository-1">Detailed steps</a></li><li><a href="#contribute_to_someone_repository-2">Keep your forked repositories synchronized with the original repositories</a></li></ul></li><li><a href="#avoid_user_password_prompts_when_pushing">Avoid user/password prompts when pushing</a><ul class="nav"><li><a href="#avoid_user_password_prompts_when_pushing-1">Summarized steps for Linux</a></li></ul></li><li><a href="#rewritig_history">Rewriting history</a><ul class="nav"><li><a href="#reword_the_last_commit_message">Reword last commit message</a></li><li><a href="#rebase_and_interactive_rebase">Rebase and interactive rebase</a></li><li><a href="#reword_other_commit_messages">Reword other commit messages</a></li><li><a href="#squash_commits_together">Squash commits together</a></li><li><a href="#rebase_on_top_of_master">Rebase on to of master</a></li><li><a href="#danger_you_are_rewriting_history">DANGER: you are rewriting history</a></li></ul></li><li><a href="#working_with_big_repositories">Working with big repositories</a></li><li><a href="#closing_issues_via_commit_messages">Closing issues via commit messages</a><ul class="nav"><li><a href="#closing_issues_via_commit_messages-1">Closing an issue in the same repository</a></li><li><a href="#closing_issues_via_commit_messages-2">Keywords for closing issues</a></li><li><a href="#closing_issues_via_commit_messages-3">Closing an issue in a different repository</a></li><li><a href="#closing_issues_via_commit_messages-4">Closing multiple issues</a></li></ul></li><li><a href="#various">Various</a><ul class="nav"><li><a href="#various-1">Verify repository database</a></li><li><a href="#various-2">Remove dangling commits from repository</a></li><li><a href="#various-3">Open git GUI</a></li></ul></li></ul></li><li><a href="#xlet_instalation">Xlet instalation</a><ul class="nav"><li><a href="#xlet_instalation-1">Some generalities</a></li><li><a href="#xlet_instalation-2">Applets locations</a></li><li><a href="#xlet_instalation-3">Extensions locations</a></li><li><a href="#xlet_instalation-4">Desklets locations</a></li><li><a href="#xlet_instalation-5">Installing xlets for all users</a></li></ul></li><li><a href="#xlet_localization">Xlet localization</a><ul class="nav"><li><a href="#xlet_localization-1">For end users/contributors</a><ul class="nav"><li><a href="#xlet_localization-1-1">Some technical facts</a></li><li><a href="#xlet_localization-1-2">How to create localization files (.po files)</a></li><li><a href="#xlet_localization-1-3">Poedit usage</a><ul class="nav"><li><a href="#xlet_localization-1-3-1">Creating a translation file from scratch</a></li><li><a href="#xlet_localization-1-3-2">Updating and existing translation file</a></li></ul></li><li><a href="#xlet_localization-1-4">Adding languages to Poedit's spell checker</a></li></ul></li><li><a href="#xlet_localization-2">For xlet developers</a></li></ul></li></ul></nav></div></div></div><div class="navbar navbar-default" id="footer"><div class="container footer-inner" id="footer_inner"><div class="navbar-inner"><ul class="list-unstyled"><li><p>Website created with <a href="http://getbootstrap.com"><b>Bootstrap</b></a> version 3.3.7.</p></li><li><p>Bootstrap theme based on themes from <a href="http://bootswatch.com/"><b>Bootswatch</b></a>.</p></li><li><p>Code syntax highlighting powered by <a href="https://highlightjs.org/"><b>highlight.js</b></a> version 9.9.0.</p></li><li><p>The top navigation bar uses <a href="https://github.com/dymk/ScrollNav"><b>Smart jQuery Scrolling Navigation Bar Plugin</b></a>.</p></li><li><p>This website is hosted on <a href="https://github.com"><b>GitHub</b></a> and its source code can be found <a href="https://github.com/Odyseus/CinnamonTools/tree/master/docs"><b>here</b></a>.</p></li></ul></div></div></div></div><span class="hidden" id="top-link-block"><a class="well" id="top-link" href="#top" rel="nofollow"><i class="glyphicon glyphicon-chevron-up"></i></a></span><script type="text/javascript" src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script><script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script><script type="text/javascript" src="lib/js/highlight.pack.js"></script><script type="text/javascript" src="lib/js/myFunctions.js"></script></body></html>
