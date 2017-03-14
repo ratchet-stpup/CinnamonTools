@@ -19,7 +19,9 @@ const Mainloop = imports.mainloop;
 const Gst = imports.gi.Gst;
 const Main = imports.ui.main;
 const Clutter = imports.gi.Clutter;
-const ModalDialog = imports.ui.modalDialog;
+const Atk = imports.gi.Atk;
+const Lightbox = imports.ui.lightbox;
+
 const Tooltips = imports.ui.tooltips;
 const PopupMenu = imports.ui.popupMenu;
 const GioSSS = Gio.SettingsSchemaSource;
@@ -44,13 +46,29 @@ Soup.Session.prototype.add_feature.call(
 _httpSession.user_agent = "Mozilla/5.0";
 _httpSession.timeout = 5;
 
+const LOAD_THEME_DELAY = 1000; // milliseconds
+const TIMEOUT_IDS = {
+    load_theme_id: 0
+};
+const CONNECTION_IDS = {
+    enable_shortcuts: 0,
+    settings_bindings: 0
+};
+const State = {
+    OPENED: 0,
+    CLOSED: 1,
+    OPENING: 2,
+    CLOSING: 3,
+    FADED_OUT: 4
+};
+
 const TTS_URI = "https://translate.google.com/translate_tts?client=tw-ob&ie=UTF-8&total=1&idx=0&textlen=%d&q=%s&tl=%s";
 const TTS_TEXT_MAX_LEN = 100;
 
 const LNG_CHOOSER_COLUMNS = 4;
 
-const STATS_TYPE_SOURCE = "source"; // jshint ignore:line
-const STATS_TYPE_TARGET = "target"; // jshint ignore:line
+const STATS_TYPE_SOURCE = "source";
+const STATS_TYPE_TARGET = "target";
 
 const STATUS_BAR_MESSAGE_TYPES = {
     error: 0,
@@ -102,7 +120,6 @@ const ICONS = {
     find: "multi-translator-edit-find-symbolic",
 };
 
-/* exported PROVIDERS */
 const PROVIDERS = {
     website: {
         "Yandex.Translate": "https://translate.yandex.net",
@@ -291,7 +308,6 @@ const LANGUAGES_LIST = {
     "zu": _("Zulu")
 };
 
-/* exported LANGUAGES_LIST_ENDONYMS */
 const LANGUAGES_LIST_ENDONYMS = {
     "Afrikaans": "Afrikaans",
     "አማርኛ": "Amharic",
@@ -428,6 +444,217 @@ function getSettings(aSchema) {
         settings_schema: schemaObj
     });
 }
+
+/*
+I created my own ModalDialog with the hope that I could discover a way to make the interface
+work on Cinnamon 2.8.x. I failed misserably, but I will keep using this modified version.
+I only removed the _buttonLayout element and the _fadeOutDialog/setButtons methods.
+At least, it saves me the bother of having to hide the _buttonLayout. Otherwise, this element
+screws up the translation dialog UI.
+ */
+
+function MyModalDialog() {
+    this._init();
+}
+
+MyModalDialog.prototype = {
+    _init: function(params) {
+        params = Params.parse(params, {
+            cinnamonReactive: false,
+            styleClass: null
+        });
+
+        this.state = State.CLOSED;
+        this._hasModal = false;
+        this._cinnamonReactive = params.cinnamonReactive;
+
+        let groupElement = CINN_2_8 ? St.Group : St.Widget;
+        this._group = new groupElement({
+            visible: false,
+            x: 0,
+            y: 0,
+            accessible_role: Atk.Role.DIALOG
+        });
+        Main.uiGroup.add_actor(this._group);
+
+        let constraint = new Clutter.BindConstraint({
+            source: global.stage,
+            coordinate: Clutter.BindCoordinate.POSITION | Clutter.BindCoordinate.SIZE
+        });
+        this._group.add_constraint(constraint);
+
+        this._group.connect("destroy", Lang.bind(this, this._onGroupDestroy));
+
+        this._actionKeys = {};
+        this._group.connect("key-press-event", Lang.bind(this, this._onKeyPressEvent));
+
+        this._backgroundBin = new St.Bin();
+        this._group.add_actor(this._backgroundBin);
+
+        this._dialogLayout = new St.BoxLayout({
+            style_class: "modal-dialog",
+            vertical: true
+        });
+
+        if (params.styleClass !== null) {
+            this._dialogLayout.add_style_class_name(params.styleClass);
+        }
+
+        if (!this._cinnamonReactive) {
+            this._lightbox = new Lightbox.Lightbox(this._group, {
+                inhibitEvents: true
+            });
+            this._lightbox.highlight(this._backgroundBin);
+
+            let stack = new Cinnamon.Stack();
+            this._backgroundBin.child = stack;
+
+            this._eventBlocker = new Clutter.Group({
+                reactive: true
+            });
+            stack.add_actor(this._eventBlocker);
+            stack.add_actor(this._dialogLayout);
+        } else {
+            this._backgroundBin.child = this._dialogLayout;
+        }
+
+        this.contentLayout = new St.BoxLayout({
+            vertical: true
+        });
+        this._dialogLayout.add(this.contentLayout, {
+            x_fill: true,
+            y_fill: true,
+            x_align: St.Align.MIDDLE,
+            y_align: St.Align.START
+        });
+
+        global.focus_manager.add_group(this._dialogLayout);
+        this._initialKeyFocus = this._dialogLayout;
+        this._savedKeyFocus = null;
+    },
+
+    destroy: function() {
+        this._group.destroy();
+    },
+
+    _onKeyPressEvent: function(object, keyPressEvent) {
+        let modifiers = Cinnamon.get_event_state(keyPressEvent);
+        let ctrlAltMask = Clutter.ModifierType.CONTROL_MASK | Clutter.ModifierType.MOD1_MASK;
+        let symbol = keyPressEvent.get_key_symbol();
+        if (symbol === Clutter.Escape && !(modifiers & ctrlAltMask)) {
+            this.close();
+            return;
+        }
+
+        let action = this._actionKeys[symbol];
+
+        if (action)
+            action();
+    },
+
+    _onGroupDestroy: function() {
+        this.emit("destroy");
+    },
+
+    _fadeOpen: function() {
+        let monitor = Main.layoutManager.currentMonitor;
+
+        this._backgroundBin.set_position(monitor.x, monitor.y);
+        this._backgroundBin.set_size(monitor.width, monitor.height);
+
+        this.state = State.OPENING;
+
+        this._dialogLayout.opacity = 255;
+        if (this._lightbox)
+            this._lightbox.show();
+        this._group.opacity = 0;
+        this._group.show();
+        Tweener.addTween(this._group, {
+            opacity: 255,
+            time: 0.1,
+            transition: "easeOutQuad",
+            onComplete: Lang.bind(this,
+                function() {
+                    this.state = State.OPENED;
+                    this.emit("opened");
+                })
+        });
+    },
+
+    setInitialKeyFocus: function(actor) {
+        this._initialKeyFocus = actor;
+    },
+
+    open: function(timestamp) {
+        if (this.state == State.OPENED || this.state == State.OPENING)
+            return true;
+
+        if (!this.pushModal(timestamp))
+            return false;
+
+        this._fadeOpen();
+        return true;
+    },
+
+    close: function(timestamp) {
+        if (this.state == State.CLOSED || this.state == State.CLOSING)
+            return;
+
+        this.state = State.CLOSING;
+        this.popModal(timestamp);
+        this._savedKeyFocus = null;
+
+        Tweener.addTween(this._group, {
+            opacity: 0,
+            time: 0.1,
+            transition: "easeOutQuad",
+            onComplete: Lang.bind(this,
+                function() {
+                    this.state = State.CLOSED;
+                    this._group.hide();
+                })
+        });
+    },
+
+    popModal: function(timestamp) {
+        if (!this._hasModal)
+            return;
+
+        let focus = global.stage.key_focus;
+        if (focus && this._group.contains(focus))
+            this._savedKeyFocus = focus;
+        else
+            this._savedKeyFocus = null;
+        Main.popModal(this._group, timestamp);
+        global.gdk_screen.get_display().sync();
+        this._hasModal = false;
+
+        if (!this._cinnamonReactive)
+            this._eventBlocker.raise_top();
+    },
+
+    pushModal: function(timestamp) {
+        if (this._hasModal)
+            return true;
+
+        if (!Main.pushModal(this._group, timestamp))
+            return false;
+
+        this._hasModal = true;
+
+        if (this._savedKeyFocus) {
+            this._savedKeyFocus.grab_key_focus();
+            this._savedKeyFocus = null;
+        } else
+            this._initialKeyFocus.grab_key_focus();
+
+        if (!this._cinnamonReactive)
+            this._eventBlocker.lower_bottom();
+
+        return true;
+    }
+};
+Signals.addSignalMethods(MyModalDialog.prototype);
 
 /**
  * START animation.js
@@ -619,7 +846,7 @@ ButtonsBarButton.prototype = {
             this._label.show();
 
             Tweener.addTween(this._label, {
-                time: 0.3,
+                time: 0.2,
                 opacity: 255,
                 transition: "easeOutQuad"
             });
@@ -629,7 +856,7 @@ ButtonsBarButton.prototype = {
     _on_leave_event: function(object, event) { // jshint ignore:line
         if (this._icon && this._label) {
             Tweener.addTween(this._label, {
-                time: 0.3,
+                time: 0.2,
                 opacity: 0,
                 transition: "easeOutQuad",
                 onComplete: Lang.bind(this, function() {
@@ -763,7 +990,9 @@ ButtonsBar.prototype = {
     },
 
     clear: function() {
-        for (let i = 0; i < this._buttons.length; i++) {
+        let i = 0,
+            iLen = this._buttons.length;
+        for (; i < iLen; i++) {
             let button = this._buttons[i];
             button.destroy();
         }
@@ -824,7 +1053,7 @@ CharsCounter.prototype = {
         this.actor.show();
 
         Tweener.addTween(this.actor, {
-            time: 0.3,
+            time: 0.2,
             transition: "easeOutQuad",
             opacity: 255
         });
@@ -835,7 +1064,7 @@ CharsCounter.prototype = {
             return;
 
         Tweener.addTween(this.actor, {
-            time: 0.3,
+            time: 0.2,
             transition: "easeOutQuad",
             opacity: 0,
             onComplete: Lang.bind(this, function() {
@@ -992,10 +1221,10 @@ function HelpDialog() {
 }
 
 HelpDialog.prototype = {
-    __proto__: ModalDialog.ModalDialog.prototype,
+    __proto__: MyModalDialog.prototype,
 
     _init: function() {
-        ModalDialog.ModalDialog.prototype._init.call(this);
+        MyModalDialog.prototype._init.call(this);
 
         this._dialogLayout = typeof this.dialogLayout === "undefined" ?
             this._dialogLayout :
@@ -1084,18 +1313,17 @@ HelpDialog.prototype = {
 
         let help_width = Math.round(translator_width * 0.9);
         let help_height = Math.round(translator_height * 0.9);
-        this._dialogLayout.set_width(help_width);
-        this._dialogLayout.set_height(help_height);
+        this._dialogLayout.set_size(help_width, help_height);
     },
 
     close: function() {
-        ModalDialog.ModalDialog.prototype.close.call(this);
+        MyModalDialog.prototype.close.call(this);
         this.destroy();
     },
 
     open: function() {
         this._resize();
-        ModalDialog.ModalDialog.prototype.open.call(this);
+        MyModalDialog.prototype.open.call(this);
     },
 };
 
@@ -1112,10 +1340,10 @@ function LanguageChooser(title, languages) {
 }
 
 LanguageChooser.prototype = {
-    __proto__: ModalDialog.ModalDialog.prototype,
+    __proto__: MyModalDialog.prototype,
 
     _init: function(title, languages) {
-        ModalDialog.ModalDialog.prototype._init.call(this);
+        MyModalDialog.prototype._init.call(this);
 
         this._dialogLayout = typeof this.dialogLayout === "undefined" ?
             this._dialogLayout :
@@ -1300,16 +1528,14 @@ LanguageChooser.prototype = {
 
         let chooser_width = Math.round(translator_width * 0.9);
         let chooser_height = Math.round(translator_height * 0.9);
-        this._dialogLayout.set_width(chooser_width);
-        this._dialogLayout.set_height(chooser_height);
+        this._dialogLayout.set_size(chooser_width, chooser_height);
 
         let scroll_width = Math.round(chooser_width * 0.9);
         let scroll_height = Math.round(
             chooser_height - this._title.height - this._info_label.height -
             this._dialogLayout.get_theme_node().get_padding(St.Side.BOTTOM) * 3
         );
-        this._scroll.set_width(scroll_width);
-        this._scroll.set_height(scroll_height);
+        this._scroll.set_size(scroll_width, scroll_height);
     },
 
     show_languages: function(selected_language_code, list) {
@@ -1360,7 +1586,7 @@ LanguageChooser.prototype = {
         this._languages_table.destroy_all_children();
         this._search_entry.set_text("");
         this._search_entry.hide();
-        ModalDialog.ModalDialog.prototype.close.call(this);
+        MyModalDialog.prototype.close.call(this);
     },
 
     open: function() {
@@ -1369,7 +1595,7 @@ LanguageChooser.prototype = {
          * Otherwise, the resizing wasn't correct.
          * In the original gnome-shell extension the resizing is done correctly. ¬¬
          */
-        ModalDialog.ModalDialog.prototype.open.call(this);
+        MyModalDialog.prototype.open.call(this);
         this._resize();
     },
 };
@@ -1686,7 +1912,7 @@ StatusBar.prototype = {
         }
 
         Tweener.addTween(this.actor, {
-            time: 0.3,
+            time: 0.2,
             opacity: 255,
             transition: "easeOutQuad",
             onComplete: Lang.bind(this, function() {
@@ -1713,7 +1939,7 @@ StatusBar.prototype = {
             return;
 
         Tweener.addTween(this.actor, {
-            time: 0.3,
+            time: 0.2,
             opacity: 0,
             transition: "easeOutQuad",
             onComplete: Lang.bind(this, function() {
@@ -1803,7 +2029,9 @@ ProviderBar.prototype = {
         }));
 
         this.actor.add(this._button, {
-            x_align: St.Align.END,
+            x_align: St.Align.START,
+            y_align: St.Align.START,
+            y_fill: false,
             x_fill: false
         });
     },
@@ -2242,8 +2470,7 @@ EntryBase.prototype = {
     },
 
     set_size: function(width, height) {
-        this.scroll.set_width(width);
-        this.scroll.set_height(height);
+        this.scroll.set_size(width, height);
     },
 
     set_font_size: function(size) {
@@ -2385,10 +2612,10 @@ function TranslatorDialog(extension_object) {
 }
 
 TranslatorDialog.prototype = {
-    __proto__: ModalDialog.ModalDialog.prototype,
+    __proto__: MyModalDialog.prototype,
 
     _init: function(extension_object) {
-        ModalDialog.ModalDialog.prototype._init.call(this, {
+        MyModalDialog.prototype._init.call(this, {
             cinnamonReactive: false
         });
 
@@ -2399,6 +2626,10 @@ TranslatorDialog.prototype = {
         this._dialogLayout.set_style_class_name("translator-box");
 
         this._source = new SourceEntry();
+        this._source.actor.align_end = false;
+        this._source.actor.align_center = true;
+        this._source.actor.x_expand = true;
+        this._source.actor.y_expand = false;
         this._source.clutter_text.connect(
             "text-changed",
             Lang.bind(this, this._on_source_changed)
@@ -2408,7 +2639,12 @@ TranslatorDialog.prototype = {
                 this._chars_counter.max_length = this._source.max_length;
             })
         );
+
         this._target = new TargetEntry();
+        this._target.actor.align_end = false;
+        this._target.actor.align_center = true;
+        this._target.actor.x_expand = true;
+        this._target.actor.y_expand = false;
         this._target.clutter_text.connect(
             "text-changed",
             Lang.bind(this, this._on_target_changed)
@@ -2424,17 +2660,20 @@ TranslatorDialog.prototype = {
         this._topbar = new ButtonsBar({
             style_class: "translator-top-bar-box"
         });
+        this._topbar.actor.align_end = false;
+        this._topbar.actor.align_center = true;
         this._topbar.actor.x_expand = true;
-        this._topbar.actor.x_align = St.Align.MIDDLE;
+        this._topbar.actor.y_expand = false;
 
         this._dialog_menu = new ButtonsBar();
         // This doesn't do squat!!!
         // this._dialog_menu.actor.x_align = St.Align.END;
         // This does what the previous line should have freaking done!!!
+        // Or at least, what I think it should do. ¬¬
         this._dialog_menu.actor.align_end = true;
+        this._dialog_menu.actor.align_center = true;
         this._dialog_menu.actor.x_expand = true;
-        this._dialog_menu.actor.y_expand = true;
-        this._dialog_menu.actor.y_align = St.Align.MIDDLE;
+        this._dialog_menu.actor.y_expand = false;
 
         this._statusbar = new StatusBar();
         this._statusbar.actor.x_align = St.Align.END;
@@ -2473,7 +2712,7 @@ TranslatorDialog.prototype = {
             }));
 
         this._providerbar = new ProviderBar(this._extension_object);
-        this._providerbar.actor.x_align = St.Align.MIDDLE;
+        this._providerbar.actor.align_end = true;
 
         this._grid_layout = new Clutter.GridLayout({
             orientation: Clutter.Orientation.VERTICAL
@@ -2493,18 +2732,16 @@ TranslatorDialog.prototype = {
         this._grid_layout.attach(this._dialog_menu.actor, 2, 0, 2, 1);
         this._grid_layout.attach(this._source.actor, 0, 2, 2, 1);
         this._grid_layout.attach(this._target.actor, 2, 2, 2, 1);
+        this._grid_layout.attach(this._chars_counter.actor, 0, 3, 2, 2);
         this._grid_layout.attach(this._providerbar.actor, 2, 3, 2, 1);
         this._grid_layout.attach(this._listen_source_button.actor, 1, 4, 1, 1);
-        this._grid_layout.attach(this._chars_counter.actor, 0, 4, 1, 2);
         this._grid_layout.attach(this._listen_target_button.actor, 3, 4, 1, 1);
         this._grid_layout.attach(this._statusbar.actor, 2, 4, 2, 1);
 
-        /*
-         * Originally: this.contentLayout.add_child(this._table);
-         * But it didn't work on Cinnamon 2.8.8.
-         * The "add" method seems to work everywhere plus, it's used everywhere
-         * on all versions of Cinnamon and Gnome-shell.
-         */
+        // Originally: this.contentLayout.add_child(this._table);
+        // But it didn't work on Cinnamon 2.8.8.
+        // The "add" method seems to work everywhere plus, it's used everywhere
+        // on all versions of Cinnamon and Gnome-shell.
         this.contentLayout.add(this._table);
 
         this._init_most_used_bar();
@@ -2610,12 +2847,12 @@ TranslatorDialog.prototype = {
 
         let box_width = Math.round(primary.width / 100 * width_percents);
         let box_height = Math.round(primary.height / 100 * height_percents);
-        this._dialogLayout.set_width(
-            box_width + this._dialogLayout.get_theme_node().get_padding(St.Side.LEFT) * 2
-        );
-        this._dialogLayout.set_height(
-            box_height + this._dialogLayout.get_theme_node().get_padding(St.Side.TOP) * 2
-        );
+
+        // Changed from set_width & set_height to set_size because it was
+        // wreaking havoc in Cinnamon 2.8.x.
+        this._dialogLayout.set_size(
+            box_width + (this._dialogLayout.get_theme_node().get_padding(St.Side.LEFT) * 2),
+            box_height + (this._dialogLayout.get_theme_node().get_padding(St.Side.TOP) * 2));
 
         let text_box_width = Math.round(
             box_width / 2 - 10 // The margin of the translator box
@@ -2691,14 +2928,14 @@ TranslatorDialog.prototype = {
     },
 
     open: function() {
-        ModalDialog.ModalDialog.prototype.open.call(this);
+        MyModalDialog.prototype.open.call(this);
         this._resize();
     },
 
     close: function() {
         this._statusbar.clear();
         this._extension_object._close_all_menus();
-        ModalDialog.ModalDialog.prototype.close.call(this);
+        MyModalDialog.prototype.close.call(this);
     },
 
     destroy: function() {
@@ -2722,7 +2959,7 @@ TranslatorDialog.prototype = {
         this._listen_source_button.destroy();
         this._listen_target_button.destroy();
         this._google_tts.destroy();
-        ModalDialog.ModalDialog.prototype.destroy.call(this);
+        MyModalDialog.prototype.destroy.call(this);
     },
 
     get source() {
@@ -2791,7 +3028,9 @@ TranslatorsManager.prototype = {
         let translators_imports = imports.extension.translation_providers;
         let files_list = get_files_in_dir(ExtensionPath + "/translation_providers");
 
-        for (let i = 0; i < files_list.length; i++) {
+        let i = 0,
+            iLen = files_list.length;
+        for (; i < iLen; i++) {
             let file_name = files_list[i];
             let module_name = file_name.slice(0, -3);
 
@@ -2813,7 +3052,9 @@ TranslatorsManager.prototype = {
         if (is_blank(name))
             return false;
 
-        for (let i = 0; i < this._translators.length; i++) {
+        let i = 0,
+            iLen = this._translators.length;
+        for (; i < iLen; i++) {
             let translator = this._translators[i];
 
             if (translator.name.toLowerCase() == name.toLowerCase())
@@ -2858,7 +3099,9 @@ TranslatorsManager.prototype = {
     get translators_names() {
         let result = [];
 
-        for (let i = 0; i < this._translators.length; i++) {
+        let i = 0,
+            iLen = this._translators.length;
+        for (; i < iLen; i++) {
             result.push(this._translators[i].name);
         }
 
@@ -2874,7 +3117,9 @@ TranslatorsManager.prototype = {
     },
 
     destroy: function() {
-        for (let i = 0; i < this._translators.length; i++) {
+        let i = 0,
+            iLen = this._translators.length;
+        for (; i < iLen; i++) {
             this._translators[i].destroy();
         }
     },
@@ -2974,7 +3219,6 @@ function escapeRegExp(str) {
     return str.replace(/([.*+?^=!:${}()|\[\]\/\\])/g, "\\$1");
 }
 
-/* exported exec */
 function exec(cmd, exec_cb) {
     let out_reader;
 
@@ -3005,7 +3249,6 @@ function exec(cmd, exec_cb) {
     out_reader.read_line_async(null, null, _SocketRead);
 }
 
-/* exported execSync */
 function execSync(cmd) {
     try {
         return GLib.spawn_command_line_sync(cmd)[1].toString().trim();
@@ -3014,7 +3257,6 @@ function execSync(cmd) {
     }
 }
 
-/* exported getKeyByValue */
 function getKeyByValue(object, value) {
     for (let key in object) {
         if (object.hasOwnProperty(key)) {
@@ -3098,6 +3340,103 @@ function versionCompare(v1, v2, options) {
     }
 
     return 0;
+}
+
+function getSelection(aCallback) {
+    Util.spawn_async(["xsel", "-o"], function(aResutl) {
+        // Remove possible "illegal" characters.
+        let str = escape_html(aResutl);
+        // Replace line breaks and duplicated white spaces with a single space.
+        str = (str.replace(/\s+/g, " ")).trim();
+
+        aCallback(str);
+
+        if (Settings.get_boolean(P.LOGGIN_ENABLED))
+            global.logError("\ngetSelection()>str:\n" + str);
+    });
+}
+
+function getTimeStamp(aDate) {
+    let ts;
+    switch (Settings.get_string(P.HISTORY_TIMESTAMP)) {
+        case "custom":
+            ts = Settings.get_string(P.HISTORY_TIMESTAMP_CUSTOM); // Custom
+            break;
+        case "iso":
+            ts = "YYYY MM-DD hh.mm.ss"; // ISO8601
+            break;
+        case "eu":
+            ts = "YYYY DD.MM hh.mm.ss"; // European
+            break;
+    }
+    let dte = new Date(parseInt(aDate));
+    let YYYY = String(dte.getFullYear());
+    let MM = String(dte.getMonth() + 1);
+    if (MM.length === 1)
+        MM = "0" + MM;
+
+    let DD = String(dte.getDate());
+    if (DD.length === 1)
+        DD = "0" + DD;
+
+    let hh = String(dte.getHours());
+    if (hh.length === 1)
+        hh = "0" + hh;
+
+    let mm = String(dte.getMinutes());
+    if (mm.length === 1)
+        mm = "0" + mm;
+
+    let ss = String(dte.getSeconds());
+    if (ss.length === 1)
+        ss = "0" + ss;
+
+    ts = ts.replace("YYYY", YYYY);
+    ts = ts.replace("MM", MM);
+    ts = ts.replace("DD", DD);
+    ts = ts.replace("hh", hh);
+    ts = ts.replace("mm", mm);
+    ts = ts.replace("ss", ss);
+    return ts;
+}
+
+function checkDependencies() {
+    Util.spawn_async([
+            $.ExtensionPath + "/extensionHelper.py",
+            "check-dependencies"
+        ],
+        Lang.bind(this, function(aResponse) {
+            if (Settings.get_boolean($.P.LOGGIN_ENABLED))
+                global.logError("\ncheckDependencies()>aResponse:\n" + aResponse);
+
+            let res = (aResponse.split("<!--SEPARATOR-->")[1])
+                // Preserve line breaks.
+                .replace(/\n+/g, "<br>")
+                .replace(/\s+/g, " ")
+                .replace(/<br>/g, "\n");
+            res = res.trim();
+
+            if (res.length > 1) {
+                global.logError(
+                    "\n# [" + _(ExtensionMeta.name) + "]" + "\n" +
+                    "# " + _("Unmet dependencies found!!!") + "\n" +
+                    res + "\n" +
+                    "# " + _("Check this extension help file for instructions.") + "\n" +
+                    "# " + _("It can be accessed from the translation dialog main menu.")
+                );
+                informAboutMissingDependencies();
+                Settings.set_boolean(P.ALL_DEPENDENCIES_MET, false);
+            } else {
+                Main.notify(_(ExtensionMeta.name), _("All dependencies seem to be met."));
+                Settings.set_boolean(P.ALL_DEPENDENCIES_MET, true);
+            }
+        }));
+}
+
+function informAboutMissingDependencies() {
+    Main.criticalNotify(_(ExtensionMeta.name),
+        _("Unmet dependencies found!!!") + "\n" +
+        _("A detailed error has been logged into ~/.cinnamon/glass.log file."));
 }
 /**
  * END utils.js
@@ -3282,3 +3621,25 @@ DialogPopup.prototype = {
         this.emit("destroy");
     }
 };
+
+// This is just a "whitelist" for jshint.
+// It's a list of function/constants that are
+// defined in this file but are used in other file/s.
+
+/*
+exported STATS_TYPE_SOURCE,
+         STATS_TYPE_TARGET,
+         LANGUAGES_LIST_ENDONYMS,
+         getKeyByValue,
+         execSync,
+         exec,
+         LOAD_THEME_DELAY,
+         TIMEOUT_IDS,
+         CONNECTION_IDS,
+         State,
+         asyncLoop,
+         replaceAll,
+         getSelection,
+         getTimeStamp,
+         checkDependencies
+*/

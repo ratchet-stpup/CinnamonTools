@@ -69,6 +69,16 @@ Once installed and enabled, the following shortcuts will be available.
 * [x] ![Cinnamon 3.0](https://odyseus.github.io/CinnamonTools/lib/badges/cinn-3.0.svg) ![Linux Mint 18](https://odyseus.github.io/CinnamonTools/lib/badges/lm-18.svg)
 * [x] ![Cinnamon 3.2](https://odyseus.github.io/CinnamonTools/lib/badges/cinn-3.2.svg) ![Linux Mint 18.1](https://odyseus.github.io/CinnamonTools/lib/badges/lm-18.1.svg)
 
+**Note on Cinnamon 2.8.x:** All issues on this version of Cinnamon are as fixed as they going to get. It's a complete nightmare working on this version of Cinnamon, so I simply gave up trying to fix the unfixable. My guess is that Cinnamon 2.8.x uses an *ultra-antique* version of GTK3 (3.10), and all APIs available on this version of GTK3 behave totally different than the APIs found on current versions of GTK3. Throughout the extension code it can be seen how I'm forced to use totally different Clutter elements depending on the version of Cinnamon that is used.
+
+### Known issues
+
+- Up until now, all known issues are aesthetics.
+    1. ~~In Cinnamon 2.8.x, on small screen resolutions (1024x768), some elements at the bottom of the translation dialog are rendered outside the dialog itself. **Workaround:** Set the dialog to occupy more screen percentage (90% width and 70% height for example).~~ Fixed.
+    2. ~~In Cinnamon 2.8.x, none of the elements inside the translation dialog are aligned how they are supposed to. **Workaround:** None. Working on it.~~ Fixed.
+    3. ~~In Cinnamon 2.8.x, when some of the elements that auto-hide themselves are hidden/shown, all the elements inside the dialog start *dancing*. **Workaround:** None. Might be related to point **2**. Working on it.~~ Fixed.
+    4. ~~In Cinnamon 3.0.x and 3.2.x, on small screen resolutions (1024x768) and using the Mint-Y theme, an element at the bottom of the translation dialog that doesn't belong to the dialog is rendered outside the dialog itself (Might be similar to point **1**). **Workaround:** Have no idea. Must be a bug with the Mint-Y themes family or it is visible simply because the Mint-Y themes set the background color for the **modal-dialog-button-box** class. The element displayed outside the dialog isn't even added by this extension, it's a button container that should be invisible if empty. But with the Mint-Y theme is visible even when empty.~~ Fixed.
+
 ## ToDo
 
 ### Multi Translator extension ToDo list:
@@ -98,15 +108,15 @@ Once installed and enabled, the following shortcuts will be available.
 
 ##### Dialog translation images
 
-![MultiTranslator-001](https://odyseus.github.io/CinnamonTools/lib/img/MultiTranslator-001.png)
+![Translation dialog](https://odyseus.github.io/CinnamonTools/lib/img/MultiTranslatorExtension-001-trans-dialog.png)
 
-[1](https://odyseus.github.io/CinnamonTools/lib/img/MultiTranslator-002.png)
+[Source language selection](https://odyseus.github.io/CinnamonTools/lib/img/MultiTranslatorExtension-002-souce-lang-selection.png) - [Target language selection](https://odyseus.github.io/CinnamonTools/lib/img/MultiTranslatorExtension-003-target-lang-selection.png) - [Translation provider selection](https://odyseus.github.io/CinnamonTools/lib/img/MultiTranslatorExtension-004-trans-provider-selection.png) - [Main menu](https://odyseus.github.io/CinnamonTools/lib/img/MultiTranslatorExtension-005-main-menu.png) - [Quick help](https://odyseus.github.io/CinnamonTools/lib/img/MultiTranslatorExtension-006-quick-help.png)
 
 ##### Settings window images
 
-![MultiTranslator-003](https://odyseus.github.io/CinnamonTools/lib/img/MultiTranslator-003.png)
+![MultiTranslator-003](https://odyseus.github.io/CinnamonTools/lib/img/MultiTranslatorExtension-options-001.png)
 
-[1](https://odyseus.github.io/CinnamonTools/lib/img/MultiTranslator-004.png) - [2](https://odyseus.github.io/CinnamonTools/lib/img/MultiTranslator-005.png) - [3](https://odyseus.github.io/CinnamonTools/lib/img/MultiTranslator-006.png) - [4](https://odyseus.github.io/CinnamonTools/lib/img/MultiTranslator-007.png) - [5](https://odyseus.github.io/CinnamonTools/lib/img/MultiTranslator-008.png) - [6](https://odyseus.github.io/CinnamonTools/lib/img/MultiTranslator-009.png)
+[1](https://odyseus.github.io/CinnamonTools/lib/img/MultiTranslatorExtension-options-002.png) - [2](https://odyseus.github.io/CinnamonTools/lib/img/MultiTranslatorExtension-options-003.png) - [3](https://odyseus.github.io/CinnamonTools/lib/img/MultiTranslatorExtension-options-004.png) - [4](https://odyseus.github.io/CinnamonTools/lib/img/MultiTranslatorExtension-options-005.png) - [5](https://odyseus.github.io/CinnamonTools/lib/img/MultiTranslatorExtension-options-006.png) - [6](https://odyseus.github.io/CinnamonTools/lib/img/MultiTranslatorExtension-options-007.png)
 
 ## Issue reports
 

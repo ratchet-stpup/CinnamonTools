@@ -443,9 +443,9 @@ class SettingsBox(BaseGrid):
         for tab_obj in tabs_objects:
             tab = BaseGrid()
             tab.set_orientation(Gtk.Orientation.VERTICAL)
-            tab.set_border_width(10)
+            tab.set_border_width(15)
             tab.set_column_spacing(10)
-            tab.set_row_spacing(10)
+            tab.set_row_spacing(15)
             tab_label = Gtk.Label(label=tab_obj["label"])
             tab_label.set_tooltip_text(tab_obj["tooltip"])
 
@@ -659,7 +659,7 @@ class Widgets():
 
 class FileChooser(BaseGrid):
 
-    ''' FileChooser tree widget '''
+    ''' FileChooser widget '''
 
     def __init__(self, key, label, select_dir=False, tooltip=""):
         BaseGrid.__init__(self, tooltip)
@@ -817,7 +817,7 @@ class TranslatorProvidersWidget(BaseGrid):
     def __init__(self, key):
         BaseGrid.__init__(self)
         self.set_orientation(Gtk.Orientation.VERTICAL)
-        self.set_row_spacing(10)
+        self.set_row_spacing(15)
         self._pref_key = key
         self._prefs = json.loads(Settings().get_settings().get_string(key))
 
@@ -1023,7 +1023,7 @@ class ExtensionPrefsApplication(Gtk.Application):
         self.window = ExtensionPrefsWindow(
             application=self, title=_("Multi Translator extension preferences"))
         self.window.set_position(Gtk.WindowPosition.CENTER)
-        self.window.set_size_request(width=-1, height=300)
+        self.window.set_size_request(width=-1, height=-1)
         self.window.set_icon_from_file(os.path.join(EXTENSION_DIR, "icon.png"))
         self.window.connect("destroy", self.on_quit)
 

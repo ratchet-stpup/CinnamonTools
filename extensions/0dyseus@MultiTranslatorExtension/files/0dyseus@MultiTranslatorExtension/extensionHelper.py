@@ -300,7 +300,7 @@ class HistoryApplication(Gtk.Application):
         cr2.set_property('wrap-mode', Pango.WrapMode.WORD_CHAR)
         cr2.set_property('wrap-width', int(self.sizes[2]))
         cr2.set_property('editable', True)
-        column2 = Gtk.TreeViewColumn(_("Source text"), cr2, text=0)
+        column2 = Gtk.TreeViewColumn(_("Source text"), cr2, markup=0)
         column2.set_sort_column_id(0)
         column2.set_resizable(True)
 
@@ -313,7 +313,7 @@ class HistoryApplication(Gtk.Application):
         cr4.set_property('wrap-mode', Pango.WrapMode.WORD_CHAR)
         cr4.set_property('wrap-width', int(self.sizes[2]))
         cr4.set_property('editable', True)
-        column4 = Gtk.TreeViewColumn(_("Target text"), cr4, text=3)
+        column4 = Gtk.TreeViewColumn(_("Target text"), cr4, markup=3)
         column4.set_sort_column_id(3)
         column4.set_resizable(True)
 

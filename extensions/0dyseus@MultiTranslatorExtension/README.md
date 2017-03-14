@@ -5,7 +5,7 @@ If anyone has bugs to report, a feature request or a contribution, do so on <a h
 
 ## Multi Translator extension description
 
-This extension adds some options to modify the default behaviour of certain Cinnamon features.
+Translation of text by different translation providers (currently [Google](https://translate.google.com), [Yandex](https://translate.yandex.net), [Bing](https://www.bing.com/translator), [Apertium](https://www.apertium.org) and [Transltr](http://transltr.org)).
 
 ## Compatibility
 
@@ -46,4 +46,4 @@ Once installed and enabled, the following shortcuts will be available.
 - **[gufoe](https://github.com/gufoe):** Author of the newer version of [Text Translator](https://github.com/gufoe/text-translator) gnome-shell extension.
 - **[soimort](https://github.com/soimort):** Author of the [translate-shell script](https://github.com/soimort/translate-shell).
 
-[Full change log](https://github.com/Odyseus/CinnamonTools/blob/master/extensions/0dyseus%40MultiTranslatorExt/CHANGELOG.md)
+[Full change log](https://github.com/Odyseus/CinnamonTools/blob/master/extensions/0dyseus%40MultiTranslatorExtension/CHANGELOG.md)

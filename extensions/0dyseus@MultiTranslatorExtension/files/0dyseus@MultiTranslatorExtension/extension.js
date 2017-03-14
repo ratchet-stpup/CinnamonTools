@@ -11,22 +11,6 @@ const GLib = imports.gi.GLib;
 const Gio = imports.gi.Gio;
 const Cinnamon = imports.gi.Cinnamon;
 
-const LOAD_THEME_DELAY = 1000; // milliseconds
-const TIMEOUT_IDS = {
-    load_theme_id: 0
-};
-const CONNECTION_IDS = {
-    enable_shortcuts: 0,
-    settings_bindings: 0
-};
-const State = {
-    OPENED: 0,
-    CLOSED: 1,
-    OPENING: 2,
-    CLOSING: 3,
-    FADED_OUT: 4
-};
-
 function TranslatorExtension() {
     this._init();
 }
@@ -74,14 +58,14 @@ TranslatorExtension.prototype = {
             this._loadTheme();
 
             if (!Settings.get_boolean($.P.ALL_DEPENDENCIES_MET))
-                this.checkDependencies();
+                $.checkDependencies();
         } catch (aErr) {
             global.logError(aErr);
         }
     },
 
     _bind_settings: function() {
-        CONNECTION_IDS.settings_bindings = Settings.connect(
+        $.CONNECTION_IDS.settings_bindings = Settings.connect(
             "changed",
             Lang.bind(this, function(aObj, aPref) {
                 switch (aPref) {
@@ -180,12 +164,12 @@ TranslatorExtension.prototype = {
      */
     _remove_timeouts: function(timeout_key) {
         if (!$.is_blank(timeout_key)) {
-            if (TIMEOUT_IDS[timeout_key] > 0)
-                Mainloop.source_remove(TIMEOUT_IDS[timeout_key]);
+            if ($.TIMEOUT_IDS[timeout_key] > 0)
+                Mainloop.source_remove($.TIMEOUT_IDS[timeout_key]);
         } else {
-            for (let key in TIMEOUT_IDS) {
-                if (TIMEOUT_IDS[key] > 0)
-                    Mainloop.source_remove(TIMEOUT_IDS[key]);
+            for (let key in $.TIMEOUT_IDS) {
+                if ($.TIMEOUT_IDS[key] > 0)
+                    Mainloop.source_remove($.TIMEOUT_IDS[key]);
             }
         }
     },
@@ -593,7 +577,7 @@ TranslatorExtension.prototype = {
                             _("Check dependencies"),
                             Lang.bind(this, function() {
                                 this.close();
-                                this.checkDependencies();
+                                $.checkDependencies();
                             }),
                             $.ICONS.find
                         ],
@@ -773,7 +757,7 @@ TranslatorExtension.prototype = {
                         if (this._dialog.source.text !== this._dialog.target.text) {
                             this.setTransHistory(
                                 this._dialog.source.text, {
-                                    d: this._getTimeStamp(new Date().getTime()),
+                                    d: $.getTimeStamp(new Date().getTime()),
                                     sL: (this._current_source_lang === "auto" ?
                                         this._getDetectedLang(result) :
                                         this._current_source_lang),
@@ -794,9 +778,10 @@ TranslatorExtension.prototype = {
         this.open();
 
         if (aTranslateSelection) {
-            let selection = this.selection;
-            this._dialog.source.text = selection;
-            this._translate();
+            $.getSelection(Lang.bind(this, function(aSelection) {
+                this._dialog.source.text = aSelection;
+                this._translate();
+            }));
         } else {
             let clipboard = St.Clipboard.get_default();
             clipboard.get_text(Lang.bind(this, function(clipboard, text) {
@@ -858,7 +843,7 @@ TranslatorExtension.prototype = {
             "multi_translator_open_translator_dialog_keybinding",
             Settings.get_strv($.P.OPEN_TRANSLATOR_DIALOG_KEYBINDING) + "::",
             Lang.bind(this, function() {
-                if (this._dialog.state === State.OPENED || this._dialog.state === State.OPENING)
+                if (this._dialog.state === $.State.OPENED || this._dialog.state === $.State.OPENING)
                     this.close();
                 else
                     this.open();
@@ -921,7 +906,7 @@ TranslatorExtension.prototype = {
         if (Settings.get_boolean($.P.ENABLE_SHORTCUTS))
             this._add_keybindings();
 
-        CONNECTION_IDS.enable_shortcuts =
+        $.CONNECTION_IDS.enable_shortcuts =
             Settings.connect("changed::" + $.P.ENABLE_SHORTCUTS,
                 Lang.bind(this, function() {
                     let enable = Settings.get_boolean($.P.ENABLE_SHORTCUTS);
@@ -943,11 +928,11 @@ TranslatorExtension.prototype = {
         this._target_language_chooser.destroy();
         this._remove_keybindings();
 
-        if (CONNECTION_IDS.enable_shortcuts > 0)
-            Settings.disconnect(CONNECTION_IDS.enable_shortcuts);
+        if ($.CONNECTION_IDS.enable_shortcuts > 0)
+            Settings.disconnect($.CONNECTION_IDS.enable_shortcuts);
 
-        if (CONNECTION_IDS.settings_bindings > 0)
-            Settings.disconnect(CONNECTION_IDS.settings_bindings);
+        if ($.CONNECTION_IDS.settings_bindings > 0)
+            Settings.disconnect($.CONNECTION_IDS.settings_bindings);
     },
 
     _loadTheme: function(aFullReload) {
@@ -967,8 +952,8 @@ TranslatorExtension.prototype = {
         } catch (aErr) {
             global.logError(aErr);
         } finally {
-            TIMEOUT_IDS.load_theme_id = Mainloop.timeout_add(
-                LOAD_THEME_DELAY,
+            $.TIMEOUT_IDS.load_theme_id = Mainloop.timeout_add(
+                $.LOAD_THEME_DELAY,
                 Lang.bind(this, function() {
                     // This block doesn't make any sense, but it's what it works.
                     // So I will leave it as is or else. ¬¬
@@ -1121,113 +1106,12 @@ TranslatorExtension.prototype = {
         this.saveHistoryToFile();
     },
 
-    _getTimeStamp: function(aDate) {
-        let ts;
-        switch (Settings.get_string($.P.HISTORY_TIMESTAMP)) {
-            case "custom":
-                ts = Settings.get_string($.P.HISTORY_TIMESTAMP_CUSTOM); // Custom
-                break;
-            case "iso":
-                ts = "YYYY MM-DD hh.mm.ss"; // ISO8601
-                break;
-            case "eu":
-                ts = "YYYY DD.MM hh.mm.ss"; // European
-                break;
-        }
-        let dte = new Date(parseInt(aDate));
-        let YYYY = String(dte.getFullYear());
-        let MM = String(dte.getMonth() + 1);
-        if (MM.length === 1)
-            MM = "0" + MM;
-
-        let DD = String(dte.getDate());
-        if (DD.length === 1)
-            DD = "0" + DD;
-
-        let hh = String(dte.getHours());
-        if (hh.length === 1)
-            hh = "0" + hh;
-
-        let mm = String(dte.getMinutes());
-        if (mm.length === 1)
-            mm = "0" + mm;
-
-        let ss = String(dte.getSeconds());
-        if (ss.length === 1)
-            ss = "0" + ss;
-
-        ts = ts.replace("YYYY", YYYY);
-        ts = ts.replace("MM", MM);
-        ts = ts.replace("DD", DD);
-        ts = ts.replace("hh", hh);
-        ts = ts.replace("mm", mm);
-        ts = ts.replace("ss", ss);
-        return ts;
-    },
-
-    checkDependencies: function() {
-        Util.spawn_async([
-                $.ExtensionPath + "/extensionHelper.py",
-                "check-dependencies"
-            ],
-            Lang.bind(this, function(aResponse) {
-                if (Settings.get_boolean($.P.LOGGIN_ENABLED))
-                    global.logError("\ncheckDependencies()>aResponse:\n" + aResponse);
-
-                let res = (aResponse.split("<!--SEPARATOR-->")[1])
-                    // Preserve line breaks.
-                    .replace(/\n+/g, "<br>")
-                    .replace(/\s+/g, " ")
-                    .replace(/<br>/g, "\n");
-                res = res.trim();
-
-                if (res.length > 1) {
-                    global.logError(
-                        "\n# [" + _($.ExtensionMeta.name) + "]" + "\n" +
-                        "# " + _("Unmet dependencies found!!!") + "\n" +
-                        res + "\n" +
-                        "# " + _("Check this extension help file for instructions.") + "\n" +
-                        "# " + _("It can be accessed from the translation dialog main menu.")
-                    );
-                    this.informAboutMissingDependencies();
-                    Settings.set_boolean($.P.ALL_DEPENDENCIES_MET, false);
-                } else {
-                    Main.notify(_($.ExtensionMeta.name), _("All dependencies seem to be met."));
-                    Settings.set_boolean($.P.ALL_DEPENDENCIES_MET, true);
-                }
-            }));
-    },
-
-    informAboutMissingDependencies: function() {
-        Main.criticalNotify(_($.ExtensionMeta.name),
-            _("Unmet dependencies found!!!") + "\n" +
-            _("A detailed error has been logged into ~/.cinnamon/glass.log file."));
-    },
-
     get current_target_lang() {
         return this._current_target_lang;
     },
 
     get current_source_lang() {
         return this._current_source_lang;
-    },
-
-    get selection() {
-        let str = "";
-        try {
-            let process = new $.ShellOutputProcess(["xsel", "-o"]);
-            // Remove possible "illegal" characters.
-            str = $.escape_html(process.spawn_sync_and_get_output());
-            // Replace line breaks and duplicated white spaces with a single space.
-            str = (str.replace(/\s+/g, " ")).trim();
-
-            if (Settings.get_boolean($.P.LOGGIN_ENABLED))
-                global.logError("\nselection()>str:\n" + str);
-        } catch (aErr) {
-            global.logError(aErr);
-        } finally {
-            return str;
-        }
     }
 };
 
@@ -1238,6 +1122,9 @@ function init(aExtensionMeta) {} // jshint ignore:line
 function enable() {
     translator = new TranslatorExtension();
     translator.enable();
+    // Make $ available for use on Multi Translator applet.
+    // This will save me the bother to re-declare dozens of methods on the applet's side.
+    translator._extensionsModules = $;
 }
 
 function disable() {
