@@ -165,8 +165,8 @@ LANGUAGES_LIST = {
 
 
 MAIN_TAB = {
-    "label": _("Global"),
-    "tooltip": _("Extension's global settings."),
+    "title": _("Global"),
+    "description": _("Global extension options"),
     "widgets": [{
         "type": "combo",
         "args": {
@@ -205,14 +205,32 @@ MAIN_TAB = {
             "label": _("Synchronize scroll entries"),
             "tooltip": _("Make the source and target entries scroll synchronously.")
         }
+    }, {
+        "type": "switch",
+        "args": {
+            "key": "pref-enable-shortcuts",
+            "label": _("Enable shortcuts"),
+            "tooltip": _("Enable/Disable the use of keyboard shortcuts.")
+        }
+    }, {
+        "type": "keybindings_tree",
+        "widget_type": "special",
+        "args": {
+            "keybindings": {
+                "pref-open-translator-dialog-keybinding": _("Open translator dialog."),
+                "pref-translate-from-clipboard-keybinding": _("Open translator dialog and translate text from clipboard."),
+                "pref-translate-from-selection-keybinding": _("Open translator dialog and translate from primary selection.")
+            }
+        }
     }]
 }
 
 TRANSLATORS_TAB = {
-    "label": _("Translators"),
-    "tooltip": _("Set default settings for each available translation service."),
+    "title": _("Translators"),
+    "description": _("Set default settings for each available translation service"),
     "widgets": [{
         "type": "translators_prefs_widget",
+        "widget_type": "special",
         "args": {
             "key": "pref-translators-prefs"
         }
@@ -220,8 +238,8 @@ TRANSLATORS_TAB = {
 }
 
 APPEARANCE_TAB = {
-    "label": _("Appearance"),
-    "tooltip": _("Translation dialog appearance."),
+    "title": _("Appearance"),
+    "description": _("Translation dialog appearance"),
     "widgets": [{
         "type": "combo",
         "args": {
@@ -290,8 +308,8 @@ APPEARANCE_TAB = {
 }
 
 HISTORY_TAB = {
-    "label": _("History"),
-    "tooltip": _("Translation history settings."),
+    "title": _("History"),
+    "description": _("Translation history settings"),
     "widgets": [{
         "type": "combo",
         "args": {
@@ -345,31 +363,9 @@ HISTORY_TAB = {
     }]
 }
 
-SHORTCUTS_TAB = {
-    "label": _("Shortcuts"),
-    "tooltip": _("Keyboard shortcuts settings."),
-    "widgets": [{
-        "type": "switch",
-        "args": {
-            "key": "pref-enable-shortcuts",
-            "label": _("Enable shortcuts"),
-            "tooltip": _("Enable/Disable the use of keyboard shortcuts.")
-        }
-    }, {
-        "type": "keybindings_tree",
-        "args": {
-            "keybindings": {
-                "pref-open-translator-dialog-keybinding": _("Translate hotkey"),
-                "pref-translate-from-clipboard-keybinding": _("Translate from clipboard hotkey"),
-                "pref-translate-from-selection-keybinding": _("Translate from selection hotkey")
-            }
-        }
-    }]
-}
-
-YANDEX_TAB = {
-    "label": _("Yandex"),
-    "tooltip": _("API keys for Yandex translate provider."),
+ADVANCED_TAB = {
+    "title": _("Advanced"),
+    "description": _("Various advanced options"),
     "widgets": [{
         "type": "textview",
         "args": {
@@ -378,13 +374,7 @@ YANDEX_TAB = {
             "label": _("Yandex API keys"),
             "tooltip": _("Enter one API key per line.\nRead the help file found inside this extension folder to know how to get free Yandex API keys.")
         }
-    }]
-}
-
-DEBUG_TAB = {
-    "label": _("Debug"),
-    "tooltip": _("This options are only useful for the extension developer."),
-    "widgets": [{
+    }, {
         "type": "info_label",
         "args": {
             "label": _("This options are only useful for the extension developer."),
@@ -419,46 +409,213 @@ class BaseGrid(Gtk.Grid):
         self.set_row_spacing(10)
 
 
+class SettingsLabel(Gtk.Label):
+
+    def __init__(self, text=None, markup=None):
+        Gtk.Label.__init__(self)
+        if text:
+            self.set_label(text)
+
+        if markup:
+            self.set_markup(markup)
+
+        self.set_alignment(0.0, 0.5)
+        self.set_line_wrap(True)
+
+    def set_label_text(self, text):
+        self.set_label(text)
+
+    def set_label_markup(self, markup):
+        self.set_markup(markup)
+
+
+class RowContainer(Gtk.Frame):
+
+    def __init__(self):
+        Gtk.Frame.__init__(self)
+        self.set_shadow_type(Gtk.ShadowType.IN)
+
+
 class SettingsBox(BaseGrid):
 
     def __init__(self):
         BaseGrid.__init__(self)
         self.set_orientation(Gtk.Orientation.VERTICAL)
-        self.set_border_width(10)
+        self.set_border_width(0)
 
-        tabs_objects = [
+        toolbar = BaseGrid()
+        toolbar.set_margin_left(15)
+        toolbar.set_margin_right(15)
+        dummy_grid_1 = BaseGrid()
+        dummy_grid_1.set_property("hexpand", True)
+
+        toolbar.attach(dummy_grid_1, 0, 0, 1, 1)
+
+        pages_object = [
             MAIN_TAB,
             TRANSLATORS_TAB,
             APPEARANCE_TAB,
             HISTORY_TAB,
-            SHORTCUTS_TAB,
-            YANDEX_TAB,
-            DEBUG_TAB
+            ADVANCED_TAB
         ]
 
-        tabs = Gtk.Notebook()
-        tabs.set_scrollable(True)
-        tabs.set_size_request(100, 100)
+        stack = Gtk.Stack()
+        stack.set_transition_type(Gtk.StackTransitionType.SLIDE_LEFT_RIGHT)
+        stack.set_transition_duration(150)
 
-        for tab_obj in tabs_objects:
-            tab = BaseGrid()
-            tab.set_orientation(Gtk.Orientation.VERTICAL)
-            tab.set_border_width(15)
-            tab.set_column_spacing(10)
-            tab.set_row_spacing(15)
-            tab_label = Gtk.Label(label=tab_obj["label"])
-            tab_label.set_tooltip_text(tab_obj["tooltip"])
+        count = 0
+        for page_obj in pages_object:
+            self.need_separator = False
+            count += 1
+            page = BaseGrid()
+            page.set_orientation(Gtk.Orientation.VERTICAL)
+            page.set_margin_left(15)
+            page.set_margin_right(15)
+            page.set_margin_bottom(15)
+            page.set_row_spacing(0)
 
-            for i in range(0, len(tab_obj["widgets"])):
-                tab_widget = tab_obj["widgets"][i]
+            toolbar_container = RowContainer()
+            page_toolbar = Gtk.Toolbar()
+            Gtk.StyleContext.add_class(Gtk.Widget.get_style_context(page_toolbar), "cs-header")
+
+            label = Gtk.Label()
+            label.set_markup("<b>%s</b>" % page_obj["description"])
+            title_holder = Gtk.ToolItem()
+            title_holder.add(label)
+            page_toolbar.add(title_holder)
+            toolbar_container.add(page_toolbar)
+            page.attach(toolbar_container, 0, 0, 1, 1)
+
+            for i in range(0, len(page_obj["widgets"])):
+                tab_widget = page_obj["widgets"][i]
                 widget_obj = getattr(Widgets, tab_widget["type"])
                 widget = widget_obj(Widgets(), **tab_widget["args"])
-                tab.attach(widget, 0, i, 1, 1)
 
-            tabs.append_page(tab, tab_label)
+                if (tab_widget["type"] is not "keybindings_tree" and
+                        tab_widget["type"] is not "translators_prefs_widget"):
+                    widget.set_border_width(5)
+                    widget.set_margin_left(15)
+                    widget.set_margin_right(15)
 
-        self.attach(tabs, 0, 0, 1, 1)
+                if tab_widget["type"] is "translators_prefs_widget":
+                    list_box = widget
+                else:
+                    list_box = Gtk.ListBox()
+                    list_box.set_selection_mode(Gtk.SelectionMode.NONE)
+                    row = Gtk.ListBoxRow()
+                    row.add(widget)
+
+                    if self.need_separator:
+                        list_box.add(Gtk.Separator(orientation=Gtk.Orientation.HORIZONTAL))
+
+                    if isinstance(widget, Switch):
+                        list_box.connect("row-activated", widget.clicked)
+
+                    list_box.add(row)
+
+                page.attach(list_box, 0, i + 1, 1, 1)
+
+                self.need_separator = True
+
+            stack.add_titled(page, "stack_id_%s" % str(count), page_obj["title"])
+
+        stack_switcher = Gtk.StackSwitcher()
+        stack_switcher.set_stack(stack)
+        stack_switcher.set_halign(Gtk.Align.CENTER)
+        toolbar.attach(stack_switcher, 1, 0, 1, 1)
+
+        menu_popup = Gtk.Menu()
+        menu_popup.set_halign(Gtk.Align.END)
+        menu_popup.append(self.createMenuItem(_("Reset settings to defaults"),
+                                              self._restore_default_values))
+        menu_popup.append(self.createMenuItem(_("Import settings from a file"),
+                                              self._import_export_settings, False))
+        menu_popup.append(self.createMenuItem(_("Export settings to a file"),
+                                              self._import_export_settings, True))
+        menu_popup.show_all()
+        menu_button = Gtk.MenuButton()
+        menu_button.set_popup(menu_popup)
+        menu_button.add(Gtk.Image.new_from_icon_name(
+            "open-menu-symbolic", Gtk.IconSize.SMALL_TOOLBAR))
+        menu_button.set_tooltip_text(_("Manage settings"))
+
+        dummy_grid = BaseGrid()
+        dummy_grid.set_property("hexpand", True)
+
+        toolbar.attach(dummy_grid, 2, 0, 1, 1)
+        toolbar.attach(menu_button, 3, 0, 1, 1)
+        self.attach(toolbar, 0, 1, 1, 1)
+        self.attach(stack, 0, 2, 1, 1)
+
         self.show_all()
+
+    def createMenuItem(self, text, callback, *args):
+        item = Gtk.MenuItem(text)
+        item.connect("activate", callback, *args)
+        return item
+
+    def _restore_default_values(self, widget):
+        dialog = Gtk.MessageDialog(transient_for=app.window,
+                                   modal=False,
+                                   message_type=Gtk.MessageType.WARNING,
+                                   buttons=Gtk.ButtonsType.YES_NO)
+
+        dialog.set_title(_("Warning: Trying to reset all Multi Translator settings!!!"))
+
+        esc = cgi.escape(_("Reset all Multi Translator settings to default?"))
+        dialog.set_markup(esc)
+        dialog.show_all()
+        response = dialog.run()
+        dialog.destroy()
+
+        if response == Gtk.ResponseType.YES:
+            os.system("gsettings reset-recursively %s &" % SCHEMA_NAME)
+            self.on_quit(self)
+
+    def _import_export_settings(self, widget, export):
+        if export:
+            mode = Gtk.FileChooserAction.SAVE
+            string = _("Select or enter file to export to")
+            # TO TRANSLATORS: Could be left blank.
+            btns = (_("_Cancel"), Gtk.ResponseType.CANCEL,
+                    _("_Save"), Gtk.ResponseType.ACCEPT)
+        else:
+            mode = Gtk.FileChooserAction.OPEN
+            string = _("Select a file to import")
+            # TO TRANSLATORS: Could be left blank.
+            btns = (_("_Cancel"), Gtk.ResponseType.CANCEL,
+                    # TO TRANSLATORS: Could be left blank.
+                    _("_Open"), Gtk.ResponseType.OK)
+
+        dialog = Gtk.FileChooserDialog(parent=app.window,
+                                       title=string,
+                                       action=mode,
+                                       buttons=btns)
+
+        if export:
+            dialog.set_do_overwrite_confirmation(True)
+
+        filter_text = Gtk.FileFilter()
+        filter_text.add_pattern("*.dconf")
+        filter_text.set_name(_("DCONF files"))
+        dialog.add_filter(filter_text)
+
+        response = dialog.run()
+
+        if export and response == Gtk.ResponseType.ACCEPT:
+            filename = dialog.get_filename()
+
+            if ".dconf" not in filename:
+                filename = filename + ".dconf"
+
+            os.system("dconf dump %s > %s &" % (SCHEMA_PATH, filename))
+
+        if export is False and response == Gtk.ResponseType.OK:
+            filename = dialog.get_filename()
+            os.system("dconf load %s < %s" % (SCHEMA_PATH, filename))
+            self.on_quit(self)
+
+        dialog.destroy()
 
 
 class Settings(object):
@@ -510,29 +667,15 @@ class Widgets():
         if italic:
             label_str = "<i>%s</i>" % label_str
 
-        label_element = Gtk.Label(label_str)
+        label_element = SettingsLabel(label_str)
         label_element.set_use_markup(True)
         label_element.set_property("hexpand", True)
         label_element.set_property("halign", Gtk.Align.START)
         box.attach(label_element, 0, 0, 1, 1)
         return box
 
-    def switch(self, key, label, tooltip=""):
-        ''' Switch widget '''
-        box = BaseGrid(tooltip)
-        label = Gtk.Label(label)
-        label.set_property("hexpand", True)
-        label.set_property("halign", Gtk.Align.START)
-        widget = Gtk.Switch()
-        widget.set_property("halign", Gtk.Align.END)
-        widget.set_active(Settings().get_settings().get_boolean(key))
-        widget.connect("notify::active", self._switch_change, key)
-        box.attach(label, 0, 0, 1, 1)
-        box.attach(widget, 1, 0, 1, 1)
-        return box
-
-    def _switch_change(self, widget, notice, key):
-        Settings().get_settings().set_boolean(key, widget.get_active())
+    def switch(self, key, label, tooltip):
+        return Switch(key, label, tooltip)
 
     def entry_path(self, key, label, select_dir, tooltip):
         return FileChooser(key, label, select_dir, tooltip)
@@ -540,7 +683,7 @@ class Widgets():
     def entry(self, key, label, tooltip=""):
         ''' Entry text widget '''
         box = BaseGrid(tooltip)
-        label = Gtk.Label(label)
+        label = SettingsLabel(label)
         label.set_property("hexpand", False)
         label.set_property("halign", Gtk.Align.START)
         widget = Gtk.Entry()
@@ -557,7 +700,7 @@ class Widgets():
     def combo(self, key, label, values, tooltip=""):
         ''' Combo box widget '''
         box = BaseGrid(tooltip)
-        label = Gtk.Label(label)
+        label = SettingsLabel(label)
         label.set_property("hexpand", True)
         label.set_property("halign", Gtk.Align.START)
         widget = Gtk.ComboBoxText()
@@ -578,7 +721,7 @@ class Widgets():
     def slider(self, key, label, min, max, step, tooltip=""):
         ''' Slider widget '''
         box = BaseGrid(tooltip)
-        label = Gtk.Label(label)
+        label = SettingsLabel(label)
         label.set_property("hexpand", False)
         label.set_property("halign", Gtk.Align.START)
         widget = Gtk.HScale.new_with_range(min, max, step)
@@ -600,7 +743,7 @@ class Widgets():
             label += " (%s)" % units
 
         box = BaseGrid(tooltip)
-        label = Gtk.Label(label)
+        label = SettingsLabel(label)
         label.set_property("hexpand", True)
         label.set_property("halign", Gtk.Align.START)
         widget = Gtk.SpinButton.new_with_range(min, max, step)
@@ -627,7 +770,7 @@ class Widgets():
         ''' Textview widget '''
         box = BaseGrid(tooltip)
         box.set_orientation(Gtk.Orientation.VERTICAL)
-        label = Gtk.Label.new(label)
+        label = SettingsLabel(label)
         label.set_property("hexpand", True)
         label.set_property("halign", Gtk.Align.CENTER)
 
@@ -657,6 +800,32 @@ class Widgets():
         Settings().get_settings().set_string(key, text)
 
 
+class Switch(BaseGrid):
+
+    ''' Switch widget '''
+
+    def __init__(self, key, label, tooltip=""):
+        BaseGrid.__init__(self, tooltip)
+
+        self.key = key
+        self.set_tooltip_text(tooltip)
+        self.label = SettingsLabel(label)
+        self.label.set_property("hexpand", True)
+        self.label.set_property("halign", Gtk.Align.START)
+        self.switch = Gtk.Switch()
+        self.switch.set_property("halign", Gtk.Align.END)
+        self.switch.set_active(Settings().get_settings().get_boolean(key))
+        self.switch.connect("notify::active", self._switch_change)
+        self.attach(self.label, 0, 0, 1, 1)
+        self.attach(self.switch, 1, 0, 1, 1)
+
+    def clicked(self, *args):
+        self.switch.set_active(not self.switch.get_active())
+
+    def _switch_change(self, widget, notice):
+        Settings().get_settings().set_boolean(self.key, self.switch.get_active())
+
+
 class FileChooser(BaseGrid):
 
     ''' FileChooser widget '''
@@ -667,7 +836,7 @@ class FileChooser(BaseGrid):
         self._select_dir = select_dir
         self._key = key
 
-        self.label = Gtk.Label.new(label)
+        self.label = SettingsLabel(label)
         self.entry = Gtk.Entry()
         self.entry.set_property("hexpand", True)
         self.button = Gtk.Button("")
@@ -737,10 +906,6 @@ class KeybindingsTreeViewWidget(BaseGrid):
         self.set_orientation(Gtk.Orientation.VERTICAL)
         self._keybindings = keybindings
 
-        scrolled_window = Gtk.ScrolledWindow()
-        scrolled_window.set_size_request(-1, 150)
-        scrolled_window.set_policy(Gtk.PolicyType.AUTOMATIC, Gtk.PolicyType.AUTOMATIC)
-
         self._columns = type("", (), {
             "NAME": 0,
             "ACCEL_NAME": 1,
@@ -750,6 +915,11 @@ class KeybindingsTreeViewWidget(BaseGrid):
 
         self._store = Gtk.ListStore(str, str, int, int)
         self._tree_view = Gtk.TreeView()
+        self._tree_view.props.has_tooltip = True
+        self._tree_view.set_hover_selection(True)
+        self._tree_view.connect("query-tooltip", self._on_query_tooltip)
+        self._tree_view.set_activate_on_single_click(True)
+        self._tree_view.set_grid_lines(Gtk.TreeViewGridLines.BOTH)
         self._tree_view.set_property("model", self._store)
         self._tree_view.set_property("hexpand", True)
         self._tree_view.set_property("vexpand", True)
@@ -757,29 +927,41 @@ class KeybindingsTreeViewWidget(BaseGrid):
         self._tree_view.get_selection().set_mode(Gtk.SelectionMode.SINGLE)
 
         action_renderer = Gtk.CellRendererText()
+        action_renderer.set_property("xpad", 15)
         action_column = Gtk.TreeViewColumn()
-        action_column.set_property("title", "Action")
+        action_column.set_property("title", _("Shortcut action"))
+        action_column.set_alignment(0.5)
         action_column.set_property("expand", True)
         action_column.pack_start(action_renderer, True)
         action_column.add_attribute(action_renderer, "text", 1)
         self._tree_view.append_column(action_column)
 
         keybinding_renderer = Gtk.CellRendererAccel()
+        keybinding_renderer.set_property("xpad", 15)
         keybinding_renderer.set_property("editable", True)
         keybinding_renderer.set_property("accel-mode", Gtk.CellRendererAccelMode.GTK)
         keybinding_renderer.connect("accel-edited", self.on_shortcut_key_cell_edited)
 
         keybinding_column = Gtk.TreeViewColumn()
-        keybinding_column.set_property("title", "Modify")
+        keybinding_column.set_property("title", _("Shortcut"))
+        keybinding_column.set_alignment(0.5)
         keybinding_column.pack_end(keybinding_renderer, False)
         keybinding_column.add_attribute(keybinding_renderer, "accel-mods", self._columns.MODS)
         keybinding_column.add_attribute(keybinding_renderer, "accel-key", self._columns.KEY)
         self._tree_view.append_column(keybinding_column)
 
-        scrolled_window.add(self._tree_view)
-        self.attach(scrolled_window, 1, 1, 1, 1)
+        self.attach(self._tree_view, 0, 0, 1, 1)
 
         self._refresh()
+
+    def _on_query_tooltip(self, widget, x, y, keyboard_tip, tooltip):
+        if not widget.get_tooltip_context(x, y, keyboard_tip):
+            return False
+        else:
+            ctx = widget.get_tooltip_context(x, y, keyboard_tip)
+            tooltip.set_text(_("Click to set a new hotkey."))
+            widget.set_tooltip_cell(tooltip, ctx.path, widget.get_column(1), None)
+            return True
 
     def on_shortcut_key_cell_edited(self, accel, path, key, mod, hardware_keycode):
         accel_key = Gtk.accelerator_name(key, mod)
@@ -817,7 +999,8 @@ class TranslatorProvidersWidget(BaseGrid):
     def __init__(self, key):
         BaseGrid.__init__(self)
         self.set_orientation(Gtk.Orientation.VERTICAL)
-        self.set_row_spacing(15)
+        self.set_row_spacing(0)
+
         self._pref_key = key
         self._prefs = json.loads(Settings().get_settings().get_string(key))
 
@@ -825,42 +1008,79 @@ class TranslatorProvidersWidget(BaseGrid):
 
         # translators
         self._translators_combo = self._get_combo(names)
+        self._translators_combo.set_property("hexpand", True)
         self._translators_combo.set_active_id(
             Settings().get_settings().get_string("pref-default-translator"))
         self._translators_combo.connect("changed", self._on_translators_combo_changed)
-        self.attach(self._translators_combo, 0, 0, 2, 1)
+        self.translators_box = self._get_listbox_container()
+        self.translators_box_container = self._get_listbox(self.translators_box)
+        self.translators_box.attach(self._translators_combo, 0, 0, 2, 1)
+        self.attach(self.translators_box_container, 0, 0, 2, 1)
 
         # default source
         self._source_languages_combo = self._get_combo([])
-        label = Gtk.Label()
+        label = SettingsLabel()
         label.set_property("label", _("Default source language:"))
         label.set_property("hexpand", True)
         label.set_property("halign", Gtk.Align.START)
-        self.attach(label, 0, 1, 1, 1)
+        self.source_box = self._get_listbox_container()
+        self.source_box_container = self._get_listbox(self.source_box,
+                                                      need_separator=True)
+        self.source_box.attach(label, 0, 1, 1, 1)
+        self.attach(self.source_box_container, 0, 1, 2, 1)
 
         # default target
         self._target_languages_combo = self._get_combo([])
-        label = Gtk.Label()
+        label = SettingsLabel()
         label.set_property("label", _("Default target language:"))
         label.set_property("hexpand", True)
         label.set_property("halign", Gtk.Align.START)
-        self.attach(label, 0, 2, 1, 1)
+        self.target_box = self._get_listbox_container()
+        self.target_box_container = self._get_listbox(self.target_box,
+                                                      need_separator=True)
+        self.target_box.attach(label, 0, 1, 1, 1)
+        self.attach(self.target_box_container, 0, 2, 2, 1)
 
         # remember last lang
-        label = Gtk.Label()
+        label = SettingsLabel()
         label.set_property("label", _("Remember the last used languages:"))
         label.set_property("hexpand", True)
         label.set_property("halign", Gtk.Align.START)
-        self.attach(label, 0, 3, 1, 1)
-
         self._last_used = Gtk.Switch()
         self._last_used.set_property("halign", Gtk.Align.END)
         self._last_used.set_property("hexpand", False)
         self._last_used.set_property("active", False)
         self._last_used.connect("notify::active", self._notify_active)
-        self.attach(self._last_used, 1, 3, 1, 1)
+        self.remember_last_lang_box = self._get_listbox_container()
+        self.remember_last_lang_box_container = self._get_listbox(self.remember_last_lang_box,
+                                                                  need_separator=True)
+        self.remember_last_lang_box.attach(label, 0, 1, 1, 1)
+        self.remember_last_lang_box.attach(self._last_used, 1, 1, 1, 1)
+        self.attach(self.remember_last_lang_box_container, 0, 3, 2, 1)
 
         self._show_settings(Settings().get_settings().get_string("pref-default-translator"))
+
+    def _get_listbox_container(self):
+        box = BaseGrid()
+        box.set_border_width(5)
+        box.set_margin_left(15)
+        box.set_margin_right(15)
+        box.set_property("hexpand", True)
+
+        return box
+
+    def _get_listbox(self, widget, need_separator=False):
+        list_box = Gtk.ListBox()
+        list_box.set_selection_mode(Gtk.SelectionMode.NONE)
+        row = Gtk.ListBoxRow()
+        row.add(widget)
+
+        if need_separator:
+            list_box.add(Gtk.Separator(orientation=Gtk.Orientation.HORIZONTAL))
+
+        list_box.add(row)
+
+        return list_box
 
     def _get_combo(self, items):
         combo_box = Gtk.ComboBoxText()
@@ -894,7 +1114,7 @@ class TranslatorProvidersWidget(BaseGrid):
 
         self._source_languages_combo.show()
 
-        self.attach(self._source_languages_combo, 1, 1, 1, 1)
+        self.source_box.attach(self._source_languages_combo, 1, 1, 1, 1)
 
     def _load_default_target(self, languages, active_id):
         self._target_languages_combo.destroy()
@@ -917,7 +1137,7 @@ class TranslatorProvidersWidget(BaseGrid):
 
         self._target_languages_combo.show()
 
-        self.attach(self._target_languages_combo, 1, 2, 1, 1)
+        self.target_box.attach(self._target_languages_combo, 1, 1, 1, 1)
 
     def _show_settings(self, name):
         translator = self._prefs[name]
@@ -1014,11 +1234,6 @@ class ExtensionPrefsApplication(Gtk.Application):
         Gtk.Application.do_startup(self)
         self._buildUI()
 
-    def createMenuItem(self, text, callback, *args):
-        item = Gtk.MenuItem(text)
-        item.connect("activate", callback, *args)
-        return item
-
     def _buildUI(self):
         self.window = ExtensionPrefsWindow(
             application=self, title=_("Multi Translator extension preferences"))
@@ -1029,100 +1244,8 @@ class ExtensionPrefsApplication(Gtk.Application):
 
         self.settings_box = SettingsBox()
 
-        # Buttons box
-        box_buttons = BaseGrid()
-
-        menu_popup = Gtk.Menu()
-        menu_popup.append(self.createMenuItem(_("Reset settings to defaults"),
-                                              self._restore_default_values))
-        menu_popup.append(self.createMenuItem(_("Import settings from a file"),
-                                              self._import_export_settings, False))
-        menu_popup.append(self.createMenuItem(_("Export settings to a file"),
-                                              self._import_export_settings, True))
-        menu_popup.show_all()
-        menu_button = Gtk.MenuButton()
-        menu_button.set_popup(menu_popup)
-        menu_button.add(Gtk.Image().new_from_stock(Gtk.STOCK_PREFERENCES, Gtk.IconSize.BUTTON))
-        menu_button.set_tooltip_text(_("Manage settings"))
-
-        dummy_grid = BaseGrid()
-        dummy_grid.set_property("hexpand", True)
-
-        btn_close = Gtk.Button(stock=Gtk.STOCK_CLOSE)
-        btn_close.connect("clicked", self.on_quit)
-
-        box_buttons.attach(menu_button, 0, 1, 1, 1)
-        box_buttons.attach(dummy_grid, 1, 1, 1, 1)
-        box_buttons.attach(btn_close, 2, 1, 1, 1)
-
-        self.settings_box.attach(box_buttons, 0, 1, 1, 1)
-
         self.window.add(self.settings_box)
         self.window.show_all()
-
-    # Not used for now
-    def _restore_default_values(self, widget):
-        dialog = Gtk.MessageDialog(transient_for=self.window,
-                                   modal=False,
-                                   message_type=Gtk.MessageType.WARNING,
-                                   buttons=Gtk.ButtonsType.YES_NO)
-
-        dialog.set_title("Warning: Trying to reset all Multi Translator settings!!!")
-
-        esc = cgi.escape(_("Reset all Multi Translator settings to default?"))
-        dialog.set_markup(esc)
-        dialog.show_all()
-        response = dialog.run()
-        dialog.destroy()
-
-        if response == Gtk.ResponseType.YES:
-            os.system("gsettings reset-recursively %s &" % SCHEMA_NAME)
-            self.on_quit(self)
-
-    def _import_export_settings(self, widget, export):
-        if export:
-            mode = Gtk.FileChooserAction.SAVE
-            string = _("Select or enter file to export to")
-            # TO TRANSLATORS: Could be left blank.
-            btns = (_("_Cancel"), Gtk.ResponseType.CANCEL,
-                    _("_Save"), Gtk.ResponseType.ACCEPT)
-        else:
-            mode = Gtk.FileChooserAction.OPEN
-            string = _("Select a file to import")
-            # TO TRANSLATORS: Could be left blank.
-            btns = (_("_Cancel"), Gtk.ResponseType.CANCEL,
-                    # TO TRANSLATORS: Could be left blank.
-                    _("_Open"), Gtk.ResponseType.OK)
-
-        dialog = Gtk.FileChooserDialog(parent=app.window,
-                                       title=string,
-                                       action=mode,
-                                       buttons=btns)
-
-        if export:
-            dialog.set_do_overwrite_confirmation(True)
-
-        filter_text = Gtk.FileFilter()
-        filter_text.add_pattern("*.dconf")
-        filter_text.set_name(_("DCONF files"))
-        dialog.add_filter(filter_text)
-
-        response = dialog.run()
-
-        if export and response == Gtk.ResponseType.ACCEPT:
-            filename = dialog.get_filename()
-
-            if ".dconf" not in filename:
-                filename = filename + ".dconf"
-
-            os.system("dconf dump %s > %s &" % (SCHEMA_PATH, filename))
-
-        if export is False and response == Gtk.ResponseType.OK:
-            filename = dialog.get_filename()
-            os.system("dconf load %s < %s" % (SCHEMA_PATH, filename))
-            self.on_quit(self)
-
-        dialog.destroy()
 
     def _restart_shell(self, widget):
         os.system("nohup cinnamon --replace >/dev/null 2>&1&")

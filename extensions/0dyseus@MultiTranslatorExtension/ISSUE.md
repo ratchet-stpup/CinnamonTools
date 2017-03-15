@@ -1,3 +1,8 @@
+## Extension status
+
+- Extension ready to be translated.
+- Estimated date for publishing on the Spices website: **March 17, 2017**.
+
 The Multi Translator extension is an extension ported from a gnome-shell extension called [Text Translator](https://github.com/gufoe/text-translator) by [gufoe](https://github.com/gufoe).
 
 ## Differences with the original extension
@@ -116,7 +121,7 @@ Once installed and enabled, the following shortcuts will be available.
 
 ![MultiTranslator-003](https://odyseus.github.io/CinnamonTools/lib/img/MultiTranslatorExtension-options-001.png)
 
-[1](https://odyseus.github.io/CinnamonTools/lib/img/MultiTranslatorExtension-options-002.png) - [2](https://odyseus.github.io/CinnamonTools/lib/img/MultiTranslatorExtension-options-003.png) - [3](https://odyseus.github.io/CinnamonTools/lib/img/MultiTranslatorExtension-options-004.png) - [4](https://odyseus.github.io/CinnamonTools/lib/img/MultiTranslatorExtension-options-005.png) - [5](https://odyseus.github.io/CinnamonTools/lib/img/MultiTranslatorExtension-options-006.png) - [6](https://odyseus.github.io/CinnamonTools/lib/img/MultiTranslatorExtension-options-007.png)
+[1](https://odyseus.github.io/CinnamonTools/lib/img/MultiTranslatorExtension-options-002.png) - [2](https://odyseus.github.io/CinnamonTools/lib/img/MultiTranslatorExtension-options-003.png) - [3](https://odyseus.github.io/CinnamonTools/lib/img/MultiTranslatorExtension-options-004.png) - [4](https://odyseus.github.io/CinnamonTools/lib/img/MultiTranslatorExtension-options-005.png)
 
 ## Issue reports
 
