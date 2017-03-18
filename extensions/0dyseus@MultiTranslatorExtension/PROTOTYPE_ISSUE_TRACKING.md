@@ -117,9 +117,9 @@ Once installed and enabled, the following shortcuts will be available.
 
 [Source language selection](https://odyseus.github.io/CinnamonTools/lib/img/MultiTranslatorExtension-002-souce-lang-selection.png) - [Target language selection](https://odyseus.github.io/CinnamonTools/lib/img/MultiTranslatorExtension-003-target-lang-selection.png) - [Translation provider selection](https://odyseus.github.io/CinnamonTools/lib/img/MultiTranslatorExtension-004-trans-provider-selection.png) - [Main menu](https://odyseus.github.io/CinnamonTools/lib/img/MultiTranslatorExtension-005-main-menu.png) - [Quick help](https://odyseus.github.io/CinnamonTools/lib/img/MultiTranslatorExtension-006-quick-help.png)
 
-##### Settings window images
+##### Settings window image
 
-![MultiTranslatorExtension-options](https://odyseus.github.io/CinnamonTools/lib/img/MultiTranslatorExtension-options.png)
+![MultiTranslatorExtension-options](https://odyseus.github.io/CinnamonTools/lib/img/MultiTranslatorExtension-options.gif)
 
 ## Issue reports
 
@@ -129,8 +129,6 @@ Once installed and enabled, the following shortcuts will be available.
 `inxi -xxxSc0 -! 31`
 `pastebin ~/.cinnamon/glass.log`
 `pastebin ~/.xsession-errors`
-
-## [Download prototype extension](https://odyseus.github.io/CinnamonTools/pkg/0dyseus@MultiTranslatorExtension.tar.gz)
 
 **References to anyone that could be interested in testing the extension.**
 

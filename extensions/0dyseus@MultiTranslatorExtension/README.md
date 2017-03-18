@@ -41,6 +41,10 @@ Once installed and enabled, the following shortcuts will be available.
 - **<kbd>Ctrl</kbd> + <kbd>D</kbd>:** Reset languages to default.
 - **<kbd>Escape</kbd>:** Close dialog.
 
+## Settings window image
+
+![MultiTranslatorExtension-options](https://odyseus.github.io/CinnamonTools/lib/img/MultiTranslatorExtension-options.gif)
+
 ## Contributors/Mentions
 - **[awamper](https://github.com/awamper):** Original author of the gnome-shell extension called [Text Translator](https://github.com/awamper/text-translator).
 - **[gufoe](https://github.com/gufoe):** Author of the newer version of [Text Translator](https://github.com/gufoe/text-translator) gnome-shell extension.
