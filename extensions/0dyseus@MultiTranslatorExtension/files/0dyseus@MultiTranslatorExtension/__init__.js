@@ -81,31 +81,31 @@ const ANIMATED_ICON_UPDATE_TIMEOUT = 16;
 const STATUS_BAR_MAX_MESSAGE_LENGTH = 60;
 
 const P = {
-    ALL_DEPENDENCIES_MET: "pref-all-dependencies-met",
-    DEFAULT_TRANSLATOR: "pref-default-translator",
-    DIALOG_THEME: "pref-dialog-theme",
-    DIALOG_THEME_CUSTOM: "pref-dialog-theme-custom",
-    ENABLE_SHORTCUTS: "pref-enable-shortcuts",
-    FONT_SIZE: "pref-font-size",
-    HEIGHT_PERCENTS: "pref-height-percents",
-    HISTORY_INITIAL_WINDOW_HEIGHT: "pref-history-initial-window-height",
-    HISTORY_INITIAL_WINDOW_WIDTH: "pref-history-initial-window-width",
-    HISTORY_TIMESTAMP: "pref-history-timestamp",
-    HISTORY_TIMESTAMP_CUSTOM: "pref-history-timestamp-custom",
-    HISTORY_WIDTH_TO_TRIGGER_WORD_WRAP: "pref-history-width-to-trigger-word-wrap",
-    LANGUAGES_STATS: "pref-languages-stats",
-    LAST_TRANSLATOR: "pref-last-translator",
-    LOGGIN_ENABLED: "pref-loggin-enabled",
-    LOGGIN_SAVE_HISTORY_INDENTED: "pref-loggin-save-history-indented",
-    OPEN_TRANSLATOR_DIALOG_KEYBINDING: "pref-open-translator-dialog-keybinding",
-    REMEMBER_LAST_TRANSLATOR: "pref-remember-last-translator",
-    SHOW_MOST_USED: "pref-show-most-used",
-    SYNC_ENTRIES_SCROLLING: "pref-sync-entries-scrolling",
-    TRANSLATE_FROM_CLIPBOARD_KEYBINDING: "pref-translate-from-clipboard-keybinding",
-    TRANSLATE_FROM_SELECTION_KEYBINDING: "pref-translate-from-selection-keybinding",
-    TRANSLATORS_PREFS: "pref-translators-prefs",
-    WIDTH_PERCENTS: "pref-width-percents",
-    YANDEX_API_KEYS: "pref-yandex-api-keys",
+    ALL_DEPENDENCIES_MET: "all-dependencies-met",
+    DEFAULT_TRANSLATOR: "default-translator",
+    DIALOG_THEME: "dialog-theme",
+    DIALOG_THEME_CUSTOM: "dialog-theme-custom",
+    ENABLE_SHORTCUTS: "enable-shortcuts",
+    FONT_SIZE: "font-size",
+    HEIGHT_PERCENTS: "height-percents",
+    HISTORY_INITIAL_WINDOW_HEIGHT: "history-initial-window-height",
+    HISTORY_INITIAL_WINDOW_WIDTH: "history-initial-window-width",
+    HISTORY_TIMESTAMP: "history-timestamp",
+    HISTORY_TIMESTAMP_CUSTOM: "history-timestamp-custom",
+    HISTORY_WIDTH_TO_TRIGGER_WORD_WRAP: "history-width-to-trigger-word-wrap",
+    LANGUAGES_STATS: "languages-stats",
+    LAST_TRANSLATOR: "last-translator",
+    LOGGIN_ENABLED: "loggin-enabled",
+    LOGGIN_SAVE_HISTORY_INDENTED: "loggin-save-history-indented",
+    OPEN_TRANSLATOR_DIALOG_KEYBINDING: "open-translator-dialog-keybinding",
+    REMEMBER_LAST_TRANSLATOR: "remember-last-translator",
+    SHOW_MOST_USED: "show-most-used",
+    SYNC_ENTRIES_SCROLLING: "sync-entries-scrolling",
+    TRANSLATE_FROM_CLIPBOARD_KEYBINDING: "translate-from-clipboard-keybinding",
+    TRANSLATE_FROM_SELECTION_KEYBINDING: "translate-from-selection-keybinding",
+    TRANSLATORS_PREFS: "translators-prefs",
+    WIDTH_PERCENTS: "width-percents",
+    YANDEX_API_KEYS: "yandex-api-keys",
 };
 
 const ICONS = {
@@ -3402,11 +3402,11 @@ function getTimeStamp(aDate) {
 
 function checkDependencies() {
     Util.spawn_async([
-            $.ExtensionPath + "/extensionHelper.py",
+            ExtensionPath + "/extensionHelper.py",
             "check-dependencies"
         ],
         Lang.bind(this, function(aResponse) {
-            if (Settings.get_boolean($.P.LOGGIN_ENABLED))
+            if (Settings.get_boolean(P.LOGGIN_ENABLED))
                 global.logError("\ncheckDependencies()>aResponse:\n" + aResponse);
 
             let res = (aResponse.split("<!--SEPARATOR-->")[1])

@@ -8,9 +8,11 @@ import cgi
 import gi
 gi.require_version("Gtk", "3.0")
 from gi.repository import Gio, Gtk, GObject, GLib
+from pkg_resources import parse_version
 
 gettext.install("cinnamon", "/usr/share/locale")
 
+CINNAMON_VERSION = GLib.getenv("CINNAMON_VERSION")
 HOME = os.path.expanduser("~")
 EXTENSION_DIR = os.path.dirname(os.path.abspath(__file__))
 EXTENSION_UUID = str(os.path.basename(EXTENSION_DIR))
@@ -159,254 +161,265 @@ LANGUAGES_LIST = {
 }
 
 # Doesn't go anywhere
-# pref-last-translator
-# pref-all-dependencies-met
-# pref-languages-stats
+# last-translator
+# all-dependencies-met
+# languages-stats
 
 
 MAIN_TAB = {
     "title": _("Global"),
-    "description": _("Global extension options"),
-    "widgets": [{
-        "type": "combo",
-        "args": {
-            "key": "pref-default-translator",
-            "label": _("Default translation provider"),
-            "tooltip": _("Select the default translation provider.") + "\n" +
+    "sections": [{
+        "title": _("Global extension options"),
+        "widgets": [{
+            "type": "combo",
+            "args": {
+                "key": "default-translator",
+                "label": _("Default translation provider"),
+                "tooltip": _("Select the default translation provider.") + "\n" +
                 _("Providers marked with (*) require translate-shell package to work.") + "\n" +
                 _("See the extended help of this extension for more information."),
-            "values": {
-                "Apertium.TS": "Apertium (*)",
-                "Bing.TranslatorTS": "Bing Translator (*)",
-                "Google.TranslateTS": "Google Translate (*)",
-                "Google.Translate": "Google Translate",
-                "Transltr": "Transltr",
-                "Yandex.Translate": "Yandex Translate"
+                "values": {
+                    "Apertium.TS": "Apertium (*)",
+                    "Bing.TranslatorTS": "Bing Translator (*)",
+                    "Google.TranslateTS": "Google Translate (*)",
+                    "Google.Translate": "Google Translate",
+                    "Transltr": "Transltr",
+                    "Yandex.Translate": "Yandex Translate"
+                }
             }
-        }
-    }, {
-        "type": "switch",
-        "args": {
-            "key": "pref-remember-last-translator",
-            "label": _("Remember last translator"),
-            "tooltip": _("Remember last used translation provider.")
-        }
-    }, {
-        "type": "switch",
-        "args": {
-            "key": "pref-show-most-used",
-            "label": _("Show most used languages"),
-            "tooltip": _("Display a list of most used languages.")
-        }
-    }, {
-        "type": "switch",
-        "args": {
-            "key": "pref-sync-entries-scrolling",
-            "label": _("Synchronize scroll entries"),
-            "tooltip": _("Make the source and target entries scroll synchronously.")
-        }
-    }, {
-        "type": "switch",
-        "args": {
-            "key": "pref-enable-shortcuts",
-            "label": _("Enable shortcuts"),
-            "tooltip": _("Enable/Disable the use of keyboard shortcuts.")
-        }
-    }, {
-        "type": "keybindings_tree",
-        "widget_type": "special",
-        "args": {
-            "keybindings": {
-                "pref-open-translator-dialog-keybinding": _("Open translator dialog."),
-                "pref-translate-from-clipboard-keybinding": _("Open translator dialog and translate text from clipboard."),
-                "pref-translate-from-selection-keybinding": _("Open translator dialog and translate from primary selection.")
+        }, {
+            "type": "switch",
+            "args": {
+                "key": "remember-last-translator",
+                "label": _("Remember last translator"),
+                "tooltip": _("Remember last used translation provider.")
             }
-        }
+        }, {
+            "type": "switch",
+            "args": {
+                "key": "show-most-used",
+                "label": _("Show most used languages"),
+                "tooltip": _("Display a list of most used languages.")
+            }
+        }, {
+            "type": "switch",
+            "args": {
+                "key": "sync-entries-scrolling",
+                "label": _("Synchronize scroll entries"),
+                "tooltip": _("Make the source and target entries scroll synchronously.")
+            }
+        }, {
+            "type": "switch",
+            "args": {
+                "key": "enable-shortcuts",
+                "label": _("Enable shortcuts"),
+                "tooltip": _("Enable/Disable the use of keyboard shortcuts.")
+            }
+        }, {
+            "type": "keybindings_tree",
+            "dep_key": "enable-shortcuts",
+            "args": {
+                "keybindings": {
+                    "open-translator-dialog-keybinding": _("Open translator dialog"),
+                    "translate-from-clipboard-keybinding": _("Translate text from clipboard"),
+                    "translate-from-selection-keybinding": _("Translate from primary selection")
+                }
+            }
+        }]
     }]
 }
 
 TRANSLATORS_TAB = {
     "title": _("Translators"),
-    "description": _("Set default settings for each available translation service"),
-    "widgets": [{
-        "type": "translators_prefs_widget",
-        "widget_type": "special",
-        "args": {
-            "key": "pref-translators-prefs"
-        }
+    "sections": [{
+        "title": _("Set default settings for each available translation service"),
+        "widgets": [{
+            "type": "translators_prefs_widget",
+            "args": {
+                "key": "translators-prefs"
+            }
+        }]
     }]
 }
 
 APPEARANCE_TAB = {
     "title": _("Appearance"),
-    "description": _("Translation dialog appearance"),
-    "widgets": [{
-        "type": "combo",
-        "args": {
-            "key": "pref-dialog-theme",
-            "label": _("Dialog theme"),
-            "tooltip": _("Select a theme for the translation dialog."),
-            "values": {
-                "custom": _("Custom"),
-                "default": "Linux Mint (Default)",
-                "Gnome-shell": "Gnome shell",
-                "Mint-X": "Mint-X",
-                "Mint-X-Aqua": "Mint-X-Aqua",
-                "Mint-X-Blue": "Mint-X-Blue",
-                "Mint-X-Brown": "Mint-X-Brown",
-                "Mint-X-Greybird-Blue": "Mint-X-Greybird-Blue",
-                "Mint-X-Orange": "Mint-X-Orange",
-                "Mint-X-Pink": "Mint-X-Pink",
-                "Mint-X-Purple": "Mint-X-Purple",
-                "Mint-X-Red": "Mint-X-Red",
-                "Mint-X-Sand": "Mint-X-Sand",
-                "Mint-X-Teal": "Mint-X-Teal"
+    "sections": [{
+        "title": _("Translation dialog appearance"),
+        "widgets": [{
+            "type": "combo",
+            "args": {
+                "key": "dialog-theme",
+                "label": _("Dialog theme"),
+                "tooltip": _("Select a theme for the translation dialog."),
+                "values": {
+                    "custom": _("Custom"),
+                    "default": "Linux Mint (Default)",
+                    "Gnome-shell": "Gnome shell",
+                    "Mint-X": "Mint-X",
+                    "Mint-X-Aqua": "Mint-X-Aqua",
+                    "Mint-X-Blue": "Mint-X-Blue",
+                    "Mint-X-Brown": "Mint-X-Brown",
+                    "Mint-X-Greybird-Blue": "Mint-X-Greybird-Blue",
+                    "Mint-X-Orange": "Mint-X-Orange",
+                    "Mint-X-Pink": "Mint-X-Pink",
+                    "Mint-X-Purple": "Mint-X-Purple",
+                    "Mint-X-Red": "Mint-X-Red",
+                    "Mint-X-Sand": "Mint-X-Sand",
+                    "Mint-X-Teal": "Mint-X-Teal"
+                }
             }
-        }
-    }, {
-        "type": "entry_path",
-        "args": {
-            "key": "pref-dialog-theme-custom",
-            "select_dir": False,
-            "label": _("Custom theme"),
-            "tooltip": _("Select a custom theme for the translation dialog."),
-        }
-    }, {
-        "type": "spin",
-        "args": {
-            "key": "pref-font-size",
-            "label": _("Font size"),
-            "tooltip": _("Select a font size for the source text and target text entries."),
-            "min": 8,
-            "max": 32,
-            "step": 1,
-            "units": "pixels"
-        }
-    }, {
-        "type": "spin",
-        "args": {
-            "key": "pref-width-percents",
-            "label": _("Percentage of screen width"),
-            "tooltip": _("What percentage of screen width should the translation dialog fill."),
-            "min": 20,
-            "max": 100,
-            "step": 5,
-            "units": "pixels"
-        }
-    }, {
-        "type": "spin",
-        "args": {
-            "key": "pref-height-percents",
-            "label": _("Percentage of screen height"),
-            "tooltip": _("What percentage of screen height should the translation dialog fill."),
-            "min": 20,
-            "max": 100,
-            "step": 5,
-            "units": "pixels"
-        }
+        }, {
+            "type": "entry_path",
+            "args": {
+                "key": "dialog-theme-custom",
+                "select_dir": False,
+                "label": _("Custom theme"),
+                "tooltip": _("Select a custom theme for the translation dialog."),
+            }
+        }, {
+            "type": "spin",
+            "args": {
+                "key": "font-size",
+                "label": _("Font size"),
+                "tooltip": _("Select a font size for the source text and target text entries."),
+                "min": 8,
+                "max": 32,
+                "step": 1,
+                "units": "pixels"
+            }
+        }, {
+            "type": "spin",
+            "args": {
+                "key": "width-percents",
+                "label": _("Percentage of screen width"),
+                "tooltip": _("What percentage of screen width should the translation dialog fill."),
+                "min": 20,
+                "max": 100,
+                "step": 5,
+                "units": "pixels"
+            }
+        }, {
+            "type": "spin",
+            "args": {
+                "key": "height-percents",
+                "label": _("Percentage of screen height"),
+                "tooltip": _("What percentage of screen height should the translation dialog fill."),
+                "min": 20,
+                "max": 100,
+                "step": 5,
+                "units": "pixels"
+            }
+        }]
     }]
 }
 
 HISTORY_TAB = {
     "title": _("History"),
-    "description": _("Translation history settings"),
-    "widgets": [{
-        "type": "combo",
-        "args": {
-            "key": "pref-history-timestamp",
-            "label": _("Timestamp for history entries"),
-            "tooltip": _("Timestamp format for the translation history entries.\nNote: After changing this setting, only new entries in the translation history will be saved with the new timestamp format. Old entries will still have the previous timestamp format."),
-            "values": {
-                "custom": "Custom",
-                "iso": "YYYY MM-DD hh:mm:ss (ISO8601)",
-                "eu": "YYYY DD-MM hh:mm:ss (European)"
+    "sections": [{
+        "title": _("Translation history settings"),
+        "widgets": [{
+            "type": "combo",
+            "args": {
+                "key": "history-timestamp",
+                "label": _("Timestamp for history entries"),
+                "tooltip": _("Timestamp format for the translation history entries.\nNote: After changing this setting, only new entries in the translation history will be saved with the new timestamp format. Old entries will still have the previous timestamp format."),
+                "values": {
+                    "custom": "Custom",
+                    "iso": "YYYY MM-DD hh:mm:ss (ISO8601)",
+                    "eu": "YYYY DD-MM hh:mm:ss (European)"
+                }
             }
-        }
-    }, {
-        "type": "entry",
-        "args": {
-            "key": "pref-history-timestamp-custom",
-            "label": _("Custom timestamp"),
-            "tooltip": _("Choose a custom timestamp for the translation history entries.\nYYYY: year\nMM: month\nDD: day\nhh: hours\nmm: minutes\nss: seconds")
-        }
-    }, {
-        "type": "spin",
-        "args": {
-            "key": "pref-history-initial-window-width",
-            "label": _("History window initial width"),
-            "min": 400,
-            "max": 2048,
-            "step": 50,
-            "units": "pixels"
-        }
-    }, {
-        "type": "spin",
-        "args": {
-            "key": "pref-history-initial-window-height",
-            "label": _("History window initial height"),
-            "min": 400,
-            "max": 2048,
-            "step": 50,
-            "units": "pixels"
-        }
-    }, {
-        "type": "spin",
-        "args": {
-            "key": "pref-history-width-to-trigger-word-wrap",
-            "label": _("Width to trigger word wrap"),
-            "tooltip": _("The \"Source text\" and \"Target text\" columns on the history window will wrap its text at the width defined by this setting."),
-            "min": 100,
-            "max": 1024,
-            "step": 10,
-            "units": "pixels"
-        }
+        }, {
+            "type": "entry",
+            "args": {
+                "key": "history-timestamp-custom",
+                "label": _("Custom timestamp"),
+                "tooltip": _("Choose a custom timestamp for the translation history entries.\nYYYY: year\nMM: month\nDD: day\nhh: hours\nmm: minutes\nss: seconds")
+            }
+        }, {
+            "type": "spin",
+            "args": {
+                "key": "history-initial-window-width",
+                "label": _("History window initial width"),
+                "min": 400,
+                "max": 2048,
+                "step": 50,
+                "units": "pixels"
+            }
+        }, {
+            "type": "spin",
+            "args": {
+                "key": "history-initial-window-height",
+                "label": _("History window initial height"),
+                "min": 400,
+                "max": 2048,
+                "step": 50,
+                "units": "pixels"
+            }
+        }, {
+            "type": "spin",
+            "args": {
+                "key": "history-width-to-trigger-word-wrap",
+                "label": _("Width to trigger word wrap"),
+                "tooltip": _("The \"Source text\" and \"Target text\" columns on the history window will wrap its text at the width defined by this setting."),
+                "min": 100,
+                "max": 1024,
+                "step": 10,
+                "units": "pixels"
+            }
+        }]
     }]
 }
 
 ADVANCED_TAB = {
     "title": _("Advanced"),
-    "description": _("Various advanced options"),
-    "widgets": [{
-        "type": "textview",
-        "args": {
-            "key": "pref-yandex-api-keys",
-            "height": 150,
-            "label": _("Yandex API keys"),
-            "tooltip": _("Enter one API key per line.\nRead the help file found inside this extension folder to know how to get free Yandex API keys.")
-        }
-    }, {
-        "type": "info_label",
-        "args": {
-            "label": _("This options are only useful for the extension developer."),
-            "bold": True,
-            "italic": True
-        }
-    }, {
-        "type": "switch",
-        "args": {
-            "key": "pref-loggin-enabled",
-            "label": _("Enable logging"),
-            "tooltip": _("It enables the ability to log the output of several functions used by the extension.")
-        }
-    }, {
-        "type": "switch",
-        "args": {
-            "key": "pref-loggin-save-history-indented",
-            "label": _("Indent translation history data"),
-            "tooltip": _("It allows to save the translation history data with indentation.")
-        }
+    "sections": [{
+        "title": _("Various advanced options"),
+        "widgets": [{
+            "type": "textview",
+            "args": {
+                    "key": "yandex-api-keys",
+                    "height": 150,
+                    "label": _("Yandex API keys"),
+                    "tooltip": _("Enter one API key per line.\nRead the help file found inside this extension folder to know how to get free Yandex API keys.")
+            }
+        }, {
+            "type": "info_label",
+            "args": {
+                "label": _("This options are only useful for the extension developer."),
+                "bold": True,
+                "italic": True
+            }
+        }, {
+            "type": "switch",
+            "args": {
+                "key": "loggin-enabled",
+                "label": _("Enable logging"),
+                "tooltip": _("It enables the ability to log the output of several functions used by the extension.")
+            }
+        }, {
+            "type": "switch",
+            "args": {
+                "key": "loggin-save-history-indented",
+                "label": _("Indent translation history data"),
+                "tooltip": _("It allows to save the translation history data with indentation.")
+            }
+        }]
     }]
 }
 
 
 class BaseGrid(Gtk.Grid):
 
-    def __init__(self, tooltip=""):
+    def __init__(self, tooltip="", orientation=Gtk.Orientation.VERTICAL):
         Gtk.Grid.__init__(self)
-
+        self.set_orientation(orientation)
         self.set_tooltip_text(tooltip)
-        self.set_column_spacing(10)
-        self.set_row_spacing(10)
+
+    def set_spacing(self, col, row):
+        self.set_column_spacing(col)
+        self.set_row_spacing(row)
 
 
 class SettingsLabel(Gtk.Label):
@@ -429,27 +442,57 @@ class SettingsLabel(Gtk.Label):
         self.set_markup(markup)
 
 
-class RowContainer(Gtk.Frame):
+class SectionContainer(Gtk.Frame):
 
-    def __init__(self):
+    def __init__(self, title):
         Gtk.Frame.__init__(self)
         self.set_shadow_type(Gtk.ShadowType.IN)
+
+        self.box = BaseGrid()
+        self.box.set_border_width(0)
+        self.box.set_property("margin", 0)
+        self.box.set_spacing(0, 0)
+        self.add(self.box)
+
+        toolbar = Gtk.Toolbar()
+        Gtk.StyleContext.add_class(Gtk.Widget.get_style_context(toolbar), "cs-header")
+
+        label = Gtk.Label()
+        label.set_markup("<b>%s</b>" % title)
+        title_holder = Gtk.ToolItem()
+        title_holder.add(label)
+        toolbar.add(title_holder)
+        self.box.attach(toolbar, 0, 0, 2, 1)
+
+        self.need_separator = False
+
+    def add_row(self, widget, col_pos, row_pos, col_span, row_span):
+        list_box = Gtk.ListBox()
+        list_box.set_selection_mode(Gtk.SelectionMode.NONE)
+        row = Gtk.ListBoxRow()
+        row.add(widget)
+
+        if self.need_separator:
+            list_box.add(Gtk.Separator(orientation=Gtk.Orientation.HORIZONTAL))
+
+        if isinstance(widget, Switch):
+            list_box.connect("row-activated", widget.clicked)
+
+        list_box.add(row)
+
+        self.box.attach(list_box, col_pos, row_pos, col_span, row_span)
+
+        self.need_separator = True
 
 
 class SettingsBox(BaseGrid):
 
     def __init__(self):
         BaseGrid.__init__(self)
-        self.set_orientation(Gtk.Orientation.VERTICAL)
         self.set_border_width(0)
-
-        toolbar = BaseGrid()
-        toolbar.set_margin_left(15)
-        toolbar.set_margin_right(15)
-        dummy_grid_1 = BaseGrid()
-        dummy_grid_1.set_property("hexpand", True)
-
-        toolbar.attach(dummy_grid_1, 0, 0, 1, 1)
+        self.set_spacing(0, 0)
+        self.set_property("expand", True)
+        self.set_property("margin", 0)
 
         pages_object = [
             MAIN_TAB,
@@ -462,160 +505,95 @@ class SettingsBox(BaseGrid):
         stack = Gtk.Stack()
         stack.set_transition_type(Gtk.StackTransitionType.SLIDE_LEFT_RIGHT)
         stack.set_transition_duration(150)
+        stack.set_property("margin", 0)
+        stack.set_property("expand", True)
 
-        count = 0
+        page_count = 0
         for page_obj in pages_object:
-            self.need_separator = False
-            count += 1
+            # Possibility to hide entire pages
+            try:
+                if page_obj["compatible"] is False:
+                    continue
+            except KeyError:  # If "compatible" key isn't set.
+                pass
+
             page = BaseGrid()
-            page.set_orientation(Gtk.Orientation.VERTICAL)
-            page.set_margin_left(15)
-            page.set_margin_right(15)
-            page.set_margin_bottom(15)
-            page.set_row_spacing(0)
+            page.set_spacing(15, 15)
+            page.set_property("expand", True)
+            page.set_property("margin-top", 15)
+            page.set_property("margin-left", 15)
+            page.set_property("margin-right", 15)
+            page.set_border_width(0)
 
-            toolbar_container = RowContainer()
-            page_toolbar = Gtk.Toolbar()
-            Gtk.StyleContext.add_class(Gtk.Widget.get_style_context(page_toolbar), "cs-header")
+            section_count = 0
+            for section_obj in page_obj["sections"]:
+                # Possibility to hide entire sections
+                try:
+                    if section_obj["compatible"] is False:
+                        continue
+                except KeyError:  # If "compatible" key isn't set.
+                    pass
 
-            label = Gtk.Label()
-            label.set_markup("<b>%s</b>" % page_obj["description"])
-            title_holder = Gtk.ToolItem()
-            title_holder.add(label)
-            page_toolbar.add(title_holder)
-            toolbar_container.add(page_toolbar)
-            page.attach(toolbar_container, 0, 0, 1, 1)
+                section_container = SectionContainer(section_obj["title"])
 
-            for i in range(0, len(page_obj["widgets"])):
-                tab_widget = page_obj["widgets"][i]
-                widget_obj = getattr(Widgets, tab_widget["type"])
-                widget = widget_obj(Widgets(), **tab_widget["args"])
+                SECTION_WIDGETS = section_obj["widgets"]
 
-                if (tab_widget["type"] is not "keybindings_tree" and
-                        tab_widget["type"] is not "translators_prefs_widget"):
-                    widget.set_border_width(5)
-                    widget.set_margin_left(15)
-                    widget.set_margin_right(15)
+                row_pos = 1
+                for i in range(0, len(SECTION_WIDGETS)):
+                    section_widget_obj = SECTION_WIDGETS[i]
 
-                if tab_widget["type"] is "translators_prefs_widget":
-                    list_box = widget
+                    # Possibility to hide individual widgets
+                    try:
+                        if section_widget_obj["compatible"] is False:
+                            continue
+                    except KeyError:  # If "compatible" key isn't set.
+                        pass
+
+                    widget_obj = getattr(Widgets, section_widget_obj["type"])
+                    widget = widget_obj(Widgets(), **section_widget_obj["args"])
+
+                    if (section_widget_obj["type"] is not "keybindings_tree" and
+                            section_widget_obj["type"] is not "translators_prefs_widget"):
+
+                        widget.set_border_width(5)
+                        widget.set_margin_left(15)
+                        widget.set_margin_right(15)
+
+                    try:
+                        dep_key = section_widget_obj["dep_key"]
+
+                        if Settings().settings_has_key(dep_key):
+                            Settings().get_settings().bind(
+                                dep_key, widget, "sensitive", Gio.SettingsBindFlags.GET)
+                        else:
+                            print(
+                                "Ignoring dependency on key '%s': no such key in the schema" % dep_key)
+                    except (NameError, KeyError):
+                        pass
+
+                    section_container.add_row(widget, 0, i + 1, 1, 1)
+
+                if section_count is not 0:
+                    row_pos = len(SECTION_WIDGETS) + row_pos
                 else:
-                    list_box = Gtk.ListBox()
-                    list_box.set_selection_mode(Gtk.SelectionMode.NONE)
-                    row = Gtk.ListBoxRow()
-                    row.add(widget)
+                    row_pos = row_pos
 
-                    if self.need_separator:
-                        list_box.add(Gtk.Separator(orientation=Gtk.Orientation.HORIZONTAL))
+                page.attach(section_container, 0, row_pos, 1, 1)
+                row_pos += 1
+                section_count += 1
 
-                    if isinstance(widget, Switch):
-                        list_box.connect("row-activated", widget.clicked)
-
-                    list_box.add(row)
-
-                page.attach(list_box, 0, i + 1, 1, 1)
-
-                self.need_separator = True
-
-            stack.add_titled(page, "stack_id_%s" % str(count), page_obj["title"])
+            page_count += 1
+            stack.add_titled(page, "stack_id_%s" % str(page_count), page_obj["title"])
 
         stack_switcher = Gtk.StackSwitcher()
         stack_switcher.set_stack(stack)
         stack_switcher.set_halign(Gtk.Align.CENTER)
-        toolbar.attach(stack_switcher, 1, 0, 1, 1)
+        stack_switcher.set_homogeneous(False)
+        app.toolbar_box.attach(stack_switcher, 1, 0, 1, 1)
 
-        menu_popup = Gtk.Menu()
-        menu_popup.set_halign(Gtk.Align.END)
-        menu_popup.append(self.createMenuItem(_("Reset settings to defaults"),
-                                              self._restore_default_values))
-        menu_popup.append(self.createMenuItem(_("Import settings from a file"),
-                                              self._import_export_settings, False))
-        menu_popup.append(self.createMenuItem(_("Export settings to a file"),
-                                              self._import_export_settings, True))
-        menu_popup.show_all()
-        menu_button = Gtk.MenuButton()
-        menu_button.set_popup(menu_popup)
-        menu_button.add(Gtk.Image.new_from_icon_name(
-            "open-menu-symbolic", Gtk.IconSize.SMALL_TOOLBAR))
-        menu_button.set_tooltip_text(_("Manage settings"))
-
-        dummy_grid = BaseGrid()
-        dummy_grid.set_property("hexpand", True)
-
-        toolbar.attach(dummy_grid, 2, 0, 1, 1)
-        toolbar.attach(menu_button, 3, 0, 1, 1)
-        self.attach(toolbar, 0, 1, 1, 1)
-        self.attach(stack, 0, 2, 1, 1)
+        self.attach(stack, 0, 0, 1, 1)
 
         self.show_all()
-
-    def createMenuItem(self, text, callback, *args):
-        item = Gtk.MenuItem(text)
-        item.connect("activate", callback, *args)
-        return item
-
-    def _restore_default_values(self, widget):
-        dialog = Gtk.MessageDialog(transient_for=app.window,
-                                   modal=False,
-                                   message_type=Gtk.MessageType.WARNING,
-                                   buttons=Gtk.ButtonsType.YES_NO)
-
-        dialog.set_title(_("Warning: Trying to reset all Multi Translator settings!!!"))
-
-        esc = cgi.escape(_("Reset all Multi Translator settings to default?"))
-        dialog.set_markup(esc)
-        dialog.show_all()
-        response = dialog.run()
-        dialog.destroy()
-
-        if response == Gtk.ResponseType.YES:
-            os.system("gsettings reset-recursively %s &" % SCHEMA_NAME)
-            self.on_quit(self)
-
-    def _import_export_settings(self, widget, export):
-        if export:
-            mode = Gtk.FileChooserAction.SAVE
-            string = _("Select or enter file to export to")
-            # TO TRANSLATORS: Could be left blank.
-            btns = (_("_Cancel"), Gtk.ResponseType.CANCEL,
-                    _("_Save"), Gtk.ResponseType.ACCEPT)
-        else:
-            mode = Gtk.FileChooserAction.OPEN
-            string = _("Select a file to import")
-            # TO TRANSLATORS: Could be left blank.
-            btns = (_("_Cancel"), Gtk.ResponseType.CANCEL,
-                    # TO TRANSLATORS: Could be left blank.
-                    _("_Open"), Gtk.ResponseType.OK)
-
-        dialog = Gtk.FileChooserDialog(parent=app.window,
-                                       title=string,
-                                       action=mode,
-                                       buttons=btns)
-
-        if export:
-            dialog.set_do_overwrite_confirmation(True)
-
-        filter_text = Gtk.FileFilter()
-        filter_text.add_pattern("*.dconf")
-        filter_text.set_name(_("DCONF files"))
-        dialog.add_filter(filter_text)
-
-        response = dialog.run()
-
-        if export and response == Gtk.ResponseType.ACCEPT:
-            filename = dialog.get_filename()
-
-            if ".dconf" not in filename:
-                filename = filename + ".dconf"
-
-            os.system("dconf dump %s > %s &" % (SCHEMA_PATH, filename))
-
-        if export is False and response == Gtk.ResponseType.OK:
-            filename = dialog.get_filename()
-            os.system("dconf load %s < %s" % (SCHEMA_PATH, filename))
-            self.on_quit(self)
-
-        dialog.destroy()
 
 
 class Settings(object):
@@ -650,6 +628,9 @@ class Settings(object):
     def get_settings(self):
         return self._settings
 
+    def settings_has_key(self, key):
+        return key in self.get_settings().list_keys()
+
 
 class Widgets():
 
@@ -657,7 +638,8 @@ class Widgets():
 
     def info_label(self, label, bold=False, italic=True):
         ''' Styled label widget widget '''
-        box = BaseGrid()
+        box = BaseGrid(orientation=Gtk.Orientation.HORIZONTAL)
+        box.set_spacing(10, 10)
 
         label_str = cgi.escape(label)
 
@@ -674,15 +656,17 @@ class Widgets():
         box.attach(label_element, 0, 0, 1, 1)
         return box
 
-    def switch(self, key, label, tooltip):
+    def switch(self, key, label, tooltip=""):
         return Switch(key, label, tooltip)
 
-    def entry_path(self, key, label, select_dir, tooltip):
+    def entry_path(self, key, label, select_dir, tooltip=""):
         return FileChooser(key, label, select_dir, tooltip)
 
     def entry(self, key, label, tooltip=""):
         ''' Entry text widget '''
-        box = BaseGrid(tooltip)
+        box = BaseGrid(tooltip=tooltip, orientation=Gtk.Orientation.HORIZONTAL)
+        box.set_spacing(10, 10)
+
         label = SettingsLabel(label)
         label.set_property("hexpand", False)
         label.set_property("halign", Gtk.Align.START)
@@ -699,7 +683,9 @@ class Widgets():
 
     def combo(self, key, label, values, tooltip=""):
         ''' Combo box widget '''
-        box = BaseGrid(tooltip)
+        box = BaseGrid(tooltip=tooltip, orientation=Gtk.Orientation.HORIZONTAL)
+        box.set_spacing(10, 10)
+
         label = SettingsLabel(label)
         label.set_property("hexpand", True)
         label.set_property("halign", Gtk.Align.START)
@@ -720,7 +706,9 @@ class Widgets():
 
     def slider(self, key, label, min, max, step, tooltip=""):
         ''' Slider widget '''
-        box = BaseGrid(tooltip)
+        box = BaseGrid(tooltip=tooltip, orientation=Gtk.Orientation.HORIZONTAL)
+        box.set_spacing(10, 10)
+
         label = SettingsLabel(label)
         label.set_property("hexpand", False)
         label.set_property("halign", Gtk.Align.START)
@@ -742,7 +730,9 @@ class Widgets():
         if units:
             label += " (%s)" % units
 
-        box = BaseGrid(tooltip)
+        box = BaseGrid(tooltip=tooltip, orientation=Gtk.Orientation.HORIZONTAL)
+        box.set_spacing(10, 10)
+
         label = SettingsLabel(label)
         label.set_property("hexpand", True)
         label.set_property("halign", Gtk.Align.START)
@@ -768,8 +758,9 @@ class Widgets():
 
     def textview(self, key, label, height=200, tooltip=""):
         ''' Textview widget '''
-        box = BaseGrid(tooltip)
-        box.set_orientation(Gtk.Orientation.VERTICAL)
+        box = BaseGrid(tooltip=tooltip, orientation=Gtk.Orientation.HORIZONTAL)
+        box.set_spacing(10, 10)
+
         label = SettingsLabel(label)
         label.set_property("hexpand", True)
         label.set_property("halign", Gtk.Align.CENTER)
@@ -805,10 +796,10 @@ class Switch(BaseGrid):
     ''' Switch widget '''
 
     def __init__(self, key, label, tooltip=""):
-        BaseGrid.__init__(self, tooltip)
+        BaseGrid.__init__(self, tooltip=tooltip, orientation=Gtk.Orientation.HORIZONTAL)
+        self.set_spacing(10, 10)
 
         self.key = key
-        self.set_tooltip_text(tooltip)
         self.label = SettingsLabel(label)
         self.label.set_property("hexpand", True)
         self.label.set_property("halign", Gtk.Align.START)
@@ -831,7 +822,8 @@ class FileChooser(BaseGrid):
     ''' FileChooser widget '''
 
     def __init__(self, key, label, select_dir=False, tooltip=""):
-        BaseGrid.__init__(self, tooltip)
+        BaseGrid.__init__(self, tooltip=tooltip, orientation=Gtk.Orientation.HORIZONTAL)
+        self.set_spacing(10, 10)
 
         self._select_dir = select_dir
         self._key = key
@@ -1010,7 +1002,7 @@ class TranslatorProvidersWidget(BaseGrid):
         self._translators_combo = self._get_combo(names)
         self._translators_combo.set_property("hexpand", True)
         self._translators_combo.set_active_id(
-            Settings().get_settings().get_string("pref-default-translator"))
+            Settings().get_settings().get_string("default-translator"))
         self._translators_combo.connect("changed", self._on_translators_combo_changed)
         self.translators_box = self._get_listbox_container()
         self.translators_box_container = self._get_listbox(self.translators_box)
@@ -1058,7 +1050,7 @@ class TranslatorProvidersWidget(BaseGrid):
         self.remember_last_lang_box.attach(self._last_used, 1, 1, 1, 1)
         self.attach(self.remember_last_lang_box_container, 0, 3, 2, 1)
 
-        self._show_settings(Settings().get_settings().get_string("pref-default-translator"))
+        self._show_settings(Settings().get_settings().get_string("default-translator"))
 
     def _get_listbox_container(self):
         box = BaseGrid()
@@ -1234,18 +1226,182 @@ class ExtensionPrefsApplication(Gtk.Application):
         Gtk.Application.do_startup(self)
         self._buildUI()
 
+    def on_delete_event(self, widget, data=None):
+        [width, height] = self.window.get_size()
+
+        settings = Settings().get_settings()
+
+        if (settings.get_boolean("pref-window-remember-size")):
+            settings.set_int("pref-window-width", width)
+            settings.set_int("pref-window-height", height)
+
+        return False
+
     def _buildUI(self):
         self.window = ExtensionPrefsWindow(
             application=self, title=_("Multi Translator extension preferences"))
+
+        if (Settings().get_settings().get_boolean("pref-window-remember-size")):
+            width = Settings().get_settings().get_int("pref-window-width")
+            height = Settings().get_settings().get_int("pref-window-height")
+            self.window.set_default_size(width, height)
+        else:
+            self.window.set_default_size(700, 430)
+
         self.window.set_position(Gtk.WindowPosition.CENTER)
         self.window.set_size_request(width=-1, height=-1)
         self.window.set_icon_from_file(os.path.join(EXTENSION_DIR, "icon.png"))
         self.window.connect("destroy", self.on_quit)
+        self.window.connect("delete_event", self.on_delete_event)
 
-        self.settings_box = SettingsBox()
+        main_box = BaseGrid()
+        main_box.set_spacing(0, 0)
+        main_box.set_property("margin", 0)
+        self.window.add(main_box)
 
-        self.window.add(self.settings_box)
+        toolbar = Gtk.Toolbar()
+        toolbar.get_style_context().add_class("primary-toolbar")
+        main_box.add(toolbar)
+
+        toolitem = Gtk.ToolItem()
+        toolitem.set_expand(True)
+        toolbar.add(toolitem)
+
+        self.toolbar_box = BaseGrid(orientation=Gtk.Orientation.HORIZONTAL)
+        self.toolbar_box.set_spacing(0, 0)
+        toolbar_box_scrolledwindow = Gtk.ScrolledWindow(hadjustment=None, vadjustment=None)
+        toolbar_box_scrolledwindow.set_policy(hscrollbar_policy=Gtk.PolicyType.AUTOMATIC,
+                                              vscrollbar_policy=Gtk.PolicyType.NEVER)
+        toolbar_box_scrolledwindow.add(self.toolbar_box)
+        toolitem.add(toolbar_box_scrolledwindow)
+
+        dummy_grid_1 = BaseGrid(orientation=Gtk.Orientation.HORIZONTAL)
+        dummy_grid_1.set_property("hexpand", True)
+        self.toolbar_box.attach(dummy_grid_1, 0, 0, 1, 1)
+
+        dummy_grid_2 = BaseGrid(orientation=Gtk.Orientation.HORIZONTAL)
+        dummy_grid_2.set_property("hexpand", True)
+        self.toolbar_box.attach(dummy_grid_2, 2, 0, 1, 1)
+
+        menu_popup = Gtk.Menu()
+        menu_popup.set_halign(Gtk.Align.END)
+        menu_popup.append(self.createMenuItem(_("Reset settings to defaults"),
+                                              self._restore_default_values))
+        menu_popup.append(self.createMenuItem(_("Import settings from a file"),
+                                              self._import_export_settings, False))
+        menu_popup.append(self.createMenuItem(_("Export settings to a file"),
+                                              self._import_export_settings, True))
+        menu_popup.append(Gtk.SeparatorMenuItem())
+
+        rem_win_size_check = self.createCheckMenuItem(
+            _("Remember window size"), key="pref-window-remember-size")
+
+        if rem_win_size_check is not None:
+            menu_popup.append(rem_win_size_check)
+
+        menu_popup.show_all()
+        menu_button = Gtk.MenuButton()
+        menu_button.set_popup(menu_popup)
+        menu_button.add(Gtk.Image.new_from_icon_name(
+            "open-menu-symbolic", Gtk.IconSize.SMALL_TOOLBAR))
+        menu_button.set_tooltip_text(_("Manage settings"))
+
+        self.toolbar_box.attach(menu_button, 3, 0, 1, 1)
+
+        main_boxscrolledwindow = Gtk.ScrolledWindow(hadjustment=None, vadjustment=None)
+        main_boxscrolledwindow.set_policy(hscrollbar_policy=Gtk.PolicyType.NEVER,
+                                          vscrollbar_policy=Gtk.PolicyType.AUTOMATIC)
+        main_boxscrolledwindow.set_shadow_type(type=Gtk.ShadowType.ETCHED_IN)
+        main_boxscrolledwindow.add(SettingsBox())
+
+        main_box.add(main_boxscrolledwindow)
+
         self.window.show_all()
+
+    def createCheckMenuItem(self, text, key=None, *args):
+        if Settings().settings_has_key(key) is False:
+            return None
+
+        item = Gtk.CheckMenuItem(text)
+        item.set_active(Settings().get_settings().get_boolean(key))
+        item.connect("activate", self.on_check_menu_item, key)
+
+        return item
+
+    def on_check_menu_item(self, widget, key):
+        is_active = widget.get_active()
+        Settings().get_settings().set_boolean(key, is_active is True)
+
+    def createMenuItem(self, text, callback, *args):
+        item = Gtk.MenuItem(text)
+
+        if (callback is not None):
+            item.connect("activate", callback, *args)
+
+        return item
+
+    def _restore_default_values(self, widget):
+        dialog = Gtk.MessageDialog(transient_for=app.window,
+                                   modal=False,
+                                   message_type=Gtk.MessageType.WARNING,
+                                   buttons=Gtk.ButtonsType.YES_NO)
+
+        dialog.set_title(_("Warning: Trying to reset all Multi Translator settings!!!"))
+
+        esc = cgi.escape(_("Reset all Multi Translator settings to default?"))
+        dialog.set_markup(esc)
+        dialog.show_all()
+        response = dialog.run()
+        dialog.destroy()
+
+        if response == Gtk.ResponseType.YES:
+            os.system("gsettings reset-recursively %s &" % SCHEMA_NAME)
+            self.on_quit(self)
+
+    def _import_export_settings(self, widget, export):
+        if export:
+            mode = Gtk.FileChooserAction.SAVE
+            string = _("Select or enter file to export to")
+            # TO TRANSLATORS: Could be left blank.
+            btns = (_("_Cancel"), Gtk.ResponseType.CANCEL,
+                    _("_Save"), Gtk.ResponseType.ACCEPT)
+        else:
+            mode = Gtk.FileChooserAction.OPEN
+            string = _("Select a file to import")
+            # TO TRANSLATORS: Could be left blank.
+            btns = (_("_Cancel"), Gtk.ResponseType.CANCEL,
+                    # TO TRANSLATORS: Could be left blank.
+                    _("_Open"), Gtk.ResponseType.OK)
+
+        dialog = Gtk.FileChooserDialog(parent=app.window,
+                                       title=string,
+                                       action=mode,
+                                       buttons=btns)
+
+        if export:
+            dialog.set_do_overwrite_confirmation(True)
+
+        filter_text = Gtk.FileFilter()
+        filter_text.add_pattern("*.dconf")
+        filter_text.set_name(_("DCONF files"))
+        dialog.add_filter(filter_text)
+
+        response = dialog.run()
+
+        if export and response == Gtk.ResponseType.ACCEPT:
+            filename = dialog.get_filename()
+
+            if ".dconf" not in filename:
+                filename = filename + ".dconf"
+
+            os.system("dconf dump %s > %s &" % (SCHEMA_PATH, filename))
+
+        if export is False and response == Gtk.ResponseType.OK:
+            filename = dialog.get_filename()
+            os.system("dconf load %s < %s" % (SCHEMA_PATH, filename))
+            self.on_quit(self)
+
+        dialog.destroy()
 
     def _restart_shell(self, widget):
         os.system("nohup cinnamon --replace >/dev/null 2>&1&")
