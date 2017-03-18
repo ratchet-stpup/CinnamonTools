@@ -39,5 +39,6 @@ This applet is based on [Smart Panel](https://cinnamon-spices.linuxmint.com/exte
 ## Contributors
 
 - [muzena](https://github.com/muzena): Croatian localization.
+- [giwhub](https://github.com/giwhub): Chinese localization.
 
 [Full change log](https://github.com/Odyseus/CinnamonTools/blob/master/applets/0dyseus%40DesktopHandler/CHANGELOG.md)
