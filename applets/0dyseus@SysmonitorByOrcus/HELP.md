@@ -1,8 +1,26 @@
 
-# Help for System Monitor applet
+# Help for System Monitor (Fork By Odyseus) applet
 
 ### IMPORTANT!!!
 Never delete any of the files found inside this applet folder. It might break this applet functionality.
+
+***
+
+### Dependencies
+
+- **gir1.2-gtop-2.0**: The gtop library reads information about processes and the state of the
+system.
+    - Debian based distributions: The package is called **gir1.2-gtop-2.0**.
+    - Archlinux based distributions: The package is called **libgtop**.
+    - Fedora based distributions: The package is called **libgtop2-devel**.
+- **NetworkManager**: NetworkManager is a system network service that manages your network devices and connections, attempting to keep active network connectivity when available.
+    - Debian based distributions: The package is called **gir1.2-networkmanager-1.0**.
+    - Archlinux based distributions: The package is called **networkmanager**.
+    - Fedora based distributions: The package is called **NetworkManager**.
+
+**Important note:** NetworkManager is only used if the **GTop** library version installed on a system is < **2.32** and doesn't support certain library calls. So, basically, if the network graph on this applet works without having installed NetworkManager, then you don't need to install it.
+
+**Restart Cinnamon after installing the packages for the applet to recognize them.**
 
 ***
 
