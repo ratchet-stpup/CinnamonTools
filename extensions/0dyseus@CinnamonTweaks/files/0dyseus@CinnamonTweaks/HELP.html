@@ -290,8 +290,10 @@ pre {
 </ul>
 <h3>Auto move windows</h3>
 <p>Tweak based on the gnome-shell extension called <a href="https://extensions.gnome.org/extension/16/auto-move-windows/">Auto Move Windows</a> by <a href="https://github.com/fmuellner">Florian Muellner</a>. It enables the ability to set rules to open determined applications on specific workspaces.</p>
+<p><strong>Note:</strong> If the application that you want to select doesn't show up on the application chooser dialog, read the section on this help file called <strong>Applications not showing up on the applications chooser dialogs</strong>.</p>
 <h3>Windows decorations removal</h3>
 <p>Tweak based on the extension called <a href="https://cinnamon-spices.linuxmint.com/extensions/view/29">Cinnamon Maximus</a> by <a href="https://github.com/fatihmete">Fatih Mete</a> with some options from the gnome-shell extension called <a href="https://github.com/luispabon/maximus-gnome-shell">Maximus NG</a> by <a href="https://github.com/luispabon">Luis Pabon</a>. This tweak allows to remove the windows decorations from maximized/half-maximized/tiled windows.</p>
+<p><strong>Note:</strong> If the application that you want to select doesn't show up on the application chooser dialog, read the section on this help file called <strong>Applications not showing up on the applications chooser dialogs</strong>.</p>
 <h4>Dependencies</h4>
 <p>This tweak requires two commands available on the system (<strong>xprop</strong> and <strong>xwininfo</strong>) for it to work.</p>
 <ul>
@@ -311,7 +313,7 @@ pre {
 <li><strong>Invisible windows:</strong> Sometimes, windows of applications that are configured to remove their decorations can become invisible. The application's icon can still be seen in the panel (taskbar) and when clicked to focus its respective window, the invisible window will block the clicks as if it were visible. To fix this, the window needs to be unmaximized (it will become visible again) and then closed. When reopened, the window should behave normally.</li>
 </ul>
 <hr>
-<h2>General issues</h2>
+<h2>General extension issues</h2>
 <h3>Applications not showing up on the applications chooser dialogs</h3>
 <p>The application chooser dialog used by the settings window of this extension lists only those applications that have available .desktop files. Simply because these applications are the only ones that any of the tweaks that require an application ID (<strong>Auto move windows</strong> and <strong>Windows decorations removal</strong>) will recognize and handle.</p>
 <p>Following the <a href="https://specifications.freedesktop.org/desktop-entry-spec/latest/index.html">Desktop Entry Specification</a>, one can create a .desktop file for any application that doesn't appear in the applications list.</p>

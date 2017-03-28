@@ -10,7 +10,7 @@ import cgi
 import gi
 gi.require_version("Gtk", "3.0")
 gi.require_version("Notify", "0.7")
-from gi.repository import Gio, Gtk, GObject, GLib, Gdk, Notify
+from gi.repository import Gio, Gtk, GObject, GLib, Gdk, Notify, GdkPixbuf
 from pkg_resources import parse_version
 
 gettext.install("cinnamon", "/usr/share/locale")
@@ -2112,6 +2112,31 @@ class KeybindingsTreeViewWidget(BaseGrid):
             ])
 
 
+class AboutDialog(Gtk.AboutDialog):
+
+    def __init__(self):
+        logo = GdkPixbuf.Pixbuf.new_from_file_at_size(
+            os.path.join(EXTENSION_DIR, "icon.png"), 64, 64)
+
+        Gtk.AboutDialog.__init__(self, transient_for=app.window)
+        data = app.extension_meta
+        self.add_credit_section(_("Contributors/Mentions:"),
+                                sorted(data["contributors"].split(","), key=self.lowered))
+        self.set_version(data["version"])
+        self.set_comments(_(data["description"]))
+        self.set_website(data["website"])
+        self.set_website_label(_(data["name"]))
+        self.set_authors(["Odyseus"])
+        self.set_logo(logo)
+        self.connect("response", self.on_response)
+
+    def lowered(self, item):
+        return item.lower()
+
+    def on_response(self, dialog, response):
+        self.destroy()
+
+
 class ExtensionPrefsWindow(Gtk.ApplicationWindow):
 
     def __init__(self, *args, **kwargs):
@@ -2237,12 +2262,12 @@ class ExtensionPrefsWindow(Gtk.ApplicationWindow):
 
         menu_popup = Gtk.Menu()
         menu_popup.set_halign(Gtk.Align.END)
-        menu_popup.append(self.createMenuItem(_("Reset settings to defaults"),
-                                              self._restore_default_values))
-        menu_popup.append(self.createMenuItem(_("Import settings from a file"),
-                                              self._import_export_settings, False))
-        menu_popup.append(self.createMenuItem(_("Export settings to a file"),
-                                              self._import_export_settings, True))
+        menu_popup.append(self.createMenuItem(text=_("Reset settings to defaults"),
+                                              callback=self._restore_default_values))
+        menu_popup.append(self.createMenuItem(text=_("Import settings from a file"),
+                                              callback=self._import_settings))
+        menu_popup.append(self.createMenuItem(text=_("Export settings to a file"),
+                                              callback=self._export_settings))
         menu_popup.append(Gtk.SeparatorMenuItem())
 
         rem_win_size_check = self.createCheckMenuItem(
@@ -2258,26 +2283,30 @@ class ExtensionPrefsWindow(Gtk.ApplicationWindow):
             menu_popup.append(rem_last_cat_check)
             menu_popup.append(Gtk.SeparatorMenuItem())
 
-        menu_popup.append(self.createMenuItem(_("Restart Cinnamon"),
-                                              self._restart_cinnamon))
+        menu_popup.append(self.createMenuItem(text=_("Restart Cinnamon"),
+                                              callback=self._restart_cinnamon))
+        menu_popup.append(Gtk.SeparatorMenuItem())
+
+        menu_popup.append(self.createMenuItem(text=_("Help"),
+                                              callback=self.open_help_page))
+        menu_popup.append(self.createMenuItem(text=_("About"),
+                                              callback=self.open_about_dialog))
 
         menu_popup.show_all()
         menu_button = Gtk.MenuButton()
-        menu_button.set_property("margin-left", 5)
         menu_button.set_popup(menu_popup)
         menu_button.add(Gtk.Image.new_from_icon_name("open-menu-symbolic", Gtk.IconSize.MENU))
         menu_button.set_tooltip_text(_("Manage settings"))
 
-        help_button = Gtk.Button()
-        help_button.add(Gtk.Image.new_from_icon_name("help-browser-symbolic", Gtk.IconSize.MENU))
-        help_button.set_tooltip_text(_("Help"))
-        help_button.connect("clicked", self.open_help_page)
-
         box.attach(info_label, 0, 0, 1, 1)
-        box.attach(help_button, 1, 0, 1, 1)
-        box.attach(menu_button, 2, 0, 1, 1)
+        box.attach(menu_button, 3, 0, 1, 1)
 
         return box
+
+    def open_about_dialog(self, widget):
+        if app.extension_meta is not None:
+            aboutdialog = AboutDialog()
+            aboutdialog.run()
 
     def open_help_page(self, widget):
         subprocess.call(("xdg-open", os.path.join(EXTENSION_DIR, "HELP.html")))
@@ -2296,11 +2325,12 @@ class ExtensionPrefsWindow(Gtk.ApplicationWindow):
         is_active = widget.get_active()
         Settings().get_settings().set_boolean(key, is_active is True)
 
-    def createMenuItem(self, text, callback, *args):
+    # A million thanks to the """geniuses""" ($%&½€#&) at Gnome for deprecating Gtk.ImageMenuItem!!! ¬¬
+    def createMenuItem(self, text, callback):
         item = Gtk.MenuItem(text)
 
         if (callback is not None):
-            item.connect("activate", callback, *args)
+            item.connect("activate", callback)
 
         return item
 
@@ -2321,6 +2351,12 @@ class ExtensionPrefsWindow(Gtk.ApplicationWindow):
         if response == Gtk.ResponseType.YES:
             os.system("gsettings reset-recursively %s &" % SCHEMA_NAME)
             app.on_quit(self)
+
+    def _import_settings(self, widget):
+        self._import_export_settings(self, export=False)
+
+    def _export_settings(self, widget):
+        self._import_export_settings(self, export=True)
 
     def _import_export_settings(self, widget, export):
         if export:
@@ -2374,10 +2410,22 @@ class ExtensionPrefsWindow(Gtk.ApplicationWindow):
 class ExtensionPrefsApplication(Gtk.Application):
 
     def __init__(self, *args, **kwargs):
+        GLib.set_application_name(_("Cinnamon Tweaks"))
         super().__init__(*args,
                          application_id=APPLICATION_ID,
                          flags=Gio.ApplicationFlags.FLAGS_NONE,
                          **kwargs)
+
+        if os.path.exists("%s/metadata.json" % EXTENSION_DIR):
+            raw_data = open("%s/metadata.json" % EXTENSION_DIR).read()
+
+            try:
+                self.extension_meta = json.loads(raw_data)
+            except:
+                self.extension_meta = None
+        else:
+            self.extension_meta = None
+
         self.application = Gtk.Application()
         self.application.connect("activate", self.do_activate)
         self.application.connect("startup", self.do_startup)

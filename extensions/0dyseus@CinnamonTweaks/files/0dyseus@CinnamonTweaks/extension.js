@@ -1306,17 +1306,17 @@ function disable() {
         Settings.disconnect(CONNECTION_IDS.settings_bindings);
 
     let patches = [
-        "CT_AppletManagerPatch",
-        "CT_DeskletManagerPatch",
-        "CT_MessageTrayPatch",
-        "CT_WindowDemandsAttentionBehavior",
-        "CT_HotCornersPatch",
-        "CT_TooltipsPatch",
-        "CT_PopupMenuManagerPatch",
-        "CT_DropToDesktopPatch",
-        "CT_CustomWindowShadows",
-        "CT_AutoMoveWindows",
-        "CT_MaximusNG",
+        CT_AppletManagerPatch,
+        CT_DeskletManagerPatch,
+        CT_MessageTrayPatch,
+        CT_WindowDemandsAttentionBehavior,
+        CT_HotCornersPatch,
+        CT_TooltipsPatch,
+        CT_PopupMenuManagerPatch,
+        CT_DropToDesktopPatch,
+        CT_CustomWindowShadows,
+        CT_AutoMoveWindows,
+        CT_MaximusNG,
     ];
 
     for (let i = patches.length - 1; i >= 0; i--) {
