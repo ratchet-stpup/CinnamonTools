@@ -27,7 +27,7 @@ EXTENSION_UUID = str(os.path.basename(EXTENSION_DIR))
 # - Application identifiers must not exceed 255 characters.
 # To which I add
 # - Application identifiers must not contain a '.' (period) character next to a number. ¬¬
-APPLICATION_ID = "org.cinnamon.extensions-0dyseus.CinnamonTweaksTest"
+APPLICATION_ID = "org.cinnamon.extensions.odyseus.cinnamon.tweaks"
 SCHEMA_NAME = "org.cinnamon.extensions.0dyseus@CinnamonTweaks"
 SCHEMA_PATH = "/org/cinnamon/extensions/0dyseus@CinnamonTweaks/"
 TRANSLATIONS = {}
@@ -2484,12 +2484,8 @@ def display_warning_message(widget, title, message):
 
     dialog.set_markup(esc)
     dialog.show_all()
-    response = dialog.run()
+    dialog.run()
     dialog.destroy()
-
-
-def ui_thread_do(callback, *args):
-    GLib.idle_add(callback, *args, priority=GLib.PRIORITY_DEFAULT)
 
 
 def ui_error_message(msg, detail=None):

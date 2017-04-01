@@ -6,6 +6,13 @@ Never delete any of the files found inside this extension folder. It might break
 
 ***
 
+<h2 style="color:red;">Bug reports, feature requests and contributions</h2>
+<span style="color:red;">
+If anyone has bugs to report, a feature request or a contribution, do so on <a href="https://github.com/Odyseus/CinnamonTools">this xlet GitHub page</a>.
+</span>
+
+***
+
 ## Extension options details
 
 <span style="color:red;font-weight: bold;font-size: large;">Some tweaks have warnings, dependencies, limitations and or known issues that must be read and understood before a tweak is enabled. No worries, nothing <em>fatal</em> could ever happen.</span>
@@ -93,6 +100,8 @@ To cut it short, this tweak is buggy as hell. Cinnamon, more specifically **muff
 #### Known issues
 - **Invisible windows:** Sometimes, windows of applications that are configured to remove their decorations can become invisible. The application's icon can still be seen in the panel (taskbar) and when clicked to focus its respective window, the invisible window will block the clicks as if it were visible. To fix this, the window needs to be unmaximized (it will become visible again) and then closed. When reopened, the window should behave normally.
 
+- **Applications stuck undecorated:** Some times, an application will get stuck undecorated even after unmaximizing it. Restarting the application will recover its ability to decorate and undecorate itself.
+
 ***
 
 ## General extension issues
@@ -115,7 +124,3 @@ Following the [Desktop Entry Specification](https://specifications.freedesktop.o
     - If you don't have/want a GitHub account:
         - You can send me a [Pastebin](http://pastebin.com/) (or similar service) to my [Mint Forums account](https://forums.linuxmint.com/memberlist.php?mode=viewprofile&u=164858).
 - If the source text (in English) and/or my translation to Spanish has errors/inconsistencies, feel free to report them.
-
-## Bug reports, feature requests and contributions
-
-If anyone has bugs to report, a feature request or a contribution, do so on [this xlet GitHub page](https://github.com/Odyseus/CinnamonTools).
