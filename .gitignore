@@ -1,7 +1,6 @@
 # My ignores #
-/gh-pages
-/Themes/Mint-XY-DEV
-# /Themes/Mint-Y-Greybird-Blue
+/themes/Mint-XY-DEV
+/themes/Mint-XY-Greybird-Blue-DEV
 *.bak
 /docs/CinnamonTools.wiki
 
