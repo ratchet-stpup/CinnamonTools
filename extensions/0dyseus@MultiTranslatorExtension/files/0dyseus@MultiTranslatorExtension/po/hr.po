@@ -1137,3 +1137,11 @@ msgid ""
 msgstr ""
 "Prevođenje teksta pomoću raznih pružatelja usluge prevođenja (trenutno je "
 "podržan Google, Yandex, Bing i Apertium)."
+
+#. TO TRANSLATORS:
+#. Here goes the name/s of the author/s of the translations.
+#. Only e-mail addresses and links to GitHub accounts are allowed. NOTHING
+#. MORE.
+#: settings.py:1249
+msgid "translator-credits"
+msgstr "muzena https://github.com/muzena"
