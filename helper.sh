@@ -36,7 +36,7 @@ renderHelpFiles() {
                         echo " "
                         echoInfo "====== Rendering help file for $applet ======"
                         pug HELP.pug -o "files/$applet"
-                   fi
+                    fi
                 )
             fi
         done
@@ -52,7 +52,7 @@ renderHelpFiles() {
                         echo " "
                         echoInfo "====== Rendering help file for $extension ======"
                         pug HELP.pug -o "files/$extension"
-                   fi
+                    fi
                 )
             fi
         done
@@ -143,7 +143,6 @@ select opt in "${options[@]}" "Abort"; do
         * )
             echo "$(tput setaf 11)Invalid option. Try another one.$(tput sgr0)"
             echo "$(tput bold)"
-            continue
             ;;
     esac
 done
