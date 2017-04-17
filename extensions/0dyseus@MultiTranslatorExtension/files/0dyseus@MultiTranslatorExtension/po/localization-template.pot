@@ -862,6 +862,11 @@ msgstr ""
 msgid "Select a font size for the source text and target text entries."
 msgstr ""
 
+#: settings.py:307 settings.py:318 settings.py:329 settings.py:366
+#: settings.py:376 settings.py:387
+msgid "pixels"
+msgstr ""
+
 #: settings.py:313
 msgid "Percentage of screen width"
 msgstr ""
@@ -1112,6 +1117,18 @@ msgid ""
 "step yourself.  This is not a critical error."
 msgstr ""
 
+#. 0dyseus@MultiTranslatorExtension->metadata.json->description
+msgid ""
+"Translation of text by different translation providers (currently Google, "
+"Yandex, Bing and Apertium)."
+msgstr ""
+
+#. 0dyseus@MultiTranslatorExtension->metadata.json->comments
+msgid ""
+"Bug reports, feature requests and contributions should be done on this "
+"xlet's repository linked below."
+msgstr ""
+
 #. 0dyseus@MultiTranslatorExtension->metadata.json->contributors
 msgid ""
 "awamper: Original author of Text Translator gnome-shell extension "
@@ -1126,8 +1143,8 @@ msgstr ""
 
 #. 0dyseus@MultiTranslatorExtension->metadata.json->contributors
 msgid ""
-"soimort: Author of the translate-shell script https://github.com/soimort"
-"/translate-shell."
+"soimort: Author of the translate-shell script "
+"https://github.com/soimort/translate-shell."
 msgstr ""
 
 #. 0dyseus@MultiTranslatorExtension->metadata.json->contributors
@@ -1136,16 +1153,4 @@ msgstr ""
 
 #. 0dyseus@MultiTranslatorExtension->metadata.json->contributors
 msgid "giwhub: Chinese localization https://github.com/giwhub."
-msgstr ""
-
-#. 0dyseus@MultiTranslatorExtension->metadata.json->comments
-msgid ""
-"Bug reports, feature requests and contributions should be done on this "
-"xlet's repository linked below."
-msgstr ""
-
-#. 0dyseus@MultiTranslatorExtension->metadata.json->description
-msgid ""
-"Translation of text by different translation providers (currently Google, "
-"Yandex, Bing and Apertium)."
 msgstr ""

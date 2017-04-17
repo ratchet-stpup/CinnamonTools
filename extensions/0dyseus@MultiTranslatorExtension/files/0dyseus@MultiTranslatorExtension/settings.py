@@ -304,7 +304,7 @@ APPEARANCE_TAB = {
                 "min": 8,
                 "max": 32,
                 "step": 1,
-                "units": "pixels"
+                "units": _("pixels")
             }
         }, {
             "type": "spin",
@@ -315,7 +315,7 @@ APPEARANCE_TAB = {
                 "min": 20,
                 "max": 100,
                 "step": 5,
-                "units": "pixels"
+                "units": _("pixels")
             }
         }, {
             "type": "spin",
@@ -326,7 +326,7 @@ APPEARANCE_TAB = {
                 "min": 20,
                 "max": 100,
                 "step": 5,
-                "units": "pixels"
+                "units": _("pixels")
             }
         }]
     }]
@@ -363,7 +363,7 @@ HISTORY_TAB = {
                 "min": 400,
                 "max": 2048,
                 "step": 50,
-                "units": "pixels"
+                "units": _("pixels")
             }
         }, {
             "type": "spin",
@@ -373,7 +373,7 @@ HISTORY_TAB = {
                 "min": 400,
                 "max": 2048,
                 "step": 50,
-                "units": "pixels"
+                "units": _("pixels")
             }
         }, {
             "type": "spin",
@@ -384,7 +384,7 @@ HISTORY_TAB = {
                 "min": 100,
                 "max": 1024,
                 "step": 10,
-                "units": "pixels"
+                "units": _("pixels")
             }
         }]
     }]

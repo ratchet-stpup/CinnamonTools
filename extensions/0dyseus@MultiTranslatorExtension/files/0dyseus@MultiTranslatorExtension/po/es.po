@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-04-09 08:01-0300\n"
-"PO-Revision-Date: 2017-04-09 08:04-0300\n"
+"POT-Creation-Date: 2017-04-17 13:26-0300\n"
+"PO-Revision-Date: 2017-04-17 13:26-0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: es\n"
@@ -878,6 +878,11 @@ msgstr ""
 "Seleccionar tamaño de fuente para las entradas de texto de origen y de texto "
 "de destino."
 
+#: settings.py:307 settings.py:318 settings.py:329 settings.py:366
+#: settings.py:376 settings.py:387
+msgid "pixels"
+msgstr "píxeles"
+
 #: settings.py:313
 msgid "Percentage of screen width"
 msgstr "Porcentaje de ancho de pantalla"
@@ -1167,6 +1172,22 @@ msgstr ""
 "No se pudo eliminar el esquema de configuración para %s. Tendrá que realizar "
 "este paso usted mismo. Esto no es un error crítico."
 
+#. 0dyseus@MultiTranslatorExtension->metadata.json->description
+msgid ""
+"Translation of text by different translation providers (currently Google, "
+"Yandex, Bing and Apertium)."
+msgstr ""
+"Traducción de texto proporcionado por diferentes proveedores de traducción "
+"(actualmente Google, Yandex, Bing, Translatr and Apertium)."
+
+#. 0dyseus@MultiTranslatorExtension->metadata.json->comments
+msgid ""
+"Bug reports, feature requests and contributions should be done on this "
+"xlet's repository linked below."
+msgstr ""
+"Los reportes de fallos, peticiones de características y contribuciones deben "
+"hacerse en el repositorio de este xlet vinculado a continuación."
+
 #. 0dyseus@MultiTranslatorExtension->metadata.json->contributors
 msgid ""
 "awamper: Original author of Text Translator gnome-shell extension https://"
@@ -1198,19 +1219,3 @@ msgstr "muzena: Localización Croata https://github.com/muzena."
 #. 0dyseus@MultiTranslatorExtension->metadata.json->contributors
 msgid "giwhub: Chinese localization https://github.com/giwhub."
 msgstr "giwhub: Localización China https://github.com/giwhub."
-
-#. 0dyseus@MultiTranslatorExtension->metadata.json->comments
-msgid ""
-"Bug reports, feature requests and contributions should be done on this "
-"xlet's repository linked below."
-msgstr ""
-"Los reportes de fallos, peticiones de características y contribuciones deben "
-"hacerse en el repositorio de este xlet vinculado a continuación."
-
-#. 0dyseus@MultiTranslatorExtension->metadata.json->description
-msgid ""
-"Translation of text by different translation providers (currently Google, "
-"Yandex, Bing and Apertium)."
-msgstr ""
-"Traducción de texto proporcionado por diferentes proveedores de traducción "
-"(actualmente Google, Yandex, Bing, Translatr and Apertium)."
