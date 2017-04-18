@@ -272,7 +272,7 @@ APPEARANCE_TAB = {
                 "tooltip": _("Select a theme for the translation dialog."),
                 "values": {
                     "custom": _("Custom"),
-                    "default": "Linux Mint (Default)",
+                    "default": "Linux Mint (%s)" % _("Default"),
                     "Gnome-shell": "Gnome shell",
                     "Mint-X": "Mint-X",
                     "Mint-X-Aqua": "Mint-X-Aqua",
@@ -315,7 +315,7 @@ APPEARANCE_TAB = {
                 "min": 20,
                 "max": 100,
                 "step": 5,
-                "units": _("pixels")
+                "units": _("percentage")
             }
         }, {
             "type": "spin",
@@ -326,7 +326,7 @@ APPEARANCE_TAB = {
                 "min": 20,
                 "max": 100,
                 "step": 5,
-                "units": _("pixels")
+                "units": _("percentage")
             }
         }]
     }]
@@ -343,9 +343,9 @@ HISTORY_TAB = {
                 "label": _("Timestamp for history entries"),
                 "tooltip": _("Timestamp format for the translation history entries.\nNote: After changing this setting, only new entries in the translation history will be saved with the new timestamp format. Old entries will still have the previous timestamp format."),
                 "values": {
-                    "custom": "Custom",
+                    "custom": _("Custom"),
                     "iso": "YYYY MM-DD hh:mm:ss (ISO8601)",
-                    "eu": "YYYY DD-MM hh:mm:ss (European)"
+                    "eu": "YYYY DD-MM hh:mm:ss (%s)" % _("European")
                 }
             }
         }, {
@@ -353,6 +353,8 @@ HISTORY_TAB = {
             "args": {
                 "key": "history-timestamp-custom",
                 "label": _("Custom timestamp"),
+                # TO TRANSLATORS: The following strings shouldn't be translated:
+                # YYYY, MM, DD, hh, mm and ss.
                 "tooltip": _("Choose a custom timestamp for the translation history entries.\nYYYY: year\nMM: month\nDD: day\nhh: hours\nmm: minutes\nss: seconds")
             }
         }, {

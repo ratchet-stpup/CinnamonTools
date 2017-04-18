@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: 1.01\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-03-01 03:11-0300\n"
-"PO-Revision-Date: 2017-04-09 07:59-0300\n"
+"PO-Revision-Date: 2017-04-18 09:58-0300\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -842,8 +842,12 @@ msgstr ""
 msgid "Select a theme for the translation dialog."
 msgstr ""
 
-#: settings.py:274
+#: settings.py:274 settings.py:346
 msgid "Custom"
+msgstr ""
+
+#: settings.py:275
+msgid "Default"
 msgstr ""
 
 #: settings.py:295
@@ -862,8 +866,7 @@ msgstr ""
 msgid "Select a font size for the source text and target text entries."
 msgstr ""
 
-#: settings.py:307 settings.py:318 settings.py:329 settings.py:366
-#: settings.py:376 settings.py:387
+#: settings.py:307 settings.py:368 settings.py:378 settings.py:389
 msgid "pixels"
 msgstr ""
 
@@ -873,6 +876,10 @@ msgstr ""
 
 #: settings.py:314
 msgid "What percentage of screen width should the translation dialog fill."
+msgstr ""
+
+#: settings.py:318 settings.py:329
+msgid "percentage"
 msgstr ""
 
 #: settings.py:324
@@ -897,11 +904,17 @@ msgid ""
 "Note: After changing this setting, only new entries in the translation history will be saved with the new timestamp format. Old entries will still have the previous timestamp format."
 msgstr ""
 
+#: settings.py:348
+msgid "European"
+msgstr ""
+
 #: settings.py:355
 msgid "Custom timestamp"
 msgstr ""
 
-#: settings.py:356
+#. TO TRANSLATORS: The following strings shouldn't be translated:
+#. YYYY, MM, DD, hh, mm and ss.
+#: settings.py:358
 msgid ""
 "Choose a custom timestamp for the translation history entries.\n"
 "YYYY: year\n"
@@ -912,111 +925,111 @@ msgid ""
 "ss: seconds"
 msgstr ""
 
-#: settings.py:362
+#: settings.py:364
 msgid "History window initial width"
 msgstr ""
 
-#: settings.py:372
+#: settings.py:374
 msgid "History window initial height"
 msgstr ""
 
-#: settings.py:382
+#: settings.py:384
 msgid "Width to trigger word wrap"
 msgstr ""
 
-#: settings.py:383
+#: settings.py:385
 msgid ""
 "The \"Source text\" and \"Target text\" columns on the history window will "
 "wrap its text at the width defined by this setting."
 msgstr ""
 
-#: settings.py:394
+#: settings.py:396
 msgid "Advanced"
 msgstr ""
 
-#: settings.py:396
+#: settings.py:398
 msgid "Various advanced options"
 msgstr ""
 
-#: settings.py:402
+#: settings.py:404
 msgid "Yandex API keys"
 msgstr ""
 
-#: settings.py:403
+#: settings.py:405
 msgid ""
 "Enter one API key per line.\n"
 "Read the help file found inside this extension folder to know how to get free Yandex API keys."
 msgstr ""
 
-#: settings.py:408
+#: settings.py:410
 msgid "This options are only useful for the extension developer."
 msgstr ""
 
-#: settings.py:416
+#: settings.py:418
 msgid "Enable logging"
 msgstr ""
 
-#: settings.py:417
+#: settings.py:419
 msgid ""
 "It enables the ability to log the output of several functions used by the "
 "extension."
 msgstr ""
 
-#: settings.py:423
+#: settings.py:425
 msgid "Indent translation history data"
 msgstr ""
 
-#: settings.py:424
+#: settings.py:426
 msgid "It allows to save the translation history data with indentation."
 msgstr ""
 
-#: settings.py:869
+#: settings.py:871
 msgid "Select a directory to use"
 msgstr ""
 
-#: settings.py:872
+#: settings.py:874
 msgid "Select a file"
 msgstr ""
 
 #. TO TRANSLATORS: Could be left blank.
-#: settings.py:877 settings.py:1455 settings.py:1461
+#: settings.py:879 settings.py:1457 settings.py:1463
 msgid "_Cancel"
 msgstr ""
 
 #. TO TRANSLATORS: Could be left blank.
-#: settings.py:879 settings.py:1463
+#: settings.py:881 settings.py:1465
 msgid "_Open"
 msgstr ""
 
-#: settings.py:882
+#: settings.py:884
 msgid "Directories"
 msgstr ""
 
-#: settings.py:942
+#: settings.py:944
 msgid "Shortcut action"
 msgstr ""
 
-#: settings.py:956
+#: settings.py:958
 msgid "Shortcut"
 msgstr ""
 
-#: settings.py:972
+#: settings.py:974
 msgid "Click to set a new hotkey."
 msgstr ""
 
-#: settings.py:1033
+#: settings.py:1035
 msgid "Default source language:"
 msgstr ""
 
-#: settings.py:1045
+#: settings.py:1047
 msgid "Default target language:"
 msgstr ""
 
-#: settings.py:1056
+#: settings.py:1058
 msgid "Remember the last used languages:"
 msgstr ""
 
-#: settings.py:1241
+#: settings.py:1243
 msgid "Contributors/Mentions:"
 msgstr ""
 
@@ -1024,79 +1037,79 @@ msgstr ""
 #. Here goes the name/s of the author/s of the translations.
 #. Only e-mail addresses and links to GitHub accounts are allowed. NOTHING
 #. MORE.
-#: settings.py:1249
+#: settings.py:1251
 msgid "translator-credits"
 msgstr ""
 
-#: settings.py:1276
+#: settings.py:1278
 msgid "Cinnamon Tweaks"
 msgstr ""
 
-#: settings.py:1317
+#: settings.py:1319
 msgid "Multi Translator extension preferences"
 msgstr ""
 
-#: settings.py:1363
+#: settings.py:1365
 msgid "Reset settings to defaults"
 msgstr ""
 
-#: settings.py:1365
+#: settings.py:1367
 msgid "Import settings from a file"
 msgstr ""
 
-#: settings.py:1367
+#: settings.py:1369
 msgid "Export settings to a file"
 msgstr ""
 
-#: settings.py:1372
+#: settings.py:1374
 msgid "Remember window size"
 msgstr ""
 
-#: settings.py:1378
+#: settings.py:1380
 msgid "Help"
 msgstr ""
 
-#: settings.py:1380
+#: settings.py:1382
 msgid "About"
 msgstr ""
 
-#: settings.py:1388
+#: settings.py:1390
 msgid "Manage settings"
 msgstr ""
 
-#: settings.py:1438
+#: settings.py:1440
 msgid "Warning: Trying to reset all Multi Translator settings!!!"
 msgstr ""
 
-#: settings.py:1440
+#: settings.py:1442
 msgid "Reset all Multi Translator settings to default?"
 msgstr ""
 
-#: settings.py:1453
+#: settings.py:1455
 msgid "Select or enter file to export to"
 msgstr ""
 
-#: settings.py:1456
+#: settings.py:1458
 msgid "_Save"
 msgstr ""
 
-#: settings.py:1459
+#: settings.py:1461
 msgid "Select a file to import"
 msgstr ""
 
-#: settings.py:1475
+#: settings.py:1477
 msgid "DCONF files"
 msgstr ""
 
 #. TO TRANSLATORS: Could be left blank.
-#: settings.py:1523
+#: settings.py:1525
 #, python-format
 msgid ""
 "Please enter your password to install the required settings schema for %s"
 msgstr ""
 
 #. TO TRANSLATORS: Could be left blank.
-#: settings.py:1534
+#: settings.py:1536
 #, python-format
 msgid ""
 "Could not install the settings schema for %s.  You will have to perform this"
@@ -1104,13 +1117,13 @@ msgid ""
 msgstr ""
 
 #. TO TRANSLATORS: Could be left blank.
-#: settings.py:1540
+#: settings.py:1542
 #, python-format
 msgid "Please enter your password to remove the settings schema for %s"
 msgstr ""
 
 #. TO TRANSLATORS: Could be left blank.
-#: settings.py:1551
+#: settings.py:1553
 #, python-format
 msgid ""
 "Could not remove the settings schema for %s.  You will have to perform this "
@@ -1121,12 +1134,6 @@ msgstr ""
 msgid ""
 "Translation of text by different translation providers (currently Google, "
 "Yandex, Bing and Apertium)."
-msgstr ""
-
-#. 0dyseus@MultiTranslatorExtension->metadata.json->comments
-msgid ""
-"Bug reports, feature requests and contributions should be done on this "
-"xlet's repository linked below."
 msgstr ""
 
 #. 0dyseus@MultiTranslatorExtension->metadata.json->contributors
@@ -1153,4 +1160,10 @@ msgstr ""
 
 #. 0dyseus@MultiTranslatorExtension->metadata.json->contributors
 msgid "giwhub: Chinese localization https://github.com/giwhub."
+msgstr ""
+
+#. 0dyseus@MultiTranslatorExtension->metadata.json->comments
+msgid ""
+"Bug reports, feature requests and contributions should be done on this "
+"xlet's repository linked below."
 msgstr ""
