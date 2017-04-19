@@ -284,7 +284,8 @@ APPEARANCE_TAB = {
                     "Mint-X-Purple": "Mint-X-Purple",
                     "Mint-X-Red": "Mint-X-Red",
                     "Mint-X-Sand": "Mint-X-Sand",
-                    "Mint-X-Teal": "Mint-X-Teal"
+                    "Mint-X-Teal": "Mint-X-Teal",
+                    "Thunderbolt": "Thunderbolt"
                 }
             }
         }, {

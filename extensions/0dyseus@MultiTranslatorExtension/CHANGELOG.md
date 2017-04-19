@@ -1,5 +1,8 @@
 ## Change Log
 
+##### 1.02
+- Added Czech localization and Thunderbolt theme. Thanks to [Radek71](https://github.com/Radek71).
+
 ##### 1.01
 - Updated README due to localizations updates.
 - Changed the contributors key on the metadata.json file from a string to an array for easier reviewing and better legibility.
