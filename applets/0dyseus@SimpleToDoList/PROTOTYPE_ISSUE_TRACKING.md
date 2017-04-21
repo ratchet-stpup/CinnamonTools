@@ -57,6 +57,10 @@ The keyboard navigation inside this applet menu is very similar to the keyboard 
 - **Hovering over items inside the menu doesn't highlight menu items nor sub menus:** This is actually a desired feature. Allowing the items to highlight on mouse hover would cause the entries to loose focus, resulting in the impossibility to keep typing text inside them and constantly forcing us to move the mouse cursor to regain focus.
 - **Task entries look wrong:** Task entries on this applet have the ability to wrap its text in case one sets a fixed width for them. They also can be multi line (<kdb>Shift</kdb> + <kdb>Enter</kdb> inside an entry will create a new line). Some Cinnamon themes, like the default Mint-X family of themes, set a fixed width and a fixed height for entries inside menus. These fixed sizes makes it impossible to programmatically set a desired width for the entries (at least, I couldn't find a way to do it). And the fixed height doesn't allow the entries to expand, completely breaking the entries capability to wrap its text and to be multi line. The only way to fix this (that I could find) is by editing the Cinnamon theme that one is using and remove those fixed sizes. The CSS selectors that needs to be edited are **.menu StEntry**, **.menu StEntry:focus**, **.popup-menu StEntry** and **.popup-menu StEntry:focus**. Depending on the Cinnamon version the theme was created for, one might find just the first two selectors or the last two or all of them. The CSS properties that need to be edited are **width** and **height**. They could be removed, but the sensible thing to do is to rename them to **min-width** and **min-height** respectively. After editing the theme's file and restarting Cinnamon, the entries inside this applet will look and work like they should.
 
+## Images
+
+![screenshot](https://cloud.githubusercontent.com/assets/3822556/25260927/90d078ba-2625-11e7-9ed5-6ada5a8fe5ae.png)
+
 ## Issue reports
 
 **Issue reporters should adjunct the output of the following commands.**
@@ -65,6 +69,8 @@ The keyboard navigation inside this applet menu is very similar to the keyboard 
 `inxi -xxxSc0 -! 31`
 `pastebin ~/.cinnamon/glass.log`
 `pastebin ~/.xsession-errors`
+
+## [Download Simple ToDo List applet](https://odyseus.github.io/CinnamonTools/pkg/0dyseus@SimpleToDoList.tar.gz)
 
 ## References to anyone that could be interested in testing the applet
 
