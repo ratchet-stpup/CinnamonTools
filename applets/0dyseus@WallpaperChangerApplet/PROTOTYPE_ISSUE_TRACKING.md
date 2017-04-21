@@ -33,6 +33,10 @@ Wallpaper Changer is an applet based on the gnome-shell extension called [Desk C
 
 **Note:** This applet doesn't complement the Cinnamon option called **Play backgrounds as a slideshow**, it replaces it. The Cinnamon option should be disabled at all times for this applet to work as expected. No worries, nothing *fatal* could happen.
 
+## Images
+
+![screenshot](https://cloud.githubusercontent.com/assets/3822556/25260821/fdf7fefa-2624-11e7-8c25-52be83686015.png)
+
 ## Known issues
 
 No known issues for the moment.
@@ -45,6 +49,8 @@ No known issues for the moment.
 `inxi -xxxSc0 -! 31`
 `pastebin ~/.cinnamon/glass.log`
 `pastebin ~/.xsession-errors`
+
+## [Download Wallpaper Changer applet](https://odyseus.github.io/CinnamonTools/pkg/0dyseus@WallpaperChangerApplet.tar.gz)
 
 ## References to anyone that could be interested in testing the applet
 
