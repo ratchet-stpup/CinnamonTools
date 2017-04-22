@@ -1,5 +1,8 @@
 ## Change Log
 
+##### 1.07
+- Added Cinnamon 3.4 compatibility in a separate theme. All parts of this theme will work on all 3.x versions of Cinnamon, except the Cinnamon thee (Desktop) on Cinnamon 3.4. For Cinnamon 3.4, there is an specific theme called **Mint-XY-Cinn-3.4**.
+
 ##### 1.06
 - Removed fixed sizes for entries inside menus. This was causing me infinite headaches while developing an applet. The fixed width didn't allowed me to use *set_width*. And the fixed height destroyed the entry capability to expand on word wrapping and on multi-line text.
 - Added LICENSE file.
