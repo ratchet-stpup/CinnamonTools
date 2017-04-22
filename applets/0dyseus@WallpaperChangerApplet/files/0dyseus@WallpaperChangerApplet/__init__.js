@@ -399,32 +399,28 @@ WallChangerButton.prototype = {
     __proto__: PopupMenu.PopupBaseMenuItem.prototype,
 
     _init: function(icon, callback) {
-        try {
-            PopupMenu.PopupBaseMenuItem.prototype._init.call(this);
-            this._settings = Settings;
-            this.connections = [];
+        PopupMenu.PopupBaseMenuItem.prototype._init.call(this);
+        this._settings = Settings;
+        this.connections = [];
 
-            this.actor.set_style_class_name("menu-application-button");
-            this.icon = new St.Icon({
-                icon_type: St.IconType.SYMBOLIC,
-                icon_name: icon,
-                icon_size: 20
-            });
-            this.addActor(this.icon);
+        this.actor.set_style_class_name("menu-application-button");
+        this.icon = new St.Icon({
+            icon_type: St.IconType.SYMBOLIC,
+            icon_name: icon,
+            icon_size: 20
+        });
+        this.addActor(this.icon);
 
-            let conn = this.actor.connect("leave-event", Lang.bind(this, this._leaveEvent));
-            this.connections.push([this.actor, conn]);
+        let conn = this.actor.connect("leave-event", Lang.bind(this, this._leaveEvent));
+        this.connections.push([this.actor, conn]);
 
-            conn = this.actor.connect("enter-event", Lang.bind(this, this._enterEvent));
-            this.connections.push([this.actor, conn]);
+        conn = this.actor.connect("enter-event", Lang.bind(this, this._enterEvent));
+        this.connections.push([this.actor, conn]);
 
-            conn = this.connect("activate", Lang.bind(this, callback));
-            this.connections.push([this, conn]);
+        conn = this.connect("activate", Lang.bind(this, callback));
+        this.connections.push([this, conn]);
 
-            this.tooltip = new MyTooltip(this.actor, "");
-        } catch (aErr) {
-            global.logError(aErr);
-        }
+        this.tooltip = new MyTooltip(this.actor, "");
     },
 
     _leaveEvent: function() {
@@ -521,7 +517,9 @@ WallChangerPreview.prototype = {
                     try {
                         let stream = obj.read_finish(res);
                         this._textureFromStream(stream);
-                    } catch (e) {}
+                    } catch (aErr) {
+                        global.logError(aErr);
+                    }
                 }));
     },
 
@@ -529,11 +527,7 @@ WallChangerPreview.prototype = {
         GdkPixbuf.Pixbuf.new_from_stream_at_scale_async(stream, this._width, -1, true, null,
             Lang.bind(this, function(obj, res) {
                 try {
-                    let pixBuf;
-
-                    // try {
-                    pixBuf = GdkPixbuf.Pixbuf.new_from_stream_finish(res);
-                    // } finally {
+                    let pixBuf = GdkPixbuf.Pixbuf.new_from_stream_finish(res);
                     let image = new Clutter.Image();
                     let scale = pixBuf.get_width() / this._width;
                     let height = pixBuf.get_height() / scale;
@@ -558,11 +552,7 @@ WallChangerPreview.prototype = {
 
                     this._texture.set_content(image);
 
-                    /* we're ready now */
                     this.actor.add_actor(this._texture);
-                    // this.actor.set_child(this._texture);
-
-                    // this._callback();
 
                     stream.close_async(GLib.PRIORITY_DEFAULT,
                         null,
@@ -573,7 +563,6 @@ WallChangerPreview.prototype = {
                                 global.logError('Unable to close the stream ' + e.toString());
                             }
                         });
-                    // }
                 } catch (aErr) {
                     global.logError(aErr);
                 }
@@ -582,27 +571,23 @@ WallChangerPreview.prototype = {
 
     set_wallpaper: function(aPath) {
         try {
-            try {
-                this._path = GLib.uri_unescape_string(aPath, null);
-                this._path = this._path.replace("file://", "");
-                debug("Setting preview to %s".format(this._path));
+            this._path = GLib.uri_unescape_string(aPath, null);
+            this._path = this._path.replace("file://", "");
+            debug("Setting preview to %s".format(this._path));
 
-                this._createImageTexture(this._path);
+            this._createImageTexture(this._path);
 
-            } catch (aErr) {
-                debug("ERROR: Failed to set preview of %s".format(this._path));
-                global.logError(aErr);
-
-                if (this._texture) {
-                    this._texture.destroy();
-                    this._texture = null;
-                }
-
-                if (this._path.substr(-4) !== ".xml")
-                    return;
-            }
         } catch (aErr) {
+            debug("ERROR: Failed to set preview of %s".format(this._path));
             global.logError(aErr);
+
+            if (this._texture) {
+                this._texture.destroy();
+                this._texture = null;
+            }
+
+            if (this._path.substr(-4) !== ".xml")
+                return;
         }
     },
 
@@ -619,54 +604,41 @@ WallChangerStateButton.prototype = {
     __proto__: WallChangerButton.prototype,
 
     _init: function(states, callback) {
-        try {
-            if (states.length < 2) {
-                RangeError(_("You must provide at least two states for the button"));
-            }
-
-            this._callback = callback;
-            this._states = states;
-            this._state = 0;
-            WallChangerButton.prototype._init.call(this, this._states[0].icon,
-                Lang.bind(this, this._clicked));
-
-        } catch (aErr) {
-            global.logError(aErr);
+        if (states.length < 2) {
+            RangeError(_("You must provide at least two states for the button"));
         }
+
+        this._callback = callback;
+        this._states = states;
+        this._state = 0;
+        WallChangerButton.prototype._init.call(this, this._states[0].icon,
+            Lang.bind(this, this._clicked));
     },
 
     set_state: function(state) {
-        try {
-            this.set_tooltip(state);
+        this.set_tooltip(state);
 
-            if (state == this._states[this._state].name)
-                return;
+        if (state == this._states[this._state].name)
+            return;
 
-            for (let i = 0; i < this._states.length; i++) {
-                if (this._states[i].name == state) {
-                    this.set_icon(this._states[i].icon);
-                    this._state = i;
-                    break;
-                }
+        for (let i = 0; i < this._states.length; i++) {
+            if (this._states[i].name == state) {
+                this.set_icon(this._states[i].icon);
+                this._state = i;
+                break;
             }
-        } catch (aErr) {
-            global.logError(aErr);
         }
     },
 
     _clicked: function() {
-        try {
-            let state = this._state;
+        let state = this._state;
 
-            if (++state >= this._states.length)
-                state = 0;
+        if (++state >= this._states.length)
+            state = 0;
 
-            state = this._states[state].name;
-            this.set_state(state);
-            this._callback(state);
-        } catch (aErr) {
-            global.logError(aErr);
-        }
+        state = this._states[state].name;
+        this.set_state(state);
+        this._callback(state);
     }
 };
 
@@ -814,6 +786,7 @@ WallChangerDaemonControl.prototype = {
             debug("Removing daemon switch handler %s".format(this._handler));
             this.disconnect(this._handler);
         } catch (aErr) {}
+
         debug("Removing daemon toggled handler %s".format(this._daemon_handler));
         this.daemon.disconnect(this._daemon_handler);
         PopupMenu.PopupSwitchMenuItem.prototype.destroy.call(this);
