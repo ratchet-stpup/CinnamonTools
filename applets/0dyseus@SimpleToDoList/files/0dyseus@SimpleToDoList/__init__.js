@@ -905,10 +905,10 @@ TasksContainer.prototype = {
 
                         this.box.show();
                         this._clearDragPlaceholder();
-                        return false;
                     } catch (aErr) {
                         global.logError((aErr));
                     }
+                    return false;
                 }));
 
         } catch (aErr) {
@@ -1077,7 +1077,7 @@ TasksListItem.prototype = {
 
         if (this.menu.isOpen) {
             this.menu.close(this._applet.pref_animate_menu);
-            return true;
+            return;
         }
 
         PopupMenu.PopupBaseMenuItem.prototype._onButtonReleaseEvent.call(this);

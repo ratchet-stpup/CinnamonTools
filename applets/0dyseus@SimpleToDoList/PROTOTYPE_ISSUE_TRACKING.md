@@ -74,4 +74,4 @@ The keyboard navigation inside this applet menu is very similar to the keyboard 
 
 ## References to anyone that could be interested in testing the applet
 
-@buzz @copecu @fortalezense @maladro1t @NikoKrause @pizzadude @Radek71 @sphh @DamienNZ @muzena
+@buzz @copecu @fortalezense @maladro1t @NikoKrause @Radek71 @sphh @DamienNZ @muzena
