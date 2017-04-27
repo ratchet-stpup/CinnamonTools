@@ -609,7 +609,7 @@ const WindowDemandsAttentionClass = new Lang.Class({
     _add_keybindings: function() {
         Main.keybindingManager.addHotKey(
             this.wdae_shortcut_id,
-            Settings.get_strv($.P.WIN_DEMANDS_ATTENTION_KEYBOARD_SHORTCUT),
+            Settings.get_strv($.P.WIN_DEMANDS_ATTENTION_KEYBOARD_SHORTCUT) + "::",
             Lang.bind(this, this._activate_last_window));
     },
 
@@ -716,6 +716,15 @@ const CT_TooltipsPatch = {
                             this.mousePosition = event.get_coords();
                         }
                     };
+
+                    STG.TTP._onEnterEvent = Tooltips.TooltipBase._onEnterEvent;
+                    Tooltips.TooltipBase.prototype["_onEnterEvent"] = function(actor, event) {
+                        if (!this._showTimer) {
+                            this._showTimer = Mainloop.timeout_add(Settings.get_int($.P.TOOLTIPS_DELAY),
+                                Lang.bind(this, this._onTimerComplete));
+                            this.mousePosition = event.get_coords();
+                        }
+                    };
                 } else if ($.versionCompare(CINNAMON_VERSION, "3.2.0") >= 0) {
                     STG.TTP._onMotionEvent = Tooltips.TooltipBase._onMotionEvent;
                     Tooltips.TooltipBase.prototype["_onMotionEvent"] = function(actor, event) {
@@ -738,16 +747,16 @@ const CT_TooltipsPatch = {
                                 Lang.bind(this, this._onHideTimerComplete));
                         }
                     };
-                }
 
-                STG.TTP._onEnterEvent = Tooltips.TooltipBase._onEnterEvent;
-                Tooltips.TooltipBase.prototype["_onEnterEvent"] = function(actor, event) {
-                    if (!this._showTimer) {
-                        this._showTimer = Mainloop.timeout_add(Settings.get_int($.P.TOOLTIPS_DELAY),
-                            Lang.bind(this, this._onTimerComplete));
-                        this.mousePosition = event.get_coords();
-                    }
-                };
+                    STG.TTP._onEnterEvent = Tooltips.TooltipBase._onEnterEvent;
+                    Tooltips.TooltipBase.prototype["_onEnterEvent"] = function(actor, event) {
+                        if (!this._showTimer) {
+                            this._showTimer = Mainloop.timeout_add(Settings.get_int($.P.TOOLTIPS_DELAY),
+                                Lang.bind(this, this._onShowTimerComplete));
+                            this.mousePosition = event.get_coords();
+                        }
+                    };
+                }
             }
         }
 

@@ -1,5 +1,11 @@
 ## Change Log
 
+##### 1.10
+- Fixed spelling error on Spanish localization.
+- Fixed error on *Tooltips show delay* function for Cinnamon 3.2.x caused by a wrong callback call.
+- Fixed an error on the *Auto move windows* tweak caused by lack of context.
+- Fixed the keybinding registration for the *Window focus tweaks* caused by the move from Cinnamon's native settings system to gsettings.
+
 ##### 1.09
 - Added some missing translatable strings.
 - Updated localizations.

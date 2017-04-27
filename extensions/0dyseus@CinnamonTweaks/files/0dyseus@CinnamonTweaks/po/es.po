@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.06\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-04-05 04:40-0300\n"
-"PO-Revision-Date: 2017-04-05 04:40-0300\n"
+"POT-Creation-Date: 2017-04-27 17:49-0300\n"
+"PO-Revision-Date: 2017-04-27 17:49-0300\n"
 "Last-Translator: Odyseus\n"
 "Language-Team: \n"
 "Language: es\n"
@@ -93,13 +93,13 @@ msgstr ""
 msgid "Hotcorners tweaks"
 msgstr "Ajustes de esquinas activas"
 
-#: extension.js:786 settings.py:288
+#: extension.js:795 settings.py:288
 msgid "Avoid mouse pointer overlapping tooltips"
 msgstr ""
 "Evitar la superposición de puntero del ratón sobre las cajas de información "
 "sobre herramientas"
 
-#: extension.js:1277
+#: extension.js:1286
 msgid ""
 "If you updated this extension from an older version, <b>you must check its "
 "settings window</b>."
@@ -107,13 +107,13 @@ msgstr ""
 "Si actualizó esta extensión desde una versión anterior, <b>usted debe "
 "comprobar su ventana de configuración</b>."
 
-#: extension.js:1278
+#: extension.js:1287
 msgid "Some preferences may have been changed to their default values."
 msgstr ""
 "Es posible que algunas preferencias hayan sido cambiadas a sus valores "
 "predeterminados."
 
-#: extension.js:1279
+#: extension.js:1288
 msgid "This message will not be displayed again."
 msgstr "Este mensaje no se volverá a mostrar."
 
@@ -325,7 +325,7 @@ msgstr ""
 "applets colocados en cualquier panel.\n"
 "\n"
 "Emular el comportamiento de los menúes de Gnome Shell: Cuando un menú está "
-"abierto en Gnome Shell y, a continuación, el cursor del ratón se mueve a "
+"abierto en Genome Shell y, a continuación, el cursor del ratón se mueve a "
 "otro botón en el panel superior, el menú de los botones por los cuales el "
 "cursor del ratón está pasando se abrirán automáticamente sin necesidad de "
 "hacer clic en ellos. Con esta opción habilitada, ese mismo comportamiento se "

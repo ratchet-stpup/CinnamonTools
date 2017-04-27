@@ -399,10 +399,10 @@ const CT_WindowMoverClass = new Lang.Class({
         if (!app) {
             if (!noRecurse) {
                 // window is not tracked yet
-                Mainloop.idle_add(function() {
+                Mainloop.idle_add(Lang.bind(this, function() {
                     this._findAndMove(display, window, true);
                     return false;
-                });
+                }));
             } else {
                 // It's just freaking annoying!!!
                 // global.logWarning(_("Cannot find application for window"));

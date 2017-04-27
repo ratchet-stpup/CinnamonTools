@@ -6,10 +6,10 @@
 msgid ""
 msgstr ""
 
-"Project-Id-Version: 1.09\n"
+"Project-Id-Version: 1.10\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-10-21 14:53-0300\n"
-"PO-Revision-Date: 2017-04-05 03:23-0300\n"
+"PO-Revision-Date: 2017-04-27 17:47-0300\n"
 "Last-Translator: Odyseus <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -88,21 +88,21 @@ msgstr ""
 msgid "Hotcorners tweaks"
 msgstr ""
 
-#: extension.js:786 settings.py:288
+#: extension.js:795 settings.py:288
 msgid "Avoid mouse pointer overlapping tooltips"
 msgstr ""
 
-#: extension.js:1277
+#: extension.js:1286
 msgid ""
 "If you updated this extension from an older version, <b>you must check its "
 "settings window</b>."
 msgstr ""
 
-#: extension.js:1278
+#: extension.js:1287
 msgid "Some preferences may have been changed to their default values."
 msgstr ""
 
-#: extension.js:1279
+#: extension.js:1288
 msgid "This message will not be displayed again."
 msgstr ""
 
@@ -822,8 +822,8 @@ msgstr ""
 
 #. 0dyseus@CinnamonTweaks->metadata.json->contributors
 msgid ""
-"Luis Pabon: Author of Maximus NG extension https://github.com/luispabon"
-"/maximus-gnome-shell."
+"Luis Pabon: Author of Maximus NG extension "
+"https://github.com/luispabon/maximus-gnome-shell."
 msgstr ""
 
 #. 0dyseus@CinnamonTweaks->metadata.json->contributors
