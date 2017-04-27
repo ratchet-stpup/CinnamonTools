@@ -1210,9 +1210,6 @@ def display_warning_message(widget, title, message):
                                message_type=Gtk.MessageType.WARNING,
                                buttons=Gtk.ButtonsType.OK)
 
-    # try:
-    #     esc = cgi.escape(message)
-    # except:
     esc = message
 
     dialog.set_markup(esc)

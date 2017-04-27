@@ -556,7 +556,7 @@ class WallChangerDaemon(Gio.Application):
 
     def _log(self, level, message, *args):
         message = str(message) % args
-        GLib.log_default_handler("Application", level, message, 0)
+        GLib.log_default_handler("", level, message, 0)
 
     def _next(self, append_history=True):
         if len(self._wallpapers) == 0:

@@ -16,7 +16,7 @@
             <summary>Automatically start the daemon when the applet loads</summary>
         </key>
         <key type="s" name="current-profile">
-            <default>"default"</default>
+            <default>"Cinnamon"</default>
             <description>
                 This is the current profile that the daemon will load.
             </description>
@@ -25,7 +25,7 @@
         <key type="i" name="interval">
             <default>10</default>
             <description>
-                When timer is enabled, the interval is the amount of time in seconds between the daemon switching the wallpaper to the next available wallpaper. Default is 300 seconds or 5 minutes
+                When timer is enabled, the interval is the amount of time in seconds between the daemon switching the wallpaper to the next available wallpaper. Default is 10 seconds.
             </description>
             <summary>Number of seconds between wallpaper changes</summary>
         </key>
@@ -55,7 +55,7 @@
             <summary>Change to previous wallpaper</summary>
         </key>
         <key type="a{sa(sb)}" name="profiles">
-            <default>[{"default",[("file:///usr/share/backgrounds", true)]}]</default>
+            <default>[{"Cinnamon",[("file:///usr/share/backgrounds", true)]}]</default>
             <description>
                 These are all the available profiles. By default it contains a single profile that will recursively load /usr/share/backgrouds
             </description>
