@@ -59,19 +59,67 @@ renderHelpFiles() {
     )
 }
 
-createPackages() {
-    # Cleanup folder
-    rm -f $ROOT_PATH/docs/pkg/*
+get_sha512sum() {
+    # https://unix.stackexchange.com/a/158766
+    # This was the only method that I found that gives me really different shasums.
+    # With other methods, if I only change the name of a single file, would give
+    # the exact same shasum.
+    dir="$(tr '\\' / <<< "$1" | tr -s / | sed 's-/$--')"
+    cutted=$((${#dir} + 35))
+    sha=$(find "$dir" -type f -exec sha512sum {} \; | cut -c 1-33,$cutted- | sort | sha512sum | cut -c 1-32)
+    eval "$2='$sha'"
+}
 
+createPackages() {
+    # Create the tmp dir if it doesn't exists.
+    # For now, the tmp dir is only used to store the shasums.
+    # The shasums are used to avoid the re-packaging of xlets that weren't modified.
+    if [ ! -d $ROOT_PATH/tmp/shasums ]; then
+      mkdir -p $ROOT_PATH/tmp/shasums;
+    fi
+
+    # Using a sub-shell to switch directories to avoid "back and forth".
+    # It seems more work, but it really isn't because the following three
+    # sub-shells are practically the same.
     (
         cd applets
         for applet in *; do
             if [ -d ${applet} ]; then
-                echo " "
-                echoInfo "====== Packaging $applet ======"
+                # Get the previously calculated shasum if any.
+                # Store it earlier just in case.
+                if [ ! -f $ROOT_PATH/tmp/shasums/$applet ]; then
+                    current_applet_sha=""
+                else
+                    current_applet_sha=$(<$ROOT_PATH/tmp/shasums/$applet)
+                fi
+
                 (
                     cd "$applet/files"
-                    tar -cvzf "$ROOT_PATH/docs/pkg/$applet.tar.gz" $applet
+                    new_sha=""
+                    get_sha512sum "$ROOT_PATH/applets/$applet/files/$applet" new_sha
+
+                    echo " "
+                    sleep 0.2
+
+                    if [ "$new_sha" == "$current_applet_sha" ]; then
+                        # If the stored and the calculated shasums are equal:
+                        # Do nothing and do not touch the stored shasum.
+                        echoInfo "====== Skipping packaging of $applet ======"
+                    else
+                        # If the stored and the calculated shasums are NOT equal,
+                        # 1- Store the new calculated shasum.
+                        # 2- Delete old package.
+                        # 3- Create new package.
+                        echoInfo "====== Storing shasum for $applet ======"
+                        # Store the shasum WITHOUT the freaking new line (-n argument).
+                        echo -n $new_sha > $ROOT_PATH/tmp/shasums/$applet
+
+                        echoInfo "====== Deleting old $applet package ======"
+                        rm -f $ROOT_PATH/docs/pkg/$applet.tar.gz
+
+                        echoInfo "====== Packaging $applet ======"
+                        tar -cvzf "$ROOT_PATH/docs/pkg/$applet.tar.gz" $applet
+                    fi
                 )
             fi
         done
@@ -83,11 +131,32 @@ createPackages() {
         cd extensions
         for extension in *; do
             if [ -d ${extension} ]; then
-                echo " "
-                echoInfo "====== Packaging $extension ======"
+                if [ ! -f $ROOT_PATH/tmp/shasums/$extension ]; then
+                    current_extension_sha=""
+                else
+                    current_extension_sha=$(<$ROOT_PATH/tmp/shasums/$extension)
+                fi
+
                 (
                     cd "$extension/files"
-                    tar -cvzf "$ROOT_PATH/docs/pkg/$extension.tar.gz" $extension
+                    new_sha=""
+                    get_sha512sum "$ROOT_PATH/extensions/$extension/files/$extension" new_sha
+
+                    echo " "
+                    sleep 0.2
+
+                    if [ "$new_sha" == "$current_extension_sha" ]; then
+                        echoInfo "====== Skipping packaging of $extension ======"
+                    else
+                        echoInfo "====== Storing shasum for $extension ======"
+                        echo -n $new_sha > $ROOT_PATH/tmp/shasums/$extension
+
+                        echoInfo "====== Deleting old $extension package ======"
+                        rm -f $ROOT_PATH/docs/pkg/$extension.tar.gz
+
+                        echoInfo "====== Packaging $extension ======"
+                        tar -cvzf "$ROOT_PATH/docs/pkg/$extension.tar.gz" $extension
+                    fi
                 )
             fi
         done
@@ -99,11 +168,32 @@ createPackages() {
         cd themes
         for theme in *; do
             if [ -d ${theme} ]; then
-                echo " "
-                echoInfo "====== Packaging $theme ======"
+                if [ ! -f $ROOT_PATH/tmp/shasums/$theme ]; then
+                    current_sha=""
+                else
+                    current_sha=$(<$ROOT_PATH/tmp/shasums/$theme)
+                fi
+
                 (
                     cd "$theme/files"
-                    tar -cvzf "$ROOT_PATH/docs/pkg/$theme.tar.gz" $theme
+                    new_sha=""
+                    get_sha512sum "$ROOT_PATH/themes/$theme/files/$theme" new_sha
+
+                    echo " "
+                    sleep 0.2
+
+                    if [ "$new_sha" == "$current_sha" ]; then
+                        echoInfo "====== Skipping packaging of $theme ======"
+                    else
+                        echoInfo "====== Storing shasum for $theme ======"
+                        echo -n $new_sha > $ROOT_PATH/tmp/shasums/$theme
+
+                        echoInfo "====== Deleting old $theme package ======"
+                        rm -f $ROOT_PATH/docs/pkg/$theme.tar.gz
+
+                        echoInfo "====== Packaging $theme ======"
+                        tar -cvzf "$ROOT_PATH/docs/pkg/$theme.tar.gz" $theme
+                    fi
                 )
             fi
         done
