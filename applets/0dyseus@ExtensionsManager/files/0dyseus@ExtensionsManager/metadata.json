@@ -1,17 +1,19 @@
 {
-    "dangerous": true,
-    "uuid": "0dyseus@ExtensionsManager",
-    "max-instances": -1,
-    "multiversion": true,
-    "version": "1.05",
-    "name": "Extensions Manager",
-    "description": "Allows enabling/disabling extensions (and other tasks) from a menu.",
-    "comments": "Bug reports, feature requests and contributions should be done on this xlet's repository linked below.",
     "website": "https://github.com/Odyseus/CinnamonTools",
-    "contributors": "Radek71: Czech localization.,muzena: Croatian localization.,giwhub: Chinese localization.",
+    "uuid": "0dyseus@ExtensionsManager",
+    "contributors": [
+        "Radek71: Czech localization.",
+        "muzena: Croatian localization.",
+        "giwhub: Chinese localization."
+    ],
+    "max-instances": -1,
+    "comments": "Bug reports, feature requests and contributions should be done on this xlet's repository linked below.",
+    "name": "Extensions Manager",
+    "version": "1.06",
     "cinnamon-version": [
         "2.8",
         "3.0",
         "3.2"
-    ]
+    ],
+    "description": "Allows enabling/disabling extensions (and other tasks) from a menu."
 }

@@ -1,5 +1,11 @@
 ## Change Log
 
+##### 1.06
+- Removed *multiversion* because it is not worth the trouble.
+- Moved some prototypes into a separate "modules file".
+- Removed the use of *get_file_contents_utf8_sync* in favor of an asynchronous function to avoid the *dangerous* flag.
+- Fixed a warning logged into the *.xsession-errors* file on initial applet load.
+
 ##### 1.05
 - Fixed incorrect setting name that prevented the correct update of the enabled/disabled extensions on this applet menu.
 
