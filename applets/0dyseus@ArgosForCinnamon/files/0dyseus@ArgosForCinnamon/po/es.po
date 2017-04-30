@@ -1,0 +1,483 @@
+# This is a template file for translating the Cinnamon applet called Argos for Cinnamon.
+# Copyright (C) 2017
+# This file is distributed under the same license as the Argos for Cinnamon applet.
+# Odyseus <EMAIL@ADDRESS>, 2017.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: 1.00\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-04-30 11:09-0300\n"
+"PO-Revision-Date: 2017-04-30 11:27-0300\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.7.1\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: applet.js:103
+msgid "Script file is not executable."
+msgstr "El archivo de comandos no es ejecutable."
+
+#: applet.js:105
+msgid "The script file can be made executable from this applet context menu."
+msgstr ""
+"El archivo de comandos puede hacerse ejecutable desde el menú contextual de "
+"este applet."
+
+#: applet.js:112 applet.js:632
+msgid "Script file isn't a file, but a directory."
+msgstr "El archivo de comandos no es una archivo, es un directorio."
+
+#: applet.js:123 applet.js:639
+msgid "Script file doesn't exists."
+msgstr "El archivo de comandos no existe."
+
+#. TO TRANSLATORS: Full sentence:
+#. "Unable to execute file 'FileName':"
+#: applet.js:204
+#, javascript-format
+msgid "Unable to execute file '%s':"
+msgstr "Imposible ejecutar el archivo '%s':"
+
+#: applet.js:209 applet.js:486 applet.js:513
+msgid "Script file not set, cannot be found or it isn't an executable."
+msgstr ""
+"Archivo de comandos no establecido, no puede ser encontrado o no es "
+"ejecutable."
+
+#. TO TRANSLATORS: Full sentence:
+#. "Invalid menu level for line 'LineWithTheError'"
+#: applet.js:308
+#, javascript-format
+msgid "Invalid menu level for line '%s'"
+msgstr "Nivel de menú inválido para la línea '%s'"
+
+#: applet.js:419
+#, javascript-format
+msgid "Execution interval (%s):"
+msgstr "Intervalo de ejecución (%s):"
+
+#. 0dyseus@ArgosForCinnamon->settings-
+#. schema.json->pref_update_interval_units->tooltip
+#: applet.js:427
+msgid "Choose the time unit for the script execution interval."
+msgstr ""
+"Elegir la unidad de tiempo para el intervalo de ejecución del archivo de "
+"comandos."
+
+#: applet.js:440
+msgid "Set the script execution interval."
+msgstr "Elegir el intervalo de ejecución del archivo de comandos."
+
+#: applet.js:450
+msgid "Choose script"
+msgstr "Elegir archivo de comandos"
+
+#: applet.js:472
+msgid "Choose a script file."
+msgstr "Elegir un archivo de comandos."
+
+#: applet.js:478
+msgid "Edit script"
+msgstr "Editar archivo de comandos"
+
+#: applet.js:497
+msgid "Edit the script file with your prefered text editor."
+msgstr "Editar el archivo de comandos con su editor de textos preferido."
+
+#: applet.js:498
+msgid ""
+"After saving the changes made, the applet will update its data automatically "
+"if there is an interval set."
+msgstr ""
+"Luego de guardar los cambios realizados, el applet actualizará sus datos "
+"automáticamente si hay un intervalo de ejecución  establecido."
+
+#: applet.js:499
+msgid ""
+"Or the update could be done manually with the »Refresh« item on this applet "
+"context menu."
+msgstr ""
+"O la actualización puede realizarse manualmente con el ítem »Refrescar« en "
+"el menú contextual de este applet."
+
+#: applet.js:505
+msgid "Refresh"
+msgstr "Refrescar"
+
+#: applet.js:521
+msgid ""
+"This will re-run on demand the script assigned to this applet for the "
+"purpose of updating its output."
+msgstr ""
+"Esto volverá a ejecutar a petición el archivo de comandos asignado a este "
+"applet con el propósito de actualizar su salida."
+
+#: applet.js:522
+msgid ""
+"This is only needed when there is no update interval set (or the interval is "
+"too long), so the update needs to be done manually in case the script is "
+"edited."
+msgstr ""
+"Esto es sólo necesario si no hay un intervalo de actualización establecido "
+"(o si el intervalo es muy largo), así que la actualización necesita "
+"realizarse manualmente en caso de que el archivo de comandos haya sido "
+"editado."
+
+#. Extras submenu
+#: applet.js:529
+msgid "Extras"
+msgstr "Extras"
+
+#: applet.js:537
+#, javascript-format
+msgid "Rotation interval (%s):"
+msgstr "Intervalo de rotación (%s):"
+
+#. 0dyseus@ArgosForCinnamon->settings-
+#. schema.json->pref_rotation_interval_units->tooltip
+#: applet.js:543
+msgid "Choose the time unit for the applet text rotation interval."
+msgstr ""
+"Elegir la unidad de tiempo para el intervalo de rotación del texto del "
+"applet."
+
+#: applet.js:556
+msgid "Set the applet text rotation interval."
+msgstr "Establecer el intervalo de rotación del texto del applet."
+
+#: applet.js:565
+msgid "Clear script"
+msgstr "Vaciar archivo de comandos"
+
+#: applet.js:571 applet.js:589
+msgid ""
+"This operation will remove the current script from this applet leaving it "
+"\"blank\"."
+msgstr ""
+"Esta operación eliminará el archivo de comandos de este applet dejándolo "
+"\"en blanco\"."
+
+#: applet.js:572
+msgid ""
+"The current applet settings will be untouched and the actual script file "
+"will not be deleted."
+msgstr ""
+"Las preferencias actuales del applet no serán modificadas y el archivo de "
+"comando en sí no será borrado."
+
+#: applet.js:573
+msgid "Do you want to proceed?"
+msgstr "¿Desea proceder?"
+
+#: applet.js:595
+msgid "Make script executable"
+msgstr "Hacer archivo de comandos ejecutable"
+
+#: applet.js:601
+msgid "Make the script file executable so it can be used by this applet."
+msgstr ""
+"Hacer el archivo de comandos ejecutable para que pueda ser utilizado por "
+"este applet."
+
+#: applet.js:625
+msgid "Script file is already executable."
+msgstr "El archivo de comandos ya es ejecutable."
+
+#: applet.js:648
+msgid "Help"
+msgstr "Ayuda"
+
+#: applet.js:652
+msgid "Open this applet help file."
+msgstr "Abrir el archivo de ayuda de este applet."
+
+#: __init__.js:37
+msgid "seconds"
+msgstr "segundos"
+
+#. 0dyseus@ArgosForCinnamon->settings-
+#. schema.json->pref_rotation_interval_units->options
+#. 0dyseus@ArgosForCinnamon->settings-
+#. schema.json->pref_update_interval_units->options
+#: __init__.js:38
+msgid "Seconds"
+msgstr "Segundos"
+
+#: __init__.js:41
+msgid "minutes"
+msgstr "minutos"
+
+#. 0dyseus@ArgosForCinnamon->settings-
+#. schema.json->pref_rotation_interval_units->options
+#. 0dyseus@ArgosForCinnamon->settings-
+#. schema.json->pref_update_interval_units->options
+#: __init__.js:42
+msgid "Minutes"
+msgstr "Minutos"
+
+#: __init__.js:45
+msgid "hours"
+msgstr "horas"
+
+#. 0dyseus@ArgosForCinnamon->settings-
+#. schema.json->pref_rotation_interval_units->options
+#. 0dyseus@ArgosForCinnamon->settings-
+#. schema.json->pref_update_interval_units->options
+#: __init__.js:46
+msgid "Hours"
+msgstr "Hours"
+
+#: __init__.js:49
+msgid "days"
+msgstr "días"
+
+#. 0dyseus@ArgosForCinnamon->settings-
+#. schema.json->pref_rotation_interval_units->options
+#. 0dyseus@ArgosForCinnamon->settings-
+#. schema.json->pref_update_interval_units->options
+#: __init__.js:50
+msgid "Days"
+msgstr "Días"
+
+#. TO TRANSLATORS: Full sentence:
+#. "Unable to load image from Base64 representation: ErrorMessage"
+#: __init__.js:1606
+#, javascript-format
+msgid "Unable to load image from Base64 representation: %s"
+msgstr "No se puede cargar la imagen desde la representación de Base64: %s"
+
+#: appletHelper.py:58
+msgid "Select a file"
+msgstr "Seleccionar un archivo"
+
+#. TO TRANSLATORS: Could be left blank.
+#: appletHelper.py:60
+msgid "_Cancel"
+msgstr "_Cancelar"
+
+#. TO TRANSLATORS: Could be left blank.
+#: appletHelper.py:62
+msgid "_Open"
+msgstr "_Abrir"
+
+#: appletHelper.py:89
+msgid "Nothing to do here."
+msgstr "Nada que hacer aquí."
+
+#. 0dyseus@ArgosForCinnamon->metadata.json->name
+msgid "Argos for Cinnamon"
+msgstr "Argos para Cinnamon"
+
+#. 0dyseus@ArgosForCinnamon->metadata.json->comments
+msgid ""
+"Bug reports, feature requests and contributions should be done on this "
+"xlet's repository linked below."
+msgstr ""
+"Los reportes de fallos, peticiones de características y contribuciones deben "
+"hacerse en el repositorio de este xlet vinculado a continuación."
+
+#. 0dyseus@ArgosForCinnamon->metadata.json->description
+msgid "Create Cinnamon applets in seconds."
+msgstr "Crear applets para Cinnamon en segundos."
+
+#. 0dyseus@ArgosForCinnamon->metadata.json->contributors
+msgid ""
+"Philipp Emanuel Weidmann: Author of the gnome-shell extension called Argos"
+msgstr ""
+"Philipp Emanuel Weidmann: Autor de la extensión para Gnome Shell llamada "
+"Argos"
+
+#. 0dyseus@ArgosForCinnamon->settings-
+#. schema.json->pref_default_icon_size->tooltip
+msgid ""
+"Set a default size in pixels for the icons inside this applet main menu. The "
+"size of the icon of a menu item can be overridden by setting the \"iconSize"
+"\" attribute on the menu item's respective line on the script."
+msgstr ""
+"Establecer un tamaño preestablecido en píxeles para íconos dentro del menú "
+"del applet. El tamaño de un ítem del menú puede ser anulado estableciendo el "
+"atributo \"iconSize\" en la línea correspondiente ítem del menú  en el "
+"archivo de comandos."
+
+#. 0dyseus@ArgosForCinnamon->settings-
+#. schema.json->pref_default_icon_size->description
+msgid "Default icon size"
+msgstr "Tamaño de ícono por defecto"
+
+#. 0dyseus@ArgosForCinnamon->settings-
+#. schema.json->pref_default_icon_size->units
+#. 0dyseus@ArgosForCinnamon->settings-schema.json->pref_applet_spacing->units
+msgid "pixels"
+msgstr "píxeles"
+
+#. 0dyseus@ArgosForCinnamon->settings-
+#. schema.json->pref_keep_one_menu_open->tooltip
+msgid ""
+"When enabled, the previously opened sub menu will be automatically closed."
+msgstr ""
+"Con esta opción habilitada, un submenú previamente abierto será "
+"automáticamente cerrado."
+
+#. 0dyseus@ArgosForCinnamon->settings-
+#. schema.json->pref_keep_one_menu_open->description
+msgid "Keep just one sub menu open"
+msgstr "Mantener un solo menú abierto en todo momento"
+
+#. 0dyseus@ArgosForCinnamon->settings-
+#. schema.json->pref_rotation_interval_units->description
+msgid "Rotation interval time unit"
+msgstr "Unidad de tiempo para el intervalo de rotación"
+
+#. 0dyseus@ArgosForCinnamon->settings-
+#. schema.json->pref_custom_icon_for_applet->tooltip
+msgid "Select an icon to show in the panel."
+msgstr "Seleccionar un ícono para mostrar en el panel."
+
+#. 0dyseus@ArgosForCinnamon->settings-
+#. schema.json->pref_custom_icon_for_applet->description
+msgid "Icon"
+msgstr "Ícono"
+
+#. 0dyseus@ArgosForCinnamon->settings-schema.json->pref_animate_menu->tooltip
+msgid "Enables/Disables menu open/close animations."
+msgstr "Habilita/Deshabilita la animación de apertura/cierre del menú."
+
+#. 0dyseus@ArgosForCinnamon->settings-
+#. schema.json->pref_animate_menu->description
+msgid "Animate menu"
+msgstr "Animar apertura/cerrado del menú"
+
+#. 0dyseus@ArgosForCinnamon->settings-
+#. schema.json->pref_update_interval->tooltip
+msgid ""
+"Set the script execution interval. If set to 0 (zero), the timer will be "
+"disabled."
+msgstr ""
+"Establecer el intervalo de ejecución del archivo de comandos. Si se "
+"establece en 0 (cero), el temporizador se desactivará."
+
+#. 0dyseus@ArgosForCinnamon->settings-
+#. schema.json->pref_update_interval->description
+msgid "Execution interval"
+msgstr "Intervalo de ejecución"
+
+#. 0dyseus@ArgosForCinnamon->settings-schema.json->pref_update_interval->units
+#. 0dyseus@ArgosForCinnamon->settings-
+#. schema.json->pref_rotation_interval->units
+msgid "custom"
+msgstr "personalizado"
+
+#. 0dyseus@ArgosForCinnamon->settings-
+#. schema.json->pref_menu_spacing->description
+msgid "Spacing for items inside the menu"
+msgstr "Espaciado para ítems dentro del menú"
+
+#. 0dyseus@ArgosForCinnamon->settings-schema.json->pref_menu_spacing->units
+msgid "ems"
+msgstr "ems"
+
+#. 0dyseus@ArgosForCinnamon->settings-schema.json->head0->description
+msgid "Applet settings"
+msgstr "Preferencias del applet"
+
+#. 0dyseus@ArgosForCinnamon->settings-
+#. schema.json->pref_update_interval_units->description
+msgid "Execution interval time unit"
+msgstr "Unidad de tiempo para el intervalo de ejecución"
+
+#. 0dyseus@ArgosForCinnamon->settings-
+#. schema.json->pref_custom_label_for_applet->tooltip
+msgid "Enter custom text to show in the panel."
+msgstr "Introduzca un texto personalizado para mostrar en el panel."
+
+#. 0dyseus@ArgosForCinnamon->settings-
+#. schema.json->pref_custom_label_for_applet->description
+msgid "Custom label"
+msgstr "Etiqueta personalizada"
+
+#. 0dyseus@ArgosForCinnamon->settings-
+#. schema.json->pref_rotation_interval->tooltip
+msgid ""
+"Set the applet text rotation interval. If set to 0 (zero), the timer will be "
+"disabled. This timer is only used if there are more than one line asigned to "
+"be displayed as the applet text. If there is only one line asigned for the "
+"applet text, this timer will be completely ignored. So, it isn't needed to "
+"set this timer to 0 (zero) to disable it."
+msgstr ""
+"Establecer el intervalo de rotación del texto del applet. Si se establece en "
+"0 (cero), el temporizador se desactivará. Este temporizador es sólo usado si "
+"en el archivo de comandos hay más de una línea asignada para ser mostrada "
+"como texto pare el applet. Si hay sólo una línea asignada para el texto del "
+"applet, este temporizador será completamente ignorado. Así que no es "
+"necesario establecer este temporizador a 0 (cero) para deshabilitarlo."
+
+#. 0dyseus@ArgosForCinnamon->settings-
+#. schema.json->pref_rotation_interval->description
+msgid "Rotation interval"
+msgstr "Intervalo de rotación"
+
+#. 0dyseus@ArgosForCinnamon->settings-schema.json->head2->description
+msgid "Extra settings"
+msgstr "Extra "
+
+#. 0dyseus@ArgosForCinnamon->settings-
+#. schema.json->pref_overlay_key->description
+msgid "Keyboard shortcut to open and close the menu"
+msgstr "Atajo de teclado para abrir o cerrar el menú"
+
+#. 0dyseus@ArgosForCinnamon->settings-
+#. schema.json->pref_applet_spacing->description
+msgid "Spacing for items inside the applet"
+msgstr "Espaciado para ítems dentro del applet"
+
+#. 0dyseus@ArgosForCinnamon->settings-schema.json->head1->description
+msgid "Script settings"
+msgstr "Preferencias del archivo de comandos"
+
+#. 0dyseus@ArgosForCinnamon->settings-
+#. schema.json->pref_terminal_emulator->tooltip
+msgid ""
+"Choose the terminal emulator used by this applet.\n"
+"IMPORTANT!!! The terminal emulator has to support the -e argument."
+msgstr ""
+"Elegir el emulador de terminal usado por este applet.\n"
+"¡INPORTANTE! El emulador de terminal debe soportar el argumento -e."
+
+#. 0dyseus@ArgosForCinnamon->settings-
+#. schema.json->pref_terminal_emulator->description
+msgid "Terminal emulator"
+msgstr "Emulador de terminal:"
+
+#. 0dyseus@ArgosForCinnamon->settings-schema.json->pref_file_path->description
+msgid "Path to script"
+msgstr "Ruta al archivo de comandos"
+
+#. 0dyseus@ArgosForCinnamon->settings-
+#. schema.json->pref_show_script_name->tooltip
+msgid ""
+"When inside the script there isn't a line assigned to be shown on the "
+"applet, the script name will be displayed. With this option disabled, the "
+"script name will not be shown on this applet, giving us the possibility to "
+"use a custom text for the applet."
+msgstr ""
+"Cuando dentro del archivo de comandos no hay una línea asignada para ser "
+"mostrada en el applet, el nombre del archivo de comandos será mostrado. Con "
+"esta opción deshabilitada, el nombre del archivo de comandos no será "
+"mostrado en el applet, dándonos la posibilidad de usar un texto "
+"personalizado para el applet."
+
+#. 0dyseus@ArgosForCinnamon->settings-
+#. schema.json->pref_show_script_name->description
+msgid "Show script name on applet"
+msgstr "Mostrar el nombre del archivo de comandos en el applet"
+
+#~ msgid "Unable to execute file '%s': %s"
+#~ msgstr "Imposible ejecutar el archivo '%s': %s"
+
+#~ msgid "Script file not set or it cannot be found."
+#~ msgstr "Archivo de comandos no establecido o no puede ser encontrado."
