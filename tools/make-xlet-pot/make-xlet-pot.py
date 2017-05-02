@@ -57,11 +57,22 @@ HOME = os.path.expanduser("~")
 LOCALE_INST = "%s/.local/share/locale" % HOME
 USAGE = """
 
-make-xlet-pot -i | -r | -a | [-j | -p] -c [-s key1,keyN] <potfile name>
+SYNOPSIS
 
-===============================================================================
-             All options should only be run from your xlet directory
-===============================================================================
+make-xlet-pot [-j or --js] [-p or --py] [-c or --custom-header]
+              [-s key1,keyN or --skip-keys=key1,keyN] [<potfile name> or empty]
+
+make-xlet-pot [-a or --all] [-s key1,keyN or --skip-keys=key1,keyN]
+
+make-xlet-pot [-i or --install]
+
+make-xlet-pot [-r or --remove]
+
+OPTIONS
+
+=======================================================
+All options should only be run from your xlet directory
+=======================================================
 
 -j
 --js
@@ -386,7 +397,7 @@ class Main:
                 "FIRST_AUTHOR": "FIRST_AUTHOR",
                 "FIRST_AUTHOR_EMAIL": "<EMAIL@ADDRESS>",
                 "COPY_INITIAL_YEAR": "",
-                "COPY_CURRENT_YEAR": datetime.datetime.now().year,
+                "COPY_CURRENT_YEAR": str(datetime.datetime.now().year),
                 "PACKAGE": md["uuid"] if "uuid" in md else "PACKAGE",
                 "VERSION": md["version"] if "version" in md else "VERSION",
                 "SCRIPT_VERSION": __version__,
@@ -406,15 +417,26 @@ class Main:
                 with open(path, "r") as settings_file:
                     raw_data = settings_file.read()
                     data = json.loads(raw_data)
-                    COPY_INITIAL_YEAR = (data["COPY_INITIAL_YEAR"] +
-                                         "-") if "COPY_INITIAL_YEAR" in data else ""
-                    FIRST_AUTHOR = data[
-                        "FIRST_AUTHOR"] if "FIRST_AUTHOR" in data else "FIRST_AUTHOR"
-                    FIRST_AUTHOR_EMAIL = data[
-                        "FIRST_AUTHOR_EMAIL"] if "FIRST_AUTHOR_EMAIL" in data else "<EMAIL@ADDRESS>"
-                    metadata["COPY_INITIAL_YEAR"] = COPY_INITIAL_YEAR
-                    metadata["FIRST_AUTHOR"] = FIRST_AUTHOR
-                    metadata["FIRST_AUTHOR_EMAIL"] = FIRST_AUTHOR_EMAIL
+                    current_year = metadata["COPY_CURRENT_YEAR"]
+
+                    if "COPY_INITIAL_YEAR" in data and str(data["COPY_INITIAL_YEAR"]) != current_year:
+                        copy_initial_year = (data["COPY_INITIAL_YEAR"] + "-")
+                    else:
+                        copy_initial_year = ""
+
+                    if "FIRST_AUTHOR" in data:
+                        first_author = data["FIRST_AUTHOR"]
+                    else:
+                        first_author = "FIRST_AUTHOR"
+
+                    if "FIRST_AUTHOR_EMAIL" in data:
+                        first_author_email = data["FIRST_AUTHOR_EMAIL"]
+                    else:
+                        first_author_email = "<EMAIL@ADDRESS>"
+
+                    metadata["COPY_INITIAL_YEAR"] = copy_initial_year
+                    metadata["FIRST_AUTHOR"] = first_author
+                    metadata["FIRST_AUTHOR_EMAIL"] = first_author_email
 
                 settings_file.close()
         except:

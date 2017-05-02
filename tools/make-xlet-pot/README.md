@@ -19,12 +19,23 @@ It has the exact same dependencies as the original tool/script. The **polib** Py
 - Possibility to set a custom header for the .pot file with data automatically generated and/or set through a settings file.
 - Possibility to *blacklist* a set of preference keys found inside the **settings-schema.json** file so the generated .pot file doesn't need to be manually edited later.
 
+## Installation
+
+Just copy both files (**make-xlet-pot** and **make-xlet-pot.py**) into any location on your **PATH** and the command `make-xlet-pot` will be immediately available (a logout might be needed).
+
 ## Usage
 
-**Note:** This information is also printed into the terminal when the script is executed without arguments of when it is executed with the `-h` or `--help ` arguments.
+**Note:** This information is also printed into the terminal when the script is executed without arguments or when it is executed with the `-h` or `--help ` arguments.
 
 ```shell
-make-xlet-pot -i | -r | -a | [-js | -py] -c [-s key1,keyN] [potfile name]
+make-xlet-pot [-j or --js] [-p or --py] [-c or --custom-header]
+              [-s key1,keyN or --skip-keys=key1,keyN] [<potfile name> or empty]
+
+make-xlet-pot [-a or --all] [-s key1,keyN or --skip-keys=key1,keyN]
+
+make-xlet-pot [-i or --install]
+
+make-xlet-pot [-r or --remove]
 ```
 
 ### All options should only be run from your xlet directory
