@@ -61,6 +61,8 @@ def _(string):
     return gettext.gettext(string)
 
 
+EXTENSION_NAME = _("Multi Translator")
+
 LANGUAGES_LIST = {
     "auto": _("Detect language"),
     "af": _("Afrikaans"),
@@ -1276,7 +1278,7 @@ class ExtensionPrefsWindow(Gtk.ApplicationWindow):
 class ExtensionPrefsApplication(Gtk.Application):
 
     def __init__(self, *args, **kwargs):
-        GLib.set_application_name(_("Cinnamon Tweaks"))
+        GLib.set_application_name(EXTENSION_NAME)
         super().__init__(*args,
                          application_id=APPLICATION_ID,
                          flags=Gio.ApplicationFlags.FLAGS_NONE,
@@ -1317,7 +1319,9 @@ class ExtensionPrefsApplication(Gtk.Application):
 
     def _buildUI(self):
         self.window = ExtensionPrefsWindow(
-            application=self, title=_("Multi Translator extension preferences"))
+            # TO TRANSLATORS: Full sentence:
+            # ExtensionName extension preferences
+            application=self, title=_("%s extension preferences") % EXTENSION_NAME)
 
         if (Settings().get_settings().get_boolean("window-remember-size")):
             width = Settings().get_settings().get_int("window-width")
@@ -1438,9 +1442,13 @@ class ExtensionPrefsApplication(Gtk.Application):
                                    message_type=Gtk.MessageType.WARNING,
                                    buttons=Gtk.ButtonsType.YES_NO)
 
-        dialog.set_title(_("Warning: Trying to reset all Multi Translator settings!!!"))
+        # TO TRANSLATORS: Full sentence:
+        # Warning: Trying to reset all ExtensionName settings!!!
+        dialog.set_title(_("Warning: Trying to reset all %s settings!!!") % EXTENSION_NAME)
 
-        esc = cgi.escape(_("Reset all Multi Translator settings to default?"))
+        # TO TRANSLATORS: Full sentence:
+        # Reset all ExtensionName settings to default?
+        esc = cgi.escape(_("Reset all %s settings to default?") % EXTENSION_NAME)
         dialog.set_markup(esc)
         dialog.show_all()
         response = dialog.run()
