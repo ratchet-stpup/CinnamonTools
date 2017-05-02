@@ -1,0 +1,9 @@
+#!/usr/bin/python3
+
+import os
+import sys
+
+root_dir = os.path.dirname(os.path.abspath(__file__))
+script_path = '%s/make-xlet-pot.py' % root_dir
+
+os.execvp(script_path, (" ",) + tuple(sys.argv[1:]))
