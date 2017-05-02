@@ -106,7 +106,7 @@ createPackages() {
                         # Do nothing and do not touch the stored shasum.
                         echoInfo "====== Skipping packaging of $applet ======"
                     else
-                        # If the stored and the calculated shasums are NOT equal,
+                        # If the stored and the calculated shasums are NOT equal:
                         # 1- Store the new calculated shasum.
                         # 2- Delete old package.
                         # 3- Create new package.
@@ -125,7 +125,7 @@ createPackages() {
         done
     )
 
-    sleep 3
+    sleep 1
 
     (
         cd extensions
@@ -162,7 +162,7 @@ createPackages() {
         done
     )
 
-    sleep 3
+    sleep 1
 
     (
         cd themes
@@ -195,6 +195,40 @@ createPackages() {
                         tar -cvzf "$ROOT_PATH/docs/pkg/$theme.tar.gz" $theme
                     fi
                 )
+            fi
+        done
+    )
+
+    sleep 1
+
+    (
+        cd tools
+        for tool in *; do
+            if [ -d ${tool} ]; then
+                if [ ! -f $ROOT_PATH/tmp/shasums/$tool ]; then
+                    current_sha=""
+                else
+                    current_sha=$(<$ROOT_PATH/tmp/shasums/$tool)
+                fi
+
+                new_sha=""
+                get_sha512sum "$ROOT_PATH/tools/$tool" new_sha
+
+                echo " "
+                sleep 0.2
+
+                if [ "$new_sha" == "$current_sha" ]; then
+                    echoInfo "====== Skipping packaging of $tool ======"
+                else
+                    echoInfo "====== Storing shasum for $tool ======"
+                    echo -n $new_sha > $ROOT_PATH/tmp/shasums/$tool
+
+                    echoInfo "====== Deleting old $tool package ======"
+                    rm -f $ROOT_PATH/docs/pkg/$tool.tar.gz
+
+                    echoInfo "====== Packaging $tool ======"
+                    tar -cvzf "$ROOT_PATH/docs/pkg/$tool.tar.gz" $tool
+                fi
             fi
         done
     )
