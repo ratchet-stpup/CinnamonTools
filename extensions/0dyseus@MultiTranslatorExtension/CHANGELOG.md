@@ -1,5 +1,10 @@
 ## Change Log
 
+##### 1.03
+- Added some missing translatable strings.
+- Added German localization for the extension and the help file. Thanks to [NikoKrause](https://github.com/NikoKrause).
+- Corrected wrong unit usage.
+
 ##### 1.02
 - Added Czech localization and Thunderbolt theme. Thanks to [Radek71](https://github.com/Radek71).
 

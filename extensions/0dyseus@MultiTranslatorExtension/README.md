@@ -52,5 +52,6 @@ Once installed and enabled, the following shortcuts will be available.
 - **[muzena](https://github.com/muzena):** Croatian localization.
 - **[giwhub](https://github.com/giwhub):** Chinese localization.
 - **[Radek71](https://github.com/Radek71):** Czech localization and author of Thunderbolt theme.
+- **[NikoKrause](https://github.com/NikoKrause):** German localization.
 
 [Full change log](https://github.com/Odyseus/CinnamonTools/blob/master/extensions/0dyseus%40MultiTranslatorExtension/CHANGELOG.md)
