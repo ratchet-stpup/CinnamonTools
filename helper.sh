@@ -1,5 +1,25 @@
 #!/bin/bash
 
+# Render main site
+# This option renders the main site (creates the HTML files from PUG sources).
+# The main site is just the GitHub page associated with the repository.
+# https://odyseus.github.io/CinnamonTools
+
+# Render help files
+# This option renders all the help files from all the xlets on the repository
+# (creates the HTML files from PUG and MARKDOWN sources).
+
+# Create packages
+# This option packages all the xlets found in the repository and saves them
+# into /docs/pkg folder.
+# The shasum of each xlet folder is stored into /tmp/shasums for later use.
+# The next time that the "Create packages" option is run, it will only package
+# the xlets whose folder contents has been changed.
+
+# Clone wiki
+# This option clones the repository's wiki into the /docs folder.
+# The wiki's files are used to create part of the main site.
+
 prompt="Pick an option and press Enter:"
 options+=("Render main site" "Render help files" "Create packages" "Clone wiki")
 
@@ -10,6 +30,10 @@ all_pug_files=("index.pug" "wiki.pug" "wiki_standalone.pug")
 
 echoInfo() {
     [ $# -gt 0 ] && echo -e "$(tput bold)$(tput setaf 10)$1$(tput sgr0)" >&2
+}
+
+echoWarn() {
+    [ $# -gt 0 ] && echo -e "$(tput bold)$(tput setaf 11)$1$(tput sgr0)" >&2
 }
 
 renderMainSite() {
@@ -82,6 +106,8 @@ createPackages() {
     # It seems more work, but it really isn't because the following three
     # sub-shells are practically the same.
     (
+        echo " "
+        echoWarn "Packaging applets..."
         cd applets
         for applet in *; do
             if [ -d ${applet} ]; then
@@ -128,6 +154,8 @@ createPackages() {
     sleep 1
 
     (
+        echo " "
+        echoWarn "Packaging extensions..."
         cd extensions
         for extension in *; do
             if [ -d ${extension} ]; then
@@ -165,6 +193,8 @@ createPackages() {
     sleep 1
 
     (
+        echo " "
+        echoWarn "Packaging themes..."
         cd themes
         for theme in *; do
             if [ -d ${theme} ]; then
@@ -202,6 +232,8 @@ createPackages() {
     sleep 1
 
     (
+        echo " "
+        echoWarn "Packaging tools..."
         cd tools
         for tool in *; do
             if [ -d ${tool} ]; then
