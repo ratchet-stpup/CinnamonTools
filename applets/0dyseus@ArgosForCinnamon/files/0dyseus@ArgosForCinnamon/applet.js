@@ -69,7 +69,7 @@ MyApplet.prototype = {
 
                 this._initialLoadTimeout = Mainloop.timeout_add_seconds(1,
                     Lang.bind(this, function() {
-                        this.pref_file_path = aMetadata.path + "/examples/bash_examples.sh";
+                        this.pref_file_path = aMetadata.path + "/examples/python_examples.py";
                         this.pref_initial_load_done = true;
                         this._processFile();
                     }));

@@ -62,7 +62,7 @@ puts "--<big>Big text</big> - <small>Small text</small> - <tt>Monospace font</tt
 # https://developer.gnome.org/pango/stable/PangoMarkupFormat.html
 puts "--<b>&lt;span&gt; attributes</b> | size=12"
 puts "--<span font_weight='bold' bgcolor='#FF0000' fgcolor='#FFFF00'>Background and foreground colors</span> | size=12"
-puts "--<span underline='single' underline_color='#FF0000'>Underline</span>\
-        <span underline='double' underline_color='#00FF00'>styles</span>\
-        <span underline='low' underline_color='#FF00FF'>and</span>\
-        <span underline='error' underline_color='#00FFFF'>colors</span> | size=12"
+puts "--<span underline='single' underline_color='#FF0000'>Single underline</span> | size=12"
+puts "--<span underline='double' underline_color='#00FF00'>Double underline</span> | size=12"
+puts "--<span underline='low' underline_color='#FF00FF'>Low underline</span> | size=12"
+puts "--<span underline='error' underline_color='#00FFFF'>Error underline</span> | size=12"
