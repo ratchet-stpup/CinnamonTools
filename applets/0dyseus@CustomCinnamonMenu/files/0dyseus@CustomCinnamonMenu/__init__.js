@@ -18,6 +18,8 @@ const Tooltips = imports.ui.tooltips;
 const Gettext = imports.gettext;
 const AccountsService = imports.gi.AccountsService;
 
+Gettext.bindtextdomain(appletUUID, GLib.get_home_dir() + "/.local/share/locale");
+
 /**
  * Used by portOverrides.
  * Revisit in the future.
@@ -211,7 +213,6 @@ ApplicationContextMenuItem.prototype = {
 
     activate: function(event) { // jshint ignore:line
         let pathToDesktopFile = this._appButton.app.get_app_info().get_filename();
-        let process;
         let likelyHasSucceeded = false;
         let cmd = "";
 
@@ -320,23 +321,17 @@ ApplicationContextMenuItem.prototype = {
                 }
                 break;
             case "open_desktop_file_folder":
-                let dirPath;
                 try {
-                    process = new ShellOutputProcess(['dirname', pathToDesktopFile]);
-                    dirPath = process.spawn_sync_and_get_output();
+                    Util.spawn_async(["dirname", pathToDesktopFile],
+                        Lang.bind(this, function(aOutput) {
+                            let dirPath = aOutput.trim();
+                            this._openDesktopFileFolder(dirPath);
+                        })
+                    );
                 } catch (aErr) {
-                    dirPath = false;
-                    Main.notify("[Custom Cinnamon Menu]", aErr.message);
+                    Main.notify(_(this._appButton.appsMenuButton.metadata.name), aErr.message);
                     global.logError(aErr.message);
-                }
-
-                try {
-                    Util.spawnCommandLine("xdg-open " + dirPath);
-                } catch (aErr) {
-                    Main.notify("[Custom Cinnamon Menu]", aErr.message);
-                    global.logError(aErr.message);
-                } finally {
-                    this._appButton.appsMenuButton.menu.close(this._appButton.appsMenuButton.pref_animate_menu);
+                    this._openDesktopFileFolder("");
                 }
                 break;
             case "run_as_root":
@@ -345,7 +340,7 @@ ApplicationContextMenuItem.prototype = {
                         " gtk-launch " + this._appButton.app.get_id());
                     likelyHasSucceeded = true;
                 } catch (aErr) {
-                    Main.notify("[Custom Cinnamon Menu]", aErr.message);
+                    Main.notify(_(this._appButton.appsMenuButton.metadata.name), aErr.message);
                     global.logError(aErr.message);
                     likelyHasSucceeded = false;
                 } finally {
@@ -358,42 +353,24 @@ ApplicationContextMenuItem.prototype = {
                 }
                 break;
             case "open_with_text_editor":
-                let currentUser;
-                let fileOwner;
-
-                try {
-                    currentUser = GLib.get_user_name().toString();
-                    // Get .desktop file owner.
-                    process = new ShellOutputProcess(['stat', '-c', '"%U"', pathToDesktopFile]);
-                    fileOwner = process.spawn_sync_and_get_output()
-                        .replace(/\s+/g, "")
-                        // If I use the literal double quotes inside the RegEx,
-                        // cinnamon-json-makepot with the --js argument breaks.
-                        // SyntaxError: unterminated string literal
-                        .replace(/\u0022/g, "");
-                } catch (aErr) {
-                    fileOwner = false;
-                    global.logError(aErr.message);
-                }
-
-                if (this._appButton.appsMenuButton.pref_gain_privileges_on_context &&
-                    currentUser !== fileOwner) {
-                    cmd += this._appButton.appsMenuButton.pref_privilege_elevator;
-                }
-
-                let customEditor = this._appButton.appsMenuButton.pref_custom_editor_for_edit_desktop_file_on_context;
-                if (customEditor !== "")
-                    cmd += " " + customEditor + " " + pathToDesktopFile;
-                else
-                    cmd += " xdg-open " + pathToDesktopFile;
-
-                try {
-                    Util.spawnCommandLine(cmd);
-                } catch (aErr) {
-                    Main.notify("[Custom Cinnamon Menu]", aErr.message);
-                    global.logError(aErr.message);
-                } finally {
-                    this._appButton.appsMenuButton.menu.close(this._appButton.appsMenuButton.pref_animate_menu);
+                if (this._appButton.appsMenuButton.pref_gain_privileges_on_context) {
+                    try {
+                        Util.spawn_async(['stat', '-c', '"%U"', pathToDesktopFile],
+                            Lang.bind(this, function(aOutput) {
+                                let fileOwner = aOutput.replace(/\s+/g, "")
+                                    // If I use the literal double quotes inside the RegEx,
+                                    // cinnamon-json-makepot with the --js argument breaks.
+                                    // SyntaxError: unterminated string literal
+                                    .replace(/\u0022/g, "");
+                                this._launchDesktopFile(fileOwner);
+                            })
+                        );
+                    } catch (aErr) {
+                        this._launchDesktopFile("");
+                        global.logError(aErr.message);
+                    }
+                } else {
+                    this._launchDesktopFile("");
                 }
                 break;
                 /**
@@ -401,8 +378,41 @@ ApplicationContextMenuItem.prototype = {
                  */
         }
         return false;
-    }
+    },
 
+    _openDesktopFileFolder: function(aDirPath) {
+        try {
+            if (aDirPath !== "")
+                GLib.spawn_command_line_async("xdg-open " + aDirPath);
+        } catch (aErr) {
+            Main.notify(_(this._appButton.appsMenuButton.metadata.name), aErr.message);
+            global.logError(aErr.message);
+        } finally {
+            this._appButton.appsMenuButton.menu.close(this._appButton.appsMenuButton.pref_animate_menu);
+        }
+    },
+    _launchDesktopFile: function(aCurrentUser, aFileOwner) {
+        let cmd = "";
+        if (this._appButton.appsMenuButton.pref_gain_privileges_on_context &&
+            GLib.get_user_name().toString() !== aFileOwner) {
+            cmd += this._appButton.appsMenuButton.pref_privilege_elevator;
+        }
+
+        let editor = this._appButton.appsMenuButton.pref_custom_editor_for_edit_desktop_file_on_context;
+        if (editor !== "")
+            cmd += " " + editor + " " + this._appButton.app.get_app_info().get_filename();
+        else
+            cmd += " xdg-open " + this._appButton.app.get_app_info().get_filename();
+
+        try {
+            GLib.spawn_command_line_async(cmd);
+        } catch (aErr) {
+            Main.notify(_(this._appButton.appsMenuButton.metadata.name), aErr.message);
+            global.logError(aErr.message);
+        } finally {
+            this._appButton.appsMenuButton.menu.close(this._appButton.appsMenuButton.pref_animate_menu);
+        }
+    }
 };
 
 function GenericApplicationButton(appsMenuButton, app, withMenu) {
@@ -495,7 +505,7 @@ GenericApplicationButton.prototype = {
                     " gtk-launch " + this.app.get_id());
                 likelyHasSucceeded = true;
             } catch (aErr) {
-                Main.notify("[Custom Cinnamon Menu]", aErr.message);
+                Main.notify(_(this._appButton.appsMenuButton.metadata.name), aErr.message);
                 global.logError(aErr.message);
                 likelyHasSucceeded = false;
             }
@@ -1859,7 +1869,7 @@ MyCustomCommandButton.prototype = {
                     if (cmd.indexOf("/") !== -1) // Try to open file if cmd is a path
                         Main.Util.spawnCommandLine("xdg-open " + cmd);
                 } catch (aErr2) {
-                    Main.notify("[Custom Cinnamon Menu]", aErr2.message);
+                    Main.notify(_(this._appButton.appsMenuButton.metadata.name), aErr2.message);
                 }
             }
         }
@@ -1902,80 +1912,6 @@ RecentAppsCategoryButton.prototype = {
         this.addActor(this.label);
         this.label.realize();
     }
-};
-
-function ShellOutputProcess(command_argv) {
-    this._init(command_argv);
-}
-
-ShellOutputProcess.prototype = {
-
-    _init: function(command_argv) {
-        this.command_argv = command_argv;
-        this.flags = GLib.SpawnFlags.SEARCH_PATH;
-        this.success = false;
-        this.standard_output_content = "";
-        this.standard_error_content = "";
-        this.pid = -1;
-        this.standard_input_file_descriptor = -1;
-        this.standard_output_file_descriptor = -1;
-        this.standard_error_file_descriptor = -1;
-    },
-
-    spawn_sync_and_get_output: function() {
-        this.spawn_sync();
-        let output = this.get_standard_output_content();
-        return output;
-    },
-
-    spawn_sync: function() {
-        let [success, standard_output_content, standard_error_content] = GLib.spawn_sync(
-            null,
-            this.command_argv,
-            null,
-            this.flags,
-            null);
-        this.success = success;
-        this.standard_output_content = standard_output_content;
-        this.standard_error_content = standard_error_content;
-    },
-
-    get_standard_output_content: function() {
-        return this.standard_output_content.toString();
-    },
-
-    spawn_sync_and_get_error: function() {
-        this.spawn_sync();
-        let output = this.get_standard_error_content();
-        return output;
-    },
-
-    get_standard_error_content: function() {
-        return this.standard_error_content.toString();
-    },
-
-    spawn_async: function() {
-        let [
-            success,
-            pid,
-            standard_input_file_descriptor,
-            standard_output_file_descriptor,
-            standard_error_file_descriptor
-        ] = GLib.spawn_async_with_pipes(
-            null,
-            this.command_argv,
-            null,
-            this.flags,
-            null,
-            null);
-
-        this.success = success;
-        this.pid = pid;
-        this.standard_input_file_descriptor = standard_input_file_descriptor;
-        this.standard_output_file_descriptor = standard_output_file_descriptor;
-        this.standard_error_file_descriptor = standard_error_file_descriptor;
-    },
-
 };
 
 function UserPicture(appsMenuButton, iconSize) {
@@ -2270,3 +2206,8 @@ function versionCompare(v1, v2, options) {
 
     return 0;
 }
+
+/*
+exported CINNAMON_VERSION,
+         versionCompare
+ */

@@ -1,6 +1,5 @@
 const $ = imports.applet.__init__;
 const _ = $._;
-
 const Applet = imports.ui.applet;
 const Mainloop = imports.mainloop;
 const CMenu = imports.gi.CMenu;
@@ -23,7 +22,6 @@ const DocInfo = imports.misc.docInfo;
 const GLib = imports.gi.GLib;
 const Settings = imports.ui.settings;
 const SearchProviderManager = imports.ui.searchProviderManager;
-const Gettext = imports.gettext;
 const DND = imports.ui.dnd;
 
 /**
@@ -78,8 +76,6 @@ MyApplet.prototype = {
              * START mark Odyseus
              * Be careful not to call the _() function before this point!!!
              */
-            // Prepare translation mechanism.
-            Gettext.bindtextdomain(aMetadata.uuid, GLib.get_home_dir() + "/.local/share/locale");
             this.metadata = aMetadata;
             this.instance_id = aInstance_id;
 
