@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: 0dyseus@SysmonitorByOrcus 1.09\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-05-02 08:15-0300\n"
-"PO-Revision-Date: 2017-05-02 08:17-0300\n"
-"Last-Translator: Odyseus\n"
+"PO-Revision-Date: 2017-05-04 18:20+0200\n"
+"Last-Translator: gogo <trebelnik2@gmail.com>\n"
 "Language-Team: Croatian <hr@li.org>\n"
 "Language: hr\n"
 "MIME-Version: 1.0\n"
@@ -239,6 +239,8 @@ msgid ""
 "For those of us who suffer from the stupidity of using a theme with tooltips "
 "aligned to the center. ¬¬"
 msgstr ""
+"Za one od nas koji pate od gluposti korištenja teme s napomenama pravnanim u "
+"sredinu. ¬¬"
 
 #. 0dyseus@SysmonitorByOrcus->settings-
 #. schema.json->pref_network_graph_color_upload->description
@@ -296,7 +298,7 @@ msgstr "Širina grafa memorije"
 #. 0dyseus@SysmonitorByOrcus->settings-
 #. schema.json->pref_cpu_graph_color_nice->description
 msgid "Nice:"
-msgstr ""
+msgstr "Prioritet izvođenja:"
 
 #. 0dyseus@SysmonitorByOrcus->settings-
 #. schema.json->pref_memory_graph_color_cached->description
