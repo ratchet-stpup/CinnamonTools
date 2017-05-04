@@ -731,18 +731,20 @@ MyApplet.prototype = {
                     try {
                         let result = JSON.parse(aResponse.replace(/,+/g, ","));
 
-                        if (result[0].length > 1) {
-                            let i = 0,
-                                iLen = result[0].length;
+                        let i = 0,
+                            iLen = result[0].length;
+
+                        if (iLen && iLen > 1) {
                             for (; i < iLen; i++) {
-                                transText += (result[0][i][0]).trim() + " ";
+                                if (result[0][i][0])
+                                    transText += (result[0][i][0]).trim() + " ";
                             }
                         } else {
-                            transText = result[0][0][0];
+                            transText = result[0][0][0] || "";
                         }
 
                         if (sourceLang === "")
-                            detectedLang = result[1] ? result[1] : "?";
+                            detectedLang = result[1] ? result[1] : result[2] ? result[2] : "?";
                         else
                             detectedLang = sourceLang;
 

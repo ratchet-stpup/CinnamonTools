@@ -1,6 +1,7 @@
 ## Change Log
 
 ##### 1.05
+- Fixed Google Translate language detection due to changes on Google's side.
 - Changed *multiversion* implementation. Created symlinks inside the version folder so I don't keep forgetting to copy the files from the root folder. The only *unique* file, and the only reason that I use *multiversion*, is the settings-schema.json file.
 - Changed the way the imports are done.
 - Removed *dangerous* flag. Achieved by changing all synchronous functions to their asynchronous counterparts.
