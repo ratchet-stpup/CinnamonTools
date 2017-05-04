@@ -129,7 +129,7 @@ CustomSwitchMenuItem.prototype = {
 
         this.applet = aApplet;
         this.extension = aExtensionObj;
-        this._icon_size = this.applet.pref_icons_size;
+        this._extension_icon_size = this.applet.pref_extension_icon_size;
 
         // Elements creation
         this.label = new St.Label({
@@ -157,6 +157,7 @@ CustomSwitchMenuItem.prototype = {
             let iconSettings = new St.Icon({
                 icon_name: "system-run",
                 icon_type: St.IconType.SYMBOLIC,
+                icon_size: aApplet.pref_extension_options_icon_size,
                 style_class: "popup-menu-icon"
             });
             this.settingsButton = new St.Button({
@@ -174,8 +175,9 @@ CustomSwitchMenuItem.prototype = {
 
         if (this.applet.pref_show_spices_button) {
             let iconSpices = new St.Icon({
-                icon_name: "custom-internet",
+                icon_name: "extensions-manager-internet",
                 icon_type: St.IconType.SYMBOLIC,
+                icon_size: aApplet.pref_extension_options_icon_size,
                 style_class: "popup-menu-icon"
             });
             this.spicesButton = new St.Button({
@@ -193,8 +195,9 @@ CustomSwitchMenuItem.prototype = {
 
         if (this.applet.pref_show_edit_extension_file_button) {
             let iconEdit = new St.Icon({
-                icon_name: "custom-edit",
+                icon_name: "extensions-manager-edit",
                 icon_type: St.IconType.SYMBOLIC,
+                icon_size: aApplet.pref_extension_options_icon_size,
                 style_class: "popup-menu-icon"
             });
             this.editButton = new St.Button({
@@ -208,8 +211,9 @@ CustomSwitchMenuItem.prototype = {
 
         if (this.applet.pref_show_open_extension_folder_button) {
             let iconFolder = new St.Icon({
-                icon_name: "custom-folder",
+                icon_name: "extensions-manager-folder",
                 icon_type: St.IconType.SYMBOLIC,
+                icon_size: aApplet.pref_extension_options_icon_size,
                 style_class: "popup-menu-icon"
             });
             this.folderButton = new St.Button({
@@ -319,19 +323,19 @@ CustomSwitchMenuItem.prototype = {
     _createIcon: function(aIconName) {
         // If aIconName is a path to an icon
         if (aIconName[0] === '/') {
-            var file = Gio.file_new_for_path(aIconName);
-            var iconFile = new Gio.FileIcon({
+            let file = Gio.file_new_for_path(aIconName);
+            let iconFile = new Gio.FileIcon({
                 file: file
             });
 
             return new St.Icon({
                 gicon: iconFile,
-                icon_size: this._icon_size
+                icon_size: this._extension_icon_size
             });
         } else { // use a themed icon
             return new St.Icon({
                 icon_name: aIconName,
-                icon_size: this._icon_size,
+                icon_size: this._extension_icon_size,
                 icon_type: St.IconType.FULLCOLOR
             });
         }

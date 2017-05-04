@@ -13,8 +13,8 @@
         "giwhub: Chinese localization."
     ],
     "max-instances": -1,
-    "description": "Allows enabling/disabling extensions (and other tasks) from a menu.",
+    "uuid": "0dyseus@ExtensionsManager",
     "comments": "Bug reports, feature requests and contributions should be done on this xlet's repository linked below.",
     "version": "1.06",
-    "uuid": "0dyseus@ExtensionsManager"
+    "description": "Allows enabling/disabling extensions (and other tasks) from a menu."
 }

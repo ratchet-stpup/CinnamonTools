@@ -41,7 +41,7 @@ MyApplet.prototype = {
             this.spices_data = null;
             this.spices_file_path = GLib.get_home_dir() + "/.cinnamon/spices.cache/extension/index.json";
             this._buildMenuId = null;
-            this._populateSubMenusId = null;
+            this._populateSubMenusId = 0;
             this._spicesCacheUpdatedId = null;
             this._forceMenuRebuild = false;
             this._forceMenuRebuildDelay = 200;
@@ -96,7 +96,7 @@ MyApplet.prototype = {
     _expand_applet_context_menu: function() {
         let menuItem = new PopupMenu.PopupIconMenuItem(
             _("Open extensions manager"),
-            "custom-cs-extensions",
+            "extensions-manager-cs-extensions",
             St.IconType.SYMBOLIC);
         menuItem.connect("activate", Lang.bind(this, function() {
             try {
@@ -127,14 +127,14 @@ MyApplet.prototype = {
 
         menuItem = new PopupMenu.PopupIconMenuItem(
             _("Refresh extension list"),
-            "custom-refresh-icon",
+            "extensions-manager-refresh-icon",
             St.IconType.SYMBOLIC);
         menuItem.connect("activate", Lang.bind(this, this.store_extension_data));
         this._applet_context_menu.addMenuItem(menuItem);
 
         menuItem = new PopupMenu.PopupIconMenuItem(
             _("Restart Cinnamon"),
-            "custom-view-refresh",
+            "extensions-manager-view-refresh",
             St.IconType.SYMBOLIC);
         menuItem.connect("activate", Lang.bind(this, function() {
             global.reexec_self();
@@ -166,7 +166,8 @@ MyApplet.prototype = {
             ["pref_show_edit_extension_file_button", this._build_menu],
             ["pref_use_extension_names_as_label", this._build_menu],
             ["pref_keep_only_one_menu_open", null],
-            ["pref_icons_size", this._build_menu],
+            ["pref_extension_icon_size", this._build_menu],
+            ["pref_extension_options_icon_size", this._build_menu],
             ["pref_icons_on_menu", this._build_menu],
             ["pref_all_extensions_list", null],
             ["pref_custom_icon_for_applet", this._updateIconAndLabel],
@@ -334,9 +335,9 @@ MyApplet.prototype = {
     _populateSubMenus: function() {
         let enabledExtensionsGSetting = this.getEnabledExtensionsUUIDs();
 
-        if (this._populateSubMenusId) {
+        if (this._populateSubMenusId > 0) {
             Mainloop.source_remove(this._populateSubMenusId);
-            this._populateSubMenusId = null;
+            this._populateSubMenusId = 0;
         }
 
         this._populateSubMenusId = Mainloop.timeout_add(this._forceMenuRebuildDelay, Lang.bind(this, function() {
@@ -350,8 +351,10 @@ MyApplet.prototype = {
                 this.menu.addMenuItem(label);
             }
 
-            if (!this._forceMenuRebuild || this.menu.isOpen)
+            if (!this._forceMenuRebuild || this.menu.isOpen) {
+                this._populateSubMenusId = 0;
                 return;
+            }
 
             if (this.enabledExtSubmenu)
                 this.enabledExtSubmenu.destroy();
@@ -428,7 +431,7 @@ MyApplet.prototype = {
 
             this._forceMenuRebuild = false;
             this._forceMenuRebuildDelay = 200;
-            this._populateSubMenusId = null;
+            this._populateSubMenusId = 0;
         }));
     },
 
