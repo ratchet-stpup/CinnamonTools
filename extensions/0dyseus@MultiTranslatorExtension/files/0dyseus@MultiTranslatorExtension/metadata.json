@@ -12,15 +12,15 @@
         "NikoKrause: German localization https://github.com/NikoKrause."
     ],
     "url": "https://github.com/Odyseus/CinnamonTools",
-    "schema-file": "schemas/org.cinnamon.extensions.0dyseus@MultiTranslatorExtension.gschema.xml",
+    "description": "Translation of text by different translation providers (currently Google, Yandex, Bing and Apertium).",
     "comments": "Bug reports, feature requests and contributions should be done on this xlet's repository linked below.",
-    "name": "Multi Translator",
-    "version": "1.03",
     "cinnamon-version": [
         "2.8",
         "3.0",
         "3.2",
         "3.4"
     ],
-    "description": "Translation of text by different translation providers (currently Google, Yandex, Bing and Apertium)."
+    "version": "1.03",
+    "schema-file": "schemas/org.cinnamon.extensions.0dyseus@MultiTranslatorExtension.gschema.xml",
+    "name": "Multi Translator"
 }

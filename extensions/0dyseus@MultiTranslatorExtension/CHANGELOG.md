@@ -2,6 +2,7 @@
 
 ##### 1.03
 - Added some missing translatable strings.
+- Implemented a better notification that informs how to deal with missing dependencies.
 - Added German localization for the extension and the help file. Thanks to [NikoKrause](https://github.com/NikoKrause).
 - Corrected wrong unit usage.
 

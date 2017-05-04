@@ -412,10 +412,6 @@ class HistoryApplication(Gtk.Application):
         self.quit()
 
 
-# def module_exists(module_name):
-#     return module_name in (name for loader, name, ispkg in iter_modules())
-
-
 def main():
     arg = sys.argv[1]
 
