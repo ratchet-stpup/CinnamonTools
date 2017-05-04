@@ -88,6 +88,7 @@ const P = {
     MAXIMUS_APP_LIST: "maximus-app-list",
     MAXIMUS_ENABLE_LOGGING: "maximus-enable-logging",
     MAXIMUS_APPLY_SETTINGS: "maximus-apply-settings",
+    TEST_NOTIFICATIONS: "test-notifications",
 };
 
 const SHADOW_VALUES = {
@@ -194,6 +195,24 @@ function dealWithRejection(aTweakDescription) {
     Main.warningNotify(_(ExtensionMeta.name), _(aTweakDescription) + "\n" +
         _("Tweak activation aborted!!!") + "\n" +
         _("Your Cinnamon version may not be compatible!!!"));
+}
+
+function testNotifications() {
+    Main.warningNotify(
+        _("This is a test notification"),
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit.\n" +
+        "Suspendisse eleifend, lacus ut tempor vehicula, lorem tortor\n" +
+        "suscipit libero, sit amet congue odio libero vitae lacus.\n" +
+        "Sed est nibh, lacinia ac magna non, blandit aliquet est.\n" +
+        "Mauris volutpat est vel lacinia faucibus. Pellentesque\n" +
+        "pulvinar eros at dolor pretium, eget hendrerit leo rhoncus.\n" +
+        "Sed nisl leo, posuere eget risus vel, euismod egestas metus.\n" +
+        "Praesent interdum, dui sit amet convallis rutrum, velit nunc\n" +
+        "sollicitudin erat, ac viverra leo eros in nulla. Morbi feugiat\n" +
+        "feugiat est. Nam non libero dolor. Duis egestas sodales massa\n" +
+        "sit amet lobortis. Donec sit amet nisi turpis. Morbi aliquet\n" +
+        "aliquam ullamcorper."
+    );
 }
 
 function informAndDisable() {
@@ -1102,6 +1121,7 @@ const CT_MaximusNGClass = new Lang.Class({
                 let self = this;
                 Mainloop.idle_add(function() {
                     self.onWindowAdded(ws, win);
+                    self.changeWorkspaceID = 0;
                     return false;
                 });
             }));
@@ -1269,5 +1289,6 @@ exported SHADOW_VALUES,
          CT_NemoDesktopAreaClass,
          CT_MyCheckWorkspaces,
          CT_WindowMoverClass,
-         CT_MaximusNGClass
+         CT_MaximusNGClass,
+         testNotifications
 */

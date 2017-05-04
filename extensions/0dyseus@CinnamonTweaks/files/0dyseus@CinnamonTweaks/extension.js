@@ -63,7 +63,7 @@ let STG = {
 function bindSettings() {
     CONNECTION_IDS.settings_bindings = Settings.connect(
         "changed",
-        Lang.bind(this, function(aObj, aPref) {
+        function(aObj, aPref) {
             switch (aPref) {
                 case $.P.DESKTOP_TWEAKS_ENABLED:
                 case $.P.DESKTOP_TWEAKS_ALLOW_DROP_TO_DESKTOP:
@@ -146,6 +146,9 @@ function bindSettings() {
                         CT_AutoMoveWindows.toggle();
                     }
                     break;
+                    // Instead of automatically triggering the callback every
+                    // time one of the settings changes, trigger it on demand.
+                    // This is done because this tweak is buggy as heck.
                     // case $.P.MAXIMUS_ENABLE_TWEAK:
                     // case $.P.MAXIMUS_UNDECORATE_HALF_MAXIMIZED:
                     // case $.P.MAXIMUS_UNDECORATE_TILED:
@@ -158,8 +161,14 @@ function bindSettings() {
                 case $.P.MAXIMUS_APPLY_SETTINGS:
                     CT_MaximusNG.toggle();
                     break;
+                case $.P.TEST_NOTIFICATIONS:
+                    $.testNotifications();
+                    break;
+                default:
+                    return false;
             }
-        })
+            return false;
+        }
     );
 }
 
@@ -769,7 +778,7 @@ const CT_TooltipsPatch = {
 
                 STG.TTP.show = Tooltips.Tooltip.show;
                 Tooltips.Tooltip.prototype["show"] = function() {
-                    if (this._tooltip.get_text() === "")
+                    if (this._tooltip.get_text() === "" || !this.mousePosition)
                         return;
 
                     let tooltipWidth = this._tooltip.get_allocation_box().x2 -
@@ -779,7 +788,7 @@ const CT_TooltipsPatch = {
 
                     let cursorSize = CT_TooltipsPatch.desktop_settings.get_int("cursor-size");
                     let tooltipTop = this.mousePosition[1] + (cursorSize / 1.5);
-                    var tooltipLeft = this.mousePosition[0] + (cursorSize / 2);
+                    let tooltipLeft = this.mousePosition[0] + (cursorSize / 2);
 
                     tooltipLeft = Math.max(tooltipLeft, monitor.x);
                     tooltipLeft = Math.min(tooltipLeft, monitor.x + monitor.width - tooltipWidth);

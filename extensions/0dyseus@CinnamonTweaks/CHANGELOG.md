@@ -1,6 +1,7 @@
 ## Change Log
 
 ##### 1.10
+- Added a button to display a test notification to the **Notifications Tweaks** section of the settings window. This will allow us to test the notifications when we are tweaking the notification's position.
 - Fixed spelling error on Spanish localization.
 - Fixed error on *Tooltips show delay* function for Cinnamon 3.2.x caused by a wrong callback call.
 - Fixed an error on the *Auto move windows* tweak caused by lack of context.
