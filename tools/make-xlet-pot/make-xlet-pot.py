@@ -328,7 +328,7 @@ class Main:
 
             try:
                 # Using a shell command instead of python seems to be infinitely faster.
-                os.system('find . -iname "*.js" > %s' % js_tmp.name)
+                os.system('find . -type f -iname "*.js" > %s' % js_tmp.name)
             finally:
                 os.system(" ".join(xgettext_cmd).format(language="JavaScript",
                                                         join_existing="",
@@ -344,7 +344,7 @@ class Main:
 
             try:
                 # Using a shell command instead of python seems to be infinitely faster.
-                os.system('find . -iname "*.py" > %s' % python_tmp.name)
+                os.system('find . -type f -iname "*.py" > %s' % python_tmp.name)
             finally:
                 os.system(" ".join(xgettext_cmd)
                           .format(language="Python",
@@ -512,12 +512,16 @@ class Main:
     def scan_dirs(self):
         for root, subFolders, files in os.walk(XLET_DIR, topdown=False):
             for file in files:
+                if os.path.islink(os.path.join(root, file)):
+                    continue
+
                 if file == "settings-schema.json":
                     fp = open(os.path.join(root, file))
                     raw = fp.read()
                     data = {}
                     data = json.loads(raw)
                     fp.close()
+
                     self.current_parent_dir = os.path.split(root)[1]
                     self.extract_strings(data)
                 elif file == "metadata.json":
