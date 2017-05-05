@@ -480,7 +480,7 @@ MyApplet.prototype = {
             let menuItem = new PopupMenu.PopupIconMenuItem(_("Help"),
                 "dialog-information", St.IconType.SYMBOLIC);
             menuItem.connect("activate", Lang.bind(this, function() {
-                Util.spawnCommandLine("xdg-open " + this.metadata.path + "/HELP.html");
+                Util.spawn_async(["xdg-open", "\"" + this.metadata.path + "/HELP.html" + "\""], null);
             }));
             this._applet_context_menu.addMenuItem(menuItem);
         }
@@ -502,8 +502,9 @@ MyApplet.prototype = {
                 "system-run",
                 St.IconType.SYMBOLIC);
             this.context_menu_item_configure.connect("activate", Lang.bind(this, function() {
-                Util.spawnCommandLine("cinnamon-settings applets " + this.metadata.uuid +
-                    " " + this.instance_id);
+                Util.spawn_async(["cinnamon-settings applets", this.metadata.uuid,
+                    this.instance_id
+                ], null);
             }));
             this._applet_context_menu.addMenuItem(this.context_menu_item_configure);
         }
