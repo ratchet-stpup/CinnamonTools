@@ -320,12 +320,12 @@ MyApplet.prototype = {
             _("Open the location where the translation history file is stored.")
         );
         menuItem.connect("activate", Lang.bind(this, function() {
-            Util.spawn_async(["xdg-open", [
+            Util.spawn_async(["xdg-open", "\"" + [
                 GLib.get_home_dir(),
                 ".cinnamon",
                 "configs",
                 this.metadata.uuid + "History"
-            ].join("/")], null);
+            ].join("/")] + "\"", null);
         }));
         subMenu.menu.addMenuItem(menuItem);
 
@@ -353,7 +353,7 @@ MyApplet.prototype = {
             _("Open this applet help file.")
         );
         menuItem.connect("activate", Lang.bind(this, function() {
-            Util.spawn_async(["xdg-open", this.applet_dir + "/HELP.html"], null);
+            Util.spawn_async(["xdg-open", "\"" + this.applet_dir + "/HELP.html" + "\""], null);
         }));
         subMenu.menu.addMenuItem(menuItem);
     },
