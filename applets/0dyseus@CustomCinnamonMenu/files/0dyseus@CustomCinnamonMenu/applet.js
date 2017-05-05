@@ -412,9 +412,7 @@ MyApplet.prototype = {
          * START mark Odyseus
          */
         if (!this.pref_remember_recently_used_apps) {
-            // this.pref_recently_used_apps = []; // Clear list when disabling
-            // Lets try the following.
-            this.pref_recently_used_apps.length = 0; // Clear list when disabling
+            this.pref_recently_used_apps = []; // Clear list when disabling
         }
         /**
          * END
@@ -1611,9 +1609,7 @@ MyApplet.prototype = {
             }
         }
 
-        // this._placesButtons = [];
-        // Lets try the following.
-        this._placesButtons.length = 0;
+        this._placesButtons = [];
 
         if (this._categoryButtons && this._categoryButtons.length > 0) {
             let c = 0,
@@ -1754,9 +1750,7 @@ MyApplet.prototype = {
                 this._categoryButtons[c].actor.destroy();
             }
         }
-        // this._recentButtons = [];
-        // Lets try the following.
-        this._recentButtons.length = 0;
+        this._recentButtons = [];
 
         // Now generate recent category and recent files buttons and add to the list
         /**
@@ -1974,11 +1968,8 @@ MyApplet.prototype = {
             return;
         }
 
-        // this._recentAppsButtons = [];
-        // this._recentAppsApps = [];
-        // Lets try the following.
-        this._recentAppsButtons.length = 0;
-        this._recentAppsApps.length = 0;
+        this._recentAppsButtons = [];
+        this._recentAppsApps = [];
 
         if (this.pref_recently_used_apps.length > 0 && this.recentAppsButton !== null) {
             Array.prototype.slice.call(this._applicationsButtons).forEach(Lang.bind(this, function(aBtn) {
@@ -2053,11 +2044,8 @@ MyApplet.prototype = {
 
     _refreshApps: function() {
         this.applicationsBox.destroy_all_children();
-        // this._applicationsButtons = [];
-        // this._transientButtons = [];
-        // Lets try the following.
-        this._applicationsButtons.length = 0;
-        this._transientButtons.length = 0;
+        this._applicationsButtons = [];
+        this._transientButtons = [];
         this._applicationsButtonFromApp = {};
         this._applicationsBoxWidth = 0;
         //Remove all categories
@@ -2498,9 +2486,7 @@ MyApplet.prototype = {
         this.favoritesBox.destroy_all_children();
 
         //Load favorites again
-        // this._favoritesButtons = [];
-        // Lets try the following.
-        this._favoritesButtons.length = 0;
+        this._favoritesButtons = [];
         let launchers = global.settings.get_strv('favorite-apps');
         let appSys = Cinnamon.AppSystem.get_default();
         let j = 0;
@@ -3577,9 +3563,7 @@ MyApplet.prototype = {
             this._transientButtons.forEach(function(item, index) { // jshint ignore:line
                 item.actor.destroy();
             });
-            // this._transientButtons = [];
-            // Lets try the following.
-            this._transientButtons.length = 0;
+            this._transientButtons = [];
 
             let i = 0,
                 iLen = autocompletes.length;
