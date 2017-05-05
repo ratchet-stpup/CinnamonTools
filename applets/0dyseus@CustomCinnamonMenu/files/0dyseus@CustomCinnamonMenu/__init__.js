@@ -383,7 +383,7 @@ ApplicationContextMenuItem.prototype = {
     _openDesktopFileFolder: function(aDirPath) {
         try {
             if (aDirPath !== "")
-                GLib.spawn_command_line_async("xdg-open " + aDirPath);
+                GLib.spawn_command_line_async("xdg-open " + "\"" + aDirPath + "\"");
         } catch (aErr) {
             Main.notify(_(this._appButton.appsMenuButton.metadata.name), aErr.message);
             global.logError(aErr.message);
@@ -391,6 +391,7 @@ ApplicationContextMenuItem.prototype = {
             this._appButton.appsMenuButton.menu.close(this._appButton.appsMenuButton.pref_animate_menu);
         }
     },
+
     _launchDesktopFile: function(aCurrentUser, aFileOwner) {
         let cmd = "";
         if (this._appButton.appsMenuButton.pref_gain_privileges_on_context &&
@@ -400,9 +401,9 @@ ApplicationContextMenuItem.prototype = {
 
         let editor = this._appButton.appsMenuButton.pref_custom_editor_for_edit_desktop_file_on_context;
         if (editor !== "")
-            cmd += " " + editor + " " + this._appButton.app.get_app_info().get_filename();
+            cmd += " " + editor + " " + "\"" + this._appButton.app.get_app_info().get_filename() + "\"";
         else
-            cmd += " xdg-open " + this._appButton.app.get_app_info().get_filename();
+            cmd += " xdg-open " + "\"" + this._appButton.app.get_app_info().get_filename() + "\"";
 
         try {
             GLib.spawn_command_line_async(cmd);
@@ -1867,7 +1868,7 @@ MyCustomCommandButton.prototype = {
             } catch (aErr1) {
                 try {
                     if (cmd.indexOf("/") !== -1) // Try to open file if cmd is a path
-                        Main.Util.spawnCommandLine("xdg-open " + cmd);
+                        Main.Util.spawnCommandLine("xdg-open " + "\"" + cmd + "\"");
                 } catch (aErr2) {
                     Main.notify(_(this._appButton.appsMenuButton.metadata.name), aErr2.message);
                 }

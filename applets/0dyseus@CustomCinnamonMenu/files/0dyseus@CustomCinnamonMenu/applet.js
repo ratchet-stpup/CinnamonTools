@@ -3313,7 +3313,7 @@ MyApplet.prototype = {
         menuItem = new PopupMenu.PopupIconMenuItem(_("Help"),
             "dialog-information", St.IconType.SYMBOLIC);
         menuItem.connect("activate", Lang.bind(this, function() {
-            Util.spawnCommandLine("xdg-open " + this.applet_dir + "/HELP.html");
+            Util.spawn_async(["xdg-open", "\"" + this.applet_dir + "/HELP.html" + "\""], null);
         }));
         this._applet_context_menu.addMenuItem(menuItem);
     },
