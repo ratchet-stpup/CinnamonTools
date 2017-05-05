@@ -14,6 +14,7 @@ const Main = imports.ui.main;
 const Util = imports.misc.util;
 const FileUtils = imports.misc.fileUtils;
 const ModalDialog = imports.ui.modalDialog;
+const Tooltips = imports.ui.tooltips;
 
 function MyApplet() {
     this._init.apply(this, arguments);
@@ -34,6 +35,8 @@ MyApplet.prototype = {
         this._bindSettings();
 
         try {
+            Gtk.IconTheme.get_default().append_search_path(aMetadata.path + "/icons/");
+
             this.metadata = aMetadata;
             this.instance_id = aInstance_id;
             this.orientation = aOrientation;
@@ -46,6 +49,10 @@ MyApplet.prototype = {
             this.menuManager.addMenu(this.menu);
 
             this._file = null;
+            this._timeScriptExecutionStarted = null;
+            this._timeScriptExecutionFinished = null;
+            this._timeOutputProcessingStarted = null;
+            this._timeOutputProcessingFinished = null;
             this._isDestroyed = false;
             this._setFileModeTimeout = 0;
             this._updateTimeout = 0;
@@ -85,6 +92,13 @@ MyApplet.prototype = {
 
         try {
             this._processingFile = true;
+            this._timeScriptExecutionStarted = null;
+            this._timeScriptExecutionFinished = null;
+            this._timeOutputProcessingStarted = null;
+            this._timeOutputProcessingFinished = null;
+
+            this._setAppletTooltip();
+
             let path = this.pref_file_path;
 
             if (/^file:\/\//.test(path))
@@ -164,6 +178,7 @@ MyApplet.prototype = {
             this._callToUpdateTimeout = Mainloop.timeout_add_seconds(1,
                 Lang.bind(this, function() {
                     this._update();
+                    this._callToUpdateTimeout = 0;
                 }));
         } catch (aErr) {
             global.logError(aErr);
@@ -177,11 +192,13 @@ MyApplet.prototype = {
         this._updateRunning = true;
 
         try {
+            this._timeScriptExecutionStarted = new Date().getTime();
             $.spawnWithCallback(null, [this._file.get_path()], null, 0, null,
                 Lang.bind(this, function(aStandardOutput) {
                     if (this._isDestroyed)
                         return;
 
+                    this._timeScriptExecutionFinished = new Date().getTime();
                     this._processOutput(aStandardOutput.split("\n"));
 
                     let updateInterval = this._getInterval("pref_update_interval");
@@ -231,6 +248,7 @@ MyApplet.prototype = {
 
     _processOutput: function(output) {
         try {
+            this._timeOutputProcessingStarted = new Date().getTime();
             let buttonLines = [];
             let dropdownLines = [];
 
@@ -346,6 +364,58 @@ MyApplet.prototype = {
             }
         } catch (aErr) {
             global.logError(aErr);
+        } finally {
+            this._timeOutputProcessingFinished = new Date().getTime();
+            this._setAppletTooltip();
+        }
+    },
+
+    _setAppletTooltip: function() {
+        let boldSpan = function(aStr) {
+            return '<span weight="bold">' + aStr + '</span>';
+        };
+
+        let tt = boldSpan(_(this.metadata.name)) + "\n\n";
+
+        if (this._file)
+            tt += boldSpan(_("Script file name:")) + " " + this._file.get_basename() + "\n";
+        else
+            tt += boldSpan(_("Script file name:")) + " " + _("No script set") + "\n";
+
+        tt += boldSpan(_("Execution interval:")) + " " + this.pref_update_interval + " " +
+            $.getUnitPluralForm(this.pref_update_interval_units, this.pref_update_interval) + "\n";
+
+        tt += boldSpan(_("Rotation interval:")) + " " + this.pref_rotation_interval + " " +
+            $.getUnitPluralForm(this.pref_rotation_interval_units, this.pref_rotation_interval) + "\n";
+
+        if (typeof this._timeScriptExecutionStarted === "number" &&
+            typeof this._timeScriptExecutionFinished === "number") {
+            let executionTime = (this._timeScriptExecutionFinished -
+                this._timeScriptExecutionStarted) / 1000;
+            tt += boldSpan(_("Script execution time:")) + " " + executionTime +
+                " %s".format($.getUnitPluralForm("s", executionTime)) + "\n";
+        }
+
+        if (typeof this._timeOutputProcessingStarted === "number" &&
+            typeof this._timeOutputProcessingFinished === "number") {
+            let processTime = (this._timeOutputProcessingFinished -
+                this._timeOutputProcessingStarted) / 1000;
+            tt += boldSpan(_("Output process time:")) + " " + processTime +
+                " %s".format($.getUnitPluralForm("s", processTime)) + "\n";
+        }
+
+        if (!this.tooltip)
+            this.tooltip = new Tooltips.PanelItemTooltip(this, "", this.orientation);
+
+        try {
+            this.tooltip._tooltip.set_style("text-align: left;");
+            this.tooltip._tooltip.get_clutter_text().set_line_wrap(true);
+            this.tooltip._tooltip.get_clutter_text().set_markup(tt);
+        } catch (aErr) {
+            global.logError("Error Tweaking Tooltip: " + aErr);
+            /* If we couldn't tweak the tooltip format this is likely because
+             * the underlying implementation has changed. Don't issue any
+             * failure here */
         }
     },
 
@@ -415,7 +485,7 @@ MyApplet.prototype = {
             // Execution interval unit selector submenu.
             this.updateIntervalLabel = new $.UnitSelectorSubMenuMenuItem(
                 this,
-                "<b>%s</b>".format(_("Execution interval (%s):")),
+                "<b>%s</b>".format(_("Execution interval:")),
                 "pref_update_interval_units",
                 "pref_update_interval"
             );
@@ -488,7 +558,19 @@ MyApplet.prototype = {
                     // The original Argos extension uses Gio.AppInfo.launch_default_for_uri
                     // to open the script file. I prefer to stay away from non asynchronous functions.
                     // Gio.AppInfo.launch_default_for_uri_async is still too new.
-                    Util.spawn_async(["xdg-open", this._file.get_path()], null);
+                    $.TryExec(
+                        ["xdg-open", this._file.get_path()].join(" "),
+                        null, //aOnStart
+                        function(aCmd) {
+                            $.informAboutMissingDependencies(
+                                _("Error executing command!!!") + "\n" +
+                                _("A dependency might be missing!!!"),
+                                aCmd
+                            );
+                        }, //aOnFailure
+                        null, //aOnComplete
+                        null //aLogger
+                    );
                 }
             }));
             menuItem.tooltip = new $.CustomTooltip(
@@ -533,7 +615,7 @@ MyApplet.prototype = {
             // Rotation interval unit selector submenu.
             this.rotationIntervalLabel = new $.UnitSelectorSubMenuMenuItem(
                 this,
-                "<b>%s</b>".format(_("Rotation interval (%s):")),
+                "<b>%s</b>".format(_("Rotation interval:")),
                 "pref_rotation_interval_units",
                 "pref_rotation_interval"
             );
@@ -589,10 +671,18 @@ MyApplet.prototype = {
             );
             subMenu.menu.addMenuItem(menuItem);
 
+            // Use standard icon if exists. Otherwise, override it.
+            // The lesser evil, so to speak.
+            // Needed for LM 17 which doesn't support "application-x-executable" icon
+            // (at least, is not available in some of the icon themes).
+            let iconName = Gtk.IconTheme.get_default().has_icon("application-x-executable") ?
+                "application-x-executable" :
+                "argos-for-cinnamon-application-x-executable";
+
             // Make script executable
             menuItem = new PopupMenu.PopupIconMenuItem(
                 _("Make script executable"),
-                "application-x-executable",
+                iconName,
                 St.IconType.SYMBOLIC
             );
             menuItem.tooltip = new $.CustomTooltip(
@@ -614,8 +704,8 @@ MyApplet.prototype = {
                             } finally {
                                 this._setFileModeTimeout = Mainloop.timeout_add_seconds(1,
                                     Lang.bind(this, function() {
-                                        this._setFileModeTimeout = 0;
                                         this._processFile();
+                                        this._setFileModeTimeout = 0;
                                     }));
                             }
                         } else {
@@ -650,7 +740,19 @@ MyApplet.prototype = {
             );
             menuItem.tooltip = new $.CustomTooltip(menuItem.actor, _("Open this applet help file."));
             menuItem.connect("activate", Lang.bind(this, function() {
-                Util.spawn_async(["xdg-open", this.metadata.path + "/HELP.html"], null);
+                $.TryExec(
+                    ["xdg-open", "\"" + this.metadata.path + "/HELP.html" + "\""].join(" "),
+                    null, //aOnStart
+                    function(aCmd) {
+                        $.informAboutMissingDependencies(
+                            _("Error executing command!!!") + "\n" +
+                            _("A dependency might be missing!!!"),
+                            aCmd
+                        );
+                    }, //aOnFailure
+                    null, //aOnComplete
+                    null //aLogger
+                );
             }));
             subMenu.menu.addMenuItem(menuItem);
 
@@ -748,12 +850,12 @@ MyApplet.prototype = {
                 this.set_applet_icon_name("");
             } else if (GLib.path_is_absolute(this.pref_custom_icon_for_applet) &&
                 GLib.file_test(this.pref_custom_icon_for_applet, GLib.FileTest.EXISTS)) {
-                if (this.pref_custom_icon_for_applet.search("-symbolic") != -1)
+                if (this.pref_custom_icon_for_applet.search("-symbolic") !== -1)
                     this.set_applet_icon_symbolic_path(this.pref_custom_icon_for_applet);
                 else
                     this.set_applet_icon_path(this.pref_custom_icon_for_applet);
             } else if (Gtk.IconTheme.get_default().has_icon(this.pref_custom_icon_for_applet)) {
-                if (this.pref_custom_icon_for_applet.search("-symbolic") != -1)
+                if (this.pref_custom_icon_for_applet.search("-symbolic") !== -1)
                     this.set_applet_icon_symbolic_name(this.pref_custom_icon_for_applet);
                 else
                     this.set_applet_icon_name(this.pref_custom_icon_for_applet);
@@ -767,7 +869,7 @@ MyApplet.prototype = {
                  */
             } else {
                 try {
-                    if (this.pref_custom_icon_for_applet.search("-symbolic") != -1)
+                    if (this.pref_custom_icon_for_applet.search("-symbolic") !== -1)
                         this.set_applet_icon_symbolic_name(this.pref_custom_icon_for_applet);
                     else
                         this.set_applet_icon_name(this.pref_custom_icon_for_applet);
@@ -785,7 +887,7 @@ MyApplet.prototype = {
             this._applet_icon_box.show();
         }
 
-        if (this.orientation == St.Side.LEFT || this.orientation == St.Side.RIGHT) { // no menu label if in a vertical panel
+        if (this.orientation === St.Side.LEFT || this.orientation === St.Side.RIGHT) { // no menu label if in a vertical panel
             this.set_applet_label("");
         } else {
             if (this.pref_custom_label_for_applet !== "")
@@ -804,7 +906,7 @@ MyApplet.prototype = {
             if (typeof this.hide_applet_label !== "function")
                 return;
 
-            if (this.orientation == St.Side.LEFT || this.orientation == St.Side.RIGHT)
+            if (this.orientation === St.Side.LEFT || this.orientation === St.Side.RIGHT)
                 this.hide_applet_label(true);
             else
                 this.hide_applet_label(false);

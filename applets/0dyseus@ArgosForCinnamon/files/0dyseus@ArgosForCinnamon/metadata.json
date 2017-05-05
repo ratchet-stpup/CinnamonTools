@@ -11,8 +11,8 @@
         "Philipp Emanuel Weidmann: Author of the gnome-shell extension called Argos"
     ],
     "max-instances": -1,
-    "description": "Create Cinnamon applets in seconds.",
     "comments": "Bug reports, feature requests and contributions should be done on this xlet's repository linked below.",
+    "name": "Argos for Cinnamon",
     "version": "1.00",
-    "name": "Argos for Cinnamon"
+    "description": "Create Cinnamon applets in seconds."
 }

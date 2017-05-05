@@ -1,5 +1,5 @@
 const AppletUUID = "0dyseus@ArgosForCinnamon";
-
+const AppletMeta = imports.ui.appletManager.appletMeta[AppletUUID];
 const GLib = imports.gi.GLib;
 const Gettext = imports.gettext;
 const Lang = imports.lang;
@@ -11,6 +11,11 @@ const PopupMenu = imports.ui.popupMenu;
 const Tooltips = imports.ui.tooltips;
 const Pango = imports.gi.Pango;
 const Util = imports.misc.util;
+const Main = imports.ui.main;
+const MessageTray = imports.ui.messageTray;
+
+const CINNAMON_VERSION = GLib.getenv("CINNAMON_VERSION");
+const CINN_2_8 = versionCompare(CINNAMON_VERSION, "2.8.8") <= 0;
 
 const OrnamentType = {
     NONE: 0,
@@ -19,34 +24,66 @@ const OrnamentType = {
     ICON: 3
 };
 
+const NotificationUrgency = {
+    LOW: 0,
+    NORMAL: 1,
+    HIGH: 2,
+    CRITICAL: 3
+};
+
 Gettext.bindtextdomain(AppletUUID, GLib.get_home_dir() + "/.local/share/locale");
 
 function _(aStr) {
     let customTrans = Gettext.dgettext(AppletUUID, aStr);
 
-    if (customTrans != aStr)
+    if (customTrans !== aStr)
         return customTrans;
 
     return Gettext.gettext(aStr);
+}
+
+function ngettext(aSingular, aPlural, aN) {
+    let customTrans = Gettext.dngettext(AppletUUID, aSingular, aPlural, aN);
+
+    if (aN === 1) {
+        if (customTrans !== aSingular)
+            return customTrans;
+    } else {
+        if (customTrans !== aPlural)
+            return customTrans;
+    }
+
+    return Gettext.ngettext(aSingular, aPlural, aN);
+}
+
+function getUnitPluralForm(aUnit, aN) {
+    switch (aUnit) {
+        case "s":
+            return ngettext("second", "seconds", aN);
+        case "m":
+            return ngettext("minute", "minutes", aN);
+        case "h":
+            return ngettext("hour", "hours", aN);
+        case "d":
+            return ngettext("day", "days", aN);
+    }
+
+    return "";
 }
 
 const SLIDER_SCALE = 0.00025;
 
 const UNITS_MAP = {
     s: {
-        lower: _("seconds"),
         capital: _("Seconds")
     },
     m: {
-        lower: _("minutes"),
         capital: _("Minutes")
     },
     h: {
-        lower: _("hours"),
         capital: _("Hours")
     },
     d: {
-        lower: _("days"),
         capital: _("Days")
     }
 };
@@ -1393,8 +1430,8 @@ UnitSelectorSubMenuMenuItem.prototype = {
 
     setLabel: function() {
         this.label.clutter_text.set_markup(
-            this._label.format(UNITS_MAP[this._applet[this._unitsKey]].lower) + " " +
-            this._applet[this._valueKey]
+            this._label + " " + this._applet[this._valueKey] + " " +
+            getUnitPluralForm(this._applet[this._unitsKey], this._applet[this._valueKey])
         );
     },
 
@@ -1470,10 +1507,10 @@ CustomPopupSliderMenuItem.prototype = {
         let direction = event.get_scroll_direction();
         let scale = this.ctrlKey ? SLIDER_SCALE * 11.5 : SLIDER_SCALE;
 
-        if (direction == Clutter.ScrollDirection.DOWN) {
+        if (direction === Clutter.ScrollDirection.DOWN) {
             // Original "scale" was 0.05.
             this._value = Math.max(0, this._value - scale);
-        } else if (direction == Clutter.ScrollDirection.UP) {
+        } else if (direction === Clutter.ScrollDirection.UP) {
             this._value = Math.min(1, this._value + scale);
         }
 
@@ -1485,9 +1522,9 @@ CustomPopupSliderMenuItem.prototype = {
         let key = event.get_key_symbol();
         let scale = this.ctrlKey ? SLIDER_SCALE * 11.5 : SLIDER_SCALE;
 
-        if (key == Clutter.KEY_Right || key == Clutter.KEY_Left) {
+        if (key === Clutter.KEY_Right || key === Clutter.KEY_Left) {
             // Original "scale" was 0.1.
-            let delta = key == Clutter.KEY_Right ? scale : -scale;
+            let delta = key === Clutter.KEY_Right ? scale : -scale;
             this._value = Math.max(0, Math.min(this._value + delta, 1));
             this._slider.queue_repaint();
             this.emit("value-changed", this._value);
@@ -1512,7 +1549,6 @@ ArgosLineView.prototype = {
 
         this.actor = new St.BoxLayout();
         this.actor._delegate = this;
-        // this.actor.set_style("spacing: 1em;");
 
         if (typeof aLine !== "undefined")
             this.setLine(aLine);
@@ -1521,7 +1557,26 @@ ArgosLineView.prototype = {
     setLine: function(aLine) {
         this.line = aLine;
 
-        this.actor.remove_all_children();
+        // Special case for the moronic Cinnamon 2.8.x
+        // actor.remove_all_children > Doesn't work.
+        // actor.destroy_all_children > Doesn't work.
+        // actor.destroy_children > Doesn't work.
+        // And all of those are available functions on 2.8.x!!!! ¬¬
+        // By "doesn't work" I mean that, all children are removed,
+        // but the space occupied by them still remains.
+        if (CINN_2_8) {
+            let children = this.actor.get_children();
+
+            for (let i = children.length - 1; i >= 0; i--) {
+                try {
+                    children[i].destroy();
+                } catch (aErr) {
+                    continue;
+                }
+            }
+        } else {
+            this.actor.remove_all_children();
+        }
 
         if (aLine.hasOwnProperty("iconName")) {
             let icon = null;
@@ -1692,7 +1747,7 @@ AltSwitcher.prototype = {
         }
 
         let childShown = this.actor.get_child();
-        if (childShown != childToShow) {
+        if (childShown !== childToShow) {
             if (childShown) {
                 if (childShown.fake_release)
                     childShown.fake_release();
@@ -1723,7 +1778,7 @@ AltSwitcher.prototype = {
     _onCapturedEvent: function(aActor, aEvent) {
         let type = aEvent.type();
 
-        if (type == Clutter.EventType.KEY_PRESS || type == Clutter.EventType.KEY_RELEASE) {
+        if (type === Clutter.EventType.KEY_PRESS || type === Clutter.EventType.KEY_RELEASE) {
             let key = aEvent.get_key_symbol();
 
             // Nonsense time!!! On Linux Mint 18 with Cinnamon 3.0.7, pressing the Alt Right key
@@ -1744,8 +1799,8 @@ AltSwitcher.prototype = {
     },
 
     _onLongPress: function(aAction, aActor, aState) {
-        if (aState == Clutter.LongPressState.QUERY ||
-            aState == Clutter.LongPressState.CANCEL)
+        if (aState === Clutter.LongPressState.QUERY ||
+            aState === Clutter.LongPressState.CANCEL)
             return true;
 
         this._flipped = !this._flipped;
@@ -1835,7 +1890,19 @@ ArgosMenuItem.prototype = {
                 if (activeLine.hasOwnProperty("href")) {
                     // On the original extension was:
                     // Gio.AppInfo.launch_default_for_uri(activeLine.href, null);
-                    Util.spawn_async(["xdg-open", activeLine.href], null);
+                    TryExec(
+                        ["xdg-open", "\"" + activeLine.href + "\""].join(" "),
+                        null, //aOnStart
+                        function(aCmd) {
+                            informAboutMissingDependencies(
+                                _("Error executing command!!!") + "\n" +
+                                _("A dependency might be missing!!!"),
+                                aCmd
+                            );
+                        }, //aOnFailure
+                        null, //aOnComplete
+                        null //aLogger
+                    );
                 }
 
                 if (activeLine.hasOwnProperty("eval")) {
@@ -2211,6 +2278,242 @@ function readStream(aStream, aCallback) {
             readStream(source, aCallback);
         }
     });
+}
+
+/**
+ * Compares two software version numbers (e.g. "1.7.1" or "1.2b").
+ *
+ * This function was born in http://stackoverflow.com/a/6832721.
+ *
+ * @param {string} v1 The first version to be compared.
+ * @param {string} v2 The second version to be compared.
+ * @param {object} [options] Optional flags that affect comparison behavior:
+ * <ul>
+ *     <li>
+ *         <tt>lexicographical: true</tt> compares each part of the version strings lexicographically instead of
+ *         naturally; this allows suffixes such as "b" or "dev" but will cause "1.10" to be considered smaller than
+ *         "1.2".
+ *     </li>
+ *     <li>
+ *         <tt>zeroExtend: true</tt> changes the result if one version string has less parts than the other. In
+ *         this case the shorter string will be padded with "zero" parts instead of being considered smaller.
+ *     </li>
+ * </ul>
+ * @returns {number|NaN}
+ * <ul>
+ *    <li>0 if the versions are equal</li>
+ *    <li>a negative integer iff v1 < v2</li>
+ *    <li>a positive integer iff v1 > v2</li>
+ *    <li>NaN if either version string is in the wrong format</li>
+ * </ul>
+ *
+ * @copyright by Jon Papaioannou (["john", "papaioannou"].join(".") + "@gmail.com")
+ * @license This function is in the public domain. Do what you want with it, no strings attached.
+ */
+function versionCompare(v1, v2, options) {
+    let lexicographical = options && options.lexicographical,
+        zeroExtend = options && options.zeroExtend,
+        v1parts = v1.split('.'),
+        v2parts = v2.split('.');
+
+    function isValidPart(x) {
+        return (lexicographical ? /^\d+[A-Za-z]*$/ : /^\d+$/).test(x);
+    }
+
+    if (!v1parts.every(isValidPart) || !v2parts.every(isValidPart)) {
+        return NaN;
+    }
+
+    if (zeroExtend) {
+        while (v1parts.length < v2parts.length) v1parts.push("0");
+        while (v2parts.length < v1parts.length) v2parts.push("0");
+    }
+
+    if (!lexicographical) {
+        v1parts = v1parts.map(Number);
+        v2parts = v2parts.map(Number);
+    }
+
+    for (let i = 0; i < v1parts.length; ++i) {
+        if (v2parts.length === i) {
+            return 1;
+        }
+
+        if (v1parts[i] === v2parts[i]) {
+            continue;
+        } else if (v1parts[i] > v2parts[i]) {
+            return 1;
+        } else {
+            return -1;
+        }
+    }
+
+    if (v1parts.length !== v2parts.length) {
+        return -1;
+    }
+
+    return 0;
+}
+
+// https://github.com/rjanja/desktop-capture/blob/master/capture%40rjanja/3.2/apputil.js
+function TryExec(aCmd, aOnStart, aOnFailure, aOnComplete, aLogger) {
+    let success, argv, pid, in_fd, out_fd, err_fd;
+    [success, argv] = GLib.shell_parse_argv(aCmd);
+
+    try {
+        [success, pid, in_fd, out_fd, err_fd] = GLib.spawn_async_with_pipes(
+            null,
+            argv,
+            null,
+            GLib.SpawnFlags.SEARCH_PATH | GLib.SpawnFlags.DO_NOT_REAP_CHILD,
+            null);
+    } catch (aErr) {
+        typeof aLogger === "function" && aLogger("Failure creating process");
+        typeof aOnFailure === "function" && aOnFailure(aCmd);
+        return false;
+    }
+
+    if (success && pid !== 0) {
+        let out_reader = new Gio.DataInputStream({
+            base_stream: new Gio.UnixInputStream({
+                fd: out_fd
+            })
+        });
+        // Wait for answer
+        typeof aLogger === "function" && aLogger("Spawned process with pid=" + pid);
+        typeof aOnStart === "function" && aOnStart(pid);
+        GLib.child_watch_add(GLib.PRIORITY_DEFAULT, pid,
+            function(pid, status) {
+                GLib.spawn_close_pid(pid);
+                let [line, size, buf] = [null, 0, ""];
+
+                while (([line, size] = out_reader.read_line(null)) !== null && line !== null) {
+                    buf += line;
+                }
+
+                if (buf.indexOf("Error during recording") > 0) {
+                    typeof aOnFailure === "function" && aOnFailure(aCmd);
+                } else {
+                    typeof aOnComplete === "function" && aOnComplete(status, buf);
+                }
+            });
+    } else {
+        typeof aLogger === "function" && aLogger("Failed to spawn process");
+        typeof aOnFailure === "function" && aOnFailure(aCmd);
+    }
+
+    return true;
+}
+
+function informAboutMissingDependencies(aMsg, aRes) {
+    customNotify(
+        _(AppletMeta.name),
+        aMsg + "\n" + "<b>" + aRes + "</b>" + "\n\n" +
+        _("Check this applet help file for instructions."),
+        "dialog-warning",
+        NotificationUrgency.CRITICAL, [{
+            label: _("Help"), // Just in case.
+            tooltip: _("Open this applet help file."),
+            callback: function() {
+                // Use of launch_default_for_uri instead of executing "xdg-open"
+                // asynchronously because most likely this is informing
+                // of a failed command that could be "xdg-open".
+                Gio.AppInfo.launch_default_for_uri(
+                    "file://" + AppletMeta.path + "/HELP.html",
+                    null
+                );
+            }
+        }]);
+}
+
+function customNotify(aTitle, aBody, aIconName, aUrgency, aButtons) {
+    let icon = new St.Icon({
+        icon_name: aIconName,
+        icon_type: St.IconType.SYMBOLIC,
+        icon_size: 24
+    });
+    let source = new MessageTray.SystemNotificationSource();
+    Main.messageTray.add(source);
+    let notification = new MessageTray.Notification(source, aTitle, aBody, {
+        icon: icon,
+        bodyMarkup: true,
+        titleMarkup: true,
+        bannerMarkup: true
+    });
+    notification.setTransient(aUrgency === NotificationUrgency.LOW);
+
+    if (aUrgency !== NotificationUrgency.LOW && typeof aUrgency === "number") {
+        notification.setUrgency(aUrgency);
+    }
+
+    try {
+        if (aButtons && typeof aButtons === "object") {
+            let i = 0,
+                iLen = aButtons.length;
+            for (; i < iLen; i++) {
+                let btnObj = aButtons[i];
+                try {
+                    if (!notification._buttonBox) {
+
+                        let box = new St.BoxLayout({
+                            name: "notification-actions"
+                        });
+                        notification.setActionArea(box, {
+                            x_expand: true,
+                            y_expand: false,
+                            x_fill: true,
+                            y_fill: false,
+                            x_align: St.Align.START
+                        });
+                        notification._buttonBox = box;
+                    }
+
+                    let button = new St.Button({
+                        can_focus: true
+                    });
+
+                    if (btnObj.iconName) {
+                        notification.setUseActionIcons(true);
+                        button.add_style_class_name("notification-icon-button");
+                        button.child = new St.Icon({
+                            icon_name: btnObj.iconName,
+                            icon_type: St.IconType.SYMBOLIC,
+                            icon_size: 16
+                        });
+                    } else {
+                        button.add_style_class_name("notification-button");
+                        button.label = btnObj.label;
+                    }
+
+                    button.connect("clicked", btnObj.callback);
+
+                    if (btnObj.tooltip) {
+                        button.tooltip = new Tooltips.Tooltip(
+                            button,
+                            btnObj.tooltip
+                        );
+                        button.connect("destroy", function() {
+                            button.tooltip.destroy();
+                        });
+                    }
+
+                    if (notification._buttonBox.get_n_children() > 0)
+                        notification._buttonFocusManager.remove_group(notification._buttonBox);
+
+                    notification._buttonBox.add(button);
+                    notification._buttonFocusManager.add_group(notification._buttonBox);
+                    notification._inhibitTransparency = true;
+                    notification.updateFadeOnMouseover();
+                    notification._updated();
+                } catch (aErr) {
+                    global.logError(aErr);
+                    continue;
+                }
+            }
+        }
+    } finally {
+        source.notify(notification);
+    }
 }
 
 /*

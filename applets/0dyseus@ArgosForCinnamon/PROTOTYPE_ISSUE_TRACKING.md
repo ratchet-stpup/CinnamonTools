@@ -12,10 +12,10 @@ More precisely, Argos for Cinnamon is an applet that turns executables' standard
 
 ## Tested environments
 
-* [ ] ![Cinnamon 2.8](https://odyseus.github.io/CinnamonTools/lib/badges/cinn-2.8.svg) ![Linux Mint 17.3](https://odyseus.github.io/CinnamonTools/lib/badges/lm-17.3.svg)
+* [x] ![Cinnamon 2.8](https://odyseus.github.io/CinnamonTools/lib/badges/cinn-2.8.svg) ![Linux Mint 17.3](https://odyseus.github.io/CinnamonTools/lib/badges/lm-17.3.svg)
 * [x] ![Cinnamon 3.0](https://odyseus.github.io/CinnamonTools/lib/badges/cinn-3.0.svg) ![Linux Mint 18](https://odyseus.github.io/CinnamonTools/lib/badges/lm-18.svg)
-* [ ] ![Cinnamon 3.2](https://odyseus.github.io/CinnamonTools/lib/badges/cinn-3.2.svg) ![Linux Mint 18.1](https://odyseus.github.io/CinnamonTools/lib/badges/lm-18.1.svg)
-* [ ] ![Cinnamon 3.4](https://odyseus.github.io/CinnamonTools/lib/badges/cinn-3.4.svg) ![Linux Mint 18.2](https://odyseus.github.io/CinnamonTools/lib/badges/lm-18.2.svg)
+* [x] ![Cinnamon 3.2](https://odyseus.github.io/CinnamonTools/lib/badges/cinn-3.2.svg) ![Linux Mint 18.1](https://odyseus.github.io/CinnamonTools/lib/badges/lm-18.1.svg)
+* [x] ![Cinnamon 3.4](https://odyseus.github.io/CinnamonTools/lib/badges/cinn-3.4.svg) ![Linux Mint 18.2](https://odyseus.github.io/CinnamonTools/lib/badges/lm-18.2.svg)
 
 ## Key features
 
@@ -33,10 +33,9 @@ After placing a new instance of **Argos for Cinnamon** into a panel, one of the 
 **Read the help file for this applet before trying any script with it. And pay attention to all warnings.**
 
 ## ToDo
-
-* [ ] Test applet on all the other Cinnamon versions. ![Priority HIGH](https://img.shields.io/badge/Priority-HIGH-orange.svg?style=plastic)
-* [ ] Add a tooltip to the applet. I'm thinking on adding some basic information to it like the rotation and execution intervals, name of the script file and some other information that can be seen at a glance of the tooltip without opening the context menu or the applet settings window. ![Priority HIGH](https://img.shields.io/badge/Priority-HIGH-orange.svg?style=plastic)
 * [ ] I'm thinking about adding the possibility to create more types of elements and not be limited to just menu items. More precisely, I'm thinking about adding buttons. Buttons can occupy more vertical space than menu items, but one could fit 5 or 6 buttons in the same horizontal space that 2 menu items would occupy. But I will start to work on this after this applet reaches an stable state. ![Priority LOW](https://img.shields.io/badge/Priority-LOW-blue.svg?style=plastic)
+* [x] Test applet on all the other Cinnamon versions. ![Priority HIGH](https://img.shields.io/badge/Priority-HIGH-orange.svg?style=plastic)
+* [x] Add a tooltip to the applet. I'm thinking on adding some basic information to it like the rotation and execution intervals, name of the script file and some other information that can be seen at a glance of the tooltip without opening the context menu or the applet settings window. ![Priority HIGH](https://img.shields.io/badge/Priority-HIGH-orange.svg?style=plastic)
 
 <!--
 Badges

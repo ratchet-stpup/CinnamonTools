@@ -42,7 +42,10 @@ I will use the words <em>plugin</em> or <em>script</em> when referring to a scri
 
 ***
 
-## Examples
+## Dependencies
+
+- **xdg-open** command: Open a URI in the user's preferred application that handles the respective URI or file type.
+    - Debian and Arch Linux based distributions: This command is installed with the package called **xdg-utils**. Installed by default in modern versions of Linux Mint.
 
 ***
 
