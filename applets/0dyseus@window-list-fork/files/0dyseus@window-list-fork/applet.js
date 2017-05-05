@@ -929,7 +929,7 @@ AppMenuButtonRightClickMenu.prototype = {
             item = new PopupMenu.PopupIconMenuItem(_("Help"), "dialog-information",
                 St.IconType.SYMBOLIC);
             item.connect('activate', Lang.bind(this, function() {
-                Util.spawnCommandLine("xdg-open " + this.metadata.path + "/HELP.html");
+                Util.spawn_async(["xdg-open", "\"" + this._launcher._applet.metadata.path + "/HELP.html" + "\""], null);
             }));
             subMenu.menu.addMenuItem(item);
 
@@ -947,13 +947,14 @@ AppMenuButtonRightClickMenu.prototype = {
                 if (typeof this._launcher._applet.configureApplet === "function")
                     this._launcher._applet.configureApplet();
                 else
-                    Util.spawnCommandLine("cinnamon-settings applets " +
-                        this._launcher._applet._uuid + " " + this._launcher._applet.instance_id);
+                    Util.spawn_async(["cinnamon-settings applets",
+                        this._launcher._applet._uuid, this._launcher._applet.instance_id
+                    ], null);
             })));
             subMenu.menu.addMenuItem(item);
 
             item = new PopupMenu.PopupIconMenuItem(
-                _("Remove '%s'").format(this._launcher._applet._metadata.name),
+                _("Remove '%s'").format(this._launcher._applet.metadata.name),
                 "edit-delete",
                 St.IconType.SYMBOLIC);
             item.connect('activate', Lang.bind(this, function() {
@@ -978,24 +979,25 @@ AppMenuButtonRightClickMenu.prototype = {
     },
 };
 
-function MyApplet(metadata, orientation, panel_height, instance_id) {
-    this._init(metadata, orientation, panel_height, instance_id);
+function MyApplet() {
+    this._init.apply(this, arguments);
 }
 
 MyApplet.prototype = {
     __proto__: Applet.Applet.prototype,
 
-    _init: function(metadata, orientation, panel_height, instance_id) {
-        Applet.Applet.prototype._init.call(this, orientation, panel_height, instance_id);
+    _init: function(aMetadata, aOrientation, aPanel_height, aInstance_id) {
+        Applet.Applet.prototype._init.call(this, aOrientation, aPanel_height, aInstance_id);
 
         if (Applet.hasOwnProperty("AllowedLayout"))
             this.setAllowedLayout(Applet.AllowedLayout.BOTH);
 
-        this._metadata = metadata;
+        this.metadata = aMetadata;
+        this.instance_id = aInstance_id;
 
         this.actor.set_track_hover(false);
         this.actor.set_style_class_name("window-list-box");
-        this.orientation = orientation;
+        this.orientation = aOrientation;
         this.appletEnabled = false;
         //
         // A layout manager is used to cater for vertical panels as well as horizontal
@@ -1026,7 +1028,7 @@ MyApplet.prototype = {
         this._windows = [];
         this._monitorWatchList = [];
 
-        this.settings = new Settings.AppletSettings(this, metadata.uuid, this.instance_id);
+        this.settings = new Settings.AppletSettings(this, this.metadata.uuid, this.instance_id);
         this._bindSettings();
 
         this.signals = new SignalManager.SignalManager(this);
@@ -1056,7 +1058,7 @@ MyApplet.prototype = {
 
         global.settings.bind("panel-edit-mode", this.actor, "reactive", Gio.SettingsBindFlags.DEFAULT);
 
-        this.on_orientation_changed(orientation);
+        this.on_orientation_changed(aOrientation);
         this._updateAttentionGrabber();
     },
 
@@ -1440,7 +1442,7 @@ MyApplet.prototype = {
     }
 };
 
-function main(metadata, orientation, panel_height, instance_id) {
-    let myApplet = new MyApplet(metadata, orientation, panel_height, instance_id);
+function main(aMetadata, aOrientation, aPanel_height, aInstance_id) {
+    let myApplet = new MyApplet(aMetadata, aOrientation, aPanel_height, aInstance_id);
     return myApplet;
 }
