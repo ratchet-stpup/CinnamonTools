@@ -235,7 +235,7 @@ const CT_AppletManagerPatch = {
                             St.IconType.SYMBOLIC);
                         this.context_menu_item_custom_open_folder.connect("activate",
                             Lang.bind(this, function() {
-                                Util.spawnCommandLine("xdg-open " + this._meta["path"]);
+                                Util.spawn_async(["xdg-open", "\"" + this._meta["path"] + "\""], null);
                             }));
                         this._applet_context_menu.addMenuItem(
                             this.context_menu_item_custom_open_folder,
@@ -252,7 +252,7 @@ const CT_AppletManagerPatch = {
                             St.IconType.SYMBOLIC);
                         this.context_menu_item_custom_edit_file.connect("activate",
                             Lang.bind(this, function() {
-                                Util.spawnCommandLine("xdg-open " + this._meta["path"] + "/applet.js");
+                                Util.spawn_async(["xdg-open", "\"" + this._meta["path"] + "/applet.js" + "\""], null);
                             }));
                         this._applet_context_menu.addMenuItem(
                             this.context_menu_item_custom_edit_file,
@@ -361,7 +361,7 @@ const CT_DeskletManagerPatch = {
                             "folder",
                             St.IconType.SYMBOLIC);
                         this.context_menu_item_custom_open_folder.connect("activate", Lang.bind(this, function() {
-                            Util.spawnCommandLine("xdg-open " + this._meta["path"]);
+                            Util.spawn_async(["xdg-open", "\"" + this._meta["path"] + "\""], null);
                         }));
                         this._menu.addMenuItem(
                             this.context_menu_item_custom_open_folder,
@@ -377,7 +377,7 @@ const CT_DeskletManagerPatch = {
                             "text-editor",
                             St.IconType.SYMBOLIC);
                         this.context_menu_item_custom_edit_file.connect("activate", Lang.bind(this, function() {
-                            Util.spawnCommandLine("xdg-open " + this._meta["path"] + "/desklet.js");
+                            Util.spawn_async(["xdg-open", "\"" + this._meta["path"] + "/desklet.js" + "\""], null);
                         }));
                         this._menu.addMenuItem(
                             this.context_menu_item_custom_edit_file,
