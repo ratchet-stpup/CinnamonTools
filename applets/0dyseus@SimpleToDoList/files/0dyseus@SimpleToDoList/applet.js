@@ -705,7 +705,7 @@ MyApplet.prototype = {
         menuItem._icon.icon_size = 14;
         menuItem.tooltip = new $.MyTooltip(menuItem.actor, _("Open this applet help file."));
         menuItem.connect("activate", Lang.bind(this, function() {
-            Util.spawn_async(["xdg-open", this.metadata.path + "/HELP.html"], null);
+            Util.spawn_async(["xdg-open", "\"" + this.metadata.path + "/HELP.html" + "\""], null);
         }));
         this._applet_context_menu.addMenuItem(menuItem);
     },

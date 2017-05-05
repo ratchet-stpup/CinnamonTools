@@ -1559,7 +1559,7 @@ function arrowIcon(side) {
 
 function arrayMove(array, old_index, new_index) {
     if (new_index >= array.length) {
-        var k = new_index - array.length;
+        let k = new_index - array.length;
         while ((k--) + 1) {
             array.push(undefined);
         }
