@@ -587,7 +587,7 @@ TranslatorExtension.prototype = {
                                 this.close();
                                 Util.spawn_async([
                                     "xdg-open",
-                                    $.ExtensionPath + "/HELP.html"
+                                    "\"" + $.ExtensionPath + "/HELP.html" + "\""
                                 ], null);
                             }),
                             $.ICONS.help

@@ -22,7 +22,6 @@ const Clutter = imports.gi.Clutter;
 const Atk = imports.gi.Atk;
 const Lightbox = imports.ui.lightbox;
 const MessageTray = imports.ui.messageTray;
-const Gtk = imports.gi.Gtk;
 const Tooltips = imports.ui.tooltips;
 const PopupMenu = imports.ui.popupMenu;
 const GioSSS = Gio.SettingsSchemaSource;
@@ -3207,9 +3206,9 @@ function get_unichar(keyval) {
 
 // http://stackoverflow.com/a/7654602
 var asyncLoop = function(o) { // jshint ignore:line
-    var i = -1;
+    let i = -1;
 
-    var loop = function() {
+    let loop = function() {
         i++;
         if (i == o.length) {
             o.callback();
@@ -3308,7 +3307,7 @@ function getKeyByValue(object, value) {
  * @license This function is in the public domain. Do what you want with it, no strings attached.
  */
 function versionCompare(v1, v2, options) {
-    var lexicographical = options && options.lexicographical,
+    let lexicographical = options && options.lexicographical,
         zeroExtend = options && options.zeroExtend,
         v1parts = v1.split('.'),
         v2parts = v2.split('.');
@@ -3331,7 +3330,7 @@ function versionCompare(v1, v2, options) {
         v2parts = v2parts.map(Number);
     }
 
-    for (var i = 0; i < v1parts.length; ++i) {
+    for (let i = 0; i < v1parts.length; ++i) {
         if (v2parts.length == i) {
             return 1;
         }
@@ -3458,7 +3457,7 @@ function informAboutMissingDependencies(aRes) {
             callback: function() {
                 Util.spawn_async([
                     "xdg-open",
-                    ExtensionPath + "/HELP.html"
+                    "\"" + ExtensionPath + "/HELP.html" + "\""
                 ], null);
             }
         }, {
@@ -3468,7 +3467,7 @@ function informAboutMissingDependencies(aRes) {
             callback: function() {
                 Util.spawn_async([
                     "xdg-open",
-                    GLib.get_home_dir() + "/.cinnamon/glass.log"
+                    "\"" + GLib.get_home_dir() + "/.cinnamon/glass.log" + "\""
                 ], null);
             }
         }]);
