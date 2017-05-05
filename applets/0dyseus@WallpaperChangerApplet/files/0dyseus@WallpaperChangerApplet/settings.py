@@ -1143,7 +1143,7 @@ class AppletPrefsWindow(Gtk.ApplicationWindow):
 class AppletPrefsApplication(Gtk.Application):
 
     def __init__(self, *args, **kwargs):
-        GLib.set_application_name(_(APPLET_NAME))
+        GLib.set_application_name(APPLET_NAME)
         super().__init__(*args,
                          application_id=APPLICATION_ID,
                          flags=Gio.ApplicationFlags.FLAGS_NONE,

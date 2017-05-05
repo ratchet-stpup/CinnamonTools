@@ -7,9 +7,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.00\n"
 "Report-Msgid-Bugs-To: Odyseus\n"
-"POT-Creation-Date: 2017-04-20 22:49-0300\n"
-"PO-Revision-Date: 2017-04-20 22:49-0300\n"
-"Last-Translator: \n"
+"POT-Creation-Date: 2017-05-05 12:55-0300\n"
+"PO-Revision-Date: 2017-05-05 12:55-0300\n"
+"Last-Translator: Odyseus\n"
 "Language-Team: \n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
@@ -20,13 +20,13 @@ msgstr ""
 
 #: applet.js:90
 msgid "Extra Options"
-msgstr "opciones Extra"
+msgstr "Opciones Extra"
 
-#: applet.js:93
+#: applet.js:94
 msgid "Auto Start Daemon"
 msgstr "Auto Iniciar Demonio"
 
-#: applet.js:94 settings.py:411
+#: applet.js:95 settings.py:411
 msgid ""
 "When enabled, the daemon will be automatically started when the applet is "
 "loaded. If it is already running or this is disabled, no action will be "
@@ -36,11 +36,11 @@ msgstr ""
 "cargue el applet.  Si el demonio ya se está ejecutando o si esta opción está "
 "deshabilitada, no se realizará ninguna acción."
 
-#: applet.js:98
+#: applet.js:99
 msgid "Change with Profile"
 msgstr "Cambiar con el Perfil"
 
-#: applet.js:99
+#: applet.js:100
 msgid ""
 "When enabled, this will cause the daemon to automatically change the "
 "wallpaper whenever the current profile is changed."
@@ -48,11 +48,11 @@ msgstr ""
 "Con esta opción activada, el demonio cambiará automáticamente el fondo de "
 "pantalla siempre que se cambie el perfil actual."
 
-#: applet.js:103
+#: applet.js:104
 msgid "Notifications"
 msgstr "Notificaciones"
 
-#: applet.js:104 settings.py:572
+#: applet.js:105 settings.py:572
 msgid ""
 "Display a notification each time an event happens with wallpaper changer. "
 "This does not stop the applet from reporting errors."
@@ -60,11 +60,11 @@ msgstr ""
 "Mostrar una notificación cada vez que ocurre un evento con el cambiador de "
 "fondo de pantalla.  Esto no impide que el applet informe sobre errores."
 
-#: applet.js:108
+#: applet.js:109
 msgid "Remember Profile State"
 msgstr "Recordar Estado del Perfil"
 
-#: applet.js:109 settings.py:567
+#: applet.js:110 settings.py:567
 msgid ""
 "When enabled, the daemon will remember its current and next wallpaper for "
 "the current profile when the profile is changed. This means returning back "
@@ -75,37 +75,37 @@ msgstr ""
 "que volver al perfil restablecerá el fondo anterior más el siguiente en la "
 "cola."
 
-#: applet.js:160
+#: applet.js:179
 msgid "Wallpaper Changed"
 msgstr "Fondo de Pantalla Cambiado"
 
-#: applet.js:166
+#: applet.js:185
 msgid "Daemon Error"
 msgstr "Error de Demonio"
 
 #. TO TRANSLATORS: Full sentence:
 #. "Notifications are now enabled/disabled"
-#: applet.js:176
+#: applet.js:195
 #, javascript-format
 msgid "Notifications are now %s"
 msgstr "Notificaciones están ahora %s"
 
 #. TO TRANSLATORS: Full sentence:
 #. "Notifications are now enabled/disabled"
-#: applet.js:179
+#: applet.js:198
 msgid "enabled"
 msgstr "activadas"
 
-#: applet.js:179
+#: applet.js:198
 msgid "disabled"
 msgstr "desactivadas"
 
-#: applet.js:204
+#: applet.js:223
 #, javascript-format
 msgid "Profile changed to %s"
 msgstr "Perfil cambiado a %s"
 
-#: applet.js:236
+#: applet.js:255
 msgid "Configure..."
 msgstr "Configurar..."
 
@@ -118,73 +118,73 @@ msgstr "No se pudo encontrar el esquema %s para la extensión %s."
 msgid "Please check your installation."
 msgstr "Compruebe su instalación."
 
-#: __init__.js:462
+#: __init__.js:458
 msgid "Wallpapers will be changed in random order"
 msgstr "Fondos de pantalla serán cambiados en orden aleatorio"
 
-#: __init__.js:464
+#: __init__.js:460
 msgid "Wallpapers will be changed in alphabetical order"
 msgstr "Fondos de pantalla serán cambiados en orden alfabético"
 
-#: __init__.js:466
+#: __init__.js:462
 #, javascript-format
 msgid "Wallpaper rotation every %s seconds"
 msgstr "Rotación de fondos de pantalla casa %s segundos"
 
-#: __init__.js:468
+#: __init__.js:464
 msgid "Automatic rotation disabled"
 msgstr "Rotación automática deshabilitada"
 
-#: __init__.js:470
+#: __init__.js:466
 msgid "Wallpaper rotation at the beginning of every hour"
 msgstr "Rotación de fondos de pantalla al principio de cada hora"
 
-#: __init__.js:624
+#: __init__.js:608
 msgid "You must provide at least two states for the button"
 msgstr "Al menos dos estados deben ser provistos para el botón"
 
-#: __init__.js:689 settings.py:449
+#: __init__.js:661 settings.py:449
 msgid "Next Wallpaper"
 msgstr "Fondo de Pantalla Siguiente"
 
-#: __init__.js:692 settings.py:453
+#: __init__.js:664 settings.py:453
 msgid "Previous Wallpaper"
 msgstr "Fondo de pantalla Previo"
 
-#: __init__.js:774
+#: __init__.js:746
 msgid "Unable to go back any further, no history available"
 msgstr "No se puede volver más atrás, no hay historial disponible"
 
-#: __init__.js:798 settings.py:383
+#: __init__.js:770 settings.py:383
 msgid "Daemon Status"
 msgstr "Estado del Demonio"
 
-#: __init__.js:808 settings.py:382
+#: __init__.js:780 settings.py:382
 msgid "Toggle and display the daemon status."
 msgstr "Alternar y mostrar el estado del demonio."
 
-#: __init__.js:834
+#: __init__.js:807
 msgid "Open Current Wallpaper"
 msgstr "Abrir Fondo de Pantalla Actual"
 
-#: __init__.js:881
+#: __init__.js:854
 msgid "Open Next Wallpaper"
 msgstr "Abrir el Fondo de Pantalla Siguiente"
 
-#: __init__.js:918 __init__.js:927
+#: __init__.js:891 __init__.js:901
 #, javascript-format
 msgid "Profile: %s"
 msgstr "Perfil: %s"
 
-#: __init__.js:1153
+#: __init__.js:1145
 msgid "Applet activation aborted!!!"
 msgstr "¡¡¡Activación del ajuste abortada!!!"
 
-#: __init__.js:1154
+#: __init__.js:1146
 msgid "Your Cinnamon version may not be compatible!!!"
 msgstr "¡¡¡Su versión de Cinnamon puede que no sea compatible!!!"
 
-#: __init__.js:1155
+#: __init__.js:1147
 msgid "Minimum Cinnamon version allowed: 3.0"
 msgstr "Versión mínima de CInnamon permitida: 3.0"
 
@@ -465,7 +465,7 @@ msgid "%s applet preferences"
 msgstr "Preferencias del applet %s"
 
 #. TO TRANSLATORS: Could be left blank.
-#: settings.py:1245
+#: settings.py:1242
 #, python-format
 msgid ""
 "Please enter your password to install the required settings schema for %s"
@@ -474,7 +474,7 @@ msgstr ""
 "configuración necesario para %s"
 
 #. TO TRANSLATORS: Could be left blank.
-#: settings.py:1256
+#: settings.py:1253
 #, python-format
 msgid ""
 "Could not install the settings schema for %s.  You will have to perform this "
@@ -484,7 +484,7 @@ msgstr ""
 "realizar este paso usted mismo."
 
 #. TO TRANSLATORS: Could be left blank.
-#: settings.py:1262
+#: settings.py:1259
 #, python-format
 msgid "Please enter your password to remove the settings schema for %s"
 msgstr ""
@@ -492,7 +492,7 @@ msgstr ""
 "configuración para %s"
 
 #. TO TRANSLATORS: Could be left blank.
-#: settings.py:1273
+#: settings.py:1270
 #, python-format
 msgid ""
 "Could not remove the settings schema for %s.  You will have to perform this "
@@ -501,13 +501,11 @@ msgstr ""
 "No se pudo eliminar el esquema de configuración para %s. Tendrá que realizar "
 "este paso usted mismo. Esto no es un error crítico."
 
-#. 0dyseus@WallpaperChangerApplet->metadata.json->contributors
-msgid ""
-"Eric Gach: Author of Desk Changer gnome-shell extension. https://github.com/"
-"BigE/desk-changer"
+#. 0dyseus@WallpaperChangerApplet->metadata.json->description
+msgid "Cinnamon wallpaper slideshow applet with multiple profiles support."
 msgstr ""
-"Eric Gach: Autor de la extnsión para gnome-shell Desk Changer https://github."
-"com/BigE/desk-changer."
+"Diapositivas de fondos de pantalla para Cinnamon con soporte para múltiples "
+"perfiles."
 
 #. 0dyseus@WallpaperChangerApplet->metadata.json->comments
 msgid ""
@@ -517,8 +515,10 @@ msgstr ""
 "Los reportes de fallos, peticiones de características y contribuciones deben "
 "hacerse en el repositorio de este xlet vinculado a continuación."
 
-#. 0dyseus@WallpaperChangerApplet->metadata.json->description
-msgid "Cinnamon wallpaper slideshow applet with multiple profiles support."
+#. 0dyseus@WallpaperChangerApplet->metadata.json->contributors
+msgid ""
+"Eric Gach: Author of Desk Changer gnome-shell extension. https://github.com/"
+"BigE/desk-changer"
 msgstr ""
-"Diapositivas de fondos de pantalla para Cinnamon con soporte para múltiples "
-"perfiles."
+"Eric Gach: Autor de la extnsión para gnome-shell Desk Changer https://github."
+"com/BigE/desk-changer."

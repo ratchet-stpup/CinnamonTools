@@ -516,15 +516,15 @@ WallChangerPreview.prototype = {
                 function(obj, res) {
                     try {
                         let stream = obj.read_finish(res);
-                        this._textureFromStream(stream);
+                        this._textureFromStream(stream, aPath);
                     } catch (aErr) {
-                        global.logError(aErr);
+                        global.logError(aPath + "\n" + aErr);
                     }
                 }));
     },
 
-    _textureFromStream: function(stream) {
-        GdkPixbuf.Pixbuf.new_from_stream_at_scale_async(stream, this._width, -1, true, null,
+    _textureFromStream: function(aStream, aPath) {
+        GdkPixbuf.Pixbuf.new_from_stream_at_scale_async(aStream, this._width, -1, true, null,
             Lang.bind(this, function(obj, res) {
                 try {
                     let pixBuf = GdkPixbuf.Pixbuf.new_from_stream_finish(res);
@@ -554,17 +554,17 @@ WallChangerPreview.prototype = {
 
                     this.actor.add_actor(this._texture);
 
-                    stream.close_async(GLib.PRIORITY_DEFAULT,
+                    aStream.close_async(GLib.PRIORITY_DEFAULT,
                         null,
                         function(object, res) {
                             try {
                                 object.close_finish(res);
                             } catch (e) {
-                                global.logError('Unable to close the stream ' + e.toString());
+                                global.logError("Unable to close the stream " + e.toString());
                             }
                         });
                 } catch (aErr) {
-                    global.logError(aErr);
+                    global.logError(aPath + "\n" + aErr);
                 }
             }));
     },
@@ -816,7 +816,7 @@ WallChangerOpenCurrent.prototype = {
 
     _activate: function() {
         debug("Opening current wallpaper %s".format(this._background.get_string("picture-uri")));
-        Util.spawn_async(["xdg-open", this._background.get_string("picture-uri")], null);
+        Util.spawn_async(["xdg-open", "\"" + this._background.get_string("picture-uri") + "\""], null);
     }
 };
 
@@ -871,7 +871,7 @@ WallChangerPreviewMenuItem.prototype = {
     _clicked: function() {
         if (this._preview.path) {
             debug("Opening file %s".format(this._preview.path));
-            Util.spawn_async(["xdg-open", this._preview.path], null);
+            Util.spawn_async(["xdg-open", "\"" + this._preview.path + "\""], null);
         } else {
             debug("ERROR: no preview currently set");
         }
@@ -893,6 +893,7 @@ WallChangerProfile.prototype = {
         this._populate_profiles();
         this._settings.connect("changed::current-profile", Lang.bind(this, this.setLabel));
         this._settings.connect("changed::profiles", Lang.bind(this, this._populate_profiles));
+        this.menu.connect("open-state-changed", Lang.bind(this, this._subMenuOpenStateChanged));
         this.setSensitive(sensitive);
     },
 
@@ -905,12 +906,30 @@ WallChangerProfile.prototype = {
         for (let index in this._settings.profiles) {
             debug("Adding menu: %s".format(index));
             let item = new PopupMenu.PopupMenuItem(index);
-            item.connect("activate", Lang.bind(item, function() {
+            item.connect("activate", Lang.bind(item, function() { // jshint ignore:line
                 let settings = new WallChangerSettings();
                 settings.current_profile = this.label.text;
                 settings.destroy();
             }));
             this.menu.addMenuItem(item);
+        }
+    },
+
+    _subMenuOpenStateChanged: function(aMenu, aOpen) {
+        if (aOpen) {
+            let children = aMenu._getTopMenu()._getMenuItems();
+            let i = 0,
+                iLen = children.length;
+            for (; i < iLen; i++) {
+                let item = children[i];
+
+                if (item instanceof PopupMenu.PopupSubMenuMenuItem ||
+                    item instanceof WallChangerProfile) {
+                    if (aMenu !== item.menu) {
+                        item.menu.close(true);
+                    }
+                }
+            }
         }
     }
 };
@@ -1058,7 +1077,7 @@ function getStack() {
  * @license This function is in the public domain. Do what you want with it, no strings attached.
  */
 function versionCompare(v1, v2, options) {
-    var lexicographical = options && options.lexicographical,
+    let lexicographical = options && options.lexicographical,
         zeroExtend = options && options.zeroExtend,
         v1parts = v1.split('.'),
         v2parts = v2.split('.');
@@ -1081,7 +1100,7 @@ function versionCompare(v1, v2, options) {
         v2parts = v2parts.map(Number);
     }
 
-    for (var i = 0; i < v1parts.length; ++i) {
+    for (let i = 0; i < v1parts.length; ++i) {
         if (v2parts.length == i) {
             return 1;
         }
@@ -1132,13 +1151,13 @@ function informAndDisable(aInstance_id) {
     } finally {
         let removal = Mainloop.timeout_add(
             3000,
-            Lang.bind(this, function() {
+            function() {
                 try {
                     _removeAppletFromPanel(AppletUUID, aInstance_id);
                 } finally {
                     Mainloop.source_remove(removal);
                 }
-            })
+            }
         );
     }
 }

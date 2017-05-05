@@ -88,6 +88,7 @@ MyApplet.prototype = {
         this.wallChangerControls = new $.WallChangerControls(Daemon.bus);
 
         let subMenu = new PopupMenu.PopupSubMenuMenuItem(_("Extra Options"));
+        subMenu.menu.connect("open-state-changed", Lang.bind(this, this._subMenuOpenStateChanged));
         subMenu.menu.addMenuItem(new $.WallChangerDaemonControl(Daemon));
         subMenu.menu.addMenuItem(new $.WallChangerSwitch(
             _("Auto Start Daemon"),
@@ -121,6 +122,24 @@ MyApplet.prototype = {
         this.menu.addMenuItem(new $.WallChangerProfile());
 
         this._updateKeybindings();
+    },
+
+    _subMenuOpenStateChanged: function(aMenu, aOpen) {
+        if (aOpen) {
+            let children = aMenu._getTopMenu()._getMenuItems();
+            let i = 0,
+                iLen = children.length;
+            for (; i < iLen; i++) {
+                let item = children[i];
+
+                if (item instanceof PopupMenu.PopupSubMenuMenuItem ||
+                    item instanceof $.WallChangerProfile) {
+                    if (aMenu !== item.menu) {
+                        item.menu.close(true);
+                    }
+                }
+            }
+        }
     },
 
     _updateKeybindings: function() {

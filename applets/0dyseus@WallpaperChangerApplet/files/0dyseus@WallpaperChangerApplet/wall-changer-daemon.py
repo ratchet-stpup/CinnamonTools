@@ -120,7 +120,8 @@ class WallChangerDaemon(Gio.Application):
         self._settings_signals = []
         self._background = Gio.Settings.new("org.cinnamon.desktop.background")
         # internal stuffs
-        self._accepted = ["application/xml", "image/jpeg", "image/png"]
+        # Removed "application/xml"
+        self._accepted = ["image/jpeg", "image/png"]
         self._current_profile = None
         self._dbus_id = None
         self._did_hourly = False
