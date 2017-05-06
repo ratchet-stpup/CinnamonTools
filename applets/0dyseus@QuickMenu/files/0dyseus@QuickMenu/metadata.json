@@ -8,8 +8,8 @@
         "3.4"
     ],
     "max-instances": "-1",
-    "uuid": "0dyseus@QuickMenu",
     "comments": "Bug reports, feature requests and contributions should be done on this xlet's repository linked below.",
+    "name": "Quick Menu",
     "version": "1.07",
-    "name": "Quick Menu"
+    "uuid": "0dyseus@QuickMenu"
 }
