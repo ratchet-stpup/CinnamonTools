@@ -8,8 +8,8 @@
         "3.4"
     ],
     "max-instances": "-1",
-    "description": "Various shortcuts to handle desktop actions.",
+    "uuid": "0dyseus@DesktopHandler",
     "comments": "Bug reports, feature requests and contributions should be done on this xlet's repository linked below.",
     "version": "1.07",
-    "uuid": "0dyseus@DesktopHandler"
+    "description": "Various shortcuts to handle desktop actions."
 }
