@@ -1,21 +1,23 @@
 {
-    "website": "https://github.com/Odyseus/CinnamonTools",
-    "name": "Cinnamon Maximus (Fork by Odyseus)",
+    "website": "https://github.com/Odyseus/CinnamonTools", 
+    "description": "Remove windows decorations from maximized windows.", 
     "cinnamon-version": [
-        "1.8",
-        "1.9",
-        "2.0",
-        "2.1",
-        "2.2",
-        "2.4",
-        "2.6",
-        "2.8",
-        "3.0",
-        "3.2"
-    ],
-    "url": "https://github.com/Odyseus/CinnamonTools",
-    "description": "Remove windows decorations from maximized windows.",
-    "contributors": "muzena: Croatian localization.",
-    "version": "0.3.5",
-    "uuid": "0dyseus@CinnamonMaximusFork"
+        "1.8", 
+        "1.9", 
+        "2.0", 
+        "2.1", 
+        "2.2", 
+        "2.4", 
+        "2.6", 
+        "2.8", 
+        "3.0", 
+        "3.2",
+	"3.4"
+    ], 
+    "url": "https://github.com/Odyseus/CinnamonTools", 
+    "uuid": "0dyseus@CinnamonMaximusFork", 
+    "version": "0.3.5", 
+    "contributors": "muzena: Croatian localization.", 
+    "last-edited": 1488932102, 
+    "name": "Cinnamon Maximus (Fork by Odyseus)"
 }
