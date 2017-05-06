@@ -12,8 +12,8 @@
         "muzena: Croatian localization.",
         "giwhub: Chinese localization."
     ],
-    "description": "Displays CPU, memory, swap, network usage and load in graphs.",
+    "uuid": "0dyseus@SysmonitorByOrcus",
     "comments": "Bug reports, feature requests and contributions should be done on this xlet's repository linked below.",
     "version": "1.12",
-    "uuid": "0dyseus@SysmonitorByOrcus"
+    "description": "Displays CPU, memory, swap, network usage and load in graphs."
 }
