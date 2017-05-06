@@ -20,11 +20,12 @@
 # This option clones the repository's wiki into the /docs folder.
 # The wiki's files are used to create part of the main site.
 
-prompt="Pick an option and press Enter:"
-options+=("Render main site" "Render help files" "Create packages" "Clone wiki")
+prompt_message="Pick an option and press Enter:"
+options+=("Render main site" "Render help files" "Create packages" "Clone wiki" "Xlets comparison")
 
 ROOT_PATH="`dirname \"$0\"`"                 # relative
 ROOT_PATH="`( cd \"$ROOT_PATH\" && pwd )`"   # absolutized and normalized
+XLETS_PATH="$HOME/.local/share/cinnamon"
 
 all_pug_files=("index.pug" "wiki.pug" "wiki_standalone.pug")
 
@@ -275,7 +276,66 @@ cloneWiki() {
     )
 }
 
-PS3="$prompt "
+compareApplets() {
+    (
+        cd applets
+        for applet in *; do
+            if [ -d ${applet} ]; then
+                meld "$XLETS_PATH/applets/$applet" "$ROOT_PATH/applets/$applet/files/$applet" > /dev/null 2>&1 &
+                sleep 0.500
+            fi
+        done
+    )
+}
+
+compareExtensions() {
+    (
+        cd extensions
+        for extension in *; do
+            if [ -d ${extension} ]; then
+                meld "$XLETS_PATH/extensions/$extension" "$ROOT_PATH/extensions/$extension/files/$extension" > /dev/null 2>&1 &
+                sleep 0.500
+            fi
+        done
+    )
+}
+
+compareAll() {
+    compareApplets
+    slepp 2
+    compareExtensions
+}
+
+
+
+compareXlets() {
+    echo "$(tput bold)$prompt_message"
+    echo "(requires meld to be installed)$(tput sgr0)"
+    compare_options+=("Compare applets" "Compare extensions" "Compare all")
+    select opt in "${compare_options[@]}" "Abort"; do
+        case "$REPLY" in
+            1 ) # Compare applets
+                compareApplets
+                ;;
+            2 ) # Compare extensions
+                compareExtensions
+                ;;
+            3 ) # Compare all
+                compareAll
+                break
+                ;;
+            $(( ${#compare_options[@]}+1 )) )
+                echo "$(tput bold)$(tput setaf 11)Operation cancelled.$(tput sgr0)"
+                break
+                ;;
+            * )
+                echo "$(tput bold)$(tput setaf 11)Invalid option. Try another one.$(tput sgr0)"
+                ;;
+        esac
+    done
+}
+
+echo "$(tput bold)$(tput bold)$prompt_message$(tput sgr0)"
 select opt in "${options[@]}" "Abort"; do
     case "$REPLY" in
         1 ) # Render main site pug files
@@ -292,13 +352,16 @@ select opt in "${options[@]}" "Abort"; do
             cloneWiki
             break
             ;;
+        5 ) # Xlets comparison
+            compareXlets
+            break
+            ;;
         $(( ${#options[@]}+1 )) )
-            echo "$(tput setaf 11)Operation cancelled.$(tput sgr0)"
+            echo "$(tput bold)$(tput setaf 11)Operation cancelled.$(tput sgr0)"
             break
             ;;
         * )
-            echo "$(tput setaf 11)Invalid option. Try another one.$(tput sgr0)"
-            echo "$(tput bold)"
+            echo "$(tput bold)$(tput setaf 11)Invalid option. Try another one.$(tput sgr0)"
             ;;
     esac
 done
