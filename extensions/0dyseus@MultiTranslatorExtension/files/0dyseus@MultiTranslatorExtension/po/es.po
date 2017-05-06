@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-05-04 15:39-0300\n"
-"PO-Revision-Date: 2017-05-04 15:40-0300\n"
+"POT-Creation-Date: 2017-05-06 10:37-0300\n"
+"PO-Revision-Date: 2017-05-06 10:37-0300\n"
 "Last-Translator: Odyseus\n"
 "Language-Team: \n"
 "Language: es\n"
@@ -18,568 +18,568 @@ msgstr ""
 "X-Generator: Poedit 1.8.7.1\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: __init__.js:212 settings.py:67
+#: __init__.js:211 settings.py:67
 msgid "Detect language"
 msgstr "Detectar idioma"
 
-#: __init__.js:213 settings.py:68
+#: __init__.js:212 settings.py:68
 msgid "Afrikaans"
 msgstr "Afrikaans"
 
-#: __init__.js:214 settings.py:69
+#: __init__.js:213 settings.py:69
 msgid "Amharic"
 msgstr "Amárico"
 
-#: __init__.js:215 settings.py:70
+#: __init__.js:214 settings.py:70
 msgid "Arabic"
 msgstr "Árabe"
 
-#: __init__.js:216 settings.py:71
+#: __init__.js:215 settings.py:71
 msgid "Azerbaijani"
 msgstr "Azerbaiyano"
 
-#: __init__.js:217 settings.py:72
+#: __init__.js:216 settings.py:72
 msgid "Belarusian"
 msgstr "Bielorruso"
 
-#: __init__.js:218 settings.py:73
+#: __init__.js:217 settings.py:73
 msgid "Bulgarian"
 msgstr "Búlgaro"
 
-#: __init__.js:219 settings.py:74
+#: __init__.js:218 settings.py:74
 msgid "Bengali"
 msgstr "Bengalí"
 
-#: __init__.js:220 settings.py:75
+#: __init__.js:219 settings.py:75
 msgid "Bosnian (Y)"
 msgstr "Bosnio (Y)"
 
-#: __init__.js:221 settings.py:76
+#: __init__.js:220 settings.py:76
 msgid "Catalan"
 msgstr "Catalán"
 
-#: __init__.js:222 settings.py:77
+#: __init__.js:221 settings.py:77
 msgid "Chichewa"
 msgstr "Chichewa"
 
-#: __init__.js:223 settings.py:78
+#: __init__.js:222 settings.py:78
 msgid "Corsican"
 msgstr "Corso"
 
-#: __init__.js:224 settings.py:79
+#: __init__.js:223 settings.py:79
 msgid "Czech"
 msgstr "Checo"
 
-#: __init__.js:225 settings.py:80
+#: __init__.js:224 settings.py:80
 msgid "Welsh"
 msgstr "Galés"
 
-#: __init__.js:226 settings.py:81
+#: __init__.js:225 settings.py:81
 msgid "Danish"
 msgstr "Danés"
 
-#: __init__.js:227 settings.py:82
+#: __init__.js:226 settings.py:82
 msgid "German"
 msgstr "Alemán"
 
-#: __init__.js:228 settings.py:83
+#: __init__.js:227 settings.py:83
 msgid "Greek"
 msgstr "Griego"
 
-#: __init__.js:229 settings.py:84
+#: __init__.js:228 settings.py:84
 msgid "English"
 msgstr "Inglés"
 
-#: __init__.js:230 settings.py:85
+#: __init__.js:229 settings.py:85
 msgid "Esperanto"
 msgstr "Esperanto"
 
-#: __init__.js:231 settings.py:86
+#: __init__.js:230 settings.py:86
 msgid "Spanish"
 msgstr "Español"
 
-#: __init__.js:232 settings.py:87
+#: __init__.js:231 settings.py:87
 msgid "Estonian"
 msgstr "Estonio"
 
-#: __init__.js:233 settings.py:88
+#: __init__.js:232 settings.py:88
 msgid "Basque"
 msgstr "Vasco"
 
-#: __init__.js:234 settings.py:89
+#: __init__.js:233 settings.py:89
 msgid "Persian"
 msgstr "Persa"
 
-#: __init__.js:235 settings.py:90
+#: __init__.js:234 settings.py:90
 msgid "Finnish"
 msgstr "Finlandés"
 
-#: __init__.js:236 settings.py:91
+#: __init__.js:235 settings.py:91
 msgid "French"
 msgstr "Francés"
 
-#: __init__.js:237 settings.py:92
+#: __init__.js:236 settings.py:92
 msgid "Frisian"
 msgstr "Frisón"
 
-#: __init__.js:238 settings.py:93
+#: __init__.js:237 settings.py:93
 msgid "Irish"
 msgstr "Irlandés"
 
-#: __init__.js:239 settings.py:94
+#: __init__.js:238 settings.py:94
 msgid "Scots Gaelic"
 msgstr "Gaélico escocés"
 
-#: __init__.js:240 settings.py:95
+#: __init__.js:239 settings.py:95
 msgid "Galician"
 msgstr "Gallego"
 
-#: __init__.js:241 settings.py:96
+#: __init__.js:240 settings.py:96
 msgid "Gujarati"
 msgstr "Gujarati"
 
-#: __init__.js:242 settings.py:97
+#: __init__.js:241 settings.py:97
 msgid "Hausa"
 msgstr "Hausa"
 
-#: __init__.js:243 settings.py:98
+#: __init__.js:242 settings.py:98
 msgid "Hawaiian"
 msgstr "Hawaiano"
 
-#: __init__.js:244 settings.py:99
+#: __init__.js:243 settings.py:99
 msgid "Hebrew (Y)"
 msgstr "Hebreo (Y)"
 
-#: __init__.js:245 settings.py:100
+#: __init__.js:244 settings.py:100
 msgid "Hindi"
 msgstr "Hindú"
 
-#: __init__.js:246 settings.py:101
+#: __init__.js:245 settings.py:101
 msgid "Hmong"
 msgstr "Hmong"
 
-#: __init__.js:247 settings.py:102
+#: __init__.js:246 settings.py:102
 msgid "Croatian"
 msgstr "Croata"
 
-#: __init__.js:248 settings.py:103
+#: __init__.js:247 settings.py:103
 msgid "Haitian Creole"
 msgstr "Creole haitiano"
 
-#: __init__.js:249 settings.py:104
+#: __init__.js:248 settings.py:104
 msgid "Hungarian"
 msgstr "Húngaro"
 
-#: __init__.js:250 settings.py:105
+#: __init__.js:249 settings.py:105
 msgid "Armenian"
 msgstr "Armenio"
 
-#: __init__.js:251 settings.py:106
+#: __init__.js:250 settings.py:106
 msgid "Indonesian"
 msgstr "Indonesio"
 
-#: __init__.js:252 settings.py:107
+#: __init__.js:251 settings.py:107
 msgid "Igbo"
 msgstr "Igbo"
 
-#: __init__.js:253 settings.py:108
+#: __init__.js:252 settings.py:108
 msgid "Icelandic"
 msgstr "Islandés"
 
-#: __init__.js:254 settings.py:109
+#: __init__.js:253 settings.py:109
 msgid "Italian"
 msgstr "Italiano"
 
-#: __init__.js:255 settings.py:110
+#: __init__.js:254 settings.py:110
 msgid "Hebrew"
 msgstr "Hebreo"
 
-#: __init__.js:256 settings.py:111
+#: __init__.js:255 settings.py:111
 msgid "Japanese"
 msgstr "Japonés"
 
-#: __init__.js:257 settings.py:112
+#: __init__.js:256 settings.py:112
 msgid "Javanese"
 msgstr "Javanés"
 
-#: __init__.js:258 settings.py:113
+#: __init__.js:257 settings.py:113
 msgid "Georgian"
 msgstr "Georgiano"
 
-#: __init__.js:259 settings.py:114
+#: __init__.js:258 settings.py:114
 msgid "Kazakh"
 msgstr "Kazakh"
 
-#: __init__.js:260 settings.py:115
+#: __init__.js:259 settings.py:115
 msgid "Khmer"
 msgstr "Jemer"
 
-#: __init__.js:261 settings.py:116
+#: __init__.js:260 settings.py:116
 msgid "Kannada"
 msgstr "Kannada"
 
-#: __init__.js:262 settings.py:117
+#: __init__.js:261 settings.py:117
 msgid "Korean"
 msgstr "Koreano"
 
-#: __init__.js:263 settings.py:118
+#: __init__.js:262 settings.py:118
 msgid "Kurdish (Kurmanji)"
 msgstr "Kurdo (Kurmanji)"
 
-#: __init__.js:264 settings.py:119
+#: __init__.js:263 settings.py:119
 msgid "Kyrgyz"
 msgstr "Kirguís"
 
-#: __init__.js:265 settings.py:120
+#: __init__.js:264 settings.py:120
 msgid "Latin"
 msgstr "Latín"
 
-#: __init__.js:266 settings.py:121
+#: __init__.js:265 settings.py:121
 msgid "Luxembourgish"
 msgstr "Luxemburgués"
 
-#: __init__.js:267 settings.py:122
+#: __init__.js:266 settings.py:122
 msgid "Lao"
 msgstr "Lao"
 
-#: __init__.js:268 settings.py:123
+#: __init__.js:267 settings.py:123
 msgid "Lithuanian"
 msgstr "Lituano"
 
-#: __init__.js:269 settings.py:124
+#: __init__.js:268 settings.py:124
 msgid "Latvian"
 msgstr "Letón"
 
-#: __init__.js:270 settings.py:125
+#: __init__.js:269 settings.py:125
 msgid "Malagasy"
 msgstr "Madagascarí"
 
-#: __init__.js:271 settings.py:126
+#: __init__.js:270 settings.py:126
 msgid "Maori"
 msgstr "Maorí"
 
-#: __init__.js:272 settings.py:127
+#: __init__.js:271 settings.py:127
 msgid "Macedonian"
 msgstr "Macedonio"
 
-#: __init__.js:273 settings.py:128
+#: __init__.js:272 settings.py:128
 msgid "Malayalam"
 msgstr "Malayalam"
 
-#: __init__.js:274 settings.py:129
+#: __init__.js:273 settings.py:129
 msgid "Mongolian"
 msgstr "Mongol"
 
-#: __init__.js:275 settings.py:130
+#: __init__.js:274 settings.py:130
 msgid "Marathi"
 msgstr "Maratí"
 
-#: __init__.js:276 settings.py:131
+#: __init__.js:275 settings.py:131
 msgid "Malay"
 msgstr "Malayo"
 
-#: __init__.js:277 settings.py:132
+#: __init__.js:276 settings.py:132
 msgid "Maltese"
 msgstr "Maltés"
 
-#: __init__.js:278 settings.py:133
+#: __init__.js:277 settings.py:133
 msgid "Myanmar (Burmese)"
 msgstr "Myanmar (Birmano)"
 
-#: __init__.js:279 settings.py:134
+#: __init__.js:278 settings.py:134
 msgid "Nepali"
 msgstr "Nepalí"
 
-#: __init__.js:280 settings.py:135
+#: __init__.js:279 settings.py:135
 msgid "Dutch"
 msgstr "Holandés"
 
-#: __init__.js:281 settings.py:136
+#: __init__.js:280 settings.py:136
 msgid "Norwegian"
 msgstr "Noruego"
 
-#: __init__.js:282 settings.py:137
+#: __init__.js:281 settings.py:137
 msgid "Cebuano"
 msgstr "Cebuano"
 
-#: __init__.js:283 settings.py:138
+#: __init__.js:282 settings.py:138
 msgid "Punjabi"
 msgstr "Punjabí"
 
-#: __init__.js:284 settings.py:139
+#: __init__.js:283 settings.py:139
 msgid "Polish"
 msgstr "Polaco"
 
-#: __init__.js:285 settings.py:140
+#: __init__.js:284 settings.py:140
 msgid "Pashto"
 msgstr "Pashto"
 
-#: __init__.js:286 settings.py:141
+#: __init__.js:285 settings.py:141
 msgid "Portuguese"
 msgstr "Portugués"
 
-#: __init__.js:287 settings.py:142
+#: __init__.js:286 settings.py:142
 msgid "Romanian"
 msgstr "Rumano"
 
-#: __init__.js:288 settings.py:143
+#: __init__.js:287 settings.py:143
 msgid "Russian"
 msgstr "Ruso"
 
-#: __init__.js:289 settings.py:144
+#: __init__.js:288 settings.py:144
 msgid "Sindhi"
 msgstr "Sindhi"
 
-#: __init__.js:290 settings.py:145
+#: __init__.js:289 settings.py:145
 msgid "Sinhala"
 msgstr "Sinhala"
 
-#: __init__.js:291 settings.py:146
+#: __init__.js:290 settings.py:146
 msgid "Slovak"
 msgstr "Eslovaco"
 
-#: __init__.js:292 settings.py:147
+#: __init__.js:291 settings.py:147
 msgid "Slovenian"
 msgstr "Esloveno"
 
-#: __init__.js:293 settings.py:148
+#: __init__.js:292 settings.py:148
 msgid "Samoan"
 msgstr "Samoano"
 
-#: __init__.js:294 settings.py:149
+#: __init__.js:293 settings.py:149
 msgid "Shona"
 msgstr "Shona"
 
-#: __init__.js:295 settings.py:150
+#: __init__.js:294 settings.py:150
 msgid "Somali"
 msgstr "Somalí"
 
-#: __init__.js:296 settings.py:151
+#: __init__.js:295 settings.py:151
 msgid "Albanian"
 msgstr "Albano"
 
-#: __init__.js:297 settings.py:152
+#: __init__.js:296 settings.py:152
 msgid "Serbian"
 msgstr "Serbio"
 
-#: __init__.js:298 settings.py:153
+#: __init__.js:297 settings.py:153
 msgid "Sesotho"
 msgstr "Sesotho"
 
-#: __init__.js:299 settings.py:154
+#: __init__.js:298 settings.py:154
 msgid "Sundanese"
 msgstr "Sundanese"
 
-#: __init__.js:300 settings.py:155
+#: __init__.js:299 settings.py:155
 msgid "Swedish"
 msgstr "Sueco"
 
-#: __init__.js:301 settings.py:156
+#: __init__.js:300 settings.py:156
 msgid "Swahili"
 msgstr "Swahili"
 
-#: __init__.js:302 settings.py:157
+#: __init__.js:301 settings.py:157
 msgid "Tamil"
 msgstr "Tamil"
 
-#: __init__.js:303 settings.py:158
+#: __init__.js:302 settings.py:158
 msgid "Telugu"
 msgstr "Telugu"
 
-#: __init__.js:304 settings.py:159
+#: __init__.js:303 settings.py:159
 msgid "Tajik"
 msgstr "Tajik"
 
-#: __init__.js:305 settings.py:160
+#: __init__.js:304 settings.py:160
 msgid "Thai"
 msgstr "Tailandés"
 
-#: __init__.js:306 settings.py:161
+#: __init__.js:305 settings.py:161
 msgid "Filipino"
 msgstr "Filipino"
 
-#: __init__.js:307 settings.py:162
+#: __init__.js:306 settings.py:162
 msgid "Turkish"
 msgstr "Turco"
 
-#: __init__.js:308 settings.py:163
+#: __init__.js:307 settings.py:163
 msgid "Ukrainian"
 msgstr "Ukraniano"
 
-#: __init__.js:309 settings.py:164
+#: __init__.js:308 settings.py:164
 msgid "Urdu"
 msgstr "Urdu"
 
-#: __init__.js:310 settings.py:165
+#: __init__.js:309 settings.py:165
 msgid "Uzbek"
 msgstr "Uzbeko"
 
-#: __init__.js:311 settings.py:166
+#: __init__.js:310 settings.py:166
 msgid "Vietnamese"
 msgstr "Vietnamita"
 
-#: __init__.js:312 settings.py:167
+#: __init__.js:311 settings.py:167
 msgid "Xhosa"
 msgstr "Xhosa"
 
-#: __init__.js:313 settings.py:168
+#: __init__.js:312 settings.py:168
 msgid "Yiddish"
 msgstr "Yídish"
 
-#: __init__.js:314 settings.py:169
+#: __init__.js:313 settings.py:169
 msgid "Yoruba"
 msgstr "Yoruba"
 
-#: __init__.js:315 settings.py:170
+#: __init__.js:314 settings.py:170
 msgid "Chinese (Y)"
 msgstr "Chino (Y)"
 
-#: __init__.js:316 settings.py:171
+#: __init__.js:315 settings.py:171
 msgid "Chinese Simplified"
 msgstr "Chino Simplificado"
 
-#: __init__.js:317 settings.py:172
+#: __init__.js:316 settings.py:172
 msgid "Chinese Traditional"
 msgstr "Chino Tradicional"
 
-#: __init__.js:318 settings.py:173
+#: __init__.js:317 settings.py:173
 msgid "Zulu"
 msgstr "Zulú"
 
-#: __init__.js:450
+#: __init__.js:449
 #, javascript-format
 msgid "Schema %s could not be found for extension %s."
 msgstr "No se pudo encontrar el esquema %s para la extensión %s."
 
-#: __init__.js:451
+#: __init__.js:450
 msgid "Please check your installation."
 msgstr "Compruebe su instalación."
 
-#: __init__.js:850
+#: __init__.js:849
 msgid "Icon and label are both false."
 msgstr "El ícono y la etiqueta son ambos falsos."
 
-#: __init__.js:1254
+#: __init__.js:1253
 msgid "Shortcuts"
 msgstr "Accesos directos"
 
-#: __init__.js:1256
+#: __init__.js:1255
 msgid "Open translator dialog."
 msgstr "Abrir diálogo del traductor."
 
-#: __init__.js:1258
+#: __init__.js:1257
 msgid "Open translator dialog and translate text from clipboard."
 msgstr ""
 "Abra el diálogo del traductor y traducir el texto desde el portapapeles."
 
-#: __init__.js:1260
+#: __init__.js:1259
 msgid "Open translator dialog and translate from primary selection."
 msgstr "Abrir diálogo de traductor y traducir la selección primaria."
 
-#: __init__.js:1262
+#: __init__.js:1261
 msgid "Translate text."
 msgstr "Traducir texto."
 
-#: __init__.js:1264
+#: __init__.js:1263
 msgid "Force text translation. Ignores translation history."
 msgstr "Forzar la traducción del texto. Ignora el historial de traducción."
 
-#: __init__.js:1266
+#: __init__.js:1265
 msgid "Copy translated text to clipboard."
 msgstr "Copiar el texto traducido al portapapeles."
 
-#: __init__.js:1268
+#: __init__.js:1267
 msgid "Swap languages."
 msgstr "Cambiar idiomas."
 
-#: __init__.js:1270
+#: __init__.js:1269
 msgid "Reset languages to default."
 msgstr "Restablecer los idiomas predeterminados."
 
-#: __init__.js:1272
+#: __init__.js:1271
 msgid "Close dialog."
 msgstr "Cerrar diálogo."
 
-#: __init__.js:1419
+#: __init__.js:1418
 msgid "Type to search..."
 msgstr "Escribir para buscar..."
 
-#: __init__.js:1632
+#: __init__.js:1631
 msgid "Most used languages​​."
 msgstr "Idiomas más utilizados."
 
-#: __init__.js:2116
+#: __init__.js:2115
 #, javascript-format
 msgid "Can't load preferences for %s"
 msgstr "No se pueden cargar las preferencias de %s"
 
-#: __init__.js:2238 translation_providers/google_translation_provider.js:76
+#: __init__.js:2237 translation_providers/google_translation_provider.js:76
 #: translation_providers/transltr_translation_provider.js:66
 #: translation_providers/yandex_translation_provider.js:272
 msgid "Error"
 msgstr "Error"
 
 #. jshint ignore:line
-#: __init__.js:2296 __init__.js:2300
+#: __init__.js:2295 __init__.js:2299
 msgid "Not implemented"
 msgstr "No implementado"
 
-#: __init__.js:2712 extension.js:1092 extension.js:1095 settings.py:339
+#: __init__.js:2711 extension.js:1092 extension.js:1095 settings.py:339
 msgid "History"
 msgstr "Historial"
 
-#: __init__.js:3243
+#: __init__.js:3242
 msgid "Error executing translate-shell"
 msgstr "Error al ejecutar translate-shell"
 
-#: __init__.js:3432 __init__.js:3449
+#: __init__.js:3431 __init__.js:3448
 msgid "Unmet dependencies found!!!"
 msgstr "¡Dependencias no satisfechas encontradas!"
 
-#: __init__.js:3434 __init__.js:3451
+#: __init__.js:3433 __init__.js:3450
 #: translation_providers/yandex_translation_provider.js:334
 msgid "Check this extension help file for instructions."
 msgstr ""
 "Comprobar el archivo de ayuda de esta extensión para obtener instrucciones."
 
-#: __init__.js:3435
+#: __init__.js:3434
 msgid "It can be accessed from the translation dialog main menu."
 msgstr "Se puede acceder desde el menú principal del diálogo de traducción."
 
-#: __init__.js:3440
+#: __init__.js:3439
 msgid "All dependencies seem to be met."
 msgstr "Todas las dependencias parecen ser cumplidas."
 
-#: __init__.js:3452
+#: __init__.js:3451
 msgid ""
 "This information has also been logged into the ~/.cinnamon/glass.log file."
 msgstr ""
 "Esta información también ha sido registrada en el archivo ~/.cinnamon/glass."
 "log."
 
-#: __init__.js:3455 settings.py:1385
+#: __init__.js:3454 settings.py:1385
 msgid "Help"
 msgstr "Ayuda"
 
 #. Just in case.
-#: __init__.js:3456 extension.js:585
+#: __init__.js:3455 extension.js:585
 msgid "Extended help"
 msgstr "Ayuda extendida"
 
-#: __init__.js:3497
+#: __init__.js:3495
 msgid "Press <Esc> to close"
 msgstr "Presione <Esc> para cerrar"
 
-#: __init__.js:3549
+#: __init__.js:3547
 msgid "This translation provider doesn't require translate-shell to work."
 msgstr ""
 "Este proveedor de traducción no requiere translate-shell para trabajar."
 
-#: __init__.js:3552
+#: __init__.js:3550
 msgid "This translation provider requires translate-shell to work."
 msgstr "Este proveedor de traducción requiere translate-shell para trabajar."
 
-#: __init__.js:3553 settings.py:193
+#: __init__.js:3551 settings.py:193
 msgid "See the extended help of this extension for more information."
 msgstr "Consulte la ayuda extendida de esta extensión para más información."
 
@@ -1206,14 +1206,6 @@ msgstr ""
 "No se pudo eliminar el esquema de configuración para %s. Tendrá que realizar "
 "este paso usted mismo. Esto no es un error crítico."
 
-#. 0dyseus@MultiTranslatorExtension->metadata.json->comments
-msgid ""
-"Bug reports, feature requests and contributions should be done on this "
-"xlet's repository linked below."
-msgstr ""
-"Los reportes de fallos, peticiones de características y contribuciones deben "
-"hacerse en el repositorio de este xlet vinculado a continuación."
-
 #. 0dyseus@MultiTranslatorExtension->metadata.json->description
 msgid ""
 "Translation of text by different translation providers (currently Google, "
@@ -1221,6 +1213,14 @@ msgid ""
 msgstr ""
 "Traducción de texto proporcionado por diferentes proveedores de traducción "
 "(actualmente Google, Yandex, Bing, Translatr and Apertium)."
+
+#. 0dyseus@MultiTranslatorExtension->metadata.json->comments
+msgid ""
+"Bug reports, feature requests and contributions should be done on this "
+"xlet's repository linked below."
+msgstr ""
+"Los reportes de fallos, peticiones de características y contribuciones deben "
+"hacerse en el repositorio de este xlet vinculado a continuación."
 
 #. 0dyseus@MultiTranslatorExtension->metadata.json->contributors
 msgid ""

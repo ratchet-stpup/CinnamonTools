@@ -9,6 +9,10 @@
     ],
     "max-instances": "-1",
     "comments": "Bug reports, feature requests and contributions should be done on this xlet's repository linked below.",
+    "contributors": [
+        "muzena: Croatian localization.",
+        "giwhub: Chinese localization."
+    ],
     "name": "Quick Menu",
     "version": "1.07",
     "uuid": "0dyseus@QuickMenu"

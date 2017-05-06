@@ -10,6 +10,10 @@
     "max-instances": "-1",
     "uuid": "0dyseus@DesktopHandler",
     "comments": "Bug reports, feature requests and contributions should be done on this xlet's repository linked below.",
+    "contributors": [
+        "muzena: Croatian localization.",
+        "giwhub: Chinese localization."
+    ],
     "version": "1.07",
     "description": "Various shortcuts to handle desktop actions."
 }

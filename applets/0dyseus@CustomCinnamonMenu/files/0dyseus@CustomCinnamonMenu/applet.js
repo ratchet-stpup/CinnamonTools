@@ -1453,7 +1453,7 @@ MyApplet.prototype = {
             let llc_y = xformed_mouse_y + 0;
 
             this.vectorBox = new St.Polygon({
-                debug: true,
+                debug: false,
                 width: pol_w,
                 height: catbox_h,
                 ulc_x: 0,
@@ -3313,7 +3313,7 @@ MyApplet.prototype = {
         menuItem = new PopupMenu.PopupIconMenuItem(_("Help"),
             "dialog-information", St.IconType.SYMBOLIC);
         menuItem.connect("activate", Lang.bind(this, function() {
-            Util.spawn_async(["xdg-open", "\"" + this.applet_dir + "/HELP.html" + "\""], null);
+            Util.spawn_async(["xdg-open", this.applet_dir + "/HELP.html"], null);
         }));
         this._applet_context_menu.addMenuItem(menuItem);
     },

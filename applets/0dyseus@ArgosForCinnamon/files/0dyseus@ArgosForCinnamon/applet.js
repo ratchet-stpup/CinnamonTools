@@ -740,7 +740,7 @@ MyApplet.prototype = {
             menuItem.tooltip = new $.CustomTooltip(menuItem.actor, _("Open this applet help file."));
             menuItem.connect("activate", Lang.bind(this, function() {
                 $.TryExec(
-                    ["xdg-open", "\"" + this.metadata.path + "/HELP.html" + "\""].join(" "),
+                    ["xdg-open", this.metadata.path + "/HELP.html"].join(" "),
                     null, //aOnStart
                     function(aCmd) {
                         $.informAboutMissingDependencies(

@@ -1834,6 +1834,8 @@ ArgosMenuItem.prototype = {
             focusOnHover: hasAction
         });
 
+        this._applet = aApplet;
+
         let altSwitcher = null;
 
         let lineView = new ArgosLineView(aApplet, aLine);
@@ -1910,7 +1912,7 @@ ArgosMenuItem.prototype = {
                     // On the original extension was:
                     // Gio.AppInfo.launch_default_for_uri(activeLine.href, null);
                     TryExec(
-                        ["xdg-open", "\"" + activeLine.href + "\""].join(" "),
+                        ["xdg-open", activeLine.href].join(" "),
                         null, //aOnStart
                         function(aCmd) {
                             informAboutMissingDependencies(
@@ -1934,6 +1936,8 @@ ArgosMenuItem.prototype = {
 
                 if (activeLine.refresh === "true")
                     aApplet.update();
+
+                this._applet.menu.close();
             }));
         }
     }

@@ -444,7 +444,7 @@ MyApplet.prototype = {
             "folder",
             St.IconType.SYMBOLIC);
         this.open_dir_menu_item.connect("activate", Lang.bind(this, function() {
-            Util.spawn_async(["xdg-open", "\"" + this.pref_directory + "\""]);
+            Util.spawn_async(["xdg-open", this.pref_directory]);
         }));
         new Tooltips.Tooltip(this.open_dir_menu_item.actor, _("Open the main folder."),
             this.orientation);
@@ -454,7 +454,7 @@ MyApplet.prototype = {
             "dialog-information",
             St.IconType.SYMBOLIC);
         this.help_menu_item.connect("activate", Lang.bind(this, function() {
-            Util.spawn_async(["xdg-open", "\"" + this.metadata.path + "/HELP.html" + "\""]);
+            Util.spawn_async(["xdg-open", this.metadata.path + "/HELP.html"]);
         }));
         new Tooltips.Tooltip(this.help_menu_item.actor, _("Open the help file."), this.orientation);
         this._applet_context_menu.addMenuItem(this.help_menu_item);

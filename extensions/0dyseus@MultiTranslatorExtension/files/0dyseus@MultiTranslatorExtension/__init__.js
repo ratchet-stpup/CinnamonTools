@@ -3457,7 +3457,7 @@ function informAboutMissingDependencies(aRes) {
             callback: function() {
                 Util.spawn_async([
                     "xdg-open",
-                    "\"" + ExtensionPath + "/HELP.html" + "\""
+                    ExtensionPath + "/HELP.html"
                 ], null);
             }
         }, {
@@ -3467,7 +3467,7 @@ function informAboutMissingDependencies(aRes) {
             callback: function() {
                 Util.spawn_async([
                     "xdg-open",
-                    "\"" + GLib.get_home_dir() + "/.cinnamon/glass.log" + "\""
+                    GLib.get_home_dir() + "/.cinnamon/glass.log"
                 ], null);
             }
         }]);

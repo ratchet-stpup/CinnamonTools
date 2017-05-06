@@ -364,8 +364,8 @@ CustomSwitchMenuItem.prototype = {
 
     _openSpicesSite: function(aEvent) { // jshint ignore:line
         try {
-            Util.spawn_async(["xdg-open", "\"" + SPICES_URL + "/extensions/view/" +
-                this.extension.spices_id + "\""
+            Util.spawn_async(["xdg-open", SPICES_URL + "/extensions/view/" +
+                this.extension.spices_id
             ]);
         } catch (aErr) {
             global.logError(aErr);
@@ -376,7 +376,7 @@ CustomSwitchMenuItem.prototype = {
 
     _openExtensionFolder: function(aEvent) { // jshint ignore:line
         try {
-            Util.spawn_async(["xdg-open", "\"" + this.extension.extension_dir + "\""]);
+            Util.spawn_async(["xdg-open", this.extension.extension_dir]);
         } catch (aErr) {
             global.logError(aErr);
         } finally {
@@ -386,7 +386,7 @@ CustomSwitchMenuItem.prototype = {
 
     _editExtensionFile: function(aEvent) { // jshint ignore:line
         try {
-            Util.spawn_async(["xdg-open", "\"" + this.extension.extension_dir + "/extension.js" + "\""]);
+            Util.spawn_async(["xdg-open", this.extension.extension_dir + "/extension.js"]);
         } catch (aErr) {
             global.logError(aErr);
         } finally {

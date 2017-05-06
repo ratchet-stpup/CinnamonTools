@@ -816,7 +816,7 @@ WallChangerOpenCurrent.prototype = {
 
     _activate: function() {
         debug("Opening current wallpaper %s".format(this._background.get_string("picture-uri")));
-        Util.spawn_async(["xdg-open", "\"" + this._background.get_string("picture-uri") + "\""], null);
+        Util.spawn_async(["xdg-open", this._background.get_string("picture-uri")], null);
     }
 };
 
@@ -871,7 +871,7 @@ WallChangerPreviewMenuItem.prototype = {
     _clicked: function() {
         if (this._preview.path) {
             debug("Opening file %s".format(this._preview.path));
-            Util.spawn_async(["xdg-open", "\"" + this._preview.path + "\""], null);
+            Util.spawn_async(["xdg-open", this._preview.path], null);
         } else {
             debug("ERROR: no preview currently set");
         }

@@ -836,7 +836,7 @@ AppMenuButtonRightClickMenu.prototype = {
             item = new PopupMenu.PopupIconMenuItem(_("Help"), "dialog-information",
                 St.IconType.SYMBOLIC);
             item.connect('activate', Lang.bind(this, function() {
-                Util.spawn_async(["xdg-open", "\"" + this._launcher._applet.metadata.path + "/HELP.html" + "\""]);
+                Util.spawn_async(["xdg-open", this._launcher._applet.metadata.path + "/HELP.html"]);
             }));
             subMenu.menu.addMenuItem(item);
 
