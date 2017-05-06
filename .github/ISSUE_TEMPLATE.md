@@ -38,3 +38,7 @@ For distributions not provided with the pastebin command, just upload the conten
 <!-- Paste bellow the URLs given by the following two commands run on a terminal. -->
 pastebin ~/.cinnamon/glass.log
 pastebin ~/.xsession-errors
+
+**Note:** If the `pastebin` command isn't available on your distribution, just open those files and paste their content in any pastebin-like service and share the generated URL.
+
+**Archlinux users:** The command `pastebinit` is available if its package is installed.
