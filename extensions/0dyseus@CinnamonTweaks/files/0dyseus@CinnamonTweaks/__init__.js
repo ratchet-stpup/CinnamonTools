@@ -543,7 +543,7 @@ ConfirmationDialog.prototype = {
  * @license This function is in the public domain. Do what you want with it, no strings attached.
  */
 function versionCompare(v1, v2, options) {
-    var lexicographical = options && options.lexicographical,
+    let lexicographical = options && options.lexicographical,
         zeroExtend = options && options.zeroExtend,
         v1parts = v1.split('.'),
         v2parts = v2.split('.');
@@ -566,7 +566,7 @@ function versionCompare(v1, v2, options) {
         v2parts = v2parts.map(Number);
     }
 
-    for (var i = 0; i < v1parts.length; ++i) {
+    for (let i = 0; i < v1parts.length; ++i) {
         if (v2parts.length == i) {
             return 1;
         }
@@ -1117,7 +1117,7 @@ const CT_MaximusNGClass = new Lang.Class({
             /* we need to add a Mainloop.idle_add, or else in onWindowAdded the
              * window's maximized state is not correct yet.
              */
-            ws._MaximusWindowAddedId = ws.connect("window-added", Lang.bind(this, function(ws, win) {
+            ws._MaximusWindowAddedId = ws.connect("window-added", Lang.bind(this, function(ws, win) { // jshint ignore:line
                 let self = this;
                 Mainloop.idle_add(function() {
                     self.onWindowAdded(ws, win);
@@ -1192,6 +1192,9 @@ const CT_MaximusNGClass = new Lang.Class({
             }
 
             self.onChangeNWorkspaces();
+            // Attempt to remove the following warning:
+            // Invalid or null source id used when attempting to run Mainloop.source_remove()
+            this.onetime = 0;
             return false;
         });
     },

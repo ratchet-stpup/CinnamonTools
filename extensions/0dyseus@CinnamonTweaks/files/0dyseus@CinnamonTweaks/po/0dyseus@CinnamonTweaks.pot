@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 0dyseus@CinnamonTweaks 1.10\n"
-"POT-Creation-Date: 2017-05-04 11:55-0300\n"
+"POT-Creation-Date: 2017-05-06 08:18-0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -801,10 +801,6 @@ msgid ""
 "step yourself.  This is not a critical error."
 msgstr ""
 
-#. 0dyseus@CinnamonTweaks->metadata.json->description
-msgid "Several tweaks for Cinnamon."
-msgstr ""
-
 #. 0dyseus@CinnamonTweaks->metadata.json->contributors
 msgid ""
 "lestcape: The brain behind the popup menus and desktop tweaks "
@@ -853,4 +849,8 @@ msgstr ""
 msgid ""
 "awamper: Author of Window Demands Attention Shortcut extension "
 "https://github.com/awamper/window-demands-attention-shortcut."
+msgstr ""
+
+#. 0dyseus@CinnamonTweaks->metadata.json->description
+msgid "Several tweaks for Cinnamon."
 msgstr ""

@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.06\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-05-04 11:55-0300\n"
-"PO-Revision-Date: 2017-05-04 11:57-0300\n"
+"POT-Creation-Date: 2017-05-06 08:18-0300\n"
+"PO-Revision-Date: 2017-05-06 08:18-0300\n"
 "Last-Translator: Odyseus\n"
 "Language-Team: \n"
 "Language: es\n"
@@ -919,10 +919,6 @@ msgstr ""
 "No se pudo eliminar el esquema de configuración para %s. Tendrá que realizar "
 "este paso usted mismo. Esto no es un error crítico."
 
-#. 0dyseus@CinnamonTweaks->metadata.json->description
-msgid "Several tweaks for Cinnamon."
-msgstr "Varios ajustes para Cinnamon."
-
 #. 0dyseus@CinnamonTweaks->metadata.json->contributors
 msgid ""
 "lestcape: The brain behind the popup menus and desktop tweaks https://github."
@@ -986,6 +982,10 @@ msgid ""
 msgstr ""
 "awamper: Autor de la extensión Window Demands Attention Shortcut https://"
 "github.com/awamper/window-demands-attention-shortcut."
+
+#. 0dyseus@CinnamonTweaks->metadata.json->description
+msgid "Several tweaks for Cinnamon."
+msgstr "Varios ajustes para Cinnamon."
 
 #~ msgid "muzena: Croatian localization."
 #~ msgstr "muzena: Localización Croata."
