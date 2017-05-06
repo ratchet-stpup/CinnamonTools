@@ -58,6 +58,8 @@ function ngettext(aSingular, aPlural, aN) {
 
 function getUnitPluralForm(aUnit, aN) {
     switch (aUnit) {
+        case "ms":
+            return ngettext("millisecond", "milliseconds", aN);
         case "s":
             return ngettext("second", "seconds", aN);
         case "m":
@@ -1881,7 +1883,24 @@ ArgosMenuItem.prototype = {
                     }
 
                     try {
-                        GLib.spawn_async(null, argv, null, GLib.SpawnFlags.SEARCH_PATH, null);
+                        // Used by the original extension:
+                        // GLib.spawn_async(null, argv, null, GLib.SpawnFlags.SEARCH_PATH, null);
+                        // Implemented TryExec so I can inform with a callback if there was an error
+                        // when runnig the command.
+                        TryExec(
+                            argv.join(" "),
+                            null, //aOnStart
+                            function(aCmd) {
+                                informAboutMissingDependencies(
+                                    _("Error executing command!!!") + "\n" +
+                                    _("You might need to set up the correct terminal emulator from this applet settings window.")
+                                    .format(AppletMeta.name),
+                                    aCmd
+                                );
+                            }, //aOnFailure
+                            null, //aOnComplete
+                            null //aLogger
+                        );
                     } catch (aErr) {
                         global.logError(aErr);
                     }

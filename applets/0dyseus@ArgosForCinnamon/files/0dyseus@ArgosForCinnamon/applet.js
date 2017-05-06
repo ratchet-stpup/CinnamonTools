@@ -391,17 +391,17 @@ MyApplet.prototype = {
         if (typeof this._timeScriptExecutionStarted === "number" &&
             typeof this._timeScriptExecutionFinished === "number") {
             let executionTime = (this._timeScriptExecutionFinished -
-                this._timeScriptExecutionStarted) / 1000;
+                this._timeScriptExecutionStarted);
             tt += boldSpan(_("Script execution time:")) + " " + executionTime +
-                " %s".format($.getUnitPluralForm("s", executionTime)) + "\n";
+                " %s".format($.getUnitPluralForm("ms", executionTime)) + "\n";
         }
 
         if (typeof this._timeOutputProcessingStarted === "number" &&
             typeof this._timeOutputProcessingFinished === "number") {
             let processTime = (this._timeOutputProcessingFinished -
-                this._timeOutputProcessingStarted) / 1000;
+                this._timeOutputProcessingStarted);
             tt += boldSpan(_("Output process time:")) + " " + processTime +
-                " %s".format($.getUnitPluralForm("s", processTime)) + "\n";
+                " %s".format($.getUnitPluralForm("ms", processTime)) + "\n";
         }
 
         if (!this.tooltip)
@@ -444,7 +444,6 @@ MyApplet.prototype = {
         try {
             this._sliderIsSliding = true;
             this._syncLabelsWithSlidersValue(aSlider);
-
         } catch (aErr) {
             global.logError(aErr);
         }

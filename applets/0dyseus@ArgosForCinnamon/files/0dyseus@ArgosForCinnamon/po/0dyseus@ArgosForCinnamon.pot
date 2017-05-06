@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 0dyseus@ArgosForCinnamon 1.00\n"
-"POT-Creation-Date: 2017-05-05 12:17-0300\n"
+"POT-Creation-Date: 2017-05-06 08:29-0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -23,11 +23,11 @@ msgstr ""
 msgid "The script file can be made executable from this applet context menu."
 msgstr ""
 
-#: applet.js:125 applet.js:721
+#: applet.js:125 applet.js:720
 msgid "Script file isn't a file, but a directory."
 msgstr ""
 
-#: applet.js:136 applet.js:728
+#: applet.js:136 applet.js:727
 msgid "Script file doesn't exists."
 msgstr ""
 
@@ -38,7 +38,7 @@ msgstr ""
 msgid "Unable to execute file '%s':"
 msgstr ""
 
-#: applet.js:225 applet.js:555 applet.js:594
+#: applet.js:225 applet.js:554 applet.js:593
 msgid "Script file not set, cannot be found or it isn't an executable."
 msgstr ""
 
@@ -57,11 +57,11 @@ msgstr ""
 msgid "No script set"
 msgstr ""
 
-#: applet.js:385 applet.js:488
+#: applet.js:385 applet.js:487
 msgid "Execution interval:"
 msgstr ""
 
-#: applet.js:388 applet.js:618
+#: applet.js:388 applet.js:617
 msgid "Rotation interval:"
 msgstr ""
 
@@ -75,61 +75,61 @@ msgstr ""
 
 #. 0dyseus@ArgosForCinnamon->settings-
 #. schema.json->pref_update_interval_units->tooltip
-#: applet.js:496
+#: applet.js:495
 msgid "Choose the time unit for the script execution interval."
 msgstr ""
 
-#: applet.js:509
+#: applet.js:508
 msgid "Set the script execution interval."
 msgstr ""
 
-#: applet.js:519
+#: applet.js:518
 msgid "Choose script"
 msgstr ""
 
-#: applet.js:541
+#: applet.js:540
 msgid "Choose a script file."
 msgstr ""
 
-#: applet.js:547
+#: applet.js:546
 msgid "Edit script"
 msgstr ""
 
-#: applet.js:566 applet.js:748 __init__.js:1898
+#: applet.js:565 applet.js:747 __init__.js:1895 __init__.js:1917
 msgid "Error executing command!!!"
 msgstr ""
 
-#: applet.js:567 applet.js:749 __init__.js:1899
+#: applet.js:566 applet.js:748 __init__.js:1918
 msgid "A dependency might be missing!!!"
 msgstr ""
 
-#: applet.js:578
+#: applet.js:577
 msgid "Edit the script file with your prefered text editor."
 msgstr ""
 
-#: applet.js:579
+#: applet.js:578
 msgid ""
 "After saving the changes made, the applet will update its data automatically"
 " if there is an interval set."
 msgstr ""
 
-#: applet.js:580
+#: applet.js:579
 msgid ""
 "Or the update could be done manually with the »Refresh« item on this applet "
 "context menu."
 msgstr ""
 
-#: applet.js:586
+#: applet.js:585
 msgid "Refresh"
 msgstr ""
 
-#: applet.js:602
+#: applet.js:601
 msgid ""
 "This will re-run on demand the script assigned to this applet for the "
 "purpose of updating its output."
 msgstr ""
 
-#: applet.js:603
+#: applet.js:602
 msgid ""
 "This is only needed when there is no update interval set (or the interval is"
 " too long), so the update needs to be done manually in case the script is "
@@ -137,80 +137,86 @@ msgid ""
 msgstr ""
 
 #. Extras submenu
-#: applet.js:610
+#: applet.js:609
 msgid "Extras"
 msgstr ""
 
 #. 0dyseus@ArgosForCinnamon->settings-
 #. schema.json->pref_rotation_interval_units->tooltip
-#: applet.js:624
+#: applet.js:623
 msgid "Choose the time unit for the applet text rotation interval."
 msgstr ""
 
-#: applet.js:637
+#: applet.js:636
 msgid "Set the applet text rotation interval."
 msgstr ""
 
-#: applet.js:646
+#: applet.js:645
 msgid "Clear script"
 msgstr ""
 
-#: applet.js:652 applet.js:670
+#: applet.js:651 applet.js:669
 msgid ""
 "This operation will remove the current script from this applet leaving it "
 "\"blank\"."
 msgstr ""
 
-#: applet.js:653
+#: applet.js:652
 msgid ""
 "The current applet settings will be untouched and the actual script file "
 "will not be deleted."
 msgstr ""
 
-#: applet.js:654
+#: applet.js:653
 msgid "Do you want to proceed?"
 msgstr ""
 
-#: applet.js:684
+#: applet.js:683
 msgid "Make script executable"
 msgstr ""
 
-#: applet.js:690
+#: applet.js:689
 msgid "Make the script file executable so it can be used by this applet."
 msgstr ""
 
-#: applet.js:714
+#: applet.js:713
 msgid "Script file is already executable."
 msgstr ""
 
-#: applet.js:737 __init__.js:2415
+#: applet.js:736 __init__.js:2434
 msgid "Help"
 msgstr ""
 
 #. Just in case.
-#: applet.js:741 __init__.js:2416
+#: applet.js:740 __init__.js:2435
 msgid "Open this applet help file."
 msgstr ""
 
 #: __init__.js:62
+msgid "millisecond"
+msgid_plural "milliseconds"
+msgstr[0] ""
+msgstr[1] ""
+
+#: __init__.js:64
 msgid "second"
 msgid_plural "seconds"
 msgstr[0] ""
 msgstr[1] ""
 
-#: __init__.js:64
+#: __init__.js:66
 msgid "minute"
 msgid_plural "minutes"
 msgstr[0] ""
 msgstr[1] ""
 
-#: __init__.js:66
+#: __init__.js:68
 msgid "hour"
 msgid_plural "hours"
 msgstr[0] ""
 msgstr[1] ""
 
-#: __init__.js:68
+#: __init__.js:70
 msgid "day"
 msgid_plural "days"
 msgstr[0] ""
@@ -220,7 +226,7 @@ msgstr[1] ""
 #. schema.json->pref_rotation_interval_units->options
 #. 0dyseus@ArgosForCinnamon->settings-
 #. schema.json->pref_update_interval_units->options
-#: __init__.js:78
+#: __init__.js:80
 msgid "Seconds"
 msgstr ""
 
@@ -228,7 +234,7 @@ msgstr ""
 #. schema.json->pref_rotation_interval_units->options
 #. 0dyseus@ArgosForCinnamon->settings-
 #. schema.json->pref_update_interval_units->options
-#: __init__.js:81
+#: __init__.js:83
 msgid "Minutes"
 msgstr ""
 
@@ -236,7 +242,7 @@ msgstr ""
 #. schema.json->pref_rotation_interval_units->options
 #. 0dyseus@ArgosForCinnamon->settings-
 #. schema.json->pref_update_interval_units->options
-#: __init__.js:84
+#: __init__.js:86
 msgid "Hours"
 msgstr ""
 
@@ -244,18 +250,24 @@ msgstr ""
 #. schema.json->pref_rotation_interval_units->options
 #. 0dyseus@ArgosForCinnamon->settings-
 #. schema.json->pref_update_interval_units->options
-#: __init__.js:87
+#: __init__.js:89
 msgid "Days"
 msgstr ""
 
 #. TO TRANSLATORS: Full sentence:
 #. "Unable to load image from Base64 representation: ErrorMessage"
-#: __init__.js:1661
+#: __init__.js:1663
 #, javascript-format
 msgid "Unable to load image from Base64 representation: %s"
 msgstr ""
 
-#: __init__.js:2412
+#: __init__.js:1896
+msgid ""
+"You might need to set up the correct terminal emulator from this applet "
+"settings window."
+msgstr ""
+
+#: __init__.js:2431
 msgid "Check this applet help file for instructions."
 msgstr ""
 
@@ -482,8 +494,10 @@ msgstr ""
 msgid "Error underline"
 msgstr ""
 
-#. 0dyseus@ArgosForCinnamon->metadata.json->description
-msgid "Create Cinnamon applets in seconds."
+#. 0dyseus@ArgosForCinnamon->metadata.json->comments
+msgid ""
+"Bug reports, feature requests and contributions should be done on this "
+"xlet's repository linked below."
 msgstr ""
 
 #. 0dyseus@ArgosForCinnamon->metadata.json->contributors
@@ -495,18 +509,17 @@ msgstr ""
 msgid "Argos for Cinnamon"
 msgstr ""
 
-#. 0dyseus@ArgosForCinnamon->metadata.json->comments
-msgid ""
-"Bug reports, feature requests and contributions should be done on this "
-"xlet's repository linked below."
+#. 0dyseus@ArgosForCinnamon->metadata.json->description
+msgid "Create Cinnamon applets in seconds."
 msgstr ""
 
-#. 0dyseus@ArgosForCinnamon->settings-schema.json->pref_file_path->description
-msgid "Path to script"
+#. 0dyseus@ArgosForCinnamon->settings-
+#. schema.json->pref_animate_menu->description
+msgid "Animate menu"
 msgstr ""
 
-#. 0dyseus@ArgosForCinnamon->settings-schema.json->head2->description
-msgid "Extra settings"
+#. 0dyseus@ArgosForCinnamon->settings-schema.json->pref_animate_menu->tooltip
+msgid "Enables/Disables menu open/close animations."
 msgstr ""
 
 #. 0dyseus@ArgosForCinnamon->settings-
@@ -521,8 +534,32 @@ msgid ""
 msgstr ""
 
 #. 0dyseus@ArgosForCinnamon->settings-
-#. schema.json->pref_rotation_interval_units->description
-msgid "Rotation interval time unit"
+#. schema.json->pref_rotation_interval->tooltip
+msgid ""
+"Set the applet text rotation interval. If set to 0 (zero), the timer will be"
+" disabled. This timer is only used if there are more than one line asigned "
+"to be displayed as the applet text. If there is only one line asigned for "
+"the applet text, this timer will be completely ignored. So, it isn't needed "
+"to set this timer to 0 (zero) to disable it."
+msgstr ""
+
+#. 0dyseus@ArgosForCinnamon->settings-
+#. schema.json->pref_rotation_interval->description
+msgid "Rotation interval"
+msgstr ""
+
+#. 0dyseus@ArgosForCinnamon->settings-
+#. schema.json->pref_rotation_interval->units
+#. 0dyseus@ArgosForCinnamon->settings-schema.json->pref_update_interval->units
+msgid "custom"
+msgstr ""
+
+#. 0dyseus@ArgosForCinnamon->settings-
+#. schema.json->pref_default_icon_size->tooltip
+msgid ""
+"Set a default size in pixels for the icons inside this applet main menu. The"
+" size of the icon of a menu item can be overridden by setting the "
+"\"iconSize\" attribute on the menu item's respective line on the script."
 msgstr ""
 
 #. 0dyseus@ArgosForCinnamon->settings-
@@ -536,67 +573,8 @@ msgstr ""
 msgid "pixels"
 msgstr ""
 
-#. 0dyseus@ArgosForCinnamon->settings-
-#. schema.json->pref_default_icon_size->tooltip
-msgid ""
-"Set a default size in pixels for the icons inside this applet main menu. The"
-" size of the icon of a menu item can be overridden by setting the "
-"\"iconSize\" attribute on the menu item's respective line on the script."
-msgstr ""
-
-#. 0dyseus@ArgosForCinnamon->settings-
-#. schema.json->pref_custom_label_for_applet->description
-msgid "Custom label"
-msgstr ""
-
-#. 0dyseus@ArgosForCinnamon->settings-
-#. schema.json->pref_custom_label_for_applet->tooltip
-msgid "Enter custom text to show in the panel."
-msgstr ""
-
-#. 0dyseus@ArgosForCinnamon->settings-
-#. schema.json->pref_custom_icon_for_applet->description
-msgid "Icon"
-msgstr ""
-
-#. 0dyseus@ArgosForCinnamon->settings-
-#. schema.json->pref_custom_icon_for_applet->tooltip
-msgid "Select an icon to show in the panel."
-msgstr ""
-
-#. 0dyseus@ArgosForCinnamon->settings-
-#. schema.json->pref_update_interval_units->description
-msgid "Execution interval time unit"
-msgstr ""
-
-#. 0dyseus@ArgosForCinnamon->settings-
-#. schema.json->pref_terminal_emulator->description
-msgid "Terminal emulator"
-msgstr ""
-
-#. 0dyseus@ArgosForCinnamon->settings-
-#. schema.json->pref_terminal_emulator->tooltip
-msgid ""
-"Choose the terminal emulator used by this applet.\n"
-"IMPORTANT!!! The terminal emulator has to support the -e argument."
-msgstr ""
-
-#. 0dyseus@ArgosForCinnamon->settings-
-#. schema.json->pref_animate_menu->description
-msgid "Animate menu"
-msgstr ""
-
-#. 0dyseus@ArgosForCinnamon->settings-schema.json->pref_animate_menu->tooltip
-msgid "Enables/Disables menu open/close animations."
-msgstr ""
-
-#. 0dyseus@ArgosForCinnamon->settings-
-#. schema.json->pref_menu_spacing->description
-msgid "Spacing for items inside the menu"
-msgstr ""
-
-#. 0dyseus@ArgosForCinnamon->settings-schema.json->pref_menu_spacing->units
-msgid "ems"
+#. 0dyseus@ArgosForCinnamon->settings-schema.json->pref_file_path->description
+msgid "Path to script"
 msgstr ""
 
 #. 0dyseus@ArgosForCinnamon->settings-
@@ -609,17 +587,6 @@ msgid "Applet settings"
 msgstr ""
 
 #. 0dyseus@ArgosForCinnamon->settings-
-#. schema.json->pref_update_interval->description
-msgid "Execution interval"
-msgstr ""
-
-#. 0dyseus@ArgosForCinnamon->settings-schema.json->pref_update_interval->units
-#. 0dyseus@ArgosForCinnamon->settings-
-#. schema.json->pref_rotation_interval->units
-msgid "custom"
-msgstr ""
-
-#. 0dyseus@ArgosForCinnamon->settings-
 #. schema.json->pref_update_interval->tooltip
 msgid ""
 "Set the script execution interval. If set to 0 (zero), the timer will be "
@@ -627,27 +594,8 @@ msgid ""
 msgstr ""
 
 #. 0dyseus@ArgosForCinnamon->settings-
-#. schema.json->pref_rotation_interval->description
-msgid "Rotation interval"
-msgstr ""
-
-#. 0dyseus@ArgosForCinnamon->settings-
-#. schema.json->pref_rotation_interval->tooltip
-msgid ""
-"Set the applet text rotation interval. If set to 0 (zero), the timer will be"
-" disabled. This timer is only used if there are more than one line asigned "
-"to be displayed as the applet text. If there is only one line asigned for "
-"the applet text, this timer will be completely ignored. So, it isn't needed "
-"to set this timer to 0 (zero) to disable it."
-msgstr ""
-
-#. 0dyseus@ArgosForCinnamon->settings-schema.json->head1->description
-msgid "Script settings"
-msgstr ""
-
-#. 0dyseus@ArgosForCinnamon->settings-
-#. schema.json->pref_applet_spacing->description
-msgid "Spacing for items inside the applet"
+#. schema.json->pref_update_interval->description
+msgid "Execution interval"
 msgstr ""
 
 #. 0dyseus@ArgosForCinnamon->settings-
@@ -662,4 +610,68 @@ msgid ""
 "applet, the script name will be displayed. With this option disabled, the "
 "script name will not be shown on this applet, giving us the possibility to "
 "use a custom text for the applet."
+msgstr ""
+
+#. 0dyseus@ArgosForCinnamon->settings-
+#. schema.json->pref_menu_spacing->description
+msgid "Spacing for items inside the menu"
+msgstr ""
+
+#. 0dyseus@ArgosForCinnamon->settings-schema.json->pref_menu_spacing->units
+msgid "ems"
+msgstr ""
+
+#. 0dyseus@ArgosForCinnamon->settings-schema.json->head1->description
+msgid "Script settings"
+msgstr ""
+
+#. 0dyseus@ArgosForCinnamon->settings-
+#. schema.json->pref_applet_spacing->description
+msgid "Spacing for items inside the applet"
+msgstr ""
+
+#. 0dyseus@ArgosForCinnamon->settings-
+#. schema.json->pref_custom_icon_for_applet->description
+msgid "Icon"
+msgstr ""
+
+#. 0dyseus@ArgosForCinnamon->settings-
+#. schema.json->pref_custom_icon_for_applet->tooltip
+msgid "Select an icon to show in the panel."
+msgstr ""
+
+#. 0dyseus@ArgosForCinnamon->settings-schema.json->head2->description
+msgid "Extra settings"
+msgstr ""
+
+#. 0dyseus@ArgosForCinnamon->settings-
+#. schema.json->pref_rotation_interval_units->description
+msgid "Rotation interval time unit"
+msgstr ""
+
+#. 0dyseus@ArgosForCinnamon->settings-
+#. schema.json->pref_update_interval_units->description
+msgid "Execution interval time unit"
+msgstr ""
+
+#. 0dyseus@ArgosForCinnamon->settings-
+#. schema.json->pref_custom_label_for_applet->description
+msgid "Custom label"
+msgstr ""
+
+#. 0dyseus@ArgosForCinnamon->settings-
+#. schema.json->pref_custom_label_for_applet->tooltip
+msgid "Enter custom text to show in the panel."
+msgstr ""
+
+#. 0dyseus@ArgosForCinnamon->settings-
+#. schema.json->pref_terminal_emulator->description
+msgid "Terminal emulator"
+msgstr ""
+
+#. 0dyseus@ArgosForCinnamon->settings-
+#. schema.json->pref_terminal_emulator->tooltip
+msgid ""
+"Choose the terminal emulator used by this applet.\n"
+"IMPORTANT!!! The terminal emulator has to support the -e argument."
 msgstr ""
