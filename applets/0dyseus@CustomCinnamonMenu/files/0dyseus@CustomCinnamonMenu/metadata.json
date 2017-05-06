@@ -1,7 +1,7 @@
 {
     "website": "https://github.com/Odyseus/CinnamonTools",
     "multiversion": true,
-    "uuid": "0dyseus@CustomCinnamonMenu",
+    "description": "Custom version of the default Cinnamon Menu applet, but infinitely more customizable.",
     "contributors": [
         "NikoKrause: Bug fixes and German localization.",
         "Radek71: Czech localization.",
@@ -20,5 +20,5 @@
         "3.2",
         "3.4"
     ],
-    "description": "Custom version of the default Cinnamon Menu applet, but infinitely more customizable."
+    "uuid": "0dyseus@CustomCinnamonMenu"
 }
