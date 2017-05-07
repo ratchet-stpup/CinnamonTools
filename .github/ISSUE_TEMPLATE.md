@@ -8,9 +8,9 @@
 
 ### Description
 
-[Description of the issue]
+[Description of the issue and xlet or tool version in which the issue happens]
 
-### Steps to Reproduce
+### Steps to reproduce
 
 1. [First Step]
 2. [Second Step]
@@ -33,12 +33,9 @@ inxi -xxxSc0 -! 31
 <!--
 Check the content of the log files for sensible information BEFORE running the commands.
 For distributions not provided with the pastebin command, just upload the content of the files to any "pastebin" service (dpaste.com, for example).
+**Archlinux users:** The command `pastebinit` is available if its package is installed.
 -->
 
 <!-- Paste bellow the URLs given by the following two commands run on a terminal. -->
 pastebin ~/.cinnamon/glass.log
 pastebin ~/.xsession-errors
-
-**Note:** If the `pastebin` command isn't available on your distribution, just open those files and paste their content in any pastebin-like service and share the generated URL.
-
-**Archlinux users:** The command `pastebinit` is available if its package is installed.
