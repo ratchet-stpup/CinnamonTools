@@ -20,8 +20,14 @@
 # This option clones the repository's wiki into the /docs folder.
 # The wiki's files are used to create part of the main site.
 
-prompt_message="Pick an option and press Enter:"
-options+=("Render main site" "Render help files" "Create packages" "Clone wiki" "Xlets comparison")
+# Xlets comparison
+# Compare installed xlets with the ones found on the repository using meld.
+
+# Set files permission
+# Set the execution permission for all files that need to be.
+# As of now, only .sh and .py files are set to be executables.
+
+prompt="$(tput bold)$(tput bold)Pick an option and press Enter:$(tput sgr0)"
 
 ROOT_PATH="`dirname \"$0\"`"                 # relative
 ROOT_PATH="`( cd \"$ROOT_PATH\" && pwd )`"   # absolutized and normalized
@@ -302,15 +308,15 @@ compareExtensions() {
 
 compareAll() {
     compareApplets
-    slepp 2
+    sleep 2
     compareExtensions
 }
 
-
-
 compareXlets() {
-    echo "$(tput bold)$prompt_message"
-    echo "(requires meld to be installed)$(tput sgr0)"
+    echo ""
+    echo -e "$(tput bold)\
+Compare installed xlets with the ones from the repository using meld\
+    $(tput sgr0)"
     compare_options+=("Compare applets" "Compare extensions" "Compare all")
     select opt in "${compare_options[@]}" "Abort"; do
         case "$REPLY" in
@@ -335,8 +341,59 @@ compareXlets() {
     done
 }
 
-echo "$(tput bold)$(tput bold)$prompt_message$(tput sgr0)"
-select opt in "${options[@]}" "Abort"; do
+setCheckFilesPermission() {
+    echo ""
+    echo -e "$(tput bold)\
+Check or set the execution permission foe centeain files\
+(apply to .sh and .py files)\
+    $(tput sgr0)"
+    compare_options+=("Check permission" "Set permission")
+    select opt in "${compare_options[@]}" "Abort"; do
+        case "$REPLY" in
+            1 ) # Check permission
+                applyFilesPermission "check"
+                ;;
+            2 ) # Set permission
+                applyFilesPermission
+                ;;
+            $(( ${#compare_options[@]}+1 )) )
+                echo "$(tput bold)$(tput setaf 11)Operation cancelled.$(tput sgr0)"
+                break
+                ;;
+            * )
+                echo "$(tput bold)$(tput setaf 11)Invalid option. Try another one.$(tput sgr0)"
+                ;;
+        esac
+    done
+}
+
+applyFilesPermission() {
+    TEMP_FILE=$ROOT_PATH/tmp/files_to_set_permissions.txt
+    # List all .sh and .py files ignoring symlinks and save them into a temp file.
+    find $ROOT_PATH -type f -iname "*.sh" > $TEMP_FILE
+    find $ROOT_PATH -type f -iname "*.py" >> $TEMP_FILE
+    EXEC_FILES=`cat $TEMP_FILE`
+
+    for file in $EXEC_FILES; do
+        SHORTENED_PATH=${file#*$ROOT_PATH}
+        if [ ! -x ${file} ]; then
+            echoWarn "Not an executable: $SHORTENED_PATH"
+
+            if [ "$1" != "check" ]; then
+                echoWarn "Setting it as such..."
+                chmod +x "$file"
+                echo ""
+            fi
+        fi
+    done
+}
+
+PS3="$prompt "
+main_options+=("Render main site" "Render help files" "Create packages"\
+ "Clone wiki" "Xlets comparison" "Set/Check files permission")
+
+echo ""
+select opt in "${main_options[@]}" "Abort"; do
     case "$REPLY" in
         1 ) # Render main site pug files
             renderMainSite
@@ -356,7 +413,11 @@ select opt in "${options[@]}" "Abort"; do
             compareXlets
             break
             ;;
-        $(( ${#options[@]}+1 )) )
+        6 ) # Set/Check files permission
+            setCheckFilesPermission
+            break
+            ;;
+        $(( ${#main_options[@]}+1 )) )
             echo "$(tput bold)$(tput setaf 11)Operation cancelled.$(tput sgr0)"
             break
             ;;
