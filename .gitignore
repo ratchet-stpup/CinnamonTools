@@ -2,6 +2,8 @@
 /tmp
 /themes/Mint-XY-DEV
 /themes/Mint-XY-Greybird-Blue-DEV
+/ct_python_modules
+/applets/0dyseus@DesktopHandlerTest
 *.bak
 /docs/CinnamonTools.wiki
 
