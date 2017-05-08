@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 0dyseus@ExtensionsManager 1.04\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-04-30 14:58+0200\n"
-"PO-Revision-Date: 2017-04-30 14:59+0200\n"
+"POT-Creation-Date: 2017-05-08 19:49+0200\n"
+"PO-Revision-Date: 2017-05-08 19:51+0200\n"
 "Last-Translator: gogo <trebelnik2@gmail.com>\n"
 "Language-Team: croatian <hr@li.org>\n"
 "Language: hr\n"
@@ -40,7 +40,7 @@ msgstr "Osvježi popis proširenja"
 msgid "Restart Cinnamon"
 msgstr "Ponovno pokreni Cinnamon"
 
-#: applet.js:345
+#: applet.js:346
 msgid ""
 "There aren't any extensions installed on your system. Or you may need to "
 "refresh the list of extensions from this applet context menu."
@@ -48,23 +48,23 @@ msgstr ""
 "Nemate instaliranih proširenja na vašem sustavu. Ili trebate osvježiti popis "
 "proširenja iz izbornika ovog apleta."
 
-#: applet.js:412
+#: applet.js:415
 msgid "Enabled extensions"
 msgstr "Omogućena proširenja"
 
-#: applet.js:415
+#: applet.js:418
 msgid "No enabled extensions"
 msgstr "Nema omogućenih proširenja"
 
-#: applet.js:419
+#: applet.js:422
 msgid "Disabled extensions"
 msgstr "Onemogućena proširenja"
 
-#: applet.js:421
+#: applet.js:424
 msgid "No disabled extensions"
 msgstr "Nema onemogućenih proširenja"
 
-#: applet.js:458
+#: applet.js:461
 #, javascript-format
 msgid ""
 "Extension %s is not compatible with current version of cinnamon. Using it "
@@ -81,29 +81,35 @@ msgstr "Odustani"
 msgid "OK"
 msgstr "U redu"
 
-#: __init__.js:168
+#: __init__.js:169
 msgid "Open settings window"
 msgstr "Otvori prozor postavki"
 
-#: __init__.js:187
+#: __init__.js:189
 msgid "Spices page"
 msgstr "Stranica proširenja"
 
-#: __init__.js:205
+#: __init__.js:208
 msgid "Edit extension main file"
 msgstr "Uredi glavnu datoteku proširenja"
 
-#: __init__.js:220
+#: __init__.js:224
 msgid "Open extension folder"
 msgstr "Otvori mapu proširenja"
 
-#: __init__.js:277 __init__.js:284
+#: __init__.js:281 __init__.js:288
 msgid "Name"
 msgstr "Naziv"
 
-#: __init__.js:279 __init__.js:286
+#: __init__.js:283 __init__.js:290
 msgid "Description"
 msgstr "Opis"
+
+#. 0dyseus@ExtensionsManager->metadata.json->description
+msgid "Allows enabling/disabling extensions (and other tasks) from a menu."
+msgstr ""
+"Omogućuje omogućavanje/onemogućavanje proširenja (i drugih zadataka) iz "
+"izbornika."
 
 #. 0dyseus@ExtensionsManager->metadata.json->name
 msgid "Extensions Manager"
@@ -129,21 +135,75 @@ msgstr "muzena: Hrvatska lokalizacija."
 msgid "giwhub: Chinese localization."
 msgstr "giwhub: Kineska lokalizacija."
 
-#. 0dyseus@ExtensionsManager->metadata.json->description
-msgid "Allows enabling/disabling extensions (and other tasks) from a menu."
+#. 0dyseus@ExtensionsManager->settings-
+#. schema.json->pref_max_menu_height->description
+msgid "Max height for menu"
+msgstr "Najveća visina izbornika"
+
+#. 0dyseus@ExtensionsManager->settings-
+#. schema.json->pref_max_menu_height->units
+#. 0dyseus@ExtensionsManager->settings-
+#. schema.json->pref_extension_icon_size->units
+#. 0dyseus@ExtensionsManager->settings-
+#. schema.json->pref_extension_options_icon_size->units
+msgid "pixels"
+msgstr "piksela"
+
+#. 0dyseus@ExtensionsManager->settings-
+#. schema.json->pref_extension_icon_size->description
+msgid "Icon size for the extension logo"
+msgstr "Veličina ikone logotipa proširenja"
+
+#. 0dyseus@ExtensionsManager->settings-
+#. schema.json->pref_use_extension_names_as_label->tooltip
+msgid ""
+"If disabled, the extension UUID will be used as label for the menu items."
 msgstr ""
-"Omogućuje omogućavanje/onemogućavanje proširenja (i drugih zadataka) iz "
+"Ako je onemogućeno, UUID proširenja će se koristiti kao naziv stavki "
 "izbornika."
 
 #. 0dyseus@ExtensionsManager->settings-
-#. schema.json->pref_disabled_extensions_style->description
-msgid "Style for \"Disabled extensions\" sub-menu"
-msgstr "Izgled podizbornika \"Onemogućena proširenja\""
+#. schema.json->pref_use_extension_names_as_label->description
+msgid "Use extension name as label"
+msgstr "Koristi naziv proširenja za prikaz u izborniku"
 
 #. 0dyseus@ExtensionsManager->settings-
-#. schema.json->pref_icons_on_menu->description
-msgid "Show icons on menu items"
-msgstr "Prikaži ikone u stavkama izborniku"
+#. schema.json->pref_show_open_extension_folder_button->tooltip
+msgid ""
+"If enabled, it will display a button in each extension menu item that will "
+"open the location where the extension is installed."
+msgstr ""
+"Ako je omogućeno, prikazat će tipku u svakoj stavci izbornika proširenja "
+"koja će otvoriti mapu u kojoj je proširenje instalirano."
+
+#. 0dyseus@ExtensionsManager->settings-
+#. schema.json->pref_show_open_extension_folder_button->description
+msgid "Show \"Open extension folder\" button on extensions menu"
+msgstr "Prikaži tipku \"Otvori mapu proširenja\" u izborniku proširenja"
+
+#. 0dyseus@ExtensionsManager->settings-
+#. schema.json->pref_keep_disabled_extension_menu_open->tooltip
+msgid ""
+"If enabled, every time that the menu is open, the \"Disabled extensions\" "
+"sub menu will be open too."
+msgstr ""
+"Ako je omogućeno, svaki puta kada je izbornik otvoren, podizbornik "
+"\"Onemogućena proširenja\" će biti otvoren."
+
+#. 0dyseus@ExtensionsManager->settings-
+#. schema.json->pref_keep_disabled_extension_menu_open->description
+msgid "Keep \"Disabled extensions\" menu open"
+msgstr "Drži izbornik \"Onemogućena proširenja\" otvorenim"
+
+#. 0dyseus@ExtensionsManager->settings-
+#. schema.json->pref_keep_only_one_menu_open->description
+msgid "Keep only one menu open at all times"
+msgstr "Drži samo jedan izbornik otvoren istovremeno"
+
+#. 0dyseus@ExtensionsManager->settings-
+#. schema.json->pref_max_width_for_menu_items_label->description
+msgid "Max width for menu items label"
+msgstr "Najveća širina naziva stavki izbornika"
 
 #. 0dyseus@ExtensionsManager->settings-
 #. schema.json->pref_max_width_for_menu_items_label->units
@@ -151,26 +211,28 @@ msgid "ems"
 msgstr "ems"
 
 #. 0dyseus@ExtensionsManager->settings-
-#. schema.json->pref_max_width_for_menu_items_label->description
-msgid "Max width for menu items label"
-msgstr "Najveća širina naziva stavki izbornika"
-
-#. 0dyseus@ExtensionsManager->settings-schema.json->pref_icons_size->units
-#. 0dyseus@ExtensionsManager->settings-
-#. schema.json->pref_max_menu_height->units
-msgid "pixels"
-msgstr "piksela"
-
-#. 0dyseus@ExtensionsManager->settings-
-#. schema.json->pref_icons_size->description
-msgid "Icon size for menu items"
-msgstr "Veličina ikona stavki izbornika"
-
-#. 0dyseus@ExtensionsManager->settings-
-#. schema.json->pref_show_edit_extension_file_button->description
-msgid "Show \"Edit extension main file\" button on extensions menu"
+#. schema.json->pref_keep_enabled_extension_menu_open->tooltip
+msgid ""
+"If enabled, every time that the menu is open, the \"Enabled extensions\" sub "
+"menu will be open too."
 msgstr ""
-"Prikaži tipku \"Uredi glavnu datoteku proširenja\" u izborniku proširenja"
+"Ako je omogućeno, svaki puta kada je izbornik otvoren, podizbornik "
+"\"Omogućena proširenja\" će biti otvoren."
+
+#. 0dyseus@ExtensionsManager->settings-
+#. schema.json->pref_keep_enabled_extension_menu_open->description
+msgid "Keep \"Enabled extensions\" menu open"
+msgstr "Drži izbornik \"Omogućena proširenja\" otvorenim"
+
+#. 0dyseus@ExtensionsManager->settings-
+#. schema.json->pref_icons_on_menu->description
+msgid "Show icons on menu items"
+msgstr "Prikaži ikone u stavkama izborniku"
+
+#. 0dyseus@ExtensionsManager->settings-
+#. schema.json->pref_disabled_extensions_style->description
+msgid "Style for \"Disabled extensions\" sub-menu"
+msgstr "Izgled podizbornika \"Onemogućena proširenja\""
 
 #. 0dyseus@ExtensionsManager->settings-
 #. schema.json->pref_show_edit_extension_file_button->tooltip
@@ -183,84 +245,10 @@ msgstr ""
 "teksta."
 
 #. 0dyseus@ExtensionsManager->settings-
-#. schema.json->pref_keep_only_one_menu_open->description
-msgid "Keep only one menu open at all times"
-msgstr "Drži samo jedan izbornik otvoren istovremeno"
-
-#. 0dyseus@ExtensionsManager->settings-schema.json->head0->description
-msgid "Applet settings"
-msgstr "Postavke apleta"
-
-#. 0dyseus@ExtensionsManager->settings-
-#. schema.json->pref_set_max_menu_height->description
-msgid "Set max height for the main menu"
-msgstr "Postavi najveću visinu glavnog izbornika"
-
-#. 0dyseus@ExtensionsManager->settings-
-#. schema.json->pref_max_menu_height->description
-msgid "Max height for menu"
-msgstr "Najveća visina izbornika"
-
-#. 0dyseus@ExtensionsManager->settings-
-#. schema.json->pref_custom_label_for_applet->description
-msgid "Custom label"
-msgstr "Prilagođeni naziv"
-
-#. 0dyseus@ExtensionsManager->settings-
-#. schema.json->pref_custom_label_for_applet->tooltip
-msgid "Enter custom text to show in the panel."
-msgstr "Upišite prilagođeni tekst za prikaz u panelu."
-
-#. 0dyseus@ExtensionsManager->settings-
-#. schema.json->pref_keep_enabled_extension_menu_open->description
-msgid "Keep \"Enabled extensions\" menu open"
-msgstr "Drži izbornik \"Omogućena proširenja\" otvorenim"
-
-#. 0dyseus@ExtensionsManager->settings-
-#. schema.json->pref_keep_enabled_extension_menu_open->tooltip
-msgid ""
-"If enabled, every time that the menu is open, the \"Enabled extensions\" sub "
-"menu will be open too."
+#. schema.json->pref_show_edit_extension_file_button->description
+msgid "Show \"Edit extension main file\" button on extensions menu"
 msgstr ""
-"Ako je omogućeno, svaki puta kada je izbornik otvoren, podizbornik "
-"\"Omogućena proširenja\" će biti otvoren."
-
-#. 0dyseus@ExtensionsManager->settings-
-#. schema.json->pref_enabled_extensions_style->description
-msgid "Style for \"Enabled extensions\" sub-menu"
-msgstr "Izgled podizbornika \"Omogućena proširenja\""
-
-#. 0dyseus@ExtensionsManager->settings-
-#. schema.json->pref_use_extension_names_as_label->description
-msgid "Use extension name as label"
-msgstr "Koristi naziv proširenja za prikaz u izborniku"
-
-#. 0dyseus@ExtensionsManager->settings-
-#. schema.json->pref_use_extension_names_as_label->tooltip
-msgid ""
-"If disabled, the extension UUID will be used as label for the menu items."
-msgstr ""
-"Ako je onemogućeno, UUID proširenja će se koristiti kao naziv stavki "
-"izbornika."
-
-#. 0dyseus@ExtensionsManager->settings-
-#. schema.json->pref_show_open_extension_folder_button->description
-msgid "Show \"Open extension folder\" button on extensions menu"
-msgstr "Prikaži tipku \"Otvori mapu proširenja\" u izborniku proširenja"
-
-#. 0dyseus@ExtensionsManager->settings-
-#. schema.json->pref_show_open_extension_folder_button->tooltip
-msgid ""
-"If enabled, it will display a button in each extension menu item that will "
-"open the location where the extension is installed."
-msgstr ""
-"Ako je omogućeno, prikazat će tipku u svakoj stavci izbornika proširenja "
-"koja će otvoriti mapu u kojoj je proširenje instalirano."
-
-#. 0dyseus@ExtensionsManager->settings-
-#. schema.json->pref_custom_icon_for_applet->description
-msgid "Icon"
-msgstr "Ikona"
+"Prikaži tipku \"Uredi glavnu datoteku proširenja\" u izborniku proširenja"
 
 #. 0dyseus@ExtensionsManager->settings-
 #. schema.json->pref_custom_icon_for_applet->tooltip
@@ -268,27 +256,37 @@ msgid "Select an icon to show in the panel."
 msgstr "Odaberite ikonu za prikaz u panelu."
 
 #. 0dyseus@ExtensionsManager->settings-
-#. schema.json->pref_keep_disabled_extension_menu_open->description
-msgid "Keep \"Disabled extensions\" menu open"
-msgstr "Drži izbornik \"Onemogućena proširenja\" otvorenim"
+#. schema.json->pref_custom_icon_for_applet->description
+msgid "Icon"
+msgstr "Ikona"
 
-#. 0dyseus@ExtensionsManager->settings-
-#. schema.json->pref_keep_disabled_extension_menu_open->tooltip
-msgid ""
-"If enabled, every time that the menu is open, the \"Disabled extensions\" "
-"sub menu will be open too."
-msgstr ""
-"Ako je omogućeno, svaki puta kada je izbornik otvoren, podizbornik "
-"\"Onemogućena proširenja\" će biti otvoren."
+#. 0dyseus@ExtensionsManager->settings-schema.json->head0->description
+msgid "Applet settings"
+msgstr "Postavke apleta"
 
 #. 0dyseus@ExtensionsManager->settings-schema.json->head1->description
 msgid "Extensions menu settings"
 msgstr "Postavke izbornika proširenja"
 
 #. 0dyseus@ExtensionsManager->settings-
-#. schema.json->pref_show_spices_button->description
-msgid "Show \"Spices page\" button on extensions menu"
-msgstr "Prikaži tipku \"Stranica proširenja\" u izborniku proširenja"
+#. schema.json->pref_custom_label_for_applet->tooltip
+msgid "Enter custom text to show in the panel."
+msgstr "Upišite prilagođeni tekst za prikaz u panelu."
+
+#. 0dyseus@ExtensionsManager->settings-
+#. schema.json->pref_custom_label_for_applet->description
+msgid "Custom label"
+msgstr "Prilagođeni naziv"
+
+#. 0dyseus@ExtensionsManager->settings-
+#. schema.json->pref_enabled_extensions_style->description
+msgid "Style for \"Enabled extensions\" sub-menu"
+msgstr "Izgled podizbornika \"Omogućena proširenja\""
+
+#. 0dyseus@ExtensionsManager->settings-
+#. schema.json->pref_extension_options_icon_size->description
+msgid "Icon size for the extension option buttons"
+msgstr "Veličina ikone tipke mogućnosti proširenja"
 
 #. 0dyseus@ExtensionsManager->settings-
 #. schema.json->pref_show_spices_button->tooltip
@@ -301,9 +299,9 @@ msgstr ""
 "Spices stranici)"
 
 #. 0dyseus@ExtensionsManager->settings-
-#. schema.json->pref_show_config_button->description
-msgid "Show \"Open settings window\" button on extensions menu"
-msgstr "Prikaži tipku \"Otvori postavke prozora\" u izborniku proširenja"
+#. schema.json->pref_show_spices_button->description
+msgid "Show \"Spices page\" button on extensions menu"
+msgstr "Prikaži tipku \"Stranica proširenja\" u izborniku proširenja"
 
 #. 0dyseus@ExtensionsManager->settings-
 #. schema.json->pref_show_config_button->tooltip
@@ -314,6 +312,19 @@ msgid ""
 msgstr ""
 "Ako je omogućeno, prikazat će tipku u svakoj stavci izbornika proširenja "
 "koja će otvoriti postavke proširenja (ako proširenje ima postavke)."
+
+#. 0dyseus@ExtensionsManager->settings-
+#. schema.json->pref_show_config_button->description
+msgid "Show \"Open settings window\" button on extensions menu"
+msgstr "Prikaži tipku \"Otvori postavke prozora\" u izborniku proširenja"
+
+#. 0dyseus@ExtensionsManager->settings-
+#. schema.json->pref_set_max_menu_height->description
+msgid "Set max height for the main menu"
+msgstr "Postavi najveću visinu glavnog izbornika"
+
+#~ msgid "Icon size for menu items"
+#~ msgstr "Veličina ikona stavki izbornika"
 
 #~ msgid "Appearance"
 #~ msgstr "Izgled"
