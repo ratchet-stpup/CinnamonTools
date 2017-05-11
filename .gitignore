@@ -6,6 +6,8 @@
 /applets/0dyseus@DesktopHandlerTest
 *.bak
 /docs/CinnamonTools.wiki
+/tools/cinnamon_tweaks_python_modules/__pycache__
+/*/*/locale
 
 # Compiled source #
 ###################
@@ -15,6 +17,7 @@
 *.exe
 *.o
 *.so
+*.pyc
 
 # Packages #
 ############

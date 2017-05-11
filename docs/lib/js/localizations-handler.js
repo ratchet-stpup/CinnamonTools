@@ -3,6 +3,8 @@ exported toggleLocalizationVisibility,
          docCookies
  */
 
+/* jshint varstmt: false */
+
 /**
  * :: cookies.js ::
  * A complete cookies reader/writer framework with full unicode support.
@@ -77,32 +79,51 @@ var docCookies = {
     }
 };
 
-function toggleLocalizationVisibility(aButton) {
-    var language = aButton ? aButton.getAttribute("data-id") : docCookies.getItem("language");
+function toggleLocalizationVisibility(aValue) {
+    // Store the language passed to the function or retrieve it from a cookie.
+    var language = aValue ? aValue : docCookies.getItem("cinnamon_tools_help_language");
+    var selector = document.getElementById("localization-switch");
 
-    if (!Boolean(language))
+    // If there is no selector, the page build must have gone very wrong.
+    if (!selector)
         return;
 
+    // aValue is null on page load.
+    if (aValue === null) {
+        // If there is no language is because cookies are not allowed.
+        // If a user reloads a help page when another language other than English is shown:
+        // - With cookies allowed: The currently selected language will stay selected.
+        // - With cookies NOT allowed: The help page will be switched to English.
+        if (language) { // Set the chosen (or retrieved from a cookie) language...
+            selector.value = language;
+        } else { // ...or default to English.
+            selector.value = "en";
+        }
+    }
+
     try {
+        // Hide all sections.
         Array.prototype.slice.call(document.getElementsByClassName("localization-content"))
             .forEach(function(aEl) {
                 aEl && aEl.classList.add("hidden");
             });
 
-        Array.prototype.slice.call(document.getElementsByClassName("localization-switch"))
-            .forEach(function(aEl) {
-                if (aEl) {
-                    aEl.classList.remove("btn-success");
-                    aEl.classList.add("btn-default");
+        var option = selector.options[selector.selectedIndex];
+        var chooseLanguageLabel = document.getElementById("localization-chooser-label");
 
-                    if (aEl.getAttribute("data-id") === language) {
-                        document.title = aEl.getAttribute("data-title");
-                        aEl.classList.add("btn-success");
-                    }
-                }
-            });
+        // Set localized "Choose language" label.
+        chooseLanguageLabel.innerText = option.getAttribute("data-language-chooser-label");
+        // Set localized page title.
+        document.title = option.getAttribute("data-title");
     } finally {
-        document.getElementById(language).classList.remove("hidden");
-        docCookies.setItem("language", language);
+        if (language) {
+            // If there is language, use it to unhide the respective section...
+            document.getElementById(language).classList.remove("hidden");
+            // ...and save it into a cookie.
+            docCookies.setItem("cinnamon_tools_help_language", language);
+        } else {
+            // If there is no language, unhide the English section and move on.
+            document.getElementById("en").classList.remove("hidden");
+        }
     }
 }

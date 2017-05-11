@@ -5,9 +5,11 @@
 # The main site is just the GitHub page associated with the repository.
 # https://odyseus.github.io/CinnamonTools
 
-# Render help files
-# This option renders all the help files from all the xlets on the repository
-# (creates the HTML files from PUG and MARKDOWN sources).
+# Create help files
+# This option creates all the help files from all the xlets on the repository
+# The scripts called create_localized_help.py are the ones that creates
+# the HTML files and from which the make-xlet-pot command extracts the strings
+# that will be used to create the localized sections of the help file.
 
 # Create packages
 # This option packages all the xlets found in the repository and saves them
@@ -23,9 +25,14 @@
 # Xlets comparison
 # Compare installed xlets with the ones found on the repository using meld.
 
-# Set files permission
-# Set the execution permission for all files that need to be.
-# As of now, only .sh and .py files are set to be executables.
+# Set/Check files permission
+# Set and/or check the execution permission for all files that need to be.
+# As of now, only .sh and .py files are set to be executable.
+
+# Update .pot files
+# Update all localization templates of all xlets. This will also update all .po
+# files from the newly updated ,pot file and store the amount of untranslated
+# strings for later use.
 
 prompt="$(tput bold)$(tput bold)Pick an option and press Enter:$(tput sgr0)"
 
@@ -34,6 +41,7 @@ ROOT_PATH="`( cd \"$ROOT_PATH\" && pwd )`"   # absolutized and normalized
 XLETS_PATH="$HOME/.local/share/cinnamon"
 
 all_pug_files=("index.pug" "wiki.pug" "wiki_standalone.pug")
+xlets_types=("applets" "extensions" "themes" "tools")
 
 echoInfo() {
     [ $# -gt 0 ] && echo -e "$(tput bold)$(tput setaf 10)$1$(tput sgr0)" >&2
@@ -41,6 +49,10 @@ echoInfo() {
 
 echoWarn() {
     [ $# -gt 0 ] && echo -e "$(tput bold)$(tput setaf 11)$1$(tput sgr0)" >&2
+}
+
+echoError() {
+    [ $# -gt 0 ] && echo -e "$(tput bold)$(tput setaf 9)$1$(tput sgr0)" >&2
 }
 
 renderMainSite() {
@@ -56,38 +68,32 @@ renderMainSite() {
     done
 }
 
-renderHelpFiles() {
-    (
-        cd applets
-        for applet in *; do
-            if [ -d ${applet} ]; then
-                (
-                    cd "$applet"
-                    if [ -f HELP.pug ]; then
-                        echo " "
-                        echoInfo "====== Rendering help file for $applet ======"
-                        pug HELP.pug -o "files/$applet"
-                    fi
-                )
-            fi
-        done
-    )
+createHelpFiles() {
+    for type in ${xlets_types[@]}; do
+        if [ "$type" == "themes" -o "$type" == "tools" ]; then
+            continue
+        fi
 
-    (
-        cd extensions
-        for extension in *; do
-            if [ -d ${extension} ]; then
-                (
-                    cd "$extension"
-                    if [ -f HELP.pug ]; then
-                        echo " "
-                        echoInfo "====== Rendering help file for $extension ======"
-                        pug HELP.pug -o "files/$extension"
-                    fi
-                )
-            fi
-        done
-    )
+        (
+            cd $type
+            for xlet in *; do
+                if [ -d ${xlet} ]; then
+                    (
+                        cd "$xlet"
+                        if [ -f create_localized_help.py -a -x create_localized_help.py ]; then
+                            echo " "
+                            echoInfo "====== Creating help file for $xlet... ======"
+                            ./create_localized_help.py -p && echo "Help file created"
+                        fi
+                    )
+                fi
+
+            sleep 0.5
+            done
+        )
+
+        sleep 0.5
+    done
 }
 
 get_sha512sum() {
@@ -103,141 +109,70 @@ get_sha512sum() {
 
 createPackages() {
     # Create the tmp dir if it doesn't exists.
-    # For now, the tmp dir is only used to store the shasums.
     # The shasums are used to avoid the re-packaging of xlets that weren't modified.
     if [ ! -d $ROOT_PATH/tmp/shasums ]; then
       mkdir -p $ROOT_PATH/tmp/shasums;
     fi
 
-    # Using a sub-shell to switch directories to avoid "back and forth".
-    # It seems more work, but it really isn't because the following three
-    # sub-shells are practically the same.
-    (
-        echo " "
-        echoWarn "Packaging applets..."
-        cd applets
-        for applet in *; do
-            if [ -d ${applet} ]; then
-                # Get the previously calculated shasum if any.
-                # Store it earlier just in case.
-                if [ ! -f $ROOT_PATH/tmp/shasums/$applet ]; then
-                    current_applet_sha=""
-                else
-                    current_applet_sha=$(<$ROOT_PATH/tmp/shasums/$applet)
-                fi
+    for type in ${xlets_types[@]}; do
+        if [ "$type" == "tools" ]; then
+            continue
+        fi
 
-                (
-                    cd "$applet/files"
-                    new_sha=""
-                    get_sha512sum "$ROOT_PATH/applets/$applet/files/$applet" new_sha
-
-                    echo " "
-                    sleep 0.2
-
-                    if [ "$new_sha" == "$current_applet_sha" ]; then
-                        # If the stored and the calculated shasums are equal:
-                        # Do nothing and do not touch the stored shasum.
-                        echoInfo "====== Skipping packaging of $applet ======"
+        # Using a sub-shell to switch directories to avoid "back and forth".
+        (
+            echo " "
+            echoWarn "Packaging $type..."
+            cd $type
+            for xlet in *; do
+                if [ -d ${xlet} ]; then
+                    # Get the previously calculated shasum if any.
+                    # Store it earlier just in case.
+                    if [ ! -f $ROOT_PATH/tmp/shasums/$xlet ]; then
+                        current_applet_sha=""
                     else
-                        # If the stored and the calculated shasums are NOT equal:
-                        # 1- Store the new calculated shasum.
-                        # 2- Delete old package.
-                        # 3- Create new package.
-                        echoInfo "====== Storing shasum for $applet ======"
-                        # Store the shasum WITHOUT the freaking new line (-n argument).
-                        echo -n $new_sha > $ROOT_PATH/tmp/shasums/$applet
-
-                        echoInfo "====== Deleting old $applet package ======"
-                        rm -f $ROOT_PATH/docs/pkg/$applet.tar.gz
-
-                        echoInfo "====== Packaging $applet ======"
-                        tar -cvzf "$ROOT_PATH/docs/pkg/$applet.tar.gz" $applet
+                        current_applet_sha=$(<$ROOT_PATH/tmp/shasums/$xlet)
                     fi
-                )
-            fi
-        done
-    )
+
+                    (
+                        cd "$xlet/files"
+                        new_sha=""
+                        get_sha512sum "$ROOT_PATH/$type/$xlet/files/$xlet" new_sha
+
+                        echo " "
+                        sleep 0.2
+
+                        if [ "$new_sha" == "$current_applet_sha" ]; then
+                            # If the stored and the calculated shasums are equal:
+                            # Do nothing and do not touch the stored shasum.
+                            echoInfo "====== Skipping packaging of $xlet ======"
+                        else
+                            # If the stored and the calculated shasums are NOT equal:
+                            # 1- Store the new calculated shasum.
+                            # 2- Delete old package.
+                            # 3- Create new package.
+                            echoInfo "====== Storing shasum for $xlet ======"
+                            # Store the shasum WITHOUT the freaking new line (-n argument).
+                            echo -n $new_sha > $ROOT_PATH/tmp/shasums/$xlet
+
+                            echoInfo "====== Deleting old $xlet package ======"
+                            rm -f $ROOT_PATH/docs/pkg/$xlet.tar.gz
+
+                            echoInfo "====== Packaging $xlet ======"
+                            tar -cvzf "$ROOT_PATH/docs/pkg/$xlet.tar.gz" $xlet
+                        fi
+                    )
+                fi
+            done
+        )
+
+        sleep 0.5
+    done
 
     sleep 1
 
-    (
-        echo " "
-        echoWarn "Packaging extensions..."
-        cd extensions
-        for extension in *; do
-            if [ -d ${extension} ]; then
-                if [ ! -f $ROOT_PATH/tmp/shasums/$extension ]; then
-                    current_extension_sha=""
-                else
-                    current_extension_sha=$(<$ROOT_PATH/tmp/shasums/$extension)
-                fi
-
-                (
-                    cd "$extension/files"
-                    new_sha=""
-                    get_sha512sum "$ROOT_PATH/extensions/$extension/files/$extension" new_sha
-
-                    echo " "
-                    sleep 0.2
-
-                    if [ "$new_sha" == "$current_extension_sha" ]; then
-                        echoInfo "====== Skipping packaging of $extension ======"
-                    else
-                        echoInfo "====== Storing shasum for $extension ======"
-                        echo -n $new_sha > $ROOT_PATH/tmp/shasums/$extension
-
-                        echoInfo "====== Deleting old $extension package ======"
-                        rm -f $ROOT_PATH/docs/pkg/$extension.tar.gz
-
-                        echoInfo "====== Packaging $extension ======"
-                        tar -cvzf "$ROOT_PATH/docs/pkg/$extension.tar.gz" $extension
-                    fi
-                )
-            fi
-        done
-    )
-
-    sleep 1
-
-    (
-        echo " "
-        echoWarn "Packaging themes..."
-        cd themes
-        for theme in *; do
-            if [ -d ${theme} ]; then
-                if [ ! -f $ROOT_PATH/tmp/shasums/$theme ]; then
-                    current_sha=""
-                else
-                    current_sha=$(<$ROOT_PATH/tmp/shasums/$theme)
-                fi
-
-                (
-                    cd "$theme/files"
-                    new_sha=""
-                    get_sha512sum "$ROOT_PATH/themes/$theme/files/$theme" new_sha
-
-                    echo " "
-                    sleep 0.2
-
-                    if [ "$new_sha" == "$current_sha" ]; then
-                        echoInfo "====== Skipping packaging of $theme ======"
-                    else
-                        echoInfo "====== Storing shasum for $theme ======"
-                        echo -n $new_sha > $ROOT_PATH/tmp/shasums/$theme
-
-                        echoInfo "====== Deleting old $theme package ======"
-                        rm -f $ROOT_PATH/docs/pkg/$theme.tar.gz
-
-                        echoInfo "====== Packaging $theme ======"
-                        tar -cvzf "$ROOT_PATH/docs/pkg/$theme.tar.gz" $theme
-                    fi
-                )
-            fi
-        done
-    )
-
-    sleep 1
-
+    # The tools structure is totally different from the xlets,
+    # so package them separately.
     (
         echo " "
         echoWarn "Packaging tools..."
@@ -287,8 +222,9 @@ compareApplets() {
         cd applets
         for applet in *; do
             if [ -d ${applet} ]; then
-                meld "$XLETS_PATH/applets/$applet" "$ROOT_PATH/applets/$applet/files/$applet" > /dev/null 2>&1 &
-                sleep 0.500
+                meld "$XLETS_PATH/applets/$applet" \
+                "$ROOT_PATH/applets/$applet/files/$applet" > /dev/null 2>&1 &
+                sleep 0.5
             fi
         done
     )
@@ -299,8 +235,9 @@ compareExtensions() {
         cd extensions
         for extension in *; do
             if [ -d ${extension} ]; then
-                meld "$XLETS_PATH/extensions/$extension" "$ROOT_PATH/extensions/$extension/files/$extension" > /dev/null 2>&1 &
-                sleep 0.500
+                meld "$XLETS_PATH/extensions/$extension" \
+                "$ROOT_PATH/extensions/$extension/files/$extension" > /dev/null 2>&1 &
+                sleep 0.5
             fi
         done
     )
@@ -331,7 +268,7 @@ Compare installed xlets with the ones from the repository using meld\
                 break
                 ;;
             $(( ${#compare_options[@]}+1 )) )
-                echo "$(tput bold)$(tput setaf 11)Operation cancelled.$(tput sgr0)"
+                echo "$(tput bold)$(tput setaf 11)Operation canceled.$(tput sgr0)"
                 break
                 ;;
             * )
@@ -344,11 +281,10 @@ Compare installed xlets with the ones from the repository using meld\
 setCheckFilesPermission() {
     echo ""
     echo -e "$(tput bold)\
-Check or set the execution permission foe centeain files\
-(apply to .sh and .py files)\
+Check or set the execution permission for certain files (.sh and .py files)\
     $(tput sgr0)"
-    compare_options+=("Check permission" "Set permission")
-    select opt in "${compare_options[@]}" "Abort"; do
+    permission_options+=("Check permission" "Set permission")
+    select opt in "${permission_options[@]}" "Abort"; do
         case "$REPLY" in
             1 ) # Check permission
                 applyFilesPermission "check"
@@ -356,8 +292,8 @@ Check or set the execution permission foe centeain files\
             2 ) # Set permission
                 applyFilesPermission
                 ;;
-            $(( ${#compare_options[@]}+1 )) )
-                echo "$(tput bold)$(tput setaf 11)Operation cancelled.$(tput sgr0)"
+            $(( ${#permission_options[@]}+1 )) )
+                echo "$(tput bold)$(tput setaf 11)Operation canceled.$(tput sgr0)"
                 break
                 ;;
             * )
@@ -367,10 +303,97 @@ Check or set the execution permission foe centeain files\
     done
 }
 
+updatePOTFiles() {
+    # Create the tmp dir if it doesn't exists.
+    if [ ! -d $ROOT_PATH/tmp/po_files_list ]; then
+      mkdir -p $ROOT_PATH/tmp/po_files_list;
+    fi
+
+    rm -f $ROOT_PATH/tmp/po_files_untranslated_count
+
+    for type in "$@"; do
+        # Using a sub-shell to switch directories to avoid "back and forth".
+        (
+            cd $type
+            for xlet in *; do
+                if [ -d $xlet/files/$xlet ]; then
+                    echo " "
+                    echoInfo "Updating $xlet's localization template..."
+                    PO_LIST_TEMP_FILE=$ROOT_PATH/tmp/po_files_list/$xlet
+                    (
+                        cd "$xlet/files/$xlet"
+                        make-xlet-pot --all
+                        cd po
+                        find . -type f -iname "*.po" > $PO_LIST_TEMP_FILE
+                        PO_FILES=`cat $PO_LIST_TEMP_FILE`
+                        echo "XLET LANGUAGE UNTRANSLATED" >> $ROOT_PATH/tmp/po_files_untranslated_count
+
+                        for file in $PO_FILES; do
+                            SHORTENED_PATH=${file#*$ROOT_PATH}
+
+                            if [ -f ${file} ]; then
+                                echoInfo "Updating $SHORTENED_PATH from localization template..."
+                                msgmerge --backup=off -N --previous --update $SHORTENED_PATH $xlet.pot \
+                                &> /dev/null && echoInfo "Done" || echoError "Error"
+
+                                if [ "$#" != 1 ]; then
+                                    UNTRANSLATED=`msggrep -v -T -e "." $SHORTENED_PATH | grep -c ^msgstr`
+                                    echo "$xlet: $(basename $file) $UNTRANSLATED" >>\
+                                    $ROOT_PATH/tmp/po_files_untranslated_count
+                                fi
+                            fi
+                        done
+                    )
+                fi
+            done
+        )
+
+        sleep 0.5
+    done
+
+    sleep 1
+    column -t $ROOT_PATH/tmp/po_files_untranslated_count \
+    > $ROOT_PATH/tmp/po_files_untranslated_count_column
+}
+
+handlePOTFiles() {
+    echo ""
+    echo -e "$(tput bold)\
+Update .pot files from all xlets (make-xlet-pot is used if available)\
+    $(tput sgr0)"
+    if ! cmd_loc="$(type -p "make-xlet-pot")" || [ -z "$cmd_loc" ]; then
+        echoError "make-xlet-pot command not found!!!"
+    else
+        pot_options+=("Update POT from all xlets" "Update POT from applets" "Update POT from extensions")
+        select opt in "${pot_options[@]}" "Abort"; do
+            case "$REPLY" in
+                1 ) # Update POT from all xlets
+                    updatePOTFiles "applets" "extensions"
+                    ;;
+                2 ) # Update POT from applets
+                    updatePOTFiles "applets"
+                    ;;
+                3 ) # Update POT from extensions
+                    updatePOTFiles "extensions"
+                    ;;
+                $(( ${#pot_options[@]}+1 )) )
+                    echo "$(tput bold)$(tput setaf 11)Operation canceled.$(tput sgr0)"
+                    break
+                    ;;
+                * )
+                    echo "$(tput bold)$(tput setaf 11)Invalid option. Try another one.$(tput sgr0)"
+                    ;;
+            esac
+        done
+    fi
+}
+
 applyFilesPermission() {
     TEMP_FILE=$ROOT_PATH/tmp/files_to_set_permissions.txt
     # List all .sh and .py files ignoring symlinks and save them into a temp file.
+    # First, override the file.
     find $ROOT_PATH -type f -iname "*.sh" > $TEMP_FILE
+    # Then append to it.
     find $ROOT_PATH -type f -iname "*.py" >> $TEMP_FILE
     EXEC_FILES=`cat $TEMP_FILE`
 
@@ -388,41 +411,55 @@ applyFilesPermission() {
     done
 }
 
-PS3="$prompt "
-main_options+=("Render main site" "Render help files" "Create packages"\
- "Clone wiki" "Xlets comparison" "Set/Check files permission")
+main_done=0
 
-echo ""
-select opt in "${main_options[@]}" "Abort"; do
-    case "$REPLY" in
-        1 ) # Render main site pug files
-            renderMainSite
-            ;;
-        2 ) # Render help pug files
-            renderHelpFiles
-            ;;
-        3 ) # Create packages
-            createPackages
-            break
-            ;;
-        4 ) # Clone wiki
-            cloneWiki
-            break
-            ;;
-        5 ) # Xlets comparison
-            compareXlets
-            break
-            ;;
-        6 ) # Set/Check files permission
-            setCheckFilesPermission
-            break
-            ;;
-        $(( ${#main_options[@]}+1 )) )
-            echo "$(tput bold)$(tput setaf 11)Operation cancelled.$(tput sgr0)"
-            break
-            ;;
-        * )
-            echo "$(tput bold)$(tput setaf 11)Invalid option. Try another one.$(tput sgr0)"
-            ;;
-    esac
+while (( !main_done )); do
+    main_options=("Render main site" "Create help files" "Create packages" \
+"Clone wiki" "Xlets comparison" "Set/Check files permission" \
+"Update .pot files")
+
+    echo "$(tput bold)$(tput bold)Pick an option and press Enter:$(tput sgr0)"
+    select opt in "${main_options[@]}" "Abort"; do
+            case $REPLY in
+            1 ) # Render main site pug files
+                renderMainSite
+                break
+                ;;
+            2 ) # Create help files
+                createHelpFiles
+                break
+                ;;
+            3 ) # Create packages
+                createPackages
+                break
+                ;;
+            4 ) # Clone wiki
+                cloneWiki
+                break
+                ;;
+            5 ) # Xlets comparison
+                main_done=1
+                compareXlets
+                break
+                ;;
+            6 ) # Set/Check files permission
+                main_done=1
+                setCheckFilesPermission
+                break
+                ;;
+            7 ) # Update .pot files
+                main_done=1
+                handlePOTFiles
+                break
+                ;;
+            $(( ${#main_options[@]}+1 )) ) # Abort
+                main_done=1
+                echo "$(tput bold)$(tput setaf 11)Operation canceled.$(tput sgr0)"
+                break
+                ;;
+            * )
+                echo "$(tput bold)$(tput setaf 11)Invalid option. Try another one.$(tput sgr0)"
+                ;;
+        esac
+    done
 done
