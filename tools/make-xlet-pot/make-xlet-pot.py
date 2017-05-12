@@ -10,6 +10,7 @@ TODOs:
 """
 
 import os
+import shutil
 import json
 import subprocess
 import tempfile
@@ -20,6 +21,7 @@ from gi.repository import GLib
 from optparse import OptionParser
 
 __version__ = "1.0.32"
+
 
 try:
     import polib
@@ -273,6 +275,18 @@ class Main:
 
         (options, args) = parser.parse_args()
 
+        self.pot_settings_data = None
+
+        try:
+            pot_options_path = os.path.join(XLET_DIR, "po", XLET_UUID + ".json")
+            if os.path.exists(pot_options_path):
+                with open(pot_options_path, "r") as pot_settings_file:
+                    raw_data = pot_settings_file.read()
+                    self.pot_settings_data = json.loads(raw_data)
+                pot_settings_file.close()
+        except:
+            pass
+
         if options.install:
             self.do_install()
 
@@ -291,9 +305,14 @@ class Main:
 
         # Comma separated list of strings (preference keys) to ignore by the string extractor.
         if options.skip_keys:
-            self.ignore_list = options.skip_keys
+            self.ignore_list = options.skip_keys.split(",")
         else:
             self.ignore_list = None
+
+        # The list of "SKIP_KEYS" inside the pot settings file overrides
+        # the "skip_keys" argument passed to the script.
+        if self.pot_settings_data is not None and "SKIP_KEYS" in self.pot_settings_data:
+            self.ignore_list = self.pot_settings_data["SKIP_KEYS"]
 
         if not self.potname:
             self.potname = XLET_UUID + ".pot"
@@ -302,24 +321,12 @@ class Main:
             self.potname = self.potname + ".pot"
 
         self.potpath = os.path.join(XLET_DIR, self.potname)
+        self.help_creator_path = None
 
         if options.all or options.js or options.py:
-            try:
-                subprocess.call(["xgettext", "--version"])
-            except OSError:
+            if not shutil.which("xgettext"):
                 print("xgettext not found, you may need to install the gettext package")
                 quit()
-
-        xgettext_cmd = [
-            "xgettext",
-            "--language={language}",
-            "{join_existing}",
-            "--add-comments",
-            "--from-code=UTF-8",
-            "--keyword=_",
-            "--output={pot_name}",
-            "--files-from={file_path}"
-        ]
 
         if options.js or options.all:
             js_tmp = tempfile.NamedTemporaryFile(prefix="makepot-js-")
@@ -330,10 +337,16 @@ class Main:
                 # Using a shell command instead of python seems to be infinitely faster.
                 os.system('find . -type f -iname "*.js" > %s' % js_tmp.name)
             finally:
-                os.system(" ".join(xgettext_cmd).format(language="JavaScript",
-                                                        join_existing="",
-                                                        pot_name=self.potname,
-                                                        file_path=js_tmp.name))
+                subprocess.run([
+                    "xgettext",
+                    "--no-wrap",
+                    "--language=JavaScript",
+                    "--add-comments",
+                    "--from-code=UTF-8",
+                    "--keyword=_",
+                    "--output=%s" % self.potname,
+                    "--files-from=%s" % js_tmp.name
+                ])
                 js_tmp.flush()
                 js_tmp.close()
 
@@ -342,18 +355,43 @@ class Main:
 
             print("Running xgettext on Python files...")
 
+            # I had to change to this instead of a proper path because xgettext was putting the
+            # ENTIRE absolute path into the .pot files.
+            # It seems that xgettext is smart enough to recognize this path. Even
+            # os.path.exists recognizes it.
+            self.help_creator_path = "../../create_localized_help.py"
+
             try:
                 # Using a shell command instead of python seems to be infinitely faster.
+                # Keep using os.system until I find a way to implement the same or similar
+                # behavior using subprocess with less than a million lines of code. ¬¬
                 os.system('find . -type f -iname "*.py" > %s' % python_tmp.name)
+
+                if self.help_creator_path is not None and os.path.exists(self.help_creator_path):
+                    os.system('echo "%s" >> %s' % (self.help_creator_path, python_tmp.name))
             finally:
-                os.system(" ".join(xgettext_cmd)
-                          .format(language="Python",
-                                  join_existing=(
-                                      "--join-existing"
-                                      if (options.js and options.py) or options.all
-                                      else ""),
-                                  pot_name=self.potname,
-                                  file_path=python_tmp.name))
+                # Adding the --join-existing argument when there isn't a generated .pot file will
+                # not save the strings extracted from Python files.
+                # A .pot file might not be created is there isn't any translatable
+                # string found inside de JavvaScript files.
+                # xgettext is very smart for some things, and very dumb for others! LOL
+                join_existing = True if os.path.exists(self.potpath) else False
+
+                xgettext_cmd = [
+                    "xgettext",
+                    "--no-wrap",
+                    "--language=Python",
+                    "--add-comments",
+                    "--from-code=UTF-8",
+                    "--keyword=_",
+                    "--output=%s" % self.potname,
+                    "--files-from=%s" % python_tmp.name
+                ]
+
+                if join_existing:
+                    xgettext_cmd.append("--join-existing")
+
+                subprocess.run(xgettext_cmd)
                 python_tmp.flush()
                 python_tmp.close()
 
@@ -364,7 +402,7 @@ class Main:
             append = True
 
         if append:
-            self.po = polib.pofile(self.potpath)
+            self.po = polib.pofile(self.potpath, check_for_duplicates=True, wrapwidth=99999999)
         else:
             self.po = polib.POFile()
 
@@ -412,33 +450,28 @@ class Main:
             quit()
 
         try:
-            path = os.path.join(XLET_DIR, "po", metadata["PACKAGE"] + ".json")
-            if os.path.exists(path):
-                with open(path, "r") as settings_file:
-                    raw_data = settings_file.read()
-                    data = json.loads(raw_data)
-                    current_year = metadata["COPY_CURRENT_YEAR"]
+            if self.pot_settings_data is not None:
+                data = self.pot_settings_data
+                current_year = metadata["COPY_CURRENT_YEAR"]
 
-                    if "COPY_INITIAL_YEAR" in data and str(data["COPY_INITIAL_YEAR"]) != current_year:
-                        copy_initial_year = (data["COPY_INITIAL_YEAR"] + "-")
-                    else:
-                        copy_initial_year = ""
+                if "COPY_INITIAL_YEAR" in data and str(data["COPY_INITIAL_YEAR"]) != current_year:
+                    copy_initial_year = (data["COPY_INITIAL_YEAR"] + "-")
+                else:
+                    copy_initial_year = ""
 
-                    if "FIRST_AUTHOR" in data:
-                        first_author = data["FIRST_AUTHOR"]
-                    else:
-                        first_author = "FIRST_AUTHOR"
+                if "FIRST_AUTHOR" in data:
+                    first_author = data["FIRST_AUTHOR"]
+                else:
+                    first_author = "FIRST_AUTHOR"
 
-                    if "FIRST_AUTHOR_EMAIL" in data:
-                        first_author_email = data["FIRST_AUTHOR_EMAIL"]
-                    else:
-                        first_author_email = "<EMAIL@ADDRESS>"
+                if "FIRST_AUTHOR_EMAIL" in data:
+                    first_author_email = data["FIRST_AUTHOR_EMAIL"]
+                else:
+                    first_author_email = "<EMAIL@ADDRESS>"
 
-                    metadata["COPY_INITIAL_YEAR"] = copy_initial_year
-                    metadata["FIRST_AUTHOR"] = first_author
-                    metadata["FIRST_AUTHOR_EMAIL"] = first_author_email
-
-                settings_file.close()
+                metadata["COPY_INITIAL_YEAR"] = copy_initial_year
+                metadata["FIRST_AUTHOR"] = first_author
+                metadata["FIRST_AUTHOR_EMAIL"] = first_author_email
         except:
             pass
 
@@ -450,6 +483,8 @@ class Main:
 
             with open(self.potpath, "w") as pot_file:
                 raw_data_no_header = "".join(raw_data[raw_data.index("\n"):])
+
+
                 new_header = POT_HEADER.format(
                     FIRST_AUTHOR=metadata["FIRST_AUTHOR"],
                     FIRST_AUTHOR_EMAIL=metadata["FIRST_AUTHOR_EMAIL"],
@@ -479,8 +514,8 @@ class Main:
                 if parts[1] == ".po":
                     this_locale_dir = os.path.join(LOCALE_INST, parts[0], "LC_MESSAGES")
                     GLib.mkdir_with_parents(this_locale_dir, 0o755)
-                    subprocess.call(["msgfmt", "-c", os.path.join(root, file), "-o",
-                                     os.path.join(this_locale_dir, "%s.mo" % XLET_UUID)])
+                    subprocess.run(["msgfmt", "-c", os.path.join(root, file), "-o",
+                                    os.path.join(this_locale_dir, "%s.mo" % XLET_UUID)])
                     done_one = True
         if done_one:
             print("Install complete for domain: %s" % XLET_UUID)
@@ -534,7 +569,7 @@ class Main:
 
     def extract_strings(self, data, parent=""):
         if self.ignore_list is not None:
-            ignores = self.ignore_list.split(",")
+            ignores = self.ignore_list
         else:
             ignores = []
 
