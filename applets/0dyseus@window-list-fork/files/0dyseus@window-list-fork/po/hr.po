@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 0dyseus@window-list-fork 1.06\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-05-08 13:22+0200\n"
+"POT-Creation-Date: 2017-05-13 20:35-0300\n"
 "PO-Revision-Date: 2017-05-08 13:22+0200\n"
 "Last-Translator: gogo <trebelnik2@gmail.com>\n"
 "Language-Team: Croatian <hr@li.org>\n"
@@ -94,9 +94,62 @@ msgstr "Prilagodi…"
 msgid "Remove '%s'"
 msgstr "Ukloni '%s'"
 
-#. 0dyseus@window-list-fork->metadata.json->name
-msgid "Window list (Fork By Odyseus)"
-msgstr "Popis prozora (Fork od Odyseusa)"
+#. TO TRANSLATORS: This is a placeholder.
+#. Here goes your language name in your own language (a.k.a. endonym).
+#: ../../create_localized_help.py:94 ../../create_localized_help.py:163
+msgid "language-name"
+msgstr ""
+
+#: ../../create_localized_help.py:166
+msgid "Choose language"
+msgstr ""
+
+#. TO TRANSLATORS: Full sentence:
+#. "Help for <xlet_name>"
+#: ../../create_localized_help.py:167 ../../create_localized_help.py:174
+#, python-format
+msgid "Help for %s"
+msgstr ""
+
+#: ../../create_localized_help.py:175
+msgid "IMPORTANT!!!"
+msgstr ""
+
+#: ../../create_localized_help.py:176
+msgid ""
+"Never delete any of the files found inside this xlet folder. It might break "
+"this xlet functionality."
+msgstr ""
+
+#: ../../create_localized_help.py:177
+msgid ""
+"Bug reports, feature requests and contributions should be done on this "
+"xlet's repository linked next."
+msgstr ""
+
+#: ../../create_localized_help.py:183
+msgid "Applets/Desklets/Extensions (a.k.a. xlets) localization"
+msgstr ""
+
+#: ../../create_localized_help.py:184
+msgid ""
+"If this xlet was installed from Cinnamon Settings, all of this xlet's "
+"localizations were automatically installed."
+msgstr ""
+
+#. TO TRANSLATORS: MARKDOWN string. Respect formatting.
+#: ../../create_localized_help.py:186
+msgid ""
+"If this xlet was installed manually and not trough Cinnamon Settings, "
+"localizations can be installed by executing the script called "
+"**localizations.sh** from a terminal opened inside the xlet's folder."
+msgstr ""
+
+#: ../../create_localized_help.py:187
+msgid ""
+"If this xlet has no locale available for your language, you could create it "
+"by following the following instructions."
+msgstr ""
 
 #. 0dyseus@window-list-fork->metadata.json->description
 msgid "Fork of the main Cinnamon Window list applet."
@@ -122,25 +175,11 @@ msgstr ""
 "Izvještaji grešaka, zahtjevi novih značajki i doprinosi trebali bi biti "
 "podneseni na poveznici xlet repozitorija ispod."
 
-#. 0dyseus@window-list-fork->settings-
-#. schema.json->pref_hide_labels->description
-msgid "Hide labels in the window list buttons"
-msgstr "Sakrij naslove u karticama popisa prozora"
+#. 0dyseus@window-list-fork->metadata.json->name
+msgid "Window list (Fork By Odyseus)"
+msgstr "Popis prozora (Fork od Odyseusa)"
 
-#. 0dyseus@window-list-fork->settings-
-#. schema.json->pref_window_preview_custom_width->units
-#. 0dyseus@window-list-fork->settings-
-#. schema.json->pref_window_preview_custom_height->units
-msgid "pixels"
-msgstr "piksela"
-
-#. 0dyseus@window-list-fork->settings-
-#. schema.json->pref_window_preview_custom_width->description
-msgid "Custom width for window thumbnails"
-msgstr "Prilagođena širina minijatura prozora"
-
-#. 0dyseus@window-list-fork->settings-
-#. schema.json->pref_enable_alerts->description
+#. 0dyseus@window-list-fork->settings-schema.json->pref_enable_alerts->description
 msgid ""
 "Show an alert in the window list when a window from another workspace "
 "requires attention"
@@ -148,41 +187,34 @@ msgstr ""
 "Prikaži upozorenje na popisu prozora kada prozor s drugog radnog prostora "
 "treba pozornost"
 
-#. 0dyseus@window-list-fork->settings-
-#. schema.json->pref_window_preview->description
+#. 0dyseus@window-list-fork->settings-schema.json->pref_window_preview->description
 msgid "Show window thumbnails on hover"
 msgstr "Prikaži minijature prozora pri lebdenju pokazivača miša"
 
-#. 0dyseus@window-list-fork->settings-
-#. schema.json->pref_buttons_use_entire_space->description
+#. 0dyseus@window-list-fork->settings-schema.json->pref_reverse_scrolling->description
+msgid "Reverse the direction of mouse-wheel scrolling in the window list"
+msgstr "Obrni smjer pomicanja kotatčićem miša u popisu prozora"
+
+#. 0dyseus@window-list-fork->settings-schema.json->pref_buttons_use_entire_space->description
 msgid ""
 "Window buttons can have different sizes and use the entire space available"
 msgstr ""
 "Kartice prozora mogu imati različite veličine i koristiti cijeli dostupan "
 "prozor"
 
-#. 0dyseus@window-list-fork->settings-
-#. schema.json->pref_enable_scrolling->description
-msgid "Enable mouse-wheel scrolling in the window list"
-msgstr "Omogući pomicanje kotačićem miša u popisu prozora"
-
-#. 0dyseus@window-list-fork->settings-
-#. schema.json->pref_invert_menu_items_order->description
-msgid "Invert context menu items order"
-msgstr "Obrni redoslijed stavki izbornika"
-
-#. 0dyseus@window-list-fork->settings-
-#. schema.json->pref_hide_tooltips->description
+#. 0dyseus@window-list-fork->settings-schema.json->pref_hide_tooltips->description
 msgid "Do not display tooltips"
 msgstr "Ne prikazuj napomene"
 
-#. 0dyseus@window-list-fork->settings-
-#. schema.json->pref_sub_menu_placement->description
+#. 0dyseus@window-list-fork->settings-schema.json->pref_hide_labels->description
+msgid "Hide labels in the window list buttons"
+msgstr "Sakrij naslove u karticama popisa prozora"
+
+#. 0dyseus@window-list-fork->settings-schema.json->pref_sub_menu_placement->description
 msgid "Where to display the \"Preferences\" sub-menu?"
 msgstr "Gdje prikazati \"Osobitosti\" podizbornik?"
 
-#. 0dyseus@window-list-fork->settings-
-#. schema.json->pref_sub_menu_placement->tooltip
+#. 0dyseus@window-list-fork->settings-schema.json->pref_sub_menu_placement->tooltip
 msgid ""
 "If the option \"Invert context menu items order\" is enabled, the \"Top of "
 "menu\" will actually be the \"Bottom of menu\" and vice versa."
@@ -190,35 +222,42 @@ msgstr ""
 "Ako je \"Obrni redoslijed stavki izbornika\" omogućena, \"Vrh izbornika\" će "
 "zapravo biti \"Dno izbornika\" i obrnuto."
 
-#. 0dyseus@window-list-fork->settings-
-#. schema.json->pref_sub_menu_placement->options
-msgid "Top of menu"
-msgstr "Vrh izbornika"
-
-#. 0dyseus@window-list-fork->settings-
-#. schema.json->pref_sub_menu_placement->options
+#. 0dyseus@window-list-fork->settings-schema.json->pref_sub_menu_placement->options
 msgid "Do not display"
 msgstr "Ne prikazuj"
 
-#. 0dyseus@window-list-fork->settings-
-#. schema.json->pref_sub_menu_placement->options
+#. 0dyseus@window-list-fork->settings-schema.json->pref_sub_menu_placement->options
+msgid "Top of menu"
+msgstr "Vrh izbornika"
+
+#. 0dyseus@window-list-fork->settings-schema.json->pref_sub_menu_placement->options
 msgid "Bottom of menu"
 msgstr "Dno izbornika"
 
-#. 0dyseus@window-list-fork->settings-
-#. schema.json->pref_window_preview_custom_height->description
+#. 0dyseus@window-list-fork->settings-schema.json->pref_window_preview_custom_height->description
 msgid "Custom height for window thumbnails"
 msgstr "Prilagođena visina minijatura prozora"
 
-#. 0dyseus@window-list-fork->settings-
-#. schema.json->pref_middle_click_close->description
+#. 0dyseus@window-list-fork->settings-schema.json->pref_window_preview_custom_height->units
+#. 0dyseus@window-list-fork->settings-schema.json->pref_window_preview_custom_width->units
+msgid "pixels"
+msgstr "piksela"
+
+#. 0dyseus@window-list-fork->settings-schema.json->pref_window_preview_custom_width->description
+msgid "Custom width for window thumbnails"
+msgstr "Prilagođena širina minijatura prozora"
+
+#. 0dyseus@window-list-fork->settings-schema.json->pref_enable_scrolling->description
+msgid "Enable mouse-wheel scrolling in the window list"
+msgstr "Omogući pomicanje kotačićem miša u popisu prozora"
+
+#. 0dyseus@window-list-fork->settings-schema.json->pref_middle_click_close->description
 msgid "Middle click to close window"
 msgstr "Srednji klik za zatvaranje prozora"
 
-#. 0dyseus@window-list-fork->settings-
-#. schema.json->pref_reverse_scrolling->description
-msgid "Reverse the direction of mouse-wheel scrolling in the window list"
-msgstr "Obrni smjer pomicanja kotatčićem miša u popisu prozora"
+#. 0dyseus@window-list-fork->settings-schema.json->pref_invert_menu_items_order->description
+msgid "Invert context menu items order"
+msgstr "Obrni redoslijed stavki izbornika"
 
 #~ msgid ""
 #~ "Bug reports and feature requests should be reported on this applet's "
