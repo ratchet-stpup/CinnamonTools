@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 0dyseus@WallpaperChangerApplet 1.00\n"
-"POT-Creation-Date: 2017-05-05 12:55-0300\n"
+"POT-Creation-Date: 2017-05-13 20:35-0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -24,10 +24,7 @@ msgid "Auto Start Daemon"
 msgstr ""
 
 #: applet.js:95 settings.py:411
-msgid ""
-"When enabled, the daemon will be automatically started when the applet is "
-"loaded. If it is already running or this is disabled, no action will be "
-"taken."
+msgid "When enabled, the daemon will be automatically started when the applet is loaded. If it is already running or this is disabled, no action will be taken."
 msgstr ""
 
 #: applet.js:99
@@ -35,9 +32,7 @@ msgid "Change with Profile"
 msgstr ""
 
 #: applet.js:100
-msgid ""
-"When enabled, this will cause the daemon to automatically change the "
-"wallpaper whenever the current profile is changed."
+msgid "When enabled, this will cause the daemon to automatically change the wallpaper whenever the current profile is changed."
 msgstr ""
 
 #: applet.js:104
@@ -45,9 +40,7 @@ msgid "Notifications"
 msgstr ""
 
 #: applet.js:105 settings.py:572
-msgid ""
-"Display a notification each time an event happens with wallpaper changer. "
-"This does not stop the applet from reporting errors."
+msgid "Display a notification each time an event happens with wallpaper changer. This does not stop the applet from reporting errors."
 msgstr ""
 
 #: applet.js:109
@@ -55,10 +48,7 @@ msgid "Remember Profile State"
 msgstr ""
 
 #: applet.js:110 settings.py:567
-msgid ""
-"When enabled, the daemon will remember its current and next wallpaper for "
-"the current profile when the profile is changed. This means returning back "
-"to the profile will restore the previous background plus the next in queue."
+msgid "When enabled, the daemon will remember its current and next wallpaper for the current profile when the profile is changed. This means returning back to the profile will restore the previous background plus the next in queue."
 msgstr ""
 
 #: applet.js:179
@@ -289,9 +279,7 @@ msgid "Enable Logging"
 msgstr ""
 
 #: settings.py:577
-msgid ""
-"It enables the ability to log the output of several functions used by the "
-"applet."
+msgid "It enables the ability to log the output of several functions used by the applet."
 msgstr ""
 
 #: settings.py:585
@@ -373,8 +361,7 @@ msgstr ""
 
 #. TO TRANSLATORS:
 #. Here goes the name/s of the author/s of the translations.
-#. Only e-mail addresses and links to GitHub accounts are allowed. NOTHING
-#. MORE.
+#. Only e-mail addresses and links to GitHub accounts are allowed. NOTHING MORE.
 #: settings.py:934
 msgid "translator-credits"
 msgstr ""
@@ -451,16 +438,13 @@ msgstr ""
 #. TO TRANSLATORS: Could be left blank.
 #: settings.py:1242
 #, python-format
-msgid ""
-"Please enter your password to install the required settings schema for %s"
+msgid "Please enter your password to install the required settings schema for %s"
 msgstr ""
 
 #. TO TRANSLATORS: Could be left blank.
 #: settings.py:1253
 #, python-format
-msgid ""
-"Could not install the settings schema for %s.  You will have to perform this"
-" step yourself."
+msgid "Could not install the settings schema for %s.  You will have to perform this step yourself."
 msgstr ""
 
 #. TO TRANSLATORS: Could be left blank.
@@ -472,9 +456,53 @@ msgstr ""
 #. TO TRANSLATORS: Could be left blank.
 #: settings.py:1270
 #, python-format
-msgid ""
-"Could not remove the settings schema for %s.  You will have to perform this "
-"step yourself.  This is not a critical error."
+msgid "Could not remove the settings schema for %s.  You will have to perform this step yourself.  This is not a critical error."
+msgstr ""
+
+#. TO TRANSLATORS: This is a placeholder.
+#. Here goes your language name in your own language (a.k.a. endonym).
+#: ../../create_localized_help.py:94 ../../create_localized_help.py:163
+msgid "language-name"
+msgstr ""
+
+#: ../../create_localized_help.py:166
+msgid "Choose language"
+msgstr ""
+
+#. TO TRANSLATORS: Full sentence:
+#. "Help for <xlet_name>"
+#: ../../create_localized_help.py:167 ../../create_localized_help.py:174
+#, python-format
+msgid "Help for %s"
+msgstr ""
+
+#: ../../create_localized_help.py:175
+msgid "IMPORTANT!!!"
+msgstr ""
+
+#: ../../create_localized_help.py:176
+msgid "Never delete any of the files found inside this xlet folder. It might break this xlet functionality."
+msgstr ""
+
+#: ../../create_localized_help.py:177
+msgid "Bug reports, feature requests and contributions should be done on this xlet's repository linked next."
+msgstr ""
+
+#: ../../create_localized_help.py:183
+msgid "Applets/Desklets/Extensions (a.k.a. xlets) localization"
+msgstr ""
+
+#: ../../create_localized_help.py:184
+msgid "If this xlet was installed from Cinnamon Settings, all of this xlet's localizations were automatically installed."
+msgstr ""
+
+#. TO TRANSLATORS: MARKDOWN string. Respect formatting.
+#: ../../create_localized_help.py:186
+msgid "If this xlet was installed manually and not trough Cinnamon Settings, localizations can be installed by executing the script called **localizations.sh** from a terminal opened inside the xlet's folder."
+msgstr ""
+
+#: ../../create_localized_help.py:187
+msgid "If this xlet has no locale available for your language, you could create it by following the following instructions."
 msgstr ""
 
 #. 0dyseus@WallpaperChangerApplet->metadata.json->description
@@ -482,13 +510,9 @@ msgid "Cinnamon wallpaper slideshow applet with multiple profiles support."
 msgstr ""
 
 #. 0dyseus@WallpaperChangerApplet->metadata.json->comments
-msgid ""
-"Bug reports, feature requests and contributions should be done on this "
-"xlet's repository linked below."
+msgid "Bug reports, feature requests and contributions should be done on this xlet's repository linked below."
 msgstr ""
 
 #. 0dyseus@WallpaperChangerApplet->metadata.json->contributors
-msgid ""
-"Eric Gach: Author of Desk Changer gnome-shell extension. "
-"https://github.com/BigE/desk-changer"
+msgid "Eric Gach: Author of Desk Changer gnome-shell extension. https://github.com/BigE/desk-changer"
 msgstr ""

@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.00\n"
 "Report-Msgid-Bugs-To: Odyseus\n"
-"POT-Creation-Date: 2017-05-05 12:55-0300\n"
-"PO-Revision-Date: 2017-05-05 12:55-0300\n"
+"POT-Creation-Date: 2017-05-13 20:35-0300\n"
+"PO-Revision-Date: 2017-05-13 00:14-0300\n"
 "Last-Translator: Odyseus\n"
 "Language-Team: \n"
 "Language: es\n"
@@ -389,8 +389,7 @@ msgstr "Colaboradores/Menciones:"
 
 #. TO TRANSLATORS:
 #. Here goes the name/s of the author/s of the translations.
-#. Only e-mail addresses and links to GitHub accounts are allowed. NOTHING
-#. MORE.
+#. Only e-mail addresses and links to GitHub accounts are allowed. NOTHING MORE.
 #: settings.py:934
 msgid "translator-credits"
 msgstr "Odyseus https://github.com/Odyseus"
@@ -501,6 +500,76 @@ msgstr ""
 "No se pudo eliminar el esquema de configuración para %s. Tendrá que realizar "
 "este paso usted mismo. Esto no es un error crítico."
 
+#. TO TRANSLATORS: This is a placeholder.
+#. Here goes your language name in your own language (a.k.a. endonym).
+#: ../../create_localized_help.py:94 ../../create_localized_help.py:163
+msgid "language-name"
+msgstr "Español"
+
+#: ../../create_localized_help.py:166
+msgid "Choose language"
+msgstr "Elegir idioma"
+
+#. TO TRANSLATORS: Full sentence:
+#. "Help for <xlet_name>"
+#: ../../create_localized_help.py:167 ../../create_localized_help.py:174
+#, python-format
+msgid "Help for %s"
+msgstr "Ayuda para %s"
+
+#: ../../create_localized_help.py:175
+msgid "IMPORTANT!!!"
+msgstr "¡IMPORTANTE!"
+
+#: ../../create_localized_help.py:176
+msgid ""
+"Never delete any of the files found inside this xlet folder. It might break "
+"this xlet functionality."
+msgstr ""
+"Jamás borrar ninguno de los archivos encontrados dentro de la carpeta de "
+"este xlet. Podría romper la funcionalidad del xlet."
+
+#: ../../create_localized_help.py:177
+msgid ""
+"Bug reports, feature requests and contributions should be done on this "
+"xlet's repository linked next."
+msgstr ""
+"Los reportes de fallos, peticiones de características y contribuciones deben "
+"hacerse en el repositorio de este xlet vinculado a continuación."
+
+#: ../../create_localized_help.py:183
+msgid "Applets/Desklets/Extensions (a.k.a. xlets) localization"
+msgstr ""
+"Localización de applets/desklets/extensiones (también conocidos como xlets)"
+
+#: ../../create_localized_help.py:184
+msgid ""
+"If this xlet was installed from Cinnamon Settings, all of this xlet's "
+"localizations were automatically installed."
+msgstr ""
+"Si este xlet se instaló desde Configuración de Cinnamon, todas las "
+"localizaciones de este xlet se instalaron automáticamente."
+
+#. TO TRANSLATORS: MARKDOWN string. Respect formatting.
+#: ../../create_localized_help.py:186
+msgid ""
+"If this xlet was installed manually and not trough Cinnamon Settings, "
+"localizations can be installed by executing the script called "
+"**localizations.sh** from a terminal opened inside the xlet's folder."
+msgstr ""
+"Si este xlet se instaló manualmente y no a través de Configuración de "
+"Cinnamon, las localizaciones se pueden instalar ejecutando el archivo "
+"llamado **localizations.sh** desde una terminal abierta dentro de la carpeta "
+"del xlet."
+
+#: ../../create_localized_help.py:187
+msgid ""
+"If this xlet has no locale available for your language, you could create it "
+"by following the following instructions."
+msgstr ""
+"Si este xlet no está disponible en su idioma, la localización puede ser "
+"creada siguiendo las siguientes instrucciones."
+
 #. 0dyseus@WallpaperChangerApplet->metadata.json->description
 msgid "Cinnamon wallpaper slideshow applet with multiple profiles support."
 msgstr ""
@@ -522,3 +591,17 @@ msgid ""
 msgstr ""
 "Eric Gach: Autor de la extnsión para gnome-shell Desk Changer https://github."
 "com/BigE/desk-changer."
+
+#~ msgid "Help for {xlet_name}"
+#~ msgstr "Ayuda para {xlet_name}"
+
+#~ msgid ""
+#~ "If this xlet was installed manually and not trough Cinnamon Settings, "
+#~ "localizations can be installed by executing the script called "
+#~ "<strong>localizations.sh</strong> from a terminal opened inside the "
+#~ "xlet's folder."
+#~ msgstr ""
+#~ "Si este xlet se instaló manualmente y no a través de Configuración de "
+#~ "Cinnamon, las localizaciones se pueden instalar ejecutando el archivo "
+#~ "llamado <strong>localizations.sh</strong> desde una terminal abierta "
+#~ "dentro de la carpeta del xlet."
