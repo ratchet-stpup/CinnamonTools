@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 0dyseus@QuickMenu 1.07\n"
 "POT-Creation-Date: 2017-05-14 06:33+0200\n"
-"PO-Revision-Date: 2017-05-14 08:21+0200\n"
+"PO-Revision-Date: 2017-05-14 10:55+0200\n"
 "Last-Translator: Åke Engelbrektson <eson@svenskasprakfiler.se>\n"
 "Language-Team: Svenska Språkfiler <contactform@svenskasprakfiler.se>\n"
 "Language: sv\n"
@@ -65,7 +65,7 @@ msgid ""
 "**Left click** or with **Middle click**."
 msgstr ""
 "Menyn kan hållas öppen för aktivering av menyposter, med "
-"[Ctrl]+[Vänsterklick] eller med mushjulsklick."
+"[Ctrl]+**Vänsterklick** eller med **Mushjulsklick**."
 
 #: ../../create_localized_help.py:69
 msgid "How to set a different icon for each sub-menu"
@@ -87,7 +87,7 @@ msgid ""
 "**0_icons_for_sub_menus.json**."
 msgstr ""
 "Filnamnet kan anpassas, behöver inte ha någon filändelse och kan vara en "
-"dold fil (.filnamn). Som standard heter den \"0_icons_for_sub_menus.json\"."
+"dold fil (.filnamn). Som standard heter den **0_icons_for_sub_menus.json**."
 
 #: ../../create_localized_help.py:76
 msgid ""
@@ -104,7 +104,7 @@ msgid ""
 "be used and will be expanded to the user's home folder."
 msgstr ""
 "Sökvägen till ikonen måste vara en fullständig sökväg. En sökväg som börjar "
-"med tilde (~/) kan användas och expanderas till användarens hemkatalog."
+"med tilde (**~/**) kan användas och expanderas till användarens hemkatalog."
 
 #. TO TRANSLATORS: MARKDOWN string. Respect formatting.
 #: ../../create_localized_help.py:80
@@ -114,7 +114,7 @@ msgid ""
 "those folders."
 msgstr ""
 "Om en undermeny har flera mappar som behöver anpassade ikoner, kan du skapa "
-"ännu en \"0_icons_for_sub_menus.json\" på samma nivå som de mapparna."
+"ännu en **0_icons_for_sub_menus.json** på samma nivå som de mapparna."
 
 #. TO TRANSLATORS: MARKDOWN string. Respect formatting.
 #: ../../create_localized_help.py:82
@@ -142,9 +142,9 @@ msgid ""
 "the last key/value combination DOESN'T have to end with a comma (**Folder "
 "name #n** in the previous example)."
 msgstr ""
-"JSON (kodspråket) är mycket strikt. Använd ENDAST dubbla citationstecken, "
+"JSON *kodspråket* är mycket strikt. Använd ENDAST dubbla citationstecken, "
 "och den sista nyckel-/värdekombinationen behöver INTE avslutas med "
-"kommatecken (Se Folder name #n i föregående exempel)."
+"kommatecken (**Folder name #n** i föregående exempel)."
 
 #. TO TRANSLATORS: This is a placeholder.
 #. Here goes your language name in your own language (a.k.a. endonym).
@@ -203,7 +203,7 @@ msgid ""
 "**localizations.sh** from a terminal opened inside the xlet's folder."
 msgstr ""
 "Om denna xlet installerades manuellt och inte via Cinnamons inställningar, "
-"kan översättningar installeras genom att köra skriptet \"localizations.sh\" "
+"kan översättningar installeras genom att köra skriptet **localizations.sh** "
 "från en terminal öppnad i programmappen."
 
 #: ../../create_localized_help.py:223
