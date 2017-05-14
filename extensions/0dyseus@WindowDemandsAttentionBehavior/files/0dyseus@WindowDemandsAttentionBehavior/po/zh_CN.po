@@ -19,12 +19,12 @@ msgstr ""
 #: ../../create_localized_help.py:203 ../../create_localized_help.py:94
 #: ../../create_localized_help.py:163
 msgid "language-name"
-msgstr ""
+msgstr "语言名称"
 
 #: ../../create_localized_help.py:204 ../../create_localized_help.py:206
 #: ../../create_localized_help.py:166
 msgid "Choose language"
-msgstr ""
+msgstr "选择语言"
 
 #. TO TRANSLATORS: {xlet_name} is a Python placeholder. Do not modify.
 #. TO TRANSLATORS: Full sentence:
@@ -34,38 +34,38 @@ msgstr ""
 #: ../../create_localized_help.py:214
 #, python-brace-format
 msgid "Help for {xlet_name}"
-msgstr ""
+msgstr "{xlet_name}帮助"
 
 #: ../../create_localized_help.py:212 ../../create_localized_help.py:214
 #: ../../create_localized_help.py:215 ../../create_localized_help.py:175
 msgid "IMPORTANT!!!"
-msgstr ""
+msgstr "重要！！！"
 
 #: ../../create_localized_help.py:213 ../../create_localized_help.py:215
 #: ../../create_localized_help.py:216 ../../create_localized_help.py:176
 msgid ""
 "Never delete any of the files found inside this xlet folder. It might break "
 "this xlet functionality."
-msgstr ""
+msgstr "不要删除该xlet文件夹内的任何文件。可能会损坏该xlet的功能。"
 
 #: ../../create_localized_help.py:214 ../../create_localized_help.py:216
 #: ../../create_localized_help.py:217 ../../create_localized_help.py:177
 msgid ""
 "Bug reports, feature requests and contributions should be done on this "
 "xlet's repository linked next."
-msgstr ""
+msgstr "错误报告，功能请求和贡献应该在下方链接的xlet的仓库上完成。"
 
 #: ../../create_localized_help.py:220 ../../create_localized_help.py:222
 #: ../../create_localized_help.py:223 ../../create_localized_help.py:183
 msgid "Applets/Desklets/Extensions (a.k.a. xlets) localization"
-msgstr ""
+msgstr "小程序/桌面小工具/扩展（也称为xlets）本地化"
 
 #: ../../create_localized_help.py:221 ../../create_localized_help.py:223
 #: ../../create_localized_help.py:224 ../../create_localized_help.py:184
 msgid ""
 "If this xlet was installed from Cinnamon Settings, all of this xlet's "
 "localizations were automatically installed."
-msgstr ""
+msgstr "如果该xlet安装自Cinnamon设置，该xlet的所有本地化已经自动安装。"
 
 #. TO TRANSLATORS: MARKDOWN string. Respect formatting.
 #: ../../create_localized_help.py:223 ../../create_localized_help.py:225
@@ -75,13 +75,15 @@ msgid ""
 "localizations can be installed by executing the script called "
 "**localizations.sh** from a terminal opened inside the xlet's folder."
 msgstr ""
+"如果该xlet是通过手动安装而不是Cinnamon设置，可以通过打开终端执行xlet文件夹内"
+"名为**localizations.sh**的脚本安装本地化。"
 
 #: ../../create_localized_help.py:224 ../../create_localized_help.py:226
 #: ../../create_localized_help.py:227 ../../create_localized_help.py:187
 msgid ""
 "If this xlet has no locale available for your language, you could create it "
 "by following the following instructions."
-msgstr ""
+msgstr "如果该xlet没有您的语言的本地化，您可以按照以下说明进行创建。"
 
 #. 0dyseus@WindowDemandsAttentionBehavior->metadata.json->name
 msgid "Window demands attention behavior"
@@ -89,11 +91,11 @@ msgstr "窗口要求关注的行为"
 
 #. 0dyseus@WindowDemandsAttentionBehavior->metadata.json->contributors
 msgid "muzena: Croatian localization."
-msgstr ""
+msgstr "muzena：克罗地亚语本地化。"
 
 #. 0dyseus@WindowDemandsAttentionBehavior->metadata.json->contributors
 msgid "giwhub: Chinese localization."
-msgstr ""
+msgstr "giwhub：中文本地化。"
 
 #. 0dyseus@WindowDemandsAttentionBehavior->metadata.json->description
 msgid "Activate demanding attention window with a keyboard shortcut or forced."
@@ -125,4 +127,4 @@ msgstr "设置激活需要关注的窗口的键绑定："
 #: ../../create_localized_help.py:167 ../../create_localized_help.py:174
 #, python-format
 msgid "Help for %s"
-msgstr ""
+msgstr "%s的帮助"

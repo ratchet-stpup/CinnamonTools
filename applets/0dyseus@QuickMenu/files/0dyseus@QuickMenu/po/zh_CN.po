@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: 1.05\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-05-13 20:35-0300\n"
-"PO-Revision-Date: 2017-03-17 19:42+0800\n"
+"PO-Revision-Date: 2017-05-14 22:13+0800\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: zh_CN\n"
@@ -51,29 +51,30 @@ msgstr "打开帮助文件。"
 
 #: ../../create_localized_help.py:63
 msgid "Applet usage"
-msgstr ""
+msgstr "小程序用法"
 
 #: ../../create_localized_help.py:64
 msgid ""
 "Menu items to .desktop files will be displayed with the icon and name "
 "declared inside the .desktop files themselves."
-msgstr ""
+msgstr "菜单项转到.desktop文件将显示.desktop文件本身声明的图标和名称。"
 
 #: ../../create_localized_help.py:67
 msgid ""
 "The menu can be kept open while activating menu items by pressing [[Ctrl]] + "
 "**Left click** or with **Middle click**."
 msgstr ""
+"按[[Ctrl]] + **左键点击**或使用**中键点击**激活菜单条目时保持菜单打开。"
 
 #: ../../create_localized_help.py:69
 msgid "How to set a different icon for each sub-menu"
-msgstr ""
+msgstr "设置每个子菜单的其他图标的方式"
 
 #: ../../create_localized_help.py:72
 msgid ""
 "Create a file at the same level as the folders that will be used to create "
 "the sub-menus."
-msgstr ""
+msgstr "在文件夹同级目录创建用于创建子菜单的文件。"
 
 #. TO TRANSLATORS: MARKDOWN string. Respect formatting.
 #: ../../create_localized_help.py:74
@@ -82,12 +83,14 @@ msgid ""
 "can be a hidden file (a dot file). By default is called "
 "**0_icons_for_sub_menus.json**."
 msgstr ""
+"文件名可以自定义，不需要扩展名，也可以是隐藏文件（.文件）。默认情况下"
+"称为**0_icons_for_sub_menus.json**。"
 
 #: ../../create_localized_help.py:76
 msgid ""
 "Whatever name is chosen for the file, it will be automatically ignored and "
 "will never be shown on the menu."
-msgstr ""
+msgstr "无论选择了什么文件名称，它都会被自动忽略并且不会显示在菜单上。"
 
 #. TO TRANSLATORS: MARKDOWN string. Respect formatting.
 #: ../../create_localized_help.py:78
@@ -95,6 +98,8 @@ msgid ""
 "The path to the icon has to be a full path. A path starting with **~/** can "
 "be used and will be expanded to the user's home folder."
 msgstr ""
+"图标的路径必须是完整路径。可以使用以**~/**开头的路径并将其扩展到用户的主文件"
+"夹。"
 
 #. TO TRANSLATORS: MARKDOWN string. Respect formatting.
 #: ../../create_localized_help.py:80
@@ -103,25 +108,27 @@ msgid ""
 "create another **0_icons_for_sub_menus.json** file at the same level that "
 "those folders."
 msgstr ""
+"如果任何子文件夹包含更多需要自定义图标的文件夹，只需在这些文件夹的同级目录创"
+"建另一个**0_icons_for_sub_menus.json**文件。"
 
 #. TO TRANSLATORS: MARKDOWN string. Respect formatting.
 #: ../../create_localized_help.py:82
 msgid "The content of the file is a *JSON object* and has to look as follows:"
-msgstr ""
+msgstr "该文件的内容是一个*JSON对象*，必须如下所示："
 
 #: ../../create_localized_help.py:90 ../../create_localized_help.py:92
 #: ../../create_localized_help.py:94 ../../create_localized_help.py:96
 msgid "Folder name"
-msgstr ""
+msgstr "文件夹名称"
 
 #: ../../create_localized_help.py:91 ../../create_localized_help.py:93
 #: ../../create_localized_help.py:95 ../../create_localized_help.py:97
 msgid "Icon name or icon path for Folder name"
-msgstr ""
+msgstr "文件夹名称的图标名称或图标路径"
 
 #: ../../create_localized_help.py:101
 msgid "Warning!!!"
-msgstr ""
+msgstr "警告！！！"
 
 #. TO TRANSLATORS: MARKDOWN string. Respect formatting.
 #: ../../create_localized_help.py:103
@@ -130,49 +137,51 @@ msgid ""
 "the last key/value combination DOESN'T have to end with a comma (**Folder "
 "name #n** in the previous example)."
 msgstr ""
+"JSON*语言*非常严格。只需确保仅使用双引号。并且最后一个键/值组合不必以逗"
+"号结尾（在前面的例子中是**文件名 #n**）。"
 
 #. TO TRANSLATORS: This is a placeholder.
 #. Here goes your language name in your own language (a.k.a. endonym).
 #: ../../create_localized_help.py:130 ../../create_localized_help.py:199
 msgid "language-name"
-msgstr ""
+msgstr "语言名称"
 
 #: ../../create_localized_help.py:202
 msgid "Choose language"
-msgstr ""
+msgstr "选择语言"
 
 #. TO TRANSLATORS: Full sentence:
 #. "Help for <xlet_name>"
 #: ../../create_localized_help.py:203 ../../create_localized_help.py:210
 #, python-format
 msgid "Help for %s"
-msgstr ""
+msgstr "%s的帮助"
 
 #: ../../create_localized_help.py:211
 msgid "IMPORTANT!!!"
-msgstr ""
+msgstr "重要！！！"
 
 #: ../../create_localized_help.py:212
 msgid ""
 "Never delete any of the files found inside this xlet folder. It might break "
 "this xlet functionality."
-msgstr ""
+msgstr "不要删除该xlet文件夹内的任何文件。可能会损坏该xlet的功能。"
 
 #: ../../create_localized_help.py:213
 msgid ""
 "Bug reports, feature requests and contributions should be done on this "
 "xlet's repository linked next."
-msgstr ""
+msgstr "错误报告，功能请求和贡献应该在下方链接的xlet的仓库上完成。"
 
 #: ../../create_localized_help.py:219
 msgid "Applets/Desklets/Extensions (a.k.a. xlets) localization"
-msgstr ""
+msgstr "小程序/桌面小工具/扩展（也称为xlets）本地化"
 
 #: ../../create_localized_help.py:220
 msgid ""
 "If this xlet was installed from Cinnamon Settings, all of this xlet's "
 "localizations were automatically installed."
-msgstr ""
+msgstr "如果该xlet安装自Cinnamon设置，该xlet的所有本地化已经自动安装。"
 
 #. TO TRANSLATORS: MARKDOWN string. Respect formatting.
 #: ../../create_localized_help.py:222
@@ -181,12 +190,14 @@ msgid ""
 "localizations can be installed by executing the script called "
 "**localizations.sh** from a terminal opened inside the xlet's folder."
 msgstr ""
+"如果该xlet是通过手动安装而不是Cinnamon设置，可以通过打开终端执行xlet文件夹内"
+"名为**localizations.sh**的脚本安装本地化。"
 
 #: ../../create_localized_help.py:223
 msgid ""
 "If this xlet has no locale available for your language, you could create it "
 "by following the following instructions."
-msgstr ""
+msgstr "如果该xlet没有您的语言的本地化，您可以按照以下说明进行创建。"
 
 #. 0dyseus@QuickMenu->metadata.json->description
 msgid ""
@@ -198,7 +209,7 @@ msgstr "根据特定文件夹中的文件/文件夹轻松快速地创建菜单�
 msgid ""
 "Bug reports, feature requests and contributions should be done on this "
 "xlet's repository linked below."
-msgstr ""
+msgstr "错误报告，功能请求和贡献应该在下方链接的xlet的仓库上完成。"
 
 #. 0dyseus@QuickMenu->metadata.json->name
 msgid "Quick Menu"
@@ -206,11 +217,11 @@ msgstr "快捷菜单"
 
 #. 0dyseus@QuickMenu->metadata.json->contributors
 msgid "muzena: Croatian localization."
-msgstr ""
+msgstr "muzena：克罗地亚语本地化。"
 
 #. 0dyseus@QuickMenu->metadata.json->contributors
 msgid "giwhub: Chinese localization."
-msgstr ""
+msgstr "giwhub：中文本地化。"
 
 #. 0dyseus@QuickMenu->settings-schema.json->pref_head_1->description
 msgid "Applet settings"

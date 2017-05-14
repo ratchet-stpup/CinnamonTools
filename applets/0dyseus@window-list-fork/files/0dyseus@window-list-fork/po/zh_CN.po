@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: 1.06\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-05-13 20:35-0300\n"
-"PO-Revision-Date: 2017-03-16 15:51+0800\n"
+"PO-Revision-Date: 2017-05-14 18:27+0800\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: zh_CN\n"
@@ -78,7 +78,7 @@ msgstr "关闭"
 
 #: applet.js:929 2.8/applet.js:836
 msgid "Help"
-msgstr ""
+msgstr "帮助"
 
 #: applet.js:936 2.8/applet.js:843
 msgid "About..."
@@ -97,44 +97,44 @@ msgstr "移除'%s'"
 #. Here goes your language name in your own language (a.k.a. endonym).
 #: ../../create_localized_help.py:94 ../../create_localized_help.py:163
 msgid "language-name"
-msgstr ""
+msgstr "语言名称"
 
 #: ../../create_localized_help.py:166
 msgid "Choose language"
-msgstr ""
+msgstr "选择语言"
 
 #. TO TRANSLATORS: Full sentence:
 #. "Help for <xlet_name>"
 #: ../../create_localized_help.py:167 ../../create_localized_help.py:174
 #, python-format
 msgid "Help for %s"
-msgstr ""
+msgstr "%s的帮助"
 
 #: ../../create_localized_help.py:175
 msgid "IMPORTANT!!!"
-msgstr ""
+msgstr "重要！！！"
 
 #: ../../create_localized_help.py:176
 msgid ""
 "Never delete any of the files found inside this xlet folder. It might break "
 "this xlet functionality."
-msgstr ""
+msgstr "不要删除该xlet文件夹内的任何文件。可能会损坏该xlet的功能。"
 
 #: ../../create_localized_help.py:177
 msgid ""
 "Bug reports, feature requests and contributions should be done on this "
 "xlet's repository linked next."
-msgstr ""
+msgstr "错误报告，功能请求和贡献应该在下方链接的xlet的仓库上完成。"
 
 #: ../../create_localized_help.py:183
 msgid "Applets/Desklets/Extensions (a.k.a. xlets) localization"
-msgstr ""
+msgstr "小程序/桌面小工具/扩展（也称为xlets）本地化"
 
 #: ../../create_localized_help.py:184
 msgid ""
 "If this xlet was installed from Cinnamon Settings, all of this xlet's "
 "localizations were automatically installed."
-msgstr ""
+msgstr "如果该xlet安装自Cinnamon设置，该xlet的所有本地化已经自动安装。"
 
 #. TO TRANSLATORS: MARKDOWN string. Respect formatting.
 #: ../../create_localized_help.py:186
@@ -143,12 +143,14 @@ msgid ""
 "localizations can be installed by executing the script called "
 "**localizations.sh** from a terminal opened inside the xlet's folder."
 msgstr ""
+"如果该xlet是通过手动安装而不是Cinnamon设置，可以通过打开终端执行xlet文件夹内"
+"名为**localizations.sh**的脚本安装本地化。"
 
 #: ../../create_localized_help.py:187
 msgid ""
 "If this xlet has no locale available for your language, you could create it "
 "by following the following instructions."
-msgstr ""
+msgstr "如果该xlet没有您的语言的本地化，您可以按照以下说明进行创建。"
 
 #. 0dyseus@window-list-fork->metadata.json->description
 msgid "Fork of the main Cinnamon Window list applet."
@@ -156,21 +158,21 @@ msgstr "Cinnamon主窗口列表小程序的分支。"
 
 #. 0dyseus@window-list-fork->metadata.json->contributors
 msgid "NikoKrause: Bug fixes and German localization."
-msgstr ""
+msgstr "NikoKrause：错误修正和德语本地化。"
 
 #. 0dyseus@window-list-fork->metadata.json->contributors
 msgid "muzena: Croatian localization."
-msgstr ""
+msgstr "muzena：克罗地亚语本地化。"
 
 #. 0dyseus@window-list-fork->metadata.json->contributors
 msgid "giwhub: Chinese localization."
-msgstr ""
+msgstr "giwhub：中文本地化。"
 
 #. 0dyseus@window-list-fork->metadata.json->comments
 msgid ""
 "Bug reports, feature requests and contributions should be done on this "
 "xlet's repository linked below."
-msgstr ""
+msgstr "错误报告，功能请求和贡献应该在下方链接的xlet的仓库上完成。"
 
 #. 0dyseus@window-list-fork->metadata.json->name
 msgid "Window list (Fork By Odyseus)"

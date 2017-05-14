@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: 1.09\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-05-13 20:35-0300\n"
-"PO-Revision-Date: 2017-04-22 22:57+0800\n"
+"PO-Revision-Date: 2017-05-14 18:26+0800\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: zh_CN\n"
@@ -38,75 +38,75 @@ msgstr "帮助"
 
 #: applet.js:504
 msgid "CPU:"
-msgstr ""
+msgstr "CPU："
 
 #: applet.js:530
 msgid "Memory:"
-msgstr ""
+msgstr "内存："
 
 #. TO TRANSLATORS: Don't know if this would need translation.
 #. MB = Megabytes.
 #: applet.js:533 applet.js:561
 msgid "MB"
-msgstr ""
+msgstr "MB"
 
 #: applet.js:558
 msgid "Swap:"
-msgstr ""
+msgstr "交换分区:\t"
 
 #. TO TRANSLATORS:
 #. D = Download
 #. U = Upload
 #: applet.js:607
 msgid "Network D/U:"
-msgstr ""
+msgstr "网络 下行/上行："
 
 #. TO TRANSLATORS: Don't know if this would need translation.
 #. KB/s = Kilobytes per second.
 #: applet.js:610
 msgid "KB/s"
-msgstr ""
+msgstr "KB/s"
 
 #: applet.js:649
 msgid "Load average:"
-msgstr ""
+msgstr "负载平均："
 
 #: ../../create_localized_help.py:63
 msgid "Dependencies"
-msgstr ""
+msgstr "检查依赖关系"
 
 #: ../../create_localized_help.py:65
 msgid ""
 "The gtop library reads information about processes and the state of the "
 "system."
-msgstr ""
+msgstr "gtop库读取有关进程和系统状态的信息。"
 
 #: ../../create_localized_help.py:66 ../../create_localized_help.py:77
 msgid "Debian based distributions:"
-msgstr ""
+msgstr "Debian系发行版："
 
 #. TO TRANSLATORS: MARKDOWN string. Respect formatting.
 #: ../../create_localized_help.py:68
 msgid "The package is called **gir1.2-gtop-2.0**."
-msgstr ""
+msgstr "该软件包名为**gir1.2-gtop-2.0**。"
 
 #: ../../create_localized_help.py:69 ../../create_localized_help.py:80
 msgid "Archlinux based distributions:"
-msgstr ""
+msgstr "Archlinux系发行版："
 
 #. TO TRANSLATORS: MARKDOWN string. Respect formatting.
 #: ../../create_localized_help.py:71
 msgid "The package is called **libgtop**."
-msgstr ""
+msgstr "该软件包名为**libgtop**。"
 
 #: ../../create_localized_help.py:72 ../../create_localized_help.py:83
 msgid "Fedora based distributions:"
-msgstr ""
+msgstr "Fedora系发行版："
 
 #. TO TRANSLATORS: MARKDOWN string. Respect formatting.
 #: ../../create_localized_help.py:74
 msgid "The package is called **libgtop2-devel**."
-msgstr ""
+msgstr "该软件包名为**libgtop2-devel**。"
 
 #: ../../create_localized_help.py:76
 msgid ""
@@ -114,25 +114,27 @@ msgid ""
 "and connections, attempting to keep active network connectivity when "
 "available."
 msgstr ""
+"NetworkManager是一种管理您的网络设备和连接的系统网络服务，尝试在可用时保持活"
+"动的网络连接。"
 
 #. TO TRANSLATORS: MARKDOWN string. Respect formatting.
 #: ../../create_localized_help.py:79
 msgid "The package is called **gir1.2-networkmanager-1.0**."
-msgstr ""
+msgstr "该软件包名为**gir1.2-networkmanager-1.0**。"
 
 #. TO TRANSLATORS: MARKDOWN string. Respect formatting.
 #: ../../create_localized_help.py:82
 msgid "The package is called **networkmanager**."
-msgstr ""
+msgstr "该软件包名为**networkmanager**。"
 
 #. TO TRANSLATORS: MARKDOWN string. Respect formatting.
 #: ../../create_localized_help.py:85
 msgid "The package is called **NetworkManager**."
-msgstr ""
+msgstr "该软件包名为**NetworkManager**。"
 
 #: ../../create_localized_help.py:87
 msgid "Important note:"
-msgstr ""
+msgstr "重要提示："
 
 #. TO TRANSLATORS: MARKDOWN string. Respect formatting.
 #: ../../create_localized_help.py:89
@@ -142,55 +144,58 @@ msgid ""
 "basically, if the network graph on this applet works without having "
 "installed NetworkManager, then you don't need to install it."
 msgstr ""
+"仅当系统上安装的** GTop **库版本<** 2.32 **且不支持某些库调用时，才使用"
+"NetworkManager。 所以，基本上，如果这个小程序上的网络图表在没有安装"
+"NetworkManager的情况下工作，那么你无需安装它。"
 
 #: ../../create_localized_help.py:91
 msgid ""
 "Restart Cinnamon after installing the packages for the applet to recognize "
 "them."
-msgstr ""
+msgstr "安装软件包之后重启Cinnamon以便小程序能够识别。"
 
 #. TO TRANSLATORS: This is a placeholder.
 #. Here goes your language name in your own language (a.k.a. endonym).
 #: ../../create_localized_help.py:118 ../../create_localized_help.py:187
 msgid "language-name"
-msgstr ""
+msgstr "语言名称"
 
 #: ../../create_localized_help.py:190
 msgid "Choose language"
-msgstr ""
+msgstr "选择语言"
 
 #. TO TRANSLATORS: Full sentence:
 #. "Help for <xlet_name>"
 #: ../../create_localized_help.py:191 ../../create_localized_help.py:198
 #, python-format
 msgid "Help for %s"
-msgstr ""
+msgstr "%s的帮助"
 
 #: ../../create_localized_help.py:199
 msgid "IMPORTANT!!!"
-msgstr ""
+msgstr "重要！！！"
 
 #: ../../create_localized_help.py:200
 msgid ""
 "Never delete any of the files found inside this xlet folder. It might break "
 "this xlet functionality."
-msgstr ""
+msgstr "不要删除该xlet文件夹内的任何文件。可能会损坏该xlet的功能。"
 
 #: ../../create_localized_help.py:201
 msgid ""
 "Bug reports, feature requests and contributions should be done on this "
 "xlet's repository linked next."
-msgstr ""
+msgstr "错误报告，功能请求和贡献应该在下方链接的xlet的仓库上完成。"
 
 #: ../../create_localized_help.py:207
 msgid "Applets/Desklets/Extensions (a.k.a. xlets) localization"
-msgstr ""
+msgstr "小程序/桌面小工具/扩展（也称为xlets）本地化"
 
 #: ../../create_localized_help.py:208
 msgid ""
 "If this xlet was installed from Cinnamon Settings, all of this xlet's "
 "localizations were automatically installed."
-msgstr ""
+msgstr "如果该xlet安装自Cinnamon设置，该xlet的所有本地化已经自动安装。"
 
 #. TO TRANSLATORS: MARKDOWN string. Respect formatting.
 #: ../../create_localized_help.py:210
@@ -199,18 +204,20 @@ msgid ""
 "localizations can be installed by executing the script called "
 "**localizations.sh** from a terminal opened inside the xlet's folder."
 msgstr ""
+"如果该xlet是通过手动安装而不是Cinnamon设置，可以通过打开终端执行xlet文件夹内"
+"名为**localizations.sh**的脚本安装本地化。"
 
 #: ../../create_localized_help.py:211
 msgid ""
 "If this xlet has no locale available for your language, you could create it "
 "by following the following instructions."
-msgstr ""
+msgstr "如果该xlet没有您的语言的本地化，您可以按照以下说明进行创建。"
 
 #. 0dyseus@SysmonitorByOrcus->metadata.json->comments
 msgid ""
 "Bug reports, feature requests and contributions should be done on this "
 "xlet's repository linked below."
-msgstr ""
+msgstr "错误报告，功能请求和贡献应该在下方链接的xlet的仓库上完成。"
 
 #. 0dyseus@SysmonitorByOrcus->metadata.json->contributors
 msgid "buzz: Bug fixes."
@@ -272,7 +279,7 @@ msgstr "显示内存图表："
 msgid ""
 "For those of us who suffer from the stupidity of using a theme with tooltips "
 "aligned to the center. ¬¬"
-msgstr ""
+msgstr "提供给我们这些使用带有居中对齐的提示的主题的笨人。¬¬"
 
 #. 0dyseus@SysmonitorByOrcus->settings-schema.json->pref_align_tooltip_text_to_the_left->description
 msgid "Align tooltip text to the left"
