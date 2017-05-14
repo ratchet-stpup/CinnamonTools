@@ -18,7 +18,7 @@ import datetime
 import time
 
 from gi.repository import GLib
-from optparse import OptionParser
+from argparse import ArgumentParser
 
 __version__ = "1.0.32"
 
@@ -263,17 +263,18 @@ def remove_empty_folders(path):
 class Main:
 
     def __init__(self):
-        parser = OptionParser(usage=USAGE)
-        parser.add_option("-a", "--all", action="store_true", dest="all", default=False)
-        parser.add_option("-j", "--js", action="store_true", dest="js", default=False)
-        parser.add_option("-p", "--py", action="store_true", dest="py", default=False)
-        parser.add_option("-s", "--skip-keys", dest="skip_keys")
-        parser.add_option("-c", "--custom-header", action="store_true",
-                          dest="custom_header", default=False)
-        parser.add_option("-i", "--install", action="store_true", dest="install", default=False)
-        parser.add_option("-r", "--remove", action="store_true", dest="remove", default=False)
+        parser = ArgumentParser(usage=USAGE)
+        parser.add_argument("pot_name", default=None, nargs="?")
+        parser.add_argument("-a", "--all", action="store_true", dest="all", default=False)
+        parser.add_argument("-j", "--js", action="store_true", dest="js", default=False)
+        parser.add_argument("-p", "--py", action="store_true", dest="py", default=False)
+        parser.add_argument("-s", "--skip-keys", dest="skip_keys")
+        parser.add_argument("-c", "--custom-header", action="store_true",
+                            dest="custom_header", default=False)
+        parser.add_argument("-i", "--install", action="store_true", dest="install", default=False)
+        parser.add_argument("-r", "--remove", action="store_true", dest="remove", default=False)
 
-        (options, args) = parser.parse_args()
+        options = parser.parse_args()
 
         self.pot_settings_data = None
 
@@ -293,7 +294,7 @@ class Main:
         if options.remove:
             self.do_remove()
 
-        if not (options.all or options.js or options.py) and not args:
+        if not (options.all or options.js or options.py) and not options.pot_name:
             parser.print_help()
             quit()
 
@@ -301,7 +302,7 @@ class Main:
             os.makedirs(os.path.join(XLET_DIR, "po"), exist_ok=True)
             self.potname = "po/" + XLET_UUID + ".pot"
         else:
-            self.potname = args[0] if args else None
+            self.potname = options.pot_name
 
         # Comma separated list of strings (preference keys) to ignore by the string extractor.
         if options.skip_keys:
@@ -373,7 +374,7 @@ class Main:
                 # Adding the --join-existing argument when there isn't a generated .pot file will
                 # not save the strings extracted from Python files.
                 # A .pot file might not be created is there isn't any translatable
-                # string found inside de JavvaScript files.
+                # string found inside de JavaScript files.
                 # xgettext is very smart for some things, and very dumb for others! LOL
                 join_existing = True if os.path.exists(self.potpath) else False
 
@@ -419,7 +420,6 @@ class Main:
         if options.custom_header or options.all:
             self.insert_custom_header()
         else:
-            print("Quitting...")
             quit()
 
     def insert_custom_header(self):
@@ -483,7 +483,6 @@ class Main:
 
             with open(self.potpath, "w") as pot_file:
                 raw_data_no_header = "".join(raw_data[raw_data.index("\n"):])
-
 
                 new_header = POT_HEADER.format(
                     FIRST_AUTHOR=metadata["FIRST_AUTHOR"],
