@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: 0dyseus@CustomCinnamonMenu 1.20\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-05-13 20:35-0300\n"
-"PO-Revision-Date: 2017-05-07 08:53+0200\n"
+"PO-Revision-Date: 2017-05-14 21:47+0200\n"
 "Last-Translator: Åke Engelbrektson <eson@svenskasprakfiler.se>\n"
 "Language-Team: Svenska Språkfiler <contactform@svenskasprakfiler.se>\n"
 "Language: sv\n"
@@ -250,12 +250,12 @@ msgstr "Kontodetaljer"
 
 #: ../../create_localized_help.py:63
 msgid "Keyboard navigation"
-msgstr ""
+msgstr "Tangentbordsnavigering"
 
 #. TO TRANSLATORS: MARKDOWN string. Respect formatting.
 #: ../../create_localized_help.py:65
 msgid "Note:"
-msgstr ""
+msgstr "Notis:"
 
 #: ../../create_localized_help.py:65
 msgid ""
@@ -263,40 +263,51 @@ msgid ""
 "menu. There are just a couple of differences that I was forced to add to my "
 "menu to make some of its features to work."
 msgstr ""
+"Nästan alla tangentbordsgenvägar i den här menyn är samma som i "
+"originalmenyn. Det är dock några skillnader som jag var tvungen att lägga "
+"till i min meny, för att vissa funktioner skall fungera."
 
 #. TO TRANSLATORS: MARKDOWN string. Respect formatting.
 #: ../../create_localized_help.py:68
 msgid "[[Left Arrow]] and [[Right Arrow]] keys:"
-msgstr ""
+msgstr "[[Vänsterpil]] och [[Högerpil]]:"
 
 #: ../../create_localized_help.py:70
 msgid ""
 "Cycles through the favorites box, applications box and categories box if the "
 "focus is in one of these boxes."
 msgstr ""
+"Bläddra genom Favoriter, Program och Kategorier, om ett av dessa fält har "
+"fokus."
 
 #: ../../create_localized_help.py:72
 msgid ""
 "If the focus is on the custom launchers box, these keys will cycle through "
 "this box buttons."
 msgstr ""
+"Om fokus är på fältet för anpassade startare, bläddrar dessa tangenter bland "
+"de knapparna."
 
 #. TO TRANSLATORS: MARKDOWN string. Respect formatting.
 #: ../../create_localized_help.py:74
 msgid "[[Tab]] key:"
-msgstr ""
+msgstr "[[Tab]]:"
 
 #: ../../create_localized_help.py:77
 msgid ""
 "If the favorites box, applications box or categories box are currently "
 "focused, the [[Tab]] key will switch the focus to the custom launchers box."
 msgstr ""
+"Om favoritfältet eller kategorifältet är fokuserat, växlar du till fältet "
+"för anpassade startare med tabulatortangenten [[Tab]]."
 
 #: ../../create_localized_help.py:79 ../../create_localized_help.py:87
 msgid ""
 "If the focus is on the custom launchers box, the focus will go back to the "
 "categories box."
 msgstr ""
+"Om fokus är på fältet för anpassade startare, kommer fokus att flyttas "
+"tillbaka till kategorifältet"
 
 #: ../../create_localized_help.py:82
 msgid ""
@@ -304,11 +315,14 @@ msgid ""
 "[[Ctrl]]/[[Shift]] + [[Tab]] key are pressed, it will cycle through the "
 "favorites box, applications box and categories box."
 msgstr ""
+"Om fältet för anpassade startare inte finns med på menyn och [[Tab]] ensamt "
+"eller [[Ctrl]]/[[Shift]] + [[Tab]] trycks ner, kan du bläddra genom "
+"favoritfältet, programfältet och kategorifältet."
 
 #. TO TRANSLATORS: MARKDOWN string. Respect formatting.
 #: ../../create_localized_help.py:84
 msgid "[[Up Arrow]] and [[Down Arrow]] keys:"
-msgstr ""
+msgstr "[[Uppåtpil]] och [[Neråtpil]]:"
 
 #: ../../create_localized_help.py:85
 msgid ""
@@ -316,6 +330,8 @@ msgid ""
 "focused, these keys will cycle through the items in the currently "
 "highlighted box."
 msgstr ""
+"Om favoritfältet, programfältet eller kategorifältet är fokuserat, bläddrar "
+"dessa tangenter genom objekten i respektive fält"
 
 #. TO TRANSLATORS: MARKDOWN string. Respect formatting.
 #: ../../create_localized_help.py:89
@@ -323,6 +339,8 @@ msgid ""
 "[[Page Up]] and [[Page Down]] keys: Jumps to the first and last item of the "
 "currently selected box. This doesn't affect the custom launchers."
 msgstr ""
+"[[Page Up]] och [[Page Down]]: Hoppar till första respektive sista objektet "
+"i aktuellt menyfält. Detta gäller inte anpassade startare."
 
 #. TO TRANSLATORS: MARKDOWN string. Respect formatting.
 #: ../../create_localized_help.py:91
@@ -330,11 +348,13 @@ msgid ""
 "[[Menu]] or [[Alt]] + [[Enter]] keys: Opens and closes the context menu (if "
 "any) of the currently highlighted item."
 msgstr ""
+"[[Meny]] eller [[Alt]] + [[Enter]]: Öppnar och stänger kontextmenyn (om den "
+"finns) för markerat objekt."
 
 #. TO TRANSLATORS: MARKDOWN string. Respect formatting.
 #: ../../create_localized_help.py:93
 msgid "[[Enter]] key: Executes the currently highlighted item."
-msgstr ""
+msgstr "[[Enter]]: Startar det markerade objektet."
 
 #. TO TRANSLATORS: MARKDOWN string. Respect formatting.
 #: ../../create_localized_help.py:95
@@ -343,12 +363,16 @@ msgid ""
 "close the context menu instead and a second tap of this key will close the "
 "main menu."
 msgstr ""
+"[[Escape]]: Stänger huvudmenyn. Om en kontextmeny (högerklick) är öppen, "
+"stängs kontextmenyn istället och ett andra knapptryck stänger huvudmenyn."
 
 #: ../../create_localized_help.py:98
 msgid ""
 "[[Shift]] + [[Enter]]: Executes the application as root. This doesn't affect "
 "the custom launchers."
 msgstr ""
+"[[Shift]] + [[Enter]]: Startar programmet som root. Detta gäller inte "
+"anpassade startare."
 
 #. TO TRANSLATORS: MARKDOWN string. Respect formatting.
 #: ../../create_localized_help.py:100
@@ -356,6 +380,8 @@ msgid ""
 "[[Ctrl]] + [[Enter]]: Open a terminal and run application from there. This "
 "doesn't affect the custom launchers."
 msgstr ""
+"[[Ctrl]] + [[Enter]]: Öppnar ett terminalfönster och kör programmet "
+"därifrån. Detta gäller inte anpassade startare."
 
 #. TO TRANSLATORS: MARKDOWN string. Respect formatting.
 #: ../../create_localized_help.py:102
@@ -364,27 +390,34 @@ msgid ""
 "there, but the application is executed as root. This doesn't affect the "
 "custom launchers."
 msgstr ""
+"[[Ctrl]] + [[Shift]] + [[Enter]]: Öppnar ett terminalfönster och kör "
+"programmet därifrån, men programmet körs som root. Detta gäller inte "
+"anpassade startare."
 
 #: ../../create_localized_help.py:105
 msgid "Applications left click extra actions"
-msgstr ""
+msgstr "Extra åtgärder vid klick på program"
 
 #: ../../create_localized_help.py:106
 msgid ""
 "When left clicking an application on the menu, certain key modifiers can be "
 "pressed to execute an application in a special way."
 msgstr ""
+"Vid vänsterklick på ett program i menyn, kan vissa modifieringstangenter "
+"hållas ner för att starta programmet på ett speciellt sätt."
 
 #. TO TRANSLATORS: MARKDOWN string. Respect formatting.
 #: ../../create_localized_help.py:108
 msgid "[[Shift]] + **Left click**: Executes application as root."
-msgstr ""
+msgstr "[[Shift]] + **Vänsterklick**: Startar programmet som root."
 
 #. TO TRANSLATORS: MARKDOWN string. Respect formatting.
 #: ../../create_localized_help.py:110
 msgid ""
 "[[Ctrl]] + **Left click**: Open a terminal and run application from there."
 msgstr ""
+"[[Ctrl]] + **Vänsterklick**: Öppnar ett terminalfönster och kör programmet "
+"därifrån."
 
 #. TO TRANSLATORS: MARKDOWN string. Respect formatting.
 #: ../../create_localized_help.py:112
@@ -392,10 +425,12 @@ msgid ""
 "[[Ctrl]] + [[Shift]] + **Left click**: Open a terminal and run application "
 "from there, but the application is executed as root."
 msgstr ""
+"[[Ctrl]] + [[Shift]] + **Vänsterklick**: Öppnar ett terminalfönster och kör "
+"programmet därifrån, men programmet körs som root."
 
 #: ../../create_localized_help.py:114
 msgid "About \"Run from terminal\" options"
-msgstr ""
+msgstr "Om alternativet \"Kör från terminal\""
 
 #: ../../create_localized_help.py:115
 msgid ""
@@ -407,6 +442,13 @@ msgid ""
 "found on the applications context menu and can be hidden/shown from this "
 "applet settings window."
 msgstr ""
+"Dessa alternativ är avsedda för felsökning (t.ex för att identifiera möjliga "
+"fel via konsollutdata efter att ett program öppnas/stängs). Istället för att "
+"öppna ett terminalfönster och starta ett program med ett kommando som man "
+"kanske inte ens känner till, kan man göra det direkt från menyn i ett enda "
+"steg. Alternativ för att starta ett program från terminal kan hittas i "
+"programmets kontextmeny (högerklick), vilket kan döljas/visas från "
+"panelprogrammets inställningar."
 
 #. TO TRANSLATORS: MARKDOWN string. Respect formatting.
 #: ../../create_localized_help.py:118
@@ -418,10 +460,16 @@ msgid ""
 "**gnome-terminal**, **xterm** and **terminator**. Additional arguments could "
 "be passed to the terminal emulator, but it's not supported by me."
 msgstr ""
+"Som standard kommer dessa alternativ att använda systemets standardterminal "
+"(** x-terminal-emulator ** i Debian-baserade distributioner). Annan "
+"terminalemulator kan anges i inställningarna för detta panelprogram, så "
+"länge som nämnda emulator har stöd för argumentet **-e**. Jag gjorde mina "
+"tester med ** gnome-terminal **, ** xterm ** och ** terminator **. "
+"Ytterligare argument kan användas i terminalen, men det stöds inte av mig."
 
 #: ../../create_localized_help.py:120
 msgid "Favorites handling"
-msgstr ""
+msgstr "Favorithantering"
 
 #. TO TRANSLATORS: MARKDOWN string. Respect formatting.
 #: ../../create_localized_help.py:122
@@ -430,6 +478,9 @@ msgid ""
 "the context menu for applications and by dragging and dropping applications "
 "to/from the favorites box."
 msgstr ""
+"Om favoritfältet ** visas **, kan favoriter läggas till/tas bort från "
+"kontextmenyn för program och genom att dra och släppa applikationer till/"
+"från favoritfältet."
 
 #. TO TRANSLATORS: MARKDOWN string. Respect formatting.
 #: ../../create_localized_help.py:125
@@ -437,6 +488,8 @@ msgid ""
 "**Note:** To remove a favorite, drag a favorite outside the favorites box "
 "into any part of the menu."
 msgstr ""
+"**Notis:** För att ta bort en favorit kan du dra den ut från favoritfältet "
+"och släppa den var som helst i menyn."
 
 #. TO TRANSLATORS: MARKDOWN string. Respect formatting.
 #: ../../create_localized_help.py:127
@@ -448,6 +501,12 @@ msgid ""
 "removed. If what you drag into the favorites category is a non bookmarked "
 "application, then that application will be added to the favorites."
 msgstr ""
+"Om favoritfältet är ** doldt ** och kategorin Favoriter är aktiverad, kan "
+"favoriter läggas till/tas bort via kontextmenyn för program och genom att "
+"dra och släppa program till/från favoritfältet. Det är enkelt, om en favorit "
+"dras in i kategorin Favoriter, tas den bort från favoritfältet. Om det du "
+"drar till kategorin Favoriter är ett icke bokmärkt program, kommer "
+"programmet att läggas till i Favoriter."
 
 #. TO TRANSLATORS: MARKDOWN string. Respect formatting.
 #: ../../create_localized_help.py:129
@@ -455,27 +514,29 @@ msgid ""
 "**Note:** The favorites category will update its content after changing to "
 "another category and going back to the favorites category."
 msgstr ""
+"**Notis:** Innehållet i favoritkategorin uppdateras genom att växla till en "
+"annan kategori och tillbaka favoritkategorin igen."
 
 #: ../../create_localized_help.py:131
 msgid "Troubleshooting/extra information"
-msgstr ""
+msgstr "Felsöknings-/Extra information"
 
 #: ../../create_localized_help.py:132
 msgid "Run from terminal."
-msgstr ""
+msgstr "Kör från terminal."
 
 #. TO TRANSLATORS: MARKDOWN string. Respect formatting.
 #: ../../create_localized_help.py:134
 msgid "Debian based distributions:"
-msgstr ""
+msgstr "Debian-baserade distributioner:"
 
 #: ../../create_localized_help.py:138
 msgid "Type in the number of the selection and hit enter."
-msgstr ""
+msgstr "Skriv det valda numret och tryck Enter."
 
 #: ../../create_localized_help.py:140
 msgid "For other distributions:"
-msgstr ""
+msgstr "För andra distributioner:"
 
 #. TO TRANSLATORS: MARKDOWN string. Respect formatting.
 #: ../../create_localized_help.py:143
@@ -484,6 +545,9 @@ msgid ""
 "sh**. ***Do not remove, rename or edit this file***. Otherwise, all of the "
 "*Run from terminal* options will break."
 msgstr ""
+"Det finns en fil i det här programmets installationsmapp, kallad "
+"**run_from_terminal.sh**. ***Ta inte bort, döp om eller redigera den här "
+"filen***. Då kan alla *Kör från terminal*, sluta fungera."
 
 #. TO TRANSLATORS: MARKDOWN string. Respect formatting.
 #: ../../create_localized_help.py:145
@@ -492,49 +556,59 @@ msgid ""
 "several symbolic icons (most of them are from the Faenza icon theme) and "
 "each icon can be used directly by name (on a custom launcher, for example)."
 msgstr ""
+"Det finns en mapp som heter ** icons ** i detta programs installationsmapp. "
+"Den innehåller flera symboliska ikoner (de flesta av dem är från ikontemat "
+"Faenza) och varje ikon kan användas direkt med enbart namn (på en anpassad "
+"startare t.ex.)."
 
 #. TO TRANSLATORS: This is a placeholder.
 #. Here goes your language name in your own language (a.k.a. endonym).
 #: ../../create_localized_help.py:172 ../../create_localized_help.py:241
 msgid "language-name"
-msgstr ""
+msgstr "Svenska"
 
 #: ../../create_localized_help.py:244
 msgid "Choose language"
-msgstr ""
+msgstr "Välj språk"
 
 #. TO TRANSLATORS: Full sentence:
 #. "Help for <xlet_name>"
 #: ../../create_localized_help.py:245 ../../create_localized_help.py:252
 #, python-format
 msgid "Help for %s"
-msgstr ""
+msgstr "Hjälp för %s"
 
 #: ../../create_localized_help.py:253
 msgid "IMPORTANT!!!"
-msgstr ""
+msgstr "VIKTIGT!!!"
 
 #: ../../create_localized_help.py:254
 msgid ""
 "Never delete any of the files found inside this xlet folder. It might break "
 "this xlet functionality."
 msgstr ""
+"Ta aldrig bort någon av filerna i den här xlet-mappen. Det kan förstöra "
+"programmets funktioner."
 
 #: ../../create_localized_help.py:255
 msgid ""
 "Bug reports, feature requests and contributions should be done on this "
 "xlet's repository linked next."
 msgstr ""
+"Felrapporter, funktionsönskemål och kodbidrag kan göras i denna xlets "
+"kodförråd, länkat nedan."
 
 #: ../../create_localized_help.py:261
 msgid "Applets/Desklets/Extensions (a.k.a. xlets) localization"
-msgstr ""
+msgstr "Applets/Desklets/Extensions (xlets) översättning"
 
 #: ../../create_localized_help.py:262
 msgid ""
 "If this xlet was installed from Cinnamon Settings, all of this xlet's "
 "localizations were automatically installed."
 msgstr ""
+"Om denna xlet installerades från Cinnamons inställningar, installerades "
+"också alla översättningar automatiskt."
 
 #. TO TRANSLATORS: MARKDOWN string. Respect formatting.
 #: ../../create_localized_help.py:264
@@ -543,12 +617,17 @@ msgid ""
 "localizations can be installed by executing the script called "
 "**localizations.sh** from a terminal opened inside the xlet's folder."
 msgstr ""
+"Om denna xlet installerades manuellt och inte via Cinnamons inställningar, "
+"kan översättningar installeras genom att köra skriptet **localizations.sh** "
+"från en terminal öppnad i programmappen."
 
 #: ../../create_localized_help.py:265
 msgid ""
 "If this xlet has no locale available for your language, you could create it "
 "by following the following instructions."
 msgstr ""
+"Om ditt språk saknas i denna xlet, kan du översätta den genom följande "
+"instruktioner."
 
 #. 3.2->settings-schema.json->pref_command_7_description->description
 #. 3.2->settings-schema.json->pref_command_4_description->description
@@ -1782,37 +1861,43 @@ msgstr "Justera programinfofältets text åt vänster"
 
 #. 0dyseus@CustomCinnamonMenu->metadata.json->contributors
 msgid "NikoKrause: Bug fixes and German localization."
-msgstr ""
+msgstr "NikoKrause: Felfixar och Tysk översättning."
 
 #. 0dyseus@CustomCinnamonMenu->metadata.json->contributors
 msgid "Radek71: Czech localization."
-msgstr ""
+msgstr "Radek71: Tjeckisk översättning."
 
 #. 0dyseus@CustomCinnamonMenu->metadata.json->contributors
 msgid "muzena: Croatian localization."
-msgstr ""
+msgstr "muzena: Kroatisk översättning."
 
 #. 0dyseus@CustomCinnamonMenu->metadata.json->contributors
 msgid "giwhub: Chinese localization."
-msgstr ""
+msgstr "giwhub: Kinesisk översättning."
 
 #. 0dyseus@CustomCinnamonMenu->metadata.json->contributors
 msgid "lestcape: Author of some advanced features used by this applet."
 msgstr ""
+"lestcape: Utvecklare av några avancerade funktioner som används i detta "
+"panelprogram."
 
 #. 0dyseus@CustomCinnamonMenu->metadata.json->contributors
 msgid "nooulaif: Fuzzy search feature based on his Sane Menu applet."
-msgstr ""
+msgstr "nooulaif: Sökfunktionen Fuzzy, baserad på hans panelprogram Sane Menu."
 
 #. 0dyseus@CustomCinnamonMenu->metadata.json->contributors
 msgid "Daniel Bruce: Some icons used by this menu are from www.entypo.com."
 msgstr ""
+"Daniel Bruce: Några ikoner som används i den här menyn är från www.entypo."
+"com."
 
 #. 0dyseus@CustomCinnamonMenu->metadata.json->comments
 msgid ""
 "Bug reports, feature requests and contributions should be done on this "
 "xlet's repository linked below."
 msgstr ""
+"Felrapporter, funktionsönskemål och kodbidrag kan göras i denna xlets "
+"kodförråd, länkat nedan."
 
 #. 0dyseus@CustomCinnamonMenu->metadata.json->name
 msgid "Custom Cinnamon Menu"
