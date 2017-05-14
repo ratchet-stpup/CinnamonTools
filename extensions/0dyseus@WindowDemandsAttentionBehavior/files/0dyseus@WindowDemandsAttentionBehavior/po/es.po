@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2017-05-06 08:15-0300\n"
+"POT-Creation-Date: 2017-05-13 20:35-0300\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Odyseus\n"
 "Language-Team: \n"
@@ -13,6 +13,89 @@ msgstr ""
 "X-Generator: Poedit 1.8.7.1\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
+#. TO TRANSLATORS: This is a placeholder.
+#. Here goes your language name in your own language (a.k.a. endonym).
+#: ../../create_localized_help.py:119 ../../create_localized_help.py:201
+#: ../../create_localized_help.py:203 ../../create_localized_help.py:94
+#: ../../create_localized_help.py:163
+msgid "language-name"
+msgstr "Español"
+
+#: ../../create_localized_help.py:204 ../../create_localized_help.py:206
+#: ../../create_localized_help.py:166
+msgid "Choose language"
+msgstr "Elegir idioma"
+
+#. TO TRANSLATORS: {xlet_name} is a Python placeholder. Do not modify.
+#. TO TRANSLATORS: Full sentence:
+#. "Help for <xlet_name>"
+#: ../../create_localized_help.py:205 ../../create_localized_help.py:211
+#: ../../create_localized_help.py:207 ../../create_localized_help.py:213
+#: ../../create_localized_help.py:214
+#, python-brace-format
+msgid "Help for {xlet_name}"
+msgstr "Ayuda para {xlet_name}"
+
+#: ../../create_localized_help.py:212 ../../create_localized_help.py:214
+#: ../../create_localized_help.py:215 ../../create_localized_help.py:175
+msgid "IMPORTANT!!!"
+msgstr "¡IMPORTANTE!"
+
+#: ../../create_localized_help.py:213 ../../create_localized_help.py:215
+#: ../../create_localized_help.py:216 ../../create_localized_help.py:176
+msgid ""
+"Never delete any of the files found inside this xlet folder. It might break "
+"this xlet functionality."
+msgstr ""
+"Jamás borrar ninguno de los archivos encontrados dentro de la carpeta de "
+"este xlet. Podría romper la funcionalidad del xlet."
+
+#: ../../create_localized_help.py:214 ../../create_localized_help.py:216
+#: ../../create_localized_help.py:217 ../../create_localized_help.py:177
+msgid ""
+"Bug reports, feature requests and contributions should be done on this "
+"xlet's repository linked next."
+msgstr ""
+"Los reportes de fallos, peticiones de características y contribuciones deben "
+"hacerse en el repositorio de este xlet vinculado a continuación."
+
+#: ../../create_localized_help.py:220 ../../create_localized_help.py:222
+#: ../../create_localized_help.py:223 ../../create_localized_help.py:183
+msgid "Applets/Desklets/Extensions (a.k.a. xlets) localization"
+msgstr ""
+"Localización de applets/desklets/extensiones (también conocidos como xlets)"
+
+#: ../../create_localized_help.py:221 ../../create_localized_help.py:223
+#: ../../create_localized_help.py:224 ../../create_localized_help.py:184
+msgid ""
+"If this xlet was installed from Cinnamon Settings, all of this xlet's "
+"localizations were automatically installed."
+msgstr ""
+"Si este xlet se instaló desde Configuración de Cinnamon, todas las "
+"localizaciones de este xlet se instalaron automáticamente."
+
+#. TO TRANSLATORS: MARKDOWN string. Respect formatting.
+#: ../../create_localized_help.py:223 ../../create_localized_help.py:225
+#: ../../create_localized_help.py:226 ../../create_localized_help.py:186
+msgid ""
+"If this xlet was installed manually and not trough Cinnamon Settings, "
+"localizations can be installed by executing the script called "
+"**localizations.sh** from a terminal opened inside the xlet's folder."
+msgstr ""
+"Si este xlet se instaló manualmente y no a través de Configuración de "
+"Cinnamon, las localizaciones se pueden instalar ejecutando el archivo "
+"llamado **localizations.sh** desde una terminal abierta dentro de la carpeta "
+"del xlet."
+
+#: ../../create_localized_help.py:224 ../../create_localized_help.py:226
+#: ../../create_localized_help.py:227 ../../create_localized_help.py:187
+msgid ""
+"If this xlet has no locale available for your language, you could create it "
+"by following the following instructions."
+msgstr ""
+"Si este xlet no está disponible en su idioma, la localización puede ser "
+"creada siguiendo las siguientes instrucciones."
+
 #. 0dyseus@WindowDemandsAttentionBehavior->metadata.json->name
 msgid "Window demands attention behavior"
 msgstr "Comportamiento de ventanas que demandan atención"
@@ -21,58 +104,41 @@ msgstr "Comportamiento de ventanas que demandan atención"
 msgid "muzena: Croatian localization."
 msgstr "muzena: Localización Croata."
 
+#. 0dyseus@WindowDemandsAttentionBehavior->metadata.json->contributors
+msgid "giwhub: Chinese localization."
+msgstr "giwhub: Localización China."
+
 #. 0dyseus@WindowDemandsAttentionBehavior->metadata.json->description
 msgid "Activate demanding attention window with a keyboard shortcut or forced."
 msgstr ""
 "Activar ventanas que demandan atención con un atajo de teclado o "
 "forzosamente."
 
-#. 0dyseus@WindowDemandsAttentionBehavior->settings-
-#. schema.json->pref_keyboard_shortcut->description
-#. 0dyseus@WindowDemandsAttentionBehavior->settings-
-#. schema.json->pref_keyboard_shortcut->description
-#. 0dyseus@WindowDemandsAttentionBehavior->settings-
-#. schema.json->pref_keyboard_shortcut->description
+#. 0dyseus@WindowDemandsAttentionBehavior->settings-schema.json->pref_activation_mode->options
+msgid "Force windows demanding attention activation."
+msgstr "Forzar la activación de ventanas que demandan atención."
+
+#. 0dyseus@WindowDemandsAttentionBehavior->settings-schema.json->pref_activation_mode->options
+msgid "Activate windows demanding attention with a shortcut."
+msgstr "Activar ventanas que demandan atención con un atajo de teclado."
+
+#. 0dyseus@WindowDemandsAttentionBehavior->settings-schema.json->pref_activation_mode->options
+msgid "Disabled. System behavior."
+msgstr "Desactivado. Comportamiento del sistema."
+
+#. 0dyseus@WindowDemandsAttentionBehavior->settings-schema.json->pref_activation_mode->description
+msgid "Choose activation mode"
+msgstr "Seleccionar modo de activación"
+
+#. 0dyseus@WindowDemandsAttentionBehavior->settings-schema.json->pref_keyboard_shortcut->description
 msgid "Set the keybinding to activate windows demanding attention: "
 msgstr ""
 "Establecer un atajo de teclado para activar ventanas que exigen atención: "
 
-#. 0dyseus@WindowDemandsAttentionBehavior->settings-
-#. schema.json->pref_activation_mode->options
-#. 0dyseus@WindowDemandsAttentionBehavior->settings-
-#. schema.json->pref_activation_mode->options
-#. 0dyseus@WindowDemandsAttentionBehavior->settings-
-#. schema.json->pref_activation_mode->options
-msgid "Disabled. System behavior."
-msgstr "Desactivado. Comportamiento del sistema."
-
-#. 0dyseus@WindowDemandsAttentionBehavior->settings-
-#. schema.json->pref_activation_mode->options
-#. 0dyseus@WindowDemandsAttentionBehavior->settings-
-#. schema.json->pref_activation_mode->options
-#. 0dyseus@WindowDemandsAttentionBehavior->settings-
-#. schema.json->pref_activation_mode->options
-msgid "Activate windows demanding attention with a shortcut."
-msgstr "Activar ventanas que demandan atención con un atajo de teclado."
-
-#. 0dyseus@WindowDemandsAttentionBehavior->settings-
-#. schema.json->pref_activation_mode->options
-#. 0dyseus@WindowDemandsAttentionBehavior->settings-
-#. schema.json->pref_activation_mode->options
-#. 0dyseus@WindowDemandsAttentionBehavior->settings-
-#. schema.json->pref_activation_mode->options
-msgid "Force windows demanding attention activation."
-msgstr "Forzar la activación de ventanas que demandan atención."
-
-#. 0dyseus@WindowDemandsAttentionBehavior->settings-
-#. schema.json->pref_activation_mode->description
-#. 0dyseus@WindowDemandsAttentionBehavior->settings-
-#. schema.json->pref_activation_mode->description
-#. 0dyseus@WindowDemandsAttentionBehavior->settings-
-#. schema.json->pref_activation_mode->description
-msgid "Choose activation mode"
-msgstr "Seleccionar modo de activación"
-
-#. 0dyseus@WindowDemandsAttentionBehavior->metadata.json->contributors
-msgid "giwhub: Chinese localization."
-msgstr "giwhub: Localización China."
+#. TO TRANSLATORS: Full sentence:
+#. "Help for <xlet_name>"
+#: ../../create_localized_help.py:207 ../../create_localized_help.py:214
+#: ../../create_localized_help.py:167 ../../create_localized_help.py:174
+#, python-format
+msgid "Help for %s"
+msgstr "Ayuda para %s"
