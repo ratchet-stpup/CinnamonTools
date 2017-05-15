@@ -388,9 +388,53 @@ pre {
 <select class="form-control" id="localization-switch" onchange="self.toggleLocalizationVisibility(value, this);">
 <!-- English --><option selected data-title="Help for System Monitor (Fork By Odyseus)" data-language-chooser-label="Choose language" value="en">English</option>
 <!-- Español --><option data-title="Ayuda para System Monitor (Fork By Odyseus)" data-language-chooser-label="Elegir idioma" value="es">Español</option>
+<!-- 语言名称 --><option data-title="System Monitor (Fork By Odyseus)的帮助" data-language-chooser-label="选择语言" value="zh_CN">语言名称</option>
 </select>
 </div> <!-- .localization-chooser -->
 <div class="container boxed">
+
+<div id="zh_CN" class="localization-content hidden">
+
+<h1>System Monitor (Fork By Odyseus)的帮助</h1>
+
+<div style="font-weight:bold;" class="alert alert-warning">
+<h2>重要！！！</h2>
+
+<p>不要删除该xlet文件夹内的任何文件。可能会损坏该xlet的功能。</p>
+
+<p>错误报告，功能请求和贡献应该在下方链接的xlet的仓库上完成。 <a href="https://github.com/Odyseus/CinnamonTools">GitHub</a></p>
+
+</div>
+<hr>
+
+<h2>检查依赖关系</h2>
+<ul>
+<li><strong>GTop:</strong> gtop库读取有关进程和系统状态的信息。<ul>
+<li><strong>Debian系发行版：</strong> 该软件包名为<strong>gir1.2-gtop-2.0</strong>。</li>
+<li><strong>Archlinux系发行版：</strong> 该软件包名为<strong>libgtop</strong>。</li>
+<li><strong>Fedora系发行版：</strong> 该软件包名为<strong>libgtop2-devel</strong>。</li>
+</ul>
+</li>
+<li><strong>NetworkManager:</strong> NetworkManager是一种管理您的网络设备和连接的系统网络服务，尝试在可用时保持活动的网络连接。<ul>
+<li><strong>Debian系发行版：</strong> 该软件包名为<strong>gir1.2-networkmanager-1.0</strong>。</li>
+<li><strong>Archlinux系发行版：</strong> 该软件包名为<strong>networkmanager</strong>。</li>
+<li><strong>Fedora系发行版：</strong> 该软件包名为<strong>NetworkManager</strong>。</li>
+</ul>
+</li>
+</ul>
+<p><strong>重要提示：</strong> 仅当系统上安装的<strong> GTop </strong>库版本&lt;<strong> 2.32 </strong>且不支持某些库调用时，才使用NetworkManager。 所以，基本上，如果这个小程序上的网络图表在没有安装NetworkManager的情况下工作，那么你无需安装它。</p>
+<p><strong>安装软件包之后重启Cinnamon以便小程序能够识别。</strong></p>
+<hr>
+
+<h2>小程序/桌面小工具/扩展（也称为xlets）本地化</h2>
+<ul>
+<li>如果该xlet安装自Cinnamon设置，该xlet的所有本地化已经自动安装。</li>
+<li>如果该xlet是通过手动安装而不是Cinnamon设置，可以通过打开终端执行xlet文件夹内名为<strong>localizations.sh</strong>的脚本安装本地化。</li>
+<li>如果该xlet没有您的语言的本地化，您可以按照以下说明进行创建。 <a href="https://github.com/Odyseus/CinnamonTools/wiki/Xlet-localization">Wiki</a></li>
+</ul>
+
+</div> <!-- .localization-content -->
+
 
 <div id="es" class="localization-content hidden">
 
