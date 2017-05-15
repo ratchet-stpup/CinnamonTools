@@ -388,9 +388,60 @@ pre {
 <select class="form-control" id="localization-switch" onchange="self.toggleLocalizationVisibility(value, this);">
 <!-- English --><option selected data-title="Help for Quick Menu" data-language-chooser-label="Choose language" value="en">English</option>
 <!-- Español --><option data-title="Ayuda para Quick Menu" data-language-chooser-label="Elegir idioma" value="es">Español</option>
+<!-- Svenska --><option data-title="Hjälp för Quick Menu" data-language-chooser-label="Välj språk" value="sv">Svenska</option>
+<!-- 语言名称 --><option data-title="Quick Menu的帮助" data-language-chooser-label="选择语言" value="zh_CN">语言名称</option>
 </select>
 </div> <!-- .localization-chooser -->
 <div class="container boxed">
+
+<div id="zh_CN" class="localization-content hidden">
+
+<h1>Quick Menu的帮助</h1>
+
+<div style="font-weight:bold;" class="alert alert-warning">
+<h2>重要！！！</h2>
+
+<p>不要删除该xlet文件夹内的任何文件。可能会损坏该xlet的功能。</p>
+
+<p>错误报告，功能请求和贡献应该在下方链接的xlet的仓库上完成。 <a href="https://github.com/Odyseus/CinnamonTools">GitHub</a></p>
+
+</div>
+<hr>
+
+<h2>小程序用法</h2>
+<ul>
+<li>菜单项转到.desktop文件将显示.desktop文件本身声明的图标和名称。</li>
+<li>按<kbd>Ctrl</kbd> + <strong>左键点击</strong>或使用<strong>中键点击</strong>激活菜单条目时保持菜单打开。</li>
+</ul>
+<hr>
+<h2>设置每个子菜单的其他图标的方式</h2>
+<ul>
+<li>在文件夹同级目录创建用于创建子菜单的文件。</li>
+<li>文件名可以自定义，不需要扩展名，也可以是隐藏文件（.文件）。默认情况下称为<strong>0_icons_for_sub_menus.json</strong>。</li>
+<li>无论选择了什么文件名称，它都会被自动忽略并且不会显示在菜单上。</li>
+<li>图标的路径必须是完整路径。可以使用以<strong>~/</strong>开头的路径并将其扩展到用户的主文件夹。</li>
+<li>如果任何子文件夹包含更多需要自定义图标的文件夹，只需在这些文件夹的同级目录创建另一个<strong>0_icons_for_sub_menus.json</strong>文件。</li>
+<li>该文件的内容是一个<em>JSON对象</em>，必须如下所示：</li>
+</ul>
+<pre><code>{
+    文件夹名称 #1": "文件夹名称的图标名称或图标路径 #1"
+    文件夹名称 #2": "文件夹名称的图标名称或图标路径 #2"
+    文件夹名称 #3": "文件夹名称的图标名称或图标路径 #3"
+    文件夹名称 #n": "文件夹名称的图标名称或图标路径 #n"
+}
+</code></pre>
+<p><strong>警告！！！</strong> JSON<em>语言</em>非常严格。只需确保仅使用双引号。并且最后一个键/值组合不必以逗号结尾（在前面的例子中是<strong>文件名 #n</strong>）。</p>
+<hr>
+
+<h2>小程序/桌面小工具/扩展（也称为xlets）本地化</h2>
+<ul>
+<li>如果该xlet安装自Cinnamon设置，该xlet的所有本地化已经自动安装。</li>
+<li>如果该xlet是通过手动安装而不是Cinnamon设置，可以通过打开终端执行xlet文件夹内名为<strong>localizations.sh</strong>的脚本安装本地化。</li>
+<li>如果该xlet没有您的语言的本地化，您可以按照以下说明进行创建。 <a href="https://github.com/Odyseus/CinnamonTools/wiki/Xlet-localization">Wiki</a></li>
+</ul>
+
+</div> <!-- .localization-content -->
+
 
 <div id="es" class="localization-content hidden">
 
@@ -436,6 +487,55 @@ pre {
 <li>Si este xlet se instaló desde Configuración de Cinnamon, todas las localizaciones de este xlet se instalaron automáticamente.</li>
 <li>Si este xlet se instaló manualmente y no a través de Configuración de Cinnamon, las localizaciones se pueden instalar ejecutando el archivo llamado <strong>localizations.sh</strong> desde una terminal abierta dentro de la carpeta del xlet.</li>
 <li>Si este xlet no está disponible en su idioma, la localización puede ser creada siguiendo las siguientes instrucciones. <a href="https://github.com/Odyseus/CinnamonTools/wiki/Xlet-localization">Wiki</a></li>
+</ul>
+
+</div> <!-- .localization-content -->
+
+
+<div id="sv" class="localization-content hidden">
+
+<h1>Hjälp för Quick Menu</h1>
+
+<div style="font-weight:bold;" class="alert alert-warning">
+<h2>VIKTIGT!!!</h2>
+
+<p>Ta aldrig bort någon av filerna i den här xlet-mappen. Det kan förstöra programmets funktioner.</p>
+
+<p>Felrapporter, funktionsönskemål och kodbidrag kan göras i denna xlets kodförråd, länkat nedan. <a href="https://github.com/Odyseus/CinnamonTools">GitHub</a></p>
+
+</div>
+<hr>
+
+<h2>Programanvändning</h2>
+<ul>
+<li>Menyposter från .desktop-filer</li>
+<li>Menyn kan hållas öppen för aktivering av menyposter, med [Ctrl]+<strong>Vänsterklick</strong> eller med <strong>Mushjulsklick</strong>.</li>
+</ul>
+<hr>
+<h2>Hur man anger olika ikoner för varje undermeny</h2>
+<ul>
+<li>Skapa en fil på samma nivå som de mappar som skall användas för att skapa undermenyer.</li>
+<li>Filnamnet kan anpassas, behöver inte ha någon filändelse och kan vara en dold fil (.filnamn). Som standard heter den <strong>0_icons_for_sub_menus.json</strong>.</li>
+<li>Vad du än väljer för filnamn, kommer den att undantas automatiskt och aldrig visas på menyn.</li>
+<li>Sökvägen till ikonen måste vara en fullständig sökväg. En sökväg som börjar med tilde (<strong>~/</strong>) kan användas och expanderas till användarens hemkatalog.</li>
+<li>Om en undermeny har flera mappar som behöver anpassade ikoner, kan du skapa ännu en <strong>0_icons_for_sub_menus.json</strong> på samma nivå som de mapparna.</li>
+<li>Innehållet i filen är ett JSON-objekt och måste se ut som följer:</li>
+</ul>
+<pre><code>{
+    Mappnamn #1": "Ikonnamn eller ikonsökväg för mappnamn #1"
+    Mappnamn #2": "Ikonnamn eller ikonsökväg för mappnamn #2"
+    Mappnamn #3": "Ikonnamn eller ikonsökväg för mappnamn #3"
+    Mappnamn #n": "Ikonnamn eller ikonsökväg för mappnamn #n"
+}
+</code></pre>
+<p><strong>Varning!!!</strong> JSON <em>kodspråket</em> är mycket strikt. Använd ENDAST dubbla citationstecken, och den sista nyckel-/värdekombinationen behöver INTE avslutas med kommatecken (<strong>Folder name #n</strong> i föregående exempel).</p>
+<hr>
+
+<h2>Applets/Desklets/Extensions (xlets) översättning</h2>
+<ul>
+<li>Om denna xlet installerades från Cinnamons inställningar, installerades också alla översättningar automatiskt.</li>
+<li>Om denna xlet installerades manuellt och inte via Cinnamons inställningar, kan översättningar installeras genom att köra skriptet <strong>localizations.sh</strong> från en terminal öppnad i programmappen.</li>
+<li>Om ditt språk saknas i denna xlet, kan du översätta den genom följande instruktioner. <a href="https://github.com/Odyseus/CinnamonTools/wiki/Xlet-localization">Wiki</a></li>
 </ul>
 
 </div> <!-- .localization-content -->
