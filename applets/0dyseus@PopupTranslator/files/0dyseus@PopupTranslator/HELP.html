@@ -388,9 +388,99 @@ pre {
 <select class="form-control" id="localization-switch" onchange="self.toggleLocalizationVisibility(value, this);">
 <!-- English --><option selected data-title="Help for Popup Translator" data-language-chooser-label="Choose language" value="en">English</option>
 <!-- Español --><option data-title="Ayuda para Popup Translator" data-language-chooser-label="Elegir idioma" value="es">Español</option>
+<!-- Svenska --><option data-title="Hjälp för Popup Translator" data-language-chooser-label="Välj språk" value="sv">Svenska</option>
+<!-- 语言名称 --><option data-title="Popup Translator的帮助" data-language-chooser-label="选择语言" value="zh_CN">语言名称</option>
 </select>
 </div> <!-- .localization-chooser -->
 <div class="container boxed">
+
+<div id="zh_CN" class="localization-content hidden">
+
+<h1>Popup Translator的帮助</h1>
+
+<div style="font-weight:bold;" class="alert alert-warning">
+<h2>重要！！！</h2>
+
+<p>不要删除该xlet文件夹内的任何文件。可能会损坏该xlet的功能。</p>
+
+<p>错误报告，功能请求和贡献应该在下方链接的xlet的仓库上完成。 <a href="https://github.com/Odyseus/CinnamonTools">GitHub</a></p>
+
+</div>
+<hr>
+
+<h2>依赖关系</h2>
+<p><strong>如果您的系统中缺少其中一个或多个依赖，您将不能够使用该小程序。</strong></p>
+<h3>xsel命令</h3>
+<p>XSel是一个获取和设置X选择的内容的命令行程序。</p>
+<ul>
+<li>Debian和Archlinux系发行版： 该软件包名为<strong>xsel</strong>。</li>
+</ul>
+<h3>xdg-open命令</h3>
+<p>在用户首选的处理相应URI或文件类型的应用程序中打开URI。</p>
+<ul>
+<li>Debian和Archlinux系发行版： 该命令和名为<strong>xdg-utils</strong>的软件包一同安装。 现在的Linux Mint版本中已经默认安装。</li>
+</ul>
+<h3>Python 3</h3>
+<p>它应该已经安装在所有的Linux发行版中。</p>
+<h3>需要Python 3模块</h3>
+<p>请求允许您发送HTTP/1.1请求。您可以使用简单的Python字典添加标题、表单数据、多部分文件和参数，并以相同的方式访问响应数据。它由httplib和urllib3驱动，但它为您做了所有艰难的工作和疯狂的雇佣文人。</p>
+<ul>
+<li>Debian和Archlinux系发行版： 该命令和名为<strong>xdg-utils</strong>的软件包一同安装。 现在的Linux Mint版本中已经默认安装。</li>
+<li>Debian系发行版： 该软件包名为<strong>python3-requests</strong>。 现在的Linux Mint版本中已经默认安装。</li>
+<li>Archlinux系发行版： 该软件包名为<strong>python-requests</strong>。</li>
+</ul>
+<p><strong>安装任何缺少的依赖后，需要重新启动Cinnamon</strong></p>
+<p><strong>注意：</strong> 我不使用任何其他类型的Linux发行版（Gentoo系、Slackware系，等等）。如果任何前面的软件包/模块以不同的方式命名，请告诉我，我将在此帮助文件中指定它们。</p>
+<hr>
+<h2>用法</h2>
+<p>有4种<em>翻译机制</em>（<strong>左键点击</strong>、<strong>中键点击</strong>、<strong>热键 #1</strong>和<strong>热键 #2</strong>）。每个翻译机制都可以配置自己的服务提供者，语言配对和热键。</p>
+<ul>
+<li><strong>第一个翻译机制(左键点击):</strong>翻译您系统上的任何应用程序中选中的文本。可以分配热键执行此任务。</li>
+<li><strong>第一个翻译机制(<kbd>Ctrl</kbd> + 左键点击):</strong>同<strong>左键点击</strong>，但是会绕过翻译历史。可以分配热键执行此任务。</li>
+<li><strong>第二个翻译机制(中键点击):</strong>同<strong>左键点击</strong>。</li>
+<li><strong>第二个翻译机制(<kbd>Ctrl</kbd> + 中键点击):</strong>同<kbd>Ctrl</kbd> + 左键点击。</li>
+<li><strong>第三个翻译机制(热键 #1):</strong>可以配置两个热键用来执行翻译和强制翻译。</li>
+<li><strong>第四个翻译机制(热键 #2):</strong>可以配置两个热键用来执行翻译和强制翻译。
+所有的翻译都存储在翻译历史中。如果在以前已经翻译了一串文本，弹窗将会显示所存储的翻译文本而不使用提供者的翻译服务。</li>
+</ul>
+<hr>
+<h2>关于翻译历史</h2>
+<p>我创建了翻译历史机制，主要是为了避免翻译服务的滥用。</p>
+<ul>
+<li>如果Google Translate服务被滥用，Google可能暂时阻止您的IP。但更糟糕的是，他们可以改变翻译机制使得这个小程序无用，并迫使我更新其代码。</li>
+<li>如果Yandex Translate服务被“滥用”，您正在“浪费”您的API密钥配额并将会（临时或永久）被封。
+在这个小程序的右键菜单中有一个条目可以打开翻译历史文件所存储的文件夹。从那里可以备份或删除翻译历史文件。</li>
+</ul>
+<p><strong>不要手动编辑翻译历史文件！！！</strong></p>
+<p><strong>如果删除/重命名/移动了翻译历史文件，需要重新启动Cinnamon。</strong></p>
+<hr>
+<h2>获取Yandex translator API密钥的方法</h2>
+<ul>
+<li>访问以下其中一个链接并注册Yandex帐户（或使用其中一个可用的社交服务）。<ul>
+<li>英语： <a href="https://tech.yandex.com/keys/get/?service=trnsl">https://tech.yandex.com/keys/get/?service=trnsl</a></li>
+<li>俄语： <a href="https://tech.yandex.ru/keys/get/?service=trnsl">https://tech.yandex.ru/keys/get/?service=trnsl</a></li>
+</ul>
+</li>
+<li>一旦您成功创建了您的Yandex帐户，您可以访问多次提供的链接来创建多个API密钥。<strong>请勿滥用！！！</strong></li>
+<li>一旦你有几个API密钥，你可以将其添加到Popup Translator的设置窗口（每行一个API密钥）。</li>
+</ul>
+<h3>关于Yandex API密钥的重要提示</h3>
+<ul>
+<li>API密钥将会被存储到首选项中。保持备份您的API密钥，以防您重置Popup Translator的首选项。</li>
+<li><strong>不要公开您的API密钥！！！</strong>获取您自己的API密钥遇到麻烦的原因只有一个，你和别人“正在消耗他们的极限”。</li>
+<li>使用每个Yandex translator密钥，您<strong>至多</strong>每天可以翻译1.000.000 (1百万)个字符，<strong>但不能超过</strong>每个月10.000.000 (10百万)个字符。</li>
+</ul>
+<hr>
+
+<h2>小程序/桌面小工具/扩展（也称为xlets）本地化</h2>
+<ul>
+<li>如果该xlet安装自Cinnamon设置，该xlet的所有本地化已经自动安装。</li>
+<li>如果该xlet是通过手动安装而不是Cinnamon设置，可以通过打开终端执行xlet文件夹内名为<strong>localizations.sh</strong>的脚本安装本地化。</li>
+<li>如果该xlet没有您的语言的本地化，您可以按照以下说明进行创建。 <a href="https://github.com/Odyseus/CinnamonTools/wiki/Xlet-localization">Wiki</a></li>
+</ul>
+
+</div> <!-- .localization-content -->
+
 
 <div id="es" class="localization-content hidden">
 
@@ -475,6 +565,94 @@ En el menú contextual de este applet existe un ítem que permite abrir la carpe
 <li>Si este xlet se instaló desde Configuración de Cinnamon, todas las localizaciones de este xlet se instalaron automáticamente.</li>
 <li>Si este xlet se instaló manualmente y no a través de Configuración de Cinnamon, las localizaciones se pueden instalar ejecutando el archivo llamado <strong>localizations.sh</strong> desde una terminal abierta dentro de la carpeta del xlet.</li>
 <li>Si este xlet no está disponible en su idioma, la localización puede ser creada siguiendo las siguientes instrucciones. <a href="https://github.com/Odyseus/CinnamonTools/wiki/Xlet-localization">Wiki</a></li>
+</ul>
+
+</div> <!-- .localization-content -->
+
+
+<div id="sv" class="localization-content hidden">
+
+<h1>Hjälp för Popup Translator</h1>
+
+<div style="font-weight:bold;" class="alert alert-warning">
+<h2>VIKTIGT!!!</h2>
+
+<p>Ta aldrig bort någon av filerna i den här xlet-mappen. Det kan förstöra programmets funktioner.</p>
+
+<p>Felrapporter, funktionsönskemål och kodbidrag kan göras i denna xlets kodförråd, länkat nedan. <a href="https://github.com/Odyseus/CinnamonTools">GitHub</a></p>
+
+</div>
+<hr>
+
+<h2>Beroenden</h2>
+<p><strong>Om ett eller flera av dessa beroenden saknas i ditt system, kommer du inte att kunna använda det här panelprogrammet.</strong></p>
+<h3>xsel-kommando</h3>
+<p>XSel är ett kommandoradsprogram för att hämta och ställa in innehållet i X-samlingen.</p>
+<ul>
+<li>Debian- och Archlinux-baserade distributioner: Paketet kallas <strong>xsel</strong>.</li>
+</ul>
+<h3>xdg-open-kommando</h3>
+<p>Öppna en URI i användarens föredragna program, som hanterar respektive URI eller filtyp.</p>
+<ul>
+<li>Debian- och Archlinux-baserade distributioner: Detta kommando installeras med paketet <strong>xdg-utils</strong>. Installerad som standard i nyare versioner av Linux Mint.</li>
+</ul>
+<h3>Python 3</h3>
+<p>Den bör redan vara installerad i alla Linux-distributioner.</p>
+<h3>begär Python 3-modul</h3>
+<p>Requests låter dig skicka HTTP/1.1-förfrågningar. Du kan lägga till "headers", formulärdata, multi-part-filer och parametrar med enkla Python-ordlistor, och komma åt svarsdata på samma sätt. Det drivs av httplib och urllib3, men det gör jobbet och alla galna hack åt dig.</p>
+<ul>
+<li>Debian- och Archlinux-baserade distributioner: Detta kommando installeras med paketet <strong>xdg-utils</strong>. Installerad som standard i nyare versioner av Linux Mint.</li>
+<li>Debian-baserade distributioner: Detta paket kallas <strong>python3-requests</strong>. Installerad som standard i nyare versioner av Linux Mint.</li>
+<li>Archlinux-baserade distributioner: Detta paket kallas <strong>python-requests</strong>.</li>
+</ul>
+<p><strong>Efter installation av något saknat beroende, måste Cinnamon startas om.</strong></p>
+<p><strong>Notis:</strong> Jag använder inga andra typer av Linux-distributioner (Gentoo-baserade, Slackware-baserade, etc.). Meddela mig, om något av föregående paket/moduler är annorlunda namngivna, så kan jag specificera dem i denna hjälpfil.</p>
+<hr>
+<h2>Användning</h2>
+<p>Det finns 4 <em>översättningsfunktioner</em> (<strong>Vänsterklick</strong>, <strong>Mushjulsklick</strong>, <strong>Snabbtangent #1</strong> och <strong>Snabbtangent #2</strong>). Varje översättningsfunktion kan konfigureras med sin egen uppsättning tjänstleverantör, språkpar och snabbtangent.</p>
+<ul>
+<li><strong>Första översättningsfunktionen (Vänsterklick):</strong> Översätter fritt markerad text från valfritt program i ditt system. En snabbtangent kan tilldelas för att utföra åtgärden.</li>
+<li><strong>Första översättningsfunktionen (<kbd>Ctrl</kbd> + Vänsterklick):</strong> Samma som <strong>Vänsterklick</strong>, men det kringgår översättningshistoriken. En snabbtangent kan tilldelas för att utföra åtgärden.</li>
+<li><strong>Andra översättningsfunktionen (Mushjulsklick):</strong> Samma som <strong>Vänsterklick</strong>.</li>
+<li><strong>Andra översättningsfunktionen (<kbd>Ctrl</kbd> + Mushjulsklick):</strong> Samma som <kbd>Ctrl</kbd> + Vänsterklick.</li>
+<li><strong>Tredje översättningsfunktionen (Snabbtangent #1):</strong> Två snabbtangenter kan konfigureras för att utföra en översättning och en "Tvingad" översättning.</li>
+<li><strong>Fjärde översättningsfunktionen (Snabbtangent #2):</strong> Två snabbtangenter kan konfigureras för att utföra en översättning och en "Tvingad" översättning.
+Alla översättningar lagras i översättningshistoriken. Om en textsträng redan tidigare har översatts, Kommer popup-rutan att visa den lagrade översättningen, utan att använda leverantörens översättningstjänst.</li>
+</ul>
+<hr>
+<h2>Om översättningshistorik</h2>
+<p>Jag skapade historikfunktionen för översättningar, i huvudsak för att undvika missbruk av översättningstjänsterna.</p>
+<ul>
+<li>Om Google Translate "missbrukas" kan det hända att Google blockerar din IP-adress temporärt. Eller vad som är värre, de kan ändra översättningsfunktionen så att det här panelprogrammet blir obrukbart och tvinga mig att skriva om koden.</li>
+<li>Om Yandex Translate "missbrukas", har du "kastat bort" dina API-nycklar som kommer att blockeras (temporärt eller permanent).
+I panelprogrammets kontextmeny (högerklick på ikonen) kan du öppna den mapp där översättningshistoriken lagras. Därifrån kan du säkerhetskopiera eller ta bort historiken.</li>
+</ul>
+<p><strong>Redigera ALDRIG översättningshistoriken manuellt!</strong></p>
+<p><strong>Om historikfilen tas bort, döps om eller flyttas, måste Cinnamon startas om.</strong></p>
+<hr>
+<h2>Hur man skaffar Yandex translators API-nycklar</h2>
+<ul>
+<li>Besök en av följande länkar och registrera ett Yandex-konto (eller använd ett av tillgängliga sociala medier).<ul>
+<li>Engelska: <a href="https://tech.yandex.com/keys/get/?service=trnsl">https://tech.yandex.com/keys/get/?service=trnsl</a></li>
+<li>Ryska: <a href="https://tech.yandex.ru/keys/get/?service=trnsl">https://tech.yandex.ru/keys/get/?service=trnsl</a></li>
+</ul>
+</li>
+<li>När du har skapat ditt Yandex-konto, kan du besöka den angivna länken flera gånger, för att skapa flera API-nycklar. <strong>MISSBRUKA INTE DETTA!!!</strong></li>
+<li>När du har flera API-nycklar, kan du lägga till dem i Popup Translators inställningar (en API-nyckel per rad).</li>
+</ul>
+<h3>Viktig information om Yandex API-nycklar</h3>
+<ul>
+<li>API-nycklarna kommer att lagras som en inställning. Bevara en säkerhetskopia på dina API-nycklar, ifall du behöver återställa Popup Translators inställningar.</li>
+<li><strong>Offentliggör ALDRIG dina API-nycklar!!!</strong> Hela syftet med att göra sig besväret att skaffa sina egna API-nycklar, är att endast du skall kunna nyttja den begränsade mängden översatta tecken.</li>
+<li>Med varje Yandex translator API-nyckel kan du översätta <strong>UPP TILL</strong> 1.000.000 (1 miljon) tecken per dag. <strong>MEN INTE MER ÄN</strong> 10.000.000 (10 miljoner) per månad.</li>
+</ul>
+<hr>
+
+<h2>Applets/Desklets/Extensions (xlets) översättning</h2>
+<ul>
+<li>Om denna xlet installerades från Cinnamons inställningar, installerades också alla översättningar automatiskt.</li>
+<li>Om denna xlet installerades manuellt och inte via Cinnamons inställningar, kan översättningar installeras genom att köra skriptet <strong>localizations.sh</strong> från en terminal öppnad i programmappen.</li>
+<li>Om ditt språk saknas i denna xlet, kan du översätta den genom följande instruktioner. <a href="https://github.com/Odyseus/CinnamonTools/wiki/Xlet-localization">Wiki</a></li>
 </ul>
 
 </div> <!-- .localization-content -->
