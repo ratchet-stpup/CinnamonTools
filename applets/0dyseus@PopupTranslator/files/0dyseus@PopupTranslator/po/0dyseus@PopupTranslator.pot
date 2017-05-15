@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 0dyseus@PopupTranslator 1.05\n"
-"POT-Creation-Date: 2017-05-13 20:35-0300\n"
+"POT-Creation-Date: 2017-05-14 14:17-0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -49,10 +49,10 @@ msgstr ""
 msgid "Fourth translation mechanism (Hotkey #2)"
 msgstr ""
 
-#. 0dyseus@PopupTranslator->settings-schema.json->pref_service_provider_3->description
-#. 0dyseus@PopupTranslator->settings-schema.json->pref_service_provider_4->description
-#. 0dyseus@PopupTranslator->settings-schema.json->pref_service_provider_2->description
 #. 0dyseus@PopupTranslator->settings-schema.json->pref_service_provider_1->description
+#. 0dyseus@PopupTranslator->settings-schema.json->pref_service_provider_4->description
+#. 0dyseus@PopupTranslator->settings-schema.json->pref_service_provider_3->description
+#. 0dyseus@PopupTranslator->settings-schema.json->pref_service_provider_2->description
 #: applet.js:172
 msgid "Service provider"
 msgstr ""
@@ -477,14 +477,6 @@ msgstr ""
 msgid "If this xlet has no locale available for your language, you could create it by following the following instructions."
 msgstr ""
 
-#. 0dyseus@PopupTranslator->metadata.json->description
-msgid "Simple translator applet that will allow to display any selected text from any application on a system in a popup."
-msgstr ""
-
-#. 0dyseus@PopupTranslator->metadata.json->comments
-msgid "Bug reports, feature requests and contributions should be done on this xlet's repository linked below."
-msgstr ""
-
 #. 0dyseus@PopupTranslator->metadata.json->contributors
 msgid "NikoKrause: German localization and bug reports."
 msgstr ""
@@ -513,71 +505,65 @@ msgstr ""
 msgid "Popup Translator"
 msgstr ""
 
-#. 0dyseus@PopupTranslator->settings-schema.json->pref_translate_key_4->description
-#. 0dyseus@PopupTranslator->settings-schema.json->pref_translate_key_2->description
-#. 0dyseus@PopupTranslator->settings-schema.json->pref_translate_key_3->description
-#. 0dyseus@PopupTranslator->settings-schema.json->pref_translate_key_1->description
-msgid "Keyboard shortcut to perform a translation"
+#. 0dyseus@PopupTranslator->metadata.json->description
+msgid "Simple translator applet that will allow to display any selected text from any application on a system in a popup."
 msgstr ""
 
-#. 0dyseus@PopupTranslator->settings-schema.json->pref_translate_key_4->tooltip
-#. 0dyseus@PopupTranslator->settings-schema.json->pref_translate_key_2->tooltip
-#. 0dyseus@PopupTranslator->settings-schema.json->pref_translate_key_3->tooltip
-#. 0dyseus@PopupTranslator->settings-schema.json->pref_translate_key_1->tooltip
-msgid "Choose a keybinding to perform a translation."
+#. 0dyseus@PopupTranslator->metadata.json->comments
+msgid "Bug reports, feature requests and contributions should be done on this xlet's repository linked below."
 msgstr ""
 
-#. 0dyseus@PopupTranslator->settings-schema.json->pref_style_for_translated_text->description
-msgid "Translated text style"
+#. 0dyseus@PopupTranslator->settings-schema.json->pref_translate_key_forced_3->description
+#. 0dyseus@PopupTranslator->settings-schema.json->pref_translate_key_forced_4->description
+#. 0dyseus@PopupTranslator->settings-schema.json->pref_translate_key_forced_1->description
+#. 0dyseus@PopupTranslator->settings-schema.json->pref_translate_key_forced_2->description
+msgid "Keyboard shortcut to perform a FORCED translation"
 msgstr ""
 
-#. 0dyseus@PopupTranslator->settings-schema.json->pref_service_provider_3->tooltip
-#. 0dyseus@PopupTranslator->settings-schema.json->pref_service_provider_4->tooltip
-#. 0dyseus@PopupTranslator->settings-schema.json->pref_service_provider_2->tooltip
-#. 0dyseus@PopupTranslator->settings-schema.json->pref_service_provider_1->tooltip
-msgid "Choose translation service provider."
+#. 0dyseus@PopupTranslator->settings-schema.json->pref_translate_key_forced_3->tooltip
+#. 0dyseus@PopupTranslator->settings-schema.json->pref_translate_key_forced_4->tooltip
+#. 0dyseus@PopupTranslator->settings-schema.json->pref_translate_key_forced_1->tooltip
+#. 0dyseus@PopupTranslator->settings-schema.json->pref_translate_key_forced_2->tooltip
+msgid "Choose a keybinding to perform a FORCED translation. A \"forced translation\" forces the translation of any string stored on the translation history and overwrites the existing one."
 msgstr ""
 
-#. 0dyseus@PopupTranslator->settings-schema.json->pref_service_provider_3->options
-#. 0dyseus@PopupTranslator->settings-schema.json->pref_service_provider_4->options
-#. 0dyseus@PopupTranslator->settings-schema.json->pref_service_provider_2->options
 #. 0dyseus@PopupTranslator->settings-schema.json->pref_service_provider_1->options
+#. 0dyseus@PopupTranslator->settings-schema.json->pref_service_provider_4->options
+#. 0dyseus@PopupTranslator->settings-schema.json->pref_service_provider_3->options
+#. 0dyseus@PopupTranslator->settings-schema.json->pref_service_provider_2->options
 msgid "Yandex Translator"
 msgstr ""
 
-#. 0dyseus@PopupTranslator->settings-schema.json->pref_service_provider_3->options
-#. 0dyseus@PopupTranslator->settings-schema.json->pref_service_provider_4->options
-#. 0dyseus@PopupTranslator->settings-schema.json->pref_service_provider_2->options
 #. 0dyseus@PopupTranslator->settings-schema.json->pref_service_provider_1->options
+#. 0dyseus@PopupTranslator->settings-schema.json->pref_service_provider_4->options
+#. 0dyseus@PopupTranslator->settings-schema.json->pref_service_provider_3->options
+#. 0dyseus@PopupTranslator->settings-schema.json->pref_service_provider_2->options
 msgid "Google Translator"
 msgstr ""
 
-#. 0dyseus@PopupTranslator->settings-schema.json->pref_custom_icon_for_applet->description
-msgid "Custom icon"
+#. 0dyseus@PopupTranslator->settings-schema.json->pref_service_provider_1->tooltip
+#. 0dyseus@PopupTranslator->settings-schema.json->pref_service_provider_4->tooltip
+#. 0dyseus@PopupTranslator->settings-schema.json->pref_service_provider_3->tooltip
+#. 0dyseus@PopupTranslator->settings-schema.json->pref_service_provider_2->tooltip
+msgid "Choose translation service provider."
 msgstr ""
 
-#. 0dyseus@PopupTranslator->settings-schema.json->head0->description
-msgid "Applet settings"
+#. 0dyseus@PopupTranslator->settings-schema.json->pref_custom_label_for_applet->description
+msgid "Custom label"
 msgstr ""
 
-#. 0dyseus@PopupTranslator->settings-schema.json->pref_yandex_api_keys->description
-msgid "API keys"
+#. 0dyseus@PopupTranslator->settings-schema.json->head2->description
+msgid "Popup elements appearance"
 msgstr ""
 
-#. 0dyseus@PopupTranslator->settings-schema.json->pref_yandex_api_keys->tooltip
-msgid ""
-"Enter one API key per line.\n"
-"Read the help file (Help item on this applet context menu) found inside this applet folder to know how to get free Yandex API keys."
-msgstr ""
-
-#. 0dyseus@PopupTranslator->settings-schema.json->pref_history_initial_window_width->description
-msgid "History window initial width"
-msgstr ""
-
-#. 0dyseus@PopupTranslator->settings-schema.json->pref_history_initial_window_width->units
 #. 0dyseus@PopupTranslator->settings-schema.json->pref_history_initial_window_height->units
 #. 0dyseus@PopupTranslator->settings-schema.json->pref_history_width_to_trigger_word_wrap->units
+#. 0dyseus@PopupTranslator->settings-schema.json->pref_history_initial_window_width->units
 msgid "pixels"
+msgstr ""
+
+#. 0dyseus@PopupTranslator->settings-schema.json->pref_history_initial_window_height->description
+msgid "History window initial height"
 msgstr ""
 
 #. 0dyseus@PopupTranslator->settings-schema.json->pref_loggin_enabled->description
@@ -588,42 +574,72 @@ msgstr ""
 msgid "It enables the ability to log the output of several functions used by the applet."
 msgstr ""
 
-#. 0dyseus@PopupTranslator->settings-schema.json->head3->description
-msgid "Translation history settings"
+#. 0dyseus@PopupTranslator->settings-schema.json->pref_style_for_translated_text->description
+msgid "Translated text style"
 msgstr ""
 
-#. 0dyseus@PopupTranslator->settings-schema.json->pref_translate_key_forced_4->description
-#. 0dyseus@PopupTranslator->settings-schema.json->pref_translate_key_forced_2->description
-#. 0dyseus@PopupTranslator->settings-schema.json->pref_translate_key_forced_1->description
-#. 0dyseus@PopupTranslator->settings-schema.json->pref_translate_key_forced_3->description
-msgid "Keyboard shortcut to perform a FORCED translation"
+#. 0dyseus@PopupTranslator->settings-schema.json->pref_history_timestamp->options
+msgid "Custom"
 msgstr ""
 
-#. 0dyseus@PopupTranslator->settings-schema.json->pref_translate_key_forced_4->tooltip
-#. 0dyseus@PopupTranslator->settings-schema.json->pref_translate_key_forced_2->tooltip
-#. 0dyseus@PopupTranslator->settings-schema.json->pref_translate_key_forced_1->tooltip
-#. 0dyseus@PopupTranslator->settings-schema.json->pref_translate_key_forced_3->tooltip
-msgid "Choose a keybinding to perform a FORCED translation. A \"forced translation\" forces the translation of any string stored on the translation history and overwrites the existing one."
+#. 0dyseus@PopupTranslator->settings-schema.json->pref_history_timestamp->options
+msgid "YYYY MM-DD hh:mm:ss (ISO8601)"
 msgstr ""
 
-#. 0dyseus@PopupTranslator->settings-schema.json->pref_history_initial_window_height->description
-msgid "History window initial height"
+#. 0dyseus@PopupTranslator->settings-schema.json->pref_history_timestamp->options
+msgid "YYYY DD-MM hh:mm:ss (European)"
 msgstr ""
 
-#. 0dyseus@PopupTranslator->settings-schema.json->pref_custom_label_for_applet->description
-msgid "Custom label"
+#. 0dyseus@PopupTranslator->settings-schema.json->pref_history_timestamp->description
+msgid "Timestamp for translation history entries"
 msgstr ""
 
-#. 0dyseus@PopupTranslator->settings-schema.json->head4->description
-msgid "Yandex translator settings"
+#. 0dyseus@PopupTranslator->settings-schema.json->pref_translate_key_2->description
+#. 0dyseus@PopupTranslator->settings-schema.json->pref_translate_key_4->description
+#. 0dyseus@PopupTranslator->settings-schema.json->pref_translate_key_3->description
+#. 0dyseus@PopupTranslator->settings-schema.json->pref_translate_key_1->description
+msgid "Keyboard shortcut to perform a translation"
 msgstr ""
 
-#. 0dyseus@PopupTranslator->settings-schema.json->head2->description
-msgid "Popup elements appearance"
+#. 0dyseus@PopupTranslator->settings-schema.json->pref_translate_key_2->tooltip
+#. 0dyseus@PopupTranslator->settings-schema.json->pref_translate_key_4->tooltip
+#. 0dyseus@PopupTranslator->settings-schema.json->pref_translate_key_3->tooltip
+#. 0dyseus@PopupTranslator->settings-schema.json->pref_translate_key_1->tooltip
+msgid "Choose a keybinding to perform a translation."
+msgstr ""
+
+#. 0dyseus@PopupTranslator->settings-schema.json->pref_history_width_to_trigger_word_wrap->tooltip
+msgid "The \"Source text\" and \"Target text\" columns on the history window will wrap its text at the width defined by this setting."
+msgstr ""
+
+#. 0dyseus@PopupTranslator->settings-schema.json->pref_history_width_to_trigger_word_wrap->description
+msgid "Width to trigger word wrap"
 msgstr ""
 
 #. 0dyseus@PopupTranslator->settings-schema.json->label5->description
 msgid "(*) This options are only useful for the applet developer"
+msgstr ""
+
+#. 0dyseus@PopupTranslator->settings-schema.json->pref_loggin_save_history_indented->description
+msgid "Indent translation history data"
+msgstr ""
+
+#. 0dyseus@PopupTranslator->settings-schema.json->pref_loggin_save_history_indented->tooltip
+msgid "It allows to save the translation history data with indentation."
+msgstr ""
+
+#. 0dyseus@PopupTranslator->settings-schema.json->pref_yandex_api_keys->tooltip
+msgid ""
+"Enter one API key per line.\n"
+"Read the help file (Help item on this applet context menu) found inside this applet folder to know how to get free Yandex API keys."
+msgstr ""
+
+#. 0dyseus@PopupTranslator->settings-schema.json->pref_yandex_api_keys->description
+msgid "API keys"
+msgstr ""
+
+#. 0dyseus@PopupTranslator->settings-schema.json->pref_style_for_language_pair->description
+msgid "Language pair style"
 msgstr ""
 
 #. 0dyseus@PopupTranslator->settings-schema.json->pref_history_timestamp_custom->description
@@ -641,6 +657,10 @@ msgid ""
 "ss: seconds"
 msgstr ""
 
+#. 0dyseus@PopupTranslator->settings-schema.json->head3->description
+msgid "Translation history settings"
+msgstr ""
+
 #. 0dyseus@PopupTranslator->settings-schema.json->head5->description
 msgid "Debugging settings"
 msgstr ""
@@ -649,38 +669,18 @@ msgstr ""
 msgid "Footer style"
 msgstr ""
 
-#. 0dyseus@PopupTranslator->settings-schema.json->pref_loggin_save_history_indented->description
-msgid "Indent translation history data"
+#. 0dyseus@PopupTranslator->settings-schema.json->pref_history_initial_window_width->description
+msgid "History window initial width"
 msgstr ""
 
-#. 0dyseus@PopupTranslator->settings-schema.json->pref_loggin_save_history_indented->tooltip
-msgid "It allows to save the translation history data with indentation."
+#. 0dyseus@PopupTranslator->settings-schema.json->head0->description
+msgid "Applet settings"
 msgstr ""
 
-#. 0dyseus@PopupTranslator->settings-schema.json->pref_history_width_to_trigger_word_wrap->description
-msgid "Width to trigger word wrap"
+#. 0dyseus@PopupTranslator->settings-schema.json->head4->description
+msgid "Yandex translator settings"
 msgstr ""
 
-#. 0dyseus@PopupTranslator->settings-schema.json->pref_history_width_to_trigger_word_wrap->tooltip
-msgid "The \"Source text\" and \"Target text\" columns on the history window will wrap its text at the width defined by this setting."
-msgstr ""
-
-#. 0dyseus@PopupTranslator->settings-schema.json->pref_history_timestamp->description
-msgid "Timestamp for translation history entries"
-msgstr ""
-
-#. 0dyseus@PopupTranslator->settings-schema.json->pref_history_timestamp->options
-msgid "YYYY DD-MM hh:mm:ss (European)"
-msgstr ""
-
-#. 0dyseus@PopupTranslator->settings-schema.json->pref_history_timestamp->options
-msgid "YYYY MM-DD hh:mm:ss (ISO8601)"
-msgstr ""
-
-#. 0dyseus@PopupTranslator->settings-schema.json->pref_history_timestamp->options
-msgid "Custom"
-msgstr ""
-
-#. 0dyseus@PopupTranslator->settings-schema.json->pref_style_for_language_pair->description
-msgid "Language pair style"
+#. 0dyseus@PopupTranslator->settings-schema.json->pref_custom_icon_for_applet->description
+msgid "Custom icon"
 msgstr ""

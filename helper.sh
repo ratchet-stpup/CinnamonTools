@@ -304,12 +304,18 @@ Check or set the execution permission for certain files (.sh and .py files)\
 }
 
 updatePOTFiles() {
-    # Create the tmp dir if it doesn't exists.
+    # Create the tmp dir to store the .po files lists if it doesn't exists.
     if [ ! -d $ROOT_PATH/tmp/po_files_list ]; then
       mkdir -p $ROOT_PATH/tmp/po_files_list;
     fi
 
+    # Create the tmp dir to store the updated .po files if it doesn't exists.
+    if [ ! -d $ROOT_PATH/tmp/po_files_updated ]; then
+      mkdir -p $ROOT_PATH/tmp/po_files_updated;
+    fi
+
     rm -f $ROOT_PATH/tmp/po_files_untranslated_count
+    rm -f $ROOT_PATH/tmp/po_files_untranslated_table.md
 
     for type in "$@"; do
         # Using a sub-shell to switch directories to avoid "back and forth".
@@ -321,28 +327,61 @@ updatePOTFiles() {
                     echoInfo "Updating $xlet's localization template..."
                     PO_LIST_TEMP_FILE=$ROOT_PATH/tmp/po_files_list/$xlet
                     (
+                        UPDATED_PO_STORE=$ROOT_PATH/tmp/po_files_updated/$xlet
+                        # Create the tmp dir to store the updated .po files if it doesn't exists.
+                        if [ ! -d "$UPDATED_PO_STORE" ]; then
+                          mkdir -p "$UPDATED_PO_STORE";
+                        fi
+
                         cd "$xlet/files/$xlet"
                         make-xlet-pot --all
                         cd po
                         find . -type f -iname "*.po" > $PO_LIST_TEMP_FILE
                         PO_FILES=`cat $PO_LIST_TEMP_FILE`
+                        # Start the build of raw data
+                        echo "" >> $ROOT_PATH/tmp/po_files_untranslated_count
                         echo "XLET LANGUAGE UNTRANSLATED" >> $ROOT_PATH/tmp/po_files_untranslated_count
+
+                        # Start the build of a Markdown table
+                        # Markdown heading
+                        echo "### $xlet" \
+                        >> $ROOT_PATH/tmp/po_files_untranslated_table.md
+                        # Markdown table header
+                        echo "|LANGUAGE|UNTRANSLATED|" \
+                        >> $ROOT_PATH/tmp/po_files_untranslated_table.md
+                        # Markdown table header separator
+                        echo "|--------|------------|" \
+                        >> $ROOT_PATH/tmp/po_files_untranslated_table.md
 
                         for file in $PO_FILES; do
                             SHORTENED_PATH=${file#*$ROOT_PATH}
+                            PO_FILE=$(basename $file)
+                            TMP_PO_PATH=$UPDATED_PO_STORE/$PO_FILE
 
                             if [ -f ${file} ]; then
-                                echoInfo "Updating $SHORTENED_PATH from localization template..."
-                                msgmerge --backup=off -N --previous --update $SHORTENED_PATH $xlet.pot \
-                                &> /dev/null && echoInfo "Done" || echoError "Error"
+                                echoInfo "Copying $PO_FILE to temporary location..."
+                                /bin/cp -rf "$file" "$TMP_PO_PATH"
+                                echoInfo "Updating temporary $PO_FILE from localization template..."
+                                msgmerge -N --previous --backup=off --update "$TMP_PO_PATH" $xlet.pot \
+                                &> /dev/null || echoError "Error updating $PO_FILE"
 
-                                if [ "$#" != 1 ]; then
-                                    UNTRANSLATED=`msggrep -v -T -e "." $SHORTENED_PATH | grep -c ^msgstr`
-                                    echo "$xlet: $(basename $file) $UNTRANSLATED" >>\
-                                    $ROOT_PATH/tmp/po_files_untranslated_count
-                                fi
+                                echoInfo "Counting and storing untranslated strings..."
+                                UNTRANSLATED=`msggrep -v -T -e "." $PO_FILE | grep -c ^msgstr`
+
+                                # Continue the build of raw data
+                                echo "$xlet: $PO_FILE $UNTRANSLATED" >>\
+                                $ROOT_PATH/tmp/po_files_untranslated_count
+
+                                # Continue the build of a Markdown table
+                                # Markdown table row
+                                echo "|$PO_FILE|$UNTRANSLATED|" >>\
+                                $ROOT_PATH/tmp/po_files_untranslated_table.md
+
+                                echo ""
                             fi
                         done
+
+                        echo "" >> $ROOT_PATH/tmp/po_files_untranslated_table.md
                     )
                 fi
             done
@@ -352,6 +391,8 @@ updatePOTFiles() {
     done
 
     sleep 1
+    # Convert raw data into columns.
+    # Leave Markdown data as is.
     column -t $ROOT_PATH/tmp/po_files_untranslated_count \
     > $ROOT_PATH/tmp/po_files_untranslated_count_column
 }
