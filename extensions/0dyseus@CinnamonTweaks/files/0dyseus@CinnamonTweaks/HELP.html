@@ -388,9 +388,174 @@ pre {
 <select class="form-control" id="localization-switch" onchange="self.toggleLocalizationVisibility(value, this);">
 <!-- English --><option selected data-title="Help for Cinnamon Tweaks" data-language-chooser-label="Choose language" value="en">English</option>
 <!-- Español --><option data-title="Ayuda para Cinnamon Tweaks" data-language-chooser-label="Elegir idioma" value="es">Español</option>
+<!-- 语言名称 --><option data-title="Cinnamon Tweaks的帮助" data-language-chooser-label="选择语言" value="zh_CN">语言名称</option>
 </select>
 </div> <!-- .localization-chooser -->
 <div class="container boxed">
+
+<div id="zh_CN" class="localization-content hidden">
+
+<h1>Cinnamon Tweaks的帮助</h1>
+
+<div style="font-weight:bold;" class="alert alert-warning">
+<h2>重要！！！</h2>
+
+<p>不要删除该xlet文件夹内的任何文件。可能会损坏该xlet的功能。</p>
+
+<p>错误报告，功能请求和贡献应该在下方链接的xlet的仓库上完成。 <a href="https://github.com/Odyseus/CinnamonTools">GitHub</a></p>
+
+</div>
+<hr>
+
+<h2>扩展选项详情</h2>
+<p><span style="color:red;font-weight: bold;font-size: large;">
+一些调整在启用调整之前会有必须阅读和理解的警告、依赖、限制和已知问题。不用担心，不会发生致命错误。
+</span></p>
+<h3>小程序/桌面小工具调整</h3>
+<ul>
+<li><strong>移除小程序/桌面小工具时询问确认：</strong> 而不是从右键菜单中直接删除小程序/桌面小工具，它将询问确认。此选项不影响从Cinnamon设置中的小程序/桌面小工具管理器中删除小程序/桌面小工具（将没有确认）。</li>
+<li><strong>在小程序/桌面小工具右键菜单上显示“打开小程序/桌面小工具文件夹”</strong> &amp; <strong>在小程序/桌面小工具右键菜单上显示“编辑小程序/桌面小工具主文件”：</strong> 这些选项将会添加新的菜单条目添加到小程序/桌面小工具右键菜单中。该条目所在的位置由选项<strong>在哪里放置菜单条目？</strong>选择。</li>
+</ul>
+<h3>热角调整</h3>
+<p>此调整仅适用于低于3.2的Cinnamon版本。Cinnamon3.2.x已经包含热角延迟激活。</p>
+<ul>
+<li><strong>左上方热角激活延迟：</strong> 浅显易懂。</li>
+<li><strong>右上方热角激活延迟：</strong> 浅显易懂。</li>
+<li><strong>左下方热角激活延迟：</strong> 浅显易懂。</li>
+<li><strong>右下方热角激活延迟：</strong> 浅显易懂。</li>
+</ul>
+<h3>桌面区域调整</h3>
+<ul>
+<li><strong>启用应用程序拖放到桌面：</strong> 此调整使得能够将应用程序从菜单小程序和面板启动器小程序拖放到桌面中。</li>
+</ul>
+<h3>弹出菜单调整</h3>
+<h5>面板菜单行为</h5>
+<p><strong>注意：</strong> 此设置仅影响属于位于任何面板上的小程序的菜单的行为。</p>
+<ul>
+<li><strong>模拟Gnome Shell行为：</strong> 当在Genome Shell上打开菜单，然后将鼠标光标移动到顶部面板上的另一个按钮时，所悬停的按钮的菜单将会自动打开而无需点击。启用此选项后，可以在Cinnamon上重现相同的行为。</li>
+<li><strong>不要“吃掉”点击：</strong> 默认情况下，当在Cinnamon上打开一个小程序的菜单，然后点击另一个小程序要打开其菜单时，第一次点击用于关闭第一次打开的菜单，然后必须再执行一次点击才能打开第二个小程序的菜单。启用此选项后，即使打开了另一个小程序的菜单，也可以直接打开任何小程序的菜单。</li>
+</ul>
+<h3>提示调整</h3>
+<ul>
+<li><strong>避免鼠标指针与提示重叠：</strong> Cinnamon用户界面上的提示与鼠标指针的左上角对齐。这导致提示与鼠标指针重叠。此调整将提示对齐到鼠标指针的右下角（大约），从而减少鼠标指针与提示重叠的可能性。此调整仅适用于低于3.2的Cinnamon版本。Cinnamon3.2.x已经可以更改工具提示的位置。</li>
+<li><strong>提示显示延迟：</strong> 浅显易懂。</li>
+</ul>
+<h3>通知调整</h3>
+<ul>
+<li><strong>启用通知开/关动画：</strong> 浅显易懂。</li>
+<li><strong>通知位置：</strong> 通知可以在屏幕的右上方（系统默认）或右下方显示。</li>
+<li><strong>面板距离：</strong><ul>
+<li><strong>对于屏幕右上方显示的通知：</strong> 这是指顶部面板的底部边框（如果没有顶部面板，则从屏幕顶部）到通知弹窗的顶部边框之间的距离。</li>
+<li><strong>对于屏幕右下角显示的通知：</strong> 这是指底部面板的顶部边框（如果没有底部面板，则从屏幕底部）到通知弹窗的底部边框之间的距离。</li>
+</ul>
+</li>
+<li><strong>通知弹窗右侧边距：</strong> 默认情况下，通知弹窗的右侧边距是由当前使用的主题所定义的。此选项，设为任何其他大于0（零）的值，允许设置自定义右侧边距，忽略由主题所定义的右侧边距。</li>
+</ul>
+<h3>窗口焦点调整</h3>
+<p>调整基于<a href="https://github.com/v-dimitrov">Valentin Dimitrov</a>的<a href="https://github.com/v-dimitrov/gnome-shell-extension-stealmyfocus">Steal My Focus</a>gnome-shell扩展和<a href="https://github.com/awamper">awamper</a>的<a href="https://github.com/awamper/window-demands-attention-shortcut">Window Demands Attention Shortcut</a>gnome-shell扩展。</p>
+<p>无论Cinnamon设置上的设置组合如何，某些要求关注的窗口不会获得焦点。此选项将允许您进行更正。</p>
+<ul>
+<li><strong>激活需要关注的窗口...</strong><ul>
+<li><strong>...交由系统处理：</strong> 浅显易懂。</li>
+<li><strong>...即时：</strong> 将会立即强制激活需要关注的窗口。</li>
+<li><strong>...使用键盘快捷键执行：</strong> 将会使用键盘快捷键激活需要关注的窗口。</li>
+</ul>
+</li>
+<li><strong>键盘快捷键：</strong> 设置选项的键盘快捷键<strong>...使用键盘快捷键执行</strong>。</li>
+</ul>
+<h3>窗口阴影调整</h3>
+<p>调整基于<a href="https://github.com/mikhail-ekzi">mikhail-ekzi</a>所创建的一个名为<a href="https://cinnamon-spices.linuxmint.com/extensions/view/43">Custom Shadows</a>的Cinnamon扩展。它允许修改Cinnamon窗口管理器(Muffin)使用的阴影。</p>
+<p><strong>注意：</strong> 客户端装饰的窗口不受此调整的影响。</p>
+<h5>阴影预设值</h5>
+<ul>
+<li><strong>自定义阴影</strong></li>
+<li><strong>默认阴影</strong></li>
+<li><strong>没有阴影</strong></li>
+<li><strong>Windows 10阴影</strong></li>
+</ul>
+<h3>自动移动窗口</h3>
+<p>调整基于<a href="https://github.com/fmuellner">Florian Muellner</a>的<a href="https://extensions.gnome.org/extension/16/auto-move-windows/">Auto Move Windows</a>gnome-shell扩展。他能够设置规则以在特定的工作区打开确定的窗口。</p>
+<p><strong>注意：</strong> 如果您要选择的应用程序没有显示在应用程序选择器对话框中，请阅读此帮助文件中名为“应用程序未显示在应用程序选择器对话框**”的部分。</p>
+<h3>窗口装饰移除</h3>
+<p>调整基于<a href="https://github.com/fatihmete">Fatih Mete</a>的<a href="https://cinnamon-spices.linuxmint.com/extensions/view/29">Cinnamon Maximus</a>扩展和<a href="https://github.com/luispabon">Luis Pabon</a>的<a href="https://github.com/luispabon/maximus-gnome-shell">Maximus NG</a>gnome-shell扩展中的一些功能。此调整允许从最大化/半最大化/平铺的窗口中移除窗口装饰。</p>
+<p><strong>注意：</strong> 如果您要选择的应用程序没有显示在应用程序选择器对话框中，请阅读此帮助文件中名为“应用程序未显示在应用程序选择器对话框**”的部分。</p>
+<h4>依赖关系</h4>
+<p>此调整需要(<strong>xprop</strong>和<strong>xwininfo</strong>)两个命令在系统上可用才能工作。</p>
+<ul>
+<li>Debian系发行版： 这些命令由<strong>x11-utils</strong>软件包提供。Linux Mint已经安装了该软件包。</li>
+<li>Archlinux系发行版： 这些命令由<strong>xorg-xprop</strong>和<strong>xorg-xwininfo</strong>软件包提供。</li>
+<li>Fedora系发行版： 这些命令由<strong>xorg-x11-utils</strong>软件包提供。</li>
+</ul>
+<h4>警告</h4>
+<ul>
+<li>客户端装饰的窗口和WINE应用程序不受此调整的影响。</li>
+<li>关闭属于要添加到应用程序列表的应用程序的所有窗口，然后应用此调整的设置。</li>
+<li>作为避免问题的通用规则，在启用和配置此调整之前，关闭当前打开的所有窗口，启用并配置此调整，然后注销并重新登录。</li>
+</ul>
+<h4>已知问题</h4>
+<ul>
+<li><strong>窗口不可见：</strong> 有时，配置为移除其装饰的应用程序窗口可能会变得不可见。应用程序的图标仍然可以在面板（任务栏）中看到，当单击以聚焦到其各自的窗口时，不可见的窗口将阻止点击，就像它是可见的。为了解决这个问题，窗口需要取消最大化（它将会再次变得可见）然后关闭。重新打开时，窗口应该会正常运行。</li>
+<li><strong>应用程序卡住时取消装饰：</strong> 有些时候，一个应用程序即使在取消最大化之后也会卡住。重新启动应用程序将会恢复装饰和取消装饰其自身的能力。</li>
+</ul>
+<h4>替代</h4>
+<p>有一种替代方法是彻底隐藏所有最大化窗口的标题栏。通过编辑您的Metacity主题（窗口装饰主题）。它工作得非常好，在这个扩展上没有任何此调整的问题。</p>
+<ul>
+<li>只需转到<code>/您/的/主题/路径/metacity-1</code>文件夹，并使用任何文本编辑器编辑名为<strong>metacity-theme-3.xml</strong>的文件。如果您的主题中没有该文件，则应该有一个名为<strong>metacity-theme-2.xml</strong>或<strong>metacity-theme-1.xml</strong>的文件。选择其中数字更大的那一个。</li>
+<li>查找名为<strong>max</strong>（或<strong>maximized</strong>或<strong>normal_max</strong>或<strong>normal_maximized</strong>）的<strong>frame_geometry</strong>元素。其确切名称可能因主题而异。</li>
+<li>基本上，必须将属性<strong>has_title</strong>设置为false，然后将其所有属性的所有大小设置为0（零）。某些主题可能需要添加更多属性并将其设置为0（零）以完全摆脱标题栏。</li>
+<li>接下来您会找到编辑在<strong>Mint-X</strong> and <strong>Mint-Y</strong>主题所找到的Metacity主题的方法的示例。</li>
+</ul>
+<h5>在Mint-X主题中找到Metacity主题</h5>
+<pre><code class="lang-xml">&lt;frame_geometry name=&quot;maximized&quot; has_title=&quot;false&quot; title_scale=&quot;medium&quot; parent=&quot;normal&quot; rounded_top_left=&quot;false&quot; rounded_top_right=&quot;false&quot;&gt;
+    &lt;distance name=&quot;right_width&quot; value=&quot;0&quot; /&gt;
+    &lt;distance name=&quot;left_titlebar_edge&quot; value=&quot;0&quot;/&gt;
+    &lt;distance name=&quot;right_titlebar_edge&quot; value=&quot;0&quot;/&gt;
+    &lt;distance name=&quot;title_vertical_pad&quot; value=&quot;0&quot;/&gt;
+    &lt;border name=&quot;title_border&quot; left=&quot;0&quot; right=&quot;0&quot; top=&quot;0&quot; bottom=&quot;0&quot;/&gt;
+    &lt;border name=&quot;button_border&quot; left=&quot;0&quot; right=&quot;0&quot; top=&quot;0&quot; bottom=&quot;0&quot;/&gt;
+    &lt;distance name=&quot;bottom_height&quot; value=&quot;0&quot; /&gt;
+&lt;/frame_geometry&gt;
+</code></pre>
+<h5>在Mint-Y主题中找到Metacity主题</h5>
+<pre><code class="lang-xml">&lt;frame_geometry name=&quot;max&quot; has_title=&quot;false&quot; title_scale=&quot;medium&quot; parent=&quot;normal&quot; rounded_top_left=&quot;false&quot; rounded_top_right=&quot;false&quot;&gt;
+    &lt;distance name=&quot;right_width&quot; value=&quot;0&quot; /&gt;
+    &lt;distance name=&quot;left_titlebar_edge&quot; value=&quot;0&quot;/&gt;
+    &lt;distance name=&quot;right_titlebar_edge&quot; value=&quot;0&quot;/&gt;
+    &lt;distance name=&quot;title_vertical_pad&quot; value=&quot;0&quot;/&gt;
+    &lt;border name=&quot;title_border&quot; left=&quot;0&quot; right=&quot;0&quot; top=&quot;0&quot; bottom=&quot;0&quot;/&gt;
+    &lt;border name=&quot;button_border&quot; left=&quot;0&quot; right=&quot;0&quot; top=&quot;0&quot; bottom=&quot;0&quot;/&gt;
+    &lt;distance name=&quot;bottom_height&quot; value=&quot;0&quot; /&gt;
+    &lt;distance name=&quot;button_width&quot; value=&quot;0&quot;/&gt;
+    &lt;distance name=&quot;button_height&quot; value=&quot;0&quot;/&gt;
+&lt;/frame_geometry&gt;
+</code></pre>
+<hr>
+<h2>常见扩展问题</h2>
+<h3>应用程序没有在应用程序选择器对话框上显示</h3>
+<p>此扩展的设置窗口使用的应用程序选择器对话框仅列出包含可用的.desktop文件的应用程序。只是因为这些应用程序是唯一的，任何需要应用程序ID的调整（<strong>自动移动窗口</strong>和<strong> 移除窗口装饰</strong>）将会被识别和处理。</p>
+<p>按照<a href="https://specifications.freedesktop.org/desktop-entry-spec/latest/index.html">桌面输入规范</a>，可以为未出现在应用程序列表中的任何应用程序创建.desktop文件。</p>
+<hr>
+<h2>扩展的窗口设置</h2>
+<p>在此扩展设置窗口中，所有选项都可以导入，导出和/或重置为默认值。</p>
+<ul>
+<li>要能够执行任何这些操作，需要在系统中安装设置模式。从Cinnamon扩展管理器安装扩展时，这是自动完成的。但是如果手动安装扩展，则还需要手动安装设置模式。这是通过简单地转到扩展文件夹并启动以下命令来实现的：<ul>
+<li>安装设置模式的命令： <code>./settings.py install-schema</code></li>
+<li>卸载设置模式的命令： <code>./settings.py remove-schema</code></li>
+</ul>
+</li>
+<li>要导入/导出设置，<strong>dconf</strong>命令需要在系统上可用。</li>
+</ul>
+<hr>
+
+<h2>小程序/桌面小工具/扩展（也称为xlets）本地化</h2>
+<ul>
+<li>如果该xlet安装自Cinnamon设置，该xlet的所有本地化已经自动安装。</li>
+<li>如果该xlet是通过手动安装而不是Cinnamon设置，可以通过打开终端执行xlet文件夹内名为<strong>localizations.sh</strong>的脚本安装本地化。</li>
+<li>如果该xlet没有您的语言的本地化，您可以按照以下说明进行创建。 <a href="https://github.com/Odyseus/CinnamonTools/wiki/Xlet-localization">Wiki</a></li>
+</ul>
+
+</div> <!-- .localization-content -->
+
 
 <div id="es" class="localization-content hidden">
 
