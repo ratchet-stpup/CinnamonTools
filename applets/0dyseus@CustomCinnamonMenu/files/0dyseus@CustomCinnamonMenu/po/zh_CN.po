@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: 1.20\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-05-13 20:35-0300\n"
-"PO-Revision-Date: 2017-03-19 23:52+0800\n"
+"PO-Revision-Date: 2017-05-15 10:23+0800\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: zh_CN\n"
@@ -250,12 +250,12 @@ msgstr "帐户详情"
 
 #: ../../create_localized_help.py:63
 msgid "Keyboard navigation"
-msgstr ""
+msgstr "键盘导航"
 
 #. TO TRANSLATORS: MARKDOWN string. Respect formatting.
 #: ../../create_localized_help.py:65
 msgid "Note:"
-msgstr ""
+msgstr "注意："
 
 #: ../../create_localized_help.py:65
 msgid ""
@@ -263,40 +263,45 @@ msgid ""
 "menu. There are just a couple of differences that I was forced to add to my "
 "menu to make some of its features to work."
 msgstr ""
+"此菜单上的所有键盘快捷键几乎与原来的菜单相同。只是有些不同，我只好将其添加到我"
+"的菜单以使其中一些功能能够工作。"
 
 #. TO TRANSLATORS: MARKDOWN string. Respect formatting.
 #: ../../create_localized_help.py:68
 msgid "[[Left Arrow]] and [[Right Arrow]] keys:"
-msgstr ""
+msgstr "[[Left Arrow]]和[[Right Arrow]]键："
 
 #: ../../create_localized_help.py:70
 msgid ""
 "Cycles through the favorites box, applications box and categories box if the "
 "focus is in one of these boxes."
 msgstr ""
+"如果焦点位于收藏夹框、应用程序框和类别框其中一个，在它们之间循环切换。"
 
 #: ../../create_localized_help.py:72
 msgid ""
 "If the focus is on the custom launchers box, these keys will cycle through "
 "this box buttons."
-msgstr ""
+msgstr "如果焦点位于自定义启动器框上，这些键将在此框按钮循环切换。"
 
 #. TO TRANSLATORS: MARKDOWN string. Respect formatting.
 #: ../../create_localized_help.py:74
 msgid "[[Tab]] key:"
-msgstr ""
+msgstr "[[Tab]]键："
 
 #: ../../create_localized_help.py:77
 msgid ""
 "If the favorites box, applications box or categories box are currently "
 "focused, the [[Tab]] key will switch the focus to the custom launchers box."
 msgstr ""
+"如果收藏夹框、应用程序框或类别框当前被聚焦，[[Tab]]键将会把焦点切换到自定义启"
+"动器框。"
 
 #: ../../create_localized_help.py:79 ../../create_localized_help.py:87
 msgid ""
 "If the focus is on the custom launchers box, the focus will go back to the "
 "categories box."
-msgstr ""
+msgstr "如果焦点位于自定义启动器框上，焦点将返回到类别框。"
 
 #: ../../create_localized_help.py:82
 msgid ""
@@ -304,11 +309,13 @@ msgid ""
 "[[Ctrl]]/[[Shift]] + [[Tab]] key are pressed, it will cycle through the "
 "favorites box, applications box and categories box."
 msgstr ""
+"如果自定义启动器框不是菜单的一部分，单击[[Tab]]键或按[[Ctrl]]/[[Shift]] + "
+"[[Tab]]键将会在收藏夹框、应用程序框和类别框循环切换。"
 
 #. TO TRANSLATORS: MARKDOWN string. Respect formatting.
 #: ../../create_localized_help.py:84
 msgid "[[Up Arrow]] and [[Down Arrow]] keys:"
-msgstr ""
+msgstr "[[Up Arrow]]和[[Down Arrow]]键："
 
 #: ../../create_localized_help.py:85
 msgid ""
@@ -316,6 +323,8 @@ msgid ""
 "focused, these keys will cycle through the items in the currently "
 "highlighted box."
 msgstr ""
+"如果收藏夹框、应用程序框或类别框当前被聚焦，这些键将循环切换到当前高亮的框中的"
+"条目。"
 
 #. TO TRANSLATORS: MARKDOWN string. Respect formatting.
 #: ../../create_localized_help.py:89
@@ -323,6 +332,8 @@ msgid ""
 "[[Page Up]] and [[Page Down]] keys: Jumps to the first and last item of the "
 "currently selected box. This doesn't affect the custom launchers."
 msgstr ""
+"[[Page Up]]和[[Page Down]]键：跳转到当前选中框的第一个和最后一个条目。这不"
+"会影响自定义启动器。"
 
 #. TO TRANSLATORS: MARKDOWN string. Respect formatting.
 #: ../../create_localized_help.py:91
@@ -330,11 +341,12 @@ msgid ""
 "[[Menu]] or [[Alt]] + [[Enter]] keys: Opens and closes the context menu (if "
 "any) of the currently highlighted item."
 msgstr ""
+"[[Menu]]或[[Alt]] + [[Enter]]键：打开并关闭当前高亮条目的右键菜单（如果有）。"
 
 #. TO TRANSLATORS: MARKDOWN string. Respect formatting.
 #: ../../create_localized_help.py:93
 msgid "[[Enter]] key: Executes the currently highlighted item."
-msgstr ""
+msgstr "[[Enter]]键：执行当前高亮的条目。"
 
 #. TO TRANSLATORS: MARKDOWN string. Respect formatting.
 #: ../../create_localized_help.py:95
@@ -343,12 +355,15 @@ msgid ""
 "close the context menu instead and a second tap of this key will close the "
 "main menu."
 msgstr ""
+"[[Escape]]键：关闭主菜单。如果打开了一个右键菜单，它将会关闭右键菜单，再次"
+"点击此键将会关闭主菜单。"
 
 #: ../../create_localized_help.py:98
 msgid ""
 "[[Shift]] + [[Enter]]: Executes the application as root. This doesn't affect "
 "the custom launchers."
 msgstr ""
+"[[Shift]] + [[Enter]]：以root身份执行应用程序。这不会影响自定义启动器。"
 
 #. TO TRANSLATORS: MARKDOWN string. Respect formatting.
 #: ../../create_localized_help.py:100
@@ -356,6 +371,7 @@ msgid ""
 "[[Ctrl]] + [[Enter]]: Open a terminal and run application from there. This "
 "doesn't affect the custom launchers."
 msgstr ""
+"[[Ctrl]] + [[Enter]]：打开终端并从中运行应用程序。这不会影响自定义启动器。"
 
 #. TO TRANSLATORS: MARKDOWN string. Respect formatting.
 #: ../../create_localized_help.py:102
@@ -364,27 +380,29 @@ msgid ""
 "there, but the application is executed as root. This doesn't affect the "
 "custom launchers."
 msgstr ""
+"[[Ctrl]] + [[Shift]] + [[Enter]]：打开终端并从中运行应用程序，但应用程序会以"
+"root用户身份执行。这不会影响自定义启动器。"
 
 #: ../../create_localized_help.py:105
 msgid "Applications left click extra actions"
-msgstr ""
+msgstr "左键点击应用程序附加动作"
 
 #: ../../create_localized_help.py:106
 msgid ""
 "When left clicking an application on the menu, certain key modifiers can be "
 "pressed to execute an application in a special way."
-msgstr ""
+msgstr "当左键点击菜单上的应用程序时，可以用特定方式按某些修饰键执行应用程序。"
 
 #. TO TRANSLATORS: MARKDOWN string. Respect formatting.
 #: ../../create_localized_help.py:108
 msgid "[[Shift]] + **Left click**: Executes application as root."
-msgstr ""
+msgstr "[[Shift]] + **左键单击**：以root身份执行应用程序。"
 
 #. TO TRANSLATORS: MARKDOWN string. Respect formatting.
 #: ../../create_localized_help.py:110
 msgid ""
 "[[Ctrl]] + **Left click**: Open a terminal and run application from there."
-msgstr ""
+msgstr "[[Ctrl]] + **左键单击**：打开终端并从中运行应用程序。"
 
 #. TO TRANSLATORS: MARKDOWN string. Respect formatting.
 #: ../../create_localized_help.py:112
@@ -392,10 +410,12 @@ msgid ""
 "[[Ctrl]] + [[Shift]] + **Left click**: Open a terminal and run application "
 "from there, but the application is executed as root."
 msgstr ""
+"[[Ctrl]] + [[Shift]] + **左键单击**：打开终端并从中运行应用程序，但应用程序会"
+"以root用户身份执行。"
 
 #: ../../create_localized_help.py:114
 msgid "About \"Run from terminal\" options"
-msgstr ""
+msgstr "关于“从终端运行”选项"
 
 #: ../../create_localized_help.py:115
 msgid ""
@@ -407,6 +427,10 @@ msgid ""
 "found on the applications context menu and can be hidden/shown from this "
 "applet settings window."
 msgstr ""
+"这些选项用于调试目的（例如，打开/关闭程序以检测可能出现的错误后查看控制台输"
+"出）。不用打开一个终端来启动一个可能不知道其命令的程序，可以直接从菜单中进"
+"行，只需一个步骤。可以从应用程序右键菜单上找到菜单上列出的从终端运行应用程序"
+"的选项，并可以从此小程序设置窗口中隐藏/显示。"
 
 #. TO TRANSLATORS: MARKDOWN string. Respect formatting.
 #: ../../create_localized_help.py:118
@@ -418,10 +442,14 @@ msgid ""
 "**gnome-terminal**, **xterm** and **terminator**. Additional arguments could "
 "be passed to the terminal emulator, but it's not supported by me."
 msgstr ""
+"默认情况下，这些选项将使用系统的默认终端仿真器（Debian系发行版上是**x-"
+"terminal-emulator**）。只要所说的终端仿真器支持**-e**参数，就可以在该小程序的"
+"设置窗口中指定任何其他终端仿真器。我用**gnome-terminal**、**xterm**和"
+"**terminator**进行了测试。额外的参数可以传递给终端仿真器，但我不会支持。"
 
 #: ../../create_localized_help.py:120
 msgid "Favorites handling"
-msgstr ""
+msgstr "收藏夹处理"
 
 #. TO TRANSLATORS: MARKDOWN string. Respect formatting.
 #: ../../create_localized_help.py:122
@@ -430,13 +458,15 @@ msgid ""
 "the context menu for applications and by dragging and dropping applications "
 "to/from the favorites box."
 msgstr ""
+"如果“收藏夹”框**已显示**，则可以从应用程序的右键菜单添加/删除收藏，也可"
+"以将应用程序拖进/出收藏夹框。"
 
 #. TO TRANSLATORS: MARKDOWN string. Respect formatting.
 #: ../../create_localized_help.py:125
 msgid ""
 "**Note:** To remove a favorite, drag a favorite outside the favorites box "
 "into any part of the menu."
-msgstr ""
+msgstr "**注意:**要删除收藏夹，请将收藏拖动到收藏夹外部的菜单的任意部分。"
 
 #. TO TRANSLATORS: MARKDOWN string. Respect formatting.
 #: ../../create_localized_help.py:127
@@ -448,34 +478,38 @@ msgid ""
 "removed. If what you drag into the favorites category is a non bookmarked "
 "application, then that application will be added to the favorites."
 msgstr ""
+"如果收藏夹框**隐藏**并已启用了收藏夹类别，则可以从应用程序的右键菜单中添"
+"加/删除收藏，并将应用程序拖放到收藏夹类别。很简单，如果将收藏拖到收藏夹类"
+"别，收藏将会被删除。如果您拖到收藏夹类别不是已加为书签的应用程序，那么该应用"
+"程序将会被添加到收藏夹。"
 
 #. TO TRANSLATORS: MARKDOWN string. Respect formatting.
 #: ../../create_localized_help.py:129
 msgid ""
 "**Note:** The favorites category will update its content after changing to "
 "another category and going back to the favorites category."
-msgstr ""
+msgstr "**注意:**收藏夹类别将在更改为其他类别和返回到收藏夹类别后更新其内容。"
 
 #: ../../create_localized_help.py:131
 msgid "Troubleshooting/extra information"
-msgstr ""
+msgstr "故障排除/附加信息"
 
 #: ../../create_localized_help.py:132
 msgid "Run from terminal."
-msgstr ""
+msgstr "从终端运行。"
 
 #. TO TRANSLATORS: MARKDOWN string. Respect formatting.
 #: ../../create_localized_help.py:134
 msgid "Debian based distributions:"
-msgstr ""
+msgstr "Debian系发行版："
 
 #: ../../create_localized_help.py:138
 msgid "Type in the number of the selection and hit enter."
-msgstr ""
+msgstr "输入选择的编号，然后按Enter键。"
 
 #: ../../create_localized_help.py:140
 msgid "For other distributions:"
-msgstr ""
+msgstr "其他发行版："
 
 #. TO TRANSLATORS: MARKDOWN string. Respect formatting.
 #: ../../create_localized_help.py:143
@@ -484,6 +518,8 @@ msgid ""
 "sh**. ***Do not remove, rename or edit this file***. Otherwise, all of the "
 "*Run from terminal* options will break."
 msgstr ""
+"该小程序目录中有一个名为**run_from_terminal.sh**的文件。***请勿删除，重命名或"
+"编辑此文件***。否则，所有*从终端运行*的选项都会损坏。"
 
 #. TO TRANSLATORS: MARKDOWN string. Respect formatting.
 #: ../../create_localized_help.py:145
@@ -492,49 +528,51 @@ msgid ""
 "several symbolic icons (most of them are from the Faenza icon theme) and "
 "each icon can be used directly by name (on a custom launcher, for example)."
 msgstr ""
+"该小程序目录中有一个名为**icons**的文件夹。它包含一些符号图标（大多数来自"
+"Faenza图标主题），每个图标可以直接使用名称（例如在自定义启动器上）。"
 
 #. TO TRANSLATORS: This is a placeholder.
 #. Here goes your language name in your own language (a.k.a. endonym).
 #: ../../create_localized_help.py:172 ../../create_localized_help.py:241
 msgid "language-name"
-msgstr ""
+msgstr "语言名称"
 
 #: ../../create_localized_help.py:244
 msgid "Choose language"
-msgstr ""
+msgstr "选择语言"
 
 #. TO TRANSLATORS: Full sentence:
 #. "Help for <xlet_name>"
 #: ../../create_localized_help.py:245 ../../create_localized_help.py:252
 #, python-format
 msgid "Help for %s"
-msgstr ""
+msgstr "%s的帮助"
 
 #: ../../create_localized_help.py:253
 msgid "IMPORTANT!!!"
-msgstr ""
+msgstr "重要！！！"
 
 #: ../../create_localized_help.py:254
 msgid ""
 "Never delete any of the files found inside this xlet folder. It might break "
 "this xlet functionality."
-msgstr ""
+msgstr "不要删除该xlet文件夹内的任何文件。可能会损坏该xlet的功能。"
 
 #: ../../create_localized_help.py:255
 msgid ""
 "Bug reports, feature requests and contributions should be done on this "
 "xlet's repository linked next."
-msgstr ""
+msgstr "错误报告，功能请求和贡献应该在下方链接的xlet的仓库上完成。"
 
 #: ../../create_localized_help.py:261
 msgid "Applets/Desklets/Extensions (a.k.a. xlets) localization"
-msgstr ""
+msgstr "小程序/桌面小工具/扩展（也称为xlets）本地化"
 
 #: ../../create_localized_help.py:262
 msgid ""
 "If this xlet was installed from Cinnamon Settings, all of this xlet's "
 "localizations were automatically installed."
-msgstr ""
+msgstr "如果该xlet安装自Cinnamon设置，该xlet的所有本地化已经自动安装。"
 
 #. TO TRANSLATORS: MARKDOWN string. Respect formatting.
 #: ../../create_localized_help.py:264
@@ -543,12 +581,14 @@ msgid ""
 "localizations can be installed by executing the script called "
 "**localizations.sh** from a terminal opened inside the xlet's folder."
 msgstr ""
+"如果该xlet是通过手动安装而不是Cinnamon设置，可以通过打开终端执行xlet文件夹内"
+"名为**localizations.sh**的脚本安装本地化。"
 
 #: ../../create_localized_help.py:265
 msgid ""
 "If this xlet has no locale available for your language, you could create it "
 "by following the following instructions."
-msgstr ""
+msgstr "如果该xlet没有您的语言的本地化，您可以按照以下说明进行创建。"
 
 #. 3.2->settings-schema.json->pref_command_7_description->description
 #. 3.2->settings-schema.json->pref_command_4_description->description
@@ -1756,37 +1796,37 @@ msgstr "向左对齐应用程序信息框文本"
 
 #. 0dyseus@CustomCinnamonMenu->metadata.json->contributors
 msgid "NikoKrause: Bug fixes and German localization."
-msgstr ""
+msgstr "NikoKrause：错误修正和德语本地化。"
 
 #. 0dyseus@CustomCinnamonMenu->metadata.json->contributors
 msgid "Radek71: Czech localization."
-msgstr ""
+msgstr "Radek71：捷克语本地化。"
 
 #. 0dyseus@CustomCinnamonMenu->metadata.json->contributors
 msgid "muzena: Croatian localization."
-msgstr ""
+msgstr "muzena：克罗地亚语本地化。"
 
 #. 0dyseus@CustomCinnamonMenu->metadata.json->contributors
 msgid "giwhub: Chinese localization."
-msgstr ""
+msgstr "giwhub：中文本地化。"
 
 #. 0dyseus@CustomCinnamonMenu->metadata.json->contributors
 msgid "lestcape: Author of some advanced features used by this applet."
-msgstr ""
+msgstr "lestcape：此小程序所使用的一些高级功能的作者。"
 
 #. 0dyseus@CustomCinnamonMenu->metadata.json->contributors
 msgid "nooulaif: Fuzzy search feature based on his Sane Menu applet."
-msgstr ""
+msgstr "nooulaif：模糊搜索功能基于他的Sane Menu小程序。"
 
 #. 0dyseus@CustomCinnamonMenu->metadata.json->contributors
 msgid "Daniel Bruce: Some icons used by this menu are from www.entypo.com."
-msgstr ""
+msgstr "Daniel Bruce：此菜单所使用的一些图标来自www.entypo.com。"
 
 #. 0dyseus@CustomCinnamonMenu->metadata.json->comments
 msgid ""
 "Bug reports, feature requests and contributions should be done on this "
 "xlet's repository linked below."
-msgstr ""
+msgstr "错误报告，功能请求和贡献应该在下方链接的xlet的仓库上完成。"
 
 #. 0dyseus@CustomCinnamonMenu->metadata.json->name
 msgid "Custom Cinnamon Menu"
