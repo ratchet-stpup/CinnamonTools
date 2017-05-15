@@ -388,9 +388,99 @@ pre {
 <select class="form-control" id="localization-switch" onchange="self.toggleLocalizationVisibility(value, this);">
 <!-- English --><option selected data-title="Help for Custom Cinnamon Menu" data-language-chooser-label="Choose language" value="en">English</option>
 <!-- Español --><option data-title="Ayuda para Custom Cinnamon Menu" data-language-chooser-label="Elegir idioma" value="es">Español</option>
+<!-- Svenska --><option data-title="Hjälp för Custom Cinnamon Menu" data-language-chooser-label="Välj språk" value="sv">Svenska</option>
+<!-- 语言名称 --><option data-title="Custom Cinnamon Menu的帮助" data-language-chooser-label="选择语言" value="zh_CN">语言名称</option>
 </select>
 </div> <!-- .localization-chooser -->
 <div class="container boxed">
+
+<div id="zh_CN" class="localization-content hidden">
+
+<h1>Custom Cinnamon Menu的帮助</h1>
+
+<div style="font-weight:bold;" class="alert alert-warning">
+<h2>重要！！！</h2>
+
+<p>不要删除该xlet文件夹内的任何文件。可能会损坏该xlet的功能。</p>
+
+<p>错误报告，功能请求和贡献应该在下方链接的xlet的仓库上完成。 <a href="https://github.com/Odyseus/CinnamonTools">GitHub</a></p>
+
+</div>
+<hr>
+
+<h2>键盘导航</h2>
+<p><strong>注意：</strong> 此菜单上的所有键盘快捷键几乎与原来的菜单相同。只是有些不同，我只好将其添加到我的菜单以使其中一些功能能够工作。</p>
+<ul>
+<li><kbd>Left Arrow</kbd>和<kbd>Right Arrow</kbd>键：<ul>
+<li>如果焦点位于收藏夹框、应用程序框和类别框其中一个，在它们之间循环切换。</li>
+<li>如果焦点位于自定义启动器框上，这些键将在此框按钮循环切换。</li>
+</ul>
+</li>
+<li><kbd>Tab</kbd>键：<ul>
+<li>如果收藏夹框、应用程序框或类别框当前被聚焦，<kbd>Tab</kbd>键将会把焦点切换到自定义启动器框。</li>
+<li>如果焦点位于自定义启动器框上，焦点将返回到类别框。</li>
+<li>如果自定义启动器框不是菜单的一部分，单击<kbd>Tab</kbd>键或按<kbd>Ctrl</kbd>/<kbd>Shift</kbd> + <kbd>Tab</kbd>键将会在收藏夹框、应用程序框和类别框循环切换。</li>
+</ul>
+</li>
+<li><kbd>Up Arrow</kbd>和<kbd>Down Arrow</kbd>键：<ul>
+<li>如果收藏夹框、应用程序框或类别框当前被聚焦，这些键将循环切换到当前高亮的框中的条目。</li>
+<li>如果焦点位于自定义启动器框上，焦点将返回到类别框。</li>
+</ul>
+</li>
+<li><kbd>Page Up</kbd>和<kbd>Page Down</kbd>键：跳转到当前选中框的第一个和最后一个条目。这不会影响自定义启动器。</li>
+<li><kbd>Menu</kbd>或<kbd>Alt</kbd> + <kbd>Enter</kbd>键：打开并关闭当前高亮条目的右键菜单（如果有）。</li>
+<li><kbd>Enter</kbd>键：执行当前高亮的条目。</li>
+<li><kbd>Escape</kbd>键：关闭主菜单。如果打开了一个右键菜单，它将会关闭右键菜单，再次点击此键将会关闭主菜单。</li>
+<li><kbd>Shift</kbd> + <kbd>Enter</kbd>：以root身份执行应用程序。这不会影响自定义启动器。</li>
+<li><kbd>Ctrl</kbd> + <kbd>Enter</kbd>：打开终端并从中运行应用程序。这不会影响自定义启动器。</li>
+<li><kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>Enter</kbd>：打开终端并从中运行应用程序，但应用程序会以root用户身份执行。这不会影响自定义启动器。</li>
+</ul>
+<hr>
+<h2>左键点击应用程序附加动作</h2>
+<p>当左键点击菜单上的应用程序时，可以用特定方式按某些修饰键执行应用程序。</p>
+<ul>
+<li><kbd>Shift</kbd> + <strong>左键单击</strong>：以root身份执行应用程序。</li>
+<li><kbd>Ctrl</kbd> + <strong>左键单击</strong>：打开终端并从中运行应用程序。</li>
+<li><kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <strong>左键单击</strong>：打开终端并从中运行应用程序，但应用程序会以root用户身份执行。</li>
+</ul>
+<hr>
+<h2>关于“从终端运行”选项</h2>
+<p>这些选项用于调试目的（例如，打开/关闭程序以检测可能出现的错误后查看控制台输出）。不用打开一个终端来启动一个可能不知道其命令的程序，可以直接从菜单中进行，只需一个步骤。可以从应用程序右键菜单上找到菜单上列出的从终端运行应用程序的选项，并可以从此小程序设置窗口中隐藏/显示。</p>
+<p>默认情况下，这些选项将使用系统的默认终端仿真器（Debian系发行版上是<strong>x-terminal-emulator</strong>）。只要所说的终端仿真器支持<strong>-e</strong>参数，就可以在该小程序的设置窗口中指定任何其他终端仿真器。我用<strong>gnome-terminal</strong>、<strong>xterm</strong>和<strong>terminator</strong>进行了测试。额外的参数可以传递给终端仿真器，但我不会支持。</p>
+<hr>
+<h2>收藏夹处理</h2>
+<ul>
+<li>如果“收藏夹”框<strong>已显示</strong>，则可以从应用程序的右键菜单添加/删除收藏，也可以将应用程序拖进/出收藏夹框。
+  <strong>注意:</strong>要删除收藏夹，请将收藏拖动到收藏夹外部的菜单的任意部分。</li>
+<li>如果收藏夹框<strong>隐藏</strong>并已启用了收藏夹类别，则可以从应用程序的右键菜单中添加/删除收藏，并将应用程序拖放到收藏夹类别。很简单，如果将收藏拖到收藏夹类别，收藏将会被删除。如果您拖到收藏夹类别不是已加为书签的应用程序，那么该应用程序将会被添加到收藏夹。
+  <strong>注意:</strong>收藏夹类别将在更改为其他类别和返回到收藏夹类别后更新其内容。</li>
+</ul>
+<hr>
+<h2>故障排除/附加信息</h2>
+<ol>
+<li>从终端运行。<ol>
+<li><strong>Debian系发行版：</strong> If the command <strong>x-terminal-emulator</strong> doesn't run the terminal emulator that one wants to be the default, run the following command to set a different default terminal emulator.<ul>
+<li><code>sudo update-alternatives --config x-terminal-emulator</code></li>
+<li>输入选择的编号，然后按Enter键。</li>
+</ul>
+</li>
+<li><strong>其他发行版：</strong> Just set the terminal executable of your choice on this applet settings window.</li>
+</ol>
+</li>
+<li>该小程序目录中有一个名为<strong>run_from_terminal.sh</strong>的文件。<strong><em>请勿删除，重命名或编辑此文件</em></strong>。否则，所有<em>从终端运行</em>的选项都会损坏。</li>
+<li>该小程序目录中有一个名为<strong>icons</strong>的文件夹。它包含一些符号图标（大多数来自Faenza图标主题），每个图标可以直接使用名称（例如在自定义启动器上）。</li>
+</ol>
+<hr>
+
+<h2>小程序/桌面小工具/扩展（也称为xlets）本地化</h2>
+<ul>
+<li>如果该xlet安装自Cinnamon设置，该xlet的所有本地化已经自动安装。</li>
+<li>如果该xlet是通过手动安装而不是Cinnamon设置，可以通过打开终端执行xlet文件夹内名为<strong>localizations.sh</strong>的脚本安装本地化。</li>
+<li>如果该xlet没有您的语言的本地化，您可以按照以下说明进行创建。 <a href="https://github.com/Odyseus/CinnamonTools/wiki/Xlet-localization">Wiki</a></li>
+</ul>
+
+</div> <!-- .localization-content -->
+
 
 <div id="es" class="localization-content hidden">
 
@@ -475,6 +565,94 @@ pre {
 <li>Si este xlet se instaló desde Configuración de Cinnamon, todas las localizaciones de este xlet se instalaron automáticamente.</li>
 <li>Si este xlet se instaló manualmente y no a través de Configuración de Cinnamon, las localizaciones se pueden instalar ejecutando el archivo llamado <strong>localizations.sh</strong> desde una terminal abierta dentro de la carpeta del xlet.</li>
 <li>Si este xlet no está disponible en su idioma, la localización puede ser creada siguiendo las siguientes instrucciones. <a href="https://github.com/Odyseus/CinnamonTools/wiki/Xlet-localization">Wiki</a></li>
+</ul>
+
+</div> <!-- .localization-content -->
+
+
+<div id="sv" class="localization-content hidden">
+
+<h1>Hjälp för Custom Cinnamon Menu</h1>
+
+<div style="font-weight:bold;" class="alert alert-warning">
+<h2>VIKTIGT!!!</h2>
+
+<p>Ta aldrig bort någon av filerna i den här xlet-mappen. Det kan förstöra programmets funktioner.</p>
+
+<p>Felrapporter, funktionsönskemål och kodbidrag kan göras i denna xlets kodförråd, länkat nedan. <a href="https://github.com/Odyseus/CinnamonTools">GitHub</a></p>
+
+</div>
+<hr>
+
+<h2>Tangentbordsnavigering</h2>
+<p><strong>Notis:</strong> Nästan alla tangentbordsgenvägar i den här menyn är samma som i originalmenyn. Det är dock några skillnader som jag var tvungen att lägga till i min meny, för att vissa funktioner skall fungera.</p>
+<ul>
+<li><kbd>Vänsterpil</kbd> och <kbd>Högerpil</kbd>:<ul>
+<li>Bläddra genom Favoriter, Program och Kategorier, om ett av dessa fält har fokus.</li>
+<li>Om fokus är på fältet för anpassade startare, bläddrar dessa tangenter bland de knapparna.</li>
+</ul>
+</li>
+<li><kbd>Tab</kbd>:<ul>
+<li>Om favoritfältet eller kategorifältet är fokuserat, växlar du till fältet för anpassade startare med tabulatortangenten <kbd>Tab</kbd>.</li>
+<li>Om fokus är på fältet för anpassade startare, kommer fokus att flyttas tillbaka till kategorifältet</li>
+<li>Om fältet för anpassade startare inte finns med på menyn och <kbd>Tab</kbd> ensamt eller <kbd>Ctrl</kbd>/<kbd>Shift</kbd> + <kbd>Tab</kbd> trycks ner, kan du bläddra genom favoritfältet, programfältet och kategorifältet.</li>
+</ul>
+</li>
+<li><kbd>Uppåtpil</kbd> och <kbd>Neråtpil</kbd>:<ul>
+<li>Om favoritfältet, programfältet eller kategorifältet är fokuserat, bläddrar dessa tangenter genom objekten i respektive fält</li>
+<li>Om fokus är på fältet för anpassade startare, kommer fokus att flyttas tillbaka till kategorifältet</li>
+</ul>
+</li>
+<li><kbd>Page Up</kbd> och <kbd>Page Down</kbd>: Hoppar till första respektive sista objektet i aktuellt menyfält. Detta gäller inte anpassade startare.</li>
+<li><kbd>Meny</kbd> eller <kbd>Alt</kbd> + <kbd>Enter</kbd>: Öppnar och stänger kontextmenyn (om den finns) för markerat objekt.</li>
+<li><kbd>Enter</kbd>: Startar det markerade objektet.</li>
+<li><kbd>Escape</kbd>: Stänger huvudmenyn. Om en kontextmeny (högerklick) är öppen, stängs kontextmenyn istället och ett andra knapptryck stänger huvudmenyn.</li>
+<li><kbd>Shift</kbd> + <kbd>Enter</kbd>: Startar programmet som root. Detta gäller inte anpassade startare.</li>
+<li><kbd>Ctrl</kbd> + <kbd>Enter</kbd>: Öppnar ett terminalfönster och kör programmet därifrån. Detta gäller inte anpassade startare.</li>
+<li><kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>Enter</kbd>: Öppnar ett terminalfönster och kör programmet därifrån, men programmet körs som root. Detta gäller inte anpassade startare.</li>
+</ul>
+<hr>
+<h2>Extra åtgärder vid klick på program</h2>
+<p>Vid vänsterklick på ett program i menyn, kan vissa modifieringstangenter hållas ner för att starta programmet på ett speciellt sätt.</p>
+<ul>
+<li><kbd>Shift</kbd> + <strong>Vänsterklick</strong>: Startar programmet som root.</li>
+<li><kbd>Ctrl</kbd> + <strong>Vänsterklick</strong>: Öppnar ett terminalfönster och kör programmet därifrån.</li>
+<li><kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <strong>Vänsterklick</strong>: Öppnar ett terminalfönster och kör programmet därifrån, men programmet körs som root.</li>
+</ul>
+<hr>
+<h2>Om alternativet "Kör från terminal"</h2>
+<p>Dessa alternativ är avsedda för felsökning (t.ex för att identifiera möjliga fel via konsollutdata efter att ett program öppnas/stängs). Istället för att öppna ett terminalfönster och starta ett program med ett kommando som man kanske inte ens känner till, kan man göra det direkt från menyn i ett enda steg. Alternativ för att starta ett program från terminal kan hittas i programmets kontextmeny (högerklick), vilket kan döljas/visas från panelprogrammets inställningar.</p>
+<p>Som standard kommer dessa alternativ att använda systemets standardterminal (<strong> x-terminal-emulator </strong> i Debian-baserade distributioner). Annan terminalemulator kan anges i inställningarna för detta panelprogram, så länge som nämnda emulator har stöd för argumentet <strong>-e</strong>. Jag gjorde mina tester med <strong> gnome-terminal </strong>, <strong> xterm </strong> och <strong> terminator </strong>. Ytterligare argument kan användas i terminalen, men det stöds inte av mig.</p>
+<hr>
+<h2>Favorithantering</h2>
+<ul>
+<li>Om favoritfältet <strong> visas </strong>, kan favoriter läggas till/tas bort från kontextmenyn för program och genom att dra och släppa applikationer till/från favoritfältet.
+  <strong>Notis:</strong> För att ta bort en favorit kan du dra den ut från favoritfältet och släppa den var som helst i menyn.</li>
+<li>Om favoritfältet är <strong> doldt </strong> och kategorin Favoriter är aktiverad, kan favoriter läggas till/tas bort via kontextmenyn för program och genom att dra och släppa program till/från favoritfältet. Det är enkelt, om en favorit dras in i kategorin Favoriter, tas den bort från favoritfältet. Om det du drar till kategorin Favoriter är ett icke bokmärkt program, kommer programmet att läggas till i Favoriter.
+  <strong>Notis:</strong> Innehållet i favoritkategorin uppdateras genom att växla till en annan kategori och tillbaka favoritkategorin igen.</li>
+</ul>
+<hr>
+<h2>Felsöknings-/Extra information</h2>
+<ol>
+<li>Kör från terminal.<ol>
+<li><strong>Debian-baserade distributioner:</strong> If the command <strong>x-terminal-emulator</strong> doesn't run the terminal emulator that one wants to be the default, run the following command to set a different default terminal emulator.<ul>
+<li><code>sudo update-alternatives --config x-terminal-emulator</code></li>
+<li>Skriv det valda numret och tryck Enter.</li>
+</ul>
+</li>
+<li><strong>För andra distributioner:</strong> Just set the terminal executable of your choice on this applet settings window.</li>
+</ol>
+</li>
+<li>Det finns en fil i det här programmets installationsmapp, kallad <strong>run_from_terminal.sh</strong>. <strong><em>Ta inte bort, döp om eller redigera den här filen</em></strong>. Då kan alla <em>Kör från terminal</em>, sluta fungera.</li>
+<li>Det finns en mapp som heter <strong> icons </strong> i detta programs installationsmapp. Den innehåller flera symboliska ikoner (de flesta av dem är från ikontemat Faenza) och varje ikon kan användas direkt med enbart namn (på en anpassad startare t.ex.).</li>
+</ol>
+<hr>
+
+<h2>Applets/Desklets/Extensions (xlets) översättning</h2>
+<ul>
+<li>Om denna xlet installerades från Cinnamons inställningar, installerades också alla översättningar automatiskt.</li>
+<li>Om denna xlet installerades manuellt och inte via Cinnamons inställningar, kan översättningar installeras genom att köra skriptet <strong>localizations.sh</strong> från en terminal öppnad i programmappen.</li>
+<li>Om ditt språk saknas i denna xlet, kan du översätta den genom följande instruktioner. <a href="https://github.com/Odyseus/CinnamonTools/wiki/Xlet-localization">Wiki</a></li>
 </ul>
 
 </div> <!-- .localization-content -->
