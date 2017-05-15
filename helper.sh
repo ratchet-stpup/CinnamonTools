@@ -304,6 +304,82 @@ Check or set the execution permission for certain files (.sh and .py files)\
 }
 
 updatePOTFiles() {
+    for type in "$@"; do
+        # Using a sub-shell to switch directories to avoid "back and forth".
+        (
+            cd $type
+            for xlet in *; do
+                if [ -d $xlet/files/$xlet ]; then
+                    echo " "
+                    echoInfo "Updating $xlet's localization template..."
+                    (
+                        cd "$xlet/files/$xlet"
+                        make-xlet-pot --all
+                    )
+                fi
+            done
+        )
+
+        sleep 0.5
+    done
+}
+
+handlePOTFiles() {
+    echo ""
+    echo -e "$(tput bold)\
+Update .pot files from all xlets (make-xlet-pot is used if available)\
+    $(tput sgr0)"
+    if ! cmd_loc="$(type -p "make-xlet-pot")" || [ -z "$cmd_loc" ]; then
+        echoError "make-xlet-pot command not found!!!"
+    else
+        pot_options+=("Update POT from all xlets" "Update POT from applets" "Update POT from extensions")
+        select opt in "${pot_options[@]}" "Abort"; do
+            case "$REPLY" in
+                1 ) # Update POT from all xlets
+                    updatePOTFiles "applets" "extensions"
+                    ;;
+                2 ) # Update POT from applets
+                    updatePOTFiles "applets"
+                    ;;
+                3 ) # Update POT from extensions
+                    updatePOTFiles "extensions"
+                    ;;
+                $(( ${#pot_options[@]}+1 )) )
+                    echo "$(tput bold)$(tput setaf 11)Operation canceled.$(tput sgr0)"
+                    break
+                    ;;
+                * )
+                    echo "$(tput bold)$(tput setaf 11)Invalid option. Try another one.$(tput sgr0)"
+                    ;;
+            esac
+        done
+    fi
+}
+
+applyFilesPermission() {
+    TEMP_FILE=$ROOT_PATH/tmp/files_to_set_permissions.txt
+    # List all .sh and .py files ignoring symlinks and save them into a temp file.
+    # First, override the file.
+    find $ROOT_PATH -type f -iname "*.sh" > $TEMP_FILE
+    # Then append to it.
+    find $ROOT_PATH -type f -iname "*.py" >> $TEMP_FILE
+    EXEC_FILES=`cat $TEMP_FILE`
+
+    for file in $EXEC_FILES; do
+        SHORTENED_PATH=${file#*$ROOT_PATH}
+        if [ ! -x ${file} ]; then
+            echoWarn "Not an executable: $SHORTENED_PATH"
+
+            if [ "$1" != "check" ]; then
+                echoWarn "Setting it as such..."
+                chmod +x "$file"
+                echo ""
+            fi
+        fi
+    done
+}
+
+generateTransStats() {
     # Create the tmp dir to store the .po files lists if it doesn't exists.
     if [ ! -d $ROOT_PATH/tmp/po_files_list ]; then
       mkdir -p $ROOT_PATH/tmp/po_files_list;
@@ -322,20 +398,17 @@ updatePOTFiles() {
         (
             cd $type
             for xlet in *; do
-                if [ -d $xlet/files/$xlet ]; then
+                if [ -d "$xlet/files/$xlet/po" ]; then
                     echo " "
-                    echoInfo "Updating $xlet's localization template..."
-                    PO_LIST_TEMP_FILE=$ROOT_PATH/tmp/po_files_list/$xlet
                     (
+                        cd "$xlet/files/$xlet/po"
+                        PO_LIST_TEMP_FILE=$ROOT_PATH/tmp/po_files_list/$xlet
                         UPDATED_PO_STORE=$ROOT_PATH/tmp/po_files_updated/$xlet
                         # Create the tmp dir to store the updated .po files if it doesn't exists.
                         if [ ! -d "$UPDATED_PO_STORE" ]; then
                           mkdir -p "$UPDATED_PO_STORE";
                         fi
 
-                        cd "$xlet/files/$xlet"
-                        make-xlet-pot --all
-                        cd po
                         find . -type f -iname "*.po" > $PO_LIST_TEMP_FILE
                         PO_FILES=`cat $PO_LIST_TEMP_FILE`
                         # Start the build of raw data
@@ -397,67 +470,12 @@ updatePOTFiles() {
     > $ROOT_PATH/tmp/po_files_untranslated_count_column
 }
 
-handlePOTFiles() {
-    echo ""
-    echo -e "$(tput bold)\
-Update .pot files from all xlets (make-xlet-pot is used if available)\
-    $(tput sgr0)"
-    if ! cmd_loc="$(type -p "make-xlet-pot")" || [ -z "$cmd_loc" ]; then
-        echoError "make-xlet-pot command not found!!!"
-    else
-        pot_options+=("Update POT from all xlets" "Update POT from applets" "Update POT from extensions")
-        select opt in "${pot_options[@]}" "Abort"; do
-            case "$REPLY" in
-                1 ) # Update POT from all xlets
-                    updatePOTFiles "applets" "extensions"
-                    ;;
-                2 ) # Update POT from applets
-                    updatePOTFiles "applets"
-                    ;;
-                3 ) # Update POT from extensions
-                    updatePOTFiles "extensions"
-                    ;;
-                $(( ${#pot_options[@]}+1 )) )
-                    echo "$(tput bold)$(tput setaf 11)Operation canceled.$(tput sgr0)"
-                    break
-                    ;;
-                * )
-                    echo "$(tput bold)$(tput setaf 11)Invalid option. Try another one.$(tput sgr0)"
-                    ;;
-            esac
-        done
-    fi
-}
-
-applyFilesPermission() {
-    TEMP_FILE=$ROOT_PATH/tmp/files_to_set_permissions.txt
-    # List all .sh and .py files ignoring symlinks and save them into a temp file.
-    # First, override the file.
-    find $ROOT_PATH -type f -iname "*.sh" > $TEMP_FILE
-    # Then append to it.
-    find $ROOT_PATH -type f -iname "*.py" >> $TEMP_FILE
-    EXEC_FILES=`cat $TEMP_FILE`
-
-    for file in $EXEC_FILES; do
-        SHORTENED_PATH=${file#*$ROOT_PATH}
-        if [ ! -x ${file} ]; then
-            echoWarn "Not an executable: $SHORTENED_PATH"
-
-            if [ "$1" != "check" ]; then
-                echoWarn "Setting it as such..."
-                chmod +x "$file"
-                echo ""
-            fi
-        fi
-    done
-}
-
 main_done=0
 
 while (( !main_done )); do
     main_options=("Render main site" "Create help files" "Create packages" \
 "Clone wiki" "Xlets comparison" "Set/Check files permission" \
-"Update .pot files")
+"Update .pot files" "Generate translations statistics")
 
     echo "$(tput bold)$(tput bold)Pick an option and press Enter:$(tput sgr0)"
     select opt in "${main_options[@]}" "Abort"; do
@@ -491,6 +509,11 @@ while (( !main_done )); do
             7 ) # Update .pot files
                 main_done=1
                 handlePOTFiles
+                break
+                ;;
+            8 ) # Generate translations statistics
+                main_done=1
+                generateTransStats "applets" "extensions"
                 break
                 ;;
             $(( ${#main_options[@]}+1 )) ) # Abort
