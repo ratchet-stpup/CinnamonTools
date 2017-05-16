@@ -14,7 +14,7 @@
     "max-instances": -1,
     "comments": "Bug reports, feature requests and contributions should be done on this xlet's repository linked below.",
     "name": "Custom Cinnamon Menu",
-    "version": "1.21",
+    "version": "1.22",
     "cinnamon-version": [
         "3.0",
         "3.2",

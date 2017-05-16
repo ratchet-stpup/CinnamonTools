@@ -258,6 +258,8 @@ MyApplet.prototype = {
             [bD.IN, "pref_use_hover_feedback", this._updateGlobalPreferences],
             [bD.IN, "pref_user_picture_size", null],
             [bD.IN, "pref_user_picture_stylized", null],
+            [bD.IN, "pref_info_box_title_font_size", null],
+            [bD.IN, "pref_info_box_description_font_size", null],
             [bD.IN, "pref_swap_categories_box", null],
             [bD.IN, "pref_disable_new_apps_highlighting", null],
             [bD.IN, "pref_fuzzy_search_enabled", null],
@@ -704,10 +706,7 @@ MyApplet.prototype = {
             this.leftPane.remove_actor(this.leftBox);
         } else {
             this.leftPane.show();
-            this.leftPane.add_actor(this.leftBox, {
-                y_align: St.Align.END,
-                y_fill: false
-            });
+            this.leftPane.add_actor(this.leftBox);
         }
     },
 
@@ -1521,7 +1520,7 @@ MyApplet.prototype = {
                         this.lastedCategoryShow = null;
                     }
                     this._clearPrevCatSelection(this.current_motion_actor);
-                    this._select_category(this.current_motion_actor._delegate.category, this.current_motion_actor._delegate);
+                    this._select_category(this.current_motion_actor._delegate.category || null, this.current_motion_actor._delegate);
                     this.catShow = true;
                 }
                 let [mouse_x, mouse_y, mask] = global.get_pointer(); // jshint ignore:line
@@ -2508,10 +2507,7 @@ MyApplet.prototype = {
             if (app) {
                 let button = new $.FavoritesButton(this, app, launchers.length + extraButtons);
                 this._favoritesButtons[app] = button;
-                this.favoritesBox.add_actor(button.actor, {
-                    y_align: St.Align.END,
-                    y_fill: false
-                });
+                this.favoritesBox.add_actor(button.actor);
 
                 this._addEnterEvent(button, Lang.bind(this, this._favEnterEvent, button));
                 button.actor.connect('leave-event', Lang.bind(this, this._favLeaveEvent, button));
@@ -2568,10 +2564,7 @@ MyApplet.prototype = {
                     }
                 });
 
-                this.favoritesBox.add_actor(button1.actor, {
-                    y_align: St.Align.END,
-                    y_fill: false
-                });
+                this.favoritesBox.add_actor(button1.actor);
             }
 
             if (this.pref_show_logout_button) { // Logout button
@@ -2592,10 +2585,7 @@ MyApplet.prototype = {
                     this._session.LogoutRemote(0);
                 });
 
-                this.favoritesBox.add_actor(button2.actor, {
-                    y_align: St.Align.END,
-                    y_fill: false
-                });
+                this.favoritesBox.add_actor(button2.actor);
             }
 
             if (this.pref_show_shutdown_button) { // Shutdown button
@@ -2616,10 +2606,7 @@ MyApplet.prototype = {
                     this._session.ShutdownRemote();
                 });
 
-                this.favoritesBox.add_actor(button3.actor, {
-                    y_align: St.Align.END,
-                    y_fill: false
-                });
+                this.favoritesBox.add_actor(button3.actor);
             }
         }
 
@@ -2777,10 +2764,7 @@ MyApplet.prototype = {
         });
 
         if (this.pref_display_fav_box) {
-            this.leftPane.add_actor(this.leftBox, {
-                y_align: St.Align.END,
-                y_fill: false
-            });
+            this.leftPane.add_actor(this.leftBox);
         }
 
         this.rightPane = new St.BoxLayout({
@@ -3048,10 +3032,7 @@ MyApplet.prototype = {
 
         let fav_obj = new $.FavoritesBox();
         this.favoritesBox = fav_obj.actor;
-        this.leftBox.add_actor(this.favoritesBox, {
-            y_align: St.Align.END,
-            y_fill: false
-        });
+        this.leftBox.add_actor(this.favoritesBox);
 
         this.mainBox = new St.BoxLayout({
             style_class: 'menu-applications-outer-box',
@@ -3059,12 +3040,8 @@ MyApplet.prototype = {
         });
         this.mainBox.add_style_class_name('menu-applications-box'); //this is to support old themes
 
-        this.mainBox.add_actor(this.leftPane, {
-            span: 1
-        });
-        this.mainBox.add_actor(this.rightPane, {
-            span: 1
-        });
+        this.mainBox.add_actor(this.leftPane);
+        this.mainBox.add_actor(this.rightPane);
 
         section.actor.add_actor(this.mainBox);
 
