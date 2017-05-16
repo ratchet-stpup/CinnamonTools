@@ -19,7 +19,8 @@
     "version": "0.3.6",
     "contributors": [
         "muzena: Croatian localization.",
-        "giwhub: Chinese localization."
+        "giwhub: Chinese localization.",
+        "Alan01: Danish localization."
     ],
     "name": "Cinnamon Maximus (Fork by Odyseus)"
 }
