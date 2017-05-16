@@ -193,7 +193,7 @@ MyApplet.prototype = {
 
         try {
             this._timeScriptExecutionStarted = new Date().getTime();
-            $.spawnWithCallback(null, [this._file.get_path()], null, 0, null,
+            $.spawnWithCallback(null, [this._file.get_path()], null, GLib.SpawnFlags.DEFAULT, null,
                 Lang.bind(this, function(aStandardOutput) {
                     if (this._isDestroyed)
                         return;

@@ -10,7 +10,6 @@ const Clutter = imports.gi.Clutter;
 const PopupMenu = imports.ui.popupMenu;
 const Tooltips = imports.ui.tooltips;
 const Pango = imports.gi.Pango;
-const Util = imports.misc.util;
 const Main = imports.ui.main;
 const MessageTray = imports.ui.messageTray;
 
