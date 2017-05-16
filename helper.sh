@@ -400,6 +400,7 @@ generateTransStats() {
             for xlet in *; do
                 if [ -d "$xlet/files/$xlet/po" ]; then
                     echo " "
+                    echoWarn "$xlet"
                     (
                         cd "$xlet/files/$xlet/po"
                         PO_LIST_TEMP_FILE=$ROOT_PATH/tmp/po_files_list/$xlet
@@ -439,7 +440,7 @@ generateTransStats() {
                                 &> /dev/null || echoError "Error updating $PO_FILE"
 
                                 echoInfo "Counting and storing untranslated strings..."
-                                UNTRANSLATED=`msggrep -v -T -e "." $PO_FILE | grep -c ^msgstr`
+                                UNTRANSLATED=`msggrep -v -T -e "." "$TMP_PO_PATH" | grep -c ^msgstr`
 
                                 # Continue the build of raw data
                                 echo "$xlet: $PO_FILE $UNTRANSLATED" >>\
