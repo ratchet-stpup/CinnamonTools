@@ -40,6 +40,7 @@ MyApplet.prototype = {
             this.orientation = aOrientation;
             this.mainBox = null;
             this._request_rebuild = false;
+            this._update_label_id = 0;
             this._build_ui_id = 0;
             this._save_tasks_id = 0;
             this._log = this.pref_logging_enabled;
