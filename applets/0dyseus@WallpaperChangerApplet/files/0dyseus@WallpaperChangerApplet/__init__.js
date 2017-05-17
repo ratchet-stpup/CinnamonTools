@@ -484,7 +484,7 @@ WallChangerPreview.prototype = {
             x_align: St.Align.MIDDLE
         });
 
-        this.actor.set_width(this._width);
+        this.actor.set_width(width);
 
         this._path = null;
         this._texture = null;
@@ -705,22 +705,10 @@ WallChangerControls.prototype = {
         let controls = new St.BoxLayout({
             style: "spacing: 20px;"
         });
-        controls.add_actor(this._prev.actor, {
-            expand: true,
-            x_fill: false
-        });
-        controls.add_actor(this._random.actor, {
-            expand: true,
-            x_fill: false
-        });
-        controls.add_actor(this._rotation.actor, {
-            expand: true,
-            x_fill: false
-        });
-        controls.add_actor(this._next.actor, {
-            expand: true,
-            x_fill: false
-        });
+        controls.add_actor(this._prev.actor);
+        controls.add_actor(this._random.actor);
+        controls.add_actor(this._rotation.actor);
+        controls.add_actor(this._next.actor);
         controlsContainer.set_child(controls);
 
         this.controlsBox.add_actor(controlsContainer);
@@ -839,17 +827,10 @@ WallChangerPreviewMenuItem.prototype = {
             vertical: true
         });
 
-        if (this.addActor) {
-            this.addActor(this._box, {
-                align: St.Align.MIDDLE,
-                span: -1
-            });
-        } else {
-            this.actor.add_actor(this._box, {
-                align: St.Align.MIDDLE,
-                span: -1
-            });
-        }
+        this.addActor(this._box, {
+            align: St.Align.MIDDLE,
+            span: -1
+        });
 
         this.tooltip = new MyTooltip(this.actor, _("Open Next Wallpaper"));
 
