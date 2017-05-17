@@ -1,121 +1,839 @@
-## Change Log
+<h4 style="color:red;font-weight:bold;">
+This change log is only valid for the version of the xlet hosted on <a href="https://github.com/Odyseus/CinnamonTools">its original repository</a>
+</h4>
+***
+- **Date:** Mon, 15 May 2017 22:49:37 -0300
+- **Commit:** [04e8b0a](https://github.com/Odyseus/CinnamonTools/commit/04e8b0a)
+- **Author:** Odyseus
+```
+Custom Cinnamon Menu applet
+- Removed CJS 3.4 warnings.
 
-**Note:** Upstream fixes/features are changes made to the original Cinnamon Menu applet that I ported to this applet.
+LANGUAGE  UNTRANSLATED
+zh_CN.po  0
+de.po     60
+es.po     0
+cs.po     60
+sv.po     0
+hr.po     50
 
-##### 1.21
-- Changed *multiversion* implementation. Created symlinks inside the version folder so I don't keep forgetting to copy the files from the root folder. The only *unique* file, and the only reason that I use *multiversion*, is the settings-schema.json file.
+```
+
+***
+
+- **Date:** Mon, 15 May 2017 00:39:19 -0300
+- **Commit:** [f9110ee](https://github.com/Odyseus/CinnamonTools/commit/f9110ee)
+- **Author:** Odyseus
+```
+Custom Cinnamon Menu applet
+- Re-generated help file based on new localizations.
+
+LANGUAGE  UNTRANSLATED
+zh_CN.po  0
+de.po     60
+es.po     0
+cs.po     60
+sv.po     0
+hr.po     50
+
+```
+
+***
+
+- **Date:** Mon, 15 May 2017 00:19:05 -0300
+- **Commit:** [bf4b875](https://github.com/Odyseus/CinnamonTools/commit/bf4b875)
+- **Author:** Odyseus
+```
+Merge pull request #81 from giwhub/giwhub-patch-2
+Update Chinese translations for xlets
+```
+
+***
+
+- **Date:** Mon, 15 May 2017 00:17:27 -0300
+- **Commit:** [9bff968](https://github.com/Odyseus/CinnamonTools/commit/9bff968)
+- **Author:** Odyseus
+```
+Custom Cinnamon Menu applet
+- Updated Swedish localization.
+```
+
+***
+
+- **Date:** Sun, 14 May 2017 23:50:48 -0300
+- **Commit:** [c85c9d2](https://github.com/Odyseus/CinnamonTools/commit/c85c9d2)
+- **Author:** Odyseus
+```
+General
+- Updated helper.sh script so it updates copies of the .po files instead of the original ones to get
+the count of untranslated strings.
+- Updated all localization templates.
+
+```
+
+***
+
+- **Date:** Mon, 15 May 2017 10:47:39 +0800
+- **Commit:** [1d80a9b](https://github.com/Odyseus/CinnamonTools/commit/1d80a9b)
+- **Author:** giwhub
+```
+Update zh_CN.po
+
+```
+
+***
+
+- **Date:** Sun, 14 May 2017 22:03:11 +0200
+- **Commit:** [1854bc7](https://github.com/Odyseus/CinnamonTools/commit/1854bc7)
+- **Author:** Åke Engelbrektson
+```
+Update sv.po
+Update Swedish translation for Custom Cinnamon Menu.
+```
+
+***
+
+- **Date:** Sat, 13 May 2017 20:53:21 -0300
+- **Commit:** [450376a](https://github.com/Odyseus/CinnamonTools/commit/450376a)
+- **Author:** Odyseus
+```
+Custom Cinnamon Menu applet
+- Redesigned help file generation. Now the help file is created from a python script
+(create_localized_help.py) from which strings can be extracted by xgettext to be added to the xlet
+localization template to be able to localize the content of the help file.
+
+LANGUAGE  UNTRANSLATED
+zh_CN.po  58
+de.po     60
+es.po     0
+cs.po     60
+sv.po     58
+hr.po     50
+
+```
+
+***
+
+- **Date:** Mon, 8 May 2017 13:10:09 +0200
+- **Commit:** [8a1591f](https://github.com/Odyseus/CinnamonTools/commit/8a1591f)
+- **Author:** muzena
+```
+0dyseus@CustomCinnamonMenu.hr: update hr.po
+
+```
+
+***
+
+- **Date:** Sun, 7 May 2017 12:40:13 +0200
+- **Commit:** [6fc0502](https://github.com/Odyseus/CinnamonTools/commit/6fc0502)
+- **Author:** Åke Engelbrektson
+```
+Create sv.po
+Swedish translation
+```
+
+***
+
+- **Date:** Sat, 6 May 2017 09:32:30 -0300
+- **Commit:** [133c566](https://github.com/Odyseus/CinnamonTools/commit/133c566)
+- **Author:** Odyseus
+```
+General
+- Reverted the wrapping with double quotes of all path arguments passed to the Util.spawn_async
+function. It caused more damage than good.
+- Some minor code clean up.
+- Updated packages.
+
+```
+
+***
+
+- **Date:** Sat, 6 May 2017 08:28:41 -0300
+- **Commit:** [a29f014](https://github.com/Odyseus/CinnamonTools/commit/a29f014)
+- **Author:** Odyseus
+```
+Custom Cinnamon Menu applet
+- Cleaned up metadata.json file.
+- Updated localization template.
+
+```
+
+***
+
+- **Date:** Fri, 5 May 2017 13:26:00 -0300
+- **Commit:** [9020350](https://github.com/Odyseus/CinnamonTools/commit/9020350)
+- **Author:** Odyseus
+```
+Custom Cinnamon Menu applet
+- Minor code tweaks.
+
+```
+
+***
+
+- **Date:** Fri, 5 May 2017 01:14:18 -0300
+- **Commit:** [20a1b99](https://github.com/Odyseus/CinnamonTools/commit/20a1b99)
+- **Author:** Odyseus
+```
+Custom Cinnamon Menu applet
+- Reverted back a change in the method to clear an array. I switched to the method of setting an
+array length to zero instead of re-declaring an empty array. But this had pernicious side effects,
+like breaking fuzzy search. Lets stick to what it works.
+
+```
+
+***
+
+- **Date:** Thu, 4 May 2017 08:36:07 -0300
+- **Commit:** [0aac916](https://github.com/Odyseus/CinnamonTools/commit/0aac916)
+- **Author:** Odyseus
+```
+Custom Cinnamon Menu applet
+- Removed *dangerous* flag. Achieved by changing all synchronous functions to their asynchronous
+counterparts.
+
+```
+
+***
+
+- **Date:** Thu, 4 May 2017 00:12:10 -0300
+- **Commit:** [214a6e8](https://github.com/Odyseus/CinnamonTools/commit/214a6e8)
+- **Author:** Odyseus
+```
+Custom Cinnamon Menu applet
+- Updated changelog.
+
+```
+
+***
+
+- **Date:** Wed, 3 May 2017 06:38:35 -0300
+- **Commit:** [b0a0fb5](https://github.com/Odyseus/CinnamonTools/commit/b0a0fb5)
+- **Author:** Odyseus
+```
+Custom Cinnamon Menu applet
+- Changed *multiversion* implementation. Created symlinks inside the version folder so I don't keep
+forgetting to copy the files from the root folder. The only *unique* file, and the only reason that
+I use *multiversion*, is the settings-schema.json file.
 - Changed the way the imports are done.
-- Removed *dangerous* flag. Achieved by changing all synchronous functions to their asynchronous counterparts.
 - Implemented some of the upstream features and fixes.
 
-##### 1.20
-- Added Czech localization. Thanks to [Radek71](https://github.com/Radek71).
-- Several upstream fixes.
+```
 
-##### 1.19
-- Added German localization. Thanks to [NikoKrause](https://github.com/NikoKrause).
+***
+
+- **Date:** Sun, 30 Apr 2017 02:06:29 -0300
+- **Commit:** [af5a68f](https://github.com/Odyseus/CinnamonTools/commit/af5a68f)
+- **Author:** Odyseus
+```
+Custom Cinnamon Menu applet
+- Cleaned metadata.json file.
+
+```
+
+***
+
+- **Date:** Sat, 22 Apr 2017 15:57:59 -0300
+- **Commit:** [51f6a1f](https://github.com/Odyseus/CinnamonTools/commit/51f6a1f)
+- **Author:** Odyseus
+```
+General
+- Corrected a grammatical error in all xlet's localized help files.
+
+```
+
+***
+
+- **Date:** Thu, 13 Apr 2017 13:41:11 -0300
+- **Commit:** [3e76136](https://github.com/Odyseus/CinnamonTools/commit/3e76136)
+- **Author:** Odyseus
+```
+Custom Cinnamon Menu applet - Added localized help.
+
+```
+
+***
+
+- **Date:** Sat, 1 Apr 2017 15:22:10 -0300
+- **Commit:** [e2de9c0](https://github.com/Odyseus/CinnamonTools/commit/e2de9c0)
+- **Author:** Odyseus
+```
+General - Updated all help files
+- Updated packages.
+
+```
+
+***
+
+- **Date:** Tue, 21 Mar 2017 19:14:51 -0300
+- **Commit:** [f50ff3a](https://github.com/Odyseus/CinnamonTools/commit/f50ff3a)
+- **Author:** Odyseus
+```
+Custom Cinnamon Menu applet - Updated README and metadata.json files due to new localization added.
+
+```
+
+***
+
+- **Date:** Tue, 21 Mar 2017 06:24:36 -0300
+- **Commit:** [b8acfe0](https://github.com/Odyseus/CinnamonTools/commit/b8acfe0)
+- **Author:** Odyseus
+```
+Merge pull request #35 from giwhub/giwhub-patch-6
+Add Chinese translation for Custom Cinnamon Menu
+```
+
+***
+
+- **Date:** Sun, 19 Mar 2017 23:55:15 +0800
+- **Commit:** [e949d80](https://github.com/Odyseus/CinnamonTools/commit/e949d80)
+- **Author:** giwhub
+```
+Create zh_CN.po
+
+```
+
+***
+
+- **Date:** Wed, 8 Mar 2017 19:32:32 -0300
+- **Commit:** [c64d7b0](https://github.com/Odyseus/CinnamonTools/commit/c64d7b0)
+- **Author:** Odyseus
+```
+General - Updated all xlet's READMEs again. ¬¬
+
+```
+
+***
+
+- **Date:** Tue, 7 Mar 2017 16:57:56 -0300
+- **Commit:** [ee79f02](https://github.com/Odyseus/CinnamonTools/commit/ee79f02)
+- **Author:** Odyseus
+```
+General - Added Croatian localization to all xlets. Thanks to [muzena](https://github.com/muzena)
+- Added LICENSE file to all xlets
+- Updated packages.
+
+```
+
+***
+
+- **Date:** Thu, 2 Mar 2017 15:11:20 -0300
+- **Commit:** [19b3c11](https://github.com/Odyseus/CinnamonTools/commit/19b3c11)
+- **Author:** Odyseus
+```
+General - Updated metadata.json files.
+
+```
+
+***
+
+- **Date:** Sun, 26 Feb 2017 20:45:00 -0300
+- **Commit:** [22f71d7](https://github.com/Odyseus/CinnamonTools/commit/22f71d7)
+- **Author:** Odyseus
+```
+General - Updated all READMEs and help files.
+
+```
+
+***
+
+- **Date:** Tue, 21 Feb 2017 08:10:00 -0300
+- **Commit:** [11896be](https://github.com/Odyseus/CinnamonTools/commit/11896be)
+- **Author:** Odyseus
+```
+General - Updated packages
+- Updated main site
+- Fixed some links to the wiki pages.
+
+```
+
+***
+
+- **Date:** Sun, 19 Feb 2017 17:15:37 -0300
+- **Commit:** [1dd24b8](https://github.com/Odyseus/CinnamonTools/commit/1dd24b8)
+- **Author:** Odyseus
+```
+General - Implemented rendering of xlets' help files to HTML.
+
+```
+
+***
+
+- **Date:** Mon, 13 Feb 2017 20:21:15 -0300
+- **Commit:** [b0b63ca](https://github.com/Odyseus/CinnamonTools/commit/b0b63ca)
+- **Author:** Odyseus
+```
+General - Updated README files of all xlets
+- Fixed broken links on main README file.
+
+```
+
+***
+
+- **Date:** Tue, 31 Jan 2017 19:07:54 -0300
+- **Commit:** [324a1d2](https://github.com/Odyseus/CinnamonTools/commit/324a1d2)
+- **Author:** Odyseus
+```
+General - General repository rearrangement.
+
+```
+
+***
+- **Date:** Tue, 31 Jan 2017 19:07:54 -0300
+- **Commit:** [324a1d2](https://github.com/Odyseus/CinnamonTools/commit/324a1d2)
+- **Author:** Odyseus
+```
+General - General repository rearrangement.
+
+```
+
+***
+
+- **Date:** Sun, 29 Jan 2017 08:54:59 -0300
+- **Commit:** [0f78a83](https://github.com/Odyseus/CinnamonTools/commit/0f78a83)
+- **Author:** Odyseus
+```
+General - Fixed some grammatical errors.
+
+```
+
+***
+
+- **Date:** Fri, 27 Jan 2017 11:40:53 -0300
+- **Commit:** [554371e](https://github.com/Odyseus/CinnamonTools/commit/554371e)
+- **Author:** Odyseus
+```
+Applet - Cleaned some irrelevant files
+- Updated READMEs
+- Updated metadata.json
+- Updated some applet icons.
+
+```
+
+***
+
+- **Date:** Tue, 24 Jan 2017 09:28:18 -0300
+- **Commit:** [ca28862](https://github.com/Odyseus/CinnamonTools/commit/ca28862)
+- **Author:** Odyseus
+```
+General - Some fixes to READMEs.
+
+```
+
+***
+
+- **Date:** Mon, 23 Jan 2017 04:49:30 -0300
+- **Commit:** [788e8c5](https://github.com/Odyseus/CinnamonTools/commit/788e8c5)
+- **Author:** Odyseus
+```
+General - Fixed some broken links on READMEs
+- Fixed wrong author name on info.json files.
+
+```
+
+***
+
+- **Date:** Sun, 22 Jan 2017 23:50:00 -0300
+- **Commit:** [26e2e87](https://github.com/Odyseus/CinnamonTools/commit/26e2e87)
+- **Author:** Odyseus
+```
+Applets - Fixed some broken links.
+
+```
+
+***
+
+- **Date:** Sun, 22 Jan 2017 20:29:22 -0300
+- **Commit:** [c2a6759](https://github.com/Odyseus/CinnamonTools/commit/c2a6759)
+- **Author:** Odyseus
+```
+Applets - Formatted repository to conform Spices repository.
+
+```
+
+***
+
+- **Date:** Wed, 18 Jan 2017 04:05:44 -0300
+- **Commit:** [7260278](https://github.com/Odyseus/CinnamonTools/commit/7260278)
+- **Author:** Odyseus
+```
+[General] Stage 1
+- Added badges
+- Updated READMEs
+- Added packaged xlets/themes to be able to download individually.
+
+```
+
+***
+
+- **Date:** Sun, 15 Jan 2017 05:36:53 -0300
+- **Commit:** [63af5ba](https://github.com/Odyseus/CinnamonTools/commit/63af5ba)
+- **Author:** Odyseus
+```
+[Custom Cinnamon Menu applet] - Added Czech localization. Thanks to
+[Radek71](https://github.com/Radek71). Closes #18 - Several upstream fixes.
+
+```
+
+***
+
+- **Date:** Wed, 14 Dec 2016 13:56:36 -0300
+- **Commit:** [d50c594](https://github.com/Odyseus/CinnamonTools/commit/d50c594)
+- **Author:** Odyseus
+```
+[Custom Cinnamon Menu applet] - Added German localization. Thanks to
+[NikoKrause](https://github.com/NikoKrause)
 - [Upstream fix] Fixed a crash produced by certain recent files URIs.
 
-##### 1.18
-- Some fixes/improvements for Cinnamon 3.2.x.
-- Fixed keyboard navigation in the Favorites box caused by a custom separator element.
-- Added option to change the font size for the text on the applications info box.
-- Added option to display the user's picture on the menu.
-- Added option to display hover feedback. If the user picture is displayed and the option "hover feedback" is enabled, every time an element on the menu is hovered or selected with keyboard navigation, the image/icon of said element will be displayed in the place where the user picture is placed.
+```
 
-##### 1.17
-- Fixed the know issue with the option **Display separator after "Recent Applications" category** breaking keyboard navigation.
-- Added keyboard navigation to the **Custom Launchers** box.
+***
 
-##### 1.16
-- Added the possibility to customize the placement of each mayor elements of the menu (**Search box**, **Applications/Categories boxes**, **Info box** and **Custom Launchers box**). There is a new section on the settings window called **Menu layout** that groups all options that modify the menu layout.
-- Some minor performance improvements.
-- [Upstream fix] Fixed removal of key bindings.
+- **Date:** Fri, 9 Dec 2016 15:36:44 -0300
+- **Commit:** [0c79cf9](https://github.com/Odyseus/CinnamonTools/commit/0c79cf9)
+- **Author:** Odyseus
+```
+[Custom Cinnamon Menu applet] - Some fixes/improvements for Cinnamon 3.2.x
+- Fixed keyboard navigation in the Favorites box caused by a custom separator element
+- Added option to change the font size for the text on the applications info box
+- Added option to display the user's picture on the menu
+- Added option to display hover feedback. If the user picture is displayed and the option "hover
+feedback" is enabled, every time an element on the menu is hovered or selected with keyboard
+navigation, the image/icon of said element will be displayed in the place where the user picture is
+placed.
 
-##### 1.15
-- Added option to choose an alternate method for selecting categories. This method is based on **lestcape**'s [Configurable Menu applet](https://github.com/lestcape/Configurable-Menu) and it might improve the menu performance while selecting categories.
-- Updated some context menu icons to be less generic. Thanks to [NikoKrause](https://github.com/NikoKrause).
+```
+
+***
+
+- **Date:** Tue, 6 Dec 2016 11:26:43 -0300
+- **Commit:** [1bab178](https://github.com/Odyseus/CinnamonTools/commit/1bab178)
+- **Author:** Odyseus
+```
+[General] - Removed unnecessary argument from localizations.sh scripts.
+
+```
+
+***
+
+- **Date:** Fri, 2 Dec 2016 20:18:16 -0300
+- **Commit:** [668fd35](https://github.com/Odyseus/CinnamonTools/commit/668fd35)
+- **Author:** Odyseus
+```
+[Custom Cinnamon Menu applet] - Updated test version.
+
+```
+
+***
+
+- **Date:** Fri, 2 Dec 2016 09:10:37 -0300
+- **Commit:** [0fbfebb](https://github.com/Odyseus/CinnamonTools/commit/0fbfebb)
+- **Author:** Odyseus
+```
+[Custom Cinnamon Menu applet] - Fixed the know issue with the option **Display separator after
+"Recent Applications" category** breaking keyboard navigation
+- Added keyboard navigation to the **Custom Launchers** box
+- Added the possibility to customize the placement of each mayor elements of the menu (**Search
+box**, **Applications/Categories boxes**, **Info box** and **Custom Launchers box**). There is a new
+section on the settings window called **Menu layout** that groups all options that modify the menu
+layout
+- Some minor performance improvements
+- [Upstream fix] Fixed removal of key bindings
+- Closes #12
+
+```
+
+***
+
+- **Date:** Sat, 26 Nov 2016 05:34:56 -0300
+- **Commit:** [dfc91d2](https://github.com/Odyseus/CinnamonTools/commit/dfc91d2)
+- **Author:** Odyseus
+```
+[Custom Cinnamon Menu applet] - Updated README.md and HELP.md files
+- Added TODO file.
+
+```
+
+***
+
+- **Date:** Wed, 23 Nov 2016 19:51:32 -0300
+- **Commit:** [b7ba3d4](https://github.com/Odyseus/CinnamonTools/commit/b7ba3d4)
+- **Author:** Odyseus
+```
+[Custom Cinnamon Menu applet] - Added option to choose an alternate method for selecting categories.
+This method is based on **lestcape**'s [Configurable Menu
+applet](https://github.com/lestcape/Configurable-Menu) and it might improve the menu performance
+while selecting categories
+- Updated some context menu icons to be less generic. Thanks to
+[NikoKrause](https://github.com/NikoKrause)
 - [Upstream fix] Various keyboard navigation fixes.
 
-##### 1.14
-- Added option to toggle category selection on hover.
-- Fixed error when trying to set the **run_from_terminal.sh** file as executable.
+```
+
+***
+
+- **Date:** Sat, 19 Nov 2016 10:33:51 -0300
+- **Commit:** [5719ee9](https://github.com/Odyseus/CinnamonTools/commit/5719ee9)
+- **Author:** Odyseus
+```
+[Custom Cinnamon Menu applet] - Added option to toggle category selection on hover
+- Fixed error when trying to set the **run_from_terminal.sh** file as executable. Fixes #10
 - Removed unnecessary folder.
 
-##### 1.13
-- Enabled multi version support to take advantage of the new settings system for xlets on Cinnamon 3.2.
-- Fixed favorites box scaling.
-- Added possibility to display tooltips for all items in the menu (applications, favorites, recent files and places).
-- Added option to cap the maximum width of menu items inside the applications box.
-- [Upstream fix] Added keyboard navigation for context menu.
-- [Upstream fix] Greatly improved keyboard navigation.
-- [Upstream fix] Recent files that are no longer available will be hidden or will display a warning.
+```
+
+***
+
+- **Date:** Sun, 13 Nov 2016 16:02:30 -0300
+- **Commit:** [1ca1b0e](https://github.com/Odyseus/CinnamonTools/commit/1ca1b0e)
+- **Author:** Odyseus
+```
+[Custom Cinnamon Menu applet 1.13] - Enabled multi version support to take advantage of the new
+settings system for xlets on Cinnamon 3.2
+- Fixed favorites box scaling. Fixes #8 - Added possibility to display tooltips for all items in the
+menu (applications, favorites, recent files and places)
+- Added option to cap the maximum width of menu items inside the applications box
+- [Upstream fix] Added keyboard navigation for context menu
+- [Upstream fix] Greatly improved keyboard navigation
+- [Upstream fix] Recent files that are no longer available will be hidden or will display a warning
 - General improvements.
 
-##### 1.12
-- Fixed the non localization of the applet label ([#7](https://github.com/Odyseus/CinnamonTools/issues/7)). Thanks to [NikoKrause](https://github.com/NikoKrause).
-- [Upstream fix] Fixed impossibility to clear the list of **Recent Files** by pressing the **Enter** key.
+```
+
+***
+
+- **Date:** Thu, 20 Oct 2016 17:48:10 -0300
+- **Commit:** [fa9bae5](https://github.com/Odyseus/CinnamonTools/commit/fa9bae5)
+- **Author:** Odyseus
+```
+[Custom Cinnamon Menu applet] - Fixed the non localization of the applet label (Fixes #7)
+- [Upstream fix] Fixed impossibility to clear the list of **Recent Files** by pressing the **Enter**
+key
 - [Upstream fix] Fixed various visual glitches on the applications info box.
 
-##### 1.11
-- [Upstream fix] Fixed search results highlighting.
+```
 
-##### 1.10
-- Added option to not store into the Recent Applications category the applications set as Favorite.
+***
 
-##### 1.09
-- Fixed fuzzy search display of exact matches. Thanks to [nooulaif](https://github.com/nooulaif).
-- [Upstream fix] Fixed unescaped characters displayed on applications info box.
-- [Upstream fix] Fixed gap left after hiding favorites box.
+- **Date:** Thu, 13 Oct 2016 04:59:12 -0300
+- **Commit:** [94b488e](https://github.com/Odyseus/CinnamonTools/commit/94b488e)
+- **Author:** Odyseus
+```
+[General] - Added "verbose" and "xtrace" flags to all commands executed by the localizations.sh
+scripts.
 
-##### 1.08
-- Fixed a bug that caused the search on the menu to break when the custom launchers box was set to disabled/hidden.
-- Fixed a bug that caused the search on the menu would not fit to the panel width when the custom launchers box was set to disabled/hidden.
-- Added support for localizations. If someone wants to contribute with translations, inside the Help section of this applet (found in the applet context menu or the Help.md file inside this applet folder) you will find some pointers on how to do it.
+```
 
-##### 1.07
-- Reorganized this applet settings window.
-- Added to this applet context menu a **Help** menu item. It will open a file containing some basic information about usage and some troubleshooting instructions.
-- Added **Run from terminal** and **Run from terminal as root** to the applications context menu.
-- Added three new actions when clicking applications.
-    - **Shift + Left click:** Run as root
-    - **Ctrl + Left click:** Run from terminal
-    - **Ctrl + Shift + Left click:** Run from terminal as root
+***
 
-##### 1.06
-- Fixed an issue with the context menu for applications listed under **Recent Apps** category (the context menu wasn't closing when switching categories.
-- Added three new items to the context menu for applications (**Run as root**, **Edit .desktop file** and **Open .desktop file folder**). All three items can be hidden/shown individually.
-- Added options to hide **Add to panel**, **Add to desktop** and **Uninstall** context menu items.
-- Added option to enable open/close animations for the menu.
-- Added a new item to the context menu of this applet to open the menu editor.
+- **Date:** Wed, 12 Oct 2016 11:33:09 -0300
+- **Commit:** [1996883](https://github.com/Odyseus/CinnamonTools/commit/1996883)
+- **Author:** Odyseus
+```
+[Custom Cinnamon Menu applet] - Updated localization files.
 
-##### 1.05
-- Added new option to remember recently used applications launched from the menu. These applications will be displayed on a new category and sorted by execution time.
-- Added some tweaks and new features from the nightly version of the default Cinnamon menu. These additions make this applet *play nice* with the new vertical panels introduced by Cinnamon nightly.
-- Some fixes to the menu keyboard navigation. There were some inconsistencies when the option **Swap categories box** was enabled. There are still some inconsistencies when the favorites box is shown. I will fix them when I figure out how to.
+```
 
-##### 1.04
-- Added option to place the custom launchers box to the left or to the right of the searchbox.
-- Added option to auto set the searchbox width to fit the entire menu width.
-- Added option to align the applications info box text to the left.
+***
 
-##### 1.03
-- Added option to invert the placement of the categories box and the applications box.
-- Added option to display the **Favorites** as a category.
-- Added option to remove the (totally useless) **All applications** category.
-- Added option to hide the scrollbar from the applications list.
-- Added option to disable recently installed applications highlighting.
-- Added options to customize the padding of certain menu elements.
+- **Date:** Mon, 10 Oct 2016 09:37:32 -0300
+- **Commit:** [4fd1c00](https://github.com/Odyseus/CinnamonTools/commit/4fd1c00)
+- **Author:** Odyseus
+```
+[General] Changed all URLs to point to the repository instead of individual folders. Some terms
+corrections.
 
-##### 1.02
-- Added option to hide searchbox.
-- Added option to set a fixed width for the searchbox.
-- Added a box that can contain any custom launcher (up to 10) and can be placed at the top or the bottom of the menu.
-- The **Quit buttons** can now be moved next the the custom launchers box.
-- The **Quit buttons** can now have custom icons (ONLY when they are placed next to the custom launchers box).
+```
 
-##### 1.01
-- Minor performance tweaks.
+***
 
-##### 1.0
-- Initial release.
+- **Date:** Sat, 8 Oct 2016 19:55:16 -0300
+- **Commit:** [744bea3](https://github.com/Odyseus/CinnamonTools/commit/744bea3)
+- **Author:** Odyseus
+```
+[Custom Cinnamon Menu applet] Fixed search results highlighting.
+
+```
+
+***
+
+- **Date:** Sat, 8 Oct 2016 04:12:43 -0300
+- **Commit:** [f4ac54f](https://github.com/Odyseus/CinnamonTools/commit/f4ac54f)
+- **Author:** Odyseus
+```
+[Custom Cinnamon Menu applet] Added option to not store into the Recent Applications category the
+applications set as Favorite.
+
+```
+
+***
+
+- **Date:** Thu, 6 Oct 2016 03:35:15 -0300
+- **Commit:** [72668c7](https://github.com/Odyseus/CinnamonTools/commit/72668c7)
+- **Author:** Odyseus
+```
+Corrected some terms and removed BASICS.md in favor of Wiki.
+
+```
+
+***
+
+- **Date:** Wed, 5 Oct 2016 19:13:43 -0300
+- **Commit:** [601a1a6](https://github.com/Odyseus/CinnamonTools/commit/601a1a6)
+- **Author:** Odyseus
+```
+Minor fixes/improvements.
+
+```
+
+***
+
+- **Date:** Mon, 3 Oct 2016 00:12:50 -0300
+- **Commit:** [d01a0ab](https://github.com/Odyseus/CinnamonTools/commit/d01a0ab)
+- **Author:** Odyseus
+```
+White space cleaning.
+
+```
+
+***
+
+- **Date:** Sun, 25 Sep 2016 01:37:02 -0300
+- **Commit:** [e0afc90](https://github.com/Odyseus/CinnamonTools/commit/e0afc90)
+- **Author:** Odyseus
+```
+Added support for localizations.
+
+```
+
+***
+
+- **Date:** Thu, 22 Sep 2016 21:42:19 -0300
+- **Commit:** [95dcbea](https://github.com/Odyseus/CinnamonTools/commit/95dcbea)
+- **Author:** Odyseus
+```
+Added support for localizations.
+
+```
+
+***
+
+- **Date:** Sun, 18 Sep 2016 19:16:41 -0300
+- **Commit:** [8775ca9](https://github.com/Odyseus/CinnamonTools/commit/8775ca9)
+- **Author:** Odyseus
+```
+Initial commit..
+
+```
+
+***
+
+- **Date:** Sun, 18 Sep 2016 14:12:05 -0300
+- **Commit:** [6ea06fa](https://github.com/Odyseus/CinnamonTools/commit/6ea06fa)
+- **Author:** Odyseus
+```
+Initial commit....
+
+```
+
+***
+
+- **Date:** Fri, 16 Sep 2016 15:06:51 -0300
+- **Commit:** [1d36bc6](https://github.com/Odyseus/CinnamonTools/commit/1d36bc6)
+- **Author:** Odyseus
+```
+Initial commit...
+
+```
+
+***
+
+- **Date:** Wed, 14 Sep 2016 14:23:03 -0300
+- **Commit:** [ebdb879](https://github.com/Odyseus/CinnamonTools/commit/ebdb879)
+- **Author:** Odyseus
+```
+Initial commit.
+
+```
+
+***
+
+- **Date:** Wed, 31 Aug 2016 12:03:17 -0300
+- **Commit:** [51d0a27](https://github.com/Odyseus/CinnamonTools/commit/51d0a27)
+- **Author:** Odyseus
+```
+Initial commit.
+
+```
+
+***
+
+- **Date:** Mon, 22 Aug 2016 21:52:43 -0300
+- **Commit:** [920eb7f](https://github.com/Odyseus/CinnamonTools/commit/920eb7f)
+- **Author:** Odyseus
+```
+Initial commit.
+
+```
+
+***
+
+- **Date:** Sat, 20 Aug 2016 15:17:56 -0300
+- **Commit:** [c7381ce](https://github.com/Odyseus/CinnamonTools/commit/c7381ce)
+- **Author:** Odyseus
+```
+Initial commit...
+
+```
+
+***
+
+- **Date:** Sat, 20 Aug 2016 15:01:25 -0300
+- **Commit:** [d3dfb62](https://github.com/Odyseus/CinnamonTools/commit/d3dfb62)
+- **Author:** Odyseus
+```
+Initial commit..
+
+```
+
+***
+
+- **Date:** Sat, 20 Aug 2016 14:55:18 -0300
+- **Commit:** [8a98d97](https://github.com/Odyseus/CinnamonTools/commit/8a98d97)
+- **Author:** Odyseus
+```
+Initial commit.
+
+```
+
+***
+
+- **Date:** Mon, 15 Aug 2016 06:48:34 -0300
+- **Commit:** [5b75846](https://github.com/Odyseus/CinnamonTools/commit/5b75846)
+- **Author:** Odyseus
+```
+Initial commit.
+
+```
+
+***
+
+- **Date:** Fri, 12 Aug 2016 05:34:24 -0300
+- **Commit:** [08bae8e](https://github.com/Odyseus/CinnamonTools/commit/08bae8e)
+- **Author:** Odyseus
+```
+Initial commit.....
+
+```
+
+***
+
+- **Date:** Thu, 11 Aug 2016 23:02:16 -0300
+- **Commit:** [eafffcb](https://github.com/Odyseus/CinnamonTools/commit/eafffcb)
+- **Author:** Odyseus
+```
+Initial commit..
+
+```
+
+***
