@@ -1611,7 +1611,8 @@ ArgosLineView.prototype = {
                         aLine.iconSize :
                         this._applet.pref_default_icon_size),
                     icon_name: iconName,
-                    icon_type: (aLine.iconIsSymbolic !== "true" ?
+                    icon_type: (!aLine.iconIsSymbolic ||
+                        (aLine.iconIsSymbolic && aLine.iconIsSymbolic !== "true") ?
                         St.IconType.FULLCOLOR :
                         St.IconType.SYMBOLIC)
                 });
@@ -2139,20 +2140,20 @@ function parseLine(aLineString) {
 
     line.markup = line.text;
 
-    if (line.unescape !== "false")
+    if (!line.unescape || (line.unescape && line.unescape !== "false"))
         line.markup = GLib.strcompress(line.markup);
 
-    if (line.emojize !== "false") {
+    if (!line.emojize || (line.emojize && line.emojize !== "false")) {
         line.markup = line.markup.replace(/:([\w+-]+):/g, function(match, emojiName) {
             emojiName = emojiName.toLowerCase();
             return EMOJI.hasOwnProperty(emojiName) ? EMOJI[emojiName] : match;
         });
     }
 
-    if (line.trim !== "false")
+    if (!line.trim || (line.trim && line.trim !== "false"))
         line.markup = line.markup.trim();
 
-    if (line.useMarkup === "false") {
+    if (line.useMarkup && line.useMarkup === "false") {
         line.markup = GLib.markup_escape_text(line.markup, -1);
         // Restore escaped ESC characters (needed for ANSI sequences)
         line.markup = line.markup.replace("&#x1b;", "\x1b");
@@ -2160,10 +2161,10 @@ function parseLine(aLineString) {
 
     // Note that while it is possible to format text using a combination of Pango markup
     // and ANSI escape sequences, lines like "<b>ABC \e[1m DEF</b>" lead to unmatched tags
-    if (line.ansi !== "false")
+    if (!line.ansi || (line.ansi && line.ansi !== "false"))
         line.markup = ansiToMarkup(line.markup);
 
-    if (markupAttributes.length > 0)
+    if (markupAttributes && markupAttributes.length > 0)
         line.markup = "<span " + markupAttributes.join(" ") + ">" + line.markup + "</span>";
 
     if (line.hasOwnProperty("bash")) {
@@ -2184,7 +2185,7 @@ function parseLine(aLineString) {
     }
 
     line.hasAction = line.hasOwnProperty("bash") || line.hasOwnProperty("href") ||
-        line.hasOwnProperty("eval") || line.refresh === "true";
+        line.hasOwnProperty("eval") || (line.refresh && line.refresh === "true");
 
     return line;
 }

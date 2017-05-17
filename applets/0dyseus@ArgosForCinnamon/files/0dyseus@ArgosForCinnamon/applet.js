@@ -352,7 +352,7 @@ MyApplet.prototype = {
                     menus[dropdownLines[l + 1].menuLevel] = menuItem.menu;
                 } else if ((l + 1) < dropdownLines.length &&
                     dropdownLines[l + 1].menuLevel === dropdownLines[l].menuLevel &&
-                    dropdownLines[l + 1].alternate === "true") {
+                    dropdownLines[l + 1].alternate && dropdownLines[l + 1].alternate === "true") {
                     menuItem = new $.ArgosMenuItem(this, dropdownLines[l], dropdownLines[l + 1]);
                     // Skip alternate line
                     l++;
