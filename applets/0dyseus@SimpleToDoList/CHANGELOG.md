@@ -1,7 +1,18 @@
+## Simple ToDo List changelog
 <h4 style="color:red;font-weight:bold;">
 This change log is only valid for the version of the xlet hosted on <a href="https://github.com/Odyseus/CinnamonTools">its original repository</a>
 </h4>
 ***
+- **Date:** Sun, 21 May 2017 11:28:41 +0200
+- **Commit:** [10b962f](https://github.com/Odyseus/CinnamonTools/commit/10b962f)
+- **Author:** Åke Engelbrektson
+```
+0dyseus@SimpleToDoList: add sv.po
+Add Swedish translation
+```
+
+***
+
 - **Date:** Wed, 17 May 2017 16:09:57 -0300
 - **Commit:** [46166f8](https://github.com/Odyseus/CinnamonTools/commit/46166f8)
 - **Author:** Odyseus
@@ -11,19 +22,6 @@ Simple ToDo List applet
 
 LANGUAGE  UNTRANSLATED
 es.po     0
-
-```
-
-***
-
-- **Date:** Sun, 14 May 2017 23:50:48 -0300
-- **Commit:** [c85c9d2](https://github.com/Odyseus/CinnamonTools/commit/c85c9d2)
-- **Author:** Odyseus
-```
-General
-- Updated helper.sh script so it updates copies of the .po files instead of the original ones to get
-the count of untranslated strings.
-- Updated all localization templates.
 
 ```
 
@@ -40,20 +38,6 @@ localization template to be able to localize the content of the help file.
 
 LANGUAGE  UNTRANSLATED
 es.po     0
-
-```
-
-***
-
-- **Date:** Sat, 6 May 2017 09:32:30 -0300
-- **Commit:** [133c566](https://github.com/Odyseus/CinnamonTools/commit/133c566)
-- **Author:** Odyseus
-```
-General
-- Reverted the wrapping with double quotes of all path arguments passed to the Util.spawn_async
-function. It caused more damage than good.
-- Some minor code clean up.
-- Updated packages.
 
 ```
 
@@ -99,17 +83,6 @@ Simple ToDo List applet
 ```
 Simple ToDo list applet
 - Fixed some warnings logged into the .xsession-errors file.
-
-```
-
-***
-
-- **Date:** Sat, 22 Apr 2017 15:57:59 -0300
-- **Commit:** [51f6a1f](https://github.com/Odyseus/CinnamonTools/commit/51f6a1f)
-- **Author:** Odyseus
-```
-General
-- Corrected a grammatical error in all xlet's localized help files.
 
 ```
 
