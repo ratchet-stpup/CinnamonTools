@@ -1,3 +1,4 @@
+## Argos for Cinnamon changelog
 <h4 style="color:red;font-weight:bold;">
 This change log is only valid for the version of the xlet hosted on <a href="https://github.com/Odyseus/CinnamonTools">its original repository</a>
 </h4>
@@ -30,19 +31,6 @@ es.po     84
 
 ***
 
-- **Date:** Sun, 14 May 2017 23:50:48 -0300
-- **Commit:** [c85c9d2](https://github.com/Odyseus/CinnamonTools/commit/c85c9d2)
-- **Author:** Odyseus
-```
-General
-- Updated helper.sh script so it updates copies of the .po files instead of the original ones to get
-the count of untranslated strings.
-- Updated all localization templates.
-
-```
-
-***
-
 - **Date:** Sat, 13 May 2017 20:52:00 -0300
 - **Commit:** [37601a5](https://github.com/Odyseus/CinnamonTools/commit/37601a5)
 - **Author:** Odyseus
@@ -54,20 +42,6 @@ localization template to be able to localize the content of the help file.
 
 LANGUAGE  UNTRANSLATED
 es.po     84
-
-```
-
-***
-
-- **Date:** Sat, 6 May 2017 09:32:30 -0300
-- **Commit:** [133c566](https://github.com/Odyseus/CinnamonTools/commit/133c566)
-- **Author:** Odyseus
-```
-General
-- Reverted the wrapping with double quotes of all path arguments passed to the Util.spawn_async
-function. It caused more damage than good.
-- Some minor code clean up.
-- Updated packages.
 
 ```
 
