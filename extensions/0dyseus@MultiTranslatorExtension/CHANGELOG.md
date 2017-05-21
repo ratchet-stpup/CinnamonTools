@@ -1,3 +1,4 @@
+## Multi Translator changelog
 <h4 style="color:red;font-weight:bold;">
 This change log is only valid for the version of the xlet hosted on <a href="https://github.com/Odyseus/CinnamonTools">its original repository</a>
 </h4>
@@ -48,19 +49,6 @@ Update Chinese translations for xlets
 
 ***
 
-- **Date:** Sun, 14 May 2017 23:50:48 -0300
-- **Commit:** [c85c9d2](https://github.com/Odyseus/CinnamonTools/commit/c85c9d2)
-- **Author:** Odyseus
-```
-General
-- Updated helper.sh script so it updates copies of the .po files instead of the original ones to get
-the count of untranslated strings.
-- Updated all localization templates.
-
-```
-
-***
-
 - **Date:** Mon, 15 May 2017 01:02:29 +0800
 - **Commit:** [2269ea4](https://github.com/Odyseus/CinnamonTools/commit/2269ea4)
 - **Author:** giwhub
@@ -96,20 +84,6 @@ hr.po     46
 - **Author:** muzena
 ```
 0dyseus@MultiTranslatorExtension.hr: update hr.po
-
-```
-
-***
-
-- **Date:** Sat, 6 May 2017 09:32:30 -0300
-- **Commit:** [133c566](https://github.com/Odyseus/CinnamonTools/commit/133c566)
-- **Author:** Odyseus
-```
-General
-- Reverted the wrapping with double quotes of all path arguments passed to the Util.spawn_async
-function. It caused more damage than good.
-- Some minor code clean up.
-- Updated packages.
 
 ```
 
@@ -181,17 +155,6 @@ Update zh_CN.po
 
 ***
 
-- **Date:** Sat, 22 Apr 2017 15:57:59 -0300
-- **Commit:** [51f6a1f](https://github.com/Odyseus/CinnamonTools/commit/51f6a1f)
-- **Author:** Odyseus
-```
-General
-- Corrected a grammatical error in all xlet's localized help files.
-
-```
-
-***
-
 - **Date:** Wed, 19 Apr 2017 11:08:26 -0300
 - **Commit:** [da0ae65](https://github.com/Odyseus/CinnamonTools/commit/da0ae65)
 - **Author:** Odyseus
@@ -253,17 +216,6 @@ Multi Translator extension - Updated README due to localizations updates
 - **Author:** muzena
 ```
 0dyseus@MultiTranslatorExtension: add hr.po
-
-```
-
-***
-
-- **Date:** Sat, 1 Apr 2017 15:22:10 -0300
-- **Commit:** [e2de9c0](https://github.com/Odyseus/CinnamonTools/commit/e2de9c0)
-- **Author:** Odyseus
-```
-General - Updated all help files
-- Updated packages.
 
 ```
 
@@ -394,16 +346,6 @@ seems to work as it should.
 
 ***
 
-- **Date:** Wed, 8 Mar 2017 19:32:32 -0300
-- **Commit:** [c64d7b0](https://github.com/Odyseus/CinnamonTools/commit/c64d7b0)
-- **Author:** Odyseus
-```
-General - Updated all xlet's READMEs again. ¬¬
-
-```
-
-***
-
 - **Date:** Wed, 8 Mar 2017 18:40:45 -0300
 - **Commit:** [7b9e32b](https://github.com/Odyseus/CinnamonTools/commit/7b9e32b)
 - **Author:** Odyseus
@@ -429,18 +371,6 @@ close automatically.
 - Added icons to the translation providers popup.
 - Added a missing translatable string.
 - Preliminary tests on Cinnamon 3.2. All seems OK so far.
-
-```
-
-***
-
-- **Date:** Tue, 7 Mar 2017 16:57:56 -0300
-- **Commit:** [ee79f02](https://github.com/Odyseus/CinnamonTools/commit/ee79f02)
-- **Author:** Odyseus
-```
-General - Added Croatian localization to all xlets. Thanks to [muzena](https://github.com/muzena)
-- Added LICENSE file to all xlets
-- Updated packages.
 
 ```
 
@@ -526,16 +456,6 @@ Multi Translator extension - Sixth prototype
 test the sorting of translated language names (BTW, the list of languages can be translated and
 sorted alphabetically and it works beautifully)
 - Cleaned some unused code.
-
-```
-
-***
-
-- **Date:** Sun, 26 Feb 2017 20:45:00 -0300
-- **Commit:** [22f71d7](https://github.com/Odyseus/CinnamonTools/commit/22f71d7)
-- **Author:** Odyseus
-```
-General - Updated all READMEs and help files.
 
 ```
 
