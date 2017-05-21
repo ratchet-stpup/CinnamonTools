@@ -7,6 +7,13 @@ TODOs:
     * I had to do a lot of juggling to create a function that would create a
       time stamp of the same format as xgettext. It needs more testing to see
       if the time zone is correctly calculated.
+    * Find a way to ALWAYS create an uniform .pot file. Right now, if the source
+      files from which strings need to be extracted doesn't change at all, sucesive
+      updates to the .pot file would result in totally differect files.
+      Adding the --sort-by-file argument to xgettext when extracting from
+      .js and .py files seems to parcially solve the problem. But the strings
+      extracted from settings-shema.json and metadata.json files and stored with
+      methods of the polib library seems to always are saved randomly.
 """
 
 import os
@@ -184,6 +191,9 @@ and will be compiled and installed into the system when the xlet is installed
 via Cinnamon Settings.
 """
 
+# I chose to overwrite the entire header instead of using the proper
+# xgettext arguments so I can set a custom initial comment.
+# I couldn't find a way to personalize the itinial comment set by the use of xgettext.
 POT_HEADER = """# This is a template file for translating the {PACKAGE} package.
 # Copyright (C) {COPY_INITIAL_YEAR}{COPY_CURRENT_YEAR}
 # This file is distributed under the same license as the {PACKAGE} package.
@@ -341,6 +351,7 @@ class Main:
                 subprocess.run([
                     "xgettext",
                     "--no-wrap",
+                    "--sort-by-file",
                     "--language=JavaScript",
                     "--add-comments",
                     "--from-code=UTF-8",
@@ -380,6 +391,7 @@ class Main:
 
                 xgettext_cmd = [
                     "xgettext",
+                    "--sort-by-file",
                     "--no-wrap",
                     "--language=Python",
                     "--add-comments",
@@ -580,7 +592,7 @@ class Main:
                 comment = "%s->settings-schema.json->%s->%s" % (
                     self.current_parent_dir, parent, key)
                 self.save_entry(data[key], comment)
-            elif key in "options":
+            elif key == "options":
                 opt_data = data[key]
                 for option in list(opt_data.keys()):
                     if opt_data[option] == "custom":
@@ -588,6 +600,15 @@ class Main:
                     comment = "%s->settings-schema.json->%s->%s" % (
                         self.current_parent_dir, parent, key)
                     self.save_entry(option, comment)
+            elif key == "columns":
+                columns = data[key]
+                for i, col in enumerate(columns):
+                    for col_key in col:
+                        if col_key in ("title", "units"):
+                            comment = "%s->settings-schema.json->%s->columns->%s" % (self.current_parent_dir, parent, col_key)
+                            self.save_entry(col[col_key], comment)
+
+            # Attempt to extract strings from keys that could be objects.
             try:
                 self.extract_strings(data[key], key)
             except AttributeError:
@@ -602,6 +623,8 @@ class Main:
                 comment = "%s->metadata.json->%s" % (self.current_parent_dir, key)
 
                 values = data[key]
+                # The "contributors" key can be a string or a list (array).
+                # If it is a string, split it.
                 if isinstance(values, str):
                     values = values.split(",")
 
