@@ -24,7 +24,7 @@ Gettext.bindtextdomain(ExtensionUUID, GLib.get_home_dir() + "/.local/share/local
 function _(aStr) {
     let customTrans = Gettext.dgettext(ExtensionUUID, aStr);
 
-    if (customTrans != aStr)
+    if (customTrans !== aStr && aStr !== "")
         return customTrans;
 
     return Gettext.gettext(aStr);
