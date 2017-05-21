@@ -1,3 +1,4 @@
+## Extensions Manager changelog
 <h4 style="color:red;font-weight:bold;">
 This change log is only valid for the version of the xlet hosted on <a href="https://github.com/Odyseus/CinnamonTools">its original repository</a>
 </h4>
@@ -85,20 +86,6 @@ Extensions Manager applet
 
 ***
 
-- **Date:** Sat, 6 May 2017 09:32:30 -0300
-- **Commit:** [133c566](https://github.com/Odyseus/CinnamonTools/commit/133c566)
-- **Author:** Odyseus
-```
-General
-- Reverted the wrapping with double quotes of all path arguments passed to the Util.spawn_async
-function. It caused more damage than good.
-- Some minor code clean up.
-- Updated packages.
-
-```
-
-***
-
 - **Date:** Sat, 6 May 2017 08:26:38 -0300
 - **Commit:** [d00c620](https://github.com/Odyseus/CinnamonTools/commit/d00c620)
 - **Author:** Odyseus
@@ -175,43 +162,11 @@ Extensions Manager applet
 
 ***
 
-- **Date:** Sat, 22 Apr 2017 15:57:59 -0300
-- **Commit:** [51f6a1f](https://github.com/Odyseus/CinnamonTools/commit/51f6a1f)
-- **Author:** Odyseus
-```
-General
-- Corrected a grammatical error in all xlet's localized help files.
-
-```
-
-***
-
 - **Date:** Thu, 13 Apr 2017 13:43:04 -0300
 - **Commit:** [365d224](https://github.com/Odyseus/CinnamonTools/commit/365d224)
 - **Author:** Odyseus
 ```
 Extensions Manager applet - Added localized help.
-
-```
-
-***
-
-- **Date:** Sat, 1 Apr 2017 15:22:10 -0300
-- **Commit:** [e2de9c0](https://github.com/Odyseus/CinnamonTools/commit/e2de9c0)
-- **Author:** Odyseus
-```
-General - Updated all help files
-- Updated packages.
-
-```
-
-***
-
-- **Date:** Sat, 18 Mar 2017 04:24:05 -0300
-- **Commit:** [00c9ab6](https://github.com/Odyseus/CinnamonTools/commit/00c9ab6)
-- **Author:** Odyseus
-```
-General - Updated READMEs and metadata.json files of several applets with new localizations added.
 
 ```
 
@@ -247,111 +202,6 @@ enabled/disabled extensions on this applet menu.
 ```
 
 ***
-
-- **Date:** Wed, 8 Mar 2017 19:32:32 -0300
-- **Commit:** [c64d7b0](https://github.com/Odyseus/CinnamonTools/commit/c64d7b0)
-- **Author:** Odyseus
-```
-General - Updated all xlet's READMEs again. ¬¬
-
-```
-
-***
-
-- **Date:** Tue, 7 Mar 2017 16:57:56 -0300
-- **Commit:** [ee79f02](https://github.com/Odyseus/CinnamonTools/commit/ee79f02)
-- **Author:** Odyseus
-```
-General - Added Croatian localization to all xlets. Thanks to [muzena](https://github.com/muzena)
-- Added LICENSE file to all xlets
-- Updated packages.
-
-```
-
-***
-
-- **Date:** Thu, 2 Mar 2017 15:11:20 -0300
-- **Commit:** [19b3c11](https://github.com/Odyseus/CinnamonTools/commit/19b3c11)
-- **Author:** Odyseus
-```
-General - Updated metadata.json files.
-
-```
-
-***
-
-- **Date:** Sun, 26 Feb 2017 20:45:00 -0300
-- **Commit:** [22f71d7](https://github.com/Odyseus/CinnamonTools/commit/22f71d7)
-- **Author:** Odyseus
-```
-General - Updated all READMEs and help files.
-
-```
-
-***
-
-- **Date:** Tue, 21 Feb 2017 08:10:00 -0300
-- **Commit:** [11896be](https://github.com/Odyseus/CinnamonTools/commit/11896be)
-- **Author:** Odyseus
-```
-General - Updated packages
-- Updated main site
-- Fixed some links to the wiki pages.
-
-```
-
-***
-
-- **Date:** Sun, 19 Feb 2017 17:15:37 -0300
-- **Commit:** [1dd24b8](https://github.com/Odyseus/CinnamonTools/commit/1dd24b8)
-- **Author:** Odyseus
-```
-General - Implemented rendering of xlets' help files to HTML.
-
-```
-
-***
-
-- **Date:** Mon, 13 Feb 2017 20:21:15 -0300
-- **Commit:** [b0b63ca](https://github.com/Odyseus/CinnamonTools/commit/b0b63ca)
-- **Author:** Odyseus
-```
-General - Updated README files of all xlets
-- Fixed broken links on main README file.
-
-```
-
-***
-
-- **Date:** Tue, 31 Jan 2017 19:07:54 -0300
-- **Commit:** [324a1d2](https://github.com/Odyseus/CinnamonTools/commit/324a1d2)
-- **Author:** Odyseus
-```
-General - General repository rearrangement.
-
-```
-
-***
-- **Date:** Tue, 31 Jan 2017 19:07:54 -0300
-- **Commit:** [324a1d2](https://github.com/Odyseus/CinnamonTools/commit/324a1d2)
-- **Author:** Odyseus
-```
-General - General repository rearrangement.
-
-```
-
-***
-
-- **Date:** Sun, 29 Jan 2017 08:54:59 -0300
-- **Commit:** [0f78a83](https://github.com/Odyseus/CinnamonTools/commit/0f78a83)
-- **Author:** Odyseus
-```
-General - Fixed some grammatical errors.
-
-```
-
-***
-
 - **Date:** Fri, 27 Jan 2017 11:40:53 -0300
 - **Commit:** [554371e](https://github.com/Odyseus/CinnamonTools/commit/554371e)
 - **Author:** Odyseus
@@ -360,27 +210,6 @@ Applet - Cleaned some irrelevant files
 - Updated READMEs
 - Updated metadata.json
 - Updated some applet icons.
-
-```
-
-***
-
-- **Date:** Tue, 24 Jan 2017 09:28:18 -0300
-- **Commit:** [ca28862](https://github.com/Odyseus/CinnamonTools/commit/ca28862)
-- **Author:** Odyseus
-```
-General - Some fixes to READMEs.
-
-```
-
-***
-
-- **Date:** Mon, 23 Jan 2017 04:49:30 -0300
-- **Commit:** [788e8c5](https://github.com/Odyseus/CinnamonTools/commit/788e8c5)
-- **Author:** Odyseus
-```
-General - Fixed some broken links on READMEs
-- Fixed wrong author name on info.json files.
 
 ```
 
@@ -406,19 +235,6 @@ Applets - Formatted repository to conform Spices repository.
 
 ***
 
-- **Date:** Wed, 18 Jan 2017 04:05:44 -0300
-- **Commit:** [7260278](https://github.com/Odyseus/CinnamonTools/commit/7260278)
-- **Author:** Odyseus
-```
-[General] Stage 1
-- Added badges
-- Updated READMEs
-- Added packaged xlets/themes to be able to download individually.
-
-```
-
-***
-
 - **Date:** Mon, 2 Jan 2017 07:25:00 -0300
 - **Commit:** [70a4083](https://github.com/Odyseus/CinnamonTools/commit/70a4083)
 - **Author:** Odyseus
@@ -436,16 +252,6 @@ translated.
 - **Author:** Odyseus
 ```
 [Extensions Manager applet] - Some fixes/improvements for Cinnamon 3.2.x.
-
-```
-
-***
-
-- **Date:** Tue, 6 Dec 2016 11:26:43 -0300
-- **Commit:** [1bab178](https://github.com/Odyseus/CinnamonTools/commit/1bab178)
-- **Author:** Odyseus
-```
-[General] - Removed unnecessary argument from localizations.sh scripts.
 
 ```
 
