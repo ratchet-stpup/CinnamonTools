@@ -5,8 +5,8 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: 0dyseus@window-list-fork 1.08\n"
-"POT-Creation-Date: 2017-05-14 14:17-0300\n"
+"Project-Id-Version: 0dyseus@window-list-fork 1.09\n"
+"POT-Creation-Date: 2017-05-21 17:06-0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -14,81 +14,6 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: make-xlet-pot.py 1.0.32\n"
-
-#: applet.js:792 2.8/applet.js:699
-msgid "Preferences"
-msgstr ""
-
-#: applet.js:803 2.8/applet.js:714
-msgid "Move to the other monitor"
-msgstr ""
-
-#: applet.js:812 2.8/applet.js:723
-#, javascript-format
-msgid "Move to monitor %d"
-msgstr ""
-
-#: applet.js:823 2.8/applet.js:734
-msgid "Only on this workspace"
-msgstr ""
-
-#: applet.js:829 2.8/applet.js:740
-msgid "Visible on all workspaces"
-msgstr ""
-
-#: applet.js:835 2.8/applet.js:746
-msgid "Move to another workspace"
-msgstr ""
-
-#. Close all/others
-#: applet.js:861 2.8/applet.js:768
-msgid "Close all"
-msgstr ""
-
-#: applet.js:870 2.8/applet.js:777
-msgid "Close others"
-msgstr ""
-
-#: applet.js:884 2.8/applet.js:791
-msgid "Restore to full opacity"
-msgstr ""
-
-#: applet.js:892 2.8/applet.js:799
-msgid "Restore"
-msgstr ""
-
-#: applet.js:897 2.8/applet.js:804
-msgid "Minimize"
-msgstr ""
-
-#: applet.js:905 2.8/applet.js:812
-msgid "Unmaximize"
-msgstr ""
-
-#: applet.js:910 2.8/applet.js:817
-msgid "Maximize"
-msgstr ""
-
-#: applet.js:917 2.8/applet.js:824
-msgid "Close"
-msgstr ""
-
-#: applet.js:929 2.8/applet.js:836
-msgid "Help"
-msgstr ""
-
-#: applet.js:936 2.8/applet.js:843
-msgid "About..."
-msgstr ""
-
-#: applet.js:942 2.8/applet.js:849
-msgid "Configure..."
-msgstr ""
-
-#: applet.js:957 2.8/applet.js:864
-#, javascript-format
-msgid "Remove '%s'"
-msgstr ""
 
 #. TO TRANSLATORS: This is a placeholder.
 #. Here goes your language name in your own language (a.k.a. endonym).
@@ -136,12 +61,79 @@ msgstr ""
 msgid "If this xlet has no locale available for your language, you could create it by following the following instructions."
 msgstr ""
 
-#. 0dyseus@window-list-fork->metadata.json->description
-msgid "Fork of the main Cinnamon Window list applet."
+#: 2.8/applet.js:699 applet.js:792
+msgid "Preferences"
 msgstr ""
 
-#. 0dyseus@window-list-fork->metadata.json->comments
-msgid "Bug reports, feature requests and contributions should be done on this xlet's repository linked below."
+#: 2.8/applet.js:714 applet.js:803
+msgid "Move to the other monitor"
+msgstr ""
+
+#: 2.8/applet.js:723 applet.js:812
+#, javascript-format
+msgid "Move to monitor %d"
+msgstr ""
+
+#: 2.8/applet.js:734 applet.js:823
+msgid "Only on this workspace"
+msgstr ""
+
+#: 2.8/applet.js:740 applet.js:829
+msgid "Visible on all workspaces"
+msgstr ""
+
+#: 2.8/applet.js:746 applet.js:835
+msgid "Move to another workspace"
+msgstr ""
+
+#. Close all/others
+#: 2.8/applet.js:768 applet.js:861
+msgid "Close all"
+msgstr ""
+
+#: 2.8/applet.js:777 applet.js:870
+msgid "Close others"
+msgstr ""
+
+#: 2.8/applet.js:791 applet.js:884
+msgid "Restore to full opacity"
+msgstr ""
+
+#: 2.8/applet.js:799 applet.js:892
+msgid "Restore"
+msgstr ""
+
+#: 2.8/applet.js:804 applet.js:897
+msgid "Minimize"
+msgstr ""
+
+#: 2.8/applet.js:812 applet.js:905
+msgid "Unmaximize"
+msgstr ""
+
+#: 2.8/applet.js:817 applet.js:910
+msgid "Maximize"
+msgstr ""
+
+#: 2.8/applet.js:824 applet.js:917
+msgid "Close"
+msgstr ""
+
+#: 2.8/applet.js:836 applet.js:929
+msgid "Help"
+msgstr ""
+
+#: 2.8/applet.js:843 applet.js:936
+msgid "About..."
+msgstr ""
+
+#: 2.8/applet.js:849 applet.js:942
+msgid "Configure..."
+msgstr ""
+
+#: 2.8/applet.js:864 applet.js:957
+#, javascript-format
+msgid "Remove '%s'"
 msgstr ""
 
 #. 0dyseus@window-list-fork->metadata.json->contributors
@@ -156,20 +148,20 @@ msgstr ""
 msgid "giwhub: Chinese localization."
 msgstr ""
 
+#. 0dyseus@window-list-fork->metadata.json->comments
+msgid "Bug reports, feature requests and contributions should be done on this xlet's repository linked below."
+msgstr ""
+
+#. 0dyseus@window-list-fork->metadata.json->description
+msgid "Fork of the main Cinnamon Window list applet."
+msgstr ""
+
 #. 0dyseus@window-list-fork->metadata.json->name
 msgid "Window list (Fork By Odyseus)"
 msgstr ""
 
-#. 0dyseus@window-list-fork->settings-schema.json->pref_enable_alerts->description
-msgid "Show an alert in the window list when a window from another workspace requires attention"
-msgstr ""
-
 #. 0dyseus@window-list-fork->settings-schema.json->pref_invert_menu_items_order->description
 msgid "Invert context menu items order"
-msgstr ""
-
-#. 0dyseus@window-list-fork->settings-schema.json->pref_window_preview_custom_width->description
-msgid "Custom width for window thumbnails"
 msgstr ""
 
 #. 0dyseus@window-list-fork->settings-schema.json->pref_window_preview_custom_width->units
@@ -177,12 +169,24 @@ msgstr ""
 msgid "pixels"
 msgstr ""
 
+#. 0dyseus@window-list-fork->settings-schema.json->pref_window_preview_custom_width->description
+msgid "Custom width for window thumbnails"
+msgstr ""
+
 #. 0dyseus@window-list-fork->settings-schema.json->pref_reverse_scrolling->description
 msgid "Reverse the direction of mouse-wheel scrolling in the window list"
 msgstr ""
 
-#. 0dyseus@window-list-fork->settings-schema.json->pref_sub_menu_placement->description
-msgid "Where to display the \"Preferences\" sub-menu?"
+#. 0dyseus@window-list-fork->settings-schema.json->pref_middle_click_close->description
+msgid "Middle click to close window"
+msgstr ""
+
+#. 0dyseus@window-list-fork->settings-schema.json->pref_enable_scrolling->description
+msgid "Enable mouse-wheel scrolling in the window list"
+msgstr ""
+
+#. 0dyseus@window-list-fork->settings-schema.json->pref_buttons_use_entire_space->description
+msgid "Window buttons can have different sizes and use the entire space available"
 msgstr ""
 
 #. 0dyseus@window-list-fork->settings-schema.json->pref_sub_menu_placement->tooltip
@@ -190,41 +194,37 @@ msgid "If the option \"Invert context menu items order\" is enabled, the \"Top o
 msgstr ""
 
 #. 0dyseus@window-list-fork->settings-schema.json->pref_sub_menu_placement->options
-msgid "Bottom of menu"
+msgid "Top of menu"
 msgstr ""
 
 #. 0dyseus@window-list-fork->settings-schema.json->pref_sub_menu_placement->options
-msgid "Top of menu"
+msgid "Bottom of menu"
 msgstr ""
 
 #. 0dyseus@window-list-fork->settings-schema.json->pref_sub_menu_placement->options
 msgid "Do not display"
 msgstr ""
 
-#. 0dyseus@window-list-fork->settings-schema.json->pref_window_preview->description
-msgid "Show window thumbnails on hover"
-msgstr ""
-
-#. 0dyseus@window-list-fork->settings-schema.json->pref_middle_click_close->description
-msgid "Middle click to close window"
-msgstr ""
-
-#. 0dyseus@window-list-fork->settings-schema.json->pref_window_preview_custom_height->description
-msgid "Custom height for window thumbnails"
-msgstr ""
-
-#. 0dyseus@window-list-fork->settings-schema.json->pref_buttons_use_entire_space->description
-msgid "Window buttons can have different sizes and use the entire space available"
+#. 0dyseus@window-list-fork->settings-schema.json->pref_sub_menu_placement->description
+msgid "Where to display the \"Preferences\" sub-menu?"
 msgstr ""
 
 #. 0dyseus@window-list-fork->settings-schema.json->pref_hide_labels->description
 msgid "Hide labels in the window list buttons"
 msgstr ""
 
-#. 0dyseus@window-list-fork->settings-schema.json->pref_enable_scrolling->description
-msgid "Enable mouse-wheel scrolling in the window list"
+#. 0dyseus@window-list-fork->settings-schema.json->pref_enable_alerts->description
+msgid "Show an alert in the window list when a window from another workspace requires attention"
+msgstr ""
+
+#. 0dyseus@window-list-fork->settings-schema.json->pref_window_preview_custom_height->description
+msgid "Custom height for window thumbnails"
 msgstr ""
 
 #. 0dyseus@window-list-fork->settings-schema.json->pref_hide_tooltips->description
 msgid "Do not display tooltips"
+msgstr ""
+
+#. 0dyseus@window-list-fork->settings-schema.json->pref_window_preview->description
+msgid "Show window thumbnails on hover"
 msgstr ""
