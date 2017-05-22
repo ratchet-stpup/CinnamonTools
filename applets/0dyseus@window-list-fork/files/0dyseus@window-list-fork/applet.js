@@ -836,9 +836,6 @@ AppMenuButtonRightClickMenu.prototype = {
                 this.addMenuItem(item);
 
                 let curr_index = mw.get_workspace().index();
-                let handleActivateEvent = function(aIndex) {
-                    mw.change_workspace(global.screen.get_workspace_by_index(aIndex));
-                };
                 for (let i = 0; i < length; i++) {
                     // Make the index a local variable to pass to function
                     let j = i;
@@ -848,7 +845,9 @@ AppMenuButtonRightClickMenu.prototype = {
                     if (i == curr_index)
                         ws.setSensitive(false);
 
-                    ws.connect('activate', handleActivateEvent, j);
+                    ws.connect('activate', function() { // jshint ignore:line
+                        mw.change_workspace(global.screen.get_workspace_by_index(j));
+                    });
                     item.menu.addMenuItem(ws);
                 }
 
