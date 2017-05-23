@@ -129,7 +129,12 @@ WindowPreview.prototype = {
         if (this._applet._tooltipShowing)
             this.show();
         else if (!this._showTimer)
-            this._showTimer = Mainloop.timeout_add(300, Lang.bind(this, this._onTimerComplete));
+            this._showTimer = Mainloop.timeout_add(300,
+                // Condition needed for retro-compatibility.
+                // Mark for deletion on EOL.
+                Lang.bind(this, (typeof this._onShowTimerComplete === "function" ?
+                    this._onShowTimerComplete :
+                    this._onTimerComplete)));
 
         this.mousePosition = event.get_coords();
     },
