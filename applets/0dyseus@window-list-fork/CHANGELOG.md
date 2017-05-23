@@ -3,6 +3,42 @@
 This change log is only valid for the version of the xlet hosted on <a href="https://github.com/Odyseus/CinnamonTools">its original repository</a>
 </h4>
 ***
+- **Date:** Tue, 23 May 2017 06:11:19 -0300
+- **Commit:** [ef9467c](https://github.com/Odyseus/CinnamonTools/commit/ef9467c)
+- **Author:** Odyseus
+```
+Window list (Fork By Odyseus) applet
+- Added a retro-compatibility tweak to fix an error caused by a change in new versions of Cinnamon.
+
+LANGUAGE  UNTRANSLATED
+zh_CN.po  0
+de.po     16
+es.po     0
+hr.po     11
+
+```
+
+***
+
+- **Date:** Mon, 22 May 2017 01:24:01 -0300
+- **Commit:** [f8af605](https://github.com/Odyseus/CinnamonTools/commit/f8af605)
+- **Author:** Odyseus
+```
+Window list (Fork By Odyseus) applet
+- Added missing dependency to a settings key. Upstream fix.
+- Fixed a bug that prevented to move an application to another workspace. This bug was caused by the
+movement of a function outside a loop.
+
+LANGUAGE  UNTRANSLATED
+zh_CN.po  0
+de.po     16
+es.po     0
+hr.po     11
+
+```
+
+***
+
 - **Date:** Mon, 15 May 2017 22:50:36 -0300
 - **Commit:** [0cd71a0](https://github.com/Odyseus/CinnamonTools/commit/0cd71a0)
 - **Author:** Odyseus

@@ -3,6 +3,22 @@
 This change log is only valid for the version of the xlet hosted on <a href="https://github.com/Odyseus/CinnamonTools">its original repository</a>
 </h4>
 ***
+- **Date:** Tue, 23 May 2017 06:08:13 -0300
+- **Commit:** [516cf5b](https://github.com/Odyseus/CinnamonTools/commit/516cf5b)
+- **Author:** Odyseus
+```
+Simple ToDo List applet
+- Final prototype.
+- Some minor code clean up.
+
+LANGUAGE  UNTRANSLATED
+es.po     0
+sv.po     0
+
+```
+
+***
+
 - **Date:** Sun, 21 May 2017 11:28:41 +0200
 - **Commit:** [10b962f](https://github.com/Odyseus/CinnamonTools/commit/10b962f)
 - **Author:** Åke Engelbrektson

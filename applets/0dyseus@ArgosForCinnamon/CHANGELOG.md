@@ -3,6 +3,24 @@
 This change log is only valid for the version of the xlet hosted on <a href="https://github.com/Odyseus/CinnamonTools">its original repository</a>
 </h4>
 ***
+- **Date:** Tue, 23 May 2017 06:05:21 -0300
+- **Commit:** [3cadb5e](https://github.com/Odyseus/CinnamonTools/commit/3cadb5e)
+- **Author:** Odyseus
+```
+Argos for Cinnamon applet
+- Last prototype.
+- Cleaned up code. Mainly removed all `try{}catch{}` blocks used for debugging in preparation for
+stable release.
+- Completed Spanish localization of the help file.
+- Cleaned up the example scripts.
+
+LANGUAGE  UNTRANSLATED
+es.po     0
+
+```
+
+***
+
 - **Date:** Wed, 17 May 2017 16:07:58 -0300
 - **Commit:** [3292235](https://github.com/Odyseus/CinnamonTools/commit/3292235)
 - **Author:** Odyseus

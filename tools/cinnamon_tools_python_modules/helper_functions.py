@@ -11,8 +11,7 @@ from . import ansi_colors
 
 gi.require_version("Gtk", "3.0")
 
-from .terminal import TerminalApp
-from gi.repository import GLib, Gtk, Gio
+from gi.repository import GLib
 from subprocess import Popen
 
 Ansi = ansi_colors.ANSIColors()
@@ -27,10 +26,10 @@ git_log_cmd = 'git log --grep=General --invert-grep --pretty=format:"\
 -- {relative_xlet_path} {append_or_override} "{tmp_log_path}"'
 
 
-class XletsHelper():
+class XletsHelperCore():
 
     def __init__(self, root_path):
-        super(XletsHelper, self).__init__()
+        super(XletsHelperCore, self).__init__()
         self.root_path = root_path
 
         try:
@@ -42,7 +41,7 @@ class XletsHelper():
         """generate_meta_file
 
         Generate the file containing all the metadata of all xlets on this repository.
-        This metadata files is used by several functions on the XletsHelper class.
+        This metadata files is used by several functions on the XletsHelperCore class.
         """
         xlets_meta.generate_meta_file(self.root_path)
 
@@ -73,6 +72,12 @@ class XletsHelper():
                               working_directory=self.root_path,
                               do_wait=False,
                               do_log=False)
+
+    def set_executables(self, widget=None):
+        self.check_set_permission(set_exec=True)
+
+    def check_executables(self, widget=None):
+        self.check_set_permission(set_exec=False)
 
     def check_set_permission(self, set_exec=False):
         """check_set_permission

@@ -7,11 +7,10 @@ repo_folder = os.path.realpath(os.path.abspath(os.path.join(os.path.normpath(os.
 
 # from gi.repository import GLib
 from argparse import ArgumentParser
-from tools.cinnamon_tools_python_modules.helper_functions import XletsHelper
+from tools.cinnamon_tools_python_modules.helper_functions import XletsHelperCore
 
 
-USAGE = """
-"""
+USAGE = """"""
 
 
 class Main:
@@ -31,9 +30,9 @@ class Main:
         parser.add_argument("-c", "--create-changelogs", action="store_true",
                             dest="create_changelogs", default=False)
         parser.add_argument("-x", "--check-executable", action="store_true",
-                            dest="check_executable", default=False)
+                            dest="check_executables", default=False)
         parser.add_argument("-s", "--set-executable", action="store_true",
-                            dest="set_executable", default=False)
+                            dest="set_executables", default=False)
         parser.add_argument("-y", "--compare-xlets", action="store_true",
                             dest="compare_xlets", default=False)
         parser.add_argument("-a", "--compare-applets", action="store_true",
@@ -44,11 +43,17 @@ class Main:
                             dest="clone_wiki", default=False)
         parser.add_argument("-p", "--create-packages", action="store_true",
                             dest="create_packages", default=False)
+        parser.add_argument("-i", "--gui", action="store_true",
+                            dest="gui", default=False)
         # parser.add_argument("-s", "--skip-keys", dest="skip_keys")
 
         options = parser.parse_args()
 
-        xlets_helper = XletsHelper(root_path=repo_folder)
+        if len(sys.argv) == 1:
+            parser.print_help()
+            quit()
+
+        xlets_helper = XletsHelperCore(root_path=repo_folder)
 
         # The "Order" is only there as a guide in case that more than one argument is passed.
 
@@ -86,8 +91,11 @@ class Main:
 
         # Tested OK
         # Order = Doesn't matter.
-        if options.check_executable:
-            xlets_helper.check_set_permission(set_exec=options.set_executable)
+        if options.check_executables:
+            if options.set_executables:
+                xlets_helper.set_executables()
+            else:
+                xlets_helper.check_executables()
 
         # Tested OK
         # Order = Doesn't matter.
@@ -119,17 +127,14 @@ class Main:
         if options.create_packages:
             xlets_helper.create_packages()
 
+        # Tested OK
+        # Order = Doesn't matter.
+        if options.gui:
+            from tools.cinnamon_tools_python_modules.helper_app import XletsHelperApp
+
+            app = XletsHelperApp(root_path=repo_folder)
+            app.run()
+
 
 if __name__ == "__main__":
-    try:
-        arg = sys.argv[1]
-    except:
-        arg = None
-
-    if len(sys.argv) == 1:
-        from tools.cinnamon_tools_python_modules.helper_app import XletsHelperApp
-
-        app = XletsHelperApp()
-        app.run()
-    else:
-        Main()
+    Main()

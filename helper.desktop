@@ -1,0 +1,12 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=Cinnamon Tools Helper
+Comment=Cinnamon Tools Helper
+Type=Application
+Exec=./helper.py --gui
+Icon=help-contents
+Categories=GNOME;GTK;
+Terminal=true
+Type=Application
+NoDisplay=false
+StartupNotify=false

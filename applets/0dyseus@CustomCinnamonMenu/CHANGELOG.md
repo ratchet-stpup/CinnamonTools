@@ -3,6 +3,26 @@
 This change log is only valid for the version of the xlet hosted on <a href="https://github.com/Odyseus/CinnamonTools">its original repository</a>
 </h4>
 ***
+- **Date:** Tue, 23 May 2017 06:07:06 -0300
+- **Commit:** [0878ee2](https://github.com/Odyseus/CinnamonTools/commit/0878ee2)
+- **Author:** Odyseus
+```
+Custom Cinnamon Menu applet
+- Cleaned up code.
+- Applied some fixes/tweaks from upstream.
+
+LANGUAGE  UNTRANSLATED
+zh_CN.po  0
+de.po     60
+es.po     0
+cs.po     60
+sv.po     0
+hr.po     50
+
+```
+
+***
+
 - **Date:** Mon, 15 May 2017 22:49:37 -0300
 - **Commit:** [04e8b0a](https://github.com/Odyseus/CinnamonTools/commit/04e8b0a)
 - **Author:** Odyseus
