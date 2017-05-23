@@ -1440,7 +1440,7 @@ msgstr "Demora para el cambio entre categorías."
 #. 3.2->settings-schema.json->pref_cat_hover_delay->description
 #. 0dyseus@CustomCinnamonMenu->settings-schema.json->pref_cat_hover_delay->description
 msgid "Category selection delay:"
-msgstr "Demora ara seleccionar categorías."
+msgstr "Demora para seleccionar categorías."
 
 #. 3.2->settings-schema.json->pref_cat_hover_delay->units
 #. 3.2->settings-schema.json->pref_menu_hover_delay->units
