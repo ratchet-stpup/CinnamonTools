@@ -1,11 +1,13 @@
 ## Multi Translator changelog
-<h4 style="color:red;font-weight:bold;">
-This change log is only valid for the version of the xlet hosted on <a href="https://github.com/Odyseus/CinnamonTools">its original repository</a>
-</h4>
+
+#### This change log is only valid for the version of the xlet hosted on [its original repository](https://github.com/Odyseus/CinnamonTools)
+
 ***
+
 - **Date:** Mon, 15 May 2017 22:54:17 -0300
 - **Commit:** [b0f49bb](https://github.com/Odyseus/CinnamonTools/commit/b0f49bb)
 - **Author:** Odyseus
+
 ```
 Multi Translator extension
 - Removed CJS 3.4 warnings.
@@ -24,6 +26,7 @@ hr.po     46
 - **Date:** Mon, 15 May 2017 00:44:33 -0300
 - **Commit:** [ae20dd1](https://github.com/Odyseus/CinnamonTools/commit/ae20dd1)
 - **Author:** Odyseus
+
 ```
 Multi Translator extension
 - Re-generated help file based on new localizations.
@@ -42,6 +45,7 @@ hr.po     46
 - **Date:** Mon, 15 May 2017 00:19:05 -0300
 - **Commit:** [bf4b875](https://github.com/Odyseus/CinnamonTools/commit/bf4b875)
 - **Author:** Odyseus
+
 ```
 Merge pull request #81 from giwhub/giwhub-patch-2
 Update Chinese translations for xlets
@@ -52,6 +56,7 @@ Update Chinese translations for xlets
 - **Date:** Mon, 15 May 2017 01:02:29 +0800
 - **Commit:** [2269ea4](https://github.com/Odyseus/CinnamonTools/commit/2269ea4)
 - **Author:** giwhub
+
 ```
 Update zh_CN.po
 
@@ -62,6 +67,7 @@ Update zh_CN.po
 - **Date:** Sat, 13 May 2017 20:59:26 -0300
 - **Commit:** [2c644db](https://github.com/Odyseus/CinnamonTools/commit/2c644db)
 - **Author:** Odyseus
+
 ```
 Multi Translator extension
 - Redesigned help file generation. Now the help file is created from a python script
@@ -82,6 +88,7 @@ hr.po     46
 - **Date:** Mon, 8 May 2017 13:34:24 +0200
 - **Commit:** [f1ce18f](https://github.com/Odyseus/CinnamonTools/commit/f1ce18f)
 - **Author:** muzena
+
 ```
 0dyseus@MultiTranslatorExtension.hr: update hr.po
 
@@ -92,6 +99,7 @@ hr.po     46
 - **Date:** Fri, 5 May 2017 13:31:02 -0300
 - **Commit:** [fddaccc](https://github.com/Odyseus/CinnamonTools/commit/fddaccc)
 - **Author:** Odyseus
+
 ```
 Multi Translator extension
 - Minor code tweaks.
@@ -103,6 +111,7 @@ Multi Translator extension
 - **Date:** Thu, 4 May 2017 15:43:35 -0300
 - **Commit:** [a7e8f73](https://github.com/Odyseus/CinnamonTools/commit/a7e8f73)
 - **Author:** Odyseus
+
 ```
 Multi Translator extension
 - Implemented a better notification that informs how to deal with missing dependencies. Closes #53
@@ -114,6 +123,7 @@ Multi Translator extension
 - **Date:** Tue, 2 May 2017 10:59:00 -0300
 - **Commit:** [764f815](https://github.com/Odyseus/CinnamonTools/commit/764f815)
 - **Author:** Odyseus
+
 ```
 Multi Translator extension
 - Added German localization.
@@ -126,6 +136,7 @@ Multi Translator extension
 - **Date:** Sun, 30 Apr 2017 18:45:42 +0200
 - **Commit:** [69d8130](https://github.com/Odyseus/CinnamonTools/commit/69d8130)
 - **Author:** muzena
+
 ```
 Add hr.po
 
@@ -136,6 +147,7 @@ Add hr.po
 - **Date:** Tue, 2 May 2017 07:34:00 -0300
 - **Commit:** [6243f3a](https://github.com/Odyseus/CinnamonTools/commit/6243f3a)
 - **Author:** Odyseus
+
 ```
 Multi Translator extension
 - Added some missing translatable strings.
@@ -148,6 +160,7 @@ Multi Translator extension
 - **Date:** Sat, 29 Apr 2017 15:27:09 +0800
 - **Commit:** [767de7e](https://github.com/Odyseus/CinnamonTools/commit/767de7e)
 - **Author:** giwhub
+
 ```
 Update zh_CN.po
 
@@ -158,6 +171,7 @@ Update zh_CN.po
 - **Date:** Wed, 19 Apr 2017 11:08:26 -0300
 - **Commit:** [da0ae65](https://github.com/Odyseus/CinnamonTools/commit/da0ae65)
 - **Author:** Odyseus
+
 ```
 Multi Translator extension - Added Czech localization and Thunderbolt theme. Thanks to
 [Radek71](https://github.com/Radek71).
@@ -169,6 +183,7 @@ Multi Translator extension - Added Czech localization and Thunderbolt theme. Tha
 - **Date:** Tue, 18 Apr 2017 10:02:47 -0300
 - **Commit:** [f6a9792](https://github.com/Odyseus/CinnamonTools/commit/f6a9792)
 - **Author:** Odyseus
+
 ```
 Multi Translator extension - Corrected wrong unit usage
 - Added some missing translatable strings.
@@ -180,6 +195,7 @@ Multi Translator extension - Corrected wrong unit usage
 - **Date:** Mon, 17 Apr 2017 13:28:07 -0300
 - **Commit:** [3337938](https://github.com/Odyseus/CinnamonTools/commit/3337938)
 - **Author:** Odyseus
+
 ```
 Multi Translator extension - Added some missing translatable strings
 - Updated changelog.
@@ -191,6 +207,7 @@ Multi Translator extension - Added some missing translatable strings
 - **Date:** Thu, 13 Apr 2017 17:40:29 -0300
 - **Commit:** [729cc32](https://github.com/Odyseus/CinnamonTools/commit/729cc32)
 - **Author:** Odyseus
+
 ```
 Multi Translator extension - Added localized help.
 
@@ -201,6 +218,7 @@ Multi Translator extension - Added localized help.
 - **Date:** Sun, 9 Apr 2017 08:16:30 -0300
 - **Commit:** [8161f6d](https://github.com/Odyseus/CinnamonTools/commit/8161f6d)
 - **Author:** Odyseus
+
 ```
 Multi Translator extension - Updated README due to localizations updates
 - Changed the contributors key on the metadata.json file for easier reviewing and better legibility
@@ -214,6 +232,7 @@ Multi Translator extension - Updated README due to localizations updates
 - **Date:** Thu, 6 Apr 2017 00:12:12 +0200
 - **Commit:** [363bbe8](https://github.com/Odyseus/CinnamonTools/commit/363bbe8)
 - **Author:** muzena
+
 ```
 0dyseus@MultiTranslatorExtension: add hr.po
 
@@ -224,6 +243,7 @@ Multi Translator extension - Updated README due to localizations updates
 - **Date:** Sat, 1 Apr 2017 15:19:32 -0300
 - **Commit:** [56823b1](https://github.com/Odyseus/CinnamonTools/commit/56823b1)
 - **Author:** Odyseus
+
 ```
 Merge pull request #36 from giwhub/giwhub-patch-7
 Add Chinese translation for Multi Translator
@@ -234,6 +254,7 @@ Add Chinese translation for Multi Translator
 - **Date:** Sun, 26 Mar 2017 17:11:55 +0800
 - **Commit:** [4649823](https://github.com/Odyseus/CinnamonTools/commit/4649823)
 - **Author:** giwhub
+
 ```
 Create zh_CN.po
 
@@ -244,6 +265,7 @@ Create zh_CN.po
 - **Date:** Tue, 21 Mar 2017 06:23:31 -0300
 - **Commit:** [dd0f536](https://github.com/Odyseus/CinnamonTools/commit/dd0f536)
 - **Author:** Odyseus
+
 ```
 Multi Translator extension - Updated localization files
 - Updated an image.
@@ -255,6 +277,7 @@ Multi Translator extension - Updated localization files
 - **Date:** Mon, 20 Mar 2017 13:24:41 -0300
 - **Commit:** [07af092](https://github.com/Odyseus/CinnamonTools/commit/07af092)
 - **Author:** Odyseus
+
 ```
 Multi Translator extension - Fixed selection of text when the translation dialog is opened and there
 is text in the source text entry. And since I was here, I added an option to choose to select all
@@ -276,6 +299,7 @@ Cinnamon's native system
 - **Date:** Sat, 18 Mar 2017 05:33:03 -0300
 - **Commit:** [229c42e](https://github.com/Odyseus/CinnamonTools/commit/229c42e)
 - **Author:** Odyseus
+
 ```
 Multi Translator extension
 - Added image to the README file and fixed some links.
@@ -287,6 +311,7 @@ Multi Translator extension
 - **Date:** Sat, 18 Mar 2017 05:07:45 -0300
 - **Commit:** [513cc5c](https://github.com/Odyseus/CinnamonTools/commit/513cc5c)
 - **Author:** Odyseus
+
 ```
 Multi Translator extension - First stable release.
 
@@ -297,6 +322,7 @@ Multi Translator extension - First stable release.
 - **Date:** Tue, 14 Mar 2017 23:06:00 -0300
 - **Commit:** [2790eb2](https://github.com/Odyseus/CinnamonTools/commit/2790eb2)
 - **Author:** Odyseus
+
 ```
 Multi Translator extension - Thirteenth (probably last) prototype
 - Redesigned custom setting window to have an appearance similar to the Cinnamon 3.2.x native
@@ -310,6 +336,7 @@ settings system
 - **Date:** Mon, 13 Mar 2017 21:38:02 -0300
 - **Commit:** [37b4aac](https://github.com/Odyseus/CinnamonTools/commit/37b4aac)
 - **Author:** Odyseus
+
 ```
 Multi Translator extension
 **Completely remove any previous version of this extension before installing the new version.**
@@ -331,6 +358,7 @@ this fixes some issues on Cinnamon 2.8.x.
 - **Date:** Thu, 9 Mar 2017 21:53:00 -0300
 - **Commit:** [bc03ffe](https://github.com/Odyseus/CinnamonTools/commit/bc03ffe)
 - **Author:** Odyseus
+
 ```
 Multi Translator extension
 **Completely remove any previous version of this extension before installing the new version.**
@@ -349,6 +377,7 @@ seems to work as it should.
 - **Date:** Wed, 8 Mar 2017 18:40:45 -0300
 - **Commit:** [7b9e32b](https://github.com/Odyseus/CinnamonTools/commit/7b9e32b)
 - **Author:** Odyseus
+
 ```
 Multi Translator extension
 **Completely remove any previous version of this extension before installing the new version.**
@@ -379,6 +408,7 @@ close automatically.
 - **Date:** Mon, 6 Mar 2017 17:38:12 -0300
 - **Commit:** [eb5655a](https://github.com/Odyseus/CinnamonTools/commit/eb5655a)
 - **Author:** Odyseus
+
 ```
 Multi Translator extension - Updated ISSUE.md file.
 
@@ -389,6 +419,7 @@ Multi Translator extension - Updated ISSUE.md file.
 - **Date:** Mon, 6 Mar 2017 06:15:48 -0300
 - **Commit:** [b73a8c3](https://github.com/Odyseus/CinnamonTools/commit/b73a8c3)
 - **Author:** Odyseus
+
 ```
 Multi Translator
 **Completely remove any previous version of this extension before installing the new version.**
@@ -410,6 +441,7 @@ original extension Multi Translator is based on that were *translated* into Pyth
 - **Date:** Fri, 3 Mar 2017 20:47:30 -0300
 - **Commit:** [0d6b844](https://github.com/Odyseus/CinnamonTools/commit/0d6b844)
 - **Author:** Odyseus
+
 ```
 Multi Translator extension - Eighth prototype
 - Added custom theme selection
@@ -423,6 +455,7 @@ Multi Translator extension - Eighth prototype
 - **Date:** Thu, 2 Mar 2017 15:12:19 -0300
 - **Commit:** [1f0df40](https://github.com/Odyseus/CinnamonTools/commit/1f0df40)
 - **Author:** Odyseus
+
 ```
 Multi Translator extension - Fixed broken translation triggers. Now it will normally trigger a
 translation when swapping languages, when trying to translate from clipboard/selection and when
@@ -445,6 +478,7 @@ a **TS** at the end
 - **Date:** Tue, 28 Feb 2017 22:21:12 -0300
 - **Commit:** [0699045](https://github.com/Odyseus/CinnamonTools/commit/0699045)
 - **Author:** Odyseus
+
 ```
 Multi Translator extension - Sixth prototype
 - Fixed style sheet unloading after switching a desktop theme
@@ -464,6 +498,7 @@ sorted alphabetically and it works beautifully)
 - **Date:** Sun, 26 Feb 2017 12:34:36 -0300
 - **Commit:** [e7a7327](https://github.com/Odyseus/CinnamonTools/commit/e7a7327)
 - **Author:** Odyseus
+
 ```
 Multi Translator extension - Fifth prototype
 - Some minor fixes on the themes' style sheets
@@ -484,6 +519,7 @@ certain settings without adding to much clutter
 - **Date:** Sat, 25 Feb 2017 14:53:14 -0300
 - **Commit:** [6debe74](https://github.com/Odyseus/CinnamonTools/commit/6debe74)
 - **Author:** Odyseus
+
 ```
 Multi Translator extension - Fourth prototype
 - Fixed a screw up.
@@ -495,6 +531,7 @@ Multi Translator extension - Fourth prototype
 - **Date:** Sat, 25 Feb 2017 13:42:45 -0300
 - **Commit:** [9f30eb4](https://github.com/Odyseus/CinnamonTools/commit/9f30eb4)
 - **Author:** Odyseus
+
 ```
 Multi Translator extension - Third prototype
 - Code clean up.
@@ -506,6 +543,7 @@ Multi Translator extension - Third prototype
 - **Date:** Fri, 24 Feb 2017 18:23:33 -0300
 - **Commit:** [5b46591](https://github.com/Odyseus/CinnamonTools/commit/5b46591)
 - **Author:** Odyseus
+
 ```
 Multi Translator extension - Second prototype.
 
@@ -516,6 +554,7 @@ Multi Translator extension - Second prototype.
 - **Date:** Fri, 24 Feb 2017 00:18:36 -0300
 - **Commit:** [c20ffe8](https://github.com/Odyseus/CinnamonTools/commit/c20ffe8)
 - **Author:** Odyseus
+
 ```
 Multi Translator extension - First prototype.
 

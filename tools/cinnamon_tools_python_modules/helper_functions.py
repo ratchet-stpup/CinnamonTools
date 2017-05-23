@@ -22,7 +22,7 @@ home = os.path.expanduser("~")
 git_log_cmd = 'git log --grep=General --invert-grep --pretty=format:"\
 - **Date:** %aD%n\
 - **Commit:** [%h](https://github.com/Odyseus/CinnamonTools/commit/%h)%n\
-- **Author:** %aN%n\`\`\`%n%s%n%b%n\`\`\`%n%n***%n" \
+- **Author:** %aN%n%n\`\`\`%n%s%n%b%n\`\`\`%n%n***%n" \
 -- {relative_xlet_path} {append_or_override} "{tmp_log_path}"'
 
 

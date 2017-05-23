@@ -1,11 +1,13 @@
 ## Argos for Cinnamon changelog
-<h4 style="color:red;font-weight:bold;">
-This change log is only valid for the version of the xlet hosted on <a href="https://github.com/Odyseus/CinnamonTools">its original repository</a>
-</h4>
+
+#### This change log is only valid for the version of the xlet hosted on [its original repository](https://github.com/Odyseus/CinnamonTools)
+
 ***
+
 - **Date:** Tue, 23 May 2017 06:05:21 -0300
 - **Commit:** [3cadb5e](https://github.com/Odyseus/CinnamonTools/commit/3cadb5e)
 - **Author:** Odyseus
+
 ```
 Argos for Cinnamon applet
 - Last prototype.
@@ -24,6 +26,7 @@ es.po     0
 - **Date:** Wed, 17 May 2017 16:07:58 -0300
 - **Commit:** [3292235](https://github.com/Odyseus/CinnamonTools/commit/3292235)
 - **Author:** Odyseus
+
 ```
 Argos for Cinnamon applet
 - Removed CJS 3.4 warnings and fixed errors exposed by the use of CJS 3.4.
@@ -38,6 +41,7 @@ es.po     84
 - **Date:** Mon, 15 May 2017 22:47:54 -0300
 - **Commit:** [bc8b65e](https://github.com/Odyseus/CinnamonTools/commit/bc8b65e)
 - **Author:** Odyseus
+
 ```
 Argos for Cinnamon applet
 - Some minor code clean up.
@@ -52,6 +56,7 @@ es.po     84
 - **Date:** Sat, 13 May 2017 20:52:00 -0300
 - **Commit:** [37601a5](https://github.com/Odyseus/CinnamonTools/commit/37601a5)
 - **Author:** Odyseus
+
 ```
 Argos for Cinnamon applet
 - Redesigned help file generation. Now the help file is created from a python script
@@ -68,6 +73,7 @@ es.po     84
 - **Date:** Sat, 6 May 2017 08:36:34 -0300
 - **Commit:** [4b1af68](https://github.com/Odyseus/CinnamonTools/commit/4b1af68)
 - **Author:** Odyseus
+
 ```
 Argos for Cinnamon applet
 - Fourth prototype.
@@ -85,6 +91,7 @@ applet tooltip from seconds to milliseconds.
 - **Date:** Fri, 5 May 2017 15:10:03 -0300
 - **Commit:** [f0fb42b](https://github.com/Odyseus/CinnamonTools/commit/f0fb42b)
 - **Author:** Odyseus
+
 ```
 Argos for Cinnamon applet
 - Updated help file.
@@ -96,6 +103,7 @@ Argos for Cinnamon applet
 - **Date:** Fri, 5 May 2017 12:19:33 -0300
 - **Commit:** [bde7e9f](https://github.com/Odyseus/CinnamonTools/commit/bde7e9f)
 - **Author:** Odyseus
+
 ```
 Argos for Cinnamon applet
 - Third prototype.
@@ -115,6 +123,7 @@ case there are errors.
 - **Date:** Wed, 3 May 2017 05:06:34 -0300
 - **Commit:** [3d82ee9](https://github.com/Odyseus/CinnamonTools/commit/3d82ee9)
 - **Author:** Odyseus
+
 ```
 Argos for Cinnamon
 - Second prototype.
@@ -129,6 +138,7 @@ if there is a localization language available.
 - **Date:** Sun, 30 Apr 2017 11:37:42 -0300
 - **Commit:** [5668bb9](https://github.com/Odyseus/CinnamonTools/commit/5668bb9)
 - **Author:** Odyseus
+
 ```
 Argos for Cinnamon applet
 - Initial prototype.

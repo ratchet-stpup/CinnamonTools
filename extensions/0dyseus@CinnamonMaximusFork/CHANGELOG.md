@@ -1,11 +1,13 @@
 ## Cinnamon Maximus (Fork by Odyseus) changelog
-<h4 style="color:red;font-weight:bold;">
-This change log is only valid for the version of the xlet hosted on <a href="https://github.com/Odyseus/CinnamonTools">its original repository</a>
-</h4>
+
+#### This change log is only valid for the version of the xlet hosted on [its original repository](https://github.com/Odyseus/CinnamonTools)
+
 ***
+
 - **Date:** Tue, 16 May 2017 15:04:51 -0300
 - **Commit:** [82f43be](https://github.com/Odyseus/CinnamonTools/commit/82f43be)
 - **Author:** Odyseus
+
 ```
 Cinnamon Maximus (Fork By Odyseus) extension
 - Added Danish localization. Thanks to [Alan01](https://github.com/Alan01).
@@ -23,6 +25,7 @@ hr.po     14
 - **Date:** Mon, 15 May 2017 22:52:20 -0300
 - **Commit:** [fcb7a75](https://github.com/Odyseus/CinnamonTools/commit/fcb7a75)
 - **Author:** Odyseus
+
 ```
 Cinnamon Maximus (Fork By Odyseus) extension
 - Removed unnecessary file left by accident.
@@ -39,6 +42,7 @@ hr.po     14
 - **Date:** Mon, 15 May 2017 00:43:43 -0300
 - **Commit:** [19b902e](https://github.com/Odyseus/CinnamonTools/commit/19b902e)
 - **Author:** Odyseus
+
 ```
 Cinnamon Maximus (Fork by Odyseus) extension
 - Re-generated help file based on new localizations.
@@ -55,6 +59,7 @@ hr.po     14
 - **Date:** Sun, 14 May 2017 18:50:56 +0800
 - **Commit:** [5081c27](https://github.com/Odyseus/CinnamonTools/commit/5081c27)
 - **Author:** giwhub
+
 ```
 Update zh_CN.po
 
@@ -65,6 +70,7 @@ Update zh_CN.po
 - **Date:** Sat, 13 May 2017 20:58:15 -0300
 - **Commit:** [49bdf1b](https://github.com/Odyseus/CinnamonTools/commit/49bdf1b)
 - **Author:** Odyseus
+
 ```
 Cinnamon Maximus (Fork by Odyseus) extension
 - Redesigned help file generation. Now the help file is created from a python script
@@ -83,6 +89,7 @@ hr.po     14
 - **Date:** Sat, 6 May 2017 08:21:08 -0300
 - **Commit:** [a904284](https://github.com/Odyseus/CinnamonTools/commit/a904284)
 - **Author:** Odyseus
+
 ```
 Cinnamon Maximus (Fork by Odyseus) extension
 - Cleaned up metadata.json file.
@@ -94,6 +101,7 @@ Cinnamon Maximus (Fork by Odyseus) extension
 - **Date:** Sun, 30 Apr 2017 01:02:08 -0300
 - **Commit:** [365e7f1](https://github.com/Odyseus/CinnamonTools/commit/365e7f1)
 - **Author:** Odyseus
+
 ```
 Cinnamon Maximus (Fork by Odyseus) extension
 - Cleaned metadata.json file.
@@ -105,6 +113,7 @@ Cinnamon Maximus (Fork by Odyseus) extension
 - **Date:** Wed, 26 Apr 2017 22:32:06 +0800
 - **Commit:** [66f4ce6](https://github.com/Odyseus/CinnamonTools/commit/66f4ce6)
 - **Author:** giwhub
+
 ```
 Create zh_CN.po
 
@@ -115,6 +124,7 @@ Create zh_CN.po
 - **Date:** Thu, 13 Apr 2017 13:46:07 -0300
 - **Commit:** [37d77da](https://github.com/Odyseus/CinnamonTools/commit/37d77da)
 - **Author:** Odyseus
+
 ```
 Cinnamon Maximus (Fork By Odyseus) extension - Added localized help.
 
@@ -124,6 +134,7 @@ Cinnamon Maximus (Fork By Odyseus) extension - Added localized help.
 - **Date:** Fri, 27 Jan 2017 11:58:09 -0300
 - **Commit:** [8e1a44b](https://github.com/Odyseus/CinnamonTools/commit/8e1a44b)
 - **Author:** Odyseus
+
 ```
 Extensions - Cleaned up irrelevant files
 - Updated READMEs
@@ -137,6 +148,7 @@ Extensions - Cleaned up irrelevant files
 - **Date:** Sun, 22 Jan 2017 23:43:00 -0300
 - **Commit:** [e6738b3](https://github.com/Odyseus/CinnamonTools/commit/e6738b3)
 - **Author:** Odyseus
+
 ```
 Extensions - Fixed some broken links
 - Fixed wrong author name on info.json files.
@@ -148,6 +160,7 @@ Extensions - Fixed some broken links
 - **Date:** Sun, 22 Jan 2017 21:51:40 -0300
 - **Commit:** [0f30cc7](https://github.com/Odyseus/CinnamonTools/commit/0f30cc7)
 - **Author:** Odyseus
+
 ```
 Extensions - Formatted repository to conform Spices repository.
 
@@ -158,6 +171,7 @@ Extensions - Formatted repository to conform Spices repository.
 - **Date:** Thu, 6 Oct 2016 03:35:15 -0300
 - **Commit:** [72668c7](https://github.com/Odyseus/CinnamonTools/commit/72668c7)
 - **Author:** Odyseus
+
 ```
 Corrected some terms and removed BASICS.md in favor of Wiki.
 
@@ -168,6 +182,7 @@ Corrected some terms and removed BASICS.md in favor of Wiki.
 - **Date:** Mon, 3 Oct 2016 00:12:50 -0300
 - **Commit:** [d01a0ab](https://github.com/Odyseus/CinnamonTools/commit/d01a0ab)
 - **Author:** Odyseus
+
 ```
 White space cleaning.
 
@@ -178,6 +193,7 @@ White space cleaning.
 - **Date:** Fri, 30 Sep 2016 21:55:46 -0300
 - **Commit:** [5515699](https://github.com/Odyseus/CinnamonTools/commit/5515699)
 - **Author:** Odyseus
+
 ```
 Added support for localizations.
 
@@ -188,6 +204,7 @@ Added support for localizations.
 - **Date:** Fri, 12 Aug 2016 06:07:01 -0300
 - **Commit:** [f2dc972](https://github.com/Odyseus/CinnamonTools/commit/f2dc972)
 - **Author:** Odyseus
+
 ```
 Initial commit......
 
@@ -198,6 +215,7 @@ Initial commit......
 - **Date:** Mon, 8 Aug 2016 00:40:39 -0300
 - **Commit:** [538f95a](https://github.com/Odyseus/CinnamonTools/commit/538f95a)
 - **Author:** Odyseus
+
 ```
 Initial commit.....
 
@@ -208,6 +226,7 @@ Initial commit.....
 - **Date:** Sat, 6 Aug 2016 01:08:09 -0300
 - **Commit:** [af4fe20](https://github.com/Odyseus/CinnamonTools/commit/af4fe20)
 - **Author:** Odyseus
+
 ```
 Initial commit...
 
@@ -218,6 +237,7 @@ Initial commit...
 - **Date:** Sat, 6 Aug 2016 00:08:42 -0300
 - **Commit:** [1e9eb5b](https://github.com/Odyseus/CinnamonTools/commit/1e9eb5b)
 - **Author:** Odyseus
+
 ```
 Initial commit..
 
@@ -228,6 +248,7 @@ Initial commit..
 - **Date:** Fri, 5 Aug 2016 23:54:23 -0300
 - **Commit:** [987c2a9](https://github.com/Odyseus/CinnamonTools/commit/987c2a9)
 - **Author:** Odyseus
+
 ```
 Initial commit.
 
@@ -238,6 +259,7 @@ Initial commit.
 - **Date:** Fri, 5 Aug 2016 23:37:54 -0300
 - **Commit:** [2de29fd](https://github.com/Odyseus/CinnamonTools/commit/2de29fd)
 - **Author:** Odyseus
+
 ```
 Initial commit.
 

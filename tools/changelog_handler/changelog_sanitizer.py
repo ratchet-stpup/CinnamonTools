@@ -13,10 +13,11 @@ SOURCE_PATH = sys.argv[2]
 TARGET_PATH = sys.argv[3]
 
 CHANGELOG_TITLE = """## {xlet_name} changelog
-<h4 style="color:red;font-weight:bold;">
-This change log is only valid for the version of the xlet hosted on <a href="https://github.com/Odyseus/CinnamonTools">its original repository</a>
-</h4>
+
+#### This change log is only valid for the version of the xlet hosted on [its original repository](https://github.com/Odyseus/CinnamonTools)
+
 ***
+
 """.format(xlet_name=XLET_NAME)
 
 strings = None

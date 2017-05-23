@@ -9,8 +9,9 @@ Applet based on the gnome-shell extension called [Desk Changer](https://github.c
 
 ## Compatibility
 
-- ![Cinnamon 3.0](https://odyseus.github.io/CinnamonTools/lib/badges/cinn-3.0.svg) ![Linux Mint 18](https://odyseus.github.io/CinnamonTools/lib/badges/lm-18.svg)
-- ![Cinnamon 3.2](https://odyseus.github.io/CinnamonTools/lib/badges/cinn-3.2.svg) ![Linux Mint 18.1](https://odyseus.github.io/CinnamonTools/lib/badges/lm-18.1.svg)
+![Cinnamon 3.0](https://odyseus.github.io/CinnamonTools/lib/badges/cinn-3.0.svg)
+![Cinnamon 3.2](https://odyseus.github.io/CinnamonTools/lib/badges/cinn-3.2.svg)
+![Cinnamon 3.4](https://odyseus.github.io/CinnamonTools/lib/badges/cinn-3.4.svg)
 
 <span style="color:red;font-size:large;">
 **Important note:** Do not try to install and force compatibility for any other version of Cinnamon older than 3.0.x. As a protection mechanism, the applet will auto-remove itself from the panel.
