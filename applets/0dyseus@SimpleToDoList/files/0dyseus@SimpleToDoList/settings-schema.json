@@ -320,5 +320,13 @@
     "pref_todo_list": {
         "type": "generic",
         "default": {}
+    },
+    "pref_imp_exp_last_selected_directory": {
+        "type": "generic",
+        "default": ""
+    },
+    "pref_save_last_selected_directory": {
+        "type": "generic",
+        "default": ""
     }
 }

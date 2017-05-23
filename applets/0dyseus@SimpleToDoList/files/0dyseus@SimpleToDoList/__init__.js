@@ -1218,7 +1218,6 @@ TasksListItem.prototype = {
     },
 
     _draw_section: function() {
-        try {
             this._clear();
 
             this.tasksContainer = new TasksContainer();
@@ -1256,9 +1255,6 @@ TasksListItem.prototype = {
             this.connections.push([this.newTaskEntry, conn]);
 
             this.menu.addMenuItem(this.newTaskEntry);
-        } catch (aErr) {
-            global.logError(aErr);
-        }
     },
 
     destroy: function() {

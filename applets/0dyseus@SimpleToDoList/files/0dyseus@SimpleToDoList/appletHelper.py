@@ -54,6 +54,11 @@ def _(string):
 
 
 def _import_export(type):
+    try:
+        last_dir = os.path.dirname(sys.argv[2])
+    except:
+        last_dir = None
+
     if type == "export":
         mode = Gtk.FileChooserAction.SAVE
         string = _("Select or enter file to export to")
@@ -78,6 +83,9 @@ def _import_export(type):
                                    title=string,
                                    action=mode,
                                    buttons=btns)
+
+    if last_dir is not None:
+        dialog.set_current_folder(last_dir)
 
     if type == "export" or type == "save":
         dialog.set_do_overwrite_confirmation(True)

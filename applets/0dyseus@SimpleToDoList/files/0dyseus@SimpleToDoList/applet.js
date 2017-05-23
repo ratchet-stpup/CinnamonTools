@@ -370,6 +370,8 @@ MyApplet.prototype = {
             [bD.IN, "pref_logging_enabled", null],
             [bD.BIDIRECTIONAL, "pref_initial_load", null],
             [bD.BIDIRECTIONAL, "pref_todo_list", null],
+            [bD.BIDIRECTIONAL, "pref_imp_exp_last_selected_directory", null],
+            [bD.BIDIRECTIONAL, "pref_save_last_selected_directory", null],
         ];
         let newBinding = typeof this.settings.bind === "function";
         for (let [binding, property_name, callback] of settingsArray) {
@@ -482,7 +484,10 @@ MyApplet.prototype = {
     },
 
     _importTasks: function() {
-        Util.spawn_async([this.metadata.path + "/appletHelper.py", "import"],
+        Util.spawn_async([this.metadata.path + "/appletHelper.py",
+                "import",
+                this.pref_imp_exp_last_selected_directory
+            ],
             Lang.bind(this, function(aOutput) {
                 let path = aOutput.trim();
 
@@ -492,6 +497,7 @@ MyApplet.prototype = {
                 // Trying the following asynchronous function in replacement of
                 // Cinnamon.get_file_contents*utf8_sync.
                 let file = Gio.file_new_for_path(path);
+                this.pref_imp_exp_last_selected_directory = path;
                 file.load_contents_async(null, Lang.bind(this, function(aFile, aResponce) {
                     let rawData;
                     try {
@@ -517,7 +523,10 @@ MyApplet.prototype = {
     },
 
     _exportTasks: function(aActor, aEvent, aUnknown, aSection) {
-        Util.spawn_async([this.metadata.path + "/appletHelper.py", "export"],
+        Util.spawn_async([this.metadata.path + "/appletHelper.py",
+                "export",
+                this.pref_imp_exp_last_selected_directory
+            ],
             Lang.bind(this, function(aOutput) {
                 let path = aOutput.trim();
 
@@ -535,13 +544,16 @@ MyApplet.prototype = {
 
                 let rawData = JSON.stringify(sectionsContainer, null, 4);
                 let file = Gio.file_new_for_path(path);
-
+                this.pref_imp_exp_last_selected_directory = path;
                 this._saveToFile(rawData, file);
             }));
     },
 
     _saveAsTODOFile: function(aActor, aEvent, aUnknown, aSection) {
-        Util.spawn_async([this.metadata.path + "/appletHelper.py", "save"],
+        Util.spawn_async([this.metadata.path + "/appletHelper.py",
+                "save",
+                this.pref_save_last_selected_directory
+            ],
             Lang.bind(this, function(aOutput) {
                 let path = aOutput.trim();
 
@@ -550,6 +562,7 @@ MyApplet.prototype = {
 
                 let rawData = "";
                 let file = Gio.file_new_for_path(path);
+                this.pref_save_last_selected_directory = path;
                 let sectionsContainer;
 
                 if (aSection) {
