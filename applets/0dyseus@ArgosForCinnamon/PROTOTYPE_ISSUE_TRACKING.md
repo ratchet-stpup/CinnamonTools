@@ -1,21 +1,20 @@
+## Applet status
+
+- Applet ready to be publised. Estimated date of publishing: **May 27, 2017**.
+- Applet ready to be translated.
+
 ## Description
 
 Argos for Cinnamon lets you write Cinnamon applets in a language that every Linux user is already intimately familiar with: Bash scripts. Not only that, if you are familiar or more comfortable with any other language (like Python, Ruby, JavaScript or even Perl or PHP), Argos for Cinnamon can handle them as well.
 
 More precisely, Argos for Cinnamon is an applet that turns executables' standard output into panel dropdown menus. It is inspired by, and fully compatible with, the Gnome Shell extension called [Argos](https://github.com/p-e-w/argos) by [Philipp Emanuel Weidmann](https://github.com/p-e-w), which in turn is inspired by, and fully compatible with, the [BitBar](https://github.com/matryer/bitbar) application for macOS. Argos for Cinnamon supports many [BitBar plugins](https://github.com/matryer/bitbar-plugins) without modifications, giving you access to a large library of well-tested scripts in addition to being able to write your own.
 
-## Applet status
-
-- Its current state is pretty much its final state. See **ToDo** section.
-- For the time being, there isn't any new feature planned for this applet, just bug fixing if any bug is found. See **ToDo** section.
-- The applet is ready to be translated, but I would suggest to any willing to translate it to wait until the test face finishes.
-
 ## Tested environments
 
-* [x] ![Cinnamon 2.8](https://odyseus.github.io/CinnamonTools/lib/badges/cinn-2.8.svg) ![Linux Mint 17.3](https://odyseus.github.io/CinnamonTools/lib/badges/lm-17.3.svg)
-* [x] ![Cinnamon 3.0](https://odyseus.github.io/CinnamonTools/lib/badges/cinn-3.0.svg) ![Linux Mint 18](https://odyseus.github.io/CinnamonTools/lib/badges/lm-18.svg)
-* [x] ![Cinnamon 3.2](https://odyseus.github.io/CinnamonTools/lib/badges/cinn-3.2.svg) ![Linux Mint 18.1](https://odyseus.github.io/CinnamonTools/lib/badges/lm-18.1.svg)
-* [x] ![Cinnamon 3.4](https://odyseus.github.io/CinnamonTools/lib/badges/cinn-3.4.svg) ![Linux Mint 18.2](https://odyseus.github.io/CinnamonTools/lib/badges/lm-18.2.svg)
+* [x] ![Cinnamon 2.8](https://odyseus.github.io/CinnamonTools/lib/badges/cinn-2.8.svg)
+* [x] ![Cinnamon 3.0](https://odyseus.github.io/CinnamonTools/lib/badges/cinn-3.0.svg)
+* [x] ![Cinnamon 3.2](https://odyseus.github.io/CinnamonTools/lib/badges/cinn-3.2.svg)
+* [x] ![Cinnamon 3.4](https://odyseus.github.io/CinnamonTools/lib/badges/cinn-3.4.svg)
 
 ## Key features
 
@@ -33,9 +32,13 @@ After placing a new instance of **Argos for Cinnamon** into a panel, one of the 
 **Read the help file for this applet before trying any script with it. And pay attention to all warnings.**
 
 ## ToDo
-* [ ] I'm thinking about adding the possibility to create more types of elements and not be limited to just menu items. More precisely, I'm thinking about adding buttons. Buttons can occupy more vertical space than menu items, but one could fit 5 or 6 buttons in the same horizontal space that 2 menu items would occupy. But I will start to work on this after this applet reaches an stable state. ![Priority LOW](https://img.shields.io/badge/Priority-LOW-blue.svg?style=plastic)
+
 * [x] Test applet on all the other Cinnamon versions. ![Priority HIGH](https://img.shields.io/badge/Priority-HIGH-orange.svg?style=plastic)
 * [x] Add a tooltip to the applet. I'm thinking on adding some basic information to it like the rotation and execution intervals, name of the script file and some other information that can be seen at a glance of the tooltip without opening the context menu or the applet settings window. ![Priority HIGH](https://img.shields.io/badge/Priority-HIGH-orange.svg?style=plastic)
+
+#### Postponed
+
+- I'm thinking about adding the possibility to create more types of elements and not be limited to just menu items. More precisely, I'm thinking about adding buttons. Buttons can occupy more vertical space than menu items, but one could fit 5 or 6 buttons in the same horizontal space that 2 menu items would occupy. But I will start to work on this after this applet reaches an stable state. ![Priority LOW](https://img.shields.io/badge/Priority-LOW-blue.svg?style=plastic)
 
 <!--
 Badges

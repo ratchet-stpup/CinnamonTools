@@ -158,6 +158,10 @@
         "description": "Spacing for items inside the applet",
         "tooltip": ""
     },
+    "pref_last_selected_directory": {
+        "type": "generic",
+        "default": ""
+    },
     "pref_initial_load_done": {
         "type": "generic",
         "default": false

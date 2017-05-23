@@ -1884,28 +1884,24 @@ ArgosMenuItem.prototype = {
                         ];
                     }
 
-                    try {
-                        // Used by the original extension:
-                        // GLib.spawn_async(null, argv, null, GLib.SpawnFlags.SEARCH_PATH, null);
-                        // Implemented TryExec so I can inform with a callback if there was an error
-                        // when runnig the command.
-                        TryExec(
-                            argv.join(" "),
-                            null, //aOnStart
-                            function(aCmd) {
-                                informAboutMissingDependencies(
-                                    _("Error executing command!!!") + "\n" +
-                                    _("You might need to set up the correct terminal emulator from this applet settings window.")
-                                    .format(AppletMeta.name),
-                                    aCmd
-                                );
-                            }, //aOnFailure
-                            null, //aOnComplete
-                            null //aLogger
-                        );
-                    } catch (aErr) {
-                        global.logError(aErr);
-                    }
+                    // Used by the original extension:
+                    // GLib.spawn_async(null, argv, null, GLib.SpawnFlags.SEARCH_PATH, null);
+                    // Implemented TryExec so I can inform with a callback if there was an error
+                    // when runnig the command.
+                    TryExec(
+                        argv.join(" "),
+                        null, //aOnStart
+                        function(aCmd) {
+                            informAboutMissingDependencies(
+                                _("Error executing command!!!") + "\n" +
+                                _("You might need to set up the correct terminal emulator from this applet settings window.")
+                                .format(AppletMeta.name),
+                                aCmd
+                            );
+                        }, //aOnFailure
+                        null, //aOnComplete
+                        null //aLogger
+                    );
                 }
 
                 if (activeLine.hasOwnProperty("href")) {
@@ -2093,7 +2089,9 @@ function parseLine(aLineString) {
             global.logError("Unable to parse attributes for line '" + aLineString + "': " + aErr);
         }
 
-        for (let i = 0; i < attributes.length; i++) {
+        let i = 0,
+            iLen = attributes.length;
+        for (; i < iLen; i++) {
             let assignmentIndex = attributes[i].indexOf("=");
 
             if (assignmentIndex >= 0) {
@@ -2205,13 +2203,17 @@ function ansiToMarkup(aText) {
     //   TEXT, [(FULL_ESC_SEQUENCE, SGR_SEQUENCE, TEXT), ...]
     let tokens = regex.split(aText, 0);
 
-    for (let i = 0; i < tokens.length; i++) {
+    let i = 0,
+        iLen = tokens.length;
+    for (; i < iLen; i++) {
         if (regex.match(tokens[i], 0)[0]) {
             // Default is SGR 0 (reset)
             let sgrSequence = (tokens[i + 1].length > 0) ? tokens[i + 1] : "0";
             let sgrCodes = sgrSequence.split(";");
 
-            for (let j = 0; j < sgrCodes.length; j++) {
+            let j = 0,
+                jLen = sgrCodes.length;
+            for (; j < jLen; j++) {
                 if (sgrCodes[j].length === 0)
                     continue;
 

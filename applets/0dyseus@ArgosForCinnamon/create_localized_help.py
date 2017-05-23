@@ -63,7 +63,7 @@ def get_content():
         "## %s" % _("Description"),
         _("Argos for Cinnamon is an applet that turns executables' standard output into panel dropdown menus. It is inspired by, and fully compatible with, the Gnome Shell extension called [Argos](https://github.com/p-e-w/argos) by [Philipp Emanuel Weidmann](https://github.com/p-e-w), which in turn is inspired by, and fully compatible with, the [BitBar](https://github.com/matryer/bitbar) application for macOS. Argos for Cinnamon supports many [BitBar plugins](https://github.com/matryer/bitbar-plugins) without modifications, giving you access to a large library of well-tested scripts in addition to being able to write your own."),
         "<div class=\"alert alert-info\">",
-        _("I will use the words <em>plugin</em> or <em>script</em> when referring to a script file associated with an instance on <strong>Argos for Cinnamon</strong> applet."),
+        md(_("I will use the words *plugin* or *script* when referring to a script file associated with an instance on **Argos for Cinnamon** applet.")),
         "</div>",
         "\n",
         "***",
@@ -88,7 +88,8 @@ def get_content():
         "\n",
         "## %s" % _("Dependencies"),
         # TO TRANSLATORS: MARKDOWN string. Respect formatting.
-        "- %s" % _("**xdg-open** command: Open a URI in the user's preferred application that handles the respective URI or file type."),
+        "- **%s:** %s" % (_("xdg-open command"),
+                          ("Open a URI in the user's preferred application that handles the respective URI or file type.")),
         "    - %s %s %s" % (_("Debian and Archlinux based distributions:"),
                             _("This command is installed with the package called **xdg-utils**."),
                             _("Installed by default in modern versions of Linux Mint.")),
@@ -105,7 +106,7 @@ def get_content():
         _("For scripts that display non dynamic data, it isn't needed an execution interval. But if your script displays dynamic data (a clock for example), then an execution and/or applet text rotation interval needs to be specified. Both of these values can be set from the applet context menu."),
         "\n",
         "<div class=\"alert alert-info\">",
-        _("The three example scripts provided by this applet will produce the exact same output, but they are created using three different languages (<strong>bash_examples.sh</strong>, <strong>python_examples.py</strong> and <strong>ruby_examples.rb</strong>)."),
+        md(_("The three example scripts provided by this applet will produce the exact same output, but they are created using three different languages (**bash_examples.sh**, **python_examples.py** and **ruby_examples.rb**).")),
         "</div>",
         "<div class=\"alert alert-warning\">",
         "\n",
@@ -178,27 +179,48 @@ TEXT | ATTRIBUTE_1=VALUE ATTRIBUTE_2=VALUE ...
                                                        _("Sets the dimensions of the image. If only one dimension is specified, the image's original aspect ratio is maintained. **Argos only.**")),
         "| `length` | %s | %s |" % (_("Length in characters"), _(
             "Truncate the line text to the specified number of characters, ellipsizing the truncated part.")),
-        "| `trim` | `true` or `false` | %s |" %
-        # TO TRANSLATORS: MARKDOWN string. Respect formatting.
-        _("If `false`, preserve leading and trailing whitespace of the line text."),
-        "| `dropdown` | `true` or `false` | %s |" %
-        # TO TRANSLATORS: MARKDOWN string. Respect formatting.
-        _("If `false` and the line is a button line (see above), exclude it from being displayed in the dropdown menu."),
-        "| `alternate` | `true` or `false` | %s |" %
-        # TO TRANSLATORS: MARKDOWN string. Respect formatting.
-        _("If `true`, the item is hidden by default, and shown in place of the preceding item when the [[Alt]] key is pressed."),
-        "| `emojize` | `true` or `false` | %s |" %
-        # TO TRANSLATORS: MARKDOWN string. Respect formatting.
-        _("If `false`, disable substitution of `:emoji_name:` with emoji characters in the line text."),
-        "| `ansi` | `true` or `false` | %s |" %
-        # TO TRANSLATORS: MARKDOWN string. Respect formatting.
-        _("If `false`, disable interpretation of ANSI escape sequences in the line text."),
-        "| `useMarkup` | `true` or `false` | %s |" %
-        # TO TRANSLATORS: MARKDOWN string. Respect formatting.
-        _("If `false`, disable interpretation of Pango markup in the line text. **Argos only.**"),
-        "| `unescape` | `true` or `false` | %s |" %
-        # TO TRANSLATORS: MARKDOWN string. Respect formatting.
-        _("If `false`, disable interpretation of backslash escapes such as `\\n` in the line text. **Argos only.**"),
+        "| `trim` | `true` %s `false` | %s |" %
+        # TO TRANSLATORS: Conjunction used as follows:
+        # "true or false"
+        (_("or"),
+         # TO TRANSLATORS: MARKDOWN string. Respect formatting.
+         _("If `false`, preserve leading and trailing whitespace of the line text.")),
+        "| `dropdown` | `true` %s `false` | %s |" %
+        # TO TRANSLATORS: Conjunction used as follows:
+        # "true or false"
+        (_("or"),
+         # TO TRANSLATORS: MARKDOWN string. Respect formatting.
+         _("If `false` and the line is a button line (see above), exclude it from being displayed in the dropdown menu.")),
+        "| `alternate` | `true` %s `false` | %s |" %
+        # TO TRANSLATORS: Conjunction used as follows:
+        # "true or false"
+        (_("or"),
+         # TO TRANSLATORS: MARKDOWN string. Respect formatting.
+         _("If `true`, the item is hidden by default, and shown in place of the preceding item when the [[Alt]] key is pressed.")),
+        "| `emojize` | `true` %s `false` | %s |" %
+        # TO TRANSLATORS: Conjunction used as follows:
+        # "true or false"
+        (_("or"),
+         # TO TRANSLATORS: MARKDOWN string. Respect formatting.
+         _("If `false`, disable substitution of `:emoji_name:` with emoji characters in the line text.")),
+        "| `ansi` | `true` %s `false` | %s |" %
+        # TO TRANSLATORS: Conjunction used as follows:
+        # "true or false"
+        (_("or"),
+         # TO TRANSLATORS: MARKDOWN string. Respect formatting.
+         _("If `false`, disable interpretation of ANSI escape sequences in the line text.")),
+        "| `useMarkup` | `true` %s `false` | %s |" %
+        # TO TRANSLATORS: Conjunction used as follows:
+        # "true or false"
+        (_("or"),
+         # TO TRANSLATORS: MARKDOWN string. Respect formatting.
+         _("If `false`, disable interpretation of Pango markup in the line text. **Argos only.**")),
+        "| `unescape` | `true` %s `false` | %s |" %
+        # TO TRANSLATORS: Conjunction used as follows:
+        # "true or false"
+        (_("or"),
+         # TO TRANSLATORS: MARKDOWN string. Respect formatting.
+         _("If `false`, disable interpretation of backslash escapes such as `\\n` in the line text. **Argos only.**")),
         "\n",
         # TO TRANSLATORS: MARKDOWN string. Respect formatting.
         _("Attributes available on **Argos for Cinnamon** only."),
@@ -210,9 +232,12 @@ TEXT | ATTRIBUTE_1=VALUE ATTRIBUTE_2=VALUE ...
         "| `iconSize` | %s | %s |" % (_("An integer from 12 to 512"),
                                       # TO TRANSLATORS: MARKDOWN string. Respect formatting.
                                       _("Sets the size for the item's `iconName`.")),
-        "| `iconIsSymbolic` | `true` or `false` | %s |" %
-        # TO TRANSLATORS: MARKDOWN string. Respect formatting.
-        _("If `false`, the symbolic version of `iconName` will be used on the item (if exists)."),
+        "| `iconIsSymbolic` | `true` %s `false` | %s |" %
+        # TO TRANSLATORS: Conjunction used as follows:
+        # "true or false"
+        (_("or"),
+         # TO TRANSLATORS: MARKDOWN string. Respect formatting.
+         _("If `true`, the symbolic version of `iconName` will be used on the item (if exists).")),
         "### %s" % _("Actions"),
         _("Define actions to be performed when the user clicks on the line's menu item."),
         "\n",
@@ -223,9 +248,12 @@ TEXT | ATTRIBUTE_1=VALUE ATTRIBUTE_2=VALUE ...
         "| --- | --- | --- |",
         "| `bash` | %s | %s |" % (_("Bash command"), _(
             "Runs a command using `bash` inside any terminal emulator window.")),
-        "| `terminal` | `true` or `false` | %s |" %
-        # TO TRANSLATORS: MARKDOWN string. Respect formatting.
-        _("If `false`, runs the Bash command in the background (i.e. without opening a terminal window)."),
+        "| `terminal` | `true` %s `false` | %s |" %
+        # TO TRANSLATORS: Conjunction used as follows:
+        # "true or false"
+        (_("or"),
+         # TO TRANSLATORS: MARKDOWN string. Respect formatting.
+         _("If `false`, runs the Bash command in the background (i.e. without opening a terminal window).")),
         "| `param1`, `param2`, ... | %s | %s |" % (_("Command line arguments"),
                                                    # TO TRANSLATORS: MARKDOWN string. Respect
                                                    # formatting.
@@ -235,23 +263,26 @@ TEXT | ATTRIBUTE_1=VALUE ATTRIBUTE_2=VALUE ...
         "| `eval` | %s | %s |" % (_("JavaScript code"),
                                   # TO TRANSLATORS: MARKDOWN string. Respect formatting.
                                   _("Passes the code to JavaScript's `eval` function. **Argos only.**")),
-        "| `refresh` | `true` or `false` | %s |" %
-        # TO TRANSLATORS: MARKDOWN string. Respect formatting.
-        _("If `true`, re-runs the plugin, updating its output."),
+        "| `refresh` | `true` %s `false` | %s |" %
+        # TO TRANSLATORS: Conjunction used as follows:
+        # "true or false"
+        (_("or"),
+         # TO TRANSLATORS: MARKDOWN string. Respect formatting.
+         _("If `true`, re-runs the plugin, updating its output.")),
         "***",
         "<span id=\"argos-bitbar-compatibility\"></span>",
         "## %s" % _("BitBar plugins with Argos for Cinnamon"),
         "<div class=\"alert alert-warning\">",
         "<strong>",
         _("WARNING!!! DO NOT RANDOMLY TEST SCRIPTS!!!"),
-        "\n",
+        "\n<br>",
         _("1. Apply common sense. Read and understand what a script does and how demanding it could be."),
-        "\n",
-        _("2. Test unknown scripts on an environment from which you can recover easily (i.e. a virtual machine)."),
-        "\n",
+        "\n<br>",
+        _("2. Test unknown scripts on an environment from which you can recover easily (for example, a virtual machine)."),
+        "\n<br>",
         # TO TRANSLATORS: MARKDOWN string. Respect formatting.
         _("3. I found one specific case in which a script can freeze and ultimately crash Cinnamon. It's a script that downloads a GIF image from the internet, converts it to Base64 and then that encoded image is inserted into a menu item using the *image* attribute. I will not provide a link to that script, but if you follow the very first advice that I listed here, when you see that script, you will know."),
-        "\n",
+        "\n<br>",
         "</strong>",
         "</div>",
         "\n",

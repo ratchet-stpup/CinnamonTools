@@ -160,29 +160,25 @@ MyApplet.prototype = {
     },
 
     update: function() {
-        try {
-            this._syncLabelsWithSlidersValue();
+        this._syncLabelsWithSlidersValue();
 
-            if (this._updateTimeout > 0) {
-                Mainloop.source_remove(this._updateTimeout);
-                this._updateTimeout = 0;
-            }
-
-            if (this._callToUpdateTimeout > 0) {
-                Mainloop.source_remove(this._callToUpdateTimeout);
-                this._callToUpdateTimeout = 0;
-            }
-
-            // This is absolutelly needed because this.update could be triggered
-            // hundreds of times by the sliders.
-            this._callToUpdateTimeout = Mainloop.timeout_add_seconds(1,
-                Lang.bind(this, function() {
-                    this._update();
-                    this._callToUpdateTimeout = 0;
-                }));
-        } catch (aErr) {
-            global.logError(aErr);
+        if (this._updateTimeout > 0) {
+            Mainloop.source_remove(this._updateTimeout);
+            this._updateTimeout = 0;
         }
+
+        if (this._callToUpdateTimeout > 0) {
+            Mainloop.source_remove(this._callToUpdateTimeout);
+            this._callToUpdateTimeout = 0;
+        }
+
+        // This is absolutelly needed because this.update could be triggered
+        // hundreds of times by the sliders.
+        this._callToUpdateTimeout = Mainloop.timeout_add_seconds(1,
+            Lang.bind(this, function() {
+                this._update();
+                this._callToUpdateTimeout = 0;
+            }));
     },
 
     _update: function() {
@@ -230,17 +226,13 @@ MyApplet.prototype = {
 
     _getInterval: function(aPref) {
         let updateInterval = 0;
-        try {
-            let number = this[aPref];
-            let unit = this[aPref + "_units"];
-            let factorIndex = "smhd".indexOf(unit);
+        let number = this[aPref];
+        let unit = this[aPref + "_units"];
+        let factorIndex = "smhd".indexOf(unit);
 
-            if (factorIndex >= 0 && /^\d+$/.test(number)) {
-                let factors = [1, 60, 60 * 60, 24 * 60 * 60];
-                updateInterval = parseInt(number, 10) * factors[factorIndex];
-            }
-        } catch (aErr) {
-            global.logError(aErr);
+        if (factorIndex >= 0 && /^\d+$/.test(number)) {
+            let factors = [1, 60, 60 * 60, 24 * 60 * 60];
+            updateInterval = parseInt(number, 10) * factors[factorIndex];
         }
 
         return updateInterval;
@@ -255,7 +247,6 @@ MyApplet.prototype = {
             let dropdownMode = false;
             let i = 0,
                 iLen = output.length;
-
             for (; i < iLen; i++) {
                 if (output[i].length === 0)
                     continue;
@@ -317,6 +308,7 @@ MyApplet.prototype = {
                 lLen = dropdownLines.length;
             for (; l < lLen; l++) {
                 let menu;
+
                 if (dropdownLines[l].menuLevel in menus) {
                     menu = menus[dropdownLines[l].menuLevel];
                 } else {
@@ -326,7 +318,7 @@ MyApplet.prototype = {
                     menu = this.menu;
                 }
 
-                let menuItem;
+                let menuItem = null;
 
                 if (dropdownLines[l].isSeparator) {
                     // Although not documented, BitBar appears to render additional "---" lines as separators
@@ -360,7 +352,8 @@ MyApplet.prototype = {
                     menuItem = new $.ArgosMenuItem(this, dropdownLines[l]);
                 }
 
-                menu.addMenuItem(menuItem);
+                if (menuItem !== null)
+                    menu.addMenuItem(menuItem);
             }
         } catch (aErr) {
             global.logError(aErr);
@@ -420,327 +413,130 @@ MyApplet.prototype = {
     },
 
     onSliderChanged: function(aSlider, aValue, aStopUpdate, aPref) {
-        try {
-            if (aStopUpdate || !aPref)
-                return;
+        if (aStopUpdate || !aPref)
+            return;
 
-            let value = Math.max(0, Math.min(1, parseFloat(aValue)));
+        let value = Math.max(0, Math.min(1, parseFloat(aValue)));
 
-            let newValue = parseInt(Math.floor(value * 3600), 10);
+        let newValue = parseInt(Math.floor(value * 3600), 10);
 
-            // This doesn't trigger the callback!!!!!
-            this[aPref] = newValue;
+        // This doesn't trigger the callback!!!!!
+        this[aPref] = newValue;
 
-            this._syncLabelsWithSlidersValue(aSlider);
+        this._syncLabelsWithSlidersValue(aSlider);
 
-            if (!this._sliderIsSliding)
-                this.update();
-        } catch (aErr) {
-            global.logError(aErr);
-        }
+        if (!this._sliderIsSliding)
+            this.update();
     },
 
     onSliderGrabbed: function(aSlider) { // jshint ignore:line
-        try {
-            this._sliderIsSliding = true;
-            this._syncLabelsWithSlidersValue(aSlider);
-        } catch (aErr) {
-            global.logError(aErr);
-        }
+        this._sliderIsSliding = true;
+        this._syncLabelsWithSlidersValue(aSlider);
     },
 
     onSliderReleased: function(aSlider) {
-        try {
-            this._sliderIsSliding = false;
-            aSlider.emit("value-changed", aSlider.value);
-            // this.updateIntervalSlider.emit("value-changed", aSlider.value);
-            // this._syncLabelsWithSlidersValue();
-        } catch (aErr) {
-            global.logError(aErr);
-        }
+        this._sliderIsSliding = false;
+        aSlider.emit("value-changed", aSlider.value);
     },
 
     _syncLabelsWithSlidersValue: function(aSlider) {
-        try {
-            // If there is no slider specified, update all of them.
-            if (!aSlider) {
-                this.updateIntervalLabel.setLabel();
-                this.updateIntervalLabel._setCheckedState();
-                this.rotationIntervalLabel.setLabel();
-                this.rotationIntervalLabel._setCheckedState();
-            } else {
-                if (aSlider._associatedLabel !== null) {
-                    this[aSlider._associatedLabel].setLabel();
-                    this[aSlider._associatedLabel]._setCheckedState();
-                }
+        // If there is no slider specified, update all of them.
+        if (!aSlider) {
+            this.updateIntervalLabel.setLabel();
+            this.updateIntervalLabel._setCheckedState();
+            this.rotationIntervalLabel.setLabel();
+            this.rotationIntervalLabel._setCheckedState();
+        } else {
+            if (aSlider._associatedLabel !== null) {
+                this[aSlider._associatedLabel].setLabel();
+                this[aSlider._associatedLabel]._setCheckedState();
             }
-        } catch (aErr) {
-            global.logError(aErr);
         }
     },
 
     _expandAppletContextMenu: function() {
-        try {
-            // Execution interval unit selector submenu.
-            this.updateIntervalLabel = new $.UnitSelectorSubMenuMenuItem(
-                this,
-                "<b>%s</b>".format(_("Execution interval:")),
-                "pref_update_interval_units",
-                "pref_update_interval"
-            );
-            this.updateIntervalLabel.menu.connect("open-state-changed",
-                Lang.bind(this, this._contextSubMenuOpenStateChanged));
-            this.updateIntervalLabel.tooltip = new $.CustomTooltip(
-                this.updateIntervalLabel.actor,
-                _("Choose the time unit for the script execution interval.")
-            );
-            this._applet_context_menu.addMenuItem(this.updateIntervalLabel);
+        // Execution interval unit selector submenu.
+        this.updateIntervalLabel = new $.UnitSelectorSubMenuMenuItem(
+            this,
+            "<b>%s</b>".format(_("Execution interval:")),
+            "pref_update_interval_units",
+            "pref_update_interval"
+        );
+        this.updateIntervalLabel.menu.connect("open-state-changed",
+            Lang.bind(this, this._contextSubMenuOpenStateChanged));
+        this.updateIntervalLabel.tooltip = new $.CustomTooltip(
+            this.updateIntervalLabel.actor,
+            _("Choose the time unit for the script execution interval.")
+        );
+        this._applet_context_menu.addMenuItem(this.updateIntervalLabel);
 
-            // Execution interval slider
-            this.updateIntervalSlider = new $.CustomPopupSliderMenuItem(parseFloat(this.pref_update_interval / 3600));
-            this.updateIntervalSlider._associatedLabel = "updateIntervalLabel";
-            this.updateIntervalSlider.connect("value-changed",
-                Lang.bind(this, this.onSliderChanged, false, "pref_update_interval"));
-            this.updateIntervalSlider.connect("drag-begin", Lang.bind(this, this.onSliderGrabbed));
-            this.updateIntervalSlider.connect("drag-end", Lang.bind(this, this.onSliderReleased));
-            this.updateIntervalSlider.tooltip = new $.CustomTooltip(
-                this.updateIntervalSlider.actor,
-                _("Set the script execution interval.")
-            );
-            this._applet_context_menu.addMenuItem(this.updateIntervalSlider);
+        // Execution interval slider
+        this.updateIntervalSlider = new $.CustomPopupSliderMenuItem(parseFloat(this.pref_update_interval / 3600));
+        this.updateIntervalSlider._associatedLabel = "updateIntervalLabel";
+        this.updateIntervalSlider.connect("value-changed",
+            Lang.bind(this, this.onSliderChanged, false, "pref_update_interval"));
+        this.updateIntervalSlider.connect("drag-begin", Lang.bind(this, this.onSliderGrabbed));
+        this.updateIntervalSlider.connect("drag-end", Lang.bind(this, this.onSliderReleased));
+        this.updateIntervalSlider.tooltip = new $.CustomTooltip(
+            this.updateIntervalSlider.actor,
+            _("Set the script execution interval.")
+        );
+        this._applet_context_menu.addMenuItem(this.updateIntervalSlider);
 
-            this._applet_context_menu.addMenuItem(new PopupMenu.PopupSeparatorMenuItem());
+        this._applet_context_menu.addMenuItem(new PopupMenu.PopupSeparatorMenuItem());
 
-            let menuItem;
+        let menuItem;
 
-            // Choose script file
-            menuItem = new PopupMenu.PopupIconMenuItem(
-                _("Choose script"),
-                "document-open",
-                St.IconType.SYMBOLIC
-            );
-            menuItem.connect("activate", Lang.bind(this, function() {
-                Util.spawn_async([this.metadata.path + "/appletHelper.py", "open"],
-                    Lang.bind(this, function(aOutput) {
-                        let path = aOutput.trim();
+        // Choose script file
+        menuItem = new PopupMenu.PopupIconMenuItem(
+            _("Choose script"),
+            "document-open",
+            St.IconType.SYMBOLIC
+        );
+        menuItem.connect("activate", Lang.bind(this, function() {
+            Util.spawn_async([this.metadata.path + "/appletHelper.py",
+                    "open",
+                    this.pref_last_selected_directory
+                ],
+                Lang.bind(this, function(aOutput) {
+                    let path = aOutput.trim();
 
-                        if (!Boolean(path))
-                            return;
+                    if (!Boolean(path))
+                        return;
 
-                        // I don't know why this doesn't trigger the callback attached to the preference.
-                        // That's why I added the call to this._processFile in here too.
-                        // Just in case, I also added the this._processingFile check in case in some
-                        // other versions of Cinnamon the callback it's triggered.
-                        this.pref_file_path = path;
-                        this._processFile();
-                    }));
-            }));
-            menuItem.tooltip = new $.CustomTooltip(
-                menuItem.actor,
-                _("Choose a script file.")
-            );
-            this._applet_context_menu.addMenuItem(menuItem);
+                    // I don't know why this doesn't trigger the callback attached to the preference.
+                    // That's why I added the call to this._processFile in here too.
+                    // Just in case, I also added the this._processingFile check in case in some
+                    // other versions of Cinnamon the callback it's triggered.
+                    this.pref_file_path = path;
+                    this.pref_last_selected_directory = path;
+                    this._processFile();
+                }));
+        }));
+        menuItem.tooltip = new $.CustomTooltip(
+            menuItem.actor,
+            _("Choose a script file.")
+        );
+        this._applet_context_menu.addMenuItem(menuItem);
 
-            // Edit script
-            menuItem = new PopupMenu.PopupIconMenuItem(
-                _("Edit script"),
-                "text-editor",
-                St.IconType.SYMBOLIC
-            );
-            menuItem.connect("activate", Lang.bind(this, function() {
-                if (this._file === null) {
-                    Main.notify(
-                        _(this.metadata.name),
-                        _("Script file not set, cannot be found or it isn't an executable.")
-                    );
-                } else {
-                    // The original Argos extension uses Gio.AppInfo.launch_default_for_uri
-                    // to open the script file. I prefer to stay away from non asynchronous functions.
-                    // Gio.AppInfo.launch_default_for_uri_async is still too new.
-                    $.TryExec(
-                        ["xdg-open", this._file.get_path()].join(" "),
-                        null, //aOnStart
-                        function(aCmd) {
-                            $.informAboutMissingDependencies(
-                                _("Error executing command!!!") + "\n" +
-                                _("A dependency might be missing!!!"),
-                                aCmd
-                            );
-                        }, //aOnFailure
-                        null, //aOnComplete
-                        null //aLogger
-                    );
-                }
-            }));
-            menuItem.tooltip = new $.CustomTooltip(
-                menuItem.actor,
-                _("Edit the script file with your prefered text editor.") + "\n" +
-                _("After saving the changes made, the applet will update its data automatically if there is an interval set.") + "\n" +
-                _("Or the update could be done manually with the »Refresh« item on this applet context menu.")
-            );
-            this._applet_context_menu.addMenuItem(menuItem);
-
-            // Refresh
-            menuItem = new PopupMenu.PopupIconMenuItem(
-                _("Refresh"),
-                "view-refresh",
-                St.IconType.SYMBOLIC
-            );
-            menuItem.connect("activate", Lang.bind(this, function() {
-                if (this._file === null) {
-                    Main.notify(
-                        _(this.metadata.name),
-                        _("Script file not set, cannot be found or it isn't an executable.")
-                    );
-                } else {
-                    this.update();
-                }
-            }));
-            menuItem.tooltip = new $.CustomTooltip(
-                menuItem.actor,
-                _("This will re-run on demand the script assigned to this applet for the purpose of updating its output.") + "\n" +
-                _("This is only needed when there is no update interval set (or the interval is too long), so the update needs to be done manually in case the script is edited.")
-            );
-            this._applet_context_menu.addMenuItem(menuItem);
-
-            this._applet_context_menu.addMenuItem(new PopupMenu.PopupSeparatorMenuItem());
-
-            // Extras submenu
-            let subMenu = new PopupMenu.PopupSubMenuMenuItem(_("Extras"));
-            subMenu.menu.connect("open-state-changed",
-                Lang.bind(this, this._contextSubMenuOpenStateChanged));
-            this._applet_context_menu.addMenuItem(subMenu);
-
-            // Rotation interval unit selector submenu.
-            this.rotationIntervalLabel = new $.UnitSelectorSubMenuMenuItem(
-                this,
-                "<b>%s</b>".format(_("Rotation interval:")),
-                "pref_rotation_interval_units",
-                "pref_rotation_interval"
-            );
-            this.rotationIntervalLabel.tooltip = new $.CustomTooltip(
-                this.rotationIntervalLabel.actor,
-                _("Choose the time unit for the applet text rotation interval.")
-            );
-            subMenu.menu.addMenuItem(this.rotationIntervalLabel);
-
-            // Rotation interval slider
-            this.rotationIntervalSlider = new $.CustomPopupSliderMenuItem(parseFloat(this.pref_rotation_interval / 3600));
-            this.rotationIntervalSlider._associatedLabel = "rotationIntervalLabel";
-            this.rotationIntervalSlider.connect("value-changed",
-                Lang.bind(this, this.onSliderChanged, false, "pref_rotation_interval"));
-            this.rotationIntervalSlider.connect("drag-begin", Lang.bind(this, this.onSliderGrabbed));
-            this.rotationIntervalSlider.connect("drag-end", Lang.bind(this, this.onSliderReleased));
-            this.rotationIntervalSlider.tooltip = new $.CustomTooltip(
-                this.rotationIntervalSlider.actor,
-                _("Set the applet text rotation interval.")
-            );
-            subMenu.menu.addMenuItem(this.rotationIntervalSlider);
-
-            // Separator
-            subMenu.menu.addMenuItem(new PopupMenu.PopupSeparatorMenuItem());
-
-            // Clear script
-            menuItem = new PopupMenu.PopupIconMenuItem(
-                _("Clear script"),
-                "edit-clear",
-                St.IconType.SYMBOLIC
-            );
-            menuItem.connect("activate", Lang.bind(this, function() {
-                new ModalDialog.ConfirmDialog(
-                    _("This operation will remove the current script from this applet leaving it \"blank\".") + "\n" +
-                    _("The current applet settings will be untouched and the actual script file will not be deleted.") + "\n" +
-                    _("Do you want to proceed?") + "\n",
-                    Lang.bind(this, function() {
-                        // Clear the applet text. Otherwise, it will keep rotating.
-                        if (this._cycleTimeout > 0) {
-                            Mainloop.source_remove(this._cycleTimeout);
-                            this._cycleTimeout = 0;
-                        }
-
-                        this.pref_file_path = "";
-                        this._lineView.setLine("");
-                        this._processFile();
-                    })
-                ).open(global.get_current_time());
-            }));
-            menuItem.tooltip = new $.CustomTooltip(
-                menuItem.actor,
-                _("This operation will remove the current script from this applet leaving it \"blank\".")
-            );
-            subMenu.menu.addMenuItem(menuItem);
-
-            // Use standard icon if exists. Otherwise, override it.
-            // The lesser evil, so to speak.
-            // Needed for LM 17 which doesn't support "application-x-executable" icon
-            // (at least, is not available in some of the icon themes).
-            let iconName = Gtk.IconTheme.get_default().has_icon("application-x-executable") ?
-                "application-x-executable" :
-                "argos-for-cinnamon-application-x-executable";
-
-            // Make script executable
-            menuItem = new PopupMenu.PopupIconMenuItem(
-                _("Make script executable"),
-                iconName,
-                St.IconType.SYMBOLIC
-            );
-            menuItem.tooltip = new $.CustomTooltip(
-                menuItem.actor,
-                _("Make the script file executable so it can be used by this applet.")
-            );
-            menuItem.connect("activate", Lang.bind(this, function() {
-                // Make all checks individually so I can make precise notifications.
-                if (GLib.file_test(this.pref_file_path, GLib.FileTest.EXISTS)) {
-                    if (!GLib.file_test(this.pref_file_path, GLib.FileTest.IS_DIR)) {
-                        if (!GLib.file_test(this.pref_file_path, GLib.FileTest.IS_EXECUTABLE)) {
-                            try {
-                                if (FileUtils.hasOwnProperty("changeModeGFile")) {
-                                    let file = Gio.file_new_for_path(this.pref_file_path);
-                                    FileUtils.changeModeGFile(file, 755);
-                                } else {
-                                    Util.spawnCommandLine("chmod +x \"" + this.pref_file_path + "\"");
-                                }
-                            } finally {
-                                this._setFileModeTimeout = Mainloop.timeout_add_seconds(1,
-                                    Lang.bind(this, function() {
-                                        this._processFile();
-                                        this._setFileModeTimeout = 0;
-                                    }));
-                            }
-                        } else {
-                            Main.notify(
-                                _(this.metadata.name),
-                                _("Script file is already executable.") + "\n" +
-                                this.pref_file_path
-                            );
-                        }
-                    } else {
-                        Main.notify(
-                            _(this.metadata.name),
-                            _("Script file isn't a file, but a directory.") + "\n" +
-                            this.pref_file_path
-                        );
-                    }
-                } else {
-                    Main.notify(
-                        _(this.metadata.name),
-                        _("Script file doesn't exists.") + "\n" +
-                        this.pref_file_path
-                    );
-                }
-            }));
-            subMenu.menu.addMenuItem(menuItem);
-
-            // Help
-            menuItem = new PopupMenu.PopupIconMenuItem(
-                _("Help"),
-                "dialog-information",
-                St.IconType.SYMBOLIC
-            );
-            menuItem.tooltip = new $.CustomTooltip(menuItem.actor, _("Open this applet help file."));
-            menuItem.connect("activate", Lang.bind(this, function() {
+        // Edit script
+        menuItem = new PopupMenu.PopupIconMenuItem(
+            _("Edit script"),
+            "text-editor",
+            St.IconType.SYMBOLIC
+        );
+        menuItem.connect("activate", Lang.bind(this, function() {
+            if (this._file === null) {
+                Main.notify(
+                    _(this.metadata.name),
+                    _("Script file not set, cannot be found or it isn't an executable.")
+                );
+            } else {
+                // The original Argos extension uses Gio.AppInfo.launch_default_for_uri
+                // to open the script file. I prefer to stay away from non asynchronous functions.
+                // Gio.AppInfo.launch_default_for_uri_async is still too new.
                 $.TryExec(
-                    ["xdg-open", this.metadata.path + "/HELP.html"].join(" "),
+                    ["xdg-open", this._file.get_path()].join(" "),
                     null, //aOnStart
                     function(aCmd) {
                         $.informAboutMissingDependencies(
@@ -752,94 +548,257 @@ MyApplet.prototype = {
                     null, //aOnComplete
                     null //aLogger
                 );
-            }));
-            subMenu.menu.addMenuItem(menuItem);
+            }
+        }));
+        menuItem.tooltip = new $.CustomTooltip(
+            menuItem.actor,
+            _("Edit the script file with your prefered text editor.") + "\n" +
+            _("After saving the changes made, the applet will update its data automatically if there is an interval set.") + "\n" +
+            _("Or the update could be done manually with the »Refresh« item on this applet context menu.")
+        );
+        this._applet_context_menu.addMenuItem(menuItem);
 
-            this._syncLabelsWithSlidersValue();
-        } catch (aErr) {
-            global.logError(aErr);
-        }
+        // Refresh
+        menuItem = new PopupMenu.PopupIconMenuItem(
+            _("Refresh"),
+            "view-refresh",
+            St.IconType.SYMBOLIC
+        );
+        menuItem.connect("activate", Lang.bind(this, function() {
+            if (this._file === null) {
+                Main.notify(
+                    _(this.metadata.name),
+                    _("Script file not set, cannot be found or it isn't an executable.")
+                );
+            } else {
+                this.update();
+            }
+        }));
+        menuItem.tooltip = new $.CustomTooltip(
+            menuItem.actor,
+            _("This will re-run on demand the script assigned to this applet for the purpose of updating its output.") + "\n" +
+            _("This is only needed when there is no update interval set (or the interval is too long), so the update needs to be done manually in case the script is edited.")
+        );
+        this._applet_context_menu.addMenuItem(menuItem);
+
+        this._applet_context_menu.addMenuItem(new PopupMenu.PopupSeparatorMenuItem());
+
+        // Extras submenu
+        let subMenu = new PopupMenu.PopupSubMenuMenuItem(_("Extras"));
+        subMenu.menu.connect("open-state-changed",
+            Lang.bind(this, this._contextSubMenuOpenStateChanged));
+        this._applet_context_menu.addMenuItem(subMenu);
+
+        // Rotation interval unit selector submenu.
+        this.rotationIntervalLabel = new $.UnitSelectorSubMenuMenuItem(
+            this,
+            "<b>%s</b>".format(_("Rotation interval:")),
+            "pref_rotation_interval_units",
+            "pref_rotation_interval"
+        );
+        this.rotationIntervalLabel.tooltip = new $.CustomTooltip(
+            this.rotationIntervalLabel.actor,
+            _("Choose the time unit for the applet text rotation interval.")
+        );
+        subMenu.menu.addMenuItem(this.rotationIntervalLabel);
+
+        // Rotation interval slider
+        this.rotationIntervalSlider = new $.CustomPopupSliderMenuItem(parseFloat(this.pref_rotation_interval / 3600));
+        this.rotationIntervalSlider._associatedLabel = "rotationIntervalLabel";
+        this.rotationIntervalSlider.connect("value-changed",
+            Lang.bind(this, this.onSliderChanged, false, "pref_rotation_interval"));
+        this.rotationIntervalSlider.connect("drag-begin", Lang.bind(this, this.onSliderGrabbed));
+        this.rotationIntervalSlider.connect("drag-end", Lang.bind(this, this.onSliderReleased));
+        this.rotationIntervalSlider.tooltip = new $.CustomTooltip(
+            this.rotationIntervalSlider.actor,
+            _("Set the applet text rotation interval.")
+        );
+        subMenu.menu.addMenuItem(this.rotationIntervalSlider);
+
+        // Separator
+        subMenu.menu.addMenuItem(new PopupMenu.PopupSeparatorMenuItem());
+
+        // Clear script
+        menuItem = new PopupMenu.PopupIconMenuItem(
+            _("Clear script"),
+            "edit-clear",
+            St.IconType.SYMBOLIC
+        );
+        menuItem.connect("activate", Lang.bind(this, function() {
+            new ModalDialog.ConfirmDialog(
+                _("This operation will remove the current script from this applet leaving it \"blank\".") + "\n" +
+                _("The current applet settings will be untouched and the actual script file will not be deleted.") + "\n" +
+                _("Do you want to proceed?") + "\n",
+                Lang.bind(this, function() {
+                    // Clear the applet text. Otherwise, it will keep rotating.
+                    if (this._cycleTimeout > 0) {
+                        Mainloop.source_remove(this._cycleTimeout);
+                        this._cycleTimeout = 0;
+                    }
+
+                    this.pref_file_path = "";
+                    this._lineView.setLine("");
+                    this._processFile();
+                })
+            ).open(global.get_current_time());
+        }));
+        menuItem.tooltip = new $.CustomTooltip(
+            menuItem.actor,
+            _("This operation will remove the current script from this applet leaving it \"blank\".")
+        );
+        subMenu.menu.addMenuItem(menuItem);
+
+        // Use standard icon if exists. Otherwise, override it.
+        // The lesser evil, so to speak.
+        // Needed for LM 17 which doesn't support "application-x-executable" icon
+        // (at least, is not available in some of the icon themes).
+        let iconName = Gtk.IconTheme.get_default().has_icon("application-x-executable") ?
+            "application-x-executable" :
+            "argos-for-cinnamon-application-x-executable";
+
+        // Make script executable
+        menuItem = new PopupMenu.PopupIconMenuItem(
+            _("Make script executable"),
+            iconName,
+            St.IconType.SYMBOLIC
+        );
+        menuItem.tooltip = new $.CustomTooltip(
+            menuItem.actor,
+            _("Make the script file executable so it can be used by this applet.")
+        );
+        menuItem.connect("activate", Lang.bind(this, function() {
+            // Make all checks individually so I can make precise notifications.
+            if (GLib.file_test(this.pref_file_path, GLib.FileTest.EXISTS)) {
+                if (!GLib.file_test(this.pref_file_path, GLib.FileTest.IS_DIR)) {
+                    if (!GLib.file_test(this.pref_file_path, GLib.FileTest.IS_EXECUTABLE)) {
+                        try {
+                            if (FileUtils.hasOwnProperty("changeModeGFile")) {
+                                let file = Gio.file_new_for_path(this.pref_file_path);
+                                FileUtils.changeModeGFile(file, 755);
+                            } else {
+                                Util.spawnCommandLine("chmod +x \"" + this.pref_file_path + "\"");
+                            }
+                        } finally {
+                            this._setFileModeTimeout = Mainloop.timeout_add_seconds(1,
+                                Lang.bind(this, function() {
+                                    this._processFile();
+                                    this._setFileModeTimeout = 0;
+                                }));
+                        }
+                    } else {
+                        Main.notify(
+                            _(this.metadata.name),
+                            _("Script file is already executable.") + "\n" +
+                            this.pref_file_path
+                        );
+                    }
+                } else {
+                    Main.notify(
+                        _(this.metadata.name),
+                        _("Script file isn't a file, but a directory.") + "\n" +
+                        this.pref_file_path
+                    );
+                }
+            } else {
+                Main.notify(
+                    _(this.metadata.name),
+                    _("Script file doesn't exists.") + "\n" +
+                    this.pref_file_path
+                );
+            }
+        }));
+        subMenu.menu.addMenuItem(menuItem);
+
+        // Help
+        menuItem = new PopupMenu.PopupIconMenuItem(
+            _("Help"),
+            "dialog-information",
+            St.IconType.SYMBOLIC
+        );
+        menuItem.tooltip = new $.CustomTooltip(menuItem.actor, _("Open this applet help file."));
+        menuItem.connect("activate", Lang.bind(this, function() {
+            $.TryExec(
+                ["xdg-open", this.metadata.path + "/HELP.html"].join(" "),
+                null, //aOnStart
+                function(aCmd) {
+                    $.informAboutMissingDependencies(
+                        _("Error executing command!!!") + "\n" +
+                        _("A dependency might be missing!!!"),
+                        aCmd
+                    );
+                }, //aOnFailure
+                null, //aOnComplete
+                null //aLogger
+            );
+        }));
+        subMenu.menu.addMenuItem(menuItem);
+
+        this._syncLabelsWithSlidersValue();
     },
 
     _bindSettings: function() {
-        try {
-            let bD = Settings.BindingDirection || null;
-            let settingsArray = [
-                [bD.IN, "pref_custom_icon_for_applet", this._updateIconAndLabel],
-                [bD.IN, "pref_custom_label_for_applet", this._updateIconAndLabel],
-                [bD.IN, "pref_show_script_name", this.update],
-                [bD.IN, "pref_overlay_key", this._updateKeybindings],
-                [bD.IN, "pref_animate_menu", null],
-                [bD.IN, "pref_keep_one_menu_open", null],
-                [bD.BIDIRECTIONAL, "pref_file_path", this._processFile],
-                [bD.IN, "pref_default_icon_size", this.update],
-                [bD.IN, "pref_menu_spacing", this.update],
-                [bD.IN, "pref_applet_spacing", this.update],
-                [bD.BIDIRECTIONAL, "pref_update_interval", this._setUpdateInterval],
-                [bD.BIDIRECTIONAL, "pref_update_interval_units", this._setUpdateInterval],
-                [bD.BIDIRECTIONAL, "pref_rotation_interval", this._setRotationInterval],
-                [bD.BIDIRECTIONAL, "pref_rotation_interval_units", this._setRotationInterval],
-                [bD.IN, "pref_terminal_emulator", null],
-                [bD.BIDIRECTIONAL, "pref_initial_load_done", null],
-            ];
-            let newBinding = typeof this.settings.bind === "function";
-            for (let [binding, property_name, callback] of settingsArray) {
-                // Condition needed for retro-compatibility.
-                // Mark for deletion on EOL.
-                if (newBinding)
-                    this.settings.bind(property_name, property_name, callback);
-                else
-                    this.settings.bindProperty(binding, property_name, property_name, callback, null);
-            }
-        } catch (aErr) {
-            global.logError(aErr);
+        let bD = Settings.BindingDirection || null;
+        let settingsArray = [
+            [bD.IN, "pref_custom_icon_for_applet", this._updateIconAndLabel],
+            [bD.IN, "pref_custom_label_for_applet", this._updateIconAndLabel],
+            [bD.IN, "pref_show_script_name", this.update],
+            [bD.IN, "pref_overlay_key", this._updateKeybindings],
+            [bD.IN, "pref_animate_menu", null],
+            [bD.IN, "pref_keep_one_menu_open", null],
+            [bD.BIDIRECTIONAL, "pref_file_path", this._processFile],
+            [bD.IN, "pref_default_icon_size", this.update],
+            [bD.IN, "pref_menu_spacing", this.update],
+            [bD.IN, "pref_applet_spacing", this.update],
+            [bD.BIDIRECTIONAL, "pref_update_interval", this._setUpdateInterval],
+            [bD.BIDIRECTIONAL, "pref_update_interval_units", this._setUpdateInterval],
+            [bD.BIDIRECTIONAL, "pref_rotation_interval", this._setRotationInterval],
+            [bD.BIDIRECTIONAL, "pref_rotation_interval_units", this._setRotationInterval],
+            [bD.IN, "pref_terminal_emulator", null],
+            [bD.BIDIRECTIONAL, "pref_last_selected_directory", null],
+            [bD.BIDIRECTIONAL, "pref_initial_load_done", null],
+        ];
+        let newBinding = typeof this.settings.bind === "function";
+        for (let [binding, property_name, callback] of settingsArray) {
+            // Condition needed for retro-compatibility.
+            // Mark for deletion on EOL.
+            if (newBinding)
+                this.settings.bind(property_name, property_name, callback);
+            else
+                this.settings.bindProperty(binding, property_name, property_name, callback, null);
         }
-
     },
 
     _setUpdateInterval: function() {
-        try {
-            global.logError("_setUpdateInterval");
-            this.updateIntervalSlider.setValue(this.pref_update_interval / 3600);
-            this._syncLabelsWithSlidersValue(this.updateIntervalSlider);
+        global.logError("_setUpdateInterval");
+        this.updateIntervalSlider.setValue(this.pref_update_interval / 3600);
+        this._syncLabelsWithSlidersValue(this.updateIntervalSlider);
 
-            if (!this._sliderIsSliding)
-                this.update();
-        } catch (aErr) {
-            global.logError(aErr);
-        }
+        if (!this._sliderIsSliding)
+            this.update();
     },
 
     _setRotationInterval: function() {
-        try {
-            this.rotationIntervalSlider.setValue(this.pref_rotation_interval / 3600);
-            this._syncLabelsWithSlidersValue(this.rotationIntervalSlider);
+        this.rotationIntervalSlider.setValue(this.pref_rotation_interval / 3600);
+        this._syncLabelsWithSlidersValue(this.rotationIntervalSlider);
 
-            if (!this._sliderIsSliding)
-                this.update();
-        } catch (aErr) {
-            global.logError(aErr);
-        }
+        if (!this._sliderIsSliding)
+            this.update();
     },
 
     _contextSubMenuOpenStateChanged: function(aMenu, aOpen) {
-        try {
-            if (aOpen && this.pref_keep_one_menu_open) {
-                let children = aMenu._getTopMenu()._getMenuItems();
-                let i = 0,
-                    iLen = children.length;
-                for (; i < iLen; i++) {
-                    let item = children[i];
+        if (aOpen && this.pref_keep_one_menu_open) {
+            let children = aMenu._getTopMenu()._getMenuItems();
+            let i = 0,
+                iLen = children.length;
+            for (; i < iLen; i++) {
+                let item = children[i];
 
-                    if (item instanceof PopupMenu.PopupSubMenuMenuItem ||
-                        item instanceof $.UnitSelectorSubMenuMenuItem) {
-                        if (aMenu !== item.menu)
-                            item.menu.close(true);
-                    }
+                if (item instanceof PopupMenu.PopupSubMenuMenuItem ||
+                    item instanceof $.UnitSelectorSubMenuMenuItem) {
+                    if (aMenu !== item.menu)
+                        item.menu.close(true);
                 }
             }
-        } catch (aErr) {
-            global.logError(aErr);
         }
     },
 
@@ -899,30 +858,22 @@ MyApplet.prototype = {
     },
 
     update_label_visible: function() {
-        try {
-            // Condition needed for retro-compatibility.
-            // Mark for deletion on EOL.
-            if (typeof this.hide_applet_label !== "function")
-                return;
+        // Condition needed for retro-compatibility.
+        // Mark for deletion on EOL.
+        if (typeof this.hide_applet_label !== "function")
+            return;
 
-            if (this.orientation === St.Side.LEFT || this.orientation === St.Side.RIGHT)
-                this.hide_applet_label(true);
-            else
-                this.hide_applet_label(false);
-        } catch (aErr) {
-            global.logError(aErr);
-        }
+        if (this.orientation === St.Side.LEFT || this.orientation === St.Side.RIGHT)
+            this.hide_applet_label(true);
+        else
+            this.hide_applet_label(false);
     },
 
     _toggleMenu: function() {
-        try {
-            if (!this.menu.isOpen && this.menu.numMenuItems > 0)
-                this.menu.open(this.pref_animate_menu);
-            else
-                this.menu.close(this.pref_animate_menu);
-        } catch (aErr) {
-            global.logError(aErr);
-        }
+        if (!this.menu.isOpen && this.menu.numMenuItems > 0)
+            this.menu.open(this.pref_animate_menu);
+        else
+            this.menu.close(this.pref_animate_menu);
     },
 
     on_applet_clicked: function() {
@@ -930,42 +881,34 @@ MyApplet.prototype = {
     },
 
     on_applet_removed_from_panel: function() {
-        try {
-            this._isDestroyed = true;
+        this._isDestroyed = true;
 
-            if (this._updateTimeout > 0)
-                Mainloop.source_remove(this._updateTimeout);
+        if (this._updateTimeout > 0)
+            Mainloop.source_remove(this._updateTimeout);
 
-            if (this._callToUpdateTimeout > 0)
-                Mainloop.source_remove(this._callToUpdateTimeout);
+        if (this._callToUpdateTimeout > 0)
+            Mainloop.source_remove(this._callToUpdateTimeout);
 
-            if (this._cycleTimeout > 0)
-                Mainloop.source_remove(this._cycleTimeout);
+        if (this._cycleTimeout > 0)
+            Mainloop.source_remove(this._cycleTimeout);
 
-            Main.keybindingManager.removeHotKey("odyseus-argos-overlay-key-" + this.instance_id);
+        Main.keybindingManager.removeHotKey("odyseus-argos-overlay-key-" + this.instance_id);
 
-            this.menu.removeAll();
-        } catch (aErr) {
-            global.logError(aErr);
-        }
+        this.menu.removeAll();
     },
 
     _updateKeybindings: function() {
-        try {
-            Main.keybindingManager.removeHotKey("odyseus-argos-overlay-key-" + this.instance_id);
+        Main.keybindingManager.removeHotKey("odyseus-argos-overlay-key-" + this.instance_id);
 
-            if (this.pref_overlay_key !== "") {
-                Main.keybindingManager.addHotKey(
-                    "odyseus-argos-overlay-key-" + this.instance_id,
-                    this.pref_overlay_key,
-                    Lang.bind(this, function() {
-                        if (!Main.overview.visible && !Main.expo.visible)
-                            this._toggleMenu();
-                    })
-                );
-            }
-        } catch (aErr) {
-            global.logError(aErr);
+        if (this.pref_overlay_key !== "") {
+            Main.keybindingManager.addHotKey(
+                "odyseus-argos-overlay-key-" + this.instance_id,
+                this.pref_overlay_key,
+                Lang.bind(this, function() {
+                    if (!Main.overview.visible && !Main.expo.visible)
+                        this._toggleMenu();
+                })
+            );
         }
     }
 };

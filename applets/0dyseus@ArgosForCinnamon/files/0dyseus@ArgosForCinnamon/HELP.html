@@ -465,14 +465,14 @@ table>tfoot>tr.active>th {
 <h4 id="localization-chooser-label">Choose language</h4>
 <select class="form-control" id="localization-switch" onchange="self.toggleLocalizationVisibility(value, this);">
 <!-- English --><option selected data-title="Help for Argos for Cinnamon" data-language-chooser-label="Choose language" value="en">English</option>
-<!-- Español --><option data-title="Help for Argos for Cinnamon" data-language-chooser-label="Elegir idioma" value="es">Español</option>
+<!-- Español --><option data-title="Ayuda para Argos for Cinnamon" data-language-chooser-label="Elegir idioma" value="es">Español</option>
 </select>
 </div> <!-- .localization-chooser -->
 <div class="container boxed">
 
 <div id="es" class="localization-content hidden">
 
-<h1>Help for Argos for Cinnamon</h1>
+<h1>Ayuda para Argos for Cinnamon</h1>
 
 <div style="font-weight:bold;" class="alert alert-warning">
 <h2>¡IMPORTANTE!</h2>
@@ -485,233 +485,235 @@ table>tfoot>tr.active>th {
 <hr>
 
 <h2>Descripción</h2>
-<p>Argos for Cinnamon is an applet that turns executables' standard output into panel dropdown menus. It is inspired by, and fully compatible with, the Gnome Shell extension called <a href="https://github.com/p-e-w/argos">Argos</a> by <a href="https://github.com/p-e-w">Philipp Emanuel Weidmann</a>, which in turn is inspired by, and fully compatible with, the <a href="https://github.com/matryer/bitbar">BitBar</a> application for macOS. Argos for Cinnamon supports many <a href="https://github.com/matryer/bitbar-plugins">BitBar plugins</a> without modifications, giving you access to a large library of well-tested scripts in addition to being able to write your own.</p>
+<p>Argos para Cinnamon es un applet que convierte la salida estándar de archivos de comando en menúes desplegables del panel.  Está inspirado y es totalmente compatible con la extensión para Gnome Shell llamada <a href="https://github.com/pew/argos">Argos</a> por <a href="https://github.com/pew">Philipp Emanuel Weidmann</a>, que  a su vez está inspirada y es totalmente compatible con la aplicación <a href="https://github.com/matryer/bitbar">BitBar</a> para macOS.  Argos para Cinnamon soporta muchos <a href="https://github.com/matryer/bitbar-plugins">complementos de BitBar</a> sin modificaciones, lo que le da acceso a una gran biblioteca de archivos de comandos bien probados, además de ser capaz de escribir el suyo propio.</p>
 <div class="alert alert-info">
-I will use the words <em>plugin</em> or <em>script</em> when referring to a script file associated with an instance on <strong>Argos for Cinnamon</strong> applet.
+<p>Voy a usar las palabras <em>complemento</em> o <em>archivo de comandos</em> cuando me refiera a un archivo de comandos asociado a una instancia del applet <strong>Argos para Cinnamon</strong>.</p>
+
 </div><hr>
-<h2>Key features</h2>
+<h2>Características principales</h2>
 <ul>
-<li><strong>100% API <a href="#argos-bitbar-compatibility">compatible with BitBar 1.9.2</a>:</strong> All BitBar plugins that run on Linux (i.e. do not contain macOS-specific code) will work with Argos (else it's a bug).</li>
-<li><strong>Beyond BitBar:</strong> Argos can do everything that BitBar can do, but also some things that BitBar can't do (yet). See the documentation for details.</li>
-<li><strong>Sophisticated asynchronous execution engine:</strong> No matter how long your scripts take to run, Argos will schedule them intelligently and prevent blocking.</li>
-<li><strong>Unicode support:</strong> Just print your text to stdout. It will be rendered the way you expect.</li>
-<li><strong>Optimized for minimum resource consumption:</strong> Even with multiple plugins refreshing every second, Argos typically uses less than 1% of the CPU.</li>
-<li><strong>Fully <a href="#argos-usage">documented</a>.</strong></li>
+<li><strong>100% API <a href="#argos-bitbar-compatibility">compatible con BitBar 1.9.2</a>:</strong> Todos los complementos para BitBar que corren en Linux (por ejemplo, que no contienen código específico de macOS) van a funcionar con Argos (si no funcionan, es un error en Argos).</li>
+<li><strong>Más allá de BitBar:</strong> Argos puede hacer todo lo que BitBar puede hacer, pero también algunas cosas que BitBar no puede hacer (todavía). Continuar leyendo esta documentación para más detalles.</li>
+<li><strong>Motor de ejecución asincrónica sofisticado:</strong> No importa cuánto tiempo tomen sus archivos de comandos en ejecutarse, Argos las programará inteligentemente y evitará el bloqueo.</li>
+<li><strong>Soporte Unicode:</strong> Sólo imprima su texto en stdout.  Se traducirá de la manera que usted espera.</li>
+<li><strong>Optimizado para el consumo mínimo de recursos:</strong> Incluso con varios complementos actualizando cada segundo, Argos normalmente usa menos del 1% de la CPU.</li>
+<li><strong>Totalmente <a href="#argos-usage">documentado</a>.</strong></li>
 </ul>
 <hr>
 <h2>Dependencias</h2>
 <ul>
-<li><strong>xdg-open</strong> command: Open a URI in the user's preferred application that handles the respective URI or file type.<ul>
-<li>Debian and Archlinux based distributions: Distribuciones basadas en Debian y Archlinux: Este comando es instalado por el paquete llamado <strong>xdg-utils</strong>. Instalado por defecto en todas las versiones modernas de Linux Mint.</li>
+<li><strong>Comando xdg-open:</strong> Open a URI in the user's preferred application that handles the respective URI or file type.<ul>
+<li>Distribuciones basadas en Debian y Archlinux: Distribuciones basadas en Debian y Archlinux: Este comando es instalado por el paquete llamado <strong>xdg-utils</strong>. Instalado por defecto en todas las versiones modernas de Linux Mint.</li>
 </ul>
 </li>
 </ul>
 <hr>
 <p><span id="argos-usage"></span></p>
 <h2>Uso del applet</h2>
-<p>After placing a new instance of <strong>Argos for Cinnamon</strong> into a panel, one of the example scripts provided by this applet will be automatically attached to it and a menu will be created based on the output of the executed plugin. These example scripts contain various examples of what <strong>Argos for Cinnamon</strong> can do.</p>
-<p>A just placed applet will have an initial execution interval of 0 seconds (zero seconds) and an initial applet text rotation interval of 3 seconds (three seconds). The execution interval is set to 0 seconds because the initial example script doesn't have any dynamic data that requires update. And the applet text rotation interval is set to 3 seconds so the text rotation of the example script can be seen in action.</p>
-<p>For scripts that display non dynamic data, it isn't needed an execution interval. But if your script displays dynamic data (a clock for example), then an execution and/or applet text rotation interval needs to be specified. Both of these values can be set from the applet context menu.</p>
+<p>Después de colocar una nueva instancia de <strong>Argos para Cinnamon</strong> en un panel, uno de los archivos de comandos de ejemplo proporcionados por este applet se adjuntará automáticamente a él y se creará un menú basado en la salida del complemento ejecutado.  Estos archivos de comandos de ejemplo contienen varios ejemplos de lo que <strong>Argos para Cinnamon</strong> es capaz de hacer.</p>
+<p>Un applet recién colocado tendrá un intervalo de ejecución inicial de 0 segundos (cero segundos) y un intervalo inicial de rotación de texto de applet de 3 segundos (tres segundos).  El intervalo de ejecución se establece en 0 segundos porque la secuencia de comandos de ejemplo inicial no tiene ningún dato dinámico que requiera actualización.  Y el intervalo de rotación de texto de applet se establece en 3 segundos para que la rotación de texto del archivo de comandos de ejemplo se pueda ver en acción.</p>
+<p>Para los archivos de comandos que muestran datos no dinámicos, no se necesita un intervalo de ejecución.  Pero si su archivo de comandos muestra datos dinámicos (un reloj por ejemplo), entonces se debe especificar un intervalo de ejecución y/o de rotación de texto del  applet.  Ambos valores se pueden establecer desde el menú contextual del applet.</p>
 <div class="alert alert-info">
-The three example scripts provided by this applet will produce the exact same output, but they are created using three different languages (<strong>bash_examples.sh</strong>, <strong>python_examples.py</strong> and <strong>ruby_examples.rb</strong>).
+<p>Los tres archivos de comandos de ejemplo proporcionados por este applet producirán exactamente la misma salida, pero se crean utilizando tres idiomas diferentes (<strong>bash_examples.sh</strong>, <strong>python_examples.py</strong> y <strong>ruby_examples.rb</strong>).</p>
+
 </div>
 <div class="alert alert-warning">
 
 
-<strong>Never save your custom plugins/scripts inside this applet folder. Otherwise, you will loose them all when there is an update for the applet.</strong>
-</div><h3>File name format</h3>
-<p><strong>Argos for Gnome Shell</strong> parses the script's file name to extract certain set of preferences. <strong>Argos for Cinnamon</strong> doesn't parse the script's file name in such way (nor in any other way). All the applet settings can be set from the applet settings window and/or from the applet context menu.</p>
-<h3>Output format</h3>
-<p>Argos plugins are executables (such as shell scripts <strong>(*)</strong>) that print to standard output lines of the following form:</p>
+<strong>Nunca guarde sus complementos/archivos de comandos personalizados dentro de la carpeta de este applet.  De lo contrario, los perderá todos cuando haya una actualización para el applet.</strong>
+</div><h3>Formato del nombre de archivo</h3>
+<p><strong>Argos para Gnome Shell</strong> analiza el nombre de archivo de los archivos de comandos para extraer cierto conjunto de preferencias.  <strong>Argos para Cinnamon</strong> no analiza el nombre de los archivos de comandos de tal manera (ni de ninguna otra manera).  Todas las configuraciones del applet se pueden realizar desde la ventana de configuración del applet y/o desde el menú contextual del applet.</p>
+<h3>Formato de salida</h3>
+<p>Los complementos de Argos son ejecutables (como archivos de comandos de shell <strong>(*)</strong>) que imprimen líneas de salida estándar de la siguiente forma:</p>
 <pre><code>TEXT | ATTRIBUTE_1=VALUE ATTRIBUTE_2=VALUE ...
 </code></pre>
-<p>All attributes are optional, so the most basic plugins simply print lines consisting of text to be displayed. To include whitespace, attribute values may be quoted using the same convention employed by most command line shells.</p>
+<p>Todos los atributos son opcionales, por lo que los complementos más básicos simplemente imprimen líneas que consisten en texto que se mostrará.  Para incluir espacios en blanco, los valores de atributo se pueden citar utilizando la misma convención empleada por la mayoría de los shells de línea de comandos.</p>
 <div class="alert alert-info">
-<strong>(*) Not just shell scripts, but also python scripts, ruby scripts or any other script in any other language that can print to standard output.</strong>
-</div><h3>Rendering</h3>
-<p>Lines containing only dashes (<code>---</code>) are <em>separators</em>.</p>
-<p>Lines above the first separator belong to the applet button itself. If there are multiple such lines, they are displayed in succession, each of them for a configurable amount of time (rotation interval) before switching to the next. Additionally, all button lines get a dropdown menu item, except if their <code>dropdown</code> attribute is set to <code>false</code>.</p>
-<p>Lines below the first separator are rendered as dropdown menu items. Further separators create graphical separator menu items.</p>
-<p>Lines beginning with <code>--</code> are rendered in a submenu associated with the preceding unindented line. <strong>Argos for Cinnamon</strong> supports unlimited number of nested submenus.</p>
-<p><a href="http://www.emoji-cheat-sheet.com">Emoji codes</a> like <code>:horse:</code> and <code>:smile:</code> in the line text are replaced with their corresponding Unicode characters (unless the <code>emojize</code> attribute is set to <code>false</code>). Note that unpatched Cinnamon does not yet support multicolor emoji.</p>
-<p><a href="https://en.wikipedia.org/wiki/ANSI_escape_code#graphics">ANSI SGR escape sequences</a> and <a href="https://developer.gnome.org/pango/stable/PangoMarkupFormat.html">Pango markup</a> tags may be used for styling. This can be disabled by setting the <code>ansi</code> and <code>useMarkup</code> attributes, respectively, to <code>false</code>.</p>
-<p>Backslash escapes such as <code>\n</code> and <code>\t</code> in the line text are converted to their corresponding characters (newline and tab in this case), which can be prevented by setting the <code>unescape</code> attribute to <code>false</code>. Newline escapes can be used to create multi-line menu items.</p>
+<strong>(*) No sólo archivos de comandos shell, sino también archivos de comandos python, archivos de comandos ruby ​​o cualquier otro archivos de comandos en cualquier otro idioma que pueda imprimir a salida estándar.</strong>
+</div><h3>Representación</h3>
+<p>Las líneas que contienen sólo guiones (<code>---</code>) son <em>separadores</em>.</p>
+<p>Las líneas sobre el primer separador pertenecen al propio botón del applet.  Si hay varias líneas de este tipo, se muestran sucesivamente, cada una de ellas durante un intervalo de tiempo configurable (intervalo de rotación) antes de pasar a la siguiente.  Además, todas las líneas de botones obtienen un elemento de menú desplegable, excepto si su atributo <code>dropdown</code> está establecido en <code>false</code>.</p>
+<p>Las líneas debajo del primer separador se representan como elementos del menú desplegable.  Otros separadores crean separadores gráficos de elementos del menú.</p>
+<p>Las líneas que comienzan con <code>--</code> son representadas como un submenú asociado con la línea sin sangría precedente.  <strong>Argos para Cinnamon</strong> soporta un número ilimitado de submenús anidados.</p>
+<p><a href="http://www.emoji-cheat-sheet.com">Códigos emoji</a> como <code>:horse:</code> y <code>:smile:</code> en el texto de línea se sustituyen por sus caracteres Unicode correspondientes (a menos que el atributo <code>emojize</code> sea  establecido en <code>false</code>).  Tener en cuenta que Cinnamon "sin parchear" todavía no soporta emojis multicolor.</p>
+<p><a href="https://en.wikipedia.org/wiki/ANSI_escape_code#graphics">Secuencias de escape ANSI SGR</a> y <a href="https://developer.gnome.org/pango/stable/PangoMarkupFormat.html">etiquetas de marcado Pango</a> pueden ser utilizadas para darle estilo al texto.  Esto puede desactivarse estableciendo los atributos <code>ansi</code> y <code>useMarkup</code>, respectivamente, en <code>false</code>.</p>
+<p>Los escapes de barra invertida como <code>\n</code> y <code>\t</code> en el texto de línea se convierten a sus caracteres correspondientes (nueva línea y tabulador en este caso), lo que puede evitarse si se establece el atributo <code>unescape</code> en <code>false</code>.  Las salidas de nueva línea se pueden utilizar para crear elementos de menú de varias líneas.</p>
 <hr>
-<h2>Line attributes</h2>
-<h3>Display</h3>
-<p>Control how the line is rendered.</p>
+<h2>Atributos de línea</h2>
+<h3>Visualización</h3>
+<p>Controla cómo se representa la línea.</p>
 <table>
 <thead><tr>
-<th>Attribute</th>
-<th>Value</th>
+<th>Atributo</th>
+<th>Valor</th>
 <th>Descripción</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td><code>color</code></td>
-<td>Hex RGB/RGBA or color name</td>
-<td>Sets the text color for the item.</td>
+<td>Representación hexadecimal RGB/RGBA o nombre de color</td>
+<td>Establece el color de texto para el ítem.</td>
 </tr>
 <tr>
 <td><code>font</code></td>
-<td>Font name</td>
-<td>Sets the font for the item.</td>
+<td>Nombre de fuente</td>
+<td>Establece la fuente para el ítem.</td>
 </tr>
 <tr>
 <td><code>size</code></td>
-<td>Font size in points</td>
-<td>Sets the font size for the item.</td>
+<td>Tamaño de fuente en puntos (points).</td>
+<td>Establece el tamaño de fuente para el ítem.</td>
 </tr>
 <tr>
 <td><code>iconName</code></td>
-<td>Icon name</td>
-<td>Sets a menu icon for the item. See the <a href="https://specifications.freedesktop.org/icon-naming-spec/icon-naming-spec-latest.html">freedesktop.org icon naming specification</a> for a list of valid names. <strong>Argos only.</strong> <strong>Argos for Cinnamon</strong> also supports a path to an icon file (paths starting with <code>~/</code> will be expanded to the user's home folder).</td>
+<td>Nombre de ícono</td>
+<td>Establece un ícono para el elemento de menú.  Consulte la <a href="https://specifications.freedesktop.org/icon-naming-spec/icon-naming-spec-latest.html">especificación de nombres del icono en freedesktop.org</a> para obtener una lista de nombres válidos.  <strong>Argos only.</strong> <strong>Argos para Cinnamon</strong> también soporta una ruta a un archivo de ìcono (las rutas que comienzan con <code>~ /</code> se expandirán a la carpeta del usuario).</td>
 </tr>
 <tr>
 <td><code>image</code>, <code>templateImage</code></td>
-<td>Base64-encoded image file</td>
-<td>Renders an image inside the item. The image is positioned to the left of the text and to the right of the icon. Cinnamon does not have a concept of <em>template images</em>, so <code>image</code> and <code>templateImage</code> are interchangeable in Argos.</td>
+<td>Archivo de imagen codificado en Base-64</td>
+<td>Procesa una imagen dentro del elemento.  La imagen se coloca a la izquierda del texto y a la derecha del icono.  Cinnamon no tiene un concepto de <em>plantilla de imágenes</em>, por lo que <code>image</code> y <code>templateImage</code> son intercambiables en Argos.</td>
 </tr>
 <tr>
 <td><code>imageWidth</code>, <code>imageHeight</code></td>
-<td>Width/height in pixels</td>
-<td>Sets the dimensions of the image. If only one dimension is specified, the image's original aspect ratio is maintained. <strong>Argos only.</strong></td>
+<td>Ancho/Altura en píxeles</td>
+<td>Establece las dimensiones de la imagen.  Si sólo se especifica una dimensión, se mantiene la relación de aspecto original de la imagen.  <strong>Argos solamente.</strong></td>
 </tr>
 <tr>
 <td><code>length</code></td>
-<td>Length in characters</td>
-<td>Truncate the line text to the specified number of characters, ellipsizing the truncated part.</td>
+<td>Longitud en caracteres</td>
+<td>Truncar el texto de línea al número especificado de caracteres, elipsando la parte truncada.</td>
 </tr>
 <tr>
 <td><code>trim</code></td>
-<td><code>true</code> or <code>false</code></td>
-<td>If <code>false</code>, preserve leading and trailing whitespace of the line text.</td>
+<td><code>true</code> o <code>false</code></td>
+<td>Si <code>false</code>, conserva los espacios en blanco al inicio y al final de la línea de texto.</td>
 </tr>
 <tr>
 <td><code>dropdown</code></td>
-<td><code>true</code> or <code>false</code></td>
-<td>If <code>false</code> and the line is a button line (see above), exclude it from being displayed in the dropdown menu.</td>
+<td><code>true</code> o <code>false</code></td>
+<td>Si <code>false</code> y la línea es una línea para el botón (ver arriba), excluya que se muestre en el menú desplegable.</td>
 </tr>
 <tr>
 <td><code>alternate</code></td>
-<td><code>true</code> or <code>false</code></td>
-<td>If <code>true</code>, the item is hidden by default, and shown in place of the preceding item when the <kbd>Alt</kbd> key is pressed.</td>
+<td><code>true</code> o <code>false</code></td>
+<td>Si <code>true</code>, el elemento se oculta de forma predeterminada y se muestra en lugar del elemento anterior cuando se pulsa la tecla <kbd>Alt</kbd>.</td>
 </tr>
 <tr>
 <td><code>emojize</code></td>
-<td><code>true</code> or <code>false</code></td>
-<td>If <code>false</code>, disable substitution of <code>:emoji_name:</code> with emoji characters in the line text.</td>
+<td><code>true</code> o <code>false</code></td>
+<td>Si <code>false</code>, deshabilita la sustitución de <code>:emoji_name:</code> con caracteres emoji en el texto de línea.</td>
 </tr>
 <tr>
 <td><code>ansi</code></td>
-<td><code>true</code> or <code>false</code></td>
-<td>If <code>false</code>, disable interpretation of ANSI escape sequences in the line text.</td>
+<td><code>true</code> o <code>false</code></td>
+<td>Si <code>false</code>, desactivar la interpretación de las secuencias de escape ANSI en el texto de línea.</td>
 </tr>
 <tr>
 <td><code>useMarkup</code></td>
-<td><code>true</code> or <code>false</code></td>
-<td>If <code>false</code>, disable interpretation of Pango markup in the line text. <strong>Argos only.</strong></td>
+<td><code>true</code> o <code>false</code></td>
+<td>Si <code>false</code>, deshabilita la interpretación del marcado de Pango en el texto de línea.  <strong>Argos solamente.</strong></td>
 </tr>
 <tr>
 <td><code>unescape</code></td>
-<td><code>true</code> or <code>false</code></td>
-<td>If <code>false</code>, disable interpretation of backslash escapes such as <code>\n</code> in the line text. <strong>Argos only.</strong></td>
+<td><code>true</code> o <code>false</code></td>
+<td>Si <code>false</code>, deshabilitar la interpretación de los escapes de barra invertida como <code>\n</code> en el texto de línea.  <strong>Argos solamente.</strong></td>
 </tr>
 </tbody>
 </table>
-<p>Attributes available on <strong>Argos for Cinnamon</strong> only.</p>
+<p>Atributos disponibles en <strong>Argos para Cinnamon</strong> solamente.</p>
 <table>
 <thead><tr>
-<th>Attribute</th>
-<th>Value</th>
+<th>Atributo</th>
+<th>Valor</th>
 <th>Descripción</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td><code>tooltip</code></td>
-<td>Text to display as toolip</td>
-<td>Sets the tooltip for the item.</td>
+<td>Texto a mostrar como información sobre herramientas</td>
+<td>Establece la información de herramientas para el elemento.</td>
 </tr>
 <tr>
 <td><code>iconSize</code></td>
-<td>An integer from 12 to 512</td>
-<td>Sets the size for the item's <code>iconName</code>.</td>
+<td>Un número entero de 12 a 512</td>
+<td>Establece el tamaño del ícono <code>iconName</code> del elemento.</td>
 </tr>
 <tr>
 <td><code>iconIsSymbolic</code></td>
-<td><code>true</code> or <code>false</code></td>
-<td>If <code>false</code>, the symbolic version of <code>iconName</code> will be used on the item (if exists).</td>
+<td><code>true</code> o <code>false</code></td>
+<td>Si <code>true</code>, la versión simbólica de <code>iconName</code> se utilizará en el elemento (si existe).</td>
 </tr>
 </tbody>
 </table>
-<h3>Actions</h3>
-<p>Define actions to be performed when the user clicks on the line's menu item.</p>
-<p>Action attributes are <em>not</em> mutually exclusive. Any combination of them may be associated with the same item, and all actions are executed when the item is clicked.</p>
+<h3>Acciones</h3>
+<p>Defina las acciones a realizar cuando el usuario hace clic en el elemento de menú de la línea.</p>
+<p>Los atributos de acción no son mutuamente exclusivos.  Cualquier combinación de ellos puede estar asociada con el mismo elemento, y todas las acciones se ejecutan cuando se hace clic en el elemento.</p>
 <table>
 <thead><tr>
-<th>Attribute</th>
-<th>Value</th>
+<th>Atributo</th>
+<th>Valor</th>
 <th>Descripción</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td><code>bash</code></td>
-<td>Bash command</td>
-<td>Runs a command using <code>bash</code> inside any terminal emulator window.</td>
+<td>Comando Bash</td>
+<td>Ejecuta un comando usando <code>bash</code> dentro de cualquier ventana de emulador de terminal.</td>
 </tr>
 <tr>
 <td><code>terminal</code></td>
-<td><code>true</code> or <code>false</code></td>
-<td>If <code>false</code>, runs the Bash command in the background (i.e. without opening a terminal window).</td>
+<td><code>true</code> o <code>false</code></td>
+<td>Si <code>false</code>, ejecuta el comando Bash en el fondo (es decir, sin abrir una ventana de terminal).</td>
 </tr>
 <tr>
 <td><code>param1</code>, <code>param2</code>, ...</td>
-<td>Command line arguments</td>
-<td>Arguments to be passed to the Bash command. <em>Note: Provided for compatibility with BitBar only. Argos allows placing arguments directly in the command string.</em></td>
+<td>Argumentos de la línea de comandos</td>
+<td>Argumentos que se deben pasar al comando Bash.  <em>Nota: Sólo para compatibilidad con BitBar.  Argos permite colocar argumentos directamente en la cadena de comandos.</em></td>
 </tr>
 <tr>
 <td><code>href</code></td>
 <td>URI</td>
-<td>Opens a URI in the application registered to handle it. URIs starting with <code>http://</code> launch the web browser, while <code>file://</code> URIs open the file in its associated default application. <strong>Argos for Cinnamon</strong> also supports paths starting with <code>~/</code> that will be automatically expanded to the user's home folder.</td>
+<td>Abre una URI en la aplicación registrada para manejarla.  Las URIs que empiezan con <code>http: //</code> lanzan el navegador web, mientras que las URIs que empiezan con <code>file: //</code> abren el archivo con su aplicación predeterminada asociada.  <strong>Argos for Cinnamon</strong> también admite rutas que comienzan con <code>~ /</code> que se expandirán automáticamente a la carpeta del usuario.</td>
 </tr>
 <tr>
 <td><code>eval</code></td>
-<td>JavaScript code</td>
-<td>Passes the code to JavaScript's <code>eval</code> function. <strong>Argos only.</strong></td>
+<td>Código JavaScript</td>
+<td>Pasa el código a la función JavaScript <code>eval</code>.  <strong>Argos solamente.</strong></td>
 </tr>
 <tr>
 <td><code>refresh</code></td>
-<td><code>true</code> or <code>false</code></td>
-<td>If <code>true</code>, re-runs the plugin, updating its output.</td>
+<td><code>true</code> o <code>false</code></td>
+<td>Si <code>true</code>, vuelve a ejecutar el complemento, actualizando su salida.</td>
 </tr>
 </tbody>
 </table>
 <hr>
 <p><span id="argos-bitbar-compatibility"></span></p>
-<h2>BitBar plugins with Argos for Cinnamon</h2>
+<h2>Complementos de BitBar con Argos para Cinnamon</h2>
 <div class="alert alert-warning">
 <strong>
-WARNING!!! DO NOT RANDOMLY TEST SCRIPTS!!!
+¡¡¡ADVERTENCIA!!!  ¡NO REALIZAR PRUEBAS ALEATORIAS CON ARCHIVOS DE COMANDOS!
 
+<br>
+1. Aplicar sentido común.  Leer y entender lo que hace un archivo de comandos y lo exigente que podría ser.
 
-1. Apply common sense. Read and understand what a script does and how demanding it could be.
+<br>
+2. Probar archivos de comandos desconocidos en un entorno desde el que pueda recuperarse fácilmente (como por ejemplo, una máquina virtual).
 
+<br>
+3. He encontrado un caso específico en el que un archivo de comandos puede congelar y finalmente bloquear Cinnamon.  Es un archivo de comandos que descarga una imagen GIF desde Internet, la convierte en Base64 y luego esa imagen codificada se inserta en un elemento de menú utilizando el atributo *image*.  No voy a proporcionar un enlace a ese script, pero si se ha seguido el primer consejo que he enumerado aquí, cuando ese archivo de comandos es encontrado, se sabrá de lo que hablo.
 
-2. Test unknown scripts on an environment from which you can recover easily (i.e. a virtual machine).
-
-
-3. I found one specific case in which a script can freeze and ultimately crash Cinnamon. It's a script that downloads a GIF image from the internet, converts it to Base64 and then that encoded image is inserted into a menu item using the *image* attribute. I will not provide a link to that script, but if you follow the very first advice that I listed here, when you see that script, you will know.
-
-
+<br>
 </strong>
-</div><p>These screenshots show how some scripts from the BitBar plugin repository look when rendered by Argos compared to the "canonical" BitBar rendering (macOS screenshots taken from <a href="https://getbitbar.com">https://getbitbar.com</a>).</p>
+</div><p>Estas capturas de pantalla muestran cómo algunas secuencias de comandos del repositorio de complementos de BitBar se ven cuando son procesadas por Argos en comparación con la representación <em>canónica</em> de BitBar (capturas de pantalla de macOS tomadas de <a href="https://getbitbar.com">https://getbitbar.com</a>).</p>
 <table>
 <thead><tr>
-<th>Plugin</th>
-<th style="text-align:center">BitBar on macOS</th>
+<th>Complemento</th>
+<th style="text-align:center">BitBar en macOS</th>
 <th style="text-align:center">Argos para Cinnamon</th>
 </tr>
 </thead>
@@ -767,7 +769,8 @@ WARNING!!! DO NOT RANDOMLY TEST SCRIPTS!!!
 <h2>Description</h2>
 <p>Argos for Cinnamon is an applet that turns executables' standard output into panel dropdown menus. It is inspired by, and fully compatible with, the Gnome Shell extension called <a href="https://github.com/p-e-w/argos">Argos</a> by <a href="https://github.com/p-e-w">Philipp Emanuel Weidmann</a>, which in turn is inspired by, and fully compatible with, the <a href="https://github.com/matryer/bitbar">BitBar</a> application for macOS. Argos for Cinnamon supports many <a href="https://github.com/matryer/bitbar-plugins">BitBar plugins</a> without modifications, giving you access to a large library of well-tested scripts in addition to being able to write your own.</p>
 <div class="alert alert-info">
-I will use the words <em>plugin</em> or <em>script</em> when referring to a script file associated with an instance on <strong>Argos for Cinnamon</strong> applet.
+<p>I will use the words <em>plugin</em> or <em>script</em> when referring to a script file associated with an instance on <strong>Argos for Cinnamon</strong> applet.</p>
+
 </div><hr>
 <h2>Key features</h2>
 <ul>
@@ -781,7 +784,7 @@ I will use the words <em>plugin</em> or <em>script</em> when referring to a scri
 <hr>
 <h2>Dependencies</h2>
 <ul>
-<li><strong>xdg-open</strong> command: Open a URI in the user's preferred application that handles the respective URI or file type.<ul>
+<li><strong>xdg-open command:</strong> Open a URI in the user's preferred application that handles the respective URI or file type.<ul>
 <li>Debian and Archlinux based distributions: This command is installed with the package called <strong>xdg-utils</strong>. Installed by default in modern versions of Linux Mint.</li>
 </ul>
 </li>
@@ -793,7 +796,8 @@ I will use the words <em>plugin</em> or <em>script</em> when referring to a scri
 <p>A just placed applet will have an initial execution interval of 0 seconds (zero seconds) and an initial applet text rotation interval of 3 seconds (three seconds). The execution interval is set to 0 seconds because the initial example script doesn't have any dynamic data that requires update. And the applet text rotation interval is set to 3 seconds so the text rotation of the example script can be seen in action.</p>
 <p>For scripts that display non dynamic data, it isn't needed an execution interval. But if your script displays dynamic data (a clock for example), then an execution and/or applet text rotation interval needs to be specified. Both of these values can be set from the applet context menu.</p>
 <div class="alert alert-info">
-The three example scripts provided by this applet will produce the exact same output, but they are created using three different languages (<strong>bash_examples.sh</strong>, <strong>python_examples.py</strong> and <strong>ruby_examples.rb</strong>).
+<p>The three example scripts provided by this applet will produce the exact same output, but they are created using three different languages (<strong>bash_examples.sh</strong>, <strong>python_examples.py</strong> and <strong>ruby_examples.rb</strong>).</p>
+
 </div>
 <div class="alert alert-warning">
 
@@ -922,7 +926,7 @@ The three example scripts provided by this applet will produce the exact same ou
 <tr>
 <td><code>iconIsSymbolic</code></td>
 <td><code>true</code> or <code>false</code></td>
-<td>If <code>false</code>, the symbolic version of <code>iconName</code> will be used on the item (if exists).</td>
+<td>If <code>true</code>, the symbolic version of <code>iconName</code> will be used on the item (if exists).</td>
 </tr>
 </tbody>
 </table>
@@ -976,16 +980,16 @@ The three example scripts provided by this applet will produce the exact same ou
 <strong>
 WARNING!!! DO NOT RANDOMLY TEST SCRIPTS!!!
 
-
+<br>
 1. Apply common sense. Read and understand what a script does and how demanding it could be.
 
+<br>
+2. Test unknown scripts on an environment from which you can recover easily (for example, a virtual machine).
 
-2. Test unknown scripts on an environment from which you can recover easily (i.e. a virtual machine).
-
-
+<br>
 3. I found one specific case in which a script can freeze and ultimately crash Cinnamon. It's a script that downloads a GIF image from the internet, converts it to Base64 and then that encoded image is inserted into a menu item using the *image* attribute. I will not provide a link to that script, but if you follow the very first advice that I listed here, when you see that script, you will know.
 
-
+<br>
 </strong>
 </div><p>These screenshots show how some scripts from the BitBar plugin repository look when rendered by Argos compared to the "canonical" BitBar rendering (macOS screenshots taken from <a href="https://getbitbar.com">https://getbitbar.com</a>).</p>
 <table>

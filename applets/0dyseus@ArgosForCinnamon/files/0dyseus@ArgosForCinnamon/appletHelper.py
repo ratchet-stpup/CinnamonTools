@@ -54,6 +54,11 @@ def _(string):
 
 
 def _file_chooser():
+    try:
+        last_dir = os.path.dirname(sys.argv[2])
+    except:
+        last_dir = None
+
     mode = Gtk.FileChooserAction.OPEN
     string = _("Select a file")
     # TO TRANSLATORS: Could be left blank.
@@ -65,6 +70,9 @@ def _file_chooser():
                                    title=string,
                                    action=mode,
                                    buttons=btns)
+
+    if last_dir is not None:
+        dialog.set_current_folder(last_dir)
 
     response = dialog.run()
 
