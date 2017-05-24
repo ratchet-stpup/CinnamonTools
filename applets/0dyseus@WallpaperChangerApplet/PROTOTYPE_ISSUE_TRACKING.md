@@ -1,19 +1,17 @@
+## Applet status
+
+- Applet ready to be publised. Estimated date of publishing: **May 27, 2017**.
+- Applet ready to be translated.
+
 ## Description
 
 Wallpaper Changer is an applet based on the gnome-shell extension called [Desk Changer](https://github.com/BigE/desk-changer) by [Eric Gach](https://github.com/BigE). A wallpaper slideshow applet with multiple profiles support.
 
-## Applet status
-
-- Its current state is pretty much its final state.
-- I have been using this applet for several months now and the last couple of weeks I started *polishing it*.
-- For the time being, there isn't any new feature planned for this applet, just bug fixing if any bug is found.
-- The original author of the gnome-shell extension has some plans in mind for adding new features. Whether I port those changes or not depends on those changes being compatible with Cinnamon.
-- The applet is ready to be translated, but I would suggest to any willing to translate it to wait until the test face finishes.
-
 ## Tested environments
 
-* [x] ![Cinnamon 3.0](https://odyseus.github.io/CinnamonTools/lib/badges/cinn-3.0.svg) ![Linux Mint 18](https://odyseus.github.io/CinnamonTools/lib/badges/lm-18.svg)
-* [x] ![Cinnamon 3.2](https://odyseus.github.io/CinnamonTools/lib/badges/cinn-3.2.svg) ![Linux Mint 18.1](https://odyseus.github.io/CinnamonTools/lib/badges/lm-18.1.svg)
+* [x] ![Cinnamon 3.0](https://odyseus.github.io/CinnamonTools/lib/badges/cinn-3.0.svg)
+* [x] ![Cinnamon 3.2](https://odyseus.github.io/CinnamonTools/lib/badges/cinn-3.2.svg)
+* [x] ![Cinnamon 3.4](https://odyseus.github.io/CinnamonTools/lib/badges/cinn-3.4.svg)
 
 <span style="color:red;font-size:large;">
 **Important note:** Do not try to install and force compatibility for any other version of Cinnamon older than 3.0.x. As a protection mechanism, the applet will auto-remove itself from the panel.
