@@ -1,6 +1,6 @@
 ## Applet status
 
-- Applet ready to be publised. Estimated date of publishing: **May 27, 2017**.
+- Applet ready to be published. Estimated date of publishing: **May 29, 2017**.
 - Applet ready to be translated.
 
 ## Description

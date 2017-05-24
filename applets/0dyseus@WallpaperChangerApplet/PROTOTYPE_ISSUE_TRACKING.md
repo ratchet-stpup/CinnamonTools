@@ -1,6 +1,6 @@
 ## Applet status
 
-- Applet ready to be publised. Estimated date of publishing: **May 27, 2017**.
+- Applet ready to be published. Estimated date of publishing: **May 29, 2017**.
 - Applet ready to be translated.
 
 ## Description
@@ -22,7 +22,7 @@ Wallpaper Changer is an applet based on the gnome-shell extension called [Desk C
 - Possibility to create and switch between several profiles. A profile is simply a list of images and/or folders containing images that this applet will use to switch the wallpaper.
 - Possibility to preview the next wallpaper from this applet menu.
 - Wallpapers can be switched on demand from the controls found in this applet menu.
-- The wallpapers rotation can be alphabetically or random.
+- The wallpapers rotation can be alphabetical or random.
 - The wallpapers rotation can be defined by an interval in seconds or hourly.
 - Possibility to open the next or current wallpapers from this applet menu.
 - Possibility to display a notification every time the wallpaper is switched.
