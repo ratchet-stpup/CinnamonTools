@@ -46,4 +46,4 @@ For detailed explanations of each option/tweak, see this extension help (accessi
 - [Valentin Dimitrov](https://github.com/v-dimitrov): Author of the gnome-shell extension called [Steal My Focus](https://github.com/v-dimitrov/gnome-shell-extension-stealmyfocus).
 - [awamper](https://github.com/awamper): Author of the gnome-shell extension called [Window Demands Attention Shortcut](https://github.com/awamper/window-demands-attention-shortcut).
 
-[Full change log](https://github.com/Odyseus/CinnamonTools/blob/master/extensions/0dyseus%40CinnamonTweaks/CHANGELOG.md)
+[Full change log](https://github.com/Odyseus/CinnamonTools/blob/master/extensions/0dyseus%40CinnamonTweaks/CHANGE_LOG.md)

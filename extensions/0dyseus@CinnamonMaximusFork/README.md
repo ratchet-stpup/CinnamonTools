@@ -33,4 +33,4 @@ This extension is a fork of the [Cinnamon Maximus](https://cinnamon-spices.linux
 - **[giwhub](https://github.com/giwhub):** Chinese localization.
 - **[Alan01](https://github.com/Alan01):** Danish localization.
 
-[Full change log](https://github.com/Odyseus/CinnamonTools/blob/master/extensions/0dyseus%40CinnamonMaximusFork/CHANGELOG.md)
+[Full change log](https://github.com/Odyseus/CinnamonTools/blob/master/extensions/0dyseus%40CinnamonMaximusFork/CHANGE_LOG.md)

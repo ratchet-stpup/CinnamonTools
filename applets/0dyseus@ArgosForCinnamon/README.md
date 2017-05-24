@@ -32,4 +32,4 @@ No known issues for the moment.
 ## Contributors/Mentions
 - **[Philipp Emanuel Weidmann](https://github.com/p-e-w):**: Author of the gnome-shell extension called [Argos](https://github.com/p-e-w/argos).
 
-[Full change log](https://github.com/Odyseus/CinnamonTools/blob/master/applets/0dyseus%40ArgosForCinnamon/CHANGELOG.md)
+[Full change log](https://github.com/Odyseus/CinnamonTools/blob/master/applets/0dyseus%40ArgosForCinnamon/CHANGE_LOG.md)

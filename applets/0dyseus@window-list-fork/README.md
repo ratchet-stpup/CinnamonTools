@@ -30,4 +30,4 @@ This applet is a fork of the default Window-list applet shipped with Cinnamon.
 - [muzena](https://github.com/muzena): Croatian localization.
 - [giwhub](https://github.com/giwhub): Chinese localization.
 
-[Full change log](https://github.com/Odyseus/CinnamonTools/blob/master/applets/0dyseus%40window-list-fork/CHANGELOG.md)
+[Full change log](https://github.com/Odyseus/CinnamonTools/blob/master/applets/0dyseus%40window-list-fork/CHANGE_LOG.md)

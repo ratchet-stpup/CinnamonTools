@@ -38,4 +38,4 @@ No known issues for the moment.
 ## Contributors/Mentions
 - **[Eric Gach](https://github.com/BigE):**: Author of the gnome-shell extension called [Desk Changer](https://github.com/BigE/desk-changer).
 
-[Full change log](https://github.com/Odyseus/CinnamonTools/blob/master/applets/0dyseus%40WallpaperChangerApplet/CHANGELOG.md)
+[Full change log](https://github.com/Odyseus/CinnamonTools/blob/master/applets/0dyseus%40WallpaperChangerApplet/CHANGE_LOG.md)

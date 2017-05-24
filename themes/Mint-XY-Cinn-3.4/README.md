@@ -15,4 +15,4 @@ This theme complements the [**Mint-XY** theme](https://cinnamon-spices.linuxmint
 
 - ![Cinnamon 3.4](https://odyseus.github.io/CinnamonTools/lib/badges/cinn-3.4.svg) ![Linux Mint 18.2](https://odyseus.github.io/CinnamonTools/lib/badges/lm-18.2.svg)
 
-[Full change log](https://github.com/Odyseus/CinnamonTools/blob/master/themes/Mint-XY/CHANGELOG.md)
+[Full change log](https://github.com/Odyseus/CinnamonTools/blob/master/themes/Mint-XY/CHANGE_LOG.md)

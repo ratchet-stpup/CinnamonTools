@@ -30,4 +30,4 @@ Applet based on two gnome-shell extensions ([Todo list](https://github.com/bsale
 - **[bsaleil](https://github.com/bsaleil):**: Author of the gnome-shell extension called [Todo list](https://github.com/bsaleil/todolist-gnome-shell-extension).
 - **[Thomas Moreau](https://github.com/tomMoral):** Author of the gnome-shell extension called [Section Todo List](https://github.com/tomMoral/ToDoList).
 
-[Full change log](https://github.com/Odyseus/CinnamonTools/blob/master/applets/0dyseus%40SimpleToDoList/CHANGELOG.md)
+[Full change log](https://github.com/Odyseus/CinnamonTools/blob/master/applets/0dyseus%40SimpleToDoList/CHANGE_LOG.md)

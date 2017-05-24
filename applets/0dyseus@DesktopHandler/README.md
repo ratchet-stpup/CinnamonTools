@@ -42,4 +42,4 @@ This applet is based on [Smart Panel](https://cinnamon-spices.linuxmint.com/exte
 - [muzena](https://github.com/muzena): Croatian localization.
 - [giwhub](https://github.com/giwhub): Chinese localization.
 
-[Full change log](https://github.com/Odyseus/CinnamonTools/blob/master/applets/0dyseus%40DesktopHandler/CHANGELOG.md)
+[Full change log](https://github.com/Odyseus/CinnamonTools/blob/master/applets/0dyseus%40DesktopHandler/CHANGE_LOG.md)

@@ -27,4 +27,4 @@ This applet creates a menu with a list of all installed extensions in Cinnamon. 
 - [muzena](https://github.com/muzena): Croatian localization.
 - [giwhub](https://github.com/giwhub): Chinese localization.
 
-[Full change log](https://github.com/Odyseus/CinnamonTools/blob/master/applets/0dyseus%40ExtensionsManager/CHANGELOG.md)
+[Full change log](https://github.com/Odyseus/CinnamonTools/blob/master/applets/0dyseus%40ExtensionsManager/CHANGE_LOG.md)

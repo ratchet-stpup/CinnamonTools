@@ -25,4 +25,4 @@ I found two Gnome Shell Extensions and I mixed their functions into one Cinnamon
 - [muzena](https://github.com/muzena): Croatian localization.
 - [giwhub](https://github.com/giwhub): Chinese localization.
 
-[Full change log](https://github.com/Odyseus/CinnamonTools/blob/master/extensions/0dyseus%40WindowDemandsAttentionBehavior/CHANGELOG.md)
+[Full change log](https://github.com/Odyseus/CinnamonTools/blob/master/extensions/0dyseus%40WindowDemandsAttentionBehavior/CHANGE_LOG.md)

@@ -55,4 +55,4 @@ Once installed and enabled, the following shortcuts will be available.
 - **[Radek71](https://github.com/Radek71):** Czech localization and author of Thunderbolt theme.
 - **[NikoKrause](https://github.com/NikoKrause):** German localization.
 
-[Full change log](https://github.com/Odyseus/CinnamonTools/blob/master/extensions/0dyseus%40MultiTranslatorExtension/CHANGELOG.md)
+[Full change log](https://github.com/Odyseus/CinnamonTools/blob/master/extensions/0dyseus%40MultiTranslatorExtension/CHANGE_LOG.md)

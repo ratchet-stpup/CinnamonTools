@@ -15,4 +15,4 @@ This theme complements the [**Mint-XY-Greybird-Blue** theme](https://cinnamon-sp
 
 - ![Cinnamon 3.4](https://odyseus.github.io/CinnamonTools/lib/badges/cinn-3.4.svg) ![Linux Mint 18.2](https://odyseus.github.io/CinnamonTools/lib/badges/lm-18.2.svg)
 
-[Full change log](https://github.com/Odyseus/CinnamonTools/blob/master/themes/Mint-XY-Greybird-Blue/CHANGELOG.md)
+[Full change log](https://github.com/Odyseus/CinnamonTools/blob/master/themes/Mint-XY-Greybird-Blue/CHANGE_LOG.md)

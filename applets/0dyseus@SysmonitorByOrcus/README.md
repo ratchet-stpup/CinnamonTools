@@ -38,4 +38,4 @@ system.
 - [muzena](https://github.com/muzena): Croatian localization.
 - [giwhub](https://github.com/giwhub): Chinese localization.
 
-[Full change log](https://github.com/Odyseus/CinnamonTools/blob/master/applets/0dyseus%40SysmonitorByOrcus/CHANGELOG.md)
+[Full change log](https://github.com/Odyseus/CinnamonTools/blob/master/applets/0dyseus%40SysmonitorByOrcus/CHANGE_LOG.md)
