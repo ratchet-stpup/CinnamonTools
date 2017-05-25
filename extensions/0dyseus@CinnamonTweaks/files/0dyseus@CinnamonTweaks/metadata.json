@@ -11,7 +11,8 @@
         "Luis Pabon: Author of Maximus NG extension https://github.com/luispabon/maximus-gnome-shell.",
         "Florian Muellner: Author of Auto Move Windows extension https://extensions.gnome.org/extension/16/auto-move-windows.",
         "Valentin Dimitrov: Author of Steal My Focus extension https://github.com/v-dimitrov/gnome-shell-extension-stealmyfocus.",
-        "awamper: Author of Window Demands Attention Shortcut extension https://github.com/awamper/window-demands-attention-shortcut."
+        "awamper: Author of Window Demands Attention Shortcut extension https://github.com/awamper/window-demands-attention-shortcut.",
+        "giwhub:: Chinese localization https://github.com/giwhub."
     ],
     "url": "https://github.com/Odyseus/CinnamonTools",
     "description": "Several tweaks for Cinnamon.",

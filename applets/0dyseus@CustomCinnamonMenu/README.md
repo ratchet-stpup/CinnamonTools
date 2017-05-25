@@ -58,13 +58,14 @@ This applet is a custom version of the default Cinnamon Menu applet, but infinit
 - No known issues.
 
 ## Contributors/Mentions
-- [NikoKrause](https://github.com/NikoKrause): Bug fixes and German localization.
-- [Radek71](https://github.com/Radek71): Czech localization.
-- [muzena](https://github.com/muzena): Croatian localization.
-- [giwhub](https://github.com/giwhub): Chinese localization.
-- Some advanced features on this applet are based on [lestcape](https://github.com/lestcape)'s [Configurable Menu applet](https://github.com/lestcape/Configurable-Menu).
-- Fuzzy search feature based on [Sane Menu](https://cinnamon-spices.linuxmint.com/applets/view/258) applet by [nooulaif](https://github.com/nooulaif).
-- Some icons used by this menu are from [Entypo pictograms](www.entypo.com) by Daniel Bruce.
+- **[NikoKrause](https://github.com/NikoKrause):** Bug fixes and German localization.
+- **[Radek71](https://github.com/Radek71):** Czech localization.
+- **[muzena](https://github.com/muzena):** Croatian localization.
+- **[giwhub](https://github.com/giwhub):** Chinese localization.
+- **[lestcape](https://github.com/lestcape):** Some advanced features on this applet are based on his [Configurable Menu applet](https://github.com/lestcape/Configurable-Menu) applet.
+- **[nooulaif](https://github.com/nooulaif):** Fuzzy search feature based on his [Sane Menu](https://cinnamon-spices.linuxmint.com/applets/view/258) applet.
+- **Daniel Bruce:** Some icons used by this menu are from [Entypo pictograms](www.entypo.com).
+- **[eson57](https://github.com/eson57):** Swedish localization.
 
 [Full change log](https://github.com/Odyseus/CinnamonTools/blob/master/applets/0dyseus%40CustomCinnamonMenu/CHANGE_LOG.md)
 

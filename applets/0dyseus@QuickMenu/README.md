@@ -65,8 +65,9 @@ This applet has to read every single file/folder inside a main folder to create 
 
 ## Contributors
 
-- [muzena](https://github.com/muzena): Croatian localization.
-- [giwhub](https://github.com/giwhub): Chinese localization.
+- **[muzena](https://github.com/muzena):** Croatian localization.
+- **[giwhub](https://github.com/giwhub):** Chinese localization.
+- **[eson57](https://github.com/eson57):** Swedish localization.
 
 [Full change log](https://github.com/Odyseus/CinnamonTools/blob/master/applets/0dyseus%40QuickMenu/CHANGE_LOG.md)
 
