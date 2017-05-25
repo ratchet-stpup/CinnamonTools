@@ -3,30 +3,30 @@
 import gettext
 import os
 
-EXTENSION_UUID = "0dyseus@ArgosForCinnamon"
+APPLET_UUID = "0dyseus@ArgosForCinnamon"
 HOME = os.path.expanduser("~")
 TRANSLATIONS = {}
 
 
 def _(string):
     # check for a translation for this xlet
-    if EXTENSION_UUID not in TRANSLATIONS:
+    if APPLET_UUID not in TRANSLATIONS:
         try:
-            TRANSLATIONS[EXTENSION_UUID] = gettext.translation(
-                EXTENSION_UUID, HOME + "/.local/share/locale").gettext
+            TRANSLATIONS[APPLET_UUID] = gettext.translation(
+                APPLET_UUID, HOME + "/.local/share/locale").gettext
         except IOError:
             try:
-                TRANSLATIONS[EXTENSION_UUID] = gettext.translation(
-                    EXTENSION_UUID, "/usr/share/locale").gettext
+                TRANSLATIONS[APPLET_UUID] = gettext.translation(
+                    APPLET_UUID, "/usr/share/locale").gettext
             except IOError:
-                TRANSLATIONS[EXTENSION_UUID] = None
+                TRANSLATIONS[APPLET_UUID] = None
 
     # do not translate white spaces
     if not string.strip():
         return string
 
-    if TRANSLATIONS[EXTENSION_UUID]:
-        result = TRANSLATIONS[EXTENSION_UUID](string)
+    if TRANSLATIONS[APPLET_UUID]:
+        result = TRANSLATIONS[APPLET_UUID](string)
 
         try:
             result = result.decode("utf-8")

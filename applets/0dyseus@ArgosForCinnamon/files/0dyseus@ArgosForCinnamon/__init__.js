@@ -1868,22 +1868,21 @@ ArgosMenuItem.prototype = {
                 if (activeLine.hasOwnProperty("bash")) {
                     let argv = [];
 
-                    if (activeLine.terminal === "false") {
+                    if (!activeLine.terminal || activeLine.terminal === "false") {
                         argv = [
                             "bash",
                             "-c",
                             activeLine.bash
                         ];
-                    } else {
+                    } else if (activeLine.terminal && activeLine.terminal === "true") {
                         // Run bash immediately after executing the command to keep the terminal window open
                         // (see http://stackoverflow.com/q/3512055)
                         argv = [
                             aApplet.pref_terminal_emulator,
                             "-e",
-                            "bash -c " + GLib.shell_quote(activeLine.bash + "; exec bash")
+                            GLib.shell_quote("bash -c " + GLib.shell_quote(activeLine.bash + "; exec bash"))
                         ];
                     }
-
                     // Used by the original extension:
                     // GLib.spawn_async(null, argv, null, GLib.SpawnFlags.SEARCH_PATH, null);
                     // Implemented TryExec so I can inform with a callback if there was an error
