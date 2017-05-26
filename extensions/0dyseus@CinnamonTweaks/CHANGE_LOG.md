@@ -4,6 +4,29 @@
 
 ***
 
+- **Date:** Thu, 25 May 2017 21:01:41 -0300
+- **Commit:** [4ed5b75](https://github.com/Odyseus/CinnamonTools/commit/4ed5b75)
+- **Author:** Odyseus
+
+```
+Cinnamon Tweaks extension
+- Updated HELP.html file due to new localization.
+
+```
+
+***
+
+- **Date:** Thu, 25 May 2017 21:44:08 +0200
+- **Commit:** [c2b0f80](https://github.com/Odyseus/CinnamonTools/commit/c2b0f80)
+- **Author:** Åke Engelbrektson
+
+```
+CinnamonTweaks: create sv.po
+Add Swedish translation
+```
+
+***
+
 - **Date:** Mon, 15 May 2017 22:53:19 -0300
 - **Commit:** [c6bcbae](https://github.com/Odyseus/CinnamonTools/commit/c6bcbae)
 - **Author:** Odyseus

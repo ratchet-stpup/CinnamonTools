@@ -4,13 +4,29 @@
 
 ***
 
+- **Date:** Thu, 25 May 2017 08:36:02 -0300
+- **Commit:** [48d3b6c](https://github.com/Odyseus/CinnamonTools/commit/48d3b6c)
+- **Author:** Odyseus
+
+```
+Argos for Cinnamon applet
+- Fixed a bug that prevented to correctly run commands when the *terminal* attribute was set to
+true.
+- Changed a variable name on the python_examples.py file to correctly reflect that this is an applet
+and not an extension.
+
+```
+
+***
+
 - **Date:** Tue, 23 May 2017 06:05:21 -0300
-- **Commit:** [3cadb5e](https://github.com/Odyseus/CinnamonTools/commit/3cadb5e)
+- **Commit:** [f38bac0](https://github.com/Odyseus/CinnamonTools/commit/f38bac0)
 - **Author:** Odyseus
 
 ```
 Argos for Cinnamon applet
 - Last prototype.
+- Added a mechanism to remember the last used directory when choosing scripts.
 - Cleaned up code. Mainly removed all `try{}catch{}` blocks used for debugging in preparation for
 stable release.
 - Completed Spanish localization of the help file.

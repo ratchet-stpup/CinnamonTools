@@ -5,12 +5,13 @@
 ***
 
 - **Date:** Tue, 23 May 2017 06:08:13 -0300
-- **Commit:** [516cf5b](https://github.com/Odyseus/CinnamonTools/commit/516cf5b)
+- **Commit:** [1cbf01e](https://github.com/Odyseus/CinnamonTools/commit/1cbf01e)
 - **Author:** Odyseus
 
 ```
 Simple ToDo List applet
 - Final prototype.
+- Added a mechanism to remember the last used directory when importing/exporting/saving tasks.
 - Some minor code clean up.
 
 LANGUAGE  UNTRANSLATED

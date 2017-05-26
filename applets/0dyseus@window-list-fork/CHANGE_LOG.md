@@ -5,7 +5,7 @@
 ***
 
 - **Date:** Tue, 23 May 2017 06:11:19 -0300
-- **Commit:** [ef9467c](https://github.com/Odyseus/CinnamonTools/commit/ef9467c)
+- **Commit:** [1db9114](https://github.com/Odyseus/CinnamonTools/commit/1db9114)
 - **Author:** Odyseus
 
 ```

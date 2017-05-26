@@ -4,6 +4,41 @@
 
 ***
 
+- **Date:** Thu, 25 May 2017 07:32:47 -0300
+- **Commit:** [659b2fd](https://github.com/Odyseus/CinnamonTools/commit/659b2fd)
+- **Author:** Odyseus
+
+```
+Wallpaper Changer applet
+- Updated HELP.html file due to new localization.
+
+```
+
+***
+
+- **Date:** Wed, 24 May 2017 10:53:20 +0200
+- **Commit:** [3df606b](https://github.com/Odyseus/CinnamonTools/commit/3df606b)
+- **Author:** Åke Engelbrektson
+
+```
+WallpaperChangerApplet: create sv.po
+Add Swedish translation
+```
+
+***
+
+- **Date:** Tue, 23 May 2017 22:13:00 -0300
+- **Commit:** [c465cb9](https://github.com/Odyseus/CinnamonTools/commit/c465cb9)
+- **Author:** Odyseus
+
+```
+Wallpaper changer applet
+- Updated PROTOTYPE_ISSUE_TRACKING.md.
+
+```
+
+***
+
 - **Date:** Wed, 17 May 2017 16:14:26 -0300
 - **Commit:** [5f1e768](https://github.com/Odyseus/CinnamonTools/commit/5f1e768)
 - **Author:** Odyseus

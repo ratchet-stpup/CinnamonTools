@@ -5,7 +5,7 @@
 ***
 
 - **Date:** Tue, 23 May 2017 06:07:06 -0300
-- **Commit:** [0878ee2](https://github.com/Odyseus/CinnamonTools/commit/0878ee2)
+- **Commit:** [3db869c](https://github.com/Odyseus/CinnamonTools/commit/3db869c)
 - **Author:** Odyseus
 
 ```
