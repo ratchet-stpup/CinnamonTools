@@ -4,6 +4,18 @@
 
 ***
 
+- **Date:** Fri, 26 May 2017 01:28:58 -0300
+- **Commit:** [e661810](https://github.com/Odyseus/CinnamonTools/commit/e661810)
+- **Author:** Odyseus
+
+```
+Cinnamon Maximus (Fork by Odyseus) extension
+- Updated Spanish localization.
+
+```
+
+***
+
 - **Date:** Tue, 16 May 2017 15:04:51 -0300
 - **Commit:** [82f43be](https://github.com/Odyseus/CinnamonTools/commit/82f43be)
 - **Author:** Odyseus

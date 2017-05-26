@@ -4,6 +4,20 @@
 
 ***
 
+- **Date:** Fri, 26 May 2017 01:24:01 -0300
+- **Commit:** [a3ebb00](https://github.com/Odyseus/CinnamonTools/commit/a3ebb00)
+- **Author:** Odyseus
+
+```
+Argos for Cinnamon applet
+- Reverted back the use of the **TryExec** function because it is causing freezes under Cinnamon
+3.4.x with CJS 3.4.x installed (¬¬). Comming back to it when and if CJS finally decides to throw an
+actually useful error message (¬¬).
+
+```
+
+***
+
 - **Date:** Thu, 25 May 2017 08:36:02 -0300
 - **Commit:** [48d3b6c](https://github.com/Odyseus/CinnamonTools/commit/48d3b6c)
 - **Author:** Odyseus
