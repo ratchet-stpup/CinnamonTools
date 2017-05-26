@@ -1612,8 +1612,8 @@ ArgosLineView.prototype = {
                         aLine.iconSize :
                         this._applet.pref_default_icon_size),
                     icon_name: iconName,
-                    icon_type: (!aLine.iconIsSymbolic ||
-                        (aLine.iconIsSymbolic && aLine.iconIsSymbolic !== "true") ?
+                    icon_type: (!aLine.hasOwnProperty("iconIsSymbolic") ||
+                        (aLine.hasOwnProperty("iconIsSymbolic") && aLine.iconIsSymbolic !== "true") ?
                         St.IconType.FULLCOLOR :
                         St.IconType.SYMBOLIC)
                 });
@@ -1869,13 +1869,13 @@ ArgosMenuItem.prototype = {
                 if (activeLine.hasOwnProperty("bash")) {
                     let argv = [];
 
-                    if (!activeLine.terminal || activeLine.terminal === "false") {
+                    if (!activeLine.hasOwnProperty("terminal") || activeLine.terminal === "false") {
                         argv = [
                             "bash",
                             "-c",
                             activeLine.bash
                         ];
-                    } else if (activeLine.terminal && activeLine.terminal === "true") {
+                    } else if (activeLine.hasOwnProperty("terminal") && activeLine.terminal === "true") {
                         // Run bash immediately after executing the command to keep the terminal window open
                         // (see http://stackoverflow.com/q/3512055)
                         argv = [
@@ -1938,7 +1938,7 @@ ArgosMenuItem.prototype = {
                     }
                 }
 
-                if (activeLine.refresh === "true")
+                if (activeLine.hasOwnProperty("refresh") && activeLine.refresh === "true")
                     aApplet.update();
 
                 this._applet.menu.close();
@@ -2146,20 +2146,20 @@ function parseLine(aLineString) {
 
     line.markup = line.text;
 
-    if (!line.unescape || (line.unescape && line.unescape !== "false"))
+    if (!line.hasOwnProperty("unescape") || (line.hasOwnProperty("unescape") && line.unescape !== "false"))
         line.markup = GLib.strcompress(line.markup);
 
-    if (!line.emojize || (line.emojize && line.emojize !== "false")) {
+    if (!line.hasOwnProperty("emojize") || (line.hasOwnProperty("emojize") && line.emojize !== "false")) {
         line.markup = line.markup.replace(/:([\w+-]+):/g, function(match, emojiName) {
             emojiName = emojiName.toLowerCase();
             return EMOJI.hasOwnProperty(emojiName) ? EMOJI[emojiName] : match;
         });
     }
 
-    if (!line.trim || (line.trim && line.trim !== "false"))
+    if (!line.hasOwnProperty("trim") || (line.hasOwnProperty("trim") && line.trim !== "false"))
         line.markup = line.markup.trim();
 
-    if (line.useMarkup && line.useMarkup === "false") {
+    if (line.hasOwnProperty("useMarkup") && line.useMarkup === "false") {
         line.markup = GLib.markup_escape_text(line.markup, -1);
         // Restore escaped ESC characters (needed for ANSI sequences)
         line.markup = line.markup.replace("&#x1b;", "\x1b");
@@ -2167,7 +2167,7 @@ function parseLine(aLineString) {
 
     // Note that while it is possible to format text using a combination of Pango markup
     // and ANSI escape sequences, lines like "<b>ABC \e[1m DEF</b>" lead to unmatched tags
-    if (!line.ansi || (line.ansi && line.ansi !== "false"))
+    if (!line.hasOwnProperty("ansi") || (line.hasOwnProperty("ansi") && line.ansi !== "false"))
         line.markup = ansiToMarkup(line.markup);
 
     if (markupAttributes && markupAttributes.length > 0)
@@ -2191,7 +2191,7 @@ function parseLine(aLineString) {
     }
 
     line.hasAction = line.hasOwnProperty("bash") || line.hasOwnProperty("href") ||
-        line.hasOwnProperty("eval") || (line.refresh && line.refresh === "true");
+        line.hasOwnProperty("eval") || (line.hasOwnProperty("refresh") && line.refresh === "true");
 
     return line;
 }

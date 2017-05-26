@@ -294,7 +294,9 @@ MyApplet.prototype = {
                 let j = 0,
                     jLen = buttonLines.length;
                 for (; j < jLen; j++) {
-                    if (buttonLines[j].dropdown !== "false")
+                    if (!buttonLines[j].hasOwnProperty("dropdown") ||
+                        (buttonLines[j].hasOwnProperty("dropdown") &&
+                            buttonLines[j].dropdown !== "false"))
                         this.menu.addMenuItem(new $.ArgosMenuItem(this, buttonLines[j]));
                 }
             }
@@ -344,7 +346,8 @@ MyApplet.prototype = {
                     menus[dropdownLines[l + 1].menuLevel] = menuItem.menu;
                 } else if ((l + 1) < dropdownLines.length &&
                     dropdownLines[l + 1].menuLevel === dropdownLines[l].menuLevel &&
-                    dropdownLines[l + 1].alternate && dropdownLines[l + 1].alternate === "true") {
+                    (dropdownLines[l + 1].hasOwnProperty("alternate") &&
+                        dropdownLines[l + 1].alternate === "true")) {
                     menuItem = new $.ArgosMenuItem(this, dropdownLines[l], dropdownLines[l + 1]);
                     // Skip alternate line
                     l++;
