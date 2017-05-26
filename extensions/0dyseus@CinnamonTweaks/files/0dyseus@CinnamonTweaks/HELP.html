@@ -396,6 +396,7 @@ pre {
 <select class="form-control" id="localization-switch" onchange="self.toggleLocalizationVisibility(value, this);">
 <!-- English --><option selected data-title="Help for Cinnamon Tweaks" data-language-chooser-label="Choose language" value="en">English</option>
 <!-- Español --><option data-title="Ayuda para Cinnamon Tweaks" data-language-chooser-label="Elegir idioma" value="es">Español</option>
+<!-- Svenska --><option data-title="Hjälp för Cinnamon Tweaks" data-language-chooser-label="Välj språk" value="sv">Svenska</option>
 <!-- 语言名称 --><option data-title="Cinnamon Tweaks的帮助" data-language-chooser-label="选择语言" value="zh_CN">语言名称</option>
 </select>
 </div> <!-- .localization-chooser -->
@@ -724,6 +725,170 @@ Algunos ajustes tienen advertencias, dependencias, limitaciones y/o problemas co
 <li>Si este xlet se instaló desde Configuración de Cinnamon, todas las localizaciones de este xlet se instalaron automáticamente.</li>
 <li>Si este xlet se instaló manualmente y no a través de Configuración de Cinnamon, las localizaciones se pueden instalar ejecutando el archivo llamado <strong>localizations.sh</strong> desde una terminal abierta dentro de la carpeta del xlet.</li>
 <li>Si este xlet no está disponible en su idioma, la localización puede ser creada siguiendo las siguientes instrucciones. <a href="https://github.com/Odyseus/CinnamonTools/wiki/Xlet-localization">Wiki</a></li>
+</ul>
+
+</div> <!-- .localization-content -->
+
+
+<div id="sv" class="localization-content hidden">
+
+<h1>Hjälp för Cinnamon Tweaks</h1>
+
+<div style="font-weight:bold;" class="alert alert-warning">
+<h2>VIKTIGT!!!</h2>
+
+<p>Ta aldrig bort någon av filerna i den här xlet-mappen. Det kan förstöra programmets funktioner.</p>
+
+<p>Felrapporter, funktionsönskemål och kodbidrag kan lämnas i denna xlets kodförråd, på följande länk. <a href="https://github.com/Odyseus/CinnamonTools">GitHub</a></p>
+
+</div>
+<hr>
+
+<h2>Tilläggsalternativ</h2>
+<p><span style="color:red;font-weight: bold;font-size: large;">
+Vissa justeringar har varningar, beroenden, begränsningar och kända problem som man måste känna till innan en justering aktiveras. Inget att oroa sig för, inget *allvarligt* kan hända.
+</span></p>
+<h3>Justera panel-/skrivbordsprogram</h3>
+<ul>
+<li><strong>Bekräfta borttagning av panel-/skrivbordsprogram:</strong> Istället för att direkt  ta bort panel-/skrivbordsprogrammet från kontextmenyn, måste det först bekräftas. Detta alternativ påverkar inte borttagning av panel-/skrivbordsprogram från hanteraren i Cinnamons inställningar (behöver inte bekräftas).</li>
+<li><strong>Visa "Öppna panel-/skrivbordsprogrammets mapp" i kontextmenyn för panel-/skrivbordsprogram</strong> &amp; <strong>Visa "Redigera panel-/skrivbordsprogrammets huvudfil" i kontextmenyn för panel-/skrivbordsprogram:</strong> Dessa alternativ lägger till nya menyposter i panel-/skrivbordsprogrammens kontextmeny. Placeringen i menyn, bestäms av alternativet <strong>Var skall menyposten placeras?</strong>.</li>
+</ul>
+<h3>Justering av aktiva hörn</h3>
+<p>Denna justering är tillgänglig endast för Cinnamon-versioner lägre än 3.2. Cinnamon 3.2.x har redan möjligheter till fördröjd aktivering av aktiva hörn.</p>
+<ul>
+<li><strong>Aktiveringsfördröjning för övre vänstra hörnet:</strong> Kristallklar.</li>
+<li><strong>Aktiveringsfördröjning för övre högra hörnet:</strong> Kristallklar.</li>
+<li><strong>Aktiveringsfördröjning för undre vänstra hörnet:</strong> Kristallklar.</li>
+<li><strong>Aktiveringsfördröjning för undre högra hörnet:</strong> Kristallklar.</li>
+</ul>
+<h3>Justera skrivbordsområdet</h3>
+<ul>
+<li><strong>Aktivera programsläpp på skrivbordet:</strong> Med denna justering aktiverad, kan du dra och släppa program från panelmenyn och från programstartaren till skrivbordet.</li>
+</ul>
+<h3>Justera popup-menyer</h3>
+<h5>Beteende för panelmenyer</h5>
+<p><strong>Notis:</strong> Denna inställning påverkar endast menyer tillhörande panelprogram.</p>
+<ul>
+<li><strong>Emulera Gnome Shell-beteendet:</strong> När en meny öppnas i Gnome och muspekaren sedan flyttas till en annan knapp i toppanelen, öppnas den hovrade knappens meny automatiskt, utan att klicka på den. Med detta alternativ aktiverat, får du samma beteende i Cinnamon.</li>
+<li><strong>Ät inte klick:</strong> Standardbeteendet när man öppnar en panelmeny i Cinnamon och sedan klickar på ett annat panelprogram för att öppna den menyn, är att det första klicket används för att stänga den först öppnade menyn och man måste sedan klicka igen, för att öppna den andra menyn. Med detta alternativ aktiverat, kan man direkt öppna en andra meny, även om en annan meny redan är öppen.</li>
+</ul>
+<h3>Justera verktygsbeskrivningar</h3>
+<ul>
+<li><strong>Undvik att muspekaren överlappar verktygsbeskrivningar:</strong> Verktygsbeskrivningar i Cinnamon,  anpassas mot muspekarens övre vänsterhörn. Detta kan leda till att muspekaren överlappar verktygsbeskrivningen. Denna justering anpassar verktygsbeskrivningen mot muspekarens undre högerhörn (ungefärligt) och reducerar risken för överlappning. Denna justering är endast tillgänglig i Cinnamon-versioner lägre än 3.2. Cinnamon 3.2.x har redan ändrad position på verktygsbeskrivningar.</li>
+<li><strong>Fördröjd visning av verktygsbeskrivningar:</strong> Kristallklar.</li>
+</ul>
+<h3>Justera aviseringar</h3>
+<ul>
+<li><strong>Aktivera animering av aviseringsrutor:</strong> Kristallklar.</li>
+<li><strong>Aviseringsposition:</strong> Aviseringar kan visas i skärmens övre högra hörn (systemstandard), eller i undre högra hörnet.</li>
+<li><strong>Avstånd från panelen:</strong><ul>
+<li><strong>För aviseringar som visas i övre högra skärmhörnet:</strong> Detta är avståndet mellan underkant på toppanelen (skärmens överkant om toppanel saknas) och överkant på aviseringsrutan.</li>
+<li><strong>För aviseringar som visas i undre högra skärmhörnet:</strong> Detta är avståndet mellan överkant på bottenpanelen (skärmens underkant om bottenpanel saknas) och underkant på aviseringsrutan.</li>
+</ul>
+</li>
+<li><strong>Högermarginal för aviseringsrutor:</strong> Som standard anges högermarginalen för aviseringsrutor av det aktuella temat. Om detta alternativ anges som något annat än 0 (noll), ställer du in en anpassad högermarginal och åsidosätter den som definieras av temat.</li>
+</ul>
+<h3>Justera fönsterfokus</h3>
+<p>Justering baserad på ett Gnome-tillägg kallat <a href="https://github.com/v-dimitrov/gnome-shell-extension-stealmyfocus">Steal My Focus</a> av <a href="https://github.com/v-dimitrov">Valentin Dimitrov</a> och ett annat Gnome-tillägg kallat <a href="https://github.com/awamper/window-demands-attention-shortcut">Window Demands Attention Shortcut</a> av <a href="https://github.com/awamper">awamper</a>.</p>
+<p>Vissa fönster som kräver uppmärksamhet får inte fokus, oavsett inställningskombination i Cinnamons inställningar. Detta alternativ låter dig korrigera det.</p>
+<ul>
+<li><strong>Aktivering av fönster som kräver uppmärksamhet...:</strong><ul>
+<li><strong>...hanteras av systemet:</strong> Kristallklar.</li>
+<li><strong>...sker omedelbart:</strong> sätter omedelbart fokus på fönster som kräver uppmärksamhet.</li>
+<li><strong>...utförs med en tangentbordsgenväg:</strong> sätter fokus på fönster som kräver uppmärksamhet, med en tangentbordsgenväg.</li>
+</ul>
+</li>
+<li><strong>Tangentbordsgenväg:</strong> Ange en tangentbordsgenväg för alternativet <strong>utförs med en tangentbordsgenväg</strong>.</li>
+</ul>
+<h3>Justera fönsterskuggor</h3>
+<p>Justering baserad på ett Cinnamon-tillägg kallat <a href="https://cinnamon-spices.linuxmint.com/extensions/view/43">Custom Shadows</a> skapat av <a href="https://github.com/mikhail-ekzi">mikhail-ekzi</a>. Det låter oss modifiera skuggor som används av Cinnamons fönsterhanterare (Muffin).</p>
+<p><strong>Notis:</strong> Programfönster dekorerade av klientsidan, påverkas inte av denna justering.</p>
+<h5>Förinställd skugga</h5>
+<ul>
+<li><strong>Anpassad skugga</strong></li>
+<li><strong>Standardskugga</strong></li>
+<li><strong>Ingen skugga</strong></li>
+<li><strong>Windows 10-skugga</strong></li>
+</ul>
+<h3>Flytta fönster automatiskt</h3>
+<p>Justering baserad på ett Gnome-tillägg kallat <a href="https://extensions.gnome.org/extension/16/auto-move-windows/">Auto Move Windows</a> av <a href="https://github.com/fmuellner">Florian Muellner</a>. Det låter oss ange regler för att automatiskt öppna angivna program på specifik arbetsyta.</p>
+<p><strong>Notis:</strong> Om programmet du vill välja inte visas i programväljardialogen, kan du konsultera den här hjälpfilens sektion <strong>Program som inte visas i programväljardialoger</strong>.</p>
+<h3>Borttagning av fönsterdekorationer</h3>
+<p>Justering baserad på tillägget kallat <a href="https://cinnamon-spices.linuxmint.com/extensions/view/29">Cinnamon Maximus</a> av <a href="https://github.com/fatihmete">Fatih Mete</a> med några alternativ från gnome-tillägget <a href="https://github.com/luispabon/maximus-gnome-shell">Maximus NG</a> av <a href="https://github.com/luispabon">Luis Pabon</a>. Denna justering låter oss ta bort fönsterdekorationer från maximerade, halvmaximerade, och storleksanpassade fönster.</p>
+<p><strong>Notis:</strong> Om programmet du vill välja inte visas i programväljardialogen, kan du konsultera den här hjälpfilens sektion <strong>Program som inte visas i programväljardialoger</strong>.</p>
+<h4>Beroenden</h4>
+<p>För att fungera kräver den här justeringen att två kommandon finns tillgängliga i systemet (<strong>xprop</strong> och <strong>xwininfo</strong>)</p>
+<ul>
+<li>Debian-baserade distributioner: Dessa kommandon tillhandahålls av paketet <strong>x11-utils</strong>. Linux Mint har redan detta paket installerat.</li>
+<li>Archlinux-baserade distributioner: Dessa kommandon tillhandahålls av paketen <strong>xorg-xprop</strong> och <strong>xorg-xwininfo</strong>.</li>
+<li>Fedora-baserade distributioner: Dessa kommandon tillhandahålls av paketet <strong>xorg-x11-utils</strong>.</li>
+</ul>
+<h4>Varningar</h4>
+<ul>
+<li>Programfönster dekorerade av klientsidan och WINE-program, påverkas inte av denna justering.</li>
+<li>Stäng alla fönster som tillhör de program som skall läggas till i programlistan, innan du tillämpar inställningarna i den här justeringen.</li>
+<li>Som generell regel för att undvika problem, bör du stänga alla öppna fönster innan du aktiverar och konfigurerar denna justering och sedan logga ut/in när du är klar.</li>
+</ul>
+<h4>Kända problem</h4>
+<ul>
+<li><strong>Osynliga fönster:</strong> Ibland kan programfönster som konfigurerats att ta bort dekorationen, bli osynliga. Programikonen kan fortfarande ses i panelen (aktivitetsfältet) och när den klickas för att fokusera respektive fönster, blockerar det osynliga fönstret klicken som om det var synligt. För att fixa detta, måste fönstret avmaximeras (det blir då synligt igen) och sedan stängas. När det öppnas igen, bör det uppföra sig normalt.</li>
+<li><strong>Programfönster som fastnat utan dekoration:</strong> Ibland kan ett programfönster fastna i odekorerat läge efter återgång från maximering. Omstart av programmet återställer förmågan att ta bort och återställa dekorationen.</li>
+</ul>
+<h4>Alternativ</h4>
+<p>Det finns ett alternativt sätt att dölja namnfältet på absolut alla maximerade fönster, utan undantag. Genom att redigera ditt Metacity-tema (fönsterdekorationstemat). Det fungerar oändligt mycket bättre och utan något av de problem som denna justering i tilläggsmodulen har.</p>
+<ul>
+<li>Gå till "/sökväg/till/ditt/tema/metacity-1" och redigera filen <strong>metacity-theme-3.xml</strong> med valfri textredigerare. Om filen inte finns i ditt tema, bör det finnas en som heter <strong>metacity-theme-2.xml</strong> eller <strong>metacity-theme-1.xml</strong>. Välj den med högst nummer.</li>
+<li>Hitta <strong>frame_geometry</strong>-elementet kallat <strong>max</strong> (eller <strong>maximized</strong> eller <strong>normal_max</strong> eller <strong>normal_maximized</strong>). Det exakta namnet kan variera beroende på tema.</li>
+<li>I grund och botten måste man ange elementattributet <strong>has_title</strong> som falskt och sedan ställa in alla egenskapsstorlekar som 0 (noll). Vissa teman kan kräva att man lägger till fler egenskaper och anger dem som 0 (noll), för att helt bli av med namnfältet.</li>
+<li>Nedan hittar du exempel på hur du redigerar Metacity-teman som hittas i <strong>Mint-X</strong>- och <strong>Mint-Y</strong>-teman.</li>
+</ul>
+<h5>För Metacity-temat som hittas i Mint-X-temat</h5>
+<pre><code class="lang-xml">&lt;frame_geometry name=&quot;maximized&quot; has_title=&quot;false&quot; title_scale=&quot;medium&quot; parent=&quot;normal&quot; rounded_top_left=&quot;false&quot; rounded_top_right=&quot;false&quot;&gt;
+    &lt;distance name=&quot;right_width&quot; value=&quot;0&quot; /&gt;
+    &lt;distance name=&quot;left_titlebar_edge&quot; value=&quot;0&quot;/&gt;
+    &lt;distance name=&quot;right_titlebar_edge&quot; value=&quot;0&quot;/&gt;
+    &lt;distance name=&quot;title_vertical_pad&quot; value=&quot;0&quot;/&gt;
+    &lt;border name=&quot;title_border&quot; left=&quot;0&quot; right=&quot;0&quot; top=&quot;0&quot; bottom=&quot;0&quot;/&gt;
+    &lt;border name=&quot;button_border&quot; left=&quot;0&quot; right=&quot;0&quot; top=&quot;0&quot; bottom=&quot;0&quot;/&gt;
+    &lt;distance name=&quot;bottom_height&quot; value=&quot;0&quot; /&gt;
+&lt;/frame_geometry&gt;
+</code></pre>
+<h5>För Metacity-temat som hittas i Mint-Y-temat</h5>
+<pre><code class="lang-xml">&lt;frame_geometry name=&quot;max&quot; has_title=&quot;false&quot; title_scale=&quot;medium&quot; parent=&quot;normal&quot; rounded_top_left=&quot;false&quot; rounded_top_right=&quot;false&quot;&gt;
+    &lt;distance name=&quot;right_width&quot; value=&quot;0&quot; /&gt;
+    &lt;distance name=&quot;left_titlebar_edge&quot; value=&quot;0&quot;/&gt;
+    &lt;distance name=&quot;right_titlebar_edge&quot; value=&quot;0&quot;/&gt;
+    &lt;distance name=&quot;title_vertical_pad&quot; value=&quot;0&quot;/&gt;
+    &lt;border name=&quot;title_border&quot; left=&quot;0&quot; right=&quot;0&quot; top=&quot;0&quot; bottom=&quot;0&quot;/&gt;
+    &lt;border name=&quot;button_border&quot; left=&quot;0&quot; right=&quot;0&quot; top=&quot;0&quot; bottom=&quot;0&quot;/&gt;
+    &lt;distance name=&quot;bottom_height&quot; value=&quot;0&quot; /&gt;
+    &lt;distance name=&quot;button_width&quot; value=&quot;0&quot;/&gt;
+    &lt;distance name=&quot;button_height&quot; value=&quot;0&quot;/&gt;
+&lt;/frame_geometry&gt;
+</code></pre>
+<hr>
+<h2>Allmänna tilläggsproblem</h2>
+<h3>Program som inte visas i programväljardialoger</h3>
+<p>Programväljardialogen som används i det här tilläggets inställningar, listar endast de program som har tillgängliga .desktop-filer. Helt enkelt för att dessa program är de enda som kan hanteras av de justeringar som kräver ett applikations-ID (<strong>Flytta fönster automatiskt</strong> och <strong>Borttagning av fönsterdekorationer</strong>).</p>
+<p>Om man följer <a href="https://specifications.freedesktop.org/desktop-entry-spec/latest/index.html">Desktop Entry Specification</a>, kan man skapa en .desktop-fil för ett program som inte visas i programlistan.</p>
+<hr>
+<h2>Inställningsfönster för tilläggsmoduler</h2>
+<p>Från denna tilläggsmoduls inställningsfönster kan alla alternativ importeras, exporteras och/eller återställas till standardinställning.</p>
+<ul>
+<li>För att kunna utföra någon av dessa åtgärder, måste inställningsschemat installeras i systemet. Detta görs automatiskt när tillägget installeras från Cinnamons tilläggshanterare, men om tillägget installeras manuellt, måste också inställningsschemat installeras manuellt. Detta görs genom att gå till tilläggets installationsmapp och köra följande kommando:<ul>
+<li>Kommando för att installera inställningsschema: <code>./settings.py install-schema</code></li>
+<li>Kommando för att avinstallera inställningsschema: <code>./settings.py remove-schema</code></li>
+</ul>
+</li>
+<li>För att importera/exportera inställningar, måste <strong>dconf</strong>-kommandot finnas tillgängligt i systemet.</li>
+</ul>
+<hr>
+
+<h2>Applets/Desklets/Extensions (xlets) översättning</h2>
+<ul>
+<li>Om denna xlet installerades från Cinnamons inställningar, installerades också alla översättningar automatiskt.</li>
+<li>Om denna xlet installerades manuellt och inte via Cinnamons inställningar, kan översättningar installeras genom att köra skriptet <strong>localizations.sh</strong> från en terminal öppnad i programmappen.</li>
+<li>Om ditt språk saknas i denna xlet, kan du översätta den genom följande instruktioner. <a href="https://github.com/Odyseus/CinnamonTools/wiki/Xlet-localization">Wiki</a></li>
 </ul>
 
 </div> <!-- .localization-content -->
