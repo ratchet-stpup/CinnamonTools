@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 0.3.4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-05-13 20:35-0300\n"
-"PO-Revision-Date: 2017-05-13 00:13-0300\n"
+"POT-Creation-Date: 2017-05-25 21:22-0300\n"
+"PO-Revision-Date: 2017-05-25 21:23-0300\n"
 "Last-Translator: Odyseus\n"
 "Language-Team: \n"
 "Language: es\n"
@@ -18,104 +18,18 @@ msgstr ""
 "X-Generator: Poedit 1.8.7.1\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#. TO TRANSLATORS: This is a placeholder.
-#. Here goes your language name in your own language (a.k.a. endonym).
-#: ../../create_localized_help.py:119 ../../create_localized_help.py:201
-#: ../../create_localized_help.py:203 ../../create_localized_help.py:94
-#: ../../create_localized_help.py:163
-msgid "language-name"
-msgstr "Español"
-
-#: ../../create_localized_help.py:204 ../../create_localized_help.py:206
-#: ../../create_localized_help.py:166
-msgid "Choose language"
-msgstr "Elegir idioma"
-
-#. TO TRANSLATORS: {xlet_name} is a Python placeholder. Do not modify.
-#. TO TRANSLATORS: Full sentence:
-#. "Help for <xlet_name>"
-#: ../../create_localized_help.py:205 ../../create_localized_help.py:211
-#: ../../create_localized_help.py:207 ../../create_localized_help.py:213
-#: ../../create_localized_help.py:214
-#, python-brace-format
-msgid "Help for {xlet_name}"
-msgstr "Ayuda para {xlet_name}"
-
-#: ../../create_localized_help.py:212 ../../create_localized_help.py:214
-#: ../../create_localized_help.py:215 ../../create_localized_help.py:175
-msgid "IMPORTANT!!!"
-msgstr "¡IMPORTANTE!"
-
-#: ../../create_localized_help.py:213 ../../create_localized_help.py:215
-#: ../../create_localized_help.py:216 ../../create_localized_help.py:176
+#. 0dyseus@CinnamonMaximusFork->settings-schema.json->pref_logging_enabled->tooltip
 msgid ""
-"Never delete any of the files found inside this xlet folder. It might break "
-"this xlet functionality."
+"If enabled, it will log to the Cinnamon log (~/.cinnamon/glass.log) "
+"information that could be used to debug the extension."
 msgstr ""
-"Jamás borrar ninguno de los archivos encontrados dentro de la carpeta de "
-"este xlet. Podría romper la funcionalidad del xlet."
+"Con esta opción activada, se registrará en el registro de Cinnamon (~/."
+"cinnamon/glass.log) información que se podría utilizar para depurar la "
+"extensión."
 
-#: ../../create_localized_help.py:214 ../../create_localized_help.py:216
-#: ../../create_localized_help.py:217 ../../create_localized_help.py:177
-msgid ""
-"Bug reports, feature requests and contributions should be done on this "
-"xlet's repository linked next."
-msgstr ""
-"Los reportes de fallos, peticiones de características y contribuciones deben "
-"hacerse en el repositorio de este xlet vinculado a continuación."
-
-#: ../../create_localized_help.py:220 ../../create_localized_help.py:222
-#: ../../create_localized_help.py:223 ../../create_localized_help.py:183
-msgid "Applets/Desklets/Extensions (a.k.a. xlets) localization"
-msgstr ""
-"Localización de applets/desklets/extensiones (también conocidos como xlets)"
-
-#: ../../create_localized_help.py:221 ../../create_localized_help.py:223
-#: ../../create_localized_help.py:224 ../../create_localized_help.py:184
-msgid ""
-"If this xlet was installed from Cinnamon Settings, all of this xlet's "
-"localizations were automatically installed."
-msgstr ""
-"Si este xlet se instaló desde Configuración de Cinnamon, todas las "
-"localizaciones de este xlet se instalaron automáticamente."
-
-#. TO TRANSLATORS: MARKDOWN string. Respect formatting.
-#: ../../create_localized_help.py:223 ../../create_localized_help.py:225
-#: ../../create_localized_help.py:226 ../../create_localized_help.py:186
-msgid ""
-"If this xlet was installed manually and not trough Cinnamon Settings, "
-"localizations can be installed by executing the script called "
-"**localizations.sh** from a terminal opened inside the xlet's folder."
-msgstr ""
-"Si este xlet se instaló manualmente y no a través de Configuración de "
-"Cinnamon, las localizaciones se pueden instalar ejecutando el archivo "
-"llamado **localizations.sh** desde una terminal abierta dentro de la carpeta "
-"del xlet."
-
-#: ../../create_localized_help.py:224 ../../create_localized_help.py:226
-#: ../../create_localized_help.py:227 ../../create_localized_help.py:187
-msgid ""
-"If this xlet has no locale available for your language, you could create it "
-"by following the following instructions."
-msgstr ""
-"Si este xlet no está disponible en su idioma, la localización puede ser "
-"creada siguiendo las siguientes instrucciones."
-
-#. 0dyseus@CinnamonMaximusFork->metadata.json->contributors
-msgid "muzena: Croatian localization."
-msgstr "muzena: Localización Croata."
-
-#. 0dyseus@CinnamonMaximusFork->metadata.json->contributors
-msgid "giwhub: Chinese localization."
-msgstr "giwhub: Localización China."
-
-#. 0dyseus@CinnamonMaximusFork->metadata.json->name
-msgid "Cinnamon Maximus (Fork by Odyseus)"
-msgstr "Cinnamon Maximus (Fork by Odyseus)"
-
-#. 0dyseus@CinnamonMaximusFork->metadata.json->description
-msgid "Remove windows decorations from maximized windows."
-msgstr "Eliminar decoraciones de ventanas maximizadas."
+#. 0dyseus@CinnamonMaximusFork->settings-schema.json->pref_logging_enabled->description
+msgid "Enable logging"
+msgstr "Habilitar el registro de sucesos"
 
 #. 0dyseus@CinnamonMaximusFork->settings-schema.json->pref_undecorate_all->description
 msgid ""
@@ -124,9 +38,9 @@ msgstr ""
 "Remover decoraciones de todas las ventanas (Experimental. Por favor, cerrar "
 "y re-abrir todas las ventanas)"
 
-#. 0dyseus@CinnamonMaximusFork->settings-schema.json->pref_whitelist->description
-msgid "Use Whitelist"
-msgstr "Usar lista blanca"
+#. 0dyseus@CinnamonMaximusFork->settings-schema.json->pref_undecorate_when_tiled->description
+msgid "Undecorate when tiled"
+msgstr "Eliminar decoraciones de ventanas ancladas."
 
 #. 0dyseus@CinnamonMaximusFork->settings-schema.json->pref_whitelist->tooltip
 msgid ""
@@ -139,22 +53,25 @@ msgstr ""
 "Si está desactivada, todas las ventanas maximizadas tendrán sus decoraciones "
 "eliminadas."
 
-#. 0dyseus@CinnamonMaximusFork->settings-schema.json->pref_logging_enabled->description
-msgid "Enable logging"
-msgstr "Habilitar el registro de sucesos"
+#. 0dyseus@CinnamonMaximusFork->settings-schema.json->pref_whitelist->description
+msgid "Use Whitelist"
+msgstr "Usar lista blanca"
 
-#. 0dyseus@CinnamonMaximusFork->settings-schema.json->pref_logging_enabled->tooltip
+#. 0dyseus@CinnamonMaximusFork->settings-schema.json->pref_restart_cinnamon->tooltip
 msgid ""
-"If enabled, it will log to the Cinnamon log (~/.cinnamon/glass.log) "
-"information that could be used to debug the extension."
+"Check or uncheck this options to restart Cinnamon.\n"
+"Note: I couldn't make a proper button to work in this settings window, so I "
+"had to improvise and I had to use a checkbox. It doesn't really matter if "
+"it's checked or unchecked."
 msgstr ""
-"Con esta opción activada, se registrará en el registro de Cinnamon (~/."
-"cinnamon/glass.log) información que se podría utilizar para depurar la "
-"extensión."
+"Activar o desactivar esta opción para reiniciar Cinnamon.\n"
+"Note: No pude hacer funcionar un botón en esta ventana de configuración, así "
+"que tuve que improvisar y tuve que utilizar una casilla de verificación. "
+"Realmente no importa si está activada o desactivada."
 
-#. 0dyseus@CinnamonMaximusFork->settings-schema.json->pref_undecorate_when_tiled->description
-msgid "Undecorate when tiled"
-msgstr "Eliminar decoraciones de ventanas ancladas."
+#. 0dyseus@CinnamonMaximusFork->settings-schema.json->pref_restart_cinnamon->description
+msgid "Check or uncheck to restart Cinnamon"
+msgstr "Activar o desactivar para reiniciar Cinnamon"
 
 #. 0dyseus@CinnamonMaximusFork->settings-schema.json->head1->description
 msgid "Cinnamon Maximus (Fork by Odyseus) Settings"
@@ -176,26 +93,92 @@ msgstr ""
 msgid "List of applications: "
 msgstr "Lista de aplicaciones: "
 
-#. 0dyseus@CinnamonMaximusFork->settings-schema.json->pref_restart_cinnamon->description
-msgid "Check or uncheck to restart Cinnamon"
-msgstr "Activar o desactivar para reiniciar Cinnamon"
+#. 0dyseus@CinnamonMaximusFork->metadata.json->contributors
+msgid "Alan01: Danish localization."
+msgstr "Alan01: Localización Danesa."
 
-#. 0dyseus@CinnamonMaximusFork->settings-schema.json->pref_restart_cinnamon->tooltip
-msgid ""
-"Check or uncheck this options to restart Cinnamon.\n"
-"Note: I couldn't make a proper button to work in this settings window, so I "
-"had to improvise and I had to use a checkbox. It doesn't really matter if "
-"it's checked or unchecked."
-msgstr ""
-"Activar o desactivar esta opción para reiniciar Cinnamon.\n"
-"Note: No pude hacer funcionar un botón en esta ventana de configuración, así "
-"que tuve que improvisar y tuve que utilizar una casilla de verificación. "
-"Realmente no importa si está activada o desactivada."
+#. 0dyseus@CinnamonMaximusFork->metadata.json->contributors
+msgid "giwhub: Chinese localization."
+msgstr "giwhub: Localización China."
+
+#. 0dyseus@CinnamonMaximusFork->metadata.json->contributors
+msgid "muzena: Croatian localization."
+msgstr "muzena: Localización Croata."
+
+#. 0dyseus@CinnamonMaximusFork->metadata.json->name
+msgid "Cinnamon Maximus (Fork by Odyseus)"
+msgstr "Cinnamon Maximus (Fork by Odyseus)"
+
+#. 0dyseus@CinnamonMaximusFork->metadata.json->description
+msgid "Remove windows decorations from maximized windows."
+msgstr "Eliminar decoraciones de ventanas maximizadas."
+
+#. TO TRANSLATORS: This is a placeholder.
+#. Here goes your language name in your own language (a.k.a. endonym).
+#: ../../create_localized_help.py:94 ../../create_localized_help.py:163
+msgid "language-name"
+msgstr "Español"
+
+#: ../../create_localized_help.py:166
+msgid "Choose language"
+msgstr "Elegir idioma"
 
 #. TO TRANSLATORS: Full sentence:
 #. "Help for <xlet_name>"
-#: ../../create_localized_help.py:207 ../../create_localized_help.py:214
 #: ../../create_localized_help.py:167 ../../create_localized_help.py:174
 #, python-format
 msgid "Help for %s"
 msgstr "Ayuda para %s"
+
+#: ../../create_localized_help.py:175
+msgid "IMPORTANT!!!"
+msgstr "¡IMPORTANTE!"
+
+#: ../../create_localized_help.py:176
+msgid ""
+"Never delete any of the files found inside this xlet folder. It might break "
+"this xlet functionality."
+msgstr ""
+"Jamás borrar ninguno de los archivos encontrados dentro de la carpeta de "
+"este xlet. Podría romper la funcionalidad del xlet."
+
+#: ../../create_localized_help.py:177
+msgid ""
+"Bug reports, feature requests and contributions should be done on this "
+"xlet's repository linked next."
+msgstr ""
+"Los reportes de fallos, peticiones de características y contribuciones deben "
+"hacerse en el repositorio de este xlet vinculado a continuación."
+
+#: ../../create_localized_help.py:183
+msgid "Applets/Desklets/Extensions (a.k.a. xlets) localization"
+msgstr ""
+"Localización de applets/desklets/extensiones (también conocidos como xlets)"
+
+#: ../../create_localized_help.py:184
+msgid ""
+"If this xlet was installed from Cinnamon Settings, all of this xlet's "
+"localizations were automatically installed."
+msgstr ""
+"Si este xlet se instaló desde Configuración de Cinnamon, todas las "
+"localizaciones de este xlet se instalaron automáticamente."
+
+#. TO TRANSLATORS: MARKDOWN string. Respect formatting.
+#: ../../create_localized_help.py:186
+msgid ""
+"If this xlet was installed manually and not trough Cinnamon Settings, "
+"localizations can be installed by executing the script called "
+"**localizations.sh** from a terminal opened inside the xlet's folder."
+msgstr ""
+"Si este xlet se instaló manualmente y no a través de Configuración de "
+"Cinnamon, las localizaciones se pueden instalar ejecutando el archivo "
+"llamado **localizations.sh** desde una terminal abierta dentro de la carpeta "
+"del xlet."
+
+#: ../../create_localized_help.py:187
+msgid ""
+"If this xlet has no locale available for your language, you could create it "
+"by following the following instructions."
+msgstr ""
+"Si este xlet no está disponible en su idioma, la localización puede ser "
+"creada siguiendo las siguientes instrucciones."
