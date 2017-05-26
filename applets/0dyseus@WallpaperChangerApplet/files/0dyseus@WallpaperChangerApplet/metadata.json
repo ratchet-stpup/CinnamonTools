@@ -8,7 +8,8 @@
     "uuid": "0dyseus@WallpaperChangerApplet",
     "contributors": [
         "Eric Gach: Author of Desk Changer gnome-shell extension. https://github.com/BigE/desk-changer",
-        "eson57: Swedish localization."
+        "eson57: Swedish localization.",
+        "giwhub: Chinese localization."
     ],
     "max-instances": 1,
     "description": "Cinnamon wallpaper slideshow applet with multiple profiles support.",
