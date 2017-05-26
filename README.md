@@ -2,7 +2,7 @@
 
 ### Applets, Extensions and Themes for the Cinnamon Desktop Environment
 
-All this applets/extensions/themes can be installed directly from Cinnamon's applet/extension/theme managers.
+All these applets/extensions/themes can be installed directly from Cinnamon's applet/extension/theme managers.
 
 #### My Cinnamon Applets
 - [<img height="18" width="18" src="https://odyseus.github.io/CinnamonTools/lib/img/download.svg">](https://odyseus.github.io/CinnamonTools/pkg/0dyseus@CustomCinnamonMenu.tar.gz "Download this applet for manual installation") [<img height="18" width="18" src="https://odyseus.github.io/CinnamonTools/lib/img/cinnamon-logo.svg">](https://cinnamon-spices.linuxmint.com/applets/view/264 "Go to this applet Spices page") **Custom Cinnamon Menu:** A menu for Cinnamon based on the original but more configurable.

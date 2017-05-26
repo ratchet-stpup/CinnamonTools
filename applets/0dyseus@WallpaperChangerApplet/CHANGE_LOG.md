@@ -4,6 +4,31 @@
 
 ***
 
+- **Date:** Fri, 26 May 2017 19:58:32 -0300
+- **Commit:** [70bee00](https://github.com/Odyseus/CinnamonTools/commit/70bee00)
+- **Author:** Odyseus
+
+```
+Wallpaper Changer applet
+- Updated help file due to new localization.
+- Updated localization template.
+- Updated Spanish localization.
+
+```
+
+***
+
+- **Date:** Fri, 26 May 2017 17:42:24 +0800
+- **Commit:** [75a09ac](https://github.com/Odyseus/CinnamonTools/commit/75a09ac)
+- **Author:** giwhub
+
+```
+Create zh_CN.po
+
+```
+
+***
+
 - **Date:** Thu, 25 May 2017 07:32:47 -0300
 - **Commit:** [659b2fd](https://github.com/Odyseus/CinnamonTools/commit/659b2fd)
 - **Author:** Odyseus
