@@ -12,6 +12,7 @@ const Tooltips = imports.ui.tooltips;
 const Pango = imports.gi.Pango;
 const Main = imports.ui.main;
 const MessageTray = imports.ui.messageTray;
+const Util = imports.misc.util;
 
 const CINNAMON_VERSION = GLib.getenv("CINNAMON_VERSION");
 const CINN_2_8 = versionCompare(CINNAMON_VERSION, "2.8.8") <= 0;
@@ -1880,45 +1881,53 @@ ArgosMenuItem.prototype = {
                         argv = [
                             aApplet.pref_terminal_emulator,
                             "-e",
-                            GLib.shell_quote("bash -c " + GLib.shell_quote(activeLine.bash + "; exec bash"))
+                            "bash -c " + GLib.shell_quote(activeLine.bash + "; exec bash")
                         ];
                     }
                     // Used by the original extension:
                     // GLib.spawn_async(null, argv, null, GLib.SpawnFlags.SEARCH_PATH, null);
                     // Implemented TryExec so I can inform with a callback if there was an error
                     // when runnig the command.
-                    TryExec(
-                        argv.join(" "),
-                        null, //aOnStart
-                        function(aCmd) {
-                            informAboutMissingDependencies(
-                                _("Error executing command!!!") + "\n" +
-                                _("You might need to set up the correct terminal emulator from this applet settings window.")
-                                .format(AppletMeta.name),
-                                aCmd
-                            );
-                        }, //aOnFailure
-                        null, //aOnComplete
-                        null //aLogger
-                    );
+                    GLib.spawn_async(null, argv, null, GLib.SpawnFlags.SEARCH_PATH, null);
+
+                    // FIXME:
+                    // Come back to implement this function when Cinnamon 3.4 with CJS 3.4 stop being a (%/&&%).
+                    // TryExec(
+                    //     argv.join(" "),
+                    //     null, //aOnStart
+                    //     function(aCmd) {
+                    //         informAboutMissingDependencies(
+                    //             _("Error executing command!!!") + "\n" +
+                    //             _("You might need to set up the correct terminal emulator from this applet settings window.")
+                    //             .format(AppletMeta.name),
+                    //             aCmd
+                    //         );
+                    //     }, //aOnFailure
+                    //     null, //aOnComplete
+                    //     null //aLogger
+                    // );
                 }
 
                 if (activeLine.hasOwnProperty("href")) {
                     // On the original extension was:
                     // Gio.AppInfo.launch_default_for_uri(activeLine.href, null);
-                    TryExec(
-                        ["xdg-open", activeLine.href].join(" "),
-                        null, //aOnStart
-                        function(aCmd) {
-                            informAboutMissingDependencies(
-                                _("Error executing command!!!") + "\n" +
-                                _("A dependency might be missing!!!"),
-                                aCmd
-                            );
-                        }, //aOnFailure
-                        null, //aOnComplete
-                        null //aLogger
-                    );
+                    Util.spawn_async(["xdg-open", activeLine.href], null);
+
+                    // FIXME:
+                    // Come back to implement this function when Cinnamon 3.4 with CJS 3.4 stop being a (%/&&%).
+                    // TryExec(
+                    //     ["xdg-open", activeLine.href].join(" "),
+                    //     null, //aOnStart
+                    //     function(aCmd) {
+                    //         informAboutMissingDependencies(
+                    //             _("Error executing command!!!") + "\n" +
+                    //             _("A dependency might be missing!!!"),
+                    //             aCmd
+                    //         );
+                    //     }, //aOnFailure
+                    //     null, //aOnComplete
+                    //     null //aLogger
+                    // );
                 }
 
                 if (activeLine.hasOwnProperty("eval")) {
@@ -2379,54 +2388,65 @@ function versionCompare(v1, v2, options) {
     return 0;
 }
 
+/*
+The use of this function freezes Cinnamon 3.4 with CJS 3.4+.
+There aren't any errors reported anywhere!!! ¬¬
+Avoid its use for the moment until I figure out WTF is going on.
+ */
+
 // https://github.com/rjanja/desktop-capture/blob/master/capture%40rjanja/3.2/apputil.js
 function TryExec(aCmd, aOnStart, aOnFailure, aOnComplete, aLogger) {
-    let success, argv, pid, in_fd, out_fd, err_fd;
-    [success, argv] = GLib.shell_parse_argv(aCmd);
-
     try {
-        [success, pid, in_fd, out_fd, err_fd] = GLib.spawn_async_with_pipes(
-            null,
-            argv,
-            null,
-            GLib.SpawnFlags.SEARCH_PATH | GLib.SpawnFlags.DO_NOT_REAP_CHILD,
-            null);
-    } catch (aErr) {
-        typeof aLogger === "function" && aLogger("Failure creating process");
-        typeof aOnFailure === "function" && aOnFailure(aCmd);
-        return false;
-    }
+        let success, argv, pid, in_fd, out_fd, err_fd;
+        [success, argv] = GLib.shell_parse_argv(aCmd);
 
-    if (success && pid !== 0) {
-        let out_reader = new Gio.DataInputStream({
-            base_stream: new Gio.UnixInputStream({
-                fd: out_fd
-            })
-        });
-        // Wait for answer
-        typeof aLogger === "function" && aLogger("Spawned process with pid=" + pid);
-        typeof aOnStart === "function" && aOnStart(pid);
-        GLib.child_watch_add(GLib.PRIORITY_DEFAULT, pid,
-            function(pid, status) {
-                GLib.spawn_close_pid(pid);
-                let [line, size, buf] = [null, 0, ""];
+        try {
+            [success, pid, in_fd, out_fd, err_fd] = GLib.spawn_async_with_pipes(
+                null,
+                argv,
+                null,
+                GLib.SpawnFlags.SEARCH_PATH | GLib.SpawnFlags.DO_NOT_REAP_CHILD,
+                null,
+                null);
+        } catch (aErr) {
+            typeof aLogger === "function" && aLogger("Failure creating process");
+            typeof aOnFailure === "function" && aOnFailure(aCmd);
+            return;
+        }
 
-                while (([line, size] = out_reader.read_line(null)) !== null && line !== null) {
-                    buf += line;
-                }
-
-                if (buf.indexOf("Error during recording") > 0) {
-                    typeof aOnFailure === "function" && aOnFailure(aCmd);
-                } else {
-                    typeof aOnComplete === "function" && aOnComplete(status, buf);
-                }
+        if (success && pid !== 0) {
+            let out_reader = new Gio.DataInputStream({
+                base_stream: new Gio.UnixInputStream({
+                    fd: out_fd
+                })
             });
-    } else {
-        typeof aLogger === "function" && aLogger("Failed to spawn process");
-        typeof aOnFailure === "function" && aOnFailure(aCmd);
-    }
+            // Wait for answer
+            typeof aLogger === "function" && aLogger("Spawned process with pid=" + pid);
+            typeof aOnStart === "function" && aOnStart(pid);
+            GLib.child_watch_add(GLib.PRIORITY_DEFAULT, pid,
+                function(pid, status) {
+                    GLib.spawn_close_pid(pid);
+                    let [line, size, buf] = [null, 0, ""];
 
-    return true;
+                    while (([line, size] = out_reader.read_line(null)) !== null && line !== null) {
+                        buf += line;
+                    }
+
+                    if (buf.indexOf("Error during recording") > 0) {
+                        typeof aOnFailure === "function" && aOnFailure(aCmd);
+                    } else {
+                        typeof aOnComplete === "function" && aOnComplete(status, buf);
+                    }
+                });
+        } else {
+            typeof aLogger === "function" && aLogger("Failed to spawn process");
+            typeof aOnFailure === "function" && aOnFailure(aCmd);
+        }
+
+        return true;
+    } catch (aErr) {
+        global.logError(aErr);
+    }
 }
 
 function informAboutMissingDependencies(aMsg, aRes) {
@@ -2542,5 +2562,7 @@ function customNotify(aTitle, aBody, aIconName, aUrgency, aButtons) {
 
 /*
 exported parseLine,
-         spawnWithCallback
+         spawnWithCallback,
+         informAboutMissingDependencies,
+         TryExec
  */

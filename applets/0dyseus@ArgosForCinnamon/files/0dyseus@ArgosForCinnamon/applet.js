@@ -535,19 +535,23 @@ MyApplet.prototype = {
                 // The original Argos extension uses Gio.AppInfo.launch_default_for_uri
                 // to open the script file. I prefer to stay away from non asynchronous functions.
                 // Gio.AppInfo.launch_default_for_uri_async is still too new.
-                $.TryExec(
-                    ["xdg-open", this._file.get_path()].join(" "),
-                    null, //aOnStart
-                    function(aCmd) {
-                        $.informAboutMissingDependencies(
-                            _("Error executing command!!!") + "\n" +
-                            _("A dependency might be missing!!!"),
-                            aCmd
-                        );
-                    }, //aOnFailure
-                    null, //aOnComplete
-                    null //aLogger
-                );
+                Util.spawn_async(["xdg-open", this._file.get_path()], null);
+
+                // FIXME:
+                // Come back to implement this function when Cinnamon 3.4 with CJS 3.4 stop being a (%/&&%).
+                // $.TryExec(
+                //     ["xdg-open", this._file.get_path()].join(" "),
+                //     null, //aOnStart
+                //     function(aCmd) {
+                //         $.informAboutMissingDependencies(
+                //             _("Error executing command!!!") + "\n" +
+                //             _("A dependency might be missing!!!"),
+                //             aCmd
+                //         );
+                //     }, //aOnFailure
+                //     null, //aOnComplete
+                //     null //aLogger
+                // );
             }
         }));
         menuItem.tooltip = new $.CustomTooltip(
@@ -717,19 +721,23 @@ MyApplet.prototype = {
         );
         menuItem.tooltip = new $.CustomTooltip(menuItem.actor, _("Open this applet help file."));
         menuItem.connect("activate", Lang.bind(this, function() {
-            $.TryExec(
-                ["xdg-open", this.metadata.path + "/HELP.html"].join(" "),
-                null, //aOnStart
-                function(aCmd) {
-                    $.informAboutMissingDependencies(
-                        _("Error executing command!!!") + "\n" +
-                        _("A dependency might be missing!!!"),
-                        aCmd
-                    );
-                }, //aOnFailure
-                null, //aOnComplete
-                null //aLogger
-            );
+            Util.spawn_async(["xdg-open", this.metadata.path + "/HELP.html"], null);
+
+            // FIXME:
+            // Come back to implement this function when Cinnamon 3.4 with CJS 3.4 stop being a (%/&&%).
+            // $.TryExec(
+            //     ["xdg-open", this.metadata.path + "/HELP.html"].join(" "),
+            //     null, //aOnStart
+            //     function(aCmd) {
+            //         $.informAboutMissingDependencies(
+            //             _("Error executing command!!!") + "\n" +
+            //             _("A dependency might be missing!!!"),
+            //             aCmd
+            //         );
+            //     }, //aOnFailure
+            //     null, //aOnComplete
+            //     null //aLogger
+            // );
         }));
         subMenu.menu.addMenuItem(menuItem);
 
