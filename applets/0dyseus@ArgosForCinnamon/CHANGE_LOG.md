@@ -4,6 +4,18 @@
 
 ***
 
+- **Date:** Fri, 26 May 2017 04:50:19 -0300
+- **Commit:** [6eb7a9e](https://github.com/Odyseus/CinnamonTools/commit/6eb7a9e)
+- **Author:** Odyseus
+
+```
+Argos for Cinnamon
+- More tweaks/fixes to comply with Cinnamon 3.4.x with CJS 3.4.x installed.
+
+```
+
+***
+
 - **Date:** Fri, 26 May 2017 01:24:01 -0300
 - **Commit:** [a3ebb00](https://github.com/Odyseus/CinnamonTools/commit/a3ebb00)
 - **Author:** Odyseus
