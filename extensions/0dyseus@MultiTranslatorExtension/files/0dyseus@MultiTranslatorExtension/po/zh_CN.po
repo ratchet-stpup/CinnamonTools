@@ -1382,7 +1382,7 @@ msgstr "要导入/导出设置，**dconf**命令需要在系统上可用。"
 #. Here goes your language name in your own language (a.k.a. endonym).
 #: ../../create_localized_help.py:166 ../../create_localized_help.py:235
 msgid "language-name"
-msgstr "language-name"
+msgstr "简体中文"
 
 #: ../../create_localized_help.py:238
 msgid "Choose language"
