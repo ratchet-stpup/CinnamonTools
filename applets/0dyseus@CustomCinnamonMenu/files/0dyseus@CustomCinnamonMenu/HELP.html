@@ -396,6 +396,7 @@ pre {
 <select class="form-control" id="localization-switch" onchange="self.toggleLocalizationVisibility(value, this);">
 <!-- English --><option selected data-title="Help for Custom Cinnamon Menu" data-language-chooser-label="Choose language" value="en">English</option>
 <!-- Español --><option data-title="Ayuda para Custom Cinnamon Menu" data-language-chooser-label="Elegir idioma" value="es">Español</option>
+<!-- název jazyka --><option data-title="Nápověda pro Custom Cinnamon Menu" data-language-chooser-label="Zvolte jazyk" value="cs">název jazyka</option>
 <!-- Svenska --><option data-title="Hjälp för Custom Cinnamon Menu" data-language-chooser-label="Välj språk" value="sv">Svenska</option>
 <!-- 语言名称 --><option data-title="Custom Cinnamon Menu的帮助" data-language-chooser-label="选择语言" value="zh_CN">语言名称</option>
 </select>
@@ -573,6 +574,94 @@ pre {
 <li>Si este xlet se instaló desde Configuración de Cinnamon, todas las localizaciones de este xlet se instalaron automáticamente.</li>
 <li>Si este xlet se instaló manualmente y no a través de Configuración de Cinnamon, las localizaciones se pueden instalar ejecutando el archivo llamado <strong>localizations.sh</strong> desde una terminal abierta dentro de la carpeta del xlet.</li>
 <li>Si este xlet no está disponible en su idioma, la localización puede ser creada siguiendo las siguientes instrucciones. <a href="https://github.com/Odyseus/CinnamonTools/wiki/Xlet-localization">Wiki</a></li>
+</ul>
+
+</div> <!-- .localization-content -->
+
+
+<div id="cs" class="localization-content hidden">
+
+<h1>Nápověda pro Custom Cinnamon Menu</h1>
+
+<div style="font-weight:bold;" class="alert alert-warning">
+<h2>DŮLEŽITÉ!!!</h2>
+
+<p>Nikdy neodstraňujte soubory ze složky tohoto xletu. Mohlo by to narušit tuto funkčnost xletu.</p>
+
+<p>Zprávy o chybách, požadavky na funkce a příspěvky by měly být prováděny v repozitáři tohoto xletu, na který je odkaz dále. <a href="https://github.com/Odyseus/CinnamonTools">GitHub</a></p>
+
+</div>
+<hr>
+
+<h2>Navigace klávesnicí</h2>
+<p><strong>Poznámka:</strong> Téměř všechny klávesové zkratky v tomto menu jsou stejné jako v původním menu. Existuje jen pár rozdílů, které jsem musel přidat do svého menu, aby některé z jeho funkcí fungovaly.</p>
+<ul>
+<li>Klávesy <kbd>Šipka vlevo</kbd> a <kbd>Šipka vpravo</kbd>:<ul>
+<li>Cyklicky přepíná mezi oblíbenými položkami, aplikacemi a kategoriemi, pokud je zaměřena některá z těchto částí.</li>
+<li>Pokud je zaměřena oblast uživatelských spouštěčů, budete těmito klávesami procházet tlačítky v tomto boxu.</li>
+</ul>
+</li>
+<li>Klávesa <kbd>Tab</kbd>:<ul>
+<li>Pokud je zaměřena oblast oblíbených položek, aplikací nebo kategorií, klávesa <kbd>Tab</kbd> změní zaostření na oblast uživatelských spouštěčů.</li>
+<li>Pokud je zaměřena oblast uživatelských spouštěčů, zaostření se vrátí zpět na oblast kategorií.</li>
+<li>Není-li oblast uživatelských spouštěčů součástí menu, stiskem klávesy <kbd>Tab</kbd> nebo kláves <kbd>Ctrl</kbd> / <kbd>Shift</kbd> + <kbd>Tab</kbd> se bude cyklicky přepínat mezi oblíbenými položkami, aplikacemi a kategoriemi. </li>
+</ul>
+</li>
+<li>Klávesy <kbd>Šipka nahoru</kbd> a <kbd>Šipka dolů</kbd>:<ul>
+<li>Pokud je zaměřena oblast oblíbených položek, aplikací nebo kategorií, budou tyto klávesy procházet položky v aktuálně zvýrazněném poli.</li>
+<li>Pokud je zaměřena oblast uživatelských spouštěčů, zaostření se vrátí zpět na oblast kategorií.</li>
+</ul>
+</li>
+<li>Klávesy <kbd>Page Up</kbd> a <kbd>Page Down</kbd>: Přeskočí na první a poslední položku aktuálně vybraného pole. Nemá vliv na uživatelské spouštěče. </li>
+<li>Klávesy <kbd>Menu</kbd> nebo <kbd>Alt</kbd> + <kbd>Enter</kbd>: Otevře a zavře kontextové menu (pokud existuje) aktuálně zvýrazněné položky.</li>
+<li>Klávesa <kbd>Enter</kbd>: Spustí aktuálně zvýrazněnou položku.</li>
+<li>Klávesa <kbd>Escape</kbd>: Zavře hlavní menu. Pokud je otevřeno kontextové menu, zavře kontextovou nabídku a druhým stiskem tohoto tlačítka se zavře hlavní menu. </li>
+<li><kbd>Shift</kbd> + <kbd>Enter</kbd>: Spustí aplikaci jako root. Nemá vliv na uživatelské spouštěče.</li>
+<li><kbd>Ctrl</kbd> + <kbd>Enter</kbd>: Otevře terminál a spustí aplikaci odtud. Nemá vliv na uživatelské spouštěče.</li>
+<li><kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>Enter</kbd>: Otevře terminál a spustí aplikaci odtud, ale aplikace bude spuštěna jako root. Nemá vliv na uživatelské spouštěče.</li>
+</ul>
+<hr>
+<h2>Extra akce pro kliknutí na levé tlačítko při spouštění aplikací</h2>
+<p>Při kliknutí levým tlačítkem na aplikaci v menu, mohou být stisknuty určité klávesové modifikátory, tak aby se aplikace spustila speciálním způsobem.</p>
+<ul>
+<li><kbd>Shift</kbd> + <strong> Levé tlačítko </strong>: Spustí aplikaci jako root.</li>
+<li><kbd>Ctrl</kbd> + <strong> Levé tlačítko </strong>: Otevře terminál a spustí aplikaci odtud.</li>
+<li><kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <strong> Levé tlačítko </strong>: Otevře terminál a spustí aplikaci odtud, ale aplikace bude spuštěna jako root.</li>
+</ul>
+<hr>
+<h2>Informace o možnosti "Spustit v terminálu"</h2>
+<p>Tyto možnosti jsou určeny pro účely ladění (pro zobrazení výstupu konzoly po otevření / zavření programu pro detekci možných chyb). Namísto otevření terminálu pro spuštění programu, o kterém nemusíte znát jeho spouštěcí příkaz, to můžete udělat přímo z menu a jenom v jednom kroku. Možnosti pro spuštění z terminálu aplikace uvedené v nabídce lze nalézt v kontextové nabídce aplikace a mohou být skryty / zobrazeny v okně nastavení tohoto apletu.</p>
+<p>Ve výchozím nastavení budou tyto možnosti používat výchozí emulátor terminálu systému (<strong> x-terminal-emulator </strong> v distribucích založených na Debianu). Jakýkoliv jiný emulátor terminálu lze zadat uvnitř okna nastavení tohoto apletu, pokud má emulátor podporu pro argument <strong> - e </strong>. Udělal jsem testy s <strong> gnome-terminal </strong>, <strong> xterm </strong> a <strong> terminator </strong>. Dodatečné argumenty by mohly být předány emulátoru terminálu, ale nejsou mnou podporovány.</p>
+<hr>
+<h2>Obsluha oblíbených položek</h2>
+<ul>
+<li>Pokud je pole s oblíbenými položkami <strong>zobrazeno</strong>, mohou být oblíbené položky přidány / odstraněny z kontextového menu aplikací a také přetažením aplikací do nebo z pole oblíbených položek.
+  <strong> Poznámka: </strong> Chcete-li odstranit oblíbenou položku, přetáhněte tuto oblíbenou položku mimo pole s oblíbenými položkami do kterékoli části menu.</li>
+<li>Pokud je pole s oblíbenými položkami <strong> skryté </strong> a kategorie oblíbených položek je povolena, mohou být oblíbené položky přidány / odstraněny z kontextového menu aplikací a také přetažením aplikací do kategorie oblíbených položek. Zjednodušeně, pokud je oblíbená položka přetažena do kategorie oblíbených, bude oblíbená položka odebrána. Pokud to, co přetáhnete do kategorie oblíbených, je aplikace bez záložky, bude tato aplikace přidána do oblíbených položek. 
+  <strong> Poznámka: </strong> Kategorie oblíbených položek aktualizuje svůj obsah po přechodu na jinou kategorii a návratu zpět do kategorie oblíbených položek.</li>
+</ul>
+<hr>
+<h2>Odstraňování problémů / další informace</h2>
+<ol>
+<li>Spustit v terminálu<ol>
+<li><strong>Distribuce založené na Debianu:</strong> If the command <strong>x-terminal-emulator</strong> doesn't run the terminal emulator that one wants to be the default, run the following command to set a different default terminal emulator.<ul>
+<li><code>sudo update-alternatives --config x-terminal-emulator</code></li>
+<li>Zadejte číslo výběru a stiskněte klávesu enter.</li>
+</ul>
+</li>
+<li><strong>Pro ostatní distribuce:</strong> Just set the terminal executable of your choice on this applet settings window.</li>
+</ol>
+</li>
+<li>V adresáři tohoto apletu je soubor nazvaný <strong> run_from_terminal.sh </strong>. <strong><em> Neodebírejte, nepřejmenujte nebo neupravujte tento soubor </em></strong>. V opačném případě nebudou všechny možnosti <em> Spustit z terminálu </em> funkční. </li>
+<li>V adresáři tohoto apletu Je složka s názvem <strong> icons </strong>. Obsahuje několik symbolických ikon (většina z nich je z tématu ikon Faenza) a každá ikona může být použita přímo jménem (například u Uživatelského spouštěče). </li>
+</ol>
+<hr>
+
+<h2>Lokalizace apletů/deskletů/rozšíření (a.k.a. xlety)</h2>
+<ul>
+<li>Pokud byl tento xlet nainstalován z nastavení systému v Cinnamonu, byly všechny tyto lokalizace xletu automaticky nainstalovány.</li>
+<li>Pokud byl tento xlet nainstalován ručně a nikoliv pomocí nastavení systému v Cinnamonu, mohou být lokalizace instalovány spuštěním skriptu nazvaného <strong> localizations.sh </strong> z terminálu otevřeného uvnitř složky xletu.</li>
+<li>Pokud tento xlet nemá k dispozici překlad pro váš jazyk, můžete jej vytvořit podle následujících pokynů. <a href="https://github.com/Odyseus/CinnamonTools/wiki/Xlet-localization">Wiki</a></li>
 </ul>
 
 </div> <!-- .localization-content -->
