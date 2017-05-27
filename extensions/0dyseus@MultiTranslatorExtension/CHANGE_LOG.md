@@ -4,6 +4,31 @@
 
 ***
 
+- **Date:** Sat, 27 May 2017 01:12:55 -0300
+- **Commit:** [3b362de](https://github.com/Odyseus/CinnamonTools/commit/3b362de)
+- **Author:** Odyseus
+
+```
+Multi Translator extension
+- Updated help file due to new localization.
+- Updated localization template.
+- Updated Spanish localization.
+
+```
+
+***
+
+- **Date:** Sat, 27 May 2017 04:47:20 +0200
+- **Commit:** [fadc866](https://github.com/Odyseus/CinnamonTools/commit/fadc866)
+- **Author:** Åke Engelbrektson
+
+```
+MultiTranslatorExtension: add sv.po
+Add Swedish translation
+```
+
+***
+
 - **Date:** Mon, 15 May 2017 22:54:17 -0300
 - **Commit:** [b0f49bb](https://github.com/Odyseus/CinnamonTools/commit/b0f49bb)
 - **Author:** Odyseus
