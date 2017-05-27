@@ -158,7 +158,7 @@ msgstr "安装软件包之后重启Cinnamon以便小程序能够识别。"
 #. Here goes your language name in your own language (a.k.a. endonym).
 #: ../../create_localized_help.py:118 ../../create_localized_help.py:187
 msgid "language-name"
-msgstr "语言名称"
+msgstr "language-name"
 
 #: ../../create_localized_help.py:190
 msgid "Choose language"
