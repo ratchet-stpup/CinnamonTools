@@ -132,13 +132,13 @@ def get_content():
         "1. " + _("Run from terminal."),
         # TO TRANSLATORS: MARKDOWN string. Respect formatting.
         "    1. **%s** %s" % (_("Debian based distributions:"),
-                              ("If the command **x-terminal-emulator** doesn't run the terminal emulator that one wants to be the default, run the following command to set a different default terminal emulator.")),
+                              _("If the command **x-terminal-emulator** doesn't run the terminal emulator that one wants to be the default, run the following command to set a different default terminal emulator.")),
         # TO TRANSLATORS: MARKDOWN string. Respect formatting.
         "        - %s" % "`sudo update-alternatives --config x-terminal-emulator`",
         "        - %s" % _("Type in the number of the selection and hit enter."),
         "    2. **%s** %s" %
         (_("For other distributions:"),
-         ("Just set the terminal executable of your choice on this applet settings window.")),
+         _("Just set the terminal executable of your choice on this applet settings window.")),
         # TO TRANSLATORS: MARKDOWN string. Respect formatting.
         "2. %s" % _("There is a file inside this applet directory called **run_from_terminal.sh**. ***Do not remove, rename or edit this file***. Otherwise, all of the *Run from terminal* options will break."),
         # TO TRANSLATORS: MARKDOWN string. Respect formatting.
