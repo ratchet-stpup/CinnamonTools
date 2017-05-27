@@ -144,7 +144,7 @@ msgstr ""
 #. Here goes your language name in your own language (a.k.a. endonym).
 #: ../../create_localized_help.py:130 ../../create_localized_help.py:199
 msgid "language-name"
-msgstr "语言名称"
+msgstr "language-name"
 
 #: ../../create_localized_help.py:202
 msgid "Choose language"
