@@ -9,7 +9,8 @@
         "muzena: Croatian localization https://github.com/muzena.",
         "giwhub: Chinese localization https://github.com/giwhub.",
         "Radek71: Czech localization and author of Thunderbolt theme https://github.com/Radek71.",
-        "NikoKrause: German localization https://github.com/NikoKrause."
+        "NikoKrause: German localization https://github.com/NikoKrause.",
+        "eson57: Swedish localization."
     ],
     "url": "https://github.com/Odyseus/CinnamonTools",
     "description": "Translation of text by different translation providers (currently Google, Yandex, Bing and Apertium).",

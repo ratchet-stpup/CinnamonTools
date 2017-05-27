@@ -396,6 +396,7 @@ pre {
 <select class="form-control" id="localization-switch" onchange="self.toggleLocalizationVisibility(value, this);">
 <!-- English --><option selected data-title="Help for Multi Translator" data-language-chooser-label="Choose language" value="en">English</option>
 <!-- Español --><option data-title="Ayuda para Multi Translator" data-language-chooser-label="Elegir idioma" value="es">Español</option>
+<!-- Svenska --><option data-title="Hjälp för Multi Translator" data-language-chooser-label="Välj språk" value="sv">Svenska</option>
 <!-- 语言名称 --><option data-title="Multi Translator的帮助" data-language-chooser-label="选择语言" value="zh_CN">语言名称</option>
 </select>
 </div> <!-- .localization-chooser -->
@@ -558,6 +559,87 @@ $ sudo make install
 <li>Si este xlet se instaló desde Configuración de Cinnamon, todas las localizaciones de este xlet se instalaron automáticamente.</li>
 <li>Si este xlet se instaló manualmente y no a través de Configuración de Cinnamon, las localizaciones se pueden instalar ejecutando el archivo llamado <strong>localizations.sh</strong> desde una terminal abierta dentro de la carpeta del xlet.</li>
 <li>Si este xlet no está disponible en su idioma, la localización puede ser creada siguiendo las siguientes instrucciones. <a href="https://github.com/Odyseus/CinnamonTools/wiki/Xlet-localization">Wiki</a></li>
+</ul>
+
+</div> <!-- .localization-content -->
+
+
+<div id="sv" class="localization-content hidden">
+
+<h1>Hjälp för Multi Translator</h1>
+
+<div style="font-weight:bold;" class="alert alert-warning">
+<h2>VIKTIGT!!!</h2>
+
+<p>Ta aldrig bort någon av filerna i den här xlet-mappen. Det kan förstöra programmets funktioner.</p>
+
+<p>Felrapporter, funktionsönskemål och kodbidrag kan lämnas i denna xlets kodförråd, på följande länk. <a href="https://github.com/Odyseus/CinnamonTools">GitHub</a></p>
+
+</div>
+<hr>
+
+<h2>Beroenden</h2>
+<p><strong>Om ett eller flera av dessa beroenden saknas i ditt system, kommer du inte att kunna använda detta tillägg.</strong></p>
+<ul>
+<li>xsel-kommando: XSel är ett kommandoradsprogram för att hämta och ställa in innehållet i X-samlingen.</li>
+<li>trans-kommando: Kommando tillhandahållet av paketet translate-shell, är ett enkelt kommandoradsgränssnitt för flera översättningstjänster (Google Translate, Yandex Translate, Bing Translate och Apertium) som låter dig översätta strängar i din terminal.<ul>
+<li>Kontrollera translate-shell <a href="https://github.com/soimort/translate-shell#dependencies">beroenden</a> och <a href="https://github.com/soimort/translate-shell#recommended-dependencies">rekommenderade beroenden</a>.</li>
+</ul>
+</li>
+</ul>
+<p><strong>Notis:</strong> Det translate-shell-paket som finns i förrådet för Ubuntu 16.04.x/Linux Mint 18.x är utdaterat och trasigt. Det kan ändå installeras, så att också alla beroenden installeras, men uppdatering till senaste version bör göras som det beskrivs nedan..</p>
+<h2>Hur man installerar senaste versionen av translate-shell</h2>
+<h3>Alternativ 1. Direkt nerladdning</h3>
+<p>Denna metod installerar endast trans-skriptet på specificerade platser.</p>
+<p>Endast för aktuell användare. <strong>~/.local/bin</strong> måste finnas i din användarmapp.</p>
+<pre><code class="lang-shell">$ wget -O ~/.local/bin/trans git.io/trans &amp;&amp; chmod ugo+rx ~/.local/bin/trans
+</code></pre>
+<p>För alla användare, utan att skriva över installerad version.</p>
+<pre><code class="lang-shell">$ sudo wget -O /usr/local/bin/trans git.io/trans &amp;&amp; sudo chmod ugo+rx /usr/local/bin/trans
+</code></pre>
+<h3>Alternativ 2. Från Git - <a href="https://github.com/soimort/translate-shell/blob/develop/README.md#option-3-from-git-recommended-for-seasoned-hackers">Mer info</a></h3>
+<p>Denna metod installerar inte bara trans-skriptet utan också dess man-sidor. Se ovanstående länk för mer installationsinfo.</p>
+<pre><code class="lang-shell">$ git clone https://github.com/soimort/translate-shell
+$ cd translate-shell
+$ make
+$ sudo make install
+</code></pre>
+<hr>
+<h2>Användning av tillägget</h2>
+<p>Efter installation och aktivering blir följande genvägar tillgängliga.</p>
+<h3>Globala genvägar (konfigurerbara i tilläggets inställningar)</h3>
+<ul>
+<li><strong><kbd>Super</kbd> + <kbd>T</kbd>:</strong> Öppna översättningsdialog.</li>
+<li><strong><kbd>Super</kbd> + <kbd>Shift</kbd> + <kbd>T</kbd>:</strong> Öppna översättningsdialog och översätt från urklipp.</li>
+<li><strong><kbd>Super</kbd> + <kbd>Alt</kbd> + <kbd>T</kbd>:</strong> Öppna översättningsdialog och översätt från primär markering.</li>
+</ul>
+<h3>Genvägar i översättningsdialogen</h3>
+<ul>
+<li><strong><kbd>Ctrl</kbd> + <kbd>Enter</kbd>:</strong> Översätt text.</li>
+<li><strong><kbd>Shift</kbd> + <kbd>Enter</kbd>:</strong> Tvingad textöversättning. Ignorerar översättningshistorik.</li>
+<li><strong><kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>C</kbd>:</strong> Kopiera översatt text till urklipp.</li>
+<li><strong><kbd>Ctrl</kbd> + <kbd>S</kbd>:</strong> Växla språk.</li>
+<li><strong><kbd>Ctrl</kbd> + <kbd>D</kbd>:</strong> Återställ språken till standard.</li>
+<li><strong><kbd>Escape</kbd>:</strong> Stäng fönstret.</li>
+</ul>
+<hr>
+<h2>Inställningsfönster för tilläggsmoduler</h2>
+<p>Från denna tilläggsmoduls inställningsfönster kan alla alternativ importeras, exporteras och/eller återställas till standardinställning.</p>
+<ul>
+<li>För att kunna utföra någon av dessa åtgärder, måste inställningsschemat installeras i systemet. Detta görs automatiskt när tillägget installeras från Cinnamons tilläggshanterare, men om tillägget installeras manuellt, måste också inställningsschemat installeras manuellt. Detta görs genom att gå till tilläggets installationsmapp och köra följande kommando:<ul>
+<li>Kommando för att installera inställningsschema: <code>./settings.py install-schema</code></li>
+<li>Kommando för att avinstallera inställningsschema: <code>./settings.py remove-schema</code></li>
+</ul>
+</li>
+<li>För att importera/exportera inställningar, måste <strong>dconf</strong>-kommandot finnas tillgängligt i systemet.</li>
+</ul>
+<hr>
+
+<h2>Applets/Desklets/Extensions (xlets) översättning</h2>
+<ul>
+<li>Om denna xlet installerades från Cinnamons inställningar, installerades också alla översättningar automatiskt.</li>
+<li>Om denna xlet installerades manuellt och inte via Cinnamons inställningar, kan översättningar installeras genom att köra skriptet <strong>localizations.sh</strong> från en terminal öppnad i programmappen.</li>
+<li>Om ditt språk saknas i denna xlet, kan du översätta den genom följande instruktioner. <a href="https://github.com/Odyseus/CinnamonTools/wiki/Xlet-localization">Wiki</a></li>
 </ul>
 
 </div> <!-- .localization-content -->
