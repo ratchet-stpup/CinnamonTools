@@ -4,6 +4,18 @@
 
 ***
 
+- **Date:** Sun, 28 May 2017 01:57:01 -0300
+- **Commit:** [1aa77b1](https://github.com/Odyseus/CinnamonTools/commit/1aa77b1)
+- **Author:** Odyseus
+
+```
+Custom Cinnamon Menu applet
+- Fixed another warning thrown by the use of Cinnamon 3.4.x with CJS 3.4.x installed.
+
+```
+
+***
+
 - **Date:** Sat, 27 May 2017 22:33:37 -0300
 - **Commit:** [45b9eb8](https://github.com/Odyseus/CinnamonTools/commit/45b9eb8)
 - **Author:** Odyseus

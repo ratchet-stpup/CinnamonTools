@@ -4,6 +4,30 @@
 
 ***
 
+- **Date:** Sun, 28 May 2017 02:00:26 -0300
+- **Commit:** [2dc253e](https://github.com/Odyseus/CinnamonTools/commit/2dc253e)
+- **Author:** Odyseus
+
+```
+Extensions Manager applet
+- Updated README, metadata.json file and help file due to new localization.
+- Updated localization template and Spanish localization.
+
+```
+
+***
+
+- **Date:** Sun, 28 May 2017 06:49:19 +0200
+- **Commit:** [1da2735](https://github.com/Odyseus/CinnamonTools/commit/1da2735)
+- **Author:** Åke Engelbrektson
+
+```
+ExtensionsManager: add sv.po
+Add Swedish translation
+```
+
+***
+
 - **Date:** Sat, 27 May 2017 22:34:14 -0300
 - **Commit:** [1ff48f8](https://github.com/Odyseus/CinnamonTools/commit/1ff48f8)
 - **Author:** Odyseus
