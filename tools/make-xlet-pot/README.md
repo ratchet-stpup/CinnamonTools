@@ -52,9 +52,10 @@ make-xlet-pot [-r or --remove]
         - **SCRIPT_VERSION**: This script version.
 
     - **Data specified in a [settings file]:**
-        - **COPY_INITIAL_YEAR**: The copyright year when the .pot file was initially created by the FIRST_AUTHOR.
         - **FIRST_AUTHOR**: The .pot file and/or the xlet creator.
         - **FIRST_AUTHOR_EMAIL**: The e-mail address of the .pot file and/or the xlet creator.
+        - **COPY_INITIAL_YEAR**: The copyright year when the .pot file was initially created by the FIRST_AUTHOR.
+        - **SKIP_KEYS**: This option fulfills the same function as the *--skip-keys* (-s for short) argument. The preference keys specified by this option will override the ones passed with the *--skip-keys* argument.
         - **[settings file]**: This file is a .json file with the exact same name of the xlet UUID plus the .json extension. Its content should be a "JSON object" like the following and whose keys are all optional (leave the comments so nobody touches the file):
 
 ```json
@@ -63,7 +64,12 @@ make-xlet-pot [-r or --remove]
     "__comment2__": "Data used to generate the .pot file",
     "FIRST_AUTHOR": "FIRST_AUTHOR",
     "FIRST_AUTHOR_EMAIL": "FIRST_AUTHOR_EMAIL",
-    "COPY_INITIAL_YEAR": "COPY_INITIAL_YEAR"
+    "COPY_INITIAL_YEAR": "COPY_INITIAL_YEAR",
+    "SKIP_KEYS": [
+        "pref_key_1",
+        "pref_key_2",
+        "pref_key_n"
+    ]
 }
 ```
 
@@ -71,9 +77,6 @@ make-xlet-pot [-r or --remove]
 - `-a` or `--all` **(*)**: This argument is an "special shortcut". Using this argument is equivalent to using the arguments `--js`, `--py` and `--custom-header` all at the same time. In addition, this argument ignores the **[potfile name]** argument. The pot file name is automatically set to the xlet UUID and its destination will be the "po" folder inside your xlet. If the "po" folder doesn't exists, it will be automatically created.
 - `-i` or `--install`: Compiles and installs any .po files contained in a po folder to the system locale store.  Use this option to test your translations locally before uploading to Spices. It will use the xlet UUID as the translation domain.
 - `-r` or `--remove`: The opposite of install, removes translations from the store. Again, it uses the UUID to find the correct files to remove.
-- **[potfile name]**: Name of the .pot file to work with.  This can be pre-existing,
-or the name of a new file to use.  If you leave off the .pot extension, it will
-be automatically appended to the file name. If no name is provided, the xlet
-UUID will be used as the file name.
+- **[potfile name]**: Name of the .pot file to work with. This can be pre-existing, or the name of a new file to use. If you leave off the .pot extension, it will be automatically appended to the file name. If no name is provided, the xlet UUID will be used as the file name.
 
 **(*)**: Only available on **make-xlet-pot**.

@@ -126,6 +126,12 @@ All options should only be run from your xlet directory
         FIRST_AUTHOR_EMAIL:
             The e-mail address of the .pot file and/or the xlet creator.
 
+        SKIP_KEYS:
+            This option fulfills the same function as the --skip-keys
+            (-s for short) argument. The preference keys specified by
+            this option will override the ones passed with the *--skip-keys*
+            argument.
+
         <settings file>:
             This file is a .json file with the exact same name of the xlet UUID
             plus the .json extension. Its content should be a "JSON object" like
@@ -137,7 +143,12 @@ All options should only be run from your xlet directory
                 "__comment2__": "Data used to generate the .pot file",
                 "FIRST_AUTHOR": "FIRST_AUTHOR",
                 "FIRST_AUTHOR_EMAIL": "FIRST_AUTHOR_EMAIL",
-                "COPY_INITIAL_YEAR": "COPY_INITIAL_YEAR"
+                "COPY_INITIAL_YEAR": "COPY_INITIAL_YEAR",
+                "SKIP_KEYS": [
+                    "pref_key_1",
+                    "pref_key_2",
+                    "pref_key_n"
+                ]
             }
 
 -s key1,key2,keyN
