@@ -19,7 +19,7 @@ msgstr ""
 #: ../../create_localized_help.py:203 ../../create_localized_help.py:94
 #: ../../create_localized_help.py:163
 msgid "language-name"
-msgstr "语言名称"
+msgstr "简体中文"
 
 #: ../../create_localized_help.py:204 ../../create_localized_help.py:206
 #: ../../create_localized_help.py:166
