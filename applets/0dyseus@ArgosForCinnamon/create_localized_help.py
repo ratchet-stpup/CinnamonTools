@@ -81,7 +81,7 @@ def get_content():
         # TO TRANSLATORS: MARKDOWN string. Respect formatting.
         _("**Unicode support:** Just print your text to stdout. It will be rendered the way you expect."),
         # TO TRANSLATORS: MARKDOWN string. Respect formatting.
-        "- %s" % _("**Optimized for minimum resource consumption:** Even with multiple plugins refreshing every second, Argos typically uses less than 1% of the CPU."),
+        "- %s" % _("**Optimized for minimum resource consumption:** Even with multiple plugins refreshing every second, Argos typically uses less than 1 percent of the CPU."),
         # TO TRANSLATORS: MARKDOWN string. Respect formatting.
         "- %s" % _("**Fully [documented](#argos-usage).**"),
         "***",

@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.00\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-05-25 19:12+0800\n"
-"PO-Revision-Date: 2017-05-27 18:39+0800\n"
-"Last-Translator: \n"
+"POT-Creation-Date: 2017-05-27 22:27-0300\n"
+"PO-Revision-Date: 2017-05-27 22:27-0300\n"
+"Last-Translator: Odyseus\n"
 "Language-Team: \n"
 "Language: zh_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.8.11\n"
+"X-Generator: Poedit 1.8.7.1\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 #: ../../create_localized_help.py:63 ../../create_localized_help.py:162
@@ -38,9 +38,10 @@ msgstr ""
 "Cinnamon的Argos是将可执行文件的标准输出转换为面板下拉菜单的小程序。它受到"
 "[Philipp Emanuel Weidmann](https://github.com/pew)的[Argos[(https://github."
 "com/pew/argos)Gnome Shell扩展的启发并与之完全兼容，其反过来又受到[BitBar]"
-"(https://github.com/matryer/bitbar)macOS应用程序的启发并与之完全兼容。Cinnamon的"
-"Argos无需修改即可支持许多[BitBar插件](https://github.com/matryer/bitbar-plugins)，"
-"您可以访问经过良好测试的脚本的大型库，以及能够编写自己的脚本。"
+"(https://github.com/matryer/bitbar)macOS应用程序的启发并与之完全兼容。"
+"Cinnamon的Argos无需修改即可支持许多[BitBar插件](https://github.com/matryer/"
+"bitbar-plugins)，您可以访问经过良好测试的脚本的大型库，以及能够编写自己的脚"
+"本。"
 
 #: ../../create_localized_help.py:66
 msgid ""
@@ -57,13 +58,12 @@ msgstr "主要功能"
 #. TO TRANSLATORS: MARKDOWN string. Respect formatting.
 #: ../../create_localized_help.py:74
 msgid ""
-"**100 API [compatible with BitBar 1.9.2](#argos-bitbar-compatibility):** "
+"**100% API [compatible with BitBar 1.9.2](#argos-bitbar-compatibility):** "
 "All BitBar plugins that run on Linux (i.e. do not contain macOS-specific "
 "code) will work with Argos (else it's a bug)."
 msgstr ""
-"**100% API[与BitBar 1.9.2兼容](＃argos-bitbar兼容性)：**在Linux上运行的所"
-"有BitBar插件（即不包含macOS特定的代码）将与Argos一起工作（否则是一个错"
-"误）。"
+"**100% API[与BitBar 1.9.2兼容](＃argos-bitbar兼容性)：**在Linux上运行的所有"
+"BitBar插件（即不包含macOS特定的代码）将与Argos一起工作（否则是一个错误）"
 
 #. TO TRANSLATORS: MARKDOWN string. Respect formatting.
 #: ../../create_localized_help.py:76
@@ -71,8 +71,8 @@ msgid ""
 "**Beyond BitBar:** Argos can do everything that BitBar can do, but also some "
 "things that BitBar can't do (yet). See the documentation for details."
 msgstr ""
-"**超越BitBar：**Argos可以做BitBar可以做的一切，但也有一些BitBar无法做到的事情。"
-"有关详细信息请参阅文档。"
+"**超越BitBar：**Argos可以做BitBar可以做的一切，但也有一些BitBar无法做到的事"
+"情。有关详细信息请参阅文档。"
 
 #. TO TRANSLATORS: MARKDOWN string. Respect formatting.
 #: ../../create_localized_help.py:78
@@ -93,10 +93,9 @@ msgstr "** Unicode支持：**只需将文本输出为标准输出。它将以您
 
 #. TO TRANSLATORS: MARKDOWN string. Respect formatting.
 #: ../../create_localized_help.py:84
-#, python-format
 msgid ""
 "**Optimized for minimum resource consumption:** Even with multiple plugins "
-"refreshing every second, Argos typically uses less than 1% of the CPU."
+"refreshing every second, Argos typically uses less than 1 percent of the CPU."
 msgstr ""
 "**优化最小资源消耗：**即使多个插件每秒刷新一次，Argos通常使用的CPU不到1%。"
 
@@ -138,8 +137,8 @@ msgid ""
 "These example scripts contain various examples of what **Argos for "
 "Cinnamon** can do."
 msgstr ""
-"将**Argos for Cinnamon**的新实例放入面板后，该小程序提供的示例脚本之一将自"
-"动附加到它，并且将基于执行的插件的输出创建一个菜单。这些示例脚本包含了各种"
+"将**Argos for Cinnamon**的新实例放入面板后，该小程序提供的示例脚本之一将自动"
+"附加到它，并且将基于执行的插件的输出创建一个菜单。这些示例脚本包含了各种"
 "**Argos for Cinnamon**可以做的例子。"
 
 #: ../../create_localized_help.py:104
@@ -152,8 +151,8 @@ msgid ""
 "rotation of the example script can be seen in action."
 msgstr ""
 "刚刚放置的小程序将具有0秒（零秒）的初始执行间隔和3秒（3秒）的初始小程序文本轮"
-"流间隔。执行间隔设置为0秒，因为初始示例脚本没有任何需要更新的动态数据。小"
-"程序文本轮流间隔设置为3秒，因此可以在操作中看到示例脚本的文本轮流。"
+"流间隔。执行间隔设置为0秒，因为初始示例脚本没有任何需要更新的动态数据。小程序"
+"文本轮流间隔设置为3秒，因此可以在操作中看到示例脚本的文本轮流。"
 
 #: ../../create_localized_help.py:106
 msgid ""
@@ -163,8 +162,8 @@ msgid ""
 "specified. Both of these values can be set from the applet context menu."
 msgstr ""
 "对于显示非动态数据的脚本，不需要执行间隔。但是，如果您的脚本显示动态数据（例"
-"如时钟），则需要指定执行和/或小程序文本轮流间隔。这两个值都可以从小程序右键"
-"菜单中设置。"
+"如时钟），则需要指定执行和/或小程序文本轮流间隔。这两个值都可以从小程序右键菜"
+"单中设置。"
 
 #: ../../create_localized_help.py:109
 msgid ""
@@ -196,8 +195,8 @@ msgid ""
 "from the applet settings window and/or from the applet context menu."
 msgstr ""
 "**Argos for Gnome Shell**解析脚本的文件名以提取某些偏好设置。**Argos for "
-"Cinnamon**不会以这种方式解析脚本的文件名（也不以任何其他方式）。所有的小程序设"
-"置都可以从小程序设置窗口和/或从小程序右键菜单中进行设置。"
+"Cinnamon**不会以这种方式解析脚本的文件名（也不以任何其他方式）。所有的小程序"
+"设置都可以从小程序设置窗口和/或从小程序右键菜单中进行设置。"
 
 #: ../../create_localized_help.py:120
 msgid "Output format"
@@ -209,7 +208,8 @@ msgid ""
 "Argos plugins are executables (such as shell scripts **(*)**) that print to "
 "standard output lines of the following form:"
 msgstr ""
-"Argos插件是可执行文件（例如shell脚本**(*)**），可以输出到以下格式的标准输出行："
+"Argos插件是可执行文件（例如shell脚本**(*)**），可以输出到以下格式的标准输出"
+"行："
 
 #: ../../create_localized_help.py:127
 msgid ""
@@ -246,9 +246,9 @@ msgid ""
 "next. Additionally, all button lines get a dropdown menu item, except if "
 "their `dropdown` attribute is set to `false`."
 msgstr ""
-"第一个分隔符之上的行属于小程序按钮本身。如果有多个这样的行，则在切换到下一"
-"个行之前，它们被连续地显示，每个行可配置的时间量（轮流间隔）。另外，所有"
-"的按钮行都会有一个下拉菜单项，除非它们的`dropdown`属性设置为`false`。"
+"第一个分隔符之上的行属于小程序按钮本身。如果有多个这样的行，则在切换到下一个"
+"行之前，它们被连续地显示，每个行可配置的时间量（轮流间隔）。另外，所有的按钮"
+"行都会有一个下拉菜单项，除非它们的`dropdown`属性设置为`false`。"
 
 #: ../../create_localized_help.py:142
 msgid ""
@@ -275,9 +275,9 @@ msgid ""
 "(unless the `emojize` attribute is set to `false`). Note that unpatched "
 "Cinnamon does not yet support multicolor emoji."
 msgstr ""
-"[Emoji code](http://www.emoji-cheat-sheet.com)如`:horse:`和`:smile:`在行文"
-"本中被替换为相应的Unicode字符（除非`emojize`属性设置为`false`）。请注意，"
-"未打补丁的Cinnamon尚不支持多色emoji。"
+"[Emoji code](http://www.emoji-cheat-sheet.com)如`:horse:`和`:smile:`在行文本"
+"中被替换为相应的Unicode字符（除非`emojize`属性设置为`false`）。请注意，未打补"
+"丁的Cinnamon尚不支持多色emoji。"
 
 #. TO TRANSLATORS: MARKDOWN string. Respect formatting.
 #: ../../create_localized_help.py:151
@@ -301,9 +301,9 @@ msgid ""
 "prevented by setting the `unescape` attribute to `false`. Newline escapes "
 "can be used to create multi-line menu items."
 msgstr ""
-"在行文本中如“\\n”和“\\t”的反斜杠转义将转换为相应的字符（在这种情况下为换"
-"行符和标签），可以通过将`unescape`属性设置为`false`来避免。换行符可用于创建"
-"多行菜单条目。"
+"在行文本中如“\\n”和“\\t”的反斜杠转义将转换为相应的字符（在这种情况下为换行符"
+"和标签），可以通过将`unescape`属性设置为`false`来避免。换行符可用于创建多行菜"
+"单条目。"
 
 #: ../../create_localized_help.py:157
 msgid "Line attributes"
@@ -511,8 +511,8 @@ msgid ""
 "be associated with the same item, and all actions are executed when the item "
 "is clicked."
 msgstr ""
-"动作属性*不*互斥。它们的任何组合可以与相同条目相关联，并且当点击条目时执"
-"行所有动作。"
+"动作属性*不*互斥。它们的任何组合可以与相同条目相关联，并且当点击条目时执行所"
+"有动作。"
 
 #: ../../create_localized_help.py:249
 msgid "Bash command"
@@ -601,10 +601,10 @@ msgid ""
 "but if you follow the very first advice that I listed here, when you see "
 "that script, you will know."
 msgstr ""
-"我发现一个特定的情况，一个脚本可以造成Cinnamon卡住并最终崩溃。这是一个从互联网下载GIF"
-"图像的脚本，将其转换为Base64，然后使用*image*属性将编码图像插入到菜单条目中。我"
-"不会提供该脚本的链接，但是如果您按照我在此列出的第一个建议，当您看到该脚本"
-"时，您就会知道。"
+"我发现一个特定的情况，一个脚本可以造成Cinnamon卡住并最终崩溃。这是一个从互联"
+"网下载GIF图像的脚本，将其转换为Base64，然后使用*image*属性将编码图像插入到菜"
+"单条目中。我不会提供该脚本的链接，但是如果您按照我在此列出的第一个建议，当您"
+"看到该脚本时，您就会知道。"
 
 #: ../../create_localized_help.py:289
 msgid ""
@@ -612,8 +612,8 @@ msgid ""
 "look when rendered by Argos compared to the \"canonical\" BitBar rendering "
 "(macOS screenshots taken from https://getbitbar.com)."
 msgstr ""
-"这些屏幕截图显示了由Argos渲染的BitBar插件存储库中的一些脚本与“典型的”BitBar渲染"
-"（从https://getbitbar.com获取的macOS屏幕截图）相比较。"
+"这些屏幕截图显示了由Argos渲染的BitBar插件存储库中的一些脚本与“典型的”BitBar渲"
+"染（从https://getbitbar.com获取的macOS屏幕截图）相比较。"
 
 #: ../../create_localized_help.py:291
 msgid "Argos on Cinnamon"
@@ -686,21 +686,21 @@ msgid ""
 "by following the following instructions."
 msgstr "如果该xlet没有您的语言的本地化，您可以按照以下说明进行创建。"
 
-#: appletHelper.py:58
+#: appletHelper.py:63
 msgid "Select a file"
 msgstr "选择文件"
 
 #. TO TRANSLATORS: Could be left blank.
-#: appletHelper.py:60
+#: appletHelper.py:65
 msgid "_Cancel"
 msgstr "取消(_C)"
 
 #. TO TRANSLATORS: Could be left blank.
-#: appletHelper.py:62
+#: appletHelper.py:67
 msgid "_Open"
 msgstr "打开(_O)"
 
-#: appletHelper.py:89
+#: appletHelper.py:97
 msgid "Nothing to do here."
 msgstr "什么也不做"
 
@@ -909,86 +909,72 @@ msgstr "低下划线"
 msgid "Error underline"
 msgstr "错误下划线"
 
-#: __init__.js:61
+#: __init__.js:62
 msgid "millisecond"
 msgid_plural "milliseconds"
 msgstr[0] "毫秒"
 
-#: __init__.js:63
+#: __init__.js:64
 msgid "second"
 msgid_plural "seconds"
 msgstr[0] "秒"
 
-#: __init__.js:65
+#: __init__.js:66
 msgid "minute"
 msgid_plural "minutes"
 msgstr[0] "分钟"
 
-#: __init__.js:67
+#: __init__.js:68
 msgid "hour"
 msgid_plural "hours"
 msgstr[0] "小时"
 
-#: __init__.js:69
+#: __init__.js:70
 msgid "day"
 msgid_plural "days"
 msgstr[0] "天"
 
 #. 0dyseus@ArgosForCinnamon->settings-schema.json->pref_rotation_interval_units->options
 #. 0dyseus@ArgosForCinnamon->settings-schema.json->pref_update_interval_units->options
-#: __init__.js:79
+#: __init__.js:80
 msgid "Seconds"
 msgstr "秒"
 
 #. 0dyseus@ArgosForCinnamon->settings-schema.json->pref_rotation_interval_units->options
 #. 0dyseus@ArgosForCinnamon->settings-schema.json->pref_update_interval_units->options
-#: __init__.js:82
+#: __init__.js:83
 msgid "Minutes"
 msgstr "分钟"
 
 #. 0dyseus@ArgosForCinnamon->settings-schema.json->pref_rotation_interval_units->options
 #. 0dyseus@ArgosForCinnamon->settings-schema.json->pref_update_interval_units->options
-#: __init__.js:85
+#: __init__.js:86
 msgid "Hours"
 msgstr "小时"
 
 #. 0dyseus@ArgosForCinnamon->settings-schema.json->pref_rotation_interval_units->options
 #. 0dyseus@ArgosForCinnamon->settings-schema.json->pref_update_interval_units->options
-#: __init__.js:88
+#: __init__.js:89
 msgid "Days"
 msgstr "天"
 
 #. TO TRANSLATORS: Full sentence:
 #. "Unable to load image from Base64 representation: ErrorMessage"
-#: __init__.js:1663
+#: __init__.js:1664
 #, javascript-format
 msgid "Unable to load image from Base64 representation: %s"
 msgstr "无法从Base64表示中加载图像：%s"
 
-#: __init__.js:1897 __init__.js:1919 applet.js:565 applet.js:747
-msgid "Error executing command!!!"
-msgstr "执行命令出错！！！"
-
-#: __init__.js:1898
-msgid ""
-"You might need to set up the correct terminal emulator from this applet "
-"settings window."
-msgstr "您可能需要从该小程序设置窗口中设置正确的终端仿真器。"
-
-#: __init__.js:1920 applet.js:566 applet.js:748
-msgid "A dependency might be missing!!!"
-msgstr "可能缺少依赖！！！"
-
-#: __init__.js:2435
+#: __init__.js:2456
 msgid "Check this applet help file for instructions."
 msgstr "检查此小程序帮助文件的说明。"
 
-#: __init__.js:2438 applet.js:736
+#: __init__.js:2459 applet.js:721
 msgid "Help"
 msgstr "帮助"
 
 #. Just in case.
-#: __init__.js:2439 applet.js:740
+#: __init__.js:2460 applet.js:725
 msgid "Open this applet help file."
 msgstr "打开此小程序的帮助文件。"
 
@@ -1000,104 +986,104 @@ msgstr "脚本文件不是可执行文件。"
 msgid "The script file can be made executable from this applet context menu."
 msgstr "从此小程序右键菜单可以使脚本文件可执行。"
 
-#: applet.js:125 applet.js:720
+#: applet.js:125 applet.js:705
 msgid "Script file isn't a file, but a directory."
 msgstr "脚本文件不是一个文件，而是一个目录。"
 
-#: applet.js:136 applet.js:727
+#: applet.js:136 applet.js:712
 msgid "Script file doesn't exists."
 msgstr "脚本文件不存在。"
 
 #. TO TRANSLATORS: Full sentence:
 #. "Unable to execute file 'FileName':"
-#: applet.js:220
+#: applet.js:216
 #, javascript-format
 msgid "Unable to execute file '%s':"
 msgstr "无法执行文件'%s'："
 
-#: applet.js:225 applet.js:554 applet.js:593
+#: applet.js:221 applet.js:535 applet.js:578
 msgid "Script file not set, cannot be found or it isn't an executable."
 msgstr "脚本文件未设置，无法找到或不是可执行的文件。"
 
 #. TO TRANSLATORS: Full sentence:
 #. "Invalid menu level for line 'LineWithTheError'"
-#: applet.js:325
+#: applet.js:319
 #, javascript-format
 msgid "Invalid menu level for line '%s'"
 msgstr "行'%s'的菜单级别无效"
 
-#: applet.js:381 applet.js:383
+#: applet.js:377 applet.js:379
 msgid "Script file name:"
 msgstr "脚本文件名称："
 
-#: applet.js:383
+#: applet.js:379
 msgid "No script set"
 msgstr "没有设置脚本"
 
-#: applet.js:385 applet.js:487
+#: applet.js:381 applet.js:464
 msgid "Execution interval:"
 msgstr "执行间隔："
 
-#: applet.js:388 applet.js:617
+#: applet.js:384 applet.js:602
 msgid "Rotation interval:"
 msgstr "轮流间隔："
 
-#: applet.js:395
+#: applet.js:391
 msgid "Script execution time:"
 msgstr "脚本执行时间："
 
-#: applet.js:403
+#: applet.js:399
 msgid "Output process time:"
 msgstr "输出进程时间："
 
 #. 0dyseus@ArgosForCinnamon->settings-schema.json->pref_update_interval_units->tooltip
-#: applet.js:495
+#: applet.js:472
 msgid "Choose the time unit for the script execution interval."
 msgstr "选择用于脚本执行间隔的时间单位。"
 
-#: applet.js:508
+#: applet.js:485
 msgid "Set the script execution interval."
 msgstr "设置脚本执行间隔。"
 
-#: applet.js:518
+#: applet.js:495
 msgid "Choose script"
 msgstr "选择脚本"
 
-#: applet.js:540
+#: applet.js:521
 msgid "Choose a script file."
 msgstr "选择脚本文件。"
 
-#: applet.js:546
+#: applet.js:527
 msgid "Edit script"
 msgstr "编辑脚本"
 
-#: applet.js:577
+#: applet.js:562
 msgid "Edit the script file with your prefered text editor."
 msgstr "使用您首选的文本编辑器编辑脚本文件。"
 
-#: applet.js:578
+#: applet.js:563
 msgid ""
 "After saving the changes made, the applet will update its data automatically "
 "if there is an interval set."
 msgstr "保存所做的更改之后，如果设置了间隔小程序将会自动更新其数据。"
 
-#: applet.js:579
+#: applet.js:564
 msgid ""
 "Or the update could be done manually with the »Refresh« item on this applet "
 "context menu."
 msgstr "或可以使用此小程序右键菜单上的»刷新«条目手动完成更新。"
 
-#: applet.js:585
+#: applet.js:570
 msgid "Refresh"
 msgstr "刷新"
 
-#: applet.js:601
+#: applet.js:586
 msgid ""
 "This will re-run on demand the script assigned to this applet for the "
 "purpose of updating its output."
 msgstr "这将根据需要重新运行分配给此小程序的脚本，以更新其输出。"
 
-#: applet.js:602
+#: applet.js:587
 msgid ""
 "This is only needed when there is no update interval set (or the interval is "
 "too long), so the update needs to be done manually in case the script is "
@@ -1107,56 +1093,50 @@ msgstr ""
 "完成更新。"
 
 #. Extras submenu
-#: applet.js:609
+#: applet.js:594
 msgid "Extras"
 msgstr "附加选项"
 
 #. 0dyseus@ArgosForCinnamon->settings-schema.json->pref_rotation_interval_units->tooltip
-#: applet.js:623
+#: applet.js:608
 msgid "Choose the time unit for the applet text rotation interval."
 msgstr "选择用于小程序文本轮流间隔的时间单位。"
 
-#: applet.js:636
+#: applet.js:621
 msgid "Set the applet text rotation interval."
 msgstr "设置小程序文本轮流间隔。"
 
-#: applet.js:645
+#: applet.js:630
 msgid "Clear script"
 msgstr "清除脚本"
 
-#: applet.js:651 applet.js:669
+#: applet.js:636 applet.js:654
 msgid ""
 "This operation will remove the current script from this applet leaving it "
 "\"blank\"."
 msgstr "此操作将会从小程序移除当前脚本并留空。"
 
-#: applet.js:652
+#: applet.js:637
 msgid ""
 "The current applet settings will be untouched and the actual script file "
 "will not be deleted."
 msgstr "当前的小程序设置将保持不变，并且实际的脚本文件将不会被删除。"
 
-#: applet.js:653
+#: applet.js:638
 msgid "Do you want to proceed?"
 msgstr "您要继续吗？"
 
-#: applet.js:683
+#: applet.js:668
 msgid "Make script executable"
 msgstr "使脚本可执行"
 
-#: applet.js:689
+#: applet.js:674
 msgid "Make the script file executable so it can be used by this applet."
 msgstr "使脚本文件可执行以便此小程序可以使用。"
 
-#: applet.js:713
+#: applet.js:698
 msgid "Script file is already executable."
 msgstr "脚本文件已经是可执行文件。"
-
-#. 0dyseus@ArgosForCinnamon->metadata.json->comments
-msgid ""
-"Bug reports, feature requests and contributions should be done on this "
-"xlet's repository linked below."
-msgstr "错误报告，功能请求和贡献应该在下方链接的xlet的仓库上完成。"
 
 #. 0dyseus@ArgosForCinnamon->metadata.json->description
 msgid "Create Cinnamon applets in seconds."
@@ -1167,17 +1147,46 @@ msgid ""
 "Philipp Emanuel Weidmann: Author of the gnome-shell extension called Argos"
 msgstr "Philipp Emanuel Weidmann：名为Argos的gnome-shell扩展的作者"
 
+#. 0dyseus@ArgosForCinnamon->metadata.json->comments
+msgid ""
+"Bug reports, feature requests and contributions should be done on this "
+"xlet's repository linked below."
+msgstr "错误报告，功能请求和贡献应该在下方链接的xlet的仓库上完成。"
+
 #. 0dyseus@ArgosForCinnamon->metadata.json->name
 msgid "Argos for Cinnamon"
 msgstr "Argos for Cinnamon"
 
-#. 0dyseus@ArgosForCinnamon->settings-schema.json->pref_custom_label_for_applet->description
-msgid "Custom label"
-msgstr "自定义标签"
+#. 0dyseus@ArgosForCinnamon->settings-schema.json->pref_rotation_interval_units->description
+msgid "Rotation interval time unit"
+msgstr "轮流间隔时间单位"
 
-#. 0dyseus@ArgosForCinnamon->settings-schema.json->pref_custom_label_for_applet->tooltip
-msgid "Enter custom text to show in the panel."
-msgstr "输入要在面板中显示的自定义文本。"
+#. 0dyseus@ArgosForCinnamon->settings-schema.json->pref_animate_menu->description
+msgid "Animate menu"
+msgstr "动画按钮"
+
+#. 0dyseus@ArgosForCinnamon->settings-schema.json->pref_animate_menu->tooltip
+msgid "Enables/Disables menu open/close animations."
+msgstr "启用/禁用菜单打开/关闭动画。"
+
+#. 0dyseus@ArgosForCinnamon->settings-schema.json->pref_file_path->description
+msgid "Path to script"
+msgstr "脚本的路径"
+
+#. 0dyseus@ArgosForCinnamon->settings-schema.json->pref_update_interval->description
+msgid "Execution interval"
+msgstr "执行间隔"
+
+#. 0dyseus@ArgosForCinnamon->settings-schema.json->pref_update_interval->tooltip
+msgid ""
+"Set the script execution interval. If set to 0 (zero), the timer will be "
+"disabled."
+msgstr "设置脚本执行间隔，如果设置为0（零），定时器将会被禁用。"
+
+#. 0dyseus@ArgosForCinnamon->settings-schema.json->pref_update_interval->units
+#. 0dyseus@ArgosForCinnamon->settings-schema.json->pref_rotation_interval->units
+msgid "custom"
+msgstr "自定义"
 
 #. 0dyseus@ArgosForCinnamon->settings-schema.json->pref_keep_one_menu_open->description
 msgid "Keep just one sub menu open"
@@ -1188,6 +1197,14 @@ msgid ""
 "When enabled, the previously opened sub menu will be automatically closed."
 msgstr "启用后，之前打开的子菜单将会自动关闭。"
 
+#. 0dyseus@ArgosForCinnamon->settings-schema.json->pref_update_interval_units->description
+msgid "Execution interval time unit"
+msgstr "执行间隔时间单位"
+
+#. 0dyseus@ArgosForCinnamon->settings-schema.json->head0->description
+msgid "Applet settings"
+msgstr "小程序设置"
+
 #. 0dyseus@ArgosForCinnamon->settings-schema.json->pref_custom_icon_for_applet->description
 msgid "Icon"
 msgstr "图标"
@@ -1196,28 +1213,9 @@ msgstr "图标"
 msgid "Select an icon to show in the panel."
 msgstr "选择要在面板中显示的图标。"
 
-#. 0dyseus@ArgosForCinnamon->settings-schema.json->pref_show_script_name->description
-msgid "Show script name on applet"
-msgstr "在小程序上显示脚本名称"
-
-#. 0dyseus@ArgosForCinnamon->settings-schema.json->pref_show_script_name->tooltip
-msgid ""
-"When inside the script there isn't a line assigned to be shown on the "
-"applet, the script name will be displayed. With this option disabled, the "
-"script name will not be shown on this applet, giving us the possibility to "
-"use a custom text for the applet."
-msgstr ""
-"当脚本内部没有分配给小程序显示的行时，将显示脚本名称。 禁用此选项后，脚本名称"
-"将不会显示在此小程序中，从而使我们有可能为该小程序使用自定义文本。"
-
 #. 0dyseus@ArgosForCinnamon->settings-schema.json->pref_default_icon_size->description
 msgid "Default icon size"
 msgstr "桌面图标大小"
-
-#. 0dyseus@ArgosForCinnamon->settings-schema.json->pref_default_icon_size->units
-#. 0dyseus@ArgosForCinnamon->settings-schema.json->pref_applet_spacing->units
-msgid "pixels"
-msgstr "像素"
 
 #. 0dyseus@ArgosForCinnamon->settings-schema.json->pref_default_icon_size->tooltip
 msgid ""
@@ -1228,64 +1226,38 @@ msgstr ""
 "以像素为单位设置此小程序主菜单中的图标的默认大小。 可以通过在脚本中的菜单条目"
 "的相应行设置“iconSize”属性来覆盖菜单条目的图标大小。"
 
-#. 0dyseus@ArgosForCinnamon->settings-schema.json->pref_rotation_interval_units->description
-msgid "Rotation interval time unit"
-msgstr "轮流间隔时间单位"
+#. 0dyseus@ArgosForCinnamon->settings-schema.json->pref_default_icon_size->units
+#. 0dyseus@ArgosForCinnamon->settings-schema.json->pref_applet_spacing->units
+msgid "pixels"
+msgstr "像素"
 
-#. 0dyseus@ArgosForCinnamon->settings-schema.json->pref_update_interval->description
-msgid "Execution interval"
-msgstr "执行间隔"
+#. 0dyseus@ArgosForCinnamon->settings-schema.json->head1->description
+msgid "Script settings"
+msgstr "脚本设置"
 
-#. 0dyseus@ArgosForCinnamon->settings-schema.json->pref_update_interval->units
-#. 0dyseus@ArgosForCinnamon->settings-schema.json->pref_rotation_interval->units
-msgid "custom"
-msgstr "自定义"
+#. 0dyseus@ArgosForCinnamon->settings-schema.json->pref_custom_label_for_applet->description
+msgid "Custom label"
+msgstr "自定义标签"
 
-#. 0dyseus@ArgosForCinnamon->settings-schema.json->pref_update_interval->tooltip
-msgid ""
-"Set the script execution interval. If set to 0 (zero), the timer will be "
-"disabled."
-msgstr "设置脚本执行间隔，如果设置为0（零），定时器将会被禁用。"
+#. 0dyseus@ArgosForCinnamon->settings-schema.json->pref_custom_label_for_applet->tooltip
+msgid "Enter custom text to show in the panel."
+msgstr "输入要在面板中显示的自定义文本。"
 
-#. 0dyseus@ArgosForCinnamon->settings-schema.json->head0->description
-msgid "Applet settings"
-msgstr "小程序设置"
-
-#. 0dyseus@ArgosForCinnamon->settings-schema.json->pref_rotation_interval->description
-msgid "Rotation interval"
-msgstr "轮流间隔"
-
-#. 0dyseus@ArgosForCinnamon->settings-schema.json->pref_rotation_interval->tooltip
-msgid ""
-"Set the applet text rotation interval. If set to 0 (zero), the timer will be "
-"disabled. This timer is only used if there are more than one line asigned to "
-"be displayed as the applet text. If there is only one line asigned for the "
-"applet text, this timer will be completely ignored. So, it isn't needed to "
-"set this timer to 0 (zero) to disable it."
-msgstr ""
-"设置小程序文本轮流间隔。如果设置为0（零），定时器将会被禁用。 仅当有多行被分"
-"配给显示为小程序文本时，才使用该定时器。如果只有一行分配给小程序文本，则该计"
-"时器将被完全忽略。因此，无需设置为0（零）才能将此定时器禁用。"
-
-#. 0dyseus@ArgosForCinnamon->settings-schema.json->pref_update_interval_units->description
-msgid "Execution interval time unit"
-msgstr "执行间隔时间单位"
-
-#. 0dyseus@ArgosForCinnamon->settings-schema.json->pref_animate_menu->description
-msgid "Animate menu"
-msgstr "动画按钮"
-
-#. 0dyseus@ArgosForCinnamon->settings-schema.json->pref_animate_menu->tooltip
-msgid "Enables/Disables menu open/close animations."
-msgstr "启用/禁用菜单打开/关闭动画。"
+#. 0dyseus@ArgosForCinnamon->settings-schema.json->head2->description
+msgid "Extra settings"
+msgstr "附加设置"
 
 #. 0dyseus@ArgosForCinnamon->settings-schema.json->pref_overlay_key->description
 msgid "Keyboard shortcut to open and close the menu"
 msgstr "打开和关闭菜单的键盘快捷键"
 
-#. 0dyseus@ArgosForCinnamon->settings-schema.json->head1->description
-msgid "Script settings"
-msgstr "脚本设置"
+#. 0dyseus@ArgosForCinnamon->settings-schema.json->pref_menu_spacing->description
+msgid "Spacing for items inside the menu"
+msgstr "菜单内条目的空间"
+
+#. 0dyseus@ArgosForCinnamon->settings-schema.json->pref_menu_spacing->units
+msgid "ems"
+msgstr "ems"
 
 #. 0dyseus@ArgosForCinnamon->settings-schema.json->pref_terminal_emulator->description
 msgid "Terminal emulator"
@@ -1303,18 +1275,59 @@ msgstr ""
 msgid "Spacing for items inside the applet"
 msgstr "小程序内条目的空间"
 
-#. 0dyseus@ArgosForCinnamon->settings-schema.json->pref_menu_spacing->description
-msgid "Spacing for items inside the menu"
-msgstr "菜单内条目的空间"
+#. 0dyseus@ArgosForCinnamon->settings-schema.json->pref_rotation_interval->description
+msgid "Rotation interval"
+msgstr "轮流间隔"
 
-#. 0dyseus@ArgosForCinnamon->settings-schema.json->pref_menu_spacing->units
-msgid "ems"
-msgstr "ems"
+#. 0dyseus@ArgosForCinnamon->settings-schema.json->pref_rotation_interval->tooltip
+msgid ""
+"Set the applet text rotation interval. If set to 0 (zero), the timer will be "
+"disabled. This timer is only used if there are more than one line asigned to "
+"be displayed as the applet text. If there is only one line asigned for the "
+"applet text, this timer will be completely ignored. So, it isn't needed to "
+"set this timer to 0 (zero) to disable it."
+msgstr ""
+"设置小程序文本轮流间隔。如果设置为0（零），定时器将会被禁用。 仅当有多行被分"
+"配给显示为小程序文本时，才使用该定时器。如果只有一行分配给小程序文本，则该计"
+"时器将被完全忽略。因此，无需设置为0（零）才能将此定时器禁用。"
 
-#. 0dyseus@ArgosForCinnamon->settings-schema.json->pref_file_path->description
-msgid "Path to script"
-msgstr "脚本的路径"
+#. 0dyseus@ArgosForCinnamon->settings-schema.json->pref_show_script_name->description
+msgid "Show script name on applet"
+msgstr "在小程序上显示脚本名称"
 
-#. 0dyseus@ArgosForCinnamon->settings-schema.json->head2->description
-msgid "Extra settings"
-msgstr "附加设置"
+#. 0dyseus@ArgosForCinnamon->settings-schema.json->pref_show_script_name->tooltip
+msgid ""
+"When inside the script there isn't a line assigned to be shown on the "
+"applet, the script name will be displayed. With this option disabled, the "
+"script name will not be shown on this applet, giving us the possibility to "
+"use a custom text for the applet."
+msgstr ""
+"当脚本内部没有分配给小程序显示的行时，将显示脚本名称。 禁用此选项后，脚本名称"
+"将不会显示在此小程序中，从而使我们有可能为该小程序使用自定义文本。"
+
+#~ msgid ""
+#~ "**Optimized for minimum resource consumption:** Even with multiple "
+#~ "plugins refreshing every second, Argos typically uses less than 1%% of "
+#~ "the CPU."
+#~ msgstr ""
+#~ "**优化最小资源消耗：**即使多个插件每秒刷新一次，Argos通常使用的CPU不到1%"
+#~ "%。"
+
+#~ msgid ""
+#~ "**Optimized for minimum resource consumption:** Even with multiple "
+#~ "plugins refreshing every second, Argos typically uses less than 1% of the "
+#~ "CPU."
+#~ msgstr ""
+#~ "**优化最小资源消耗：**即使多个插件每秒刷新一次，Argos通常使用的CPU不到1%"
+#~ "%。"
+
+#~ msgid "Error executing command!!!"
+#~ msgstr "执行命令出错！！！"
+
+#~ msgid ""
+#~ "You might need to set up the correct terminal emulator from this applet "
+#~ "settings window."
+#~ msgstr "您可能需要从该小程序设置窗口中设置正确的终端仿真器。"
+
+#~ msgid "A dependency might be missing!!!"
+#~ msgstr "可能缺少依赖！！！"

@@ -466,9 +466,292 @@ table>tfoot>tr.active>th {
 <select class="form-control" id="localization-switch" onchange="self.toggleLocalizationVisibility(value, this);">
 <!-- English --><option selected data-title="Help for Argos for Cinnamon" data-language-chooser-label="Choose language" value="en">English</option>
 <!-- Español --><option data-title="Ayuda para Argos for Cinnamon" data-language-chooser-label="Elegir idioma" value="es">Español</option>
+<!-- 简体中文 --><option data-title="Argos for Cinnamon的帮助" data-language-chooser-label="选择语言" value="zh_CN">简体中文</option>
 </select>
 </div> <!-- .localization-chooser -->
 <div class="container boxed">
+
+<div id="zh_CN" class="localization-content hidden">
+
+<h1>Argos for Cinnamon的帮助</h1>
+
+<div style="font-weight:bold;" class="alert alert-warning">
+<h2>重要！！！</h2>
+
+<p>不要删除该xlet文件夹内的任何文件。可能会损坏该xlet的功能。</p>
+
+<p>错误报告，功能请求和贡献应该在下方链接的xlet的仓库上完成。 <a href="https://github.com/Odyseus/CinnamonTools">GitHub</a></p>
+
+</div>
+<hr>
+
+<h2>描述</h2>
+<p>Cinnamon的Argos是将可执行文件的标准输出转换为面板下拉菜单的小程序。它受到<a href="https://github.com/pew">Philipp Emanuel Weidmann</a>的[Argos[(<a href="https://github.com/pew/argos)Gnome">https://github.com/pew/argos)Gnome</a> Shell扩展的启发并与之完全兼容，其反过来又受到<a href="https://github.com/matryer/bitbar">BitBar</a>macOS应用程序的启发并与之完全兼容。Cinnamon的Argos无需修改即可支持许多<a href="https://github.com/matryer/bitbar-plugins">BitBar插件</a>，您可以访问经过良好测试的脚本的大型库，以及能够编写自己的脚本。</p>
+<div class="alert alert-info">
+<p>当引用与<strong>Argos for Cinnamon</strong>小程序上的实例相关联的脚本文件时，我将使用<em>plugin</em>或<em>script</em>。</p>
+
+</div><hr>
+<h2>主要功能</h2>
+<ul>
+<li><strong>100% API<a href="＃argos-bitbar兼容性">与BitBar 1.9.2兼容</a>：</strong>在Linux上运行的所有BitBar插件（即不包含macOS特定的代码）将与Argos一起工作（否则是一个错误）</li>
+<li><strong>超越BitBar：</strong>Argos可以做BitBar可以做的一切，但也有一些BitBar无法做到的事情。有关详细信息请参阅文档。</li>
+<li><strong>复杂的异步执行引擎：</strong>无论您的脚本运行多长时间，Argos都会智能安排并防止阻止。</li>
+<li><strong> Unicode支持：</strong>只需将文本输出为标准输出。它将以您期望的方式渲染。</li>
+<li><strong>优化最小资源消耗：</strong>即使多个插件每秒刷新一次，Argos通常使用的CPU不到1%。</li>
+<li><strong>完全<a href="＃argos-usage">记录</a>。</strong></li>
+</ul>
+<hr>
+<h2>依赖关系</h2>
+<ul>
+<li><strong>xdg-open命令:</strong> Open a URI in the user's preferred application that handles the respective URI or file type.<ul>
+<li>Debian和Archlinux系发行版： 该命令安装使用名为<strong>xdg-utils</strong>的软件包。 在现在的Linux Mint版本中已经默认安装。</li>
+</ul>
+</li>
+</ul>
+<hr>
+<p><span id="argos-usage"></span></p>
+<h2>用法</h2>
+<p>将<strong>Argos for Cinnamon</strong>的新实例放入面板后，该小程序提供的示例脚本之一将自动附加到它，并且将基于执行的插件的输出创建一个菜单。这些示例脚本包含了各种<strong>Argos for Cinnamon</strong>可以做的例子。</p>
+<p>刚刚放置的小程序将具有0秒（零秒）的初始执行间隔和3秒（3秒）的初始小程序文本轮流间隔。执行间隔设置为0秒，因为初始示例脚本没有任何需要更新的动态数据。小程序文本轮流间隔设置为3秒，因此可以在操作中看到示例脚本的文本轮流。</p>
+<p>对于显示非动态数据的脚本，不需要执行间隔。但是，如果您的脚本显示动态数据（例如时钟），则需要指定执行和/或小程序文本轮流间隔。这两个值都可以从小程序右键菜单中设置。</p>
+<div class="alert alert-info">
+<p>这个小程序提供的三个示例脚本将产生完全相同的输出，但是它们使用三种不同的语言创建（<strong>bash_examples.sh</strong>、<strong>python_examples.py</strong>和<strong>ruby_examples.rb</strong>）。</p>
+
+</div>
+<div class="alert alert-warning">
+
+
+<strong>不要将自定义插件/脚本保存在此小程序文件夹中。否则，当有小程序的更新时，您将丢失它们。</strong>
+</div><h3>文件名格式</h3>
+<p><strong>Argos for Gnome Shell</strong>解析脚本的文件名以提取某些偏好设置。<strong>Argos for Cinnamon</strong>不会以这种方式解析脚本的文件名（也不以任何其他方式）。所有的小程序设置都可以从小程序设置窗口和/或从小程序右键菜单中进行设置。</p>
+<h3>输出格式</h3>
+<p>Argos插件是可执行文件（例如shell脚本<strong>(*)</strong>），可以输出到以下格式的标准输出行：</p>
+<pre><code>TEXT | ATTRIBUTE_1=VALUE ATTRIBUTE_2=VALUE ...
+</code></pre>
+<p>所有属性都是可选的，所以最基本的插件只需输出包含要显示的文本的行。要包括空格，属性值可以使用大多数命令行shell使用的相同约定引用。</p>
+<div class="alert alert-info">
+<strong>(*)不仅仅是shell脚本，而且还有python脚本，ruby脚本或任何其他可以输出到标准输出的其他语言的脚本。</strong>
+</div><h3>渲染</h3>
+<p>只包含破折号（<code>---</code>）的行是<em>分隔符</em>。</p>
+<p>第一个分隔符之上的行属于小程序按钮本身。如果有多个这样的行，则在切换到下一个行之前，它们被连续地显示，每个行可配置的时间量（轮流间隔）。另外，所有的按钮行都会有一个下拉菜单项，除非它们的<code>dropdown</code>属性设置为<code>false</code>。</p>
+<p>第一个分隔符下方的行将呈现为下拉菜单项。其他分隔符创建图形分隔符菜单条目。</p>
+<p>以<code>--</code>开头的行在与前一个未连接行相关联的子菜单中呈现。<strong>Argos for Cinnamon</strong>支持无限数量的嵌套子菜单。</p>
+<p><a href="http://www.emoji-cheat-sheet.com">Emoji code</a>如<code>:horse:</code>和<code>:smile:</code>在行文本中被替换为相应的Unicode字符（除非<code>emojize</code>属性设置为<code>false</code>）。请注意，未打补丁的Cinnamon尚不支持多色emoji。</p>
+<p><a href="https://en.wikipedia.org/wiki/ANSI_escape_code#graphics">ANSI SGR转义序列</a>和<a href="https://developer.gnome.org/pango/stable/PangoMarkupFormat.html">Pango标记</a>标记可用于造型。可以通过分别将<code>ansi</code>和<code>useMarkup</code>属性分别设置为<code>false</code>来禁用。</p>
+<p>在行文本中如“\n”和“\t”的反斜杠转义将转换为相应的字符（在这种情况下为换行符和标签），可以通过将<code>unescape</code>属性设置为<code>false</code>来避免。换行符可用于创建多行菜单条目。</p>
+<hr>
+<h2>行属性</h2>
+<h3>显示</h3>
+<p>控制行的呈现方式。</p>
+<table>
+<thead><tr>
+<th>属性</th>
+<th>值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>color</code></td>
+<td>Hex RGB/RGBA或颜色名称</td>
+<td>设置条目的文本颜色。</td>
+</tr>
+<tr>
+<td><code>font</code></td>
+<td>字体名称</td>
+<td>设置条目的字体。</td>
+</tr>
+<tr>
+<td><code>size</code></td>
+<td>字体大小（以点为单位）</td>
+<td>设置条目的字体大小。</td>
+</tr>
+<tr>
+<td><code>iconName</code></td>
+<td>图标名称</td>
+<td>设置项目的菜单图标。有关有效名称的列表，请参阅<a href="https://specifications.freedesktop.org/icon-naming-spec/icon-naming-spec-latest.html">freedesktop.org图标命名规范</a>。<strong>仅限于Argos。</strong> <strong>Argos for Cinnamon</strong>还支持图标文件的路径（以<code>〜/</code>开头的路径将扩展到用户的主文件夹）。</td>
+</tr>
+<tr>
+<td><code>image</code>, <code>templateImage</code></td>
+<td>Base64编码的图像文件</td>
+<td>渲染条目中的图像。图像位于文本的左侧和图标的右侧。Cinnamon没有<em>模板图像的概念</em>，所以<code>image</code>和<code>templateImage</code>可以在Argos中互换。</td>
+</tr>
+<tr>
+<td><code>imageWidth</code>, <code>imageHeight</code></td>
+<td>宽度/高度（以像素为单位）</td>
+<td>设置图像的尺寸。如果仅指定了一个尺寸，则保持图像的原始宽高比。<strong>仅适用于Argos</strong></td>
+</tr>
+<tr>
+<td><code>length</code></td>
+<td>字符长度</td>
+<td>将行文本截断为指定数量的字符，省略截断的部分。</td>
+</tr>
+<tr>
+<td><code>trim</code></td>
+<td><code>true</code> 或 <code>false</code></td>
+<td>如果为<code>false</code>，则保留行文本的前导和尾随空格。</td>
+</tr>
+<tr>
+<td><code>dropdown</code></td>
+<td><code>true</code> 或 <code>false</code></td>
+<td>如果为<code>false</code>，该行是一个按钮行（见上文），请将其从下拉菜单中排除。</td>
+</tr>
+<tr>
+<td><code>alternate</code></td>
+<td><code>true</code> 或 <code>false</code></td>
+<td>如果为<code>true</code>，默认情况下隐藏该条目，并按<kbd>Alt</kbd>键时显示为上一项。</td>
+</tr>
+<tr>
+<td><code>emojize</code></td>
+<td><code>true</code> 或 <code>false</code></td>
+<td>如果为<code>false</code>，则禁止在行文本中使用emoji字符替换<code>:emoji_name:</code>。</td>
+</tr>
+<tr>
+<td><code>ansi</code></td>
+<td><code>true</code> 或 <code>false</code></td>
+<td>如果为<code>false</code>，则禁用在行文本中ANSI转义序列的解释。</td>
+</tr>
+<tr>
+<td><code>useMarkup</code></td>
+<td><code>true</code> 或 <code>false</code></td>
+<td>如果为<code>false</code>，则禁止在行文本中Pango标记的解释。<strong>仅适用于Argos。</strong></td>
+</tr>
+<tr>
+<td><code>unescape</code></td>
+<td><code>true</code> 或 <code>false</code></td>
+<td>如果为<code>false</code>，则禁止对行文本中如“\n”等反斜杠转义的解释。<strong>仅适用于Argos</strong></td>
+</tr>
+</tbody>
+</table>
+<p>属性仅适用于<strong>Argos for Cinnamon</strong>。</p>
+<table>
+<thead><tr>
+<th>属性</th>
+<th>值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>tooltip</code></td>
+<td>要显示为提示的文本</td>
+<td>设置条目的提示。</td>
+</tr>
+<tr>
+<td><code>iconSize</code></td>
+<td>从12到512间的整数</td>
+<td>设置条目的<code>iconName</code>的字体大小。</td>
+</tr>
+<tr>
+<td><code>iconIsSymbolic</code></td>
+<td><code>true</code> 或 <code>false</code></td>
+<td>如果为<code>true</code>，则将在条目（如果存在）上使用“iconName”的符号版本。</td>
+</tr>
+</tbody>
+</table>
+<h3>动作</h3>
+<p>定义用户点击行的菜单条目时要执行的操作。</p>
+<p>动作属性<em>不</em>互斥。它们的任何组合可以与相同条目相关联，并且当点击条目时执行所有动作。</p>
+<table>
+<thead><tr>
+<th>属性</th>
+<th>值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>bash</code></td>
+<td>Bash命令</td>
+<td>在任何终端仿真器窗口中使用`bash'运行命令。</td>
+</tr>
+<tr>
+<td><code>terminal</code></td>
+<td><code>true</code> 或 <code>false</code></td>
+<td>如果为<code>false</code>，则在后台运行Bash命令（即不打开终端窗口）。</td>
+</tr>
+<tr>
+<td><code>param1</code>, <code>param2</code>, ...</td>
+<td>命令行参数</td>
+<td>要传递给Bash命令的参数。<em>注意：仅与BitBar兼容。Argos允许将参数直接放在命令字符串中。</em></td>
+</tr>
+<tr>
+<td><code>href</code></td>
+<td>URI</td>
+<td>使用注册的应用程序打开URI进行处理。以<a href="http://开头的URI启动Web浏览器，而`file://`URI在关联的默认应用程序中打开文件。**Argos">http://开头的URI启动Web浏览器，而`file://`URI在关联的默认应用程序中打开文件。**Argos</a> for Cinnamon**还支持以<code>〜/</code>开头的路径，将自动扩展到用户的主文件夹。</td>
+</tr>
+<tr>
+<td><code>eval</code></td>
+<td>JavaScript代码</td>
+<td>将代码传递给JavaScript的<code>eval</code>函数。<strong>仅适用于Argos</strong></td>
+</tr>
+<tr>
+<td><code>refresh</code></td>
+<td><code>true</code> 或 <code>false</code></td>
+<td>如果为<code>true</code>，重新运行插件，更新其输出。</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<p><span id="argos-bitbar-compatibility"></span></p>
+<h2>用于Argos for Cinnamon的BitBar插件</h2>
+<div class="alert alert-warning">
+<strong>
+警告！！！不要随便测试脚本！
+
+<br>
+1.应用常识。请阅读并了解脚本的作用以及要求。
+
+<br>
+2.在易于恢复的环境中测试未知脚本（例如虚拟机）。
+
+<br>
+我发现一个特定的情况，一个脚本可以造成Cinnamon卡住并最终崩溃。这是一个从互联网下载GIF图像的脚本，将其转换为Base64，然后使用*image*属性将编码图像插入到菜单条目中。我不会提供该脚本的链接，但是如果您按照我在此列出的第一个建议，当您看到该脚本时，您就会知道。
+
+<br>
+</strong>
+</div><p>这些屏幕截图显示了由Argos渲染的BitBar插件存储库中的一些脚本与“典型的”BitBar渲染（从<a href="https://getbitbar.com获取的macOS屏幕截图）相比较。">https://getbitbar.com获取的macOS屏幕截图）相比较。</a></p>
+<table>
+<thead><tr>
+<th>插件</th>
+<th style="text-align:center">macOS上的BitBar</th>
+<th style="text-align:center">Argos on Cinnamon</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://getbitbar.com/plugins/Network/ping.10s.sh"><strong>Ping</strong></a></td>
+<td style="text-align:center"><img src="./assets/bitbar-001.png" alt="Ping/BitBar"></td>
+<td style="text-align:center"><img src="./assets/argos-001.png" alt="Ping/Argos"></td>
+</tr>
+<tr>
+<td><a href="https://getbitbar.com/plugins/Finance/gfinance.5m.py"><strong>Stock Ticker</strong></a></td>
+<td style="text-align:center"><img src="./assets/bitbar-002.png" alt="Stock Ticker/BitBar"></td>
+<td style="text-align:center"><img src="./assets/argos-002.png" alt="Stock Ticker/Argos"></td>
+</tr>
+<tr>
+<td><a href="https://getbitbar.com/plugins/Time/worldclock.1s.sh"><strong>World Clock</strong></a></td>
+<td style="text-align:center"><img src="./assets/bitbar-003.png" alt="World Clock/BitBar"></td>
+<td style="text-align:center"><img src="./assets/argos-003.png" alt="World Clock/Argos"></td>
+</tr>
+<tr>
+<td><a href="https://getbitbar.com/plugins/Tutorial/ansi.sh"><strong>ANSI</strong></a></td>
+<td style="text-align:center"><img src="./assets/bitbar-004.png" alt="ANSI/BitBar"></td>
+<td style="text-align:center"><img src="./assets/argos-004.png" alt="ANSI/Argos"></td>
+</tr>
+</tbody>
+</table>
+<hr>
+
+<h2>小程序/桌面小工具/扩展（也称为xlets）本地化</h2>
+<ul>
+<li>如果该xlet安装自Cinnamon设置，该xlet的所有本地化已经自动安装。</li>
+<li>如果该xlet是通过手动安装而不是Cinnamon设置，可以通过打开终端执行xlet文件夹内名为<strong>localizations.sh</strong>的脚本安装本地化。</li>
+<li>如果该xlet没有您的语言的本地化，您可以按照以下说明进行创建。 <a href="https://github.com/Odyseus/CinnamonTools/wiki/Xlet-localization">Wiki</a></li>
+</ul>
+
+</div> <!-- .localization-content -->
+
 
 <div id="es" class="localization-content hidden">
 
@@ -496,7 +779,7 @@ table>tfoot>tr.active>th {
 <li><strong>Más allá de BitBar:</strong> Argos puede hacer todo lo que BitBar puede hacer, pero también algunas cosas que BitBar no puede hacer (todavía). Continuar leyendo esta documentación para más detalles.</li>
 <li><strong>Motor de ejecución asincrónica sofisticado:</strong> No importa cuánto tiempo tomen sus archivos de comandos en ejecutarse, Argos las programará inteligentemente y evitará el bloqueo.</li>
 <li><strong>Soporte Unicode:</strong> Sólo imprima su texto en stdout.  Se traducirá de la manera que usted espera.</li>
-<li><strong>Optimizado para el consumo mínimo de recursos:</strong> Incluso con varios complementos actualizando cada segundo, Argos normalmente usa menos del 1% de la CPU.</li>
+<li><strong>Optimizado para el consumo mínimo de recursos:</strong> Incluso con varios complementos actualizando cada segundo, Argos normalmente usa menos del 1 por ciento de la CPU.</li>
 <li><strong>Totalmente <a href="#argos-usage">documentado</a>.</strong></li>
 </ul>
 <hr>
@@ -778,7 +1061,7 @@ table>tfoot>tr.active>th {
 <li><strong>Beyond BitBar:</strong> Argos can do everything that BitBar can do, but also some things that BitBar can't do (yet). See the documentation for details.</li>
 <li><strong>Sophisticated asynchronous execution engine:</strong> No matter how long your scripts take to run, Argos will schedule them intelligently and prevent blocking.</li>
 <li><strong>Unicode support:</strong> Just print your text to stdout. It will be rendered the way you expect.</li>
-<li><strong>Optimized for minimum resource consumption:</strong> Even with multiple plugins refreshing every second, Argos typically uses less than 1% of the CPU.</li>
+<li><strong>Optimized for minimum resource consumption:</strong> Even with multiple plugins refreshing every second, Argos typically uses less than 1 percent of the CPU.</li>
 <li><strong>Fully <a href="#argos-usage">documented</a>.</strong></li>
 </ul>
 <hr>
