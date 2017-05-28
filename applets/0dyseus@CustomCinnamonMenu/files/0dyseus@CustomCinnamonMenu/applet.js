@@ -3915,7 +3915,7 @@ MyApplet.prototype = {
     setSelectedItemTitleAndDescription: function(aEl, aTitle, aDescription) {
         switch (this.pref_appinfo_display_method) {
             case "tooltip":
-                if (aEl) {
+                if (aEl && aEl.tooltip) {
                     try {
                         aEl.tooltip._tooltip.get_clutter_text().set_markup(
                             (aTitle ?
