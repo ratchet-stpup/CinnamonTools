@@ -4,6 +4,19 @@
 
 ***
 
+- **Date:** Sun, 28 May 2017 00:07:10 -0300
+- **Commit:** [918d300](https://github.com/Odyseus/CinnamonTools/commit/918d300)
+- **Author:** Odyseus
+
+```
+Argos for Cinnamon applet
+- Execute the attached script exposing the script's current working directory. This allows us to use
+the current working directory in our scripts.
+
+```
+
+***
+
 - **Date:** Sat, 27 May 2017 22:31:49 -0300
 - **Commit:** [ce62597](https://github.com/Odyseus/CinnamonTools/commit/ce62597)
 - **Author:** Odyseus
