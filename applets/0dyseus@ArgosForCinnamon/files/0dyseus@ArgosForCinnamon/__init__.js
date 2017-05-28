@@ -1884,6 +1884,7 @@ ArgosMenuItem.prototype = {
                             "bash -c " + GLib.shell_quote(activeLine.bash + "; exec bash")
                         ];
                     }
+
                     // Used by the original extension:
                     // GLib.spawn_async(null, argv, null, GLib.SpawnFlags.SEARCH_PATH, null);
                     // Implemented TryExec so I can inform with a callback if there was an error
