@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.00\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-05-27 22:26-0300\n"
-"PO-Revision-Date: 2017-05-27 22:27-0300\n"
+"POT-Creation-Date: 2017-05-28 02:05-0300\n"
+"PO-Revision-Date: 2017-05-28 02:05-0300\n"
 "Last-Translator: Odyseus\n"
 "Language-Team: \n"
 "Language: es\n"
@@ -1071,17 +1071,17 @@ msgstr "Días"
 msgid "Unable to load image from Base64 representation: %s"
 msgstr "No se puede cargar la imagen desde la representación de Base64: %s"
 
-#: __init__.js:2456
+#: __init__.js:2457
 msgid "Check this applet help file for instructions."
 msgstr ""
 "Comprobar el archivo de ayuda de este applet para obtener instrucciones."
 
-#: __init__.js:2459 applet.js:721
+#: __init__.js:2460 applet.js:721
 msgid "Help"
 msgstr "Ayuda"
 
 #. Just in case.
-#: __init__.js:2460 applet.js:725
+#: __init__.js:2461 applet.js:725
 msgid "Open this applet help file."
 msgstr "Abrir el archivo de ayuda de este applet."
 
@@ -1267,16 +1267,9 @@ msgstr ""
 msgid "Script file is already executable."
 msgstr "El archivo de comandos ya es ejecutable."
 
-#. 0dyseus@ArgosForCinnamon->metadata.json->description
-msgid "Create Cinnamon applets in seconds."
-msgstr "Crear applets para Cinnamon en segundos."
-
-#. 0dyseus@ArgosForCinnamon->metadata.json->contributors
-msgid ""
-"Philipp Emanuel Weidmann: Author of the gnome-shell extension called Argos"
-msgstr ""
-"Philipp Emanuel Weidmann: Autor de la extensión para Gnome Shell llamada "
-"Argos"
+#. 0dyseus@ArgosForCinnamon->metadata.json->name
+msgid "Argos for Cinnamon"
+msgstr "Argos para Cinnamon"
 
 #. 0dyseus@ArgosForCinnamon->metadata.json->comments
 msgid ""
@@ -1286,137 +1279,42 @@ msgstr ""
 "Los reportes de fallos, peticiones de características y contribuciones deben "
 "hacerse en el repositorio de este xlet vinculado a continuación."
 
-#. 0dyseus@ArgosForCinnamon->metadata.json->name
-msgid "Argos for Cinnamon"
-msgstr "Argos para Cinnamon"
+#. 0dyseus@ArgosForCinnamon->metadata.json->contributors
+msgid ""
+"Philipp Emanuel Weidmann: Author of the gnome-shell extension called Argos"
+msgstr ""
+"Philipp Emanuel Weidmann: Autor de la extensión para Gnome Shell llamada "
+"Argos"
+
+#. 0dyseus@ArgosForCinnamon->metadata.json->contributors
+msgid "giwhub: Chinese localization."
+msgstr "giwhub: Localización China."
+
+#. 0dyseus@ArgosForCinnamon->metadata.json->description
+msgid "Create Cinnamon applets in seconds."
+msgstr "Crear applets para Cinnamon en segundos."
 
 #. 0dyseus@ArgosForCinnamon->settings-schema.json->pref_rotation_interval_units->description
 msgid "Rotation interval time unit"
 msgstr "Unidad de tiempo para el intervalo de rotación"
 
-#. 0dyseus@ArgosForCinnamon->settings-schema.json->pref_animate_menu->description
-msgid "Animate menu"
-msgstr "Animar apertura/cerrado del menú"
-
-#. 0dyseus@ArgosForCinnamon->settings-schema.json->pref_animate_menu->tooltip
-msgid "Enables/Disables menu open/close animations."
-msgstr "Habilita/Deshabilita la animación de apertura/cierre del menú."
-
-#. 0dyseus@ArgosForCinnamon->settings-schema.json->pref_file_path->description
-msgid "Path to script"
-msgstr "Ruta al archivo de comandos"
-
-#. 0dyseus@ArgosForCinnamon->settings-schema.json->pref_update_interval->description
-msgid "Execution interval"
-msgstr "Intervalo de ejecución"
-
-#. 0dyseus@ArgosForCinnamon->settings-schema.json->pref_update_interval->tooltip
-msgid ""
-"Set the script execution interval. If set to 0 (zero), the timer will be "
-"disabled."
-msgstr ""
-"Establecer el intervalo de ejecución del archivo de comandos. Si se "
-"establece en 0 (cero), el temporizador se desactivará."
-
-#. 0dyseus@ArgosForCinnamon->settings-schema.json->pref_update_interval->units
-#. 0dyseus@ArgosForCinnamon->settings-schema.json->pref_rotation_interval->units
-msgid "custom"
-msgstr "personalizado"
-
-#. 0dyseus@ArgosForCinnamon->settings-schema.json->pref_keep_one_menu_open->description
-msgid "Keep just one sub menu open"
-msgstr "Mantener un solo menú abierto en todo momento"
-
-#. 0dyseus@ArgosForCinnamon->settings-schema.json->pref_keep_one_menu_open->tooltip
-msgid ""
-"When enabled, the previously opened sub menu will be automatically closed."
-msgstr ""
-"Con esta opción habilitada, un submenú previamente abierto será "
-"automáticamente cerrado."
-
 #. 0dyseus@ArgosForCinnamon->settings-schema.json->pref_update_interval_units->description
 msgid "Execution interval time unit"
 msgstr "Unidad de tiempo para el intervalo de ejecución"
 
-#. 0dyseus@ArgosForCinnamon->settings-schema.json->head0->description
-msgid "Applet settings"
-msgstr "Preferencias del applet"
-
-#. 0dyseus@ArgosForCinnamon->settings-schema.json->pref_custom_icon_for_applet->description
-msgid "Icon"
-msgstr "Ícono"
-
-#. 0dyseus@ArgosForCinnamon->settings-schema.json->pref_custom_icon_for_applet->tooltip
-msgid "Select an icon to show in the panel."
-msgstr "Seleccionar un ícono para mostrar en el panel."
-
-#. 0dyseus@ArgosForCinnamon->settings-schema.json->pref_default_icon_size->description
-msgid "Default icon size"
-msgstr "Tamaño de ícono predeterminado"
-
-#. 0dyseus@ArgosForCinnamon->settings-schema.json->pref_default_icon_size->tooltip
-msgid ""
-"Set a default size in pixels for the icons inside this applet main menu. The "
-"size of the icon of a menu item can be overridden by setting the \"iconSize"
-"\" attribute on the menu item's respective line on the script."
-msgstr ""
-"Establecer un tamaño preestablecido en píxeles para íconos dentro del menú "
-"del applet. El tamaño de un ítem del menú puede ser anulado estableciendo el "
-"atributo \"iconSize\" en la línea correspondiente ítem del menú  en el "
-"archivo de comandos."
-
-#. 0dyseus@ArgosForCinnamon->settings-schema.json->pref_default_icon_size->units
 #. 0dyseus@ArgosForCinnamon->settings-schema.json->pref_applet_spacing->units
+#. 0dyseus@ArgosForCinnamon->settings-schema.json->pref_default_icon_size->units
 msgid "pixels"
 msgstr "píxeles"
-
-#. 0dyseus@ArgosForCinnamon->settings-schema.json->head1->description
-msgid "Script settings"
-msgstr "Preferencias del archivo de comandos"
-
-#. 0dyseus@ArgosForCinnamon->settings-schema.json->pref_custom_label_for_applet->description
-msgid "Custom label"
-msgstr "Etiqueta personalizada"
-
-#. 0dyseus@ArgosForCinnamon->settings-schema.json->pref_custom_label_for_applet->tooltip
-msgid "Enter custom text to show in the panel."
-msgstr "Introduzca un texto personalizado para mostrar en el panel."
-
-#. 0dyseus@ArgosForCinnamon->settings-schema.json->head2->description
-msgid "Extra settings"
-msgstr "Extra "
-
-#. 0dyseus@ArgosForCinnamon->settings-schema.json->pref_overlay_key->description
-msgid "Keyboard shortcut to open and close the menu"
-msgstr "Atajo de teclado para abrir o cerrar el menú"
-
-#. 0dyseus@ArgosForCinnamon->settings-schema.json->pref_menu_spacing->description
-msgid "Spacing for items inside the menu"
-msgstr "Espaciado para ítems dentro del menú"
-
-#. 0dyseus@ArgosForCinnamon->settings-schema.json->pref_menu_spacing->units
-msgid "ems"
-msgstr "ems"
-
-#. 0dyseus@ArgosForCinnamon->settings-schema.json->pref_terminal_emulator->description
-msgid "Terminal emulator"
-msgstr "Emulador de terminal:"
-
-#. 0dyseus@ArgosForCinnamon->settings-schema.json->pref_terminal_emulator->tooltip
-msgid ""
-"Choose the terminal emulator used by this applet.\n"
-"IMPORTANT!!! The terminal emulator has to support the -e argument."
-msgstr ""
-"Elegir el emulador de terminal usado por este applet.\n"
-"¡INPORTANTE! El emulador de terminal debe soportar el argumento -e."
 
 #. 0dyseus@ArgosForCinnamon->settings-schema.json->pref_applet_spacing->description
 msgid "Spacing for items inside the applet"
 msgstr "Espaciado para ítems dentro del applet"
 
-#. 0dyseus@ArgosForCinnamon->settings-schema.json->pref_rotation_interval->description
-msgid "Rotation interval"
-msgstr "Intervalo de rotación"
+#. 0dyseus@ArgosForCinnamon->settings-schema.json->pref_rotation_interval->units
+#. 0dyseus@ArgosForCinnamon->settings-schema.json->pref_update_interval->units
+msgid "custom"
+msgstr "personalizado"
 
 #. 0dyseus@ArgosForCinnamon->settings-schema.json->pref_rotation_interval->tooltip
 msgid ""
@@ -1433,9 +1331,9 @@ msgstr ""
 "applet, este temporizador será completamente ignorado. Así que no es "
 "necesario establecer este temporizador a 0 (cero) para deshabilitarlo."
 
-#. 0dyseus@ArgosForCinnamon->settings-schema.json->pref_show_script_name->description
-msgid "Show script name on applet"
-msgstr "Mostrar el nombre del archivo de comandos en el applet"
+#. 0dyseus@ArgosForCinnamon->settings-schema.json->pref_rotation_interval->description
+msgid "Rotation interval"
+msgstr "Intervalo de rotación"
 
 #. 0dyseus@ArgosForCinnamon->settings-schema.json->pref_show_script_name->tooltip
 msgid ""
@@ -1449,6 +1347,112 @@ msgstr ""
 "esta opción deshabilitada, el nombre del archivo de comandos no será "
 "mostrado en el applet, dándonos la posibilidad de usar un texto "
 "personalizado para el applet."
+
+#. 0dyseus@ArgosForCinnamon->settings-schema.json->pref_show_script_name->description
+msgid "Show script name on applet"
+msgstr "Mostrar el nombre del archivo de comandos en el applet"
+
+#. 0dyseus@ArgosForCinnamon->settings-schema.json->pref_animate_menu->tooltip
+msgid "Enables/Disables menu open/close animations."
+msgstr "Habilita/Deshabilita la animación de apertura/cierre del menú."
+
+#. 0dyseus@ArgosForCinnamon->settings-schema.json->pref_animate_menu->description
+msgid "Animate menu"
+msgstr "Animar apertura/cerrado del menú"
+
+#. 0dyseus@ArgosForCinnamon->settings-schema.json->pref_update_interval->tooltip
+msgid ""
+"Set the script execution interval. If set to 0 (zero), the timer will be "
+"disabled."
+msgstr ""
+"Establecer el intervalo de ejecución del archivo de comandos. Si se "
+"establece en 0 (cero), el temporizador se desactivará."
+
+#. 0dyseus@ArgosForCinnamon->settings-schema.json->pref_update_interval->description
+msgid "Execution interval"
+msgstr "Intervalo de ejecución"
+
+#. 0dyseus@ArgosForCinnamon->settings-schema.json->pref_keep_one_menu_open->tooltip
+msgid ""
+"When enabled, the previously opened sub menu will be automatically closed."
+msgstr ""
+"Con esta opción habilitada, un submenú previamente abierto será "
+"automáticamente cerrado."
+
+#. 0dyseus@ArgosForCinnamon->settings-schema.json->pref_keep_one_menu_open->description
+msgid "Keep just one sub menu open"
+msgstr "Mantener un solo menú abierto en todo momento"
+
+#. 0dyseus@ArgosForCinnamon->settings-schema.json->head1->description
+msgid "Script settings"
+msgstr "Preferencias del archivo de comandos"
+
+#. 0dyseus@ArgosForCinnamon->settings-schema.json->pref_custom_label_for_applet->tooltip
+msgid "Enter custom text to show in the panel."
+msgstr "Introduzca un texto personalizado para mostrar en el panel."
+
+#. 0dyseus@ArgosForCinnamon->settings-schema.json->pref_custom_label_for_applet->description
+msgid "Custom label"
+msgstr "Etiqueta personalizada"
+
+#. 0dyseus@ArgosForCinnamon->settings-schema.json->pref_overlay_key->description
+msgid "Keyboard shortcut to open and close the menu"
+msgstr "Atajo de teclado para abrir o cerrar el menú"
+
+#. 0dyseus@ArgosForCinnamon->settings-schema.json->pref_terminal_emulator->tooltip
+msgid ""
+"Choose the terminal emulator used by this applet.\n"
+"IMPORTANT!!! The terminal emulator has to support the -e argument."
+msgstr ""
+"Elegir el emulador de terminal usado por este applet.\n"
+"¡INPORTANTE! El emulador de terminal debe soportar el argumento -e."
+
+#. 0dyseus@ArgosForCinnamon->settings-schema.json->pref_terminal_emulator->description
+msgid "Terminal emulator"
+msgstr "Emulador de terminal:"
+
+#. 0dyseus@ArgosForCinnamon->settings-schema.json->pref_custom_icon_for_applet->tooltip
+msgid "Select an icon to show in the panel."
+msgstr "Seleccionar un ícono para mostrar en el panel."
+
+#. 0dyseus@ArgosForCinnamon->settings-schema.json->pref_custom_icon_for_applet->description
+msgid "Icon"
+msgstr "Ícono"
+
+#. 0dyseus@ArgosForCinnamon->settings-schema.json->pref_menu_spacing->units
+msgid "ems"
+msgstr "ems"
+
+#. 0dyseus@ArgosForCinnamon->settings-schema.json->pref_menu_spacing->description
+msgid "Spacing for items inside the menu"
+msgstr "Espaciado para ítems dentro del menú"
+
+#. 0dyseus@ArgosForCinnamon->settings-schema.json->pref_default_icon_size->tooltip
+msgid ""
+"Set a default size in pixels for the icons inside this applet main menu. The "
+"size of the icon of a menu item can be overridden by setting the \"iconSize"
+"\" attribute on the menu item's respective line on the script."
+msgstr ""
+"Establecer un tamaño preestablecido en píxeles para íconos dentro del menú "
+"del applet. El tamaño de un ítem del menú puede ser anulado estableciendo el "
+"atributo \"iconSize\" en la línea correspondiente ítem del menú  en el "
+"archivo de comandos."
+
+#. 0dyseus@ArgosForCinnamon->settings-schema.json->pref_default_icon_size->description
+msgid "Default icon size"
+msgstr "Tamaño de ícono predeterminado"
+
+#. 0dyseus@ArgosForCinnamon->settings-schema.json->head2->description
+msgid "Extra settings"
+msgstr "Extra "
+
+#. 0dyseus@ArgosForCinnamon->settings-schema.json->head0->description
+msgid "Applet settings"
+msgstr "Preferencias del applet"
+
+#. 0dyseus@ArgosForCinnamon->settings-schema.json->pref_file_path->description
+msgid "Path to script"
+msgstr "Ruta al archivo de comandos"
 
 #~ msgid ""
 #~ "**Optimized for minimum resource consumption:** Even with multiple "

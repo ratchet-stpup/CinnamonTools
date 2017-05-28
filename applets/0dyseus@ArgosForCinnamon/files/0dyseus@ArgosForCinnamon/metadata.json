@@ -8,7 +8,8 @@
     ],
     "uuid": "0dyseus@ArgosForCinnamon",
     "contributors": [
-        "Philipp Emanuel Weidmann: Author of the gnome-shell extension called Argos"
+        "Philipp Emanuel Weidmann: Author of the gnome-shell extension called Argos",
+        "giwhub: Chinese localization."
     ],
     "max-instances": -1,
     "description": "Create Cinnamon applets in seconds.",
