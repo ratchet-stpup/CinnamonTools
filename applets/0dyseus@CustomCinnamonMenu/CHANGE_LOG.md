@@ -4,6 +4,19 @@
 
 ***
 
+- **Date:** Sun, 28 May 2017 03:22:52 -0300
+- **Commit:** [10d16c5](https://github.com/Odyseus/CinnamonTools/commit/10d16c5)
+- **Author:** Odyseus
+
+```
+Custom Cinnamon Menu applet
+- Updated Czech localization.
+- Updated help file due to updated localization.
+
+```
+
+***
+
 - **Date:** Sun, 28 May 2017 01:57:01 -0300
 - **Commit:** [1aa77b1](https://github.com/Odyseus/CinnamonTools/commit/1aa77b1)
 - **Author:** Odyseus
