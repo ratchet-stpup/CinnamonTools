@@ -4,6 +4,40 @@
 
 ***
 
+- **Date:** Sat, 27 May 2017 22:35:37 -0300
+- **Commit:** [053422a](https://github.com/Odyseus/CinnamonTools/commit/053422a)
+- **Author:** Odyseus
+
+```
+Window list (Fork By Odyseus) applet
+- Updated help file due to updated localization.
+
+```
+
+***
+
+- **Date:** Sat, 27 May 2017 22:01:58 +0800
+- **Commit:** [72a15a1](https://github.com/Odyseus/CinnamonTools/commit/72a15a1)
+- **Author:** giwhub
+
+```
+Update zh_CN.po
+
+```
+
+***
+
+- **Date:** Sat, 27 May 2017 19:55:20 +0800
+- **Commit:** [930a229](https://github.com/Odyseus/CinnamonTools/commit/930a229)
+- **Author:** giwhub
+
+```
+Update zh_CN.po
+
+```
+
+***
+
 - **Date:** Tue, 23 May 2017 06:11:19 -0300
 - **Commit:** [1db9114](https://github.com/Odyseus/CinnamonTools/commit/1db9114)
 - **Author:** Odyseus

@@ -4,6 +4,40 @@
 
 ***
 
+- **Date:** Sat, 27 May 2017 22:38:19 -0300
+- **Commit:** [590bf82](https://github.com/Odyseus/CinnamonTools/commit/590bf82)
+- **Author:** Odyseus
+
+```
+Multi Translator extension
+- Updated help file due to updated localization.
+
+```
+
+***
+
+- **Date:** Sat, 27 May 2017 22:01:07 +0800
+- **Commit:** [8451746](https://github.com/Odyseus/CinnamonTools/commit/8451746)
+- **Author:** giwhub
+
+```
+Update zh_CN.po
+
+```
+
+***
+
+- **Date:** Sat, 27 May 2017 19:57:00 +0800
+- **Commit:** [2f79aa0](https://github.com/Odyseus/CinnamonTools/commit/2f79aa0)
+- **Author:** giwhub
+
+```
+Update zh_CN.po
+
+```
+
+***
+
 - **Date:** Sat, 27 May 2017 01:12:55 -0300
 - **Commit:** [3b362de](https://github.com/Odyseus/CinnamonTools/commit/3b362de)
 - **Author:** Odyseus

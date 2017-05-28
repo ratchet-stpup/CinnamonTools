@@ -4,6 +4,40 @@
 
 ***
 
+- **Date:** Sat, 27 May 2017 22:38:05 -0300
+- **Commit:** [a81ae2c](https://github.com/Odyseus/CinnamonTools/commit/a81ae2c)
+- **Author:** Odyseus
+
+```
+Cinnamon Tweaks extension
+- Updated help file due to updated localization.
+
+```
+
+***
+
+- **Date:** Sat, 27 May 2017 22:01:17 +0800
+- **Commit:** [fd2cd8f](https://github.com/Odyseus/CinnamonTools/commit/fd2cd8f)
+- **Author:** giwhub
+
+```
+Update zh_CN.po
+
+```
+
+***
+
+- **Date:** Sat, 27 May 2017 19:59:11 +0800
+- **Commit:** [5da5ee0](https://github.com/Odyseus/CinnamonTools/commit/5da5ee0)
+- **Author:** giwhub
+
+```
+Update zh_CN.po
+
+```
+
+***
+
 - **Date:** Thu, 25 May 2017 21:01:41 -0300
 - **Commit:** [4ed5b75](https://github.com/Odyseus/CinnamonTools/commit/4ed5b75)
 - **Author:** Odyseus

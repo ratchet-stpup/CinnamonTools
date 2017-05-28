@@ -4,6 +4,40 @@
 
 ***
 
+- **Date:** Sat, 27 May 2017 22:34:37 -0300
+- **Commit:** [cd7dff5](https://github.com/Odyseus/CinnamonTools/commit/cd7dff5)
+- **Author:** Odyseus
+
+```
+Quick Menu applet
+- Updated help file due to updated localization.
+
+```
+
+***
+
+- **Date:** Sat, 27 May 2017 22:02:22 +0800
+- **Commit:** [955c61c](https://github.com/Odyseus/CinnamonTools/commit/955c61c)
+- **Author:** giwhub
+
+```
+Update zh_CN.po
+
+```
+
+***
+
+- **Date:** Sat, 27 May 2017 19:53:12 +0800
+- **Commit:** [a1866e3](https://github.com/Odyseus/CinnamonTools/commit/a1866e3)
+- **Author:** giwhub
+
+```
+Update zh_CN.po
+
+```
+
+***
+
 - **Date:** Mon, 15 May 2017 00:40:50 -0300
 - **Commit:** [ff1fa92](https://github.com/Odyseus/CinnamonTools/commit/ff1fa92)
 - **Author:** Odyseus

@@ -4,6 +4,62 @@
 
 ***
 
+- **Date:** Sat, 27 May 2017 22:37:50 -0300
+- **Commit:** [2d980c9](https://github.com/Odyseus/CinnamonTools/commit/2d980c9)
+- **Author:** Odyseus
+
+```
+Cinnamon Maximus (Fork By Odyseus) extension
+- Updated help file due to updated localization.
+
+```
+
+***
+
+- **Date:** Sat, 27 May 2017 21:59:52 -0300
+- **Commit:** [72e41b9](https://github.com/Odyseus/CinnamonTools/commit/72e41b9)
+- **Author:** Odyseus
+
+```
+Cinnamon Maximus (Fork by Odyseus) extension
+- Updated Danish localization.
+```
+
+***
+
+- **Date:** Sat, 27 May 2017 21:09:20 +0200
+- **Commit:** [1ea0bc5](https://github.com/Odyseus/CinnamonTools/commit/1ea0bc5)
+- **Author:** Alan01
+
+```
+Update da.po
+
+```
+
+***
+
+- **Date:** Sat, 27 May 2017 22:01:28 +0800
+- **Commit:** [f89c3d2](https://github.com/Odyseus/CinnamonTools/commit/f89c3d2)
+- **Author:** giwhub
+
+```
+Update zh_CN.po
+
+```
+
+***
+
+- **Date:** Sat, 27 May 2017 20:02:05 +0800
+- **Commit:** [7fa526f](https://github.com/Odyseus/CinnamonTools/commit/7fa526f)
+- **Author:** giwhub
+
+```
+Update zh_CN.po
+
+```
+
+***
+
 - **Date:** Fri, 26 May 2017 01:28:58 -0300
 - **Commit:** [e661810](https://github.com/Odyseus/CinnamonTools/commit/e661810)
 - **Author:** Odyseus

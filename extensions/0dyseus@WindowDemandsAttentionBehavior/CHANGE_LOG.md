@@ -4,6 +4,40 @@
 
 ***
 
+- **Date:** Sat, 27 May 2017 22:38:48 -0300
+- **Commit:** [f6d00bc](https://github.com/Odyseus/CinnamonTools/commit/f6d00bc)
+- **Author:** Odyseus
+
+```
+Window demands attention behavior extension
+- Updated help file due to updated localization.
+
+```
+
+***
+
+- **Date:** Sat, 27 May 2017 22:00:58 +0800
+- **Commit:** [b263247](https://github.com/Odyseus/CinnamonTools/commit/b263247)
+- **Author:** giwhub
+
+```
+Update zh_CN.po
+
+```
+
+***
+
+- **Date:** Sat, 27 May 2017 19:56:19 +0800
+- **Commit:** [69eb199](https://github.com/Odyseus/CinnamonTools/commit/69eb199)
+- **Author:** giwhub
+
+```
+Update zh_CN.po
+
+```
+
+***
+
 - **Date:** Mon, 15 May 2017 00:45:15 -0300
 - **Commit:** [e57b3fa](https://github.com/Odyseus/CinnamonTools/commit/e57b3fa)
 - **Author:** Odyseus

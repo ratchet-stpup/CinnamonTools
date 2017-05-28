@@ -4,6 +4,40 @@
 
 ***
 
+- **Date:** Sat, 27 May 2017 22:33:55 -0300
+- **Commit:** [20c9ec9](https://github.com/Odyseus/CinnamonTools/commit/20c9ec9)
+- **Author:** Odyseus
+
+```
+Desktop Handler applet
+- Updated help file due to updated localization.
+
+```
+
+***
+
+- **Date:** Sat, 27 May 2017 22:02:46 +0800
+- **Commit:** [1f93b19](https://github.com/Odyseus/CinnamonTools/commit/1f93b19)
+- **Author:** giwhub
+
+```
+Update zh_CN.po
+
+```
+
+***
+
+- **Date:** Sat, 27 May 2017 19:50:09 +0800
+- **Commit:** [382f6c1](https://github.com/Odyseus/CinnamonTools/commit/382f6c1)
+- **Author:** giwhub
+
+```
+Update zh_CN.po
+
+```
+
+***
+
 - **Date:** Tue, 16 May 2017 13:18:24 -0300
 - **Commit:** [5faf8d9](https://github.com/Odyseus/CinnamonTools/commit/5faf8d9)
 - **Author:** Odyseus

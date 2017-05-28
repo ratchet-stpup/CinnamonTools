@@ -4,6 +4,40 @@
 
 ***
 
+- **Date:** Sat, 27 May 2017 22:34:55 -0300
+- **Commit:** [caf8b1a](https://github.com/Odyseus/CinnamonTools/commit/caf8b1a)
+- **Author:** Odyseus
+
+```
+System Monitor (Fork By Odyseus) applet
+- Updated help file due to updated localization.
+
+```
+
+***
+
+- **Date:** Sat, 27 May 2017 22:02:13 +0800
+- **Commit:** [6012ffb](https://github.com/Odyseus/CinnamonTools/commit/6012ffb)
+- **Author:** giwhub
+
+```
+Update zh_CN.po
+
+```
+
+***
+
+- **Date:** Sat, 27 May 2017 19:53:43 +0800
+- **Commit:** [320d100](https://github.com/Odyseus/CinnamonTools/commit/320d100)
+- **Author:** giwhub
+
+```
+Update zh_CN.po
+
+```
+
+***
+
 - **Date:** Wed, 17 May 2017 16:13:29 -0300
 - **Commit:** [9509507](https://github.com/Odyseus/CinnamonTools/commit/9509507)
 - **Author:** Odyseus

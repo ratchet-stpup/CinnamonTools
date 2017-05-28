@@ -4,6 +4,43 @@
 
 ***
 
+- **Date:** Sat, 27 May 2017 22:33:37 -0300
+- **Commit:** [45b9eb8](https://github.com/Odyseus/CinnamonTools/commit/45b9eb8)
+- **Author:** Odyseus
+
+```
+Custom Cinnamon Menu applet
+- Updated help file due to updated localization.
+
+```
+
+***
+
+- **Date:** Sat, 27 May 2017 22:01:45 +0800
+- **Commit:** [3179904](https://github.com/Odyseus/CinnamonTools/commit/3179904)
+- **Author:** giwhub
+
+```
+Update zh_CN.po
+
+```
+
+***
+
+- **Date:** Sat, 27 May 2017 07:03:12 -0300
+- **Commit:** [b559aa9](https://github.com/Odyseus/CinnamonTools/commit/b559aa9)
+- **Author:** Odyseus
+
+```
+Custom Cinnamon Menu applet
+- Fixed a typo that prevented a couple of strings on the create_localized_help.py script from being
+extracted to be translated.
+- Updated localization template.
+
+```
+
+***
+
 - **Date:** Sat, 27 May 2017 05:17:29 -0300
 - **Commit:** [b9679bf](https://github.com/Odyseus/CinnamonTools/commit/b9679bf)
 - **Author:** Odyseus
