@@ -4,6 +4,19 @@
 
 ***
 
+- **Date:** Sun, 28 May 2017 02:07:10 -0300
+- **Commit:** [fe194b5](https://github.com/Odyseus/CinnamonTools/commit/fe194b5)
+- **Author:** Odyseus
+
+```
+Argos for Cinnamon applet
+- Updated README and metadata.json file due to new localization.
+- Updated localization template and Spanish localization.
+
+```
+
+***
+
 - **Date:** Sun, 28 May 2017 00:07:10 -0300
 - **Commit:** [918d300](https://github.com/Odyseus/CinnamonTools/commit/918d300)
 - **Author:** Odyseus
