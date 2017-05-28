@@ -586,7 +586,7 @@ pre {
 <div style="font-weight:bold;" class="alert alert-warning">
 <h2>DŮLEŽITÉ!!!</h2>
 
-<p>Nikdy neodstraňujte soubory ze složky tohoto xletu. Mohlo by to narušit tuto funkčnost xletu.</p>
+<p>Nikdy neodstraňujte soubory ze složky tohoto xletu. Mohlo by to narušit funkčnost xletu.</p>
 
 <p>Zprávy o chybách, požadavky na funkce a příspěvky by měly být prováděny v repozitáři tohoto xletu, na který je odkaz dále. <a href="https://github.com/Odyseus/CinnamonTools">GitHub</a></p>
 
@@ -631,7 +631,7 @@ pre {
 <hr>
 <h2>Informace o možnosti "Spustit v terminálu"</h2>
 <p>Tyto možnosti jsou určeny pro účely ladění (pro zobrazení výstupu konzoly po otevření / zavření programu pro detekci možných chyb). Namísto otevření terminálu pro spuštění programu, o kterém nemusíte znát jeho spouštěcí příkaz, to můžete udělat přímo z menu a jenom v jednom kroku. Možnosti pro spuštění z terminálu aplikace uvedené v nabídce lze nalézt v kontextové nabídce aplikace a mohou být skryty / zobrazeny v okně nastavení tohoto apletu.</p>
-<p>Ve výchozím nastavení budou tyto možnosti používat výchozí emulátor terminálu systému (<strong> x-terminal-emulator </strong> v distribucích založených na Debianu). Jakýkoliv jiný emulátor terminálu lze zadat uvnitř okna nastavení tohoto apletu, pokud má emulátor podporu pro argument <strong> - e </strong>. Udělal jsem testy s <strong> gnome-terminal </strong>, <strong> xterm </strong> a <strong> terminator </strong>. Dodatečné argumenty by mohly být předány emulátoru terminálu, ale nejsou mnou podporovány.</p>
+<p>Ve výchozím nastavení budou tyto možnosti používat výchozí emulátor terminálu systému (<strong> x-terminal-emulator </strong> v distribucích založených na Debianu). Jakýkoliv jiný emulátor terminálu lze zadat uvnitř okna nastavení tohoto apletu, pokud má emulátor podporu pro argument <strong> - e </strong>. Otestovány byly <strong> gnome-terminal </strong>, <strong> xterm </strong> a <strong> terminator </strong>.  Dodatečné argumenty by mohly být předány emulátoru terminálu, ale nejsou mnou podporovány.</p>
 <hr>
 <h2>Obsluha oblíbených položek</h2>
 <ul>
@@ -644,12 +644,12 @@ pre {
 <h2>Odstraňování problémů / další informace</h2>
 <ol>
 <li>Spustit v terminálu<ol>
-<li><strong>Distribuce založené na Debianu:</strong> If the command <strong>x-terminal-emulator</strong> doesn't run the terminal emulator that one wants to be the default, run the following command to set a different default terminal emulator.<ul>
+<li><strong>Distribuce založené na Debianu:</strong> Pokud příkaz <strong> x-terminal-emulator </strong> nespustí emulátor terminálu, který má být výchozí, spusťte následující příkaz a nastavte jiný výchozí emulátor terminálu.<ul>
 <li><code>sudo update-alternatives --config x-terminal-emulator</code></li>
 <li>Zadejte číslo výběru a stiskněte klávesu enter.</li>
 </ul>
 </li>
-<li><strong>Pro ostatní distribuce:</strong> Just set the terminal executable of your choice on this applet settings window.</li>
+<li><strong>Pro ostatní distribuce:</strong> Stačí nastavit spustitelný soubor terminálu podle vašeho výběru v okně nastavení tohoto apletu.</li>
 </ol>
 </li>
 <li>V adresáři tohoto apletu je soubor nazvaný <strong> run_from_terminal.sh </strong>. <strong><em> Neodebírejte, nepřejmenujte nebo neupravujte tento soubor </em></strong>. V opačném případě nebudou všechny možnosti <em> Spustit z terminálu </em> funkční. </li>
