@@ -394,6 +394,7 @@ pre {
 <div class="localization-chooser" align="middle">
 <h4 id="localization-chooser-label">Choose language</h4>
 <select class="form-control" id="localization-switch" onchange="self.toggleLocalizationVisibility(value, this);">
+<!-- Česky --><option data-title="Nápověda pro Extensions Manager" data-language-chooser-label="Zvolte jazyk" value="cs">Česky</option>
 <!-- English --><option selected data-title="Help for Extensions Manager" data-language-chooser-label="Choose language" value="en">English</option>
 <!-- Español --><option data-title="Ayuda para Extensions Manager" data-language-chooser-label="Elegir idioma" value="es">Español</option>
 <!-- Svenska --><option data-title="Hjälp för Extensions Manager" data-language-chooser-label="Välj språk" value="sv">Svenska</option>
@@ -447,6 +448,31 @@ pre {
 <li>Si este xlet se instaló desde Configuración de Cinnamon, todas las localizaciones de este xlet se instalaron automáticamente.</li>
 <li>Si este xlet se instaló manualmente y no a través de Configuración de Cinnamon, las localizaciones se pueden instalar ejecutando el archivo llamado <strong>localizations.sh</strong> desde una terminal abierta dentro de la carpeta del xlet.</li>
 <li>Si este xlet no está disponible en su idioma, la localización puede ser creada siguiendo las siguientes instrucciones. <a href="https://github.com/Odyseus/CinnamonTools/wiki/Xlet-localization">Wiki</a></li>
+</ul>
+
+</div> <!-- .localization-content -->
+
+
+<div id="cs" class="localization-content hidden">
+
+<h1>Nápověda pro Extensions Manager</h1>
+
+<div style="font-weight:bold;" class="alert alert-warning">
+<h2>DŮLEŽITÉ!!!</h2>
+
+<p>Nikdy neodstraňujte soubory ze složky tohoto xletu. Mohlo by to narušit funkčnost xletu.</p>
+
+<p>Zprávy o chybách, požadavky na funkce a příspěvky by měly být prováděny v repozitáři tohoto xletu, na který je odkaz dále. <a href="https://github.com/Odyseus/CinnamonTools">GitHub</a></p>
+
+</div>
+<hr>
+
+
+<h2>Lokalizace apletů/deskletů/rozšíření (a.k.a. xlety)</h2>
+<ul>
+<li>Pokud byl tento xlet nainstalován z nastavení systému v Cinnamonu, byly všechny tyto lokalizace xletu automaticky nainstalovány.</li>
+<li>Pokud byl tento xlet nainstalován ručně a nikoliv pomocí nastavení systému v Cinnamonu, mohou být lokalizace instalovány spuštěním skriptu nazvaného <strong> localizations.sh </strong> z terminálu otevřeného uvnitř složky xletu.</li>
+<li>Pokud tento xlet nemá k dispozici překlad pro váš jazyk, můžete jej vytvořit podle následujících pokynů. <a href="https://github.com/Odyseus/CinnamonTools/wiki/Xlet-localization">Wiki</a></li>
 </ul>
 
 </div> <!-- .localization-content -->

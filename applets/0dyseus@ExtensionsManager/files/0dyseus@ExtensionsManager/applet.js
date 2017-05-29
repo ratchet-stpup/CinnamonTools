@@ -33,6 +33,7 @@ MyApplet.prototype = {
             this._bind_settings();
 
             this.metadata = aMetadata;
+            this.applet_dir = aMetadata.path;
             this.orientation = aOrientation;
 
             Gtk.IconTheme.get_default().append_search_path(this.metadata.path + "/icons/");
@@ -147,6 +148,16 @@ MyApplet.prototype = {
             St.IconType.SYMBOLIC);
         menuItem.connect("activate", Lang.bind(this, function() {
             Util.spawn_async([this.metadata.path + "/appletHelper.py", "--debug-window"], null);
+        }));
+        this._applet_context_menu.addMenuItem(menuItem);
+
+        menuItem = new PopupMenu.PopupIconMenuItem(
+            _("Help"),
+            "dialog-information",
+            St.IconType.SYMBOLIC
+        );
+        menuItem.connect("activate", Lang.bind(this, function() {
+            Util.spawn_async(["xdg-open", this.applet_dir + "/HELP.html"], null);
         }));
         this._applet_context_menu.addMenuItem(menuItem);
     },
