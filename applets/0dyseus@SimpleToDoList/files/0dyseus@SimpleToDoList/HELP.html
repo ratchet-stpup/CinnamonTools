@@ -397,9 +397,82 @@ pre {
 <!-- English --><option selected data-title="Help for Simple ToDo List" data-language-chooser-label="Choose language" value="en">English</option>
 <!-- Español --><option data-title="Ayuda para Simple ToDo List" data-language-chooser-label="Elegir idioma" value="es">Español</option>
 <!-- Svenska --><option data-title="Hjälp för Simple ToDo List" data-language-chooser-label="Välj språk" value="sv">Svenska</option>
+<!-- 简体中文 --><option data-title="Simple ToDo List的帮助" data-language-chooser-label="选择语言" value="zh_CN">简体中文</option>
 </select>
 </div> <!-- .localization-chooser -->
 <div class="container boxed">
+
+<div id="zh_CN" class="localization-content hidden">
+
+<h1>Simple ToDo List的帮助</h1>
+
+<div style="font-weight:bold;" class="alert alert-warning">
+<h2>重要！！！</h2>
+
+<p>不要删除该xlet文件夹内的任何文件。可能会损坏该xlet的功能。</p>
+
+<p>错误报告，功能请求和贡献应该在下方链接的xlet的仓库上完成。 <a href="https://github.com/Odyseus/CinnamonTools">GitHub</a></p>
+
+</div>
+<hr>
+
+<h2>小程序用法和功能</h2>
+<p>这个小程序的用法非常简单。每个任务列表由子菜单表示，子菜单内的每个子菜单项代表任务。</p>
+<ul>
+<li>要添加新的任务列表，只需将焦点放在<strong>新任务列表... </strong>条目，命名任务列表然后按<kbd>Enter</kbd>键。</li>
+<li>要添加新任务，只需将焦点放在<strong>新任务</strong>条目，命名任务然后按<kbd>Enter</kbd>键。</li>
+<li>所有任务列表和任务都可以在线编辑。</li>
+<li>通过更改其子菜单项的选中状态，可以将任务标记为已完成。</li>
+<li>每个任务列表都可以有自己的排序任务的设置（按名称和/或完成的状态），移除任务按钮的可见性和完成的任务可见性。</li>
+<li>每个任务列表都可以保存为单独的TODO文件，并且还可以导出到一个文件中进行备份。</li>
+<li>通过将它们拖到其所属的任务列表内（仅当任务列表的所有自动排序选项被禁用时），可以重新排序任务。</li>
+<li>只需按删除任务按钮（如果可见）即可删除任务。</li>
+<li>支持彩色的优先级标签。任务的背景和文字颜色可以根据任务文本中找到的@tag进行着色。</li>
+<li>打开和关闭菜单的配置的热键。</li>
+<li>请阅读此小程序设置窗口中每个选项的提示获取更多详细信息。</li>
+</ul>
+<hr>
+<h2>键盘快捷键</h2>
+<p>该小程序菜单中的键盘导航与Cinnamon上任何其他菜单使用的键盘导航非常相似。但是稍稍改变，以方便任务和部分的处理和编辑。</p>
+<h3>当焦点在任务上时</h3>
+<ul>
+<li><kbd>Ctrl</kbd> + <kbd>Spacebar</kbd>：切换任务的完成（选中）状态。</li>
+<li><kbd>Shift</kbd> + <kbd>Delete</kbd>：删除任务并将元素聚焦在已删除任务的上方。</li>
+<li><kbd>Alt</kbd> + <kbd>Delete</kbd>：删除任务并将元素聚焦在已删除任务的下方。</li>
+<li><kbd>Ctrl</kbd> + <kbd>Arrow Up</kbd>或<kbd>Ctrl</kbd> + <kbd>Arrow Down</kbd>：移动任务列表中的任务。</li>
+<li><kbd>Insert</kbd>：将会吧焦点放在当前打开的任务部分的<strong>新建任务...</strong>条目。</li>
+</ul>
+<h3>当焦点在任务部分上时</h3>
+<ul>
+<li><kbd>Arrow Left</kbd>和<kbd>Arrow Right</kbd>：如果任务列表（子菜单）关闭，这些键将会打开子菜单。如果子菜单打开，这些键将会移动子菜单标签内的光标以允许编辑段文本。</li>
+<li><kbd>Insert</kbd>：将焦点放在任务部分中的<strong>新建任务...</strong>条目。如果任务部分子菜单没有打开，将会被打开。</li>
+</ul>
+<h3>当焦点在<strong>新建任务...</strong>条目上时</h3>
+<ul>
+<li><kbd>Ctrl</kbd> + <kbd>Spacebar</kbd>：切换任务菜单选项按钮的可见性。</li>
+</ul>
+<hr>
+<h2>已知问题</h2>
+<ul>
+<li><strong>悬停在菜单中的条目上不会高亮菜单条目或子菜单：</strong>这实际上是一个所需的功能。允许在鼠标悬停时高亮条目将会导致条目失去焦点，造成无法在其中保持键入文本，并且不断强制我们移动鼠标光标以重新获得焦点。</li>
+<li><strong>任务条目看起来是错的：</strong> 该小程序上的任务条目具有包装其文本的能力，以便在为其设置固定宽度的情况下。 它们也可以是多行（<kbd>Shift</kbd> + <kbd>Enter</kbd>里面的一个条目将创建一个新行）。一些Cinnamon主题，如默认的Mint-X系列主题，为菜单中的条目设置固定宽度和固定高度。 这些固定大小使得无法以编程方式设置条目的所需宽度（至少我找不到办法）。固定高度不允许条目扩展，完全打破条目包装其文本的功能，并且是多行的。</li>
+</ul>
+<h3>这是条目应该有的样子</h3>
+<p><img src="./assets/00-correct-entries-styling.png" alt="正确的条目样式"></p>
+<h3>这是条目不应该有的样子</h3>
+<p><img src="./assets/00-incorrect-entries-styling.png" alt="不正确的条目样式"></p>
+<p>解决这个问题的唯一方法（我能找到的）是通过编辑正在使用的Cinnamon主题，并移除那些固定的大小。需要编辑的CSS选择器有<strong>.menu StEntry</strong>、<strong>.menu StEntry:focus</strong>、<strong>.popup-menu StEntry</strong>和 <strong>.popup-menu StEntry:focus</strong>。根据创建主题的Cinnamon版本，可能只能找到前两个选择器，或者最后两个或全部。需要编辑的CSS属性是<strong>width</strong>和<strong>height</strong>。它们可以被删除，但明智的做法是将它们分别重命名为<strong>min-width</strong>和<strong>min-height</strong>。在编辑主题的文件并重新启动Cinnamon之后，该小程序中的条目应该会像他们看起来的那样工作。</p>
+<hr>
+
+<h2>小程序/桌面小工具/扩展（也称为xlets）本地化</h2>
+<ul>
+<li>如果该xlet安装自Cinnamon设置，该xlet的所有本地化已经自动安装。</li>
+<li>如果该xlet是通过手动安装而不是Cinnamon设置，可以通过打开终端执行xlet文件夹内名为<strong>localizations.sh</strong>的脚本安装本地化。</li>
+<li>如果该xlet没有您的语言的本地化，您可以按照以下说明进行创建。 <a href="https://github.com/Odyseus/CinnamonTools/wiki/Xlet-localization">Wiki</a></li>
+</ul>
+
+</div> <!-- .localization-content -->
+
 
 <div id="es" class="localization-content hidden">
 

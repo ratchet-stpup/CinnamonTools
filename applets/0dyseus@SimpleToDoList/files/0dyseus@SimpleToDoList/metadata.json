@@ -10,7 +10,8 @@
     "contributors": [
         "bsaleil: Author of the gnome-shell extension called Todo list.",
         "Thomas Moreau: Author of the gnome-shell extension called Section Todo List.",
-        "eson57: Swedish localization"
+        "eson57: Swedish localization",
+        "giwhub: Chinese localization"
     ],
     "max-instances": -1,
     "description": "Simple applet to create ToDo lists.",
