@@ -5,7 +5,8 @@
     "contributors": [
         "NikoKrause: Bug fixes and German localization.",
         "muzena: Croatian localization.",
-        "giwhub: Chinese localization."
+        "giwhub: Chinese localization.",
+        "eson57: Swedish localization."
     ],
     "max-instances": -1,
     "description": "Fork of the main Cinnamon Window list applet.",
