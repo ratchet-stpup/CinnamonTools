@@ -4,6 +4,18 @@
 
 ***
 
+- **Date:** Mon, 29 May 2017 02:46:40 -0300
+- **Commit:** [01f45d6](https://github.com/Odyseus/CinnamonTools/commit/01f45d6)
+- **Author:** Odyseus
+
+```
+Desktop Handler applet
+- Updated localization template and Spanish localization.
+
+```
+
+***
+
 - **Date:** Sat, 27 May 2017 22:33:55 -0300
 - **Commit:** [20c9ec9](https://github.com/Odyseus/CinnamonTools/commit/20c9ec9)
 - **Author:** Odyseus

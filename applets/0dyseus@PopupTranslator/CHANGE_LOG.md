@@ -4,6 +4,20 @@
 
 ***
 
+- **Date:** Mon, 29 May 2017 02:51:15 -0300
+- **Commit:** [1471f4e](https://github.com/Odyseus/CinnamonTools/commit/1471f4e)
+- **Author:** Odyseus
+
+```
+Popup Translator applet
+- Fixed a styling inconsistency on the create_localized_help.py script.
+- Updated all localization files due to changes in the create_localizaed_help.py script.
+- Updated help file due to updated localizations.
+
+```
+
+***
+
 - **Date:** Sat, 27 May 2017 22:34:28 -0300
 - **Commit:** [c4d10cc](https://github.com/Odyseus/CinnamonTools/commit/c4d10cc)
 - **Author:** Odyseus

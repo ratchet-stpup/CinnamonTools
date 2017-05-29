@@ -4,6 +4,30 @@
 
 ***
 
+- **Date:** Mon, 29 May 2017 02:55:30 -0300
+- **Commit:** [a0cabc5](https://github.com/Odyseus/CinnamonTools/commit/a0cabc5)
+- **Author:** Odyseus
+
+```
+System Monitor (Fork By Odyseus) applet
+- Updated README, metadata.json file and help file due to new localization.
+- Updated localization template and Spanish localization.
+
+```
+
+***
+
+- **Date:** Mon, 29 May 2017 07:22:08 +0200
+- **Commit:** [dc16c17](https://github.com/Odyseus/CinnamonTools/commit/dc16c17)
+- **Author:** Åke Engelbrektson
+
+```
+SysmonitorByOrcus: add sv.po
+Add Swedish translation
+```
+
+***
+
 - **Date:** Sat, 27 May 2017 22:34:55 -0300
 - **Commit:** [caf8b1a](https://github.com/Odyseus/CinnamonTools/commit/caf8b1a)
 - **Author:** Odyseus

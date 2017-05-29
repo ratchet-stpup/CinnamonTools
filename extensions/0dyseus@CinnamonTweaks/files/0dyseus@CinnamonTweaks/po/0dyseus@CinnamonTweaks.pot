@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 0dyseus@CinnamonTweaks 1.11\n"
-"POT-Creation-Date: 2017-05-21 17:06-0300\n"
+"POT-Creation-Date: 2017-05-29 02:40-0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1163,10 +1163,6 @@ msgstr ""
 msgid "Invalid overview options: Incorrect number of corners"
 msgstr ""
 
-#. 0dyseus@CinnamonTweaks->metadata.json->description
-msgid "Several tweaks for Cinnamon."
-msgstr ""
-
 #. 0dyseus@CinnamonTweaks->metadata.json->contributors
 msgid "lestcape: The brain behind the popup menus and desktop tweaks https://github.com/lestcape."
 msgstr ""
@@ -1201,4 +1197,12 @@ msgstr ""
 
 #. 0dyseus@CinnamonTweaks->metadata.json->contributors
 msgid "awamper: Author of Window Demands Attention Shortcut extension https://github.com/awamper/window-demands-attention-shortcut."
+msgstr ""
+
+#. 0dyseus@CinnamonTweaks->metadata.json->contributors
+msgid "giwhub:: Chinese localization https://github.com/giwhub."
+msgstr ""
+
+#. 0dyseus@CinnamonTweaks->metadata.json->description
+msgid "Several tweaks for Cinnamon."
 msgstr ""

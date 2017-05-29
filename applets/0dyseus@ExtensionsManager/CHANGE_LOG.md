@@ -4,6 +4,20 @@
 
 ***
 
+- **Date:** Mon, 29 May 2017 02:48:21 -0300
+- **Commit:** [748458d](https://github.com/Odyseus/CinnamonTools/commit/748458d)
+- **Author:** Odyseus
+
+```
+Extensions Manager applet
+- Added missing Help item on applet context menu.
+- Updated localization template.
+- Updated help file due to updated localizations.
+
+```
+
+***
+
 - **Date:** Sun, 28 May 2017 02:00:26 -0300
 - **Commit:** [2dc253e](https://github.com/Odyseus/CinnamonTools/commit/2dc253e)
 - **Author:** Odyseus

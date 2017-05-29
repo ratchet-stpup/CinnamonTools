@@ -4,6 +4,18 @@
 
 ***
 
+- **Date:** Mon, 29 May 2017 02:53:17 -0300
+- **Commit:** [fb3fc2c](https://github.com/Odyseus/CinnamonTools/commit/fb3fc2c)
+- **Author:** Odyseus
+
+```
+Simple ToDo List applet
+- Updated localization template.
+
+```
+
+***
+
 - **Date:** Mon, 29 May 2017 01:05:10 -0300
 - **Commit:** [d0c6d3b](https://github.com/Odyseus/CinnamonTools/commit/d0c6d3b)
 - **Author:** Odyseus

@@ -4,6 +4,18 @@
 
 ***
 
+- **Date:** Mon, 29 May 2017 02:52:43 -0300
+- **Commit:** [ae7817e](https://github.com/Odyseus/CinnamonTools/commit/ae7817e)
+- **Author:** Odyseus
+
+```
+Quick Menu applet
+- Updated localization template and Spanish localization.
+
+```
+
+***
+
 - **Date:** Sat, 27 May 2017 22:34:37 -0300
 - **Commit:** [cd7dff5](https://github.com/Odyseus/CinnamonTools/commit/cd7dff5)
 - **Author:** Odyseus

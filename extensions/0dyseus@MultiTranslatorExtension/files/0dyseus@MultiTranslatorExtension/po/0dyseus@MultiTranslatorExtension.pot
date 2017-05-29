@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 0dyseus@MultiTranslatorExtension 1.04\n"
-"POT-Creation-Date: 2017-05-27 01:11-0300\n"
+"POT-Creation-Date: 2017-05-29 02:40-0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1332,6 +1332,14 @@ msgstr ""
 msgid "No Yandex API keys were found!!!"
 msgstr ""
 
+#. 0dyseus@MultiTranslatorExtension->metadata.json->comments
+msgid "Bug reports, feature requests and contributions should be done on this xlet's repository linked below."
+msgstr ""
+
+#. 0dyseus@MultiTranslatorExtension->metadata.json->description
+msgid "Translation of text by different translation providers (currently Google, Yandex, Bing and Apertium)."
+msgstr ""
+
 #. 0dyseus@MultiTranslatorExtension->metadata.json->contributors
 msgid "awamper: Original author of Text Translator gnome-shell extension https://github.com/awamper/text-translator."
 msgstr ""
@@ -1362,12 +1370,4 @@ msgstr ""
 
 #. 0dyseus@MultiTranslatorExtension->metadata.json->contributors
 msgid "eson57: Swedish localization."
-msgstr ""
-
-#. 0dyseus@MultiTranslatorExtension->metadata.json->comments
-msgid "Bug reports, feature requests and contributions should be done on this xlet's repository linked below."
-msgstr ""
-
-#. 0dyseus@MultiTranslatorExtension->metadata.json->description
-msgid "Translation of text by different translation providers (currently Google, Yandex, Bing and Apertium)."
 msgstr ""
