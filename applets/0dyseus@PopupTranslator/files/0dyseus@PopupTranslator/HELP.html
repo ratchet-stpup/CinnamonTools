@@ -394,6 +394,7 @@ pre {
 <div class="localization-chooser" align="middle">
 <h4 id="localization-chooser-label">Choose language</h4>
 <select class="form-control" id="localization-switch" onchange="self.toggleLocalizationVisibility(value, this);">
+<!-- Česky --><option data-title="Nápověda pro Popup Translator" data-language-chooser-label="Zvolte jazyk" value="cs">Česky</option>
 <!-- English --><option selected data-title="Help for Popup Translator" data-language-chooser-label="Choose language" value="en">English</option>
 <!-- Español --><option data-title="Ayuda para Popup Translator" data-language-chooser-label="Elegir idioma" value="es">Español</option>
 <!-- Svenska --><option data-title="Hjälp för Popup Translator" data-language-chooser-label="Välj språk" value="sv">Svenska</option>
@@ -446,7 +447,7 @@ pre {
 <li><strong>第一个翻译机制(左键点击):</strong>翻译您系统上的任何应用程序中选中的文本。可以分配热键执行此任务。</li>
 <li><strong>第一个翻译机制(<kbd>Ctrl</kbd> + 左键点击):</strong>同<strong>左键点击</strong>，但是会绕过翻译历史。可以分配热键执行此任务。</li>
 <li><strong>第二个翻译机制(中键点击):</strong>同<strong>左键点击</strong>。</li>
-<li><strong>第二个翻译机制(<kbd>Ctrl</kbd> + 中键点击):</strong>同<kbd>Ctrl</kbd> + 左键点击。</li>
+<li><strong>第二个翻译机制(<kbd>Ctrl</kbd> + 中键点击):</strong>同<kbd>Ctrl</kbd> + <strong>左键点击</strong>。</li>
 <li><strong>第三个翻译机制(热键 #1):</strong>可以配置两个热键用来执行翻译和强制翻译。</li>
 <li><strong>第四个翻译机制(热键 #2):</strong>可以配置两个热键用来执行翻译和强制翻译。
 所有的翻译都存储在翻译历史中。如果在以前已经翻译了一串文本，弹窗将会显示所存储的翻译文本而不使用提供者的翻译服务。</li>
@@ -578,6 +579,94 @@ En el menú contextual de este applet existe un ítem que permite abrir la carpe
 </div> <!-- .localization-content -->
 
 
+<div id="cs" class="localization-content hidden">
+
+<h1>Nápověda pro Popup Translator</h1>
+
+<div style="font-weight:bold;" class="alert alert-warning">
+<h2>DŮLEŽITÉ!!!</h2>
+
+<p>Nikdy neodstraňujte soubory ze složky tohoto xletu. Mohlo by to narušit funkčnost xletu.</p>
+
+<p>Zprávy o chybách, požadavky na funkce a příspěvky by měly být prováděny v repozitáři tohoto xletu, na který je odkaz dále. <a href="https://github.com/Odyseus/CinnamonTools">GitHub</a></p>
+
+</div>
+<hr>
+
+<h2>Závislosti</h2>
+<p><strong>Pokud v systému chybí jedna nebo více těchto závislostí, nebudete moci tento aplet používat.</strong></p>
+<h3>xsel příkaz</h3>
+<p>XSel je program příkazového řádku pro získání a nastavení obsahu výběru X.</p>
+<ul>
+<li>Distribuce založené na Debianu a Archlinuxu: Balík se nazývá <strong>xsel</strong>.</li>
+</ul>
+<h3>xdg-open příkaz</h3>
+<p>Otevře URI v aplikaci preferované uživatelem, která zpracovává příslušný URI nebo typ souboru.</p>
+<ul>
+<li>Distribuce založené na Debianu a Archlinuxu: Tento příkaz je nainstalován s balíčkem s názvem <strong>xdg-utils</strong>. Instalováno ve výchozím nastavení v moderních verzích Linux Mint.</li>
+</ul>
+<h3>Python 3</h3>
+<p>Mělo by být již nainstalováno ve všech distribucích Linuxu.</p>
+<h3>requests Python 3 modul</h3>
+<p>Requests knihovna umožňuje posílat HTTP / 1.1 požadavky. Můžete přidat hlavičky, data formuláře, vícedílné soubory a parametry pomocí jednoduchých slovníků Pythonu a přístup k datům odezvy stejným způsobem. Využívá httplib a urllib3, ale dělá pro vás všechnu všechnu zbývající tvrdou práci.</p>
+<ul>
+<li>Distribuce založené na Debianu a Archlinuxu: Tento příkaz je nainstalován s balíčkem s názvem <strong>xdg-utils</strong>. Instalováno ve výchozím nastavení v moderních verzích Linux Mint.</li>
+<li>Distribuce založené na Debianu: Balík se nazývá <strong>python3-requests</strong>. Instalováno ve výchozím nastavení v moderních verzích Linux Mint.</li>
+<li>Distribuce založené na Archlinuxu: Balík se nazývá <strong>python-requests</strong>.</li>
+</ul>
+<p><strong>Po instalaci jakékoli chybějících závislosti je nutné restartovat Cinnamon.</strong></p>
+<p><strong>Poznámka:</strong> Nepoužívám žádný jiný typ distribuce Linuxu (založený na Gentoo, založeném na Slackware atd.). Pokud se některý z předchozích balíčků / modulů jmenuje jinak, dejte mi vědět a já doplním tento soubor s nápovědou.</p>
+<hr>
+<h2>Používání</h2>
+<p>Existují 4 <em>mechanismy překladů</em> (<strong>levým tlačítkem</strong>, <strong>středním tlačítkem</strong>, <strong>klávesová zkratka # 1</strong> a <strong>klávesová zkratka # 2</strong>). Každý mechanismus překladu může být konfigurován s vlastními poskytovateli služeb, jazykovými páry a klávesovými zkratkami.</p>
+<ul>
+<li><strong>Mechanismus prvního překladu (levým tlačítkem myši):</strong> Převede libovolný vybraný text z jakékoliv aplikace ve vašem systému. K provedení této úlohy může být přiřazena klávesová zkratka. </li>
+<li><strong>Mechanismus prvního překladu (<kbd>Ctrl</kbd> + levým tlačítkem myši):</strong> Stejné jako <strong>levým tlačítkem</strong>, ale obchází historii překladu. K provedení této úlohy může být přiřazena klávesová zkratka. </li>
+<li><strong>Mechanismus druhého překladu (prostředním tlačítkem myši):</strong> Stejné jako <strong>levým tlačítkem</strong>.</li>
+<li><strong>Mechanismus druhého překladu (<kbd>Ctrl</kbd> + prostředním tlačítkem myši):</strong> Stejné jako <kbd>Ctrl</kbd> + <strong>levým tlačítkem</strong>.</li>
+<li><strong>Mechanismus třetího překladu (klávesová zkratka # 1):</strong> Dvě klávesové zkratky mohou být nakonfigurovány pro překlad a vynucený překlad.</li>
+<li><strong>Mechanismus čtvrtého překladu (klávesová zkratka # 2):</strong> Dvě klávesové zkratky mohou být nakonfigurovány pro překlad a vynucený překlad.
+Všechny překlady jsou uloženy do historie překladů. Pokud byl řetězec textu již v minulosti přeložen, vyskakovací okno zobrazí tento uložený přeložený text bez použití služby poskytovatele překladu. </li>
+</ul>
+<hr>
+<h2>O historii překladů</h2>
+<p>Vytvořil jsem mechanismus historie překladu hlavně proto, aby se zabránilo zneužívání překladatelských služeb.</p>
+<ul>
+<li>Pokud je služba Google Translate "zneužívána", může společnost Google dočasně zablokovat vaši IP adresu. Nebo co je horší, mohou změnit překladový mechanismus, což způsobí nepoužitelnost tohoto apletu a donutí mě aktualizovat jeho kód. </li>
+<li>Pokud je služba Yandex Translate "zneužívána", "utrácíte" kvótu na klíče API a ty budou blokovány (dočasně nebo trvale).
+V kontextovém menu tohoto apletu je položka, která může otevřít složku se souborem historie překladů. Odtud může být soubor historie překladů zálohován nebo smazán. </li>
+</ul>
+<p><strong>NIKDY neupravujte soubor historie překladu ručně!!!</strong></p>
+<p><strong>Pokud je soubor s historií překladů smazán/přejmenován/přesunut, je třeba restartovat Cinnamon.</strong></p>
+<hr>
+<h2>Jak získat klíče API pro překladač Yandex</h2>
+<ul>
+<li>Navštivte některý z následujících odkazů a zaregistrujte účet Yandex (nebo použijte jednu z dostupných sociálních služeb).<ul>
+<li>Anglicky: <a href="https://tech.yandex.com/keys/get/?service=trnsl">https://tech.yandex.com/keys/get/?service=trnsl</a></li>
+<li>Rusky: <a href="https://tech.yandex.ru/keys/get/?service=trnsl">https://tech.yandex.ru/keys/get/?service=trnsl</a></li>
+</ul>
+</li>
+<li>Jakmile úspěšně dokončíte vytváření účtu Yandex, můžete několikrát navštívit odkaz k vytvoření několika klíčů API. <strong>NEZNEUŽÍVEJTE !!!</strong></li>
+<li>Jakmile máte k dispozici několik klíčů API, můžete je přidat do okna nastavení Popup překladače (jeden klíč API na každý řádek).</li>
+</ul>
+<h3>Důležité poznámky o klíčích API služby Yandex</h3>
+<ul>
+<li>Klíče API budou uloženy do předvoleb. Udržujte klíč API zálohované pro případ, že zresetujete předvolby Popup překladače. </li>
+<li><strong>NIKDY nezveřejňujte své klíče API</strong> Celý proces získání vlastních klíčů API, má jediný účel a tím je, že jediný kdo spotřebovává jejich limity jste vy a nikdo jiný.</li>
+<li>S každým klíčem API pro překladač Yandex můžete přeložit <strong>AŽ DO</strong> 1.000.000 (1 milion) znaků za den <strong>ALE NE VÍCE</strong> než 10.000.000 (10 milionů) za měsíc.</li>
+</ul>
+<hr>
+
+<h2>Lokalizace apletů/deskletů/rozšíření (a.k.a. xlety)</h2>
+<ul>
+<li>Pokud byl tento xlet nainstalován z nastavení systému v Cinnamonu, byly všechny tyto lokalizace xletu automaticky nainstalovány.</li>
+<li>Pokud byl tento xlet nainstalován ručně a nikoliv pomocí nastavení systému v Cinnamonu, mohou být lokalizace instalovány spuštěním skriptu nazvaného <strong> localizations.sh </strong> z terminálu otevřeného uvnitř složky xletu.</li>
+<li>Pokud tento xlet nemá k dispozici překlad pro váš jazyk, můžete jej vytvořit podle následujících pokynů. <a href="https://github.com/Odyseus/CinnamonTools/wiki/Xlet-localization">Wiki</a></li>
+</ul>
+
+</div> <!-- .localization-content -->
+
+
 <div id="sv" class="localization-content hidden">
 
 <h1>Hjälp för Popup Translator</h1>
@@ -622,7 +711,7 @@ En el menú contextual de este applet existe un ítem que permite abrir la carpe
 <li><strong>Första översättningsfunktionen (Vänsterklick):</strong> Översätter fritt markerad text från valfritt program i ditt system. En snabbtangent kan tilldelas för att utföra åtgärden.</li>
 <li><strong>Första översättningsfunktionen (<kbd>Ctrl</kbd> + Vänsterklick):</strong> Samma som <strong>Vänsterklick</strong>, men det kringgår översättningshistoriken. En snabbtangent kan tilldelas för att utföra åtgärden.</li>
 <li><strong>Andra översättningsfunktionen (Mushjulsklick):</strong> Samma som <strong>Vänsterklick</strong>.</li>
-<li><strong>Andra översättningsfunktionen (<kbd>Ctrl</kbd> + Mushjulsklick):</strong> Samma som <kbd>Ctrl</kbd> + Vänsterklick.</li>
+<li><strong>Andra översättningsfunktionen (<kbd>Ctrl</kbd> + Mushjulsklick):</strong> Samma som <kbd>Ctrl</kbd> + <strong>Vänsterklick</strong>.</li>
 <li><strong>Tredje översättningsfunktionen (Snabbtangent #1):</strong> Två snabbtangenter kan konfigureras för att utföra en översättning och en "Tvingad" översättning.</li>
 <li><strong>Fjärde översättningsfunktionen (Snabbtangent #2):</strong> Två snabbtangenter kan konfigureras för att utföra en översättning och en "Tvingad" översättning.
 Alla översättningar lagras i översättningshistoriken. Om en textsträng redan tidigare har översatts, Kommer popup-rutan att visa den lagrade översättningen, utan att använda leverantörens översättningstjänst.</li>
@@ -710,7 +799,7 @@ I panelprogrammets kontextmeny (högerklick på ikonen) kan du öppna den mapp d
 <li><strong>First translation mechanism (Left click):</strong> Translates any selected text from any application on your system. A hotkey can be assigned to perform this task.</li>
 <li><strong>First translation mechanism (<kbd>Ctrl</kbd> + Left click):</strong> Same as <strong>Left click</strong>, but it will bypass the translation history. A hotkey can be assigned to perform this task.</li>
 <li><strong>Second translation mechanism (Middle click):</strong> Same as <strong>Left click</strong>.</li>
-<li><strong>Second translation mechanism (<kbd>Ctrl</kbd> + Middle click):</strong> Same as <kbd>Ctrl</kbd> + Left click.</li>
+<li><strong>Second translation mechanism (<kbd>Ctrl</kbd> + Middle click):</strong> Same as <kbd>Ctrl</kbd> + <strong>Left click</strong>.</li>
 <li><strong>Third translation mechanism (Hotkey #1):</strong> Two hotkeys can be configured to perform a translation and a forced translation.</li>
 <li><strong>Fourth translation mechanism (Hotkey #2):</strong> Two hotkeys can be configured to perform a translation and a forced translation.
 All translations are stored into the translation history. If a string of text was already translated in the past, the popup will display that stored translated text without making use of the provider's translation service.</li>

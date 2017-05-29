@@ -117,7 +117,7 @@ def get_content():
         "- %s" % _("**Second translation mechanism (Middle click):** Same as **Left click**."),
         # TO TRANSLATORS: MARKDOWN string. Respect formatting.
         "- %s" % _(
-            "**Second translation mechanism ([[Ctrl]] + Middle click):** Same as [[Ctrl]] + Left click."),
+            "**Second translation mechanism ([[Ctrl]] + Middle click):** Same as [[Ctrl]] + **Left click**."),
         # TO TRANSLATORS: MARKDOWN string. Respect formatting.
         "- %s" % _("**Third translation mechanism (Hotkey #1):** Two hotkeys can be configured to perform a translation and a forced translation."),
         # TO TRANSLATORS: MARKDOWN string. Respect formatting.

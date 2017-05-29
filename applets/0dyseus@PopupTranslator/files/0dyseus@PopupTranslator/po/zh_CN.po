@@ -386,8 +386,8 @@ msgstr "**第二个翻译机制(中键点击):**同**左键点击**。"
 #: ../../create_localized_help.py:120
 msgid ""
 "**Second translation mechanism ([[Ctrl]] + Middle click):** Same as [[Ctrl]] "
-"+ Left click."
-msgstr "**第二个翻译机制([[Ctrl]] + 中键点击):**同[[Ctrl]] + 左键点击。"
+"+ **Left click**."
+msgstr "**第二个翻译机制([[Ctrl]] + 中键点击):**同[[Ctrl]] + **左键点击**。"
 
 #. TO TRANSLATORS: MARKDOWN string. Respect formatting.
 #: ../../create_localized_help.py:122

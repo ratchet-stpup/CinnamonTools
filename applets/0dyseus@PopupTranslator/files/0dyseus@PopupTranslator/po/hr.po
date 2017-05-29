@@ -376,7 +376,7 @@ msgstr ""
 #: ../../create_localized_help.py:120
 msgid ""
 "**Second translation mechanism ([[Ctrl]] + Middle click):** Same as [[Ctrl]] "
-"+ Left click."
+"+ **Left click**."
 msgstr ""
 
 #. TO TRANSLATORS: MARKDOWN string. Respect formatting.
