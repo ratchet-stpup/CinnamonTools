@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 0dyseus@WallpaperChangerApplet 1.00\n"
-"POT-Creation-Date: 2017-05-26 19:53-0300\n"
+"POT-Creation-Date: 2017-05-29 02:40-0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -517,10 +517,10 @@ msgstr ""
 msgid "giwhub: Chinese localization."
 msgstr ""
 
-#. 0dyseus@WallpaperChangerApplet->metadata.json->comments
-msgid "Bug reports, feature requests and contributions should be done on this xlet's repository linked below."
-msgstr ""
-
 #. 0dyseus@WallpaperChangerApplet->metadata.json->description
 msgid "Cinnamon wallpaper slideshow applet with multiple profiles support."
+msgstr ""
+
+#. 0dyseus@WallpaperChangerApplet->metadata.json->comments
+msgid "Bug reports, feature requests and contributions should be done on this xlet's repository linked below."
 msgstr ""
