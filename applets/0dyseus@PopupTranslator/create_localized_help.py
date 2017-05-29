@@ -16,7 +16,7 @@ if tools_folder not in sys.path:
     sys.path.insert(0, tools_folder)
 
 from gi.repository import GLib
-from cinnamon_tools_python_modules import help_modules
+from cinnamon_tools_python_modules import localized_help_modules
 from cinnamon_tools_python_modules import mistune
 from cinnamon_tools_python_modules.pyuca import Collator
 
@@ -26,13 +26,13 @@ md = mistune.Markdown()
 XLET_DIR = os.path.dirname(os.path.abspath(__file__))
 XLET_UUID = str(os.path.basename(XLET_DIR))
 
-xlet_meta = help_modules.XletMetadata(os.path.join(XLET_DIR, "files", XLET_UUID)).xlet_meta
+xlet_meta = localized_help_modules.XletMetadata(os.path.join(XLET_DIR, "files", XLET_UUID)).xlet_meta
 
 if xlet_meta is None:
     quit()
 
-tags = help_modules.HTMLTags()
-translations = help_modules.Translations()
+tags = localized_help_modules.HTMLTags()
+translations = localized_help_modules.Translations()
 # Set current_language to global every time that needs to be assigned.
 current_language = "en"
 
@@ -165,8 +165,8 @@ def get_css_custom():
 class Main():
 
     def __init__(self):
-        self.html_templates = help_modules.HTMLTemplates()
-        self.html_assets = help_modules.HTMLInlineAssets(repo_folder=repo_folder)
+        self.html_templates = localized_help_modules.HTMLTemplates()
+        self.html_assets = localized_help_modules.HTMLInlineAssets(repo_folder=repo_folder)
         self.lang_list = []
         self.sections = []
         self.options = []
@@ -209,7 +209,7 @@ class Main():
             sections="\n".join(self.sections)
         )
 
-        help_modules.save_html_file(path=self.help_file_path,
+        localized_help_modules.save_html_file(path=self.help_file_path,
                                     data=html_doc)
 
     def do_dummy_install(self):
@@ -275,7 +275,7 @@ class Main():
 
 
 if __name__ == "__main__":
-    parser = ArgumentParser(usage=help_modules.USAGE)
+    parser = ArgumentParser(usage=localized_help_modules.USAGE)
     group = parser.add_mutually_exclusive_group(required=False)
 
     group.add_argument("-p",

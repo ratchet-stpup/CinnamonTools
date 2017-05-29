@@ -2,18 +2,18 @@
 
 These are modules used by several Python scripts inside this repository. Some are created by me (Odyseus) and some are downloaded. The ones downloaded are *simple* modules that doesn't have dependencies and are added to this modules folder so there is no need to install them on a system to be able to run the scripts.
 
-### help_modules.py
+### Third party modules
 
-It contains some functions and classes used by the **create_localized_help.py** scripts.
+- **[pyuca](https://github.com/jtauber/pyuca):** This module is used to allow the correct sorting of strings with Unicode characters. It is used by the **create_localized_help.py** scripts.
+- **[mistune](https://github.com/lepture/mistune):** This module is used to render markdown strings and it's also used by the **create_localized_help.py** scripts. I modified this module to add support for keyboard keys (`kbd` HTML tags). `[[Key]]` will render as `<kbd>Key</kbd>`. The use of this module is to avoid at all cost the use of HTML tags on translatable strings. This will prevent the breakage of the generated HTML pages if an HTML tag is wrongly edited. If a Markdown markup is wrongly edited, the markup characters will not be rendered as HTML, but the HTML page will not break.
 
-### [pyuca](https://github.com/jtauber/pyuca) module
+### Custom modules
 
-This module is used to allow the correct ordering of strings with Unicode characters. It is used by the **create_localized_help.py** scripts.
-
-### [mistune](https://github.com/lepture/mistune) module
-
-This module is used to render markdown strings and it's also used by the **create_localized_help.py** scripts.
-
-I modified this module to add support for keyboard keys (`kbd` HTML tags). `[[Key]]` will reder as `<kbd>Key</kbd>`.
-
-The use of this module is to avoid at all cost the use of HTML tags on translatable strings. This will prevent the breakage of the generated HTML pages if an HTML tag is wrongly edited. If a Markdown markup is wrongly edited, the markup characters will not be rendered as HTML, but the HTML page will not break.
+- **ansi_colors.py:** This module is used to colorize the output of the Python **print** command.
+- **helper_app.py:** This module creates a simple GUI to handle the **helper.py** script functions.
+- **helper_functions.py:** This module contains the core functions used by the **helper.py** script.
+- **localized_help_modules.py:** This module contains some functions and classes used by the **create_localized_help.py** scripts.
+- **terminal.py:** This module is used to launch commands through a virtual terminal. **Not used for now.**
+- **xlets_meta.py:** This module generates the file called **xlets_metadata.json** that is used by the **helper.py** functions. The **xlets_metadata.json** file is basically all the **metadata.json** files from all the xlets merged together. Additionally to all the data contained inside the **metadata.json** files, two keys are added to the xlets meta data.
+    - `type` key: The type of xlet (applet/desklet/extension).
+    - `meta-path` key: The full path to the xlets **metadata.json**. This path is used by several functions inside the **helper.py** script. I chose to store and use this path to calculate various paths based on this *"fixed point"*. My reasoning is, it's easier and less demanding to extract a path from a string than to constantly use `os.path.join`.
