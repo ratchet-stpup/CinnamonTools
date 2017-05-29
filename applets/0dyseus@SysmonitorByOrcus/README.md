@@ -37,5 +37,6 @@ system.
 - **[buzz](https://github.com/buzz):** Bug fixes.
 - **[muzena](https://github.com/muzena):** Croatian localization.
 - **[giwhub](https://github.com/giwhub):** Chinese localization.
+- **[eson57](https://github.com/eson57):** Swedish localization.
 
 [Full change log](https://github.com/Odyseus/CinnamonTools/blob/master/applets/0dyseus%40SysmonitorByOrcus/CHANGE_LOG.md)

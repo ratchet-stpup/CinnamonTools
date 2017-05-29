@@ -396,6 +396,7 @@ pre {
 <select class="form-control" id="localization-switch" onchange="self.toggleLocalizationVisibility(value, this);">
 <!-- English --><option selected data-title="Help for System Monitor (Fork By Odyseus)" data-language-chooser-label="Choose language" value="en">English</option>
 <!-- Español --><option data-title="Ayuda para System Monitor (Fork By Odyseus)" data-language-chooser-label="Elegir idioma" value="es">Español</option>
+<!-- Svenska --><option data-title="Hjälp för System Monitor (Fork By Odyseus)" data-language-chooser-label="Välj språk" value="sv">Svenska</option>
 <!-- 简体中文 --><option data-title="System Monitor (Fork By Odyseus)的帮助" data-language-chooser-label="选择语言" value="zh_CN">简体中文</option>
 </select>
 </div> <!-- .localization-chooser -->
@@ -482,6 +483,49 @@ pre {
 <li>Si este xlet se instaló desde Configuración de Cinnamon, todas las localizaciones de este xlet se instalaron automáticamente.</li>
 <li>Si este xlet se instaló manualmente y no a través de Configuración de Cinnamon, las localizaciones se pueden instalar ejecutando el archivo llamado <strong>localizations.sh</strong> desde una terminal abierta dentro de la carpeta del xlet.</li>
 <li>Si este xlet no está disponible en su idioma, la localización puede ser creada siguiendo las siguientes instrucciones. <a href="https://github.com/Odyseus/CinnamonTools/wiki/Xlet-localization">Wiki</a></li>
+</ul>
+
+</div> <!-- .localization-content -->
+
+
+<div id="sv" class="localization-content hidden">
+
+<h1>Hjälp för System Monitor (Fork By Odyseus)</h1>
+
+<div style="font-weight:bold;" class="alert alert-warning">
+<h2>VIKTIGT!!!</h2>
+
+<p>Ta aldrig bort någon av filerna i den här xlet-mappen. Det kan förstöra programmets funktioner.</p>
+
+<p>Felrapporter, funktionsönskemål och kodbidrag kan lämnas i denna xlets kodförråd, på följande länk. <a href="https://github.com/Odyseus/CinnamonTools">GitHub</a></p>
+
+</div>
+<hr>
+
+<h2>Beroenden</h2>
+<ul>
+<li><strong>GTop:</strong> gtop-biblioteket läser information om processer och status för systemet.<ul>
+<li><strong>Debian-baserade distributioner:</strong> Paketet heter <strong>gir1.2-gtop-2.0</strong>.</li>
+<li><strong>Archlinux-baserade distributioner:</strong> Paketet heter <strong>libgtop</strong>.</li>
+<li><strong>Fedora-baserade distributioner:</strong> Paketet heter <strong>libgtop2-devel</strong>.</li>
+</ul>
+</li>
+<li><strong>NetworkManager:</strong> Nätverkshanteraren är en systemnätverkstjänst som hanterar dina nätverksenheter och anslutningar. Försöker hålla nätverksanslutningar aktiva, när tillgängliga.<ul>
+<li><strong>Debian-baserade distributioner:</strong> Paketet heter <strong>gir1.2-networkmanager-1.0</strong>.</li>
+<li><strong>Archlinux-baserade distributioner:</strong> Paketet heter <strong>networkmanager</strong>.</li>
+<li><strong>Fedora-baserade distributioner:</strong> Paketet heter <strong>NetworkManager</strong>.</li>
+</ul>
+</li>
+</ul>
+<p><strong>Viktig notis:</strong> NetworkManager används endast om <strong>GTop</strong>-biblioteket version &lt; <strong>2.32</strong> finns installerat i systemet och inte stödjer vissa biblioteksanrop. Så om nätverksdiagrammet på detta panelprogram fungerar utan att du har installerat "NetworkManager", behöver du heller inte installera det.</p>
+<p><strong>Starta om Cinnamon efter paketinstallationen så att panelprogrammet kan identifiera dem.</strong></p>
+<hr>
+
+<h2>Applets/Desklets/Extensions (xlets) översättning</h2>
+<ul>
+<li>Om denna xlet installerades från Cinnamons inställningar, installerades också alla översättningar automatiskt.</li>
+<li>Om denna xlet installerades manuellt och inte via Cinnamons inställningar, kan översättningar installeras genom att köra skriptet <strong>localizations.sh</strong> från en terminal öppnad i programmappen.</li>
+<li>Om ditt språk saknas i denna xlet, kan du översätta den genom följande instruktioner. <a href="https://github.com/Odyseus/CinnamonTools/wiki/Xlet-localization">Wiki</a></li>
 </ul>
 
 </div> <!-- .localization-content -->
