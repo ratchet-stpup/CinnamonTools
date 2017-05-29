@@ -4,6 +4,30 @@
 
 ***
 
+- **Date:** Mon, 29 May 2017 05:39:26 -0300
+- **Commit:** [c7aa305](https://github.com/Odyseus/CinnamonTools/commit/c7aa305)
+- **Author:** Odyseus
+
+```
+Window list (Fork By Odyseus) applet
+- Updated README, metadata.json file and help file due to new localization.
+- Updated localization template and Spanish localization.
+
+```
+
+***
+
+- **Date:** Mon, 29 May 2017 10:21:28 +0200
+- **Commit:** [0ad34c9](https://github.com/Odyseus/CinnamonTools/commit/0ad34c9)
+- **Author:** Åke Engelbrektson
+
+```
+window-list-fork: add sv.po
+Add Swedish translation
+```
+
+***
+
 - **Date:** Sat, 27 May 2017 22:35:37 -0300
 - **Commit:** [053422a](https://github.com/Odyseus/CinnamonTools/commit/053422a)
 - **Author:** Odyseus
