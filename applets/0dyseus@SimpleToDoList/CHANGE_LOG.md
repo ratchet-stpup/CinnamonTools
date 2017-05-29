@@ -4,6 +4,30 @@
 
 ***
 
+- **Date:** Mon, 29 May 2017 01:05:10 -0300
+- **Commit:** [d0c6d3b](https://github.com/Odyseus/CinnamonTools/commit/d0c6d3b)
+- **Author:** Odyseus
+
+```
+Simple ToDo List applet
+- Updated README, metadata.json file and help file due to new localization.
+- Updated localization template and Spanish localization.
+
+```
+
+***
+
+- **Date:** Sun, 28 May 2017 22:49:25 +0800
+- **Commit:** [26511ff](https://github.com/Odyseus/CinnamonTools/commit/26511ff)
+- **Author:** giwhub
+
+```
+Create zh_CN.po
+
+```
+
+***
+
 - **Date:** Tue, 23 May 2017 06:08:13 -0300
 - **Commit:** [1cbf01e](https://github.com/Odyseus/CinnamonTools/commit/1cbf01e)
 - **Author:** Odyseus
