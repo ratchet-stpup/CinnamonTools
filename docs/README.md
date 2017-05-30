@@ -23,11 +23,19 @@ $ [sudo] npm install jstransformer-markdown-it -g
 sudo apt-get install git git-doc git-gui
 ```
 
+- Checked out repository wiki
+
+The wiki of this repository needs to be checked out inside the **CinnamonTools/docs** folder. The wiki's files are used to create the **wiki.html** and **wiki_standalone.html** files.
+
+```bash
+git clone https://github.com/Odyseus/CinnamonTools.wiki.git
+```
+
 ## Building notes
 
 #### General notes
 
-- Break **script** closing tags on all JS files. From `"</script>"` to `"</scr"+"ipt>"`. It breaks page loading when the JS code is embedded in the HTML. It seems not to be a problem when the scripts are linked files.
+- Break **script** closing tags on all JS files. From `"</script>"` to `"</scr"+"ipt>"`. It breaks page loading when the JS code is embedded in the HTML. THe logged error is `SyntaxError: unterminated string literal`. It seems not to be a problem when the scripts are linked files.
 - Use of official CDNs for the [jQuery](https://code.jquery.com/) and [Bootstrap](https://www.bootstrapcdn.com/) script files.
 
 #### Include files notes
