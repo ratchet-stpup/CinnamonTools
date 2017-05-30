@@ -6,17 +6,17 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 0dyseus@SimpleToDoList 1.00\n"
-"POT-Creation-Date: 2017-05-28 18:59+0800\n"
-"PO-Revision-Date: 2017-05-28 22:47+0800\n"
+"POT-Creation-Date: 2017-05-30 19:42+0800\n"
+"PO-Revision-Date: 2017-05-30 19:42+0800\n"
+"Last-Translator: \n"
 "Language-Team: \n"
+"Language: zh_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: make-xlet-pot.py 1.0.32\n"
 "X-Generator: Poedit 1.8.11\n"
-"Last-Translator: \n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"Language: zh_CN\n"
 
 #: ../../create_localized_help.py:63
 msgid "Applet usage and features"
@@ -330,41 +330,41 @@ msgid ""
 "by following the following instructions."
 msgstr "如果该xlet没有您的语言的本地化，您可以按照以下说明进行创建。"
 
-#: appletHelper.py:59
+#: appletHelper.py:64
 msgid "Select or enter file to export to"
 msgstr "选择或输入导出的文件"
 
 #. TO TRANSLATORS: Could be left blank.
-#: appletHelper.py:61 appletHelper.py:67 appletHelper.py:74
+#: appletHelper.py:66 appletHelper.py:72 appletHelper.py:79
 msgid "_Cancel"
 msgstr "取消(_C)"
 
-#: appletHelper.py:62 appletHelper.py:75
+#: appletHelper.py:67 appletHelper.py:80
 msgid "_Save"
 msgstr "保存(_S)"
 
-#: appletHelper.py:65
+#: appletHelper.py:70
 msgid "Select a file to import"
 msgstr "选择要导入的文件"
 
 #. TO TRANSLATORS: Could be left blank.
-#: appletHelper.py:69
+#: appletHelper.py:74
 msgid "_Open"
 msgstr "打开(_O)"
 
-#: appletHelper.py:72
+#: appletHelper.py:77
 msgid "Select a file to save to"
 msgstr "选择要保存的文件"
 
-#: appletHelper.py:89
+#: appletHelper.py:97
 msgid "TODO files"
 msgstr "TODO文件"
 
-#: appletHelper.py:92
+#: appletHelper.py:100
 msgid "JSON files"
 msgstr "JSON文件"
 
-#: appletHelper.py:123
+#: appletHelper.py:131
 msgid "Nothing to do here."
 msgstr "什么也不做。"
 
@@ -467,12 +467,12 @@ msgstr "保持隐藏已完成的任务"
 
 #. TO TRANSLATORS: Full sentence.
 #. "Remove this section/task"
-#: __init__.js:1522
+#: __init__.js:1518
 #, javascript-format
 msgid "Remove this %s"
 msgstr "移除此%s"
 
-#: __init__.js:1525
+#: __init__.js:1521
 msgid "(Hold Ctrl key)"
 msgstr "(按住Ctrl键)"
 
@@ -480,23 +480,23 @@ msgstr "(按住Ctrl键)"
 msgid "New tasks list..."
 msgstr "新建任务列表..."
 
-#: applet.js:602
+#: applet.js:615
 msgid "Save as TODO"
 msgstr "保存为TODO"
 
-#: applet.js:611
+#: applet.js:624
 msgid "Save all current tasks lists as a TODO file."
 msgstr "保存当前的全部任务为TODO文件。"
 
-#: applet.js:617
+#: applet.js:630
 msgid "Export tasks"
 msgstr "导出任务"
 
-#: applet.js:626
+#: applet.js:639
 msgid "Export all current tasks lists into a JSON file."
 msgstr "导出当前的全部任务为JSON文件。"
 
-#: applet.js:627 applet.js:643
+#: applet.js:640 applet.js:656
 msgid ""
 "JSON files exported by this applet can be imported back into the applet and "
 "the tasks list found inside the files are added to the tasks lists currently "
@@ -505,56 +505,66 @@ msgstr ""
 "此小程序导出的JSON文件可以导回到小程序中，文件中找到的任务列表已添加到该小程"
 "序中当前加载的任务列表中。"
 
-#: applet.js:633
+#: applet.js:646
 msgid "Import tasks"
 msgstr "导入任务"
 
-#: applet.js:642
+#: applet.js:655
 msgid ""
 "Import tasks lists from a previously exported JSON file into this applet."
 msgstr "在该小程序中从以前导出的JSON文件导入任务列表。"
 
-#: applet.js:652
+#: applet.js:665
 msgid "Restore example tasks"
 msgstr "还原示例任务"
 
-#: applet.js:666
+#: applet.js:679
 msgid ""
 "Restore the example tasks list that were present when the applet was first "
 "loaded."
 msgstr "当小程序第一次加载时还原出现的示例任务列表。"
 
-#: applet.js:672
+#: applet.js:685
 msgid "Reset tasks"
 msgstr "重置任务"
 
-#: applet.js:678 applet.js:694
+#: applet.js:691 applet.js:707
 msgid "WARNING!!!"
 msgstr "警告！！！"
 
-#: applet.js:679
+#: applet.js:692
 msgid "Do you really want to remove all your current tasks?"
 msgstr "您确定要移除您当前所有的任务吗？"
 
-#: applet.js:680 applet.js:694
+#: applet.js:693 applet.js:707
 msgid "This operation cannot be reverted!!!"
 msgstr "此操作无法撤销！！！"
 
-#: applet.js:693
+#: applet.js:706
 msgid "Remove all currently loaded tasks lists from this applet."
 msgstr "从该小程序移除当前全部已加载的任务列表。"
 
-#: applet.js:703
+#: applet.js:716
 msgid "Help"
 msgstr "帮助"
 
-#: applet.js:707
+#: applet.js:720
 msgid "Open this applet help file."
 msgstr "打开此小程序的帮助文件。"
 
 #. 0dyseus@SimpleToDoList->metadata.json->description
 msgid "Simple applet to create ToDo lists."
 msgstr "用以创建待办事项列表的简单的小程序。"
+
+#. 0dyseus@SimpleToDoList->metadata.json->comments
+msgid ""
+"Bug reports, feature requests and contributions should be done on this "
+"xlet's repository linked below."
+msgstr "错误报告，功能请求和贡献应该在下方链接的xlet的仓库上完成。"
+
+#. 0dyseus@SimpleToDoList->metadata.json->name
+msgid "Simple ToDo List"
+msgstr "简单待办事项列表"
 
 #. 0dyseus@SimpleToDoList->metadata.json->contributors
 msgid "bsaleil: Author of the gnome-shell extension called Todo list."
@@ -565,46 +575,145 @@ msgid ""
 "Thomas Moreau: Author of the gnome-shell extension called Section Todo List."
 msgstr "Thomas Moreau：名为Section Todo List的gnome-shell扩展的作者。"
 
-#. 0dyseus@SimpleToDoList->metadata.json->name
-msgid "Simple ToDo List"
-msgstr "简单待办事项列表"
+#. 0dyseus@SimpleToDoList->metadata.json->contributors
+msgid "eson57: Swedish localization"
+msgstr "eson57：瑞典语本地化。"
 
-#. 0dyseus@SimpleToDoList->metadata.json->comments
+#. 0dyseus@SimpleToDoList->metadata.json->contributors
+msgid "giwhub: Chinese localization"
+msgstr "giwhub：中文本地化。"
+
+#. 0dyseus@SimpleToDoList->settings-schema.json->head4->description
+msgid "Save as TODO file settings"
+msgstr "保存为TODO文件设置"
+
+#. 0dyseus@SimpleToDoList->settings-schema.json->pref_use_fail_safe->tooltip
 msgid ""
-"Bug reports, feature requests and contributions should be done on this "
-"xlet's repository linked below."
-msgstr "错误报告，功能请求和贡献应该在下方链接的xlet的仓库上完成。"
+"When enabled, to remove a task or a section of the menu, the Control key "
+"needs to be pressed."
+msgstr "启用后，若要移除任务或菜单的部分，需要按住Control键盘。"
 
-#. 0dyseus@SimpleToDoList->settings-schema.json->pref_tasks_priorities_today_foreground->description
-#. 0dyseus@SimpleToDoList->settings-schema.json->pref_tasks_priorities_high_foreground->description
-#. 0dyseus@SimpleToDoList->settings-schema.json->pref_tasks_priorities_low_foreground->description
+#. 0dyseus@SimpleToDoList->settings-schema.json->pref_use_fail_safe->description
+msgid "Avoid accidental deletions"
+msgstr "避免意外删除"
+
+#. 0dyseus@SimpleToDoList->settings-schema.json->pref_overlay_key->description
+msgid "Keyboard shortcut to open and close the menu"
+msgstr "打开和关闭菜单的键盘快捷键"
+
+#. 0dyseus@SimpleToDoList->settings-schema.json->pref_keep_one_menu_open->tooltip
+msgid ""
+"When enabled, the previously opened sub menu will be automatically closed."
+msgstr "启用后，之前打开的子菜单将会自动关闭。"
+
+#. 0dyseus@SimpleToDoList->settings-schema.json->pref_keep_one_menu_open->description
+msgid "Keep just one sub menu open"
+msgstr "始终保持仅打开一个子菜单"
+
 #. 0dyseus@SimpleToDoList->settings-schema.json->pref_tasks_priorities_critical_foreground->description
+#. 0dyseus@SimpleToDoList->settings-schema.json->pref_tasks_priorities_today_foreground->description
+#. 0dyseus@SimpleToDoList->settings-schema.json->pref_tasks_priorities_low_foreground->description
+#. 0dyseus@SimpleToDoList->settings-schema.json->pref_tasks_priorities_high_foreground->description
 #. 0dyseus@SimpleToDoList->settings-schema.json->pref_tasks_priorities_medium_foreground->description
 msgid "Text color"
 msgstr "文本颜色"
 
-#. 0dyseus@SimpleToDoList->settings-schema.json->pref_tasks_priorities_today_background->description
+#. 0dyseus@SimpleToDoList->settings-schema.json->head1->description
+msgid "Menu settings"
+msgstr "菜单设置"
+
+#. 0dyseus@SimpleToDoList->settings-schema.json->pref_logging_enabled->tooltip
+msgid ""
+"It enables the ability to log the output of several functions used by the "
+"applet."
+msgstr "它能够记录小程序使用的一些函数的输出。"
+
+#. 0dyseus@SimpleToDoList->settings-schema.json->pref_logging_enabled->description
+msgid "Enable logging"
+msgstr "启用日志记录"
+
+#. 0dyseus@SimpleToDoList->settings-schema.json->head7->description
+msgid "Colors for \"@high\" priority tags"
+msgstr "\"@high\"优先级标记的颜色"
+
+#. 0dyseus@SimpleToDoList->settings-schema.json->head3->description
+msgid "Tasks appearance"
+msgstr "任务外观"
+
+#. 0dyseus@SimpleToDoList->settings-schema.json->pref_section_remove_native_entry_theming_sizing->description
+#. 0dyseus@SimpleToDoList->settings-schema.json->pref_task_remove_native_entry_theming_sizing->description
+msgid "Remove native entry theming (also sizing)"
+msgstr "移除本地条目主题（和大小）"
+
 #. 0dyseus@SimpleToDoList->settings-schema.json->pref_tasks_priorities_low_background->description
-#. 0dyseus@SimpleToDoList->settings-schema.json->pref_tasks_priorities_critical_background->description
-#. 0dyseus@SimpleToDoList->settings-schema.json->pref_tasks_priorities_high_background->description
+#. 0dyseus@SimpleToDoList->settings-schema.json->pref_tasks_priorities_today_background->description
 #. 0dyseus@SimpleToDoList->settings-schema.json->pref_tasks_priorities_medium_background->description
+#. 0dyseus@SimpleToDoList->settings-schema.json->pref_tasks_priorities_high_background->description
+#. 0dyseus@SimpleToDoList->settings-schema.json->pref_tasks_priorities_critical_background->description
 msgid "Background color"
 msgstr "背景颜色"
 
-#. 0dyseus@SimpleToDoList->settings-schema.json->pref_task_remove_native_entry_theming->description
+#. 0dyseus@SimpleToDoList->settings-schema.json->pref_show_tasks_counter_on_applet->description
+msgid "Display tasks counter on applet"
+msgstr "在小程序显示任务计数"
+
+#. 0dyseus@SimpleToDoList->settings-schema.json->head6->description
+msgid "Colors for \"@critical\" priority tags"
+msgstr "\"@critical\"优先级标记的颜色"
+
+#. 0dyseus@SimpleToDoList->settings-schema.json->pref_task_font_size->description
+#. 0dyseus@SimpleToDoList->settings-schema.json->pref_section_font_size->description
+msgid "Label font size"
+msgstr "标签字体大小"
+
+#. 0dyseus@SimpleToDoList->settings-schema.json->pref_task_font_size->units
+#. 0dyseus@SimpleToDoList->settings-schema.json->pref_section_font_size->units
+msgid "ems"
+msgstr "ems"
+
+#. 0dyseus@SimpleToDoList->settings-schema.json->head0->description
+msgid "Applet settings"
+msgstr "小程序设置"
+
+#. 0dyseus@SimpleToDoList->settings-schema.json->head5->description
+msgid "Task priorities settings"
+msgstr "任务优先级设置"
+
+#. 0dyseus@SimpleToDoList->settings-schema.json->head9->description
+msgid "Colors for \"@medium\" priority tags"
+msgstr "\"@medium\"优先级标记的颜色"
+
+#. 0dyseus@SimpleToDoList->settings-schema.json->pref_task_set_bold->description
+#. 0dyseus@SimpleToDoList->settings-schema.json->pref_section_set_bold->description
+msgid "Set bold"
+msgstr "设置粗体"
+
 #. 0dyseus@SimpleToDoList->settings-schema.json->pref_section_remove_native_entry_theming->description
+#. 0dyseus@SimpleToDoList->settings-schema.json->pref_task_remove_native_entry_theming->description
 msgid "Remove native entry theming (only visuals)"
 msgstr "移除本地条目主题（仅视觉效果）"
 
-#. 0dyseus@SimpleToDoList->settings-schema.json->pref_task_set_min_width->description
+#. 0dyseus@SimpleToDoList->settings-schema.json->head8->description
+msgid "Colors for \"@today\" priority tags"
+msgstr "\"@today\"优先级标记的颜色"
+
 #. 0dyseus@SimpleToDoList->settings-schema.json->pref_section_set_min_width->description
+#. 0dyseus@SimpleToDoList->settings-schema.json->pref_task_set_min_width->description
 msgid "Set minimum entry width"
 msgstr "设置最小条目宽度"
 
-#. 0dyseus@SimpleToDoList->settings-schema.json->pref_task_set_min_width->tooltip
-#. 0dyseus@SimpleToDoList->settings-schema.json->pref_task_set_max_width->tooltip
+#. 0dyseus@SimpleToDoList->settings-schema.json->pref_section_set_min_width->units
+#. 0dyseus@SimpleToDoList->settings-schema.json->pref_task_set_custom_spacing->units
+#. 0dyseus@SimpleToDoList->settings-schema.json->pref_task_set_min_width->units
+#. 0dyseus@SimpleToDoList->settings-schema.json->pref_section_set_max_width->units
+#. 0dyseus@SimpleToDoList->settings-schema.json->pref_task_set_max_width->units
+msgid "pixels"
+msgstr "像素"
+
 #. 0dyseus@SimpleToDoList->settings-schema.json->pref_section_set_min_width->tooltip
+#. 0dyseus@SimpleToDoList->settings-schema.json->pref_task_set_min_width->tooltip
 #. 0dyseus@SimpleToDoList->settings-schema.json->pref_section_set_max_width->tooltip
+#. 0dyseus@SimpleToDoList->settings-schema.json->pref_task_set_max_width->tooltip
 msgid ""
 "Cinnamon menus automatically change their size to accommodate the elements "
 "that they contain. Setting a fixed size for those elements will avoid the "
@@ -613,53 +722,9 @@ msgstr ""
 "Cinnamon菜单自动更改尺寸以适应它们包含的元素。为这些元素设置固定大小将避免在"
 "打开/关闭子菜单时不断调整菜单大小。"
 
-#. 0dyseus@SimpleToDoList->settings-schema.json->pref_task_set_min_width->units
-#. 0dyseus@SimpleToDoList->settings-schema.json->pref_task_set_max_width->units
-#. 0dyseus@SimpleToDoList->settings-schema.json->pref_task_set_custom_spacing->units
-#. 0dyseus@SimpleToDoList->settings-schema.json->pref_section_set_min_width->units
-#. 0dyseus@SimpleToDoList->settings-schema.json->pref_section_set_max_width->units
-msgid "pixels"
-msgstr "像素"
-
-#. 0dyseus@SimpleToDoList->settings-schema.json->pref_show_tasks_counter_on_applet->description
-msgid "Display tasks counter on applet"
-msgstr "在小程序显示任务计数"
-
-#. 0dyseus@SimpleToDoList->settings-schema.json->pref_task_set_max_width->description
-#. 0dyseus@SimpleToDoList->settings-schema.json->pref_section_set_max_width->description
-msgid "Set maximum entry width"
-msgstr "设置最大条目宽度"
-
-#. 0dyseus@SimpleToDoList->settings-schema.json->head5->description
-msgid "Task priorities settings"
-msgstr "任务优先级设置"
-
-#. 0dyseus@SimpleToDoList->settings-schema.json->pref_animate_menu->description
-msgid "Animate menu"
-msgstr "菜单动画"
-
-#. 0dyseus@SimpleToDoList->settings-schema.json->pref_animate_menu->tooltip
-msgid "Enables/Disables menu open/close animations."
-msgstr "启用/禁用菜单打开/关闭动画。"
-
-#. 0dyseus@SimpleToDoList->settings-schema.json->pref_task_notcompleted_character->description
-msgid "Character/s for not completed tasks"
-msgstr "未完成的任务的字符"
-
-#. 0dyseus@SimpleToDoList->settings-schema.json->pref_task_notcompleted_character->tooltip
-msgid ""
-"The character or characters that will represent a not completed task on a "
-"TODO file."
-msgstr "将在TODO文件中表示未完成的任务的字符。"
-
-#. 0dyseus@SimpleToDoList->settings-schema.json->pref_keep_one_menu_open->description
-msgid "Keep just one sub menu open"
-msgstr "始终保持仅打开一个子菜单"
-
-#. 0dyseus@SimpleToDoList->settings-schema.json->pref_keep_one_menu_open->tooltip
-msgid ""
-"When enabled, the previously opened sub menu will be automatically closed."
-msgstr "启用后，之前打开的子菜单将会自动关闭。"
+#. 0dyseus@SimpleToDoList->settings-schema.json->head2->description
+msgid "Sections appearance"
+msgstr "部分外观"
 
 #. 0dyseus@SimpleToDoList->settings-schema.json->pref_task_set_custom_spacing->description
 msgid "Custom elements spacing"
@@ -675,58 +740,6 @@ msgstr ""
 "一些Cinnamon主题可能会把弹出菜单条目类别的间距设置得太大或太小，导致在该小程"
 "序菜单或元素中之间的空格太大。此设置可以更改间距。"
 
-#. 0dyseus@SimpleToDoList->settings-schema.json->pref_section_font_size->description
-#. 0dyseus@SimpleToDoList->settings-schema.json->pref_task_font_size->description
-msgid "Label font size"
-msgstr "标签字体大小"
-
-#. 0dyseus@SimpleToDoList->settings-schema.json->pref_section_font_size->units
-#. 0dyseus@SimpleToDoList->settings-schema.json->pref_task_font_size->units
-msgid "ems"
-msgstr "ems"
-
-#. 0dyseus@SimpleToDoList->settings-schema.json->pref_section_remove_native_entry_theming_sizing->description
-#. 0dyseus@SimpleToDoList->settings-schema.json->pref_task_remove_native_entry_theming_sizing->description
-msgid "Remove native entry theming (also sizing)"
-msgstr "移除本地条目主题（和大小）"
-
-#. 0dyseus@SimpleToDoList->settings-schema.json->pref_custom_icon_for_applet->description
-msgid "Icon"
-msgstr "图标"
-
-#. 0dyseus@SimpleToDoList->settings-schema.json->pref_custom_icon_for_applet->tooltip
-msgid "Select an icon to show in the panel."
-msgstr "选择要在面板中显示的图标。"
-
-#. 0dyseus@SimpleToDoList->settings-schema.json->pref_section_set_bold->description
-#. 0dyseus@SimpleToDoList->settings-schema.json->pref_task_set_bold->description
-msgid "Set bold"
-msgstr "设置粗体"
-
-#. 0dyseus@SimpleToDoList->settings-schema.json->head3->description
-msgid "Tasks appearance"
-msgstr "任务外观"
-
-#. 0dyseus@SimpleToDoList->settings-schema.json->head11->description
-msgid "Debugging"
-msgstr "调试"
-
-#. 0dyseus@SimpleToDoList->settings-schema.json->head9->description
-msgid "Colors for \"@medium\" priority tags"
-msgstr "\"@medium\"优先级标记的颜色"
-
-#. 0dyseus@SimpleToDoList->settings-schema.json->head6->description
-msgid "Colors for \"@critical\" priority tags"
-msgstr "\"@critical\"优先级标记的颜色"
-
-#. 0dyseus@SimpleToDoList->settings-schema.json->head8->description
-msgid "Colors for \"@today\" priority tags"
-msgstr "\"@today\"优先级标记的颜色"
-
-#. 0dyseus@SimpleToDoList->settings-schema.json->pref_tasks_priorities_colors_enabled->description
-msgid "Enable priority tags colorization"
-msgstr "启用优先级标签着色"
-
 #. 0dyseus@SimpleToDoList->settings-schema.json->pref_tasks_priorities_colors_enabled->tooltip
 msgid ""
 "If enabled, this option will colorize a task entry depending on the tags "
@@ -736,6 +749,34 @@ msgstr ""
 "如果启用，此选项将根据在其文本上找到的标记对任务条目进行着色。只需通过简单地"
 "将“@tagname”作为任务文本的一部分，即可对任务进行“标记”。现在有5个优先级标记可"
 "用。"
+
+#. 0dyseus@SimpleToDoList->settings-schema.json->pref_tasks_priorities_colors_enabled->description
+msgid "Enable priority tags colorization"
+msgstr "启用优先级标签着色"
+
+#. 0dyseus@SimpleToDoList->settings-schema.json->pref_task_completed_character->tooltip
+msgid ""
+"The character or characters that will represent a completed task on a TODO "
+"file."
+msgstr "将在TODO文件中表示完成的任务的字符。"
+
+#. 0dyseus@SimpleToDoList->settings-schema.json->pref_task_completed_character->description
+msgid "Character/s for completed tasks"
+msgstr "完成的任务的字符"
+
+#. 0dyseus@SimpleToDoList->settings-schema.json->head11->description
+msgid "Debugging"
+msgstr "调试"
+
+#. 0dyseus@SimpleToDoList->settings-schema.json->pref_task_notcompleted_character->tooltip
+msgid ""
+"The character or characters that will represent a not completed task on a "
+"TODO file."
+msgstr "将在TODO文件中表示未完成的任务的字符。"
+
+#. 0dyseus@SimpleToDoList->settings-schema.json->pref_task_notcompleted_character->description
+msgid "Character/s for not completed tasks"
+msgstr "未完成的任务的字符"
 
 #. 0dyseus@SimpleToDoList->settings-schema.json->pref_tasks_priorities_highlight_entire_row->description
 msgid "Colorize entire menu item"
@@ -752,68 +793,35 @@ msgstr ""
 "标签设置的背景颜色在这种情况下将不可见。启用此选项后，任务的全部菜单条目将会"
 "被着色，而不仅仅是其条目。"
 
-#. 0dyseus@SimpleToDoList->settings-schema.json->head2->description
-msgid "Sections appearance"
-msgstr "部分外观"
+#. 0dyseus@SimpleToDoList->settings-schema.json->pref_custom_icon_for_applet->tooltip
+msgid "Select an icon to show in the panel."
+msgstr "选择要在面板中显示的图标。"
 
-#. 0dyseus@SimpleToDoList->settings-schema.json->head4->description
-msgid "Save as TODO file settings"
-msgstr "保存为TODO文件设置"
+#. 0dyseus@SimpleToDoList->settings-schema.json->pref_custom_icon_for_applet->description
+msgid "Icon"
+msgstr "图标"
 
-#. 0dyseus@SimpleToDoList->settings-schema.json->pref_custom_label_for_applet->description
-msgid "Custom label"
-msgstr "自定义标签"
+#. 0dyseus@SimpleToDoList->settings-schema.json->pref_animate_menu->tooltip
+msgid "Enables/Disables menu open/close animations."
+msgstr "启用/禁用菜单打开/关闭动画。"
 
-#. 0dyseus@SimpleToDoList->settings-schema.json->pref_custom_label_for_applet->tooltip
-msgid "Enter custom text to show in the panel."
-msgstr "输入要在面板中显示的自定义文本。"
-
-#. 0dyseus@SimpleToDoList->settings-schema.json->pref_logging_enabled->description
-msgid "Enable logging"
-msgstr "启用日志记录"
-
-#. 0dyseus@SimpleToDoList->settings-schema.json->pref_logging_enabled->tooltip
-msgid ""
-"It enables the ability to log the output of several functions used by the "
-"applet."
-msgstr "它能够记录小程序使用的一些函数的输出。"
+#. 0dyseus@SimpleToDoList->settings-schema.json->pref_animate_menu->description
+msgid "Animate menu"
+msgstr "菜单动画"
 
 #. 0dyseus@SimpleToDoList->settings-schema.json->head10->description
 msgid "Colors for \"@low\" priority tags"
 msgstr "\"@low\"优先级标记的颜色"
 
-#. 0dyseus@SimpleToDoList->settings-schema.json->pref_overlay_key->description
-msgid "Keyboard shortcut to open and close the menu"
-msgstr "打开和关闭菜单的键盘快捷键"
+#. 0dyseus@SimpleToDoList->settings-schema.json->pref_section_set_max_width->description
+#. 0dyseus@SimpleToDoList->settings-schema.json->pref_task_set_max_width->description
+msgid "Set maximum entry width"
+msgstr "设置最大条目宽度"
 
-#. 0dyseus@SimpleToDoList->settings-schema.json->head1->description
-msgid "Menu settings"
-msgstr "菜单设置"
+#. 0dyseus@SimpleToDoList->settings-schema.json->pref_custom_label_for_applet->tooltip
+msgid "Enter custom text to show in the panel."
+msgstr "输入要在面板中显示的自定义文本。"
 
-#. 0dyseus@SimpleToDoList->settings-schema.json->pref_task_completed_character->description
-msgid "Character/s for completed tasks"
-msgstr "完成的任务的字符"
-
-#. 0dyseus@SimpleToDoList->settings-schema.json->pref_task_completed_character->tooltip
-msgid ""
-"The character or characters that will represent a completed task on a TODO "
-"file."
-msgstr "将在TODO文件中表示完成的任务的字符。"
-
-#. 0dyseus@SimpleToDoList->settings-schema.json->pref_use_fail_safe->description
-msgid "Avoid accidental deletions"
-msgstr "避免意外删除"
-
-#. 0dyseus@SimpleToDoList->settings-schema.json->pref_use_fail_safe->tooltip
-msgid ""
-"When enabled, to remove a task or a section of the menu, the Control key "
-"needs to be pressed."
-msgstr "启用后，若要移除任务或菜单的部分，需要按住Control键盘。"
-
-#. 0dyseus@SimpleToDoList->settings-schema.json->head7->description
-msgid "Colors for \"@high\" priority tags"
-msgstr "\"@high\"优先级标记的颜色"
-
-#. 0dyseus@SimpleToDoList->settings-schema.json->head0->description
-msgid "Applet settings"
-msgstr "小程序设置"
+#. 0dyseus@SimpleToDoList->settings-schema.json->pref_custom_label_for_applet->description
+msgid "Custom label"
+msgstr "自定义标签"
