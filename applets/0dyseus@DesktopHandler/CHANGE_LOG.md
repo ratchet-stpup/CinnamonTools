@@ -4,6 +4,17 @@
 
 ***
 
+- **Date:** Tue, 30 May 2017 19:48:47 +0800
+- **Commit:** [07dd7ed](https://github.com/Odyseus/CinnamonTools/commit/07dd7ed)
+- **Author:** giwhub
+
+```
+Update zh_CN.po
+
+```
+
+***
+
 - **Date:** Mon, 29 May 2017 02:46:40 -0300
 - **Commit:** [01f45d6](https://github.com/Odyseus/CinnamonTools/commit/01f45d6)
 - **Author:** Odyseus
