@@ -394,6 +394,7 @@ pre {
 <div class="localization-chooser" align="middle">
 <h4 id="localization-chooser-label">Choose language</h4>
 <select class="form-control" id="localization-switch" onchange="self.toggleLocalizationVisibility(value, this);">
+<!-- Dansk --><option data-title="Hjælp til Cinnamon Tweaks" data-language-chooser-label="Vælg sprog" value="da">Dansk</option>
 <!-- English --><option selected data-title="Help for Cinnamon Tweaks" data-language-chooser-label="Choose language" value="en">English</option>
 <!-- Español --><option data-title="Ayuda para Cinnamon Tweaks" data-language-chooser-label="Elegir idioma" value="es">Español</option>
 <!-- Svenska --><option data-title="Hjälp för Cinnamon Tweaks" data-language-chooser-label="Välj språk" value="sv">Svenska</option>
@@ -401,6 +402,170 @@ pre {
 </select>
 </div> <!-- .localization-chooser -->
 <div class="container boxed">
+
+<div id="da" class="localization-content hidden">
+
+<h1>Hjælp til Cinnamon Tweaks</h1>
+
+<div style="font-weight:bold;" class="alert alert-warning">
+<h2>VIGTIGT!!!</h2>
+
+<p>Slet aldring nogen af filerne i denne udvidelses mappe. Det kan ødelægge udvidelsens funktionalitet.</p>
+
+<p>Fejlrapporter, forslag til nye funktioner og bidrag bør ske i denne udvidelses arkiv, som der er linket til efterfølgende. <a href="https://github.com/Odyseus/CinnamonTools">GitHub</a></p>
+
+</div>
+<hr>
+
+<h2>Detaljer om udvidelsens indstillinger</h2>
+<p><span style="color:red;font-weight: bold;font-size: large;">
+Nogle tilpasninger har advarsler, afhængigheder, begrænsninger og andre kendte problemer, der skal læses om og forstås, får en tilpasning aktiveres. Men der er ingen grund til bekymring, da der ikke kan ske noget fatalt.
+</span></p>
+<h3>Tilpasning af panel- og skrivebordsprogrammer</h3>
+<ul>
+<li><strong>Spørg om bekræftelse inden panel-/skrivebordsprogram fjernes:</strong> I stedet for med det samme at fjerne panel-/skrivebordsprogrammet fra genvejsmenuen, vil der blive bedt om bekræftelse. Denne indstilling påvirker ikke fjernelsen af panel-/skrivebordsprogrammer under Cinnamons indstillinger (der vil ikke blive bedt om bekræftelse).</li>
+<li><strong>Vis "Åbn panel-/skrivebordsprograms mappe" i panel-/skrivebordsprogrammers genvejsmenu</strong> &amp; <strong>Vis "Redigér panel-/skrivebordsprograms hovedfil" i panel-/skrivebordsprogrammers genvejsmenu:</strong> Disse indstillinger vil tilføje nye menupunkter til panel-/skrivebordsprogrammers genvejsmenu. Placeringen af dette punkt bestemmes af indstillingen <strong>Hvor skal menupunktet placeres?</strong>.</li>
+</ul>
+<h3>Tilpasning af aktive hjørner</h3>
+<p>Denne tilpasning er kun tilgængelig for versioner af Cinnamon før 3.2. Cinnamon 3.2.x har allerede forsinket aktivering af aktive hjørner.</p>
+<ul>
+<li><strong>Forsinkelse ved aktivering af øvre venstre aktive hjørne:</strong> Krystalklar.</li>
+<li><strong>Forsinkelse ved aktivering af øvre højre aktive hjørne:</strong> Krystalklar.</li>
+<li><strong>Forsinkelse ved aktivering af nedre venstre aktive hjørne:</strong> Krystalklar.</li>
+<li><strong>Forsinkelse ved aktivering af nedre højre aktive hjørne:</strong> Krystalklar.</li>
+</ul>
+<h3>Tilpasning af skrivebordsområde</h3>
+<ul>
+<li><strong>Aktivér trækning af programmer til skrivebordet:</strong> Denne tilpasning gør det muligt at trække programmer fra menuen og panelprogramstarteren til skrivebordet.</li>
+</ul>
+<h3>Tilpasning af pop op-menuer</h3>
+<h5>Panelmenuers opførsel</h5>
+<p><strong>Bemærk:</strong> Denne indstilling påvirker kun opførslen af menuer tilhørende panelprogrammer placeret på ethvert panel.</p>
+<ul>
+<li><strong>Emulér Gnome Shells opførsel:</strong> Når en menu er åben i Gnome Shell, og musemarkøren flyttes til en anden knap i toppanelet, så vil menuen tilhørende en knap, som musemarkøren hviler på, automatisk åbne, uden at der klikkes på den. Med denne indstilling aktiveret kan denne opførsel reproduceres i Cinnamon.</li>
+<li><strong>Spis ikke klik:</strong> Når man i Cinnamon åbner et panelprograms menu og så klikker på et andet panelprogram for at åbne dets menu, vil det første klik som standard lukke det første panelprograms menu, og det næste klik åbne det andet panelprograms menu. Med denne indstilling aktiveret kan man med et enkelt klik åbne ethvert panelprograms menu, selvom et andet panelprograms menu er åbent.</li>
+</ul>
+<h3>Tilpasning af værktøjstip</h3>
+<ul>
+<li><strong>Undgå at musemarkør overlapper værktøjstip:</strong> Værktøjstip i Cinnamons brugergrænseflade vises med øverste venstre hjørne ved musemarkørens position. Dette kan føre til, at værktøjstip overlapper med musemarkøren. Denne tilpasning viser værktøjstippet med nederste venstre hjørne ved musemarkøren (omtrentlig) og mindsker derfor sandsynligheden for overlap med musemarkøren.</li>
+<li><strong>Forsinkelse for visning af værktøjstip:</strong> Krystalklar.</li>
+</ul>
+<h3>Tilpasning af meddelelser</h3>
+<ul>
+<li><strong>Aktivér animation ved åbning/lukning af meddelelser:</strong> Krystalklar.</li>
+<li><strong>Placering af meddelelser:</strong> Meddelelser kan vises øverst til højre (systemstandard) eller nederst til højre.</li>
+<li><strong>Afstand til panel</strong><ul>
+<li><strong>Meddelelser vist øverst til højre:</strong> Dette er afstanden mellem toppanelets (fra toppen af skærmen hvis der ikke er noget toppanel) nederste kant til den øverste kant i meddelelsesvinduet.</li>
+<li><strong>Meddelelser vist nederst til højre:</strong> Dette er afstanden mellem bundpanelets (fra bunden af skærmen hvis der ikke er noget bundpanel) øverste kant til den nederste kant i meddelelsesvinduet.</li>
+</ul>
+</li>
+<li><strong>Meddelelsesvinduets højre margen:</strong> Som standard defineres meddelelsesvinduets højre margen af det aktuelle tema. Hvis denne indstilling sættes til en anden værdi end 0, kan højre margen tilpasses.</li>
+</ul>
+<h3>Tilpasning af vinduesfokus</h3>
+<p>Tilpasning baseret på en udvidelse til gnome-shell kaldet <a href="https://github.com/v-dimitrov/gnome-shell-extension-stealmyfocus">Steal My Focus</a> af <a href="https://github.com/v-dimitrov">Valentin Dimitrov</a> og an anden udvidelse til gnome-shell kaldet  <a href="https://github.com/awamper/window-demands-attention-shortcut">Window Demands Attention Shortcut</a> by <a href="https://github.com/awamper">awamper</a>.</p>
+<p>Nogle vinduer, som kræver opmærksomhed, vil ikke få fokus uanset indstillingerne i Cinnamon. Denne indstilling tillader dig at rette dette.</p>
+<ul>
+<li><strong>Aktivering af vinduer som kræver opmærksomhed:</strong><ul>
+<li><strong>... håndteres af systemet:</strong> Krystalklar.</li>
+<li><strong>... sker med det samme:</strong> vil tvinge vinduer, som kræver opmærksomhed, til at få fokus med det samme.</li>
+<li><strong>... sker med en tastaturgenvej:</strong> vil give fokus til vinduer, som kræver opmærksomhed, med en tastaturgenvej.</li>
+</ul>
+</li>
+<li><strong>Tastaturgenvej:</strong> Angiv en tastaturgenvej for indstillingen <strong>... sker med en tastaturgenvej</strong>.</li>
+</ul>
+<h3>Tilpasning af vinduesskygger</h3>
+<p>Tilpasning baseret på en udvidelse til Cinnamon kaldet <a href="https://cinnamon-spices.linuxmint.com/extensions/view/43">Custom Shadows</a> af <a href="https://github.com/mikhail-ekzi">mikhail-ekzi</a>. Den tillader ændringer til skygger brugt af Cinnamons vindueshåndtering (Muffin).</p>
+<p><strong>Bemærk:</strong> Vinduer udsmykket på klientsiden påvirkes ikke af denne tilpasning.</p>
+<h5>Skyggeforvalg</h5>
+<ul>
+<li><strong>Tilpassede skygger</strong></li>
+<li><strong>Standardskygger</strong></li>
+<li><strong>Ingen skygger</strong></li>
+<li><strong>Windows 10-skygger</strong></li>
+</ul>
+<h3>Flyt vinduer automatisk</h3>
+<p>Tilpasning baseret på en udvidelse til gnome-shell kaldet <a href="https://extensions.gnome.org/extension/16/auto-move-windows/">Auto Move Windows</a> af <a href="https://github.com/fmuellner">Florian Muellner</a>. Den tillader angivelse af regler til at åbne programmer på specifikke arbejdsområder.</p>
+<p><strong>Bemærk:</strong> Hvis programmet, du vil vælge, ikke optræder i vinduet Programvælger, så læs afsnittet <strong>Programmer optræder ikke i vinduet Programvælger</strong> i hjælpfilen.</p>
+<h3>Fjernelse af vinduers titellinjer</h3>
+<p>Tilpasning baseret på udvidelsen kaldet <a href="https://cinnamon-spices.linuxmint.com/extensions/view/29">Cinnamon Maximus</a> af <a href="https://github.com/fatihmete">Fatih Mete</a> med nogle indstillinger fra udvidelsen til gnome-shell kaldet <a href="https://github.com/luispabon/maximus-gnome-shell">Maximus NG</a> af <a href="https://github.com/luispabon">Luis Pabon</a>. Denne tilpasning tillader fjerne af titellinjer i maksimerede, halv-maksimerede og side om side udlagte vinduer.</p>
+<p><strong>Bemærk:</strong> Hvis programmet, du vil vælge, ikke optræder i vinduet Programvælger, så læs afsnittet <strong>Programmer optræder ikke i vinduet Programvælger</strong> i hjælpfilen.</p>
+<h4>Afhængigheder</h4>
+<p>Denne tilpasning kræver to kommandoer tilgængelige i systemet (<strong>xprop</strong> og <strong>xwininfo</strong>) for at virke.</p>
+<ul>
+<li>Debian-baserede distributioner: Disse kommandoer er tilgængelige i pakken <strong>x11-utils</strong>. I Linux Mint er denne pakke allerede installeret.</li>
+<li>Archlinux-baserede distributioner: Disse kommandoer er tilgængelige i pakkerne <strong>xorg-xprop</strong> og <strong>xorg-xwininfo</strong>.</li>
+<li>Fedora-baserede distributioner: Disse kommandoer er tilgængelige i pakken <strong>xorg-x11-utils</strong>.</li>
+</ul>
+<h4>Advarsler</h4>
+<ul>
+<li>Vinduer udsmykket på klientsiden og WINE-programmer påvirkes ikke af denne tilpasning.</li>
+<li>Luk alle vinduer som tilhører et program, som vil blive tilføjet til programlisten, og før denne tilpasnings indstillinger anvendes.</li>
+<li>Som en forholdsregel for at undgå problemer så luk alle åbne vinduer, inden du aktiverer og konfigurerer denne tilpasning. Aktivér og konfigurér derefter denne tilpasning og log af og log på igen.</li>
+</ul>
+<h4>Kendte problemer</h4>
+<ul>
+<li><strong>Usynlige vinduer</strong> Nogle gange kan vinduer, konfigurerede til at få fjernet deres titellinje, blive usynlige. Programmets ikon kan stadig ses i panelet, men når der klikkes på det for at fokusere vinduet, vil det usynlige vindue blokere klikkene, som om det var synligt. For at løse dette skal vinduet bringes ud af den maksimerede tilstand (det vil blive synligt igen) og lukkes. Når det åbnes igen, skulle vinduet opføre sig normalt.</li>
+<li><strong>Programmer uden titellinje:</strong> Nogle gange kan et program være uden titellinje, efter det er bragt ud af maksimeret tilstand. Genstart af programmet vil tillade, at titellinjen kan fjernes og tilføjes.</li>
+</ul>
+<h4>Alternativ</h4>
+<p>Der er en alternativ måde at skjule alle maksimerede vinduers titellinje på: ved at redigere dit Metacity-tema. Det virker uendeligt meget bedre og uden nogen af de problemer, som denne tilpasning i denne udvidelse har.</p>
+<ul>
+<li>Gå til mappen <code>/Sti/Til/Dit/Tema/metacity-1</code> og redigér filen <strong>metacity-theme-3.xml</strong>. Hvis denne fil ikke findes i dit tema, så er der en kaldet <strong>metacity-theme-2.xml</strong> eller <strong>metacity-theme-1.xml</strong>. Vælg den med et højeste nummer.</li>
+<li>Find elementet <strong>max</strong> (eller <strong>maximized</strong> eller <strong>normal_max</strong> eller <strong>normal_maximized</strong>) i <strong>frame_geometry</strong>. Det præcise navn afhænger af temaet.</li>
+<li>Attributen <strong>has_title</strong> skal tilføjes og sættes til false (falsk), og alle egenskabernes værdier skal sættes til 0. Nogle temaer kan kræve tilføjelse af flere egenskaber, hvis værdier også sættes til 0, for at slippe helt af med titellinjen.</li>
+<li>Her følger nogle eksempler på, hvordan Metacity-temaerne i <strong>Mint-X</strong>- og <strong>Mint-Y</strong>-temaerne skal redigeres.</li>
+</ul>
+<h5>For Metacity-temaet i Mint-X-temaet</h5>
+<pre><code class="lang-xml">&lt;frame_geometry name=&quot;maximized&quot; has_title=&quot;false&quot; title_scale=&quot;medium&quot; parent=&quot;normal&quot; rounded_top_left=&quot;false&quot; rounded_top_right=&quot;false&quot;&gt;
+    &lt;distance name=&quot;right_width&quot; value=&quot;0&quot; /&gt;
+    &lt;distance name=&quot;left_titlebar_edge&quot; value=&quot;0&quot;/&gt;
+    &lt;distance name=&quot;right_titlebar_edge&quot; value=&quot;0&quot;/&gt;
+    &lt;distance name=&quot;title_vertical_pad&quot; value=&quot;0&quot;/&gt;
+    &lt;border name=&quot;title_border&quot; left=&quot;0&quot; right=&quot;0&quot; top=&quot;0&quot; bottom=&quot;0&quot;/&gt;
+    &lt;border name=&quot;button_border&quot; left=&quot;0&quot; right=&quot;0&quot; top=&quot;0&quot; bottom=&quot;0&quot;/&gt;
+    &lt;distance name=&quot;bottom_height&quot; value=&quot;0&quot; /&gt;
+&lt;/frame_geometry&gt;
+</code></pre>
+<h5>For Metacity-temaet i Mint-Y-temaet</h5>
+<pre><code class="lang-xml">&lt;frame_geometry name=&quot;max&quot; has_title=&quot;false&quot; title_scale=&quot;medium&quot; parent=&quot;normal&quot; rounded_top_left=&quot;false&quot; rounded_top_right=&quot;false&quot;&gt;
+    &lt;distance name=&quot;right_width&quot; value=&quot;0&quot; /&gt;
+    &lt;distance name=&quot;left_titlebar_edge&quot; value=&quot;0&quot;/&gt;
+    &lt;distance name=&quot;right_titlebar_edge&quot; value=&quot;0&quot;/&gt;
+    &lt;distance name=&quot;title_vertical_pad&quot; value=&quot;0&quot;/&gt;
+    &lt;border name=&quot;title_border&quot; left=&quot;0&quot; right=&quot;0&quot; top=&quot;0&quot; bottom=&quot;0&quot;/&gt;
+    &lt;border name=&quot;button_border&quot; left=&quot;0&quot; right=&quot;0&quot; top=&quot;0&quot; bottom=&quot;0&quot;/&gt;
+    &lt;distance name=&quot;bottom_height&quot; value=&quot;0&quot; /&gt;
+    &lt;distance name=&quot;button_width&quot; value=&quot;0&quot;/&gt;
+    &lt;distance name=&quot;button_height&quot; value=&quot;0&quot;/&gt;
+&lt;/frame_geometry&gt;
+</code></pre>
+<hr>
+<h2>Generelle problemer med udvidelsen</h2>
+<h3>Programmer optræder ikke i vinduet Programvælger</h3>
+<p>Vinduet Programvælger viser kun programmer, som har en tilgængelig .desktop-fil, fordi disse programmerer er de eneste, som tilpasningerne, der kræver et program-ID (<strong>Flyt vinduer automatisk</strong> og <strong>Fjernelse af vinduers titellinjer</strong>), vil genkende og håndtere.</p>
+<p>Ifølge <a href="https://specifications.freedesktop.org/desktop-entry-spec/latest/index.html">Desktop Entry Specification</a> kan man oprette en .desktop-fil til ethvert program, som ikke optræder i programlisten.</p>
+<hr>
+<h2>Udvidelsens indstillingsvindue</h2>
+<p>Fra udvidelsens indstillingsvindue kan alle indstillinger importeres, eksporteres eller nulstilles til standardværdierne.</p>
+<ul>
+<li>For at kunne udføre disse handlinger skal indstillingsskemaet installeres i systemet. Dette sker automatisk, hvis udvidelsen installeres gennem Cinnamons er. Blev udvidelsen installeret manuelt, skal indstillingsskemaet også installeres manuelt. Dette gøres ved at gå til udvidelsens mappe og køre følgende kommando:<ul>
+<li>Kommando til at installere indstillingsskemaet: <code>./settings.py install-schema</code></li>
+<li>Kommando til at afinstallere indstillingsskemaet: <code>./settings.py remove-schema</code></li>
+</ul>
+</li>
+<li>For at importere/eksportere indstillinger skal kommandoen <strong>dconf</strong> findes i systemet.</li>
+</ul>
+<hr>
+
+<h2>Oversættelse af panelprogrammer, skrivebordsprogrammer og udvidelser</h2>
+<ul>
+<li>Hvis denne udvidelse blev installeret gennem Cinnamons indstillinger, blev alle oversættelser automatisk installeret.</li>
+<li>Hvis denne udvidelse blev installeret manuelt og ikke gennem Cinnamons indstillinger, kan alle oversættelser installeres ved at køre skriptet <strong>localizations.sh</strong> i en terminal åbnet i udvidelsens mappe.</li>
+<li>Hvis der ikke er nogen oversættelse til denne udvidelse tilgængelig på dit sprog, kan du oprette en ved at følge de efterfølgende instruktioner. <a href="https://github.com/Odyseus/CinnamonTools/wiki/Xlet-localization">Wiki</a></li>
+</ul>
+
+</div> <!-- .localization-content -->
+
 
 <div id="zh_CN" class="localization-content hidden">
 
