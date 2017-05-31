@@ -4,6 +4,29 @@
 
 ***
 
+- **Date:** Wed, 31 May 2017 03:26:21 -0300
+- **Commit:** [8055d64](https://github.com/Odyseus/CinnamonTools/commit/8055d64)
+- **Author:** Odyseus
+
+```
+Cinnamon Tweaks extension
+- Updated help file due to new localization.
+
+```
+
+***
+
+- **Date:** Tue, 30 May 2017 21:15:43 +0200
+- **Commit:** [c88c89e](https://github.com/Odyseus/CinnamonTools/commit/c88c89e)
+- **Author:** Alan01
+
+```
+Create da.po
+
+```
+
+***
+
 - **Date:** Tue, 30 May 2017 19:55:50 +0800
 - **Commit:** [331a953](https://github.com/Odyseus/CinnamonTools/commit/331a953)
 - **Author:** giwhub
