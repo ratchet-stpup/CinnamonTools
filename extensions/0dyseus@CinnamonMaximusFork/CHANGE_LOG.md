@@ -4,6 +4,29 @@
 
 ***
 
+- **Date:** Thu, 1 Jun 2017 13:48:42 -0300
+- **Commit:** [3ea4436](https://github.com/Odyseus/CinnamonTools/commit/3ea4436)
+- **Author:** Odyseus
+
+```
+Cinnamon Maximus (Fork by Odyseus) extension
+- Updated help file due to new localization.
+
+```
+
+***
+
+- **Date:** Thu, 1 Jun 2017 16:04:10 +0200
+- **Commit:** [efde4a3](https://github.com/Odyseus/CinnamonTools/commit/efde4a3)
+- **Author:** Åke Engelbrektson
+
+```
+CinnamonMaximusFork: add sv.po
+Add Swedish translation
+```
+
+***
+
 - **Date:** Mon, 29 May 2017 17:13:02 +0800
 - **Commit:** [58ca996](https://github.com/Odyseus/CinnamonTools/commit/58ca996)
 - **Author:** giwhub
