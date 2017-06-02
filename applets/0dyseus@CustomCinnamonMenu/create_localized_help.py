@@ -26,7 +26,8 @@ md = mistune.Markdown()
 XLET_DIR = os.path.dirname(os.path.abspath(__file__))
 XLET_UUID = str(os.path.basename(XLET_DIR))
 
-xlet_meta = localized_help_modules.XletMetadata(os.path.join(XLET_DIR, "files", XLET_UUID)).xlet_meta
+xlet_meta = localized_help_modules.XletMetadata(
+    os.path.join(XLET_DIR, "files", XLET_UUID)).xlet_meta
 
 if xlet_meta is None:
     quit()
@@ -163,6 +164,26 @@ class Main():
         self.lang_list = []
         self.sections = []
         self.options = []
+        self.only_english = md("<div style=\"font-weight:bold;\" class=\"container alert alert-info\">{0}</div>".format(
+            _("The following two sections are available only in English.")))
+
+        try:
+            contributors_file = open(os.path.join(XLET_DIR, "CONTRIBUTORS.md"), "r")
+            contributors_rawdata = contributors_file.read()
+            contributors_file.close()
+            self.contributors = self.html_templates.boxed_container.format(md(contributors_rawdata))
+        except Exception as detail:
+            print(detail)
+            self.contributors = None
+
+        try:
+            changelog_file = open(os.path.join(XLET_DIR, "CHANGE_LOG.md"), "r")
+            changelog_rawdata = changelog_file.read()
+            changelog_file.close()
+            self.changelog = self.html_templates.boxed_container.format(md(changelog_rawdata))
+        except Exception as detail:
+            print(detail)
+            self.changelog = None
 
     def create_html_document(self):
         for lang in self.lang_list:
@@ -199,11 +220,14 @@ class Main():
             css_base=self.html_templates.css_base,
             css_custom=get_css_custom(),
             options="\n".join(sorted(self.options, key=pyuca_collator.sort_key)),
-            sections="\n".join(self.sections)
+            sections="\n".join(self.sections),
+            only_english=self.only_english,
+            contributors=self.contributors if self.contributors else "",
+            changelog=self.changelog if self.changelog else ""
         )
 
         localized_help_modules.save_html_file(path=self.help_file_path,
-                                    data=html_doc)
+                                              data=html_doc)
 
     def do_dummy_install(self):
         podir = os.path.join(XLET_DIR, "files", XLET_UUID, "po")
@@ -241,6 +265,9 @@ class Main():
             endonym="English" if current_language is "en" else _("language-name"),
             selected="selected " if current_language is "en" else "",
             language_code=current_language,
+            xlet_help=_("Help"),
+            xlet_contributors=_("Contributors"),
+            xlet_changelog=_("Changelog"),
             language_chooser_label=_("Choose language"),
             title=_("Help for %s") % xlet_meta["name"]
         )

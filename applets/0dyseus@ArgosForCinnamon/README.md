@@ -25,6 +25,6 @@ More precisely, Argos for Cinnamon is an applet that turns executables' standard
 - **Optimized for minimum resource consumption:** Even with multiple plugins refreshing every second, Argos typically uses less than 1% of the CPU.
 - **Fully documented**.
 
-[Contributors/Mentions](https://github.com/Odyseus/CinnamonTools/blob/master/applets/0dyseus%40ArgosForCinnamon/files/0dyseus%40ArgosForCinnamon/CONTRIBUTORS.md)
+[Contributors/Mentions](https://github.com/Odyseus/CinnamonTools/blob/master/applets/0dyseus%40ArgosForCinnamon/CONTRIBUTORS.md)
 
 [Full change log](https://github.com/Odyseus/CinnamonTools/blob/master/applets/0dyseus%40ArgosForCinnamon/CHANGE_LOG.md)

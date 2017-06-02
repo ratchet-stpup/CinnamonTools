@@ -63,7 +63,7 @@ This applet has to read every single file/folder inside a main folder to create 
 
 ![Image featuring different icons for each sub-menu and different icon sizes](https://odyseus.github.io/CinnamonTools/lib/img/QuickMenu-002.png "Image featuring different icons for each sub-menu and different icon sizes")
 
-[Contributors/Mentions](https://github.com/Odyseus/CinnamonTools/blob/master/applets/0dyseus%40QuickMenu/files/0dyseus%40QuickMenu/CONTRIBUTORS.md)
+[Contributors/Mentions](https://github.com/Odyseus/CinnamonTools/blob/master/applets/0dyseus%40QuickMenu/CONTRIBUTORS.md)
 
 [Full change log](https://github.com/Odyseus/CinnamonTools/blob/master/applets/0dyseus%40QuickMenu/CHANGE_LOG.md)
 

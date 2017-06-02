@@ -110,9 +110,16 @@ function toggleLocalizationVisibility(aValue) {
 
         var option = selector.options[selector.selectedIndex];
         var chooseLanguageLabel = document.getElementById("localization-chooser-label");
+        var navXletHelp = document.getElementById("nav-xlet-help");
+        var navXletContributors = document.getElementById("nav-xlet-contributors");
+        var navXletChangelog = document.getElementById("nav-xlet-changelog");
 
         // Set localized "Choose language" label.
         chooseLanguageLabel.innerText = option.getAttribute("data-language-chooser-label");
+        // Set localized navbar labels.
+        navXletHelp.innerText = option.getAttribute("data-xlet-help");
+        navXletContributors.innerText = option.getAttribute("data-xlet-contributors");
+        navXletChangelog.innerText = option.getAttribute("data-xlet-changelog");
         // Set localized page title.
         document.title = option.getAttribute("data-title");
     } finally {

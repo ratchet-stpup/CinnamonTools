@@ -118,9 +118,16 @@ function toggleLocalizationVisibility(aValue) {
 
         var option = selector.options[selector.selectedIndex];
         var chooseLanguageLabel = document.getElementById("localization-chooser-label");
+        var navXletHelp = document.getElementById("nav-xlet-help");
+        var navXletContributors = document.getElementById("nav-xlet-contributors");
+        var navXletChangelog = document.getElementById("nav-xlet-changelog");
 
         // Set localized "Choose language" label.
         chooseLanguageLabel.innerText = option.getAttribute("data-language-chooser-label");
+        // Set localized navbar labels.
+        navXletHelp.innerText = option.getAttribute("data-xlet-help");
+        navXletContributors.innerText = option.getAttribute("data-xlet-contributors");
+        navXletChangelog.innerText = option.getAttribute("data-xlet-changelog");
         // Set localized page title.
         document.title = option.getAttribute("data-title");
     } finally {
@@ -368,6 +375,12 @@ pre {
 /* pre tag tweaks */
 
     
+/* For fixed header */
+body {
+    padding-top: 70px;
+}
+/* For fixed header */
+
 .localization-chooser {
     padding: 1em !important;
     width: %100 !important;
@@ -377,6 +390,14 @@ pre {
 #localization-switch {
     font-weight: bold !important;
     width: auto !important;
+}
+
+#localization-chooser-label {
+    color: #FFFFFF !important;
+}
+
+.navbar-form {
+    margin-top: 8px !important;
 }
 
     /* Specific CSS code for specific HELP files */
@@ -391,16 +412,30 @@ pre {
 </div> <!-- .alert.alert-warning -->
 </noscript>
 <div id="mainarea">
-<div class="localization-chooser" align="middle">
-<h4 id="localization-chooser-label">Choose language</h4>
-<select class="form-control" id="localization-switch" onchange="self.toggleLocalizationVisibility(value, this);">
-<!-- Dansk --><option data-title="Hjælp til Cinnamon Tweaks" data-language-chooser-label="Vælg sprog" value="da">Dansk</option>
-<!-- English --><option selected data-title="Help for Cinnamon Tweaks" data-language-chooser-label="Choose language" value="en">English</option>
-<!-- Español --><option data-title="Ayuda para Cinnamon Tweaks" data-language-chooser-label="Elegir idioma" value="es">Español</option>
-<!-- Svenska --><option data-title="Hjälp för Cinnamon Tweaks" data-language-chooser-label="Välj språk" value="sv">Svenska</option>
-<!-- 简体中文 --><option data-title="Cinnamon Tweaks的帮助" data-language-chooser-label="选择语言" value="zh_CN">简体中文</option>
-</select>
-</div> <!-- .localization-chooser -->
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container-fluid">
+    <div class="navbar-header">
+        <ul class="nav navbar-nav">
+            <li><a id="nav-xlet-help" class="navbar-brand" href="#xlet-help"></a></li>
+            <li><a id="nav-xlet-contributors" class="navbar-brand" href="#xlet-contributors"></a></li>
+            <li><a id="nav-xlet-changelog" class="navbar-brand" href="#xlet-changelog"></a></li>
+        </ul>
+    </div>
+    <form class="navbar-form navbar-collapse collapse navbar-right">
+        <div class="form-group">
+            <label id="localization-chooser-label" class="control-label" for="localization-switch"></label>
+            <select class="form-control input-sm" id="localization-switch" onchange="self.toggleLocalizationVisibility(value, this);">
+                <!-- Dansk --><option data-title="Hjælp til Cinnamon Tweaks" data-language-chooser-label="Vælg sprog" data-xlet-help="Hjælp" data-xlet-contributors="Contributors" data-xlet-changelog="Changelog" value="da">Dansk</option>
+<!-- English --><option selected data-title="Help for Cinnamon Tweaks" data-language-chooser-label="Choose language" data-xlet-help="Help" data-xlet-contributors="Contributors" data-xlet-changelog="Changelog" value="en">English</option>
+<!-- Español --><option data-title="Ayuda para Cinnamon Tweaks" data-language-chooser-label="Elegir idioma" data-xlet-help="Ayuda" data-xlet-contributors="Colaboradores" data-xlet-changelog="Registro de cambios" value="es">Español</option>
+<!-- Svenska --><option data-title="Hjälp för Cinnamon Tweaks" data-language-chooser-label="Välj språk" data-xlet-help="Hjälp" data-xlet-contributors="Contributors" data-xlet-changelog="Changelog" value="sv">Svenska</option>
+<!-- 简体中文 --><option data-title="Cinnamon Tweaks的帮助" data-language-chooser-label="选择语言" data-xlet-help="帮助" data-xlet-contributors="Contributors" data-xlet-changelog="Changelog" value="zh_CN">简体中文</option>
+            </select>
+        </div>
+    </form>
+    </div>
+</nav>
+<span id="xlet-help">
 <div class="container boxed">
 
 <div id="da" class="localization-content hidden">
@@ -1223,6 +1258,454 @@ Some tweaks have warnings, dependencies, limitations and or known issues that mu
 </div> <!-- .localization-content -->
 
 </div> <!-- .container.boxed -->
+<div style="font-weight:bold;" class="container alert alert-info">The following two sections are available only in English.</div>
+<span id="xlet-contributors">
+<div class="container boxed">
+<h2>Contributors/Mentions</h2>
+<ul>
+<li><strong><a href="https://github.com/lestcape">lestcape</a>:</strong> He is the brain behind the popup menus and desktop tweaks.</li>
+<li><strong><a href="https://github.com/Radek71">Radek71</a>:</strong> Czech localization.</li>
+<li><strong><a href="https://github.com/muzena">muzena</a>:</strong> Croatian localization.</li>
+<li><strong><a href="https://github.com/mikhail-ekzi">mikhail-ekzi</a>:</strong> Author of the Cinnamon extension called <a href="https://cinnamon-spices.linuxmint.com/extensions/view/43">Custom Shadows</a>.</li>
+<li><strong><a href="https://github.com/fatihmete">Fatih Mete</a>:</strong> Author of the Cinnamon extension called <a href="https://cinnamon-spices.linuxmint.com/extensions/view/29">Cinnamon Maximus</a>.</li>
+<li><strong><a href="https://github.com/luispabon">Luis Pabon</a>:</strong> Author of the gnome-shell extension called <a href="https://github.com/luispabon/maximus-gnome-shell">Maximus NG</a>.</li>
+<li><strong><a href="https://github.com/fmuellner">Florian Muellner</a>:</strong> Author of the gnome-shell extension called <a href="https://extensions.gnome.org/extension/16/auto-move-windows/">Auto Move Windows</a>.</li>
+<li><strong><a href="https://github.com/v-dimitrov">Valentin Dimitrov</a>:</strong> Author of the gnome-shell extension called <a href="https://github.com/v-dimitrov/gnome-shell-extension-stealmyfocus">Steal My Focus</a>.</li>
+<li><strong><a href="https://github.com/awamper">awamper</a>:</strong> Author of the gnome-shell extension called <a href="https://github.com/awamper/window-demands-attention-shortcut">Window Demands Attention Shortcut</a>.</li>
+<li><strong><a href="https://github.com/giwhub">giwhub</a>:</strong> Chinese localization.</li>
+</ul>
+
+</div> <!-- .container.boxed -->
+
+<span id="xlet-changelog">
+<div class="container boxed">
+<h2>Cinnamon Tweaks changelog</h2>
+<h4>This change log is only valid for the version of the xlet hosted on <a href="https://github.com/Odyseus/CinnamonTools">its original repository</a></h4>
+<hr>
+<ul>
+<li><strong>Date:</strong> Wed, 31 May 2017 03:26:21 -0300</li>
+<li><strong>Commit:</strong> <a href="https://github.com/Odyseus/CinnamonTools/commit/8055d64">8055d64</a></li>
+<li><strong>Author:</strong> Odyseus</li>
+</ul>
+<pre><code>Cinnamon Tweaks extension
+- Updated help file due to new localization.
+</code></pre>
+<hr>
+<ul>
+<li><strong>Date:</strong> Tue, 30 May 2017 21:15:43 +0200</li>
+<li><strong>Commit:</strong> <a href="https://github.com/Odyseus/CinnamonTools/commit/c88c89e">c88c89e</a></li>
+<li><strong>Author:</strong> Alan01</li>
+</ul>
+<pre><code>Create da.po
+</code></pre>
+<hr>
+<ul>
+<li><strong>Date:</strong> Tue, 30 May 2017 19:55:50 +0800</li>
+<li><strong>Commit:</strong> <a href="https://github.com/Odyseus/CinnamonTools/commit/331a953">331a953</a></li>
+<li><strong>Author:</strong> giwhub</li>
+</ul>
+<pre><code>Update zh_CN.po
+</code></pre>
+<hr>
+<ul>
+<li><strong>Date:</strong> Sat, 27 May 2017 22:38:05 -0300</li>
+<li><strong>Commit:</strong> <a href="https://github.com/Odyseus/CinnamonTools/commit/a81ae2c">a81ae2c</a></li>
+<li><strong>Author:</strong> Odyseus</li>
+</ul>
+<pre><code>Cinnamon Tweaks extension
+- Updated help file due to updated localization.
+</code></pre>
+<hr>
+<ul>
+<li><strong>Date:</strong> Sat, 27 May 2017 22:01:17 +0800</li>
+<li><strong>Commit:</strong> <a href="https://github.com/Odyseus/CinnamonTools/commit/fd2cd8f">fd2cd8f</a></li>
+<li><strong>Author:</strong> giwhub</li>
+</ul>
+<pre><code>Update zh_CN.po
+</code></pre>
+<hr>
+<ul>
+<li><strong>Date:</strong> Sat, 27 May 2017 19:59:11 +0800</li>
+<li><strong>Commit:</strong> <a href="https://github.com/Odyseus/CinnamonTools/commit/5da5ee0">5da5ee0</a></li>
+<li><strong>Author:</strong> giwhub</li>
+</ul>
+<pre><code>Update zh_CN.po
+</code></pre>
+<hr>
+<ul>
+<li><strong>Date:</strong> Thu, 25 May 2017 21:01:41 -0300</li>
+<li><strong>Commit:</strong> <a href="https://github.com/Odyseus/CinnamonTools/commit/4ed5b75">4ed5b75</a></li>
+<li><strong>Author:</strong> Odyseus</li>
+</ul>
+<pre><code>Cinnamon Tweaks extension
+- Updated HELP.html file due to new localization.
+</code></pre>
+<hr>
+<ul>
+<li><strong>Date:</strong> Thu, 25 May 2017 21:44:08 +0200</li>
+<li><strong>Commit:</strong> <a href="https://github.com/Odyseus/CinnamonTools/commit/c2b0f80">c2b0f80</a></li>
+<li><strong>Author:</strong> Åke Engelbrektson</li>
+</ul>
+<pre><code>CinnamonTweaks: create sv.po
+Add Swedish translation
+</code></pre>
+<hr>
+<ul>
+<li><strong>Date:</strong> Mon, 15 May 2017 22:53:19 -0300</li>
+<li><strong>Commit:</strong> <a href="https://github.com/Odyseus/CinnamonTools/commit/c6bcbae">c6bcbae</a></li>
+<li><strong>Author:</strong> Odyseus</li>
+</ul>
+<pre><code>Cinnamon Tweaks extension
+- Removed CJS 3.4 warnings.
+
+LANGUAGE  UNTRANSLATED
+zh_CN.po  0
+es.po     0
+cs.po     96
+hr.po     93
+</code></pre>
+<hr>
+<ul>
+<li><strong>Date:</strong> Mon, 15 May 2017 14:09:33 -0300</li>
+<li><strong>Commit:</strong> <a href="https://github.com/Odyseus/CinnamonTools/commit/7502424">7502424</a></li>
+<li><strong>Author:</strong> Odyseus</li>
+</ul>
+<pre><code>Cinnamon Tweaks extension
+- Re-generated help file based on new localizations.
+
+LANGUAGE  UNTRANSLATED
+zh_CN.po  0
+es.po     0
+cs.po     96
+hr.po     93
+</code></pre>
+<hr>
+<ul>
+<li><strong>Date:</strong> Mon, 15 May 2017 22:35:34 +0800</li>
+<li><strong>Commit:</strong> <a href="https://github.com/Odyseus/CinnamonTools/commit/06560a5">06560a5</a></li>
+<li><strong>Author:</strong> giwhub</li>
+</ul>
+<pre><code>Update zh_CN.po
+</code></pre>
+<hr>
+<ul>
+<li><strong>Date:</strong> Sat, 13 May 2017 20:58:40 -0300</li>
+<li><strong>Commit:</strong> <a href="https://github.com/Odyseus/CinnamonTools/commit/ed29358">ed29358</a></li>
+<li><strong>Author:</strong> Odyseus</li>
+</ul>
+<pre><code>Cinnamon Tweaks extension
+- Redesigned help file generation. Now the help file is created from a python script
+(create_localized_help.py) from which strings can be extracted by xgettext to be added to the xlet
+localization template to be able to localize the content of the help file.
+
+LANGUAGE  UNTRANSLATED
+zh_CN.po  94
+es.po     0
+cs.po     96
+hr.po     93
+</code></pre>
+<hr>
+<ul>
+<li><strong>Date:</strong> Mon, 8 May 2017 13:26:23 +0200</li>
+<li><strong>Commit:</strong> <a href="https://github.com/Odyseus/CinnamonTools/commit/fe8b288">fe8b288</a></li>
+<li><strong>Author:</strong> muzena</li>
+</ul>
+<pre><code>0dyseus@CinnamonTweaks.hr: update hr.po
+</code></pre>
+<hr>
+<ul>
+<li><strong>Date:</strong> Sun, 7 May 2017 19:33:46 +0800</li>
+<li><strong>Commit:</strong> <a href="https://github.com/Odyseus/CinnamonTools/commit/a281ec0">a281ec0</a></li>
+<li><strong>Author:</strong> giwhub</li>
+</ul>
+<pre><code>Cinnamon Tweaks extension
+- Updated Chinese localization.
+</code></pre>
+<hr>
+<ul>
+<li><strong>Date:</strong> Sat, 6 May 2017 08:20:25 -0300</li>
+<li><strong>Commit:</strong> <a href="https://github.com/Odyseus/CinnamonTools/commit/1b3d5ea">1b3d5ea</a></li>
+<li><strong>Author:</strong> Odyseus</li>
+</ul>
+<pre><code>Cinnamon Tweaks extension
+- Cleaned up metadata.json file.
+- Some minor code clean up.
+- Updated localization template.
+</code></pre>
+<hr>
+<ul>
+<li><strong>Date:</strong> Sat, 6 May 2017 04:48:00 -0300</li>
+<li><strong>Commit:</strong> <a href="https://github.com/Odyseus/CinnamonTools/commit/9f739de">9f739de</a></li>
+<li><strong>Author:</strong> Odyseus</li>
+</ul>
+<pre><code>Cinnamon Tweaks extension
+- Updated help file to provide information about an alternative method to hide the window
+decorations of maximized windows.
+</code></pre>
+<hr>
+<ul>
+<li><strong>Date:</strong> Fri, 5 May 2017 13:31:38 -0300</li>
+<li><strong>Commit:</strong> <a href="https://github.com/Odyseus/CinnamonTools/commit/42a904e">42a904e</a></li>
+<li><strong>Author:</strong> Odyseus</li>
+</ul>
+<pre><code>Cinnamon Tweaks extension
+- Minor code tweaks.
+</code></pre>
+<hr>
+<ul>
+<li><strong>Date:</strong> Thu, 4 May 2017 10:36:06 -0300</li>
+<li><strong>Commit:</strong> <a href="https://github.com/Odyseus/CinnamonTools/commit/47a9452">47a9452</a></li>
+<li><strong>Author:</strong> Odyseus</li>
+</ul>
+<pre><code>Cinnamon Tweaks extension
+- Fixed a warnings logged into the .xsession-errors file.
+- Fixed a wrong dependency key set on the settings window.
+- Added a button to display a test notification to the **Notifications Tweaks** section of the
+settings window. This will allow us to test the notifications when we are tweaking the
+notification's position.
+</code></pre>
+<hr>
+<ul>
+<li><strong>Date:</strong> Sun, 30 Apr 2017 01:01:16 -0300</li>
+<li><strong>Commit:</strong> <a href="https://github.com/Odyseus/CinnamonTools/commit/9fd4a76">9fd4a76</a></li>
+<li><strong>Author:</strong> Odyseus</li>
+</ul>
+<pre><code>Cinnamon Tweaks extension
+- Cleaned metadata.json file.
+</code></pre>
+<hr>
+<ul>
+<li><strong>Date:</strong> Thu, 27 Apr 2017 17:56:01 -0300</li>
+<li><strong>Commit:</strong> <a href="https://github.com/Odyseus/CinnamonTools/commit/78fbe0c">78fbe0c</a></li>
+<li><strong>Author:</strong> Odyseus</li>
+</ul>
+<pre><code>Cinnamon Tweaks extension
+- Fixed spelling error on Spanish localization.
+- Fixed error on *Tooltips show delay* function for Cinnamon 3.2.x caused by a wrong callback call.
+- Fixed an error on the *Auto move windows* tweak caused by lack of context.
+- Fixed the keybinding registration for the *Window focus tweaks* caused by the move from Cinnamon's
+native settings system to gsettings.
+</code></pre>
+<hr>
+<ul>
+<li><strong>Date:</strong> Thu, 27 Apr 2017 01:45:27 +0800</li>
+<li><strong>Commit:</strong> <a href="https://github.com/Odyseus/CinnamonTools/commit/c124d86">c124d86</a></li>
+<li><strong>Author:</strong> giwhub</li>
+</ul>
+<pre><code>Create zh_CN.po
+</code></pre>
+<hr>
+<ul>
+<li><strong>Date:</strong> Mon, 17 Apr 2017 13:38:12 -0300</li>
+<li><strong>Commit:</strong> <a href="https://github.com/Odyseus/CinnamonTools/commit/f97a1cf">f97a1cf</a></li>
+<li><strong>Author:</strong> Odyseus</li>
+</ul>
+<pre><code>Cinnamon Tweaks extension - Updated changelog.
+</code></pre>
+<hr>
+<ul>
+<li><strong>Date:</strong> Fri, 14 Apr 2017 11:14:46 -0300</li>
+<li><strong>Commit:</strong> <a href="https://github.com/Odyseus/CinnamonTools/commit/bd6a27e">bd6a27e</a></li>
+<li><strong>Author:</strong> Odyseus</li>
+</ul>
+<pre><code>Cinnamon Tweaks extension - Added localized help.
+</code></pre>
+<hr>
+<ul>
+<li><strong>Date:</strong> Wed, 5 Apr 2017 19:09:56 -0300</li>
+<li><strong>Commit:</strong> <a href="https://github.com/Odyseus/CinnamonTools/commit/d4ecbb9">d4ecbb9</a></li>
+<li><strong>Author:</strong> Odyseus</li>
+</ul>
+<pre><code>Cinnamon Tweaks extension - Updated Czech localization.
+</code></pre>
+<hr>
+<ul>
+<li><strong>Date:</strong> Wed, 5 Apr 2017 23:55:49 +0200</li>
+<li><strong>Commit:</strong> <a href="https://github.com/Odyseus/CinnamonTools/commit/3cfa855">3cfa855</a></li>
+<li><strong>Author:</strong> gogogogi</li>
+</ul>
+<pre><code>0dyseus@CinnamonTweaks: update hr.po (#37)
+* 0dyseus@CinnamonTweaks: update hr.po
+</code></pre>
+<hr>
+<ul>
+<li><strong>Date:</strong> Wed, 5 Apr 2017 04:53:00 -0300</li>
+<li><strong>Commit:</strong> <a href="https://github.com/Odyseus/CinnamonTools/commit/5546392">5546392</a></li>
+<li><strong>Author:</strong> Odyseus</li>
+</ul>
+<pre><code>Cinnamon Tweaks extension - Added some missing translatable strings
+- Changed some default sizes for windows/dialogs to better accommodate strings from verbose
+languages
+- Changed the contributors key on the metadata.json file for easier reviewing and better legibility
+- Reworked the About dialog to add more information and to display the contributors section
+translated.
+</code></pre>
+<hr>
+<ul>
+<li><strong>Date:</strong> Sat, 1 Apr 2017 15:12:04 -0300</li>
+<li><strong>Commit:</strong> <a href="https://github.com/Odyseus/CinnamonTools/commit/20b8f04">20b8f04</a></li>
+<li><strong>Author:</strong> Odyseus</li>
+</ul>
+<pre><code>Cinnamon Tweaks extension - Some tweaks to the settings.py file
+- Updated screenshot.png file
+- Updated help file.
+</code></pre>
+<hr>
+<ul>
+<li><strong>Date:</strong> Tue, 28 Mar 2017 12:33:26 -0300</li>
+<li><strong>Commit:</strong> <a href="https://github.com/Odyseus/CinnamonTools/commit/34b5eb0">34b5eb0</a></li>
+<li><strong>Author:</strong> Odyseus</li>
+</ul>
+<pre><code>Cinnamon Tweaks extension - Added some more details to the help file
+- Some tweaks to the About dialog on the settings window.
+</code></pre>
+<hr>
+<ul>
+<li><strong>Date:</strong> Tue, 28 Mar 2017 00:10:53 -0300</li>
+<li><strong>Commit:</strong> <a href="https://github.com/Odyseus/CinnamonTools/commit/1fb2a8e">1fb2a8e</a></li>
+<li><strong>Author:</strong> Odyseus</li>
+</ul>
+<pre><code>Cinnamon Tweaks extension - Added *Window decorations removal* option (a.k.a. Maximus). Allows to
+remove the windows decorations from maximized/half-maximized/tiled windows
+- Added *Auto move windows* tweak. This tweak enables the ability to set rules to open determined
+applications on specific workspaces
+- Fixed *Tooltips show delay* on Cinnamon 3.2.x. Now it actually works
+- Redesigned again the settings window. This time, I changed from a vertical layout to an horizontal
+one to make better use of the available space.
+</code></pre>
+<hr>
+<ul>
+<li><strong>Date:</strong> Wed, 22 Mar 2017 23:03:10 -0300</li>
+<li><strong>Commit:</strong> <a href="https://github.com/Odyseus/CinnamonTools/commit/4b4ef1d">4b4ef1d</a></li>
+<li><strong>Author:</strong> Odyseus</li>
+</ul>
+<pre><code>Cinnamon Tweaks extension - Redesigned extension to a custom settings system using gsettings. The
+reason behind this is that, with the introduction of the new windows shadows tweaks, the extension
+needed a custom widget to be able to configure the custom shadow values, something that the
+Cinnamon's native settings system isn't able to do just yet
+- Removed *multiversion* option from extension. It's not needed anymore
+- Added windows shadows tweaks.
+</code></pre>
+<hr>
+<ul>
+<li><strong>Date:</strong> Fri, 27 Jan 2017 11:58:09 -0300</li>
+<li><strong>Commit:</strong> <a href="https://github.com/Odyseus/CinnamonTools/commit/8e1a44b">8e1a44b</a></li>
+<li><strong>Author:</strong> Odyseus</li>
+</ul>
+<pre><code>Extensions - Cleaned up irrelevant files
+- Updated READMEs
+- Updated metadata.json
+- Updated some icons.
+</code></pre>
+<hr>
+<ul>
+<li><strong>Date:</strong> Sun, 22 Jan 2017 23:43:00 -0300</li>
+<li><strong>Commit:</strong> <a href="https://github.com/Odyseus/CinnamonTools/commit/e6738b3">e6738b3</a></li>
+<li><strong>Author:</strong> Odyseus</li>
+</ul>
+<pre><code>Extensions - Fixed some broken links
+- Fixed wrong author name on info.json files.
+</code></pre>
+<hr>
+<ul>
+<li><strong>Date:</strong> Sun, 22 Jan 2017 21:51:40 -0300</li>
+<li><strong>Commit:</strong> <a href="https://github.com/Odyseus/CinnamonTools/commit/0f30cc7">0f30cc7</a></li>
+<li><strong>Author:</strong> Odyseus</li>
+</ul>
+<pre><code>Extensions - Formatted repository to conform Spices repository.
+</code></pre>
+<hr>
+<ul>
+<li><strong>Date:</strong> Wed, 4 Jan 2017 08:38:17 -0300</li>
+<li><strong>Commit:</strong> <a href="https://github.com/Odyseus/CinnamonTools/commit/4111b5d">4111b5d</a></li>
+<li><strong>Author:</strong> Odyseus</li>
+</ul>
+<pre><code>[Cinnamon Tweaks extension] - Added Czech localization. Thanks to
+[Radek71](https://github.com/Radek71). Closes #15
+</code></pre>
+<hr>
+<ul>
+<li><strong>Date:</strong> Fri, 25 Nov 2016 06:50:13 -0300</li>
+<li><strong>Commit:</strong> <a href="https://github.com/Odyseus/CinnamonTools/commit/5fcae26">5fcae26</a></li>
+<li><strong>Author:</strong> Odyseus</li>
+</ul>
+<pre><code>[Cinnamon Tweaks extension] - Added popup menus tweaks. Allows to change the behaviour of the
+applets menus
+- Added desktop tweaks. Allows to drag applications from the menu or from the launchers applets into
+the desktop.
+</code></pre>
+<hr>
+<ul>
+<li><strong>Date:</strong> Thu, 17 Nov 2016 15:25:46 -0300</li>
+<li><strong>Commit:</strong> <a href="https://github.com/Odyseus/CinnamonTools/commit/508b05f">508b05f</a></li>
+<li><strong>Author:</strong> Odyseus</li>
+</ul>
+<pre><code>[Cinnamon Tweaks extension] - Fixed duplication of context menu items after moving an applet in
+panel edit mode.
+</code></pre>
+<hr>
+<ul>
+<li><strong>Date:</strong> Wed, 16 Nov 2016 13:18:25 -0300</li>
+<li><strong>Commit:</strong> <a href="https://github.com/Odyseus/CinnamonTools/commit/cc1c7a4">cc1c7a4</a></li>
+<li><strong>Author:</strong> Odyseus</li>
+</ul>
+<pre><code>[Cinnamon Tweaks extension] - Added **Tooltips** tweaks (affect only Cinnamon's UI tooltips).     -
+The tooltips can have a custom show delay (system default is 300 milliseconds).     - The tooltips
+position can be moved to be aligned to the bottom right corner of the mouse cursor, avoiding the
+cursor to overlap the tooltip text. This tweak is available only for Cinnamon versions older than
+3.2
+- Added the posibility to display 2 new menu items to the context menu for applets/desklets.     -
+**Open applet/desklet folder:** this context menu item will open the folder belonging to the
+applet/desklet with the default file manager.     - **Edit applet/desklet main file:** this context
+menu item will open the applet's main file (applet.js) or the desklet's main file (desklet.js) with
+the default text editor.
+</code></pre>
+<hr>
+<ul>
+<li><strong>Date:</strong> Fri, 21 Oct 2016 17:39:55 -0300</li>
+<li><strong>Commit:</strong> <a href="https://github.com/Odyseus/CinnamonTools/commit/39b35a8">39b35a8</a></li>
+<li><strong>Author:</strong> Odyseus</li>
+</ul>
+<pre><code>[Cinnamon Tweaks extension] - Added **Hot Corners** tweaks (hover activation delay).
+</code></pre>
+<hr>
+<ul>
+<li><strong>Date:</strong> Wed, 12 Oct 2016 11:29:50 -0300</li>
+<li><strong>Commit:</strong> <a href="https://github.com/Odyseus/CinnamonTools/commit/d5b8080">d5b8080</a></li>
+<li><strong>Author:</strong> Odyseus</li>
+</ul>
+<pre><code>[Cinnamon Tweaks extension] - Refactored extension code to allow easy updates/maintenance
+- Added support for localizations. If someone wants to contribute with translations, the Help.md
+file inside this extension folder has some pointers on how to do it
+- Re-enabled show/hide animation for notifications on the bottom. Now the animation plays in the
+right directions
+- Now the distance from panel can be set for notifiations shown at the bottom and at the top
+- Added option to disable notifications animation
+- Added option to customize the notification right margin
+- Merged functionality from [Window demands attention
+behavior](https://cinnamon-spices.linuxmint.com/extensions/view/40) extension.
+</code></pre>
+<hr>
+<ul>
+<li><strong>Date:</strong> Sun, 9 Oct 2016 04:26:28 -0300</li>
+<li><strong>Commit:</strong> <a href="https://github.com/Odyseus/CinnamonTools/commit/2f59769">2f59769</a></li>
+<li><strong>Author:</strong> Odyseus</li>
+</ul>
+<pre><code>[Cinnamon Tweaks extension] Minor corrections. Added screenshot. Added link to Spices in main
+README.
+</code></pre>
+<hr>
+<ul>
+<li><strong>Date:</strong> Sat, 8 Oct 2016 07:21:04 -0300</li>
+<li><strong>Commit:</strong> <a href="https://github.com/Odyseus/CinnamonTools/commit/fe7dda1">fe7dda1</a></li>
+<li><strong>Author:</strong> Odyseus</li>
+</ul>
+<pre><code>[Cinnamon Tweaks extension] Initial release.
+</code></pre>
+<hr>
+
+</div> <!-- .container.boxed -->
+
 </div> <!-- #mainarea -->
 <script type="text/javascript">toggleLocalizationVisibility(null);</script>
 </body>

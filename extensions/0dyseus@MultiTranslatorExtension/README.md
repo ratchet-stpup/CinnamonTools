@@ -46,6 +46,6 @@ Once installed and enabled, the following shortcuts will be available.
 
 ![MultiTranslatorExtension-options](https://odyseus.github.io/CinnamonTools/lib/img/MultiTranslatorExtension-options.gif)
 
-[Contributors/Mentions](https://github.com/Odyseus/CinnamonTools/blob/master/extensions/0dyseus%40MultiTranslatorExtension/files/0dyseus%40MultiTranslatorExtension/CONTRIBUTORS.md)
+[Contributors/Mentions](https://github.com/Odyseus/CinnamonTools/blob/master/extensions/0dyseus%40MultiTranslatorExtension/CONTRIBUTORS.md)
 
 [Full change log](https://github.com/Odyseus/CinnamonTools/blob/master/extensions/0dyseus%40MultiTranslatorExtension/CHANGE_LOG.md)

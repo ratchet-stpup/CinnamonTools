@@ -118,9 +118,16 @@ function toggleLocalizationVisibility(aValue) {
 
         var option = selector.options[selector.selectedIndex];
         var chooseLanguageLabel = document.getElementById("localization-chooser-label");
+        var navXletHelp = document.getElementById("nav-xlet-help");
+        var navXletContributors = document.getElementById("nav-xlet-contributors");
+        var navXletChangelog = document.getElementById("nav-xlet-changelog");
 
         // Set localized "Choose language" label.
         chooseLanguageLabel.innerText = option.getAttribute("data-language-chooser-label");
+        // Set localized navbar labels.
+        navXletHelp.innerText = option.getAttribute("data-xlet-help");
+        navXletContributors.innerText = option.getAttribute("data-xlet-contributors");
+        navXletChangelog.innerText = option.getAttribute("data-xlet-changelog");
         // Set localized page title.
         document.title = option.getAttribute("data-title");
     } finally {
@@ -368,6 +375,12 @@ pre {
 /* pre tag tweaks */
 
     
+/* For fixed header */
+body {
+    padding-top: 70px;
+}
+/* For fixed header */
+
 .localization-chooser {
     padding: 1em !important;
     width: %100 !important;
@@ -377,6 +390,14 @@ pre {
 #localization-switch {
     font-weight: bold !important;
     width: auto !important;
+}
+
+#localization-chooser-label {
+    color: #FFFFFF !important;
+}
+
+.navbar-form {
+    margin-top: 8px !important;
 }
 
     /* Specific CSS code for specific HELP files */
@@ -391,15 +412,29 @@ pre {
 </div> <!-- .alert.alert-warning -->
 </noscript>
 <div id="mainarea">
-<div class="localization-chooser" align="middle">
-<h4 id="localization-chooser-label">Choose language</h4>
-<select class="form-control" id="localization-switch" onchange="self.toggleLocalizationVisibility(value, this);">
-<!-- English --><option selected data-title="Help for Simple ToDo List" data-language-chooser-label="Choose language" value="en">English</option>
-<!-- Español --><option data-title="Ayuda para Simple ToDo List" data-language-chooser-label="Elegir idioma" value="es">Español</option>
-<!-- Svenska --><option data-title="Hjälp för Simple ToDo List" data-language-chooser-label="Välj språk" value="sv">Svenska</option>
-<!-- 简体中文 --><option data-title="Simple ToDo List的帮助" data-language-chooser-label="选择语言" value="zh_CN">简体中文</option>
-</select>
-</div> <!-- .localization-chooser -->
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container-fluid">
+    <div class="navbar-header">
+        <ul class="nav navbar-nav">
+            <li><a id="nav-xlet-help" class="navbar-brand" href="#xlet-help"></a></li>
+            <li><a id="nav-xlet-contributors" class="navbar-brand" href="#xlet-contributors"></a></li>
+            <li><a id="nav-xlet-changelog" class="navbar-brand" href="#xlet-changelog"></a></li>
+        </ul>
+    </div>
+    <form class="navbar-form navbar-collapse collapse navbar-right">
+        <div class="form-group">
+            <label id="localization-chooser-label" class="control-label" for="localization-switch"></label>
+            <select class="form-control input-sm" id="localization-switch" onchange="self.toggleLocalizationVisibility(value, this);">
+                <!-- English --><option selected data-title="Help for Simple ToDo List" data-language-chooser-label="Choose language" data-xlet-help="Help" data-xlet-contributors="Contributors" data-xlet-changelog="Changelog" value="en">English</option>
+<!-- Español --><option data-title="Ayuda para Simple ToDo List" data-language-chooser-label="Elegir idioma" data-xlet-help="Ayuda" data-xlet-contributors="Colaboradores" data-xlet-changelog="Registro de cambios" value="es">Español</option>
+<!-- Svenska --><option data-title="Hjälp för Simple ToDo List" data-language-chooser-label="Välj språk" data-xlet-help="Hjälp" data-xlet-contributors="Contributors" data-xlet-changelog="Changelog" value="sv">Svenska</option>
+<!-- 简体中文 --><option data-title="Simple ToDo List的帮助" data-language-chooser-label="选择语言" data-xlet-help="帮助" data-xlet-contributors="Contributors" data-xlet-changelog="Changelog" value="zh_CN">简体中文</option>
+            </select>
+        </div>
+    </form>
+    </div>
+</nav>
+<span id="xlet-help">
 <div class="container boxed">
 
 <div id="zh_CN" class="localization-content hidden">
@@ -690,6 +725,167 @@ pre {
 </div> <!-- .localization-content -->
 
 </div> <!-- .container.boxed -->
+<div style="font-weight:bold;" class="container alert alert-info">The following two sections are available only in English.</div>
+<span id="xlet-contributors">
+<div class="container boxed">
+<h2>Contributors/Mentions</h2>
+<ul>
+<li><strong><a href="https://github.com/bsaleil">bsaleil</a>:</strong>: Author of the gnome-shell extension called <a href="https://github.com/bsaleil/todolist-gnome-shell-extension">Todo list</a>.</li>
+<li><strong><a href="https://github.com/tomMoral">Thomas Moreau</a>:</strong> Author of the gnome-shell extension called <a href="https://github.com/tomMoral/ToDoList">Section Todo List</a>.</li>
+<li><strong><a href="https://github.com/eson57">eson57</a>:</strong> Swedish localization.</li>
+<li><strong><a href="https://github.com/giwhub">giwhub</a>:</strong> Chinese localization.</li>
+</ul>
+
+</div> <!-- .container.boxed -->
+
+<span id="xlet-changelog">
+<div class="container boxed">
+<h2>Simple ToDo List changelog</h2>
+<h4>This change log is only valid for the version of the xlet hosted on <a href="https://github.com/Odyseus/CinnamonTools">its original repository</a></h4>
+<hr>
+<ul>
+<li><strong>Date:</strong> Tue, 30 May 2017 19:52:23 +0800</li>
+<li><strong>Commit:</strong> <a href="https://github.com/Odyseus/CinnamonTools/commit/13354fa">13354fa</a></li>
+<li><strong>Author:</strong> giwhub</li>
+</ul>
+<pre><code>Update zh_CN.po
+</code></pre>
+<hr>
+<ul>
+<li><strong>Date:</strong> Mon, 29 May 2017 02:53:17 -0300</li>
+<li><strong>Commit:</strong> <a href="https://github.com/Odyseus/CinnamonTools/commit/fb3fc2c">fb3fc2c</a></li>
+<li><strong>Author:</strong> Odyseus</li>
+</ul>
+<pre><code>Simple ToDo List applet
+- Updated localization template.
+</code></pre>
+<hr>
+<ul>
+<li><strong>Date:</strong> Mon, 29 May 2017 01:05:10 -0300</li>
+<li><strong>Commit:</strong> <a href="https://github.com/Odyseus/CinnamonTools/commit/d0c6d3b">d0c6d3b</a></li>
+<li><strong>Author:</strong> Odyseus</li>
+</ul>
+<pre><code>Simple ToDo List applet
+- Updated README, metadata.json file and help file due to new localization.
+- Updated localization template and Spanish localization.
+</code></pre>
+<hr>
+<ul>
+<li><strong>Date:</strong> Sun, 28 May 2017 22:49:25 +0800</li>
+<li><strong>Commit:</strong> <a href="https://github.com/Odyseus/CinnamonTools/commit/26511ff">26511ff</a></li>
+<li><strong>Author:</strong> giwhub</li>
+</ul>
+<pre><code>Create zh_CN.po
+</code></pre>
+<hr>
+<ul>
+<li><strong>Date:</strong> Tue, 23 May 2017 06:08:13 -0300</li>
+<li><strong>Commit:</strong> <a href="https://github.com/Odyseus/CinnamonTools/commit/1cbf01e">1cbf01e</a></li>
+<li><strong>Author:</strong> Odyseus</li>
+</ul>
+<pre><code>Simple ToDo List applet
+- Final prototype.
+- Added a mechanism to remember the last used directory when importing/exporting/saving tasks.
+- Some minor code clean up.
+
+LANGUAGE  UNTRANSLATED
+es.po     0
+sv.po     0
+</code></pre>
+<hr>
+<ul>
+<li><strong>Date:</strong> Sun, 21 May 2017 11:28:41 +0200</li>
+<li><strong>Commit:</strong> <a href="https://github.com/Odyseus/CinnamonTools/commit/10b962f">10b962f</a></li>
+<li><strong>Author:</strong> Åke Engelbrektson</li>
+</ul>
+<pre><code>0dyseus@SimpleToDoList: add sv.po
+Add Swedish translation
+</code></pre>
+<hr>
+<ul>
+<li><strong>Date:</strong> Wed, 17 May 2017 16:09:57 -0300</li>
+<li><strong>Commit:</strong> <a href="https://github.com/Odyseus/CinnamonTools/commit/46166f8">46166f8</a></li>
+<li><strong>Author:</strong> Odyseus</li>
+</ul>
+<pre><code>Simple ToDo List applet
+- Removed CJS 3.4 warnings and fixed errors exposed by the use of CJS 3.4.
+
+LANGUAGE  UNTRANSLATED
+es.po     0
+</code></pre>
+<hr>
+<ul>
+<li><strong>Date:</strong> Sat, 13 May 2017 20:55:46 -0300</li>
+<li><strong>Commit:</strong> <a href="https://github.com/Odyseus/CinnamonTools/commit/998774b">998774b</a></li>
+<li><strong>Author:</strong> Odyseus</li>
+</ul>
+<pre><code>Simple ToDo List applet
+- Redesigned help file generation. Now the help file is created from a python script
+(create_localized_help.py) from which strings can be extracted by xgettext to be added to the xlet
+localization template to be able to localize the content of the help file.
+
+LANGUAGE  UNTRANSLATED
+es.po     0
+</code></pre>
+<hr>
+<ul>
+<li><strong>Date:</strong> Sat, 6 May 2017 08:25:33 -0300</li>
+<li><strong>Commit:</strong> <a href="https://github.com/Odyseus/CinnamonTools/commit/323df3e">323df3e</a></li>
+<li><strong>Author:</strong> Odyseus</li>
+</ul>
+<pre><code>Simple ToDo List applet
+- Cleaned up metadata.json file.
+</code></pre>
+<hr>
+<ul>
+<li><strong>Date:</strong> Fri, 5 May 2017 13:27:53 -0300</li>
+<li><strong>Commit:</strong> <a href="https://github.com/Odyseus/CinnamonTools/commit/d8a2f7f">d8a2f7f</a></li>
+<li><strong>Author:</strong> Odyseus</li>
+</ul>
+<pre><code>Simple ToDo List applet
+- Minor code tweaks.
+</code></pre>
+<hr>
+<ul>
+<li><strong>Date:</strong> Sun, 30 Apr 2017 01:05:52 -0300</li>
+<li><strong>Commit:</strong> <a href="https://github.com/Odyseus/CinnamonTools/commit/e690a25">e690a25</a></li>
+<li><strong>Author:</strong> Odyseus</li>
+</ul>
+<pre><code>Simple ToDo List applet
+- Added LICENSE file.
+- Updated PROTOTYPE_ISSUE_TRACKING.md file.
+</code></pre>
+<hr>
+<ul>
+<li><strong>Date:</strong> Wed, 26 Apr 2017 22:49:44 -0300</li>
+<li><strong>Commit:</strong> <a href="https://github.com/Odyseus/CinnamonTools/commit/193cf3e">193cf3e</a></li>
+<li><strong>Author:</strong> Odyseus</li>
+</ul>
+<pre><code>Simple ToDo list applet
+- Fixed some warnings logged into the .xsession-errors file.
+</code></pre>
+<hr>
+<ul>
+<li><strong>Date:</strong> Fri, 21 Apr 2017 00:11:43 -0300</li>
+<li><strong>Commit:</strong> <a href="https://github.com/Odyseus/CinnamonTools/commit/52bf73b">52bf73b</a></li>
+<li><strong>Author:</strong> Odyseus</li>
+</ul>
+<pre><code>Simple ToDo List applet
+- Some minor corrections to the PROTOTYPE_ISSUE_TRACKING.md file.
+- Added screenshot.png file.
+</code></pre>
+<hr>
+<ul>
+<li><strong>Date:</strong> Thu, 20 Apr 2017 23:07:00 -0300</li>
+<li><strong>Commit:</strong> <a href="https://github.com/Odyseus/CinnamonTools/commit/38b2d7b">38b2d7b</a></li>
+<li><strong>Author:</strong> Odyseus</li>
+</ul>
+<pre><code>Simple ToDo List applet - Initial prototype.
+</code></pre>
+<hr>
+
+</div> <!-- .container.boxed -->
+
 </div> <!-- #mainarea -->
 <script type="text/javascript">toggleLocalizationVisibility(null);</script>
 </body>

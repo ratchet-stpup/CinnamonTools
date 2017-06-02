@@ -9,7 +9,7 @@
     ],
     "max-instances": "-1",
     "comments": "Bug reports, feature requests and contributions should be done on this xlet's repository linked below.",
-    "contributors": "Read CONTRIBUTORS.md file inside this xlet folder.",
+    "contributors": "See this xlet help file.",
     "name": "Quick Menu",
     "version": "1.07",
     "uuid": "0dyseus@QuickMenu"

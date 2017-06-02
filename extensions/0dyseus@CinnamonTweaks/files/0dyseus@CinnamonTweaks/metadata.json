@@ -2,7 +2,7 @@
     "external-configuration-app": "settings.py",
     "website": "https://github.com/Odyseus/CinnamonTools",
     "name": "Cinnamon Tweaks",
-    "contributors": "Read CONTRIBUTORS.md file inside this xlet folder.",
+    "contributors": "See this xlet help file.",
     "url": "https://github.com/Odyseus/CinnamonTools",
     "description": "Several tweaks for Cinnamon.",
     "schema-file": "schemas/org.cinnamon.extensions.0dyseus@CinnamonTweaks.gschema.xml",

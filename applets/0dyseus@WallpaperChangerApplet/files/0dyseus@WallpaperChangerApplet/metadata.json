@@ -6,7 +6,7 @@
         "3.4"
     ],
     "uuid": "0dyseus@WallpaperChangerApplet",
-    "contributors": "Read CONTRIBUTORS.md file inside this xlet folder.",
+    "contributors": "See this xlet help file.",
     "max-instances": 1,
     "description": "Cinnamon wallpaper slideshow applet with multiple profiles support.",
     "comments": "Bug reports, feature requests and contributions should be done on this xlet's repository linked below.",

@@ -30,25 +30,55 @@ HTML_DOC = """<!DOCTYPE html>
 </div> <!-- .alert.alert-warning -->
 </noscript>
 <div id="mainarea">
-<div class="localization-chooser" align="middle">
-<h4 id="localization-chooser-label">Choose language</h4>
-<select class="form-control" id="localization-switch" onchange="self.toggleLocalizationVisibility(value, this);">
-{options}
-</select>
-</div> <!-- .localization-chooser -->
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container-fluid">
+    <div class="navbar-header">
+        <ul class="nav navbar-nav">
+            <li><a id="nav-xlet-help" class="navbar-brand" href="#xlet-help"></a></li>
+            <li><a id="nav-xlet-contributors" class="navbar-brand" href="#xlet-contributors"></a></li>
+            <li><a id="nav-xlet-changelog" class="navbar-brand" href="#xlet-changelog"></a></li>
+        </ul>
+    </div>
+    <form class="navbar-form navbar-collapse collapse navbar-right">
+        <div class="form-group">
+            <label id="localization-chooser-label" class="control-label" for="localization-switch"></label>
+            <select class="form-control input-sm" id="localization-switch" onchange="self.toggleLocalizationVisibility(value, this);">
+                {options}
+            </select>
+        </div>
+    </form>
+    </div>
+</nav>
+<span id="xlet-help">
 <div class="container boxed">
 {sections}
 </div> <!-- .container.boxed -->
+{only_english}
+<span id="xlet-contributors">
+{contributors}
+<span id="xlet-changelog">
+{changelog}
 </div> <!-- #mainarea -->
 <script type="text/javascript">toggleLocalizationVisibility(null);</script>
 </body>
 </html>
 """
 
+BOXED_CONTAINER = """<div class="container boxed">
+{0}
+</div> <!-- .container.boxed -->
+"""
+
 # I have to add the custom CSS code separately and not include it directly in the
 # HTML templates because the .format() function breaks when there is CSS code present
 # in the string.
 BASE_CSS = """
+/* For fixed header */
+body {
+    padding-top: 70px;
+}
+/* For fixed header */
+
 .localization-chooser {
     padding: 1em !important;
     width: %100 !important;
@@ -58,6 +88,14 @@ BASE_CSS = """
 #localization-switch {
     font-weight: bold !important;
     width: auto !important;
+}
+
+#localization-chooser-label {
+    color: #FFFFFF !important;
+}
+
+.navbar-form {
+    margin-top: 8px !important;
 }
 """
 
@@ -83,7 +121,7 @@ LOCALE_SECTION = """
 
 # {endonym} inside an HTML comment at the very begening of the string so I can sort all
 # the "option" elements by endonym.
-OPTION = """<!-- {endonym} --><option {selected}data-title="{title}" data-language-chooser-label="{language_chooser_label}" value="{language_code}">{endonym}</option>"""
+OPTION = """<!-- {endonym} --><option {selected}data-title="{title}" data-language-chooser-label="{language_chooser_label}" data-xlet-help="{xlet_help}" data-xlet-contributors="{xlet_contributors}" data-xlet-changelog="{xlet_changelog}" value="{language_code}">{endonym}</option>"""
 
 
 USAGE = """
@@ -121,6 +159,7 @@ class HTMLTemplates():
         self.introduction_base = INTRODUCTION
         self.locale_section_base = LOCALE_SECTION
         self.option_base = OPTION
+        self.boxed_container = BOXED_CONTAINER
 
 
 # Use pure HTML instead of Markdown so I can "cut the middle man" (pug).

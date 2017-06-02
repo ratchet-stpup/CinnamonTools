@@ -118,9 +118,16 @@ function toggleLocalizationVisibility(aValue) {
 
         var option = selector.options[selector.selectedIndex];
         var chooseLanguageLabel = document.getElementById("localization-chooser-label");
+        var navXletHelp = document.getElementById("nav-xlet-help");
+        var navXletContributors = document.getElementById("nav-xlet-contributors");
+        var navXletChangelog = document.getElementById("nav-xlet-changelog");
 
         // Set localized "Choose language" label.
         chooseLanguageLabel.innerText = option.getAttribute("data-language-chooser-label");
+        // Set localized navbar labels.
+        navXletHelp.innerText = option.getAttribute("data-xlet-help");
+        navXletContributors.innerText = option.getAttribute("data-xlet-contributors");
+        navXletChangelog.innerText = option.getAttribute("data-xlet-changelog");
         // Set localized page title.
         document.title = option.getAttribute("data-title");
     } finally {
@@ -368,6 +375,12 @@ pre {
 /* pre tag tweaks */
 
     
+/* For fixed header */
+body {
+    padding-top: 70px;
+}
+/* For fixed header */
+
 .localization-chooser {
     padding: 1em !important;
     width: %100 !important;
@@ -377,6 +390,14 @@ pre {
 #localization-switch {
     font-weight: bold !important;
     width: auto !important;
+}
+
+#localization-chooser-label {
+    color: #FFFFFF !important;
+}
+
+.navbar-form {
+    margin-top: 8px !important;
 }
 
     /* Specific CSS code for specific HELP files */
@@ -461,14 +482,28 @@ table>tfoot>tr.active>th {
 </div> <!-- .alert.alert-warning -->
 </noscript>
 <div id="mainarea">
-<div class="localization-chooser" align="middle">
-<h4 id="localization-chooser-label">Choose language</h4>
-<select class="form-control" id="localization-switch" onchange="self.toggleLocalizationVisibility(value, this);">
-<!-- English --><option selected data-title="Help for Argos for Cinnamon" data-language-chooser-label="Choose language" value="en">English</option>
-<!-- Español --><option data-title="Ayuda para Argos for Cinnamon" data-language-chooser-label="Elegir idioma" value="es">Español</option>
-<!-- 简体中文 --><option data-title="Argos for Cinnamon的帮助" data-language-chooser-label="选择语言" value="zh_CN">简体中文</option>
-</select>
-</div> <!-- .localization-chooser -->
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container-fluid">
+    <div class="navbar-header">
+        <ul class="nav navbar-nav">
+            <li><a id="nav-xlet-help" class="navbar-brand" href="#xlet-help"></a></li>
+            <li><a id="nav-xlet-contributors" class="navbar-brand" href="#xlet-contributors"></a></li>
+            <li><a id="nav-xlet-changelog" class="navbar-brand" href="#xlet-changelog"></a></li>
+        </ul>
+    </div>
+    <form class="navbar-form navbar-collapse collapse navbar-right">
+        <div class="form-group">
+            <label id="localization-chooser-label" class="control-label" for="localization-switch"></label>
+            <select class="form-control input-sm" id="localization-switch" onchange="self.toggleLocalizationVisibility(value, this);">
+                <!-- English --><option selected data-title="Help for Argos for Cinnamon" data-language-chooser-label="Choose language" data-xlet-help="Help" data-xlet-contributors="Contributors" data-xlet-changelog="Changelog" value="en">English</option>
+<!-- Español --><option data-title="Ayuda para Argos for Cinnamon" data-language-chooser-label="Elegir idioma" data-xlet-help="Ayuda" data-xlet-contributors="Colaboradores" data-xlet-changelog="Registro de cambios" value="es">Español</option>
+<!-- 简体中文 --><option data-title="Argos for Cinnamon的帮助" data-language-chooser-label="选择语言" data-xlet-help="帮助" data-xlet-contributors="Contributors" data-xlet-changelog="Changelog" value="zh_CN">简体中文</option>
+            </select>
+        </div>
+    </form>
+    </div>
+</nav>
+<span id="xlet-help">
 <div class="container boxed">
 
 <div id="zh_CN" class="localization-content hidden">
@@ -1317,6 +1352,257 @@ WARNING!!! DO NOT RANDOMLY TEST SCRIPTS!!!
 </div> <!-- .localization-content -->
 
 </div> <!-- .container.boxed -->
+<div style="font-weight:bold;" class="container alert alert-info">The following two sections are available only in English.</div>
+<span id="xlet-contributors">
+<div class="container boxed">
+<h2>Contributors/Mentions</h2>
+<ul>
+<li><strong><a href="https://github.com/p-e-w">Philipp Emanuel Weidmann</a>:</strong>: Author of the gnome-shell extension called <a href="https://github.com/p-e-w/argos">Argos</a>.</li>
+<li><strong><a href="https://github.com/giwhub">giwhub</a>:</strong> Chinese localization.</li>
+</ul>
+
+</div> <!-- .container.boxed -->
+
+<span id="xlet-changelog">
+<div class="container boxed">
+<h2>Argos for Cinnamon changelog</h2>
+<h4>This change log is only valid for the version of the xlet hosted on <a href="https://github.com/Odyseus/CinnamonTools">its original repository</a></h4>
+<hr>
+<ul>
+<li><strong>Date:</strong> Wed, 31 May 2017 09:09:42 -0300</li>
+<li><strong>Commit:</strong> <a href="https://github.com/Odyseus/CinnamonTools/commit/a09fd63">a09fd63</a></li>
+<li><strong>Author:</strong> Odyseus</li>
+</ul>
+<pre><code>Argos for Cinnamon applet
+- Updated screenshot.png file. Trying an animated PNG that represents a little better what Argos for
+Cinnamon can do.
+</code></pre>
+<hr>
+<ul>
+<li><strong>Date:</strong> Mon, 29 May 2017 07:18:07 -0300</li>
+<li><strong>Commit:</strong> <a href="https://github.com/Odyseus/CinnamonTools/commit/3ebb668">3ebb668</a></li>
+<li><strong>Author:</strong> Odyseus</li>
+</ul>
+<pre><code>Argos for Cinnamon applet
+- Added missing icon.png and screenshot.png files used by the Spices website.
+</code></pre>
+<hr>
+<ul>
+<li><strong>Date:</strong> Mon, 29 May 2017 17:06:41 +0800</li>
+<li><strong>Commit:</strong> <a href="https://github.com/Odyseus/CinnamonTools/commit/8e9e2fb">8e9e2fb</a></li>
+<li><strong>Author:</strong> giwhub</li>
+</ul>
+<pre><code>Update zh_CN.po
+</code></pre>
+<hr>
+<ul>
+<li><strong>Date:</strong> Mon, 29 May 2017 02:45:50 -0300</li>
+<li><strong>Commit:</strong> <a href="https://github.com/Odyseus/CinnamonTools/commit/cdbd7c7">cdbd7c7</a></li>
+<li><strong>Author:</strong> Odyseus</li>
+</ul>
+<pre><code>Argos for Cinnamon applet
+- Updated localization template.
+</code></pre>
+<hr>
+<ul>
+<li><strong>Date:</strong> Sun, 28 May 2017 02:07:10 -0300</li>
+<li><strong>Commit:</strong> <a href="https://github.com/Odyseus/CinnamonTools/commit/fe194b5">fe194b5</a></li>
+<li><strong>Author:</strong> Odyseus</li>
+</ul>
+<pre><code>Argos for Cinnamon applet
+- Updated README and metadata.json file due to new localization.
+- Updated localization template and Spanish localization.
+</code></pre>
+<hr>
+<ul>
+<li><strong>Date:</strong> Sun, 28 May 2017 00:07:10 -0300</li>
+<li><strong>Commit:</strong> <a href="https://github.com/Odyseus/CinnamonTools/commit/918d300">918d300</a></li>
+<li><strong>Author:</strong> Odyseus</li>
+</ul>
+<pre><code>Argos for Cinnamon applet
+- Execute the attached script exposing the script's current working directory. This allows us to use
+the current working directory in our scripts.
+</code></pre>
+<hr>
+<ul>
+<li><strong>Date:</strong> Sat, 27 May 2017 22:31:49 -0300</li>
+<li><strong>Commit:</strong> <a href="https://github.com/Odyseus/CinnamonTools/commit/ce62597">ce62597</a></li>
+<li><strong>Author:</strong> Odyseus</li>
+</ul>
+<pre><code>Argos for Cinnamon applet
+- Corrected a validation error on some .po files generated by the use of the % sign in a Python
+string.
+- Updated help file due to updated localization.
+</code></pre>
+<hr>
+<ul>
+<li><strong>Date:</strong> Sat, 27 May 2017 22:01:35 +0800</li>
+<li><strong>Commit:</strong> <a href="https://github.com/Odyseus/CinnamonTools/commit/55ff685">55ff685</a></li>
+<li><strong>Author:</strong> giwhub</li>
+</ul>
+<pre><code>Update zh_CN.po
+</code></pre>
+<hr>
+<ul>
+<li><strong>Date:</strong> Sat, 27 May 2017 19:47:39 +0800</li>
+<li><strong>Commit:</strong> <a href="https://github.com/Odyseus/CinnamonTools/commit/8940add">8940add</a></li>
+<li><strong>Author:</strong> giwhub</li>
+</ul>
+<pre><code>Create zh_CN.po
+</code></pre>
+<hr>
+<ul>
+<li><strong>Date:</strong> Fri, 26 May 2017 04:50:19 -0300</li>
+<li><strong>Commit:</strong> <a href="https://github.com/Odyseus/CinnamonTools/commit/6eb7a9e">6eb7a9e</a></li>
+<li><strong>Author:</strong> Odyseus</li>
+</ul>
+<pre><code>Argos for Cinnamon
+- More tweaks/fixes to comply with Cinnamon 3.4.x with CJS 3.4.x installed.
+</code></pre>
+<hr>
+<ul>
+<li><strong>Date:</strong> Fri, 26 May 2017 01:24:01 -0300</li>
+<li><strong>Commit:</strong> <a href="https://github.com/Odyseus/CinnamonTools/commit/a3ebb00">a3ebb00</a></li>
+<li><strong>Author:</strong> Odyseus</li>
+</ul>
+<pre><code>Argos for Cinnamon applet
+- Reverted back the use of the **TryExec** function because it is causing freezes under Cinnamon
+3.4.x with CJS 3.4.x installed (¬¬). Comming back to it when and if CJS finally decides to throw an
+actually useful error message (¬¬).
+</code></pre>
+<hr>
+<ul>
+<li><strong>Date:</strong> Thu, 25 May 2017 08:36:02 -0300</li>
+<li><strong>Commit:</strong> <a href="https://github.com/Odyseus/CinnamonTools/commit/48d3b6c">48d3b6c</a></li>
+<li><strong>Author:</strong> Odyseus</li>
+</ul>
+<pre><code>Argos for Cinnamon applet
+- Fixed a bug that prevented to correctly run commands when the *terminal* attribute was set to
+true.
+- Changed a variable name on the python_examples.py file to correctly reflect that this is an applet
+and not an extension.
+</code></pre>
+<hr>
+<ul>
+<li><strong>Date:</strong> Tue, 23 May 2017 06:05:21 -0300</li>
+<li><strong>Commit:</strong> <a href="https://github.com/Odyseus/CinnamonTools/commit/f38bac0">f38bac0</a></li>
+<li><strong>Author:</strong> Odyseus</li>
+</ul>
+<pre><code>Argos for Cinnamon applet
+- Last prototype.
+- Added a mechanism to remember the last used directory when choosing scripts.
+- Cleaned up code. Mainly removed all `try{}catch{}` blocks used for debugging in preparation for
+stable release.
+- Completed Spanish localization of the help file.
+- Cleaned up the example scripts.
+
+LANGUAGE  UNTRANSLATED
+es.po     0
+</code></pre>
+<hr>
+<ul>
+<li><strong>Date:</strong> Wed, 17 May 2017 16:07:58 -0300</li>
+<li><strong>Commit:</strong> <a href="https://github.com/Odyseus/CinnamonTools/commit/3292235">3292235</a></li>
+<li><strong>Author:</strong> Odyseus</li>
+</ul>
+<pre><code>Argos for Cinnamon applet
+- Removed CJS 3.4 warnings and fixed errors exposed by the use of CJS 3.4.
+
+LANGUAGE  UNTRANSLATED
+es.po     84
+</code></pre>
+<hr>
+<ul>
+<li><strong>Date:</strong> Mon, 15 May 2017 22:47:54 -0300</li>
+<li><strong>Commit:</strong> <a href="https://github.com/Odyseus/CinnamonTools/commit/bc8b65e">bc8b65e</a></li>
+<li><strong>Author:</strong> Odyseus</li>
+</ul>
+<pre><code>Argos for Cinnamon applet
+- Some minor code clean up.
+
+LANGUAGE  UNTRANSLATED
+es.po     84
+</code></pre>
+<hr>
+<ul>
+<li><strong>Date:</strong> Sat, 13 May 2017 20:52:00 -0300</li>
+<li><strong>Commit:</strong> <a href="https://github.com/Odyseus/CinnamonTools/commit/37601a5">37601a5</a></li>
+<li><strong>Author:</strong> Odyseus</li>
+</ul>
+<pre><code>Argos for Cinnamon applet
+- Redesigned help file generation. Now the help file is created from a python script
+(create_localized_help.py) from which strings can be extracted by xgettext to be added to the xlet
+localization template to be able to localize the content of the help file.
+
+LANGUAGE  UNTRANSLATED
+es.po     84
+</code></pre>
+<hr>
+<ul>
+<li><strong>Date:</strong> Sat, 6 May 2017 08:36:34 -0300</li>
+<li><strong>Commit:</strong> <a href="https://github.com/Odyseus/CinnamonTools/commit/4b1af68">4b1af68</a></li>
+<li><strong>Author:</strong> Odyseus</li>
+</ul>
+<pre><code>Argos for Cinnamon applet
+- Fourth prototype.
+- Changed an internal function that it's used to execute custom commands to use a callback. This
+allows for me to display a notification in case a command failed to execute.
+- Changed the unit used to display the **Script execution time** and **Output process** time on this
+applet tooltip from seconds to milliseconds.
+- Cleaned up the metadata.json file.
+- Updated localization template.
+</code></pre>
+<hr>
+<ul>
+<li><strong>Date:</strong> Fri, 5 May 2017 15:10:03 -0300</li>
+<li><strong>Commit:</strong> <a href="https://github.com/Odyseus/CinnamonTools/commit/f0fb42b">f0fb42b</a></li>
+<li><strong>Author:</strong> Odyseus</li>
+</ul>
+<pre><code>Argos for Cinnamon applet
+- Updated help file.
+</code></pre>
+<hr>
+<ul>
+<li><strong>Date:</strong> Fri, 5 May 2017 12:19:33 -0300</li>
+<li><strong>Commit:</strong> <a href="https://github.com/Odyseus/CinnamonTools/commit/bde7e9f">bde7e9f</a></li>
+<li><strong>Author:</strong> Odyseus</li>
+</ul>
+<pre><code>Argos for Cinnamon applet
+- Third prototype.
+- Added tooltip to applet. It will display the script name, the execution interval, the rotation
+interval, the amount of time that the script took to launch and the amount of time that the applet
+took to process the script's output.
+- Tested applet on all versions of Cinnamon.
+- Implemented plural forms on some translatable strings. **@translators:** Keep an eye on those in
+case there are errors.
+- *Strictified* all comparisons. Shortcut for *I changed all == to ===*, etc.
+- Implemented a better/more informative way of informing about missing dependencies.
+</code></pre>
+<hr>
+<ul>
+<li><strong>Date:</strong> Wed, 3 May 2017 05:06:34 -0300</li>
+<li><strong>Commit:</strong> <a href="https://github.com/Odyseus/CinnamonTools/commit/3d82ee9">3d82ee9</a></li>
+<li><strong>Author:</strong> Odyseus</li>
+</ul>
+<pre><code>Argos for Cinnamon
+- Second prototype.
+- Added localization support for the python_examples.py script and switched to it as the default
+script when the applet is first placed in a panel. This allows to create an example menu localized
+if there is a localization language available.
+</code></pre>
+<hr>
+<ul>
+<li><strong>Date:</strong> Sun, 30 Apr 2017 11:37:42 -0300</li>
+<li><strong>Commit:</strong> <a href="https://github.com/Odyseus/CinnamonTools/commit/5668bb9">5668bb9</a></li>
+<li><strong>Author:</strong> Odyseus</li>
+</ul>
+<pre><code>Argos for Cinnamon applet
+- Initial prototype.
+</code></pre>
+<hr>
+
+</div> <!-- .container.boxed -->
+
 </div> <!-- #mainarea -->
 <script type="text/javascript">toggleLocalizationVisibility(null);</script>
 </body>

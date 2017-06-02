@@ -118,9 +118,16 @@ function toggleLocalizationVisibility(aValue) {
 
         var option = selector.options[selector.selectedIndex];
         var chooseLanguageLabel = document.getElementById("localization-chooser-label");
+        var navXletHelp = document.getElementById("nav-xlet-help");
+        var navXletContributors = document.getElementById("nav-xlet-contributors");
+        var navXletChangelog = document.getElementById("nav-xlet-changelog");
 
         // Set localized "Choose language" label.
         chooseLanguageLabel.innerText = option.getAttribute("data-language-chooser-label");
+        // Set localized navbar labels.
+        navXletHelp.innerText = option.getAttribute("data-xlet-help");
+        navXletContributors.innerText = option.getAttribute("data-xlet-contributors");
+        navXletChangelog.innerText = option.getAttribute("data-xlet-changelog");
         // Set localized page title.
         document.title = option.getAttribute("data-title");
     } finally {
@@ -368,6 +375,12 @@ pre {
 /* pre tag tweaks */
 
     
+/* For fixed header */
+body {
+    padding-top: 70px;
+}
+/* For fixed header */
+
 .localization-chooser {
     padding: 1em !important;
     width: %100 !important;
@@ -377,6 +390,14 @@ pre {
 #localization-switch {
     font-weight: bold !important;
     width: auto !important;
+}
+
+#localization-chooser-label {
+    color: #FFFFFF !important;
+}
+
+.navbar-form {
+    margin-top: 8px !important;
 }
 
     /* Specific CSS code for specific HELP files */
@@ -391,15 +412,29 @@ pre {
 </div> <!-- .alert.alert-warning -->
 </noscript>
 <div id="mainarea">
-<div class="localization-chooser" align="middle">
-<h4 id="localization-chooser-label">Choose language</h4>
-<select class="form-control" id="localization-switch" onchange="self.toggleLocalizationVisibility(value, this);">
-<!-- English --><option selected data-title="Help for Desktop Handler" data-language-chooser-label="Choose language" value="en">English</option>
-<!-- Español --><option data-title="Ayuda para Desktop Handler" data-language-chooser-label="Elegir idioma" value="es">Español</option>
-<!-- Svenska --><option data-title="Hjälp för Desktop Handler" data-language-chooser-label="Välj språk" value="sv">Svenska</option>
-<!-- 简体中文 --><option data-title="Desktop Handler的帮助" data-language-chooser-label="选择语言" value="zh_CN">简体中文</option>
-</select>
-</div> <!-- .localization-chooser -->
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container-fluid">
+    <div class="navbar-header">
+        <ul class="nav navbar-nav">
+            <li><a id="nav-xlet-help" class="navbar-brand" href="#xlet-help"></a></li>
+            <li><a id="nav-xlet-contributors" class="navbar-brand" href="#xlet-contributors"></a></li>
+            <li><a id="nav-xlet-changelog" class="navbar-brand" href="#xlet-changelog"></a></li>
+        </ul>
+    </div>
+    <form class="navbar-form navbar-collapse collapse navbar-right">
+        <div class="form-group">
+            <label id="localization-chooser-label" class="control-label" for="localization-switch"></label>
+            <select class="form-control input-sm" id="localization-switch" onchange="self.toggleLocalizationVisibility(value, this);">
+                <!-- English --><option selected data-title="Help for Desktop Handler" data-language-chooser-label="Choose language" data-xlet-help="Help" data-xlet-contributors="Contributors" data-xlet-changelog="Changelog" value="en">English</option>
+<!-- Español --><option data-title="Ayuda para Desktop Handler" data-language-chooser-label="Elegir idioma" data-xlet-help="Ayuda" data-xlet-contributors="Colaboradores" data-xlet-changelog="Registro de cambios" value="es">Español</option>
+<!-- Svenska --><option data-title="Hjälp för Desktop Handler" data-language-chooser-label="Välj språk" data-xlet-help="Hjälp" data-xlet-contributors="Contributors" data-xlet-changelog="Changelog" value="sv">Svenska</option>
+<!-- 简体中文 --><option data-title="Desktop Handler的帮助" data-language-chooser-label="选择语言" data-xlet-help="帮助" data-xlet-contributors="Contributors" data-xlet-changelog="Changelog" value="zh_CN">简体中文</option>
+            </select>
+        </div>
+    </form>
+    </div>
+</nav>
+<span id="xlet-help">
 <div class="container boxed">
 
 <div id="zh_CN" class="localization-content hidden">
@@ -502,6 +537,313 @@ pre {
 </div> <!-- .localization-content -->
 
 </div> <!-- .container.boxed -->
+<div style="font-weight:bold;" class="container alert alert-info">The following two sections are available only in English.</div>
+<span id="xlet-contributors">
+<div class="container boxed">
+<h2>Contributors/Mentions</h2>
+<ul>
+<li><strong><a href="https://github.com/muzena">muzena</a>:</strong> Croatian localization.</li>
+<li><strong><a href="https://github.com/giwhub">giwhub</a>:</strong> Chinese localization.</li>
+<li><strong><a href="https://github.com/eson57">eson57</a>:</strong> Swedish localization.</li>
+</ul>
+
+</div> <!-- .container.boxed -->
+
+<span id="xlet-changelog">
+<div class="container boxed">
+<h2>Desktop Handler changelog</h2>
+<h4>This change log is only valid for the version of the xlet hosted on <a href="https://github.com/Odyseus/CinnamonTools">its original repository</a></h4>
+<hr>
+<ul>
+<li><strong>Date:</strong> Tue, 30 May 2017 19:48:47 +0800</li>
+<li><strong>Commit:</strong> <a href="https://github.com/Odyseus/CinnamonTools/commit/07dd7ed">07dd7ed</a></li>
+<li><strong>Author:</strong> giwhub</li>
+</ul>
+<pre><code>Update zh_CN.po
+</code></pre>
+<hr>
+<ul>
+<li><strong>Date:</strong> Mon, 29 May 2017 02:46:40 -0300</li>
+<li><strong>Commit:</strong> <a href="https://github.com/Odyseus/CinnamonTools/commit/01f45d6">01f45d6</a></li>
+<li><strong>Author:</strong> Odyseus</li>
+</ul>
+<pre><code>Desktop Handler applet
+- Updated localization template and Spanish localization.
+</code></pre>
+<hr>
+<ul>
+<li><strong>Date:</strong> Sat, 27 May 2017 22:33:55 -0300</li>
+<li><strong>Commit:</strong> <a href="https://github.com/Odyseus/CinnamonTools/commit/20c9ec9">20c9ec9</a></li>
+<li><strong>Author:</strong> Odyseus</li>
+</ul>
+<pre><code>Desktop Handler applet
+- Updated help file due to updated localization.
+</code></pre>
+<hr>
+<ul>
+<li><strong>Date:</strong> Sat, 27 May 2017 22:02:46 +0800</li>
+<li><strong>Commit:</strong> <a href="https://github.com/Odyseus/CinnamonTools/commit/1f93b19">1f93b19</a></li>
+<li><strong>Author:</strong> giwhub</li>
+</ul>
+<pre><code>Update zh_CN.po
+</code></pre>
+<hr>
+<ul>
+<li><strong>Date:</strong> Sat, 27 May 2017 19:50:09 +0800</li>
+<li><strong>Commit:</strong> <a href="https://github.com/Odyseus/CinnamonTools/commit/382f6c1">382f6c1</a></li>
+<li><strong>Author:</strong> giwhub</li>
+</ul>
+<pre><code>Update zh_CN.po
+</code></pre>
+<hr>
+<ul>
+<li><strong>Date:</strong> Tue, 16 May 2017 13:18:24 -0300</li>
+<li><strong>Commit:</strong> <a href="https://github.com/Odyseus/CinnamonTools/commit/5faf8d9">5faf8d9</a></li>
+<li><strong>Author:</strong> Odyseus</li>
+</ul>
+<pre><code>Desktop Handler applet
+- Re-generated help file based on new localizations.
+
+LANGUAGE  UNTRANSLATED
+zh_CN.po  0
+es.po     0
+sv.po     0
+hr.po     13
+</code></pre>
+<hr>
+<ul>
+<li><strong>Date:</strong> Tue, 16 May 2017 09:01:53 +0200</li>
+<li><strong>Commit:</strong> <a href="https://github.com/Odyseus/CinnamonTools/commit/85eede7">85eede7</a></li>
+<li><strong>Author:</strong> Åke Engelbrektson</li>
+</ul>
+<pre><code>0dyseus@DesktopHandler: Create sv.po
+Swedish translation!
+</code></pre>
+<hr>
+<ul>
+<li><strong>Date:</strong> Mon, 15 May 2017 00:39:55 -0300</li>
+<li><strong>Commit:</strong> <a href="https://github.com/Odyseus/CinnamonTools/commit/aa46a6b">aa46a6b</a></li>
+<li><strong>Author:</strong> Odyseus</li>
+</ul>
+<pre><code>Desktop Handler applet
+- Re-generated help file based on new localizations.
+
+LANGUAGE  UNTRANSLATED
+zh_CN.po  0
+es.po     0
+hr.po     13
+</code></pre>
+<hr>
+<ul>
+<li><strong>Date:</strong> Sun, 14 May 2017 18:54:29 +0800</li>
+<li><strong>Commit:</strong> <a href="https://github.com/Odyseus/CinnamonTools/commit/89bd738">89bd738</a></li>
+<li><strong>Author:</strong> giwhub</li>
+</ul>
+<pre><code>Update zh_CN.po
+</code></pre>
+<hr>
+<ul>
+<li><strong>Date:</strong> Sat, 13 May 2017 20:53:45 -0300</li>
+<li><strong>Commit:</strong> <a href="https://github.com/Odyseus/CinnamonTools/commit/7cebf97">7cebf97</a></li>
+<li><strong>Author:</strong> Odyseus</li>
+</ul>
+<pre><code>Desktop Handler applet
+- Redesigned help file generation. Now the help file is created from a python script
+(create_localized_help.py) from which strings can be extracted by xgettext to be added to the xlet
+localization template to be able to localize the content of the help file.
+
+LANGUAGE  UNTRANSLATED
+zh_CN.po  17
+es.po     0
+hr.po     13
+</code></pre>
+<hr>
+<ul>
+<li><strong>Date:</strong> Mon, 8 May 2017 13:14:28 +0200</li>
+<li><strong>Commit:</strong> <a href="https://github.com/Odyseus/CinnamonTools/commit/969470e">969470e</a></li>
+<li><strong>Author:</strong> muzena</li>
+</ul>
+<pre><code>0dyseus@DesktopHandler.hr: update hr.po
+</code></pre>
+<hr>
+<ul>
+<li><strong>Date:</strong> Sat, 6 May 2017 08:26:58 -0300</li>
+<li><strong>Commit:</strong> <a href="https://github.com/Odyseus/CinnamonTools/commit/adbcd8d">adbcd8d</a></li>
+<li><strong>Author:</strong> Odyseus</li>
+</ul>
+<pre><code>Desktop Handler applet
+- Cleaned up metadata.json file.
+</code></pre>
+<hr>
+<ul>
+<li><strong>Date:</strong> Fri, 5 May 2017 13:26:42 -0300</li>
+<li><strong>Commit:</strong> <a href="https://github.com/Odyseus/CinnamonTools/commit/04ea4b1">04ea4b1</a></li>
+<li><strong>Author:</strong> Odyseus</li>
+</ul>
+<pre><code>Desktop Handler applet
+- Minor code tweaks.
+</code></pre>
+<hr>
+<ul>
+<li><strong>Date:</strong> Wed, 3 May 2017 11:23:38 -0300</li>
+<li><strong>Commit:</strong> <a href="https://github.com/Odyseus/CinnamonTools/commit/9b832ba">9b832ba</a></li>
+<li><strong>Author:</strong> Odyseus</li>
+</ul>
+<pre><code>Desktop Handler applet
+- Removed *multiversion* because it is not worth the trouble.
+- Moved some prototypes into a separate "modules file".
+- Improved the behaviour of the option "Keep menu open while closing windows". Now the menu is kept
+open when closing windows and will use the method of reopening the menu only as a *fallback*.
+</code></pre>
+<hr>
+<ul>
+<li><strong>Date:</strong> Sun, 30 Apr 2017 02:05:51 -0300</li>
+<li><strong>Commit:</strong> <a href="https://github.com/Odyseus/CinnamonTools/commit/347c64d">347c64d</a></li>
+<li><strong>Author:</strong> Odyseus</li>
+</ul>
+<pre><code>Desktop Handler applet
+- Cleaned metadata.json file.
+</code></pre>
+<hr>
+<ul>
+<li><strong>Date:</strong> Thu, 13 Apr 2017 13:42:17 -0300</li>
+<li><strong>Commit:</strong> <a href="https://github.com/Odyseus/CinnamonTools/commit/3cd8bad">3cd8bad</a></li>
+<li><strong>Author:</strong> Odyseus</li>
+</ul>
+<pre><code>Desktop Handler applet - Added localized help.
+</code></pre>
+<hr>
+<ul>
+<li><strong>Date:</strong> Sat, 18 Mar 2017 04:43:26 -0300</li>
+<li><strong>Commit:</strong> <a href="https://github.com/Odyseus/CinnamonTools/commit/a6802ec">a6802ec</a></li>
+<li><strong>Author:</strong> Odyseus</li>
+</ul>
+<pre><code>Merge pull request #34 from giwhub/giwhub-patch-5
+Add Chinese translation for Desktop Handler
+</code></pre>
+<hr>
+<ul>
+<li><strong>Date:</strong> Sat, 18 Mar 2017 15:27:55 +0800</li>
+<li><strong>Commit:</strong> <a href="https://github.com/Odyseus/CinnamonTools/commit/332e098">332e098</a></li>
+<li><strong>Author:</strong> giwhub</li>
+</ul>
+<pre><code>Create zh_CN.po
+</code></pre>
+<hr>
+<ul>
+<li><strong>Date:</strong> Fri, 27 Jan 2017 11:40:53 -0300</li>
+<li><strong>Commit:</strong> <a href="https://github.com/Odyseus/CinnamonTools/commit/554371e">554371e</a></li>
+<li><strong>Author:</strong> Odyseus</li>
+</ul>
+<pre><code>Applet - Cleaned some irrelevant files
+- Updated READMEs
+- Updated metadata.json
+- Updated some applet icons.
+</code></pre>
+<hr>
+<ul>
+<li><strong>Date:</strong> Wed, 25 Jan 2017 18:43:08 -0300</li>
+<li><strong>Commit:</strong> <a href="https://github.com/Odyseus/CinnamonTools/commit/737e3a2">737e3a2</a></li>
+<li><strong>Author:</strong> Odyseus</li>
+</ul>
+<pre><code>[Desktop Handler applet] - Fixed a Cjs warning when switching workspaces.
+</code></pre>
+<hr>
+<ul>
+<li><strong>Date:</strong> Sun, 22 Jan 2017 23:50:00 -0300</li>
+<li><strong>Commit:</strong> <a href="https://github.com/Odyseus/CinnamonTools/commit/26e2e87">26e2e87</a></li>
+<li><strong>Author:</strong> Odyseus</li>
+</ul>
+<pre><code>Applets - Fixed some broken links.
+</code></pre>
+<hr>
+<ul>
+<li><strong>Date:</strong> Sun, 22 Jan 2017 20:29:22 -0300</li>
+<li><strong>Commit:</strong> <a href="https://github.com/Odyseus/CinnamonTools/commit/c2a6759">c2a6759</a></li>
+<li><strong>Author:</strong> Odyseus</li>
+</ul>
+<pre><code>Applets - Formatted repository to conform Spices repository.
+</code></pre>
+<hr>
+<ul>
+<li><strong>Date:</strong> Fri, 23 Dec 2016 06:11:41 -0300</li>
+<li><strong>Commit:</strong> <a href="https://github.com/Odyseus/CinnamonTools/commit/867b83b">867b83b</a></li>
+<li><strong>Author:</strong> Odyseus</li>
+</ul>
+<pre><code>[Desktop Handler applet] - Improved support for Cinnamon 3.2.x
+- Improved icon display on window list menu
+- Fixed missing icon on window list menu
+- Fixed some missing translated strings
+- Fixed the applications switcher option.
+</code></pre>
+<hr>
+<ul>
+<li><strong>Date:</strong> Thu, 6 Oct 2016 03:35:15 -0300</li>
+<li><strong>Commit:</strong> <a href="https://github.com/Odyseus/CinnamonTools/commit/72668c7">72668c7</a></li>
+<li><strong>Author:</strong> Odyseus</li>
+</ul>
+<pre><code>Corrected some terms and removed BASICS.md in favor of Wiki.
+</code></pre>
+<hr>
+<ul>
+<li><strong>Date:</strong> Mon, 3 Oct 2016 00:12:50 -0300</li>
+<li><strong>Commit:</strong> <a href="https://github.com/Odyseus/CinnamonTools/commit/d01a0ab">d01a0ab</a></li>
+<li><strong>Author:</strong> Odyseus</li>
+</ul>
+<pre><code>White space cleaning.
+</code></pre>
+<hr>
+<ul>
+<li><strong>Date:</strong> Sun, 25 Sep 2016 01:37:02 -0300</li>
+<li><strong>Commit:</strong> <a href="https://github.com/Odyseus/CinnamonTools/commit/e0afc90">e0afc90</a></li>
+<li><strong>Author:</strong> Odyseus</li>
+</ul>
+<pre><code>Added support for localizations.
+</code></pre>
+<hr>
+<ul>
+<li><strong>Date:</strong> Wed, 14 Sep 2016 14:23:03 -0300</li>
+<li><strong>Commit:</strong> <a href="https://github.com/Odyseus/CinnamonTools/commit/ebdb879">ebdb879</a></li>
+<li><strong>Author:</strong> Odyseus</li>
+</ul>
+<pre><code>Initial commit.
+</code></pre>
+<hr>
+<ul>
+<li><strong>Date:</strong> Mon, 15 Aug 2016 06:48:34 -0300</li>
+<li><strong>Commit:</strong> <a href="https://github.com/Odyseus/CinnamonTools/commit/5b75846">5b75846</a></li>
+<li><strong>Author:</strong> Odyseus</li>
+</ul>
+<pre><code>Initial commit.
+</code></pre>
+<hr>
+<ul>
+<li><strong>Date:</strong> Sat, 13 Aug 2016 07:54:47 -0300</li>
+<li><strong>Commit:</strong> <a href="https://github.com/Odyseus/CinnamonTools/commit/8bf7b2c">8bf7b2c</a></li>
+<li><strong>Author:</strong> Odyseus</li>
+</ul>
+<pre><code>Initial commit.
+</code></pre>
+<hr>
+<ul>
+<li><strong>Date:</strong> Fri, 12 Aug 2016 05:34:24 -0300</li>
+<li><strong>Commit:</strong> <a href="https://github.com/Odyseus/CinnamonTools/commit/08bae8e">08bae8e</a></li>
+<li><strong>Author:</strong> Odyseus</li>
+</ul>
+<pre><code>Initial commit.....
+</code></pre>
+<hr>
+<ul>
+<li><strong>Date:</strong> Fri, 12 Aug 2016 03:07:12 -0300</li>
+<li><strong>Commit:</strong> <a href="https://github.com/Odyseus/CinnamonTools/commit/087f985">087f985</a></li>
+<li><strong>Author:</strong> Odyseus</li>
+</ul>
+<pre><code>Initial commit....
+</code></pre>
+<hr>
+
+</div> <!-- .container.boxed -->
+
 </div> <!-- #mainarea -->
 <script type="text/javascript">toggleLocalizationVisibility(null);</script>
 </body>
