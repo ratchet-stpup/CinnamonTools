@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.00\n"
 "Report-Msgid-Bugs-To: Odyseus\n"
-"POT-Creation-Date: 2017-05-26 19:53-0300\n"
-"PO-Revision-Date: 2017-05-26 19:54-0300\n"
+"POT-Creation-Date: 2017-06-02 10:43-0300\n"
+"PO-Revision-Date: 2017-06-02 10:43-0300\n"
 "Last-Translator: Odyseus\n"
 "Language-Team: \n"
 "Language: es\n"
@@ -570,21 +570,11 @@ msgstr "Perfil cambiado a %s"
 msgid "Configure..."
 msgstr "Configurar..."
 
-#. 0dyseus@WallpaperChangerApplet->metadata.json->contributors
-msgid ""
-"Eric Gach: Author of Desk Changer gnome-shell extension. https://github.com/"
-"BigE/desk-changer"
+#. 0dyseus@WallpaperChangerApplet->metadata.json->description
+msgid "Cinnamon wallpaper slideshow applet with multiple profiles support."
 msgstr ""
-"Eric Gach: Autor de la extnsión para gnome-shell Desk Changer https://github."
-"com/BigE/desk-changer."
-
-#. 0dyseus@WallpaperChangerApplet->metadata.json->contributors
-msgid "eson57: Swedish localization."
-msgstr "eson57: Localización Sueca."
-
-#. 0dyseus@WallpaperChangerApplet->metadata.json->contributors
-msgid "giwhub: Chinese localization."
-msgstr "giwhub: Localización China."
+"Diapositivas de fondos de pantalla para Cinnamon con soporte para múltiples "
+"perfiles."
 
 #. 0dyseus@WallpaperChangerApplet->metadata.json->comments
 msgid ""
@@ -594,11 +584,29 @@ msgstr ""
 "Los reportes de fallos, peticiones de características y contribuciones deben "
 "hacerse en el repositorio de este xlet vinculado a continuación."
 
-#. 0dyseus@WallpaperChangerApplet->metadata.json->description
-msgid "Cinnamon wallpaper slideshow applet with multiple profiles support."
-msgstr ""
-"Diapositivas de fondos de pantalla para Cinnamon con soporte para múltiples "
-"perfiles."
+#. 0dyseus@WallpaperChangerApplet->metadata.json->contributors
+msgid "Read CONTRIBUTORS.md file inside this xlet folder."
+msgstr "Leer el archivo CONTRIBUTORS.md dentro de la carpeta de este xlet."
+
+#~ msgid ""
+#~ "A full list of contributors can be found in the CONTRIBUTORS.md file on "
+#~ "the root of this xlet folder."
+#~ msgstr ""
+#~ "Se puede encontrar una lista completa de contribuyentes en el archivo "
+#~ "CONTRIBUTORS.md en la raíz de la carpeta de este xlet."
+
+#~ msgid ""
+#~ "Eric Gach: Author of Desk Changer gnome-shell extension. https://github."
+#~ "com/BigE/desk-changer"
+#~ msgstr ""
+#~ "Eric Gach: Autor de la extnsión para gnome-shell Desk Changer https://"
+#~ "github.com/BigE/desk-changer."
+
+#~ msgid "eson57: Swedish localization."
+#~ msgstr "eson57: Localización Sueca."
+
+#~ msgid "giwhub: Chinese localization."
+#~ msgstr "giwhub: Localización China."
 
 #~ msgid "Help for {xlet_name}"
 #~ msgstr "Ayuda para {xlet_name}"

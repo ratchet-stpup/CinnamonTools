@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 0dyseus@WindowDemandsAttentionBehavior 1.02\n"
-"POT-Creation-Date: 2017-05-29 02:40-0300\n"
+"POT-Creation-Date: 2017-06-02 10:41-0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -15,12 +15,32 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: make-xlet-pot.py 1.0.32\n"
 
-#. 0dyseus@WindowDemandsAttentionBehavior->settings-schema.json->pref_activation_mode->description
-msgid "Choose activation mode"
+#. 0dyseus@WindowDemandsAttentionBehavior->metadata.json->contributors
+msgid "Read CONTRIBUTORS.md file inside this xlet folder."
+msgstr ""
+
+#. 0dyseus@WindowDemandsAttentionBehavior->metadata.json->description
+msgid "Activate demanding attention window with a keyboard shortcut or forced."
+msgstr ""
+
+#. 0dyseus@WindowDemandsAttentionBehavior->metadata.json->contributors
+msgid "muzena: Croatian localization."
+msgstr ""
+
+#. 0dyseus@WindowDemandsAttentionBehavior->metadata.json->contributors
+msgid "giwhub: Chinese localization."
+msgstr ""
+
+#. 0dyseus@WindowDemandsAttentionBehavior->metadata.json->name
+msgid "Window demands attention behavior"
+msgstr ""
+
+#. 0dyseus@WindowDemandsAttentionBehavior->settings-schema.json->pref_keyboard_shortcut->description
+msgid "Set the keybinding to activate windows demanding attention: "
 msgstr ""
 
 #. 0dyseus@WindowDemandsAttentionBehavior->settings-schema.json->pref_activation_mode->options
-msgid "Activate windows demanding attention with a shortcut."
+msgid "Force windows demanding attention activation."
 msgstr ""
 
 #. 0dyseus@WindowDemandsAttentionBehavior->settings-schema.json->pref_activation_mode->options
@@ -28,27 +48,15 @@ msgid "Disabled. System behavior."
 msgstr ""
 
 #. 0dyseus@WindowDemandsAttentionBehavior->settings-schema.json->pref_activation_mode->options
-msgid "Force windows demanding attention activation."
+msgid "Activate windows demanding attention with a shortcut."
 msgstr ""
 
-#. 0dyseus@WindowDemandsAttentionBehavior->settings-schema.json->pref_keyboard_shortcut->description
-msgid "Set the keybinding to activate windows demanding attention: "
-msgstr ""
-
-#. 0dyseus@WindowDemandsAttentionBehavior->metadata.json->name
-msgid "Window demands attention behavior"
+#. 0dyseus@WindowDemandsAttentionBehavior->settings-schema.json->pref_activation_mode->description
+msgid "Choose activation mode"
 msgstr ""
 
 #. 0dyseus@WindowDemandsAttentionBehavior->metadata.json->contributors
-msgid "giwhub: Chinese localization."
-msgstr ""
-
-#. 0dyseus@WindowDemandsAttentionBehavior->metadata.json->contributors
-msgid "muzena: Croatian localization."
-msgstr ""
-
-#. 0dyseus@WindowDemandsAttentionBehavior->metadata.json->description
-msgid "Activate demanding attention window with a keyboard shortcut or forced."
+msgid "A full list of contributors can be found in the CONTRIBUTORS.md file on the root of this xlet folder."
 msgstr ""
 
 #. TO TRANSLATORS: This is a placeholder.

@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 0dyseus@CinnamonTweaks 1.11\n"
-"POT-Creation-Date: 2017-05-29 02:40-0300\n"
+"POT-Creation-Date: 2017-06-02 10:41-0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1163,46 +1163,10 @@ msgstr ""
 msgid "Invalid overview options: Incorrect number of corners"
 msgstr ""
 
-#. 0dyseus@CinnamonTweaks->metadata.json->contributors
-msgid "lestcape: The brain behind the popup menus and desktop tweaks https://github.com/lestcape."
-msgstr ""
-
-#. 0dyseus@CinnamonTweaks->metadata.json->contributors
-msgid "Radek71: Czech localization https://github.com/Radek71."
-msgstr ""
-
-#. 0dyseus@CinnamonTweaks->metadata.json->contributors
-msgid "muzena: Croatian localization https://github.com/muzena."
-msgstr ""
-
-#. 0dyseus@CinnamonTweaks->metadata.json->contributors
-msgid "mikhail-ekzi: Author of Custom Shadows extension https://cinnamon-spices.linuxmint.com/extensions/view/43."
-msgstr ""
-
-#. 0dyseus@CinnamonTweaks->metadata.json->contributors
-msgid "Fatih Mete: Author of Cinnamon Maximus extension https://cinnamon-spices.linuxmint.com/extensions/view/29."
-msgstr ""
-
-#. 0dyseus@CinnamonTweaks->metadata.json->contributors
-msgid "Luis Pabon: Author of Maximus NG extension https://github.com/luispabon/maximus-gnome-shell."
-msgstr ""
-
-#. 0dyseus@CinnamonTweaks->metadata.json->contributors
-msgid "Florian Muellner: Author of Auto Move Windows extension https://extensions.gnome.org/extension/16/auto-move-windows."
-msgstr ""
-
-#. 0dyseus@CinnamonTweaks->metadata.json->contributors
-msgid "Valentin Dimitrov: Author of Steal My Focus extension https://github.com/v-dimitrov/gnome-shell-extension-stealmyfocus."
-msgstr ""
-
-#. 0dyseus@CinnamonTweaks->metadata.json->contributors
-msgid "awamper: Author of Window Demands Attention Shortcut extension https://github.com/awamper/window-demands-attention-shortcut."
-msgstr ""
-
-#. 0dyseus@CinnamonTweaks->metadata.json->contributors
-msgid "giwhub:: Chinese localization https://github.com/giwhub."
-msgstr ""
-
 #. 0dyseus@CinnamonTweaks->metadata.json->description
 msgid "Several tweaks for Cinnamon."
+msgstr ""
+
+#. 0dyseus@CinnamonTweaks->metadata.json->contributors
+msgid "Read CONTRIBUTORS.md file inside this xlet folder."
 msgstr ""

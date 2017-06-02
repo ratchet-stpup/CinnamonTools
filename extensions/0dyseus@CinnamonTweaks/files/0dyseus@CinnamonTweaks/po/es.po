@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.06\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-05-29 02:36-0300\n"
-"PO-Revision-Date: 2017-05-29 02:36-0300\n"
+"POT-Creation-Date: 2017-06-02 10:42-0300\n"
+"PO-Revision-Date: 2017-06-02 10:42-0300\n"
 "Last-Translator: Odyseus\n"
 "Language-Team: \n"
 "Language: es\n"
@@ -1610,77 +1610,71 @@ msgstr "Este mensaje no se volverá a mostrar."
 msgid "Invalid overview options: Incorrect number of corners"
 msgstr "Opciones de resumen no válidas: número incorrecto de esquinas"
 
-#. 0dyseus@CinnamonTweaks->metadata.json->contributors
-msgid ""
-"lestcape: The brain behind the popup menus and desktop tweaks https://github."
-"com/lestcape."
-msgstr ""
-"lestcape: El cerebro detrás de los ajustes de los menúes emergentes y "
-"ajustes de escritorio https://github.com/lestcape."
-
-#. 0dyseus@CinnamonTweaks->metadata.json->contributors
-msgid "Radek71: Czech localization https://github.com/Radek71."
-msgstr "Radek71: Localización Checa https://github.com/Radek71."
-
-#. 0dyseus@CinnamonTweaks->metadata.json->contributors
-msgid "muzena: Croatian localization https://github.com/muzena."
-msgstr "muzena: Localización Croata https://github.com/muzena."
-
-#. 0dyseus@CinnamonTweaks->metadata.json->contributors
-msgid ""
-"mikhail-ekzi: Author of Custom Shadows extension https://cinnamon-spices."
-"linuxmint.com/extensions/view/43."
-msgstr ""
-"mikhail-ekzi: Autor de la extensión Custom Shadows https://cinnamon-spices."
-"linuxmint.com/extensions/view/43."
-
-#. 0dyseus@CinnamonTweaks->metadata.json->contributors
-msgid ""
-"Fatih Mete: Author of Cinnamon Maximus extension https://cinnamon-spices."
-"linuxmint.com/extensions/view/29."
-msgstr ""
-"Fatih Mete: Autor de la extensión Cinnamon Maximus https://cinnamon-spices."
-"linuxmint.com/extensions/view/29."
-
-#. 0dyseus@CinnamonTweaks->metadata.json->contributors
-msgid ""
-"Luis Pabon: Author of Maximus NG extension https://github.com/luispabon/"
-"maximus-gnome-shell."
-msgstr ""
-"Luis Pabon: Autor de la extensión Maximus NG https://github.com/luispabon/"
-"maximus-gnome-shell."
-
-#. 0dyseus@CinnamonTweaks->metadata.json->contributors
-msgid ""
-"Florian Muellner: Author of Auto Move Windows extension https://extensions."
-"gnome.org/extension/16/auto-move-windows."
-msgstr ""
-"Florian Muellner: Autor de la extensión Auto Move Windows https://extensions."
-"gnome.org/extension/16/auto-move-windows."
-
-#. 0dyseus@CinnamonTweaks->metadata.json->contributors
-msgid ""
-"Valentin Dimitrov: Author of Steal My Focus extension https://github.com/v-"
-"dimitrov/gnome-shell-extension-stealmyfocus."
-msgstr ""
-"Valentin Dimitrov: Autor de la extensión Steal My Focus https://github.com/v-"
-"dimitrov/gnome-shell-extension-stealmyfocus."
-
-#. 0dyseus@CinnamonTweaks->metadata.json->contributors
-msgid ""
-"awamper: Author of Window Demands Attention Shortcut extension https://"
-"github.com/awamper/window-demands-attention-shortcut."
-msgstr ""
-"awamper: Autor de la extensión Window Demands Attention Shortcut https://"
-"github.com/awamper/window-demands-attention-shortcut."
-
-#. 0dyseus@CinnamonTweaks->metadata.json->contributors
-msgid "giwhub:: Chinese localization https://github.com/giwhub."
-msgstr "giwhub: Localización China https://github.com/giwhub."
-
 #. 0dyseus@CinnamonTweaks->metadata.json->description
 msgid "Several tweaks for Cinnamon."
 msgstr "Varios ajustes para Cinnamon."
+
+#. 0dyseus@CinnamonTweaks->metadata.json->contributors
+msgid "Read CONTRIBUTORS.md file inside this xlet folder."
+msgstr "Leer el archivo CONTRIBUTORS.md dentro de la carpeta de este xlet."
+
+#~ msgid ""
+#~ "lestcape: The brain behind the popup menus and desktop tweaks https://"
+#~ "github.com/lestcape."
+#~ msgstr ""
+#~ "lestcape: El cerebro detrás de los ajustes de los menúes emergentes y "
+#~ "ajustes de escritorio https://github.com/lestcape."
+
+#~ msgid "Radek71: Czech localization https://github.com/Radek71."
+#~ msgstr "Radek71: Localización Checa https://github.com/Radek71."
+
+#~ msgid "muzena: Croatian localization https://github.com/muzena."
+#~ msgstr "muzena: Localización Croata https://github.com/muzena."
+
+#~ msgid ""
+#~ "mikhail-ekzi: Author of Custom Shadows extension https://cinnamon-spices."
+#~ "linuxmint.com/extensions/view/43."
+#~ msgstr ""
+#~ "mikhail-ekzi: Autor de la extensión Custom Shadows https://cinnamon-"
+#~ "spices.linuxmint.com/extensions/view/43."
+
+#~ msgid ""
+#~ "Fatih Mete: Author of Cinnamon Maximus extension https://cinnamon-spices."
+#~ "linuxmint.com/extensions/view/29."
+#~ msgstr ""
+#~ "Fatih Mete: Autor de la extensión Cinnamon Maximus https://cinnamon-"
+#~ "spices.linuxmint.com/extensions/view/29."
+
+#~ msgid ""
+#~ "Luis Pabon: Author of Maximus NG extension https://github.com/luispabon/"
+#~ "maximus-gnome-shell."
+#~ msgstr ""
+#~ "Luis Pabon: Autor de la extensión Maximus NG https://github.com/luispabon/"
+#~ "maximus-gnome-shell."
+
+#~ msgid ""
+#~ "Florian Muellner: Author of Auto Move Windows extension https://"
+#~ "extensions.gnome.org/extension/16/auto-move-windows."
+#~ msgstr ""
+#~ "Florian Muellner: Autor de la extensión Auto Move Windows https://"
+#~ "extensions.gnome.org/extension/16/auto-move-windows."
+
+#~ msgid ""
+#~ "Valentin Dimitrov: Author of Steal My Focus extension https://github.com/"
+#~ "v-dimitrov/gnome-shell-extension-stealmyfocus."
+#~ msgstr ""
+#~ "Valentin Dimitrov: Autor de la extensión Steal My Focus https://github."
+#~ "com/v-dimitrov/gnome-shell-extension-stealmyfocus."
+
+#~ msgid ""
+#~ "awamper: Author of Window Demands Attention Shortcut extension https://"
+#~ "github.com/awamper/window-demands-attention-shortcut."
+#~ msgstr ""
+#~ "awamper: Autor de la extensión Window Demands Attention Shortcut https://"
+#~ "github.com/awamper/window-demands-attention-shortcut."
+
+#~ msgid "giwhub:: Chinese localization https://github.com/giwhub."
+#~ msgstr "giwhub: Localización China https://github.com/giwhub."
 
 #~ msgid "muzena: Croatian localization."
 #~ msgstr "muzena: Localización Croata."

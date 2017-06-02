@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: Odyseus\n"
-"POT-Creation-Date: 2017-05-29 00:57-0300\n"
-"PO-Revision-Date: 2017-05-29 00:57-0300\n"
+"POT-Creation-Date: 2017-06-02 10:43-0300\n"
+"PO-Revision-Date: 2017-06-02 10:43-0300\n"
 "Last-Translator: Odyseus\n"
 "Language-Team: \n"
 "Language: es\n"
@@ -609,9 +609,9 @@ msgstr "Ayuda"
 msgid "Open this applet help file."
 msgstr "Abrir el archivo de ayuda de este applet."
 
-#. 0dyseus@SimpleToDoList->metadata.json->name
-msgid "Simple ToDo List"
-msgstr "Simple Lista de Tareas"
+#. 0dyseus@SimpleToDoList->metadata.json->contributors
+msgid "Read CONTRIBUTORS.md file inside this xlet folder."
+msgstr "Leer el archivo CONTRIBUTORS.md dentro de la carpeta de este xlet."
 
 #. 0dyseus@SimpleToDoList->metadata.json->description
 msgid "Simple applet to create ToDo lists."
@@ -625,96 +625,17 @@ msgstr ""
 "Los reportes de fallos, peticiones de características y contribuciones deben "
 "hacerse en el repositorio de este xlet vinculado a continuación."
 
-#. 0dyseus@SimpleToDoList->metadata.json->contributors
-msgid "bsaleil: Author of the gnome-shell extension called Todo list."
-msgstr "bsaleil: Autor de la extensión para gnome-shell llamada Todo List."
+#. 0dyseus@SimpleToDoList->metadata.json->name
+msgid "Simple ToDo List"
+msgstr "Simple Lista de Tareas"
 
-#. 0dyseus@SimpleToDoList->metadata.json->contributors
-msgid ""
-"Thomas Moreau: Author of the gnome-shell extension called Section Todo List."
-msgstr ""
-"Thomas Moreau: Autor de la extensión para gnome-shell llamada Section Todo "
-"List."
+#. 0dyseus@SimpleToDoList->settings-schema.json->head1->description
+msgid "Menu settings"
+msgstr "Preferencias del menú"
 
-#. 0dyseus@SimpleToDoList->metadata.json->contributors
-msgid "eson57: Swedish localization"
-msgstr "eson57: Localización Sueca."
-
-#. 0dyseus@SimpleToDoList->metadata.json->contributors
-msgid "giwhub: Chinese localization"
-msgstr "giwhub: Localización China."
-
-#. 0dyseus@SimpleToDoList->settings-schema.json->pref_tasks_priorities_today_background->description
-#. 0dyseus@SimpleToDoList->settings-schema.json->pref_tasks_priorities_high_background->description
-#. 0dyseus@SimpleToDoList->settings-schema.json->pref_tasks_priorities_critical_background->description
-#. 0dyseus@SimpleToDoList->settings-schema.json->pref_tasks_priorities_medium_background->description
-#. 0dyseus@SimpleToDoList->settings-schema.json->pref_tasks_priorities_low_background->description
-msgid "Background color"
-msgstr "Color de fondo"
-
-#. 0dyseus@SimpleToDoList->settings-schema.json->pref_animate_menu->tooltip
-msgid "Enables/Disables menu open/close animations."
-msgstr "Habilita/Deshabilita la animación de apertura/cierre del menú."
-
-#. 0dyseus@SimpleToDoList->settings-schema.json->pref_animate_menu->description
-msgid "Animate menu"
-msgstr "Animar apertura/cerrado del menú"
-
-#. 0dyseus@SimpleToDoList->settings-schema.json->pref_task_remove_native_entry_theming_sizing->description
-#. 0dyseus@SimpleToDoList->settings-schema.json->pref_section_remove_native_entry_theming_sizing->description
-msgid "Remove native entry theming (also sizing)"
-msgstr "Eliminar el tema nativo de la entrada de texto (también el tamaño)"
-
-#. 0dyseus@SimpleToDoList->settings-schema.json->pref_task_completed_character->tooltip
-msgid ""
-"The character or characters that will represent a completed task on a TODO "
-"file."
-msgstr ""
-"El carácter o caracteres que representará/n una tarea completada en un "
-"archivo TODO."
-
-#. 0dyseus@SimpleToDoList->settings-schema.json->pref_task_completed_character->description
-msgid "Character/s for completed tasks"
-msgstr "Carácter/es para tareas completadas"
-
-#. 0dyseus@SimpleToDoList->settings-schema.json->pref_task_set_max_width->units
-#. 0dyseus@SimpleToDoList->settings-schema.json->pref_task_set_custom_spacing->units
-#. 0dyseus@SimpleToDoList->settings-schema.json->pref_task_set_min_width->units
-#. 0dyseus@SimpleToDoList->settings-schema.json->pref_section_set_min_width->units
-#. 0dyseus@SimpleToDoList->settings-schema.json->pref_section_set_max_width->units
-msgid "pixels"
-msgstr "pixeles"
-
-#. 0dyseus@SimpleToDoList->settings-schema.json->pref_task_set_max_width->description
-#. 0dyseus@SimpleToDoList->settings-schema.json->pref_section_set_max_width->description
-msgid "Set maximum entry width"
-msgstr "Establecer un ancho máximo para la entrada de texto"
-
-#. 0dyseus@SimpleToDoList->settings-schema.json->pref_task_set_max_width->tooltip
-#. 0dyseus@SimpleToDoList->settings-schema.json->pref_task_set_min_width->tooltip
-#. 0dyseus@SimpleToDoList->settings-schema.json->pref_section_set_min_width->tooltip
-#. 0dyseus@SimpleToDoList->settings-schema.json->pref_section_set_max_width->tooltip
-msgid ""
-"Cinnamon menus automatically change their size to accommodate the elements "
-"that they contain. Setting a fixed size for those elements will avoid the "
-"constant resizing of the menu when opening/closing sub menus."
-msgstr ""
-"Los menúes de Cinnamon cambian automáticamente su tamaño para acomodar los "
-"elementos que contienen.  Al establecer un tamaño fijo para esos elementos, "
-"se evitará el cambio de tamaño constante del menú al abrir/cerrar los "
-"submenúes."
-
-#. 0dyseus@SimpleToDoList->settings-schema.json->pref_task_notcompleted_character->tooltip
-msgid ""
-"The character or characters that will represent a not completed task on a "
-"TODO file."
-msgstr ""
-"El carácter o caracteres que representará/n una tarea no completada en un "
-"archivo TODO."
-
-#. 0dyseus@SimpleToDoList->settings-schema.json->pref_task_notcompleted_character->description
-msgid "Character/s for not completed tasks"
-msgstr "Carácter/es para tareas no completadas"
+#. 0dyseus@SimpleToDoList->settings-schema.json->head10->description
+msgid "Colors for \"@low\" priority tags"
+msgstr "Colores para etiquetas de prioridad \"@baja\""
 
 #. 0dyseus@SimpleToDoList->settings-schema.json->pref_use_fail_safe->tooltip
 msgid ""
@@ -728,26 +649,80 @@ msgstr ""
 msgid "Avoid accidental deletions"
 msgstr "Evitar borrados accidentales"
 
-#. 0dyseus@SimpleToDoList->settings-schema.json->pref_tasks_priorities_highlight_entire_row->description
-msgid "Colorize entire menu item"
-msgstr "Colorear por completo el ítem del menú"
-
-#. 0dyseus@SimpleToDoList->settings-schema.json->pref_tasks_priorities_highlight_entire_row->tooltip
+#. 0dyseus@SimpleToDoList->settings-schema.json->pref_section_set_min_width->tooltip
+#. 0dyseus@SimpleToDoList->settings-schema.json->pref_section_set_max_width->tooltip
+#. 0dyseus@SimpleToDoList->settings-schema.json->pref_task_set_min_width->tooltip
+#. 0dyseus@SimpleToDoList->settings-schema.json->pref_task_set_max_width->tooltip
 msgid ""
-"This option is useful, for example, when the Cinnamon theme used styles "
-"entries with a non transparent background image. The background color set by "
-"a priority tag will not be visible in this case. With this option enabled, "
-"the entire menu item of a task will be colorized and not just its entry."
+"Cinnamon menus automatically change their size to accommodate the elements "
+"that they contain. Setting a fixed size for those elements will avoid the "
+"constant resizing of the menu when opening/closing sub menus."
 msgstr ""
-"Esta opción es útil, por ejemplo, cuando el tema de Cinnamon utilizado "
-"estiliza las entradas de texto con una imagen de fondo no transparente.  El "
-"color de fondo establecido por una etiqueta de prioridad no será visible en "
-"este caso.  Con esta opción activada, todo el elemento de menú de una tarea "
-"se coloreará y no sólo su entrada de texto."
+"Los menúes de Cinnamon cambian automáticamente su tamaño para acomodar los "
+"elementos que contienen.  Al establecer un tamaño fijo para esos elementos, "
+"se evitará el cambio de tamaño constante del menú al abrir/cerrar los "
+"submenúes."
 
-#. 0dyseus@SimpleToDoList->settings-schema.json->pref_task_set_custom_spacing->description
-msgid "Custom elements spacing"
-msgstr "Espaciado personalizado para elementos"
+#. 0dyseus@SimpleToDoList->settings-schema.json->pref_section_set_min_width->units
+#. 0dyseus@SimpleToDoList->settings-schema.json->pref_section_set_max_width->units
+#. 0dyseus@SimpleToDoList->settings-schema.json->pref_task_set_custom_spacing->units
+#. 0dyseus@SimpleToDoList->settings-schema.json->pref_task_set_min_width->units
+#. 0dyseus@SimpleToDoList->settings-schema.json->pref_task_set_max_width->units
+msgid "pixels"
+msgstr "pixeles"
+
+#. 0dyseus@SimpleToDoList->settings-schema.json->pref_section_set_min_width->description
+#. 0dyseus@SimpleToDoList->settings-schema.json->pref_task_set_min_width->description
+msgid "Set minimum entry width"
+msgstr "Establecer un ancho mínimo para la entrada de texto"
+
+#. 0dyseus@SimpleToDoList->settings-schema.json->pref_tasks_priorities_low_foreground->description
+#. 0dyseus@SimpleToDoList->settings-schema.json->pref_tasks_priorities_medium_foreground->description
+#. 0dyseus@SimpleToDoList->settings-schema.json->pref_tasks_priorities_critical_foreground->description
+#. 0dyseus@SimpleToDoList->settings-schema.json->pref_tasks_priorities_high_foreground->description
+#. 0dyseus@SimpleToDoList->settings-schema.json->pref_tasks_priorities_today_foreground->description
+msgid "Text color"
+msgstr "Color del texto"
+
+#. 0dyseus@SimpleToDoList->settings-schema.json->head5->description
+msgid "Task priorities settings"
+msgstr "Preferencias de prioridades de tareas"
+
+#. 0dyseus@SimpleToDoList->settings-schema.json->pref_animate_menu->tooltip
+msgid "Enables/Disables menu open/close animations."
+msgstr "Habilita/Deshabilita la animación de apertura/cierre del menú."
+
+#. 0dyseus@SimpleToDoList->settings-schema.json->pref_animate_menu->description
+msgid "Animate menu"
+msgstr "Animar apertura/cerrado del menú"
+
+#. 0dyseus@SimpleToDoList->settings-schema.json->head2->description
+msgid "Sections appearance"
+msgstr "Apariencia de secciones"
+
+#. 0dyseus@SimpleToDoList->settings-schema.json->pref_section_remove_native_entry_theming->description
+#. 0dyseus@SimpleToDoList->settings-schema.json->pref_task_remove_native_entry_theming->description
+msgid "Remove native entry theming (only visuals)"
+msgstr "Eliminar el tema nativo de la entrada de texto (sólo visuales)"
+
+#. 0dyseus@SimpleToDoList->settings-schema.json->pref_section_font_size->units
+#. 0dyseus@SimpleToDoList->settings-schema.json->pref_task_font_size->units
+msgid "ems"
+msgstr "ems"
+
+#. 0dyseus@SimpleToDoList->settings-schema.json->pref_section_font_size->description
+#. 0dyseus@SimpleToDoList->settings-schema.json->pref_task_font_size->description
+msgid "Label font size"
+msgstr "Tamaño de fuente para la etiqueta"
+
+#. 0dyseus@SimpleToDoList->settings-schema.json->pref_section_set_max_width->description
+#. 0dyseus@SimpleToDoList->settings-schema.json->pref_task_set_max_width->description
+msgid "Set maximum entry width"
+msgstr "Establecer un ancho máximo para la entrada de texto"
+
+#. 0dyseus@SimpleToDoList->settings-schema.json->head4->description
+msgid "Save as TODO file settings"
+msgstr "Preferencias de guardar como archivo TODO"
 
 #. 0dyseus@SimpleToDoList->settings-schema.json->pref_task_set_custom_spacing->tooltip
 msgid ""
@@ -762,57 +737,20 @@ msgstr ""
 "elementos muy cercanos los unos de los otros. Esta opción permite cambiar "
 "ese espaciado."
 
-#. 0dyseus@SimpleToDoList->settings-schema.json->pref_task_set_min_width->description
-#. 0dyseus@SimpleToDoList->settings-schema.json->pref_section_set_min_width->description
-msgid "Set minimum entry width"
-msgstr "Establecer un ancho mínimo para la entrada de texto"
+#. 0dyseus@SimpleToDoList->settings-schema.json->pref_task_set_custom_spacing->description
+msgid "Custom elements spacing"
+msgstr "Espaciado personalizado para elementos"
 
-#. 0dyseus@SimpleToDoList->settings-schema.json->pref_custom_icon_for_applet->tooltip
-msgid "Select an icon to show in the panel."
-msgstr "Seleccionar un ícono para mostrar en el panel."
+#. 0dyseus@SimpleToDoList->settings-schema.json->pref_keep_one_menu_open->tooltip
+msgid ""
+"When enabled, the previously opened sub menu will be automatically closed."
+msgstr ""
+"Con esta opción habilitada, un submenú previamente abierto será "
+"automáticamente cerrado."
 
-#. 0dyseus@SimpleToDoList->settings-schema.json->pref_custom_icon_for_applet->description
-msgid "Icon"
-msgstr "Ícono"
-
-#. 0dyseus@SimpleToDoList->settings-schema.json->head8->description
-msgid "Colors for \"@today\" priority tags"
-msgstr "Colores para las etiquetas \"@hoy\""
-
-#. 0dyseus@SimpleToDoList->settings-schema.json->head3->description
-msgid "Tasks appearance"
-msgstr "Apariencia de tareas"
-
-#. 0dyseus@SimpleToDoList->settings-schema.json->head7->description
-msgid "Colors for \"@high\" priority tags"
-msgstr "Colores para etiquetas de prioridad \"@alta\""
-
-#. 0dyseus@SimpleToDoList->settings-schema.json->pref_tasks_priorities_critical_foreground->description
-#. 0dyseus@SimpleToDoList->settings-schema.json->pref_tasks_priorities_medium_foreground->description
-#. 0dyseus@SimpleToDoList->settings-schema.json->pref_tasks_priorities_high_foreground->description
-#. 0dyseus@SimpleToDoList->settings-schema.json->pref_tasks_priorities_low_foreground->description
-#. 0dyseus@SimpleToDoList->settings-schema.json->pref_tasks_priorities_today_foreground->description
-msgid "Text color"
-msgstr "Color del texto"
-
-#. 0dyseus@SimpleToDoList->settings-schema.json->pref_section_set_bold->description
-#. 0dyseus@SimpleToDoList->settings-schema.json->pref_task_set_bold->description
-msgid "Set bold"
-msgstr "Establecer negrita"
-
-#. 0dyseus@SimpleToDoList->settings-schema.json->pref_task_font_size->units
-#. 0dyseus@SimpleToDoList->settings-schema.json->pref_section_font_size->units
-msgid "ems"
-msgstr "ems"
-
-#. 0dyseus@SimpleToDoList->settings-schema.json->pref_task_font_size->description
-#. 0dyseus@SimpleToDoList->settings-schema.json->pref_section_font_size->description
-msgid "Label font size"
-msgstr "Tamaño de fuente para la etiqueta"
-
-#. 0dyseus@SimpleToDoList->settings-schema.json->head5->description
-msgid "Task priorities settings"
-msgstr "Preferencias de prioridades de tareas"
+#. 0dyseus@SimpleToDoList->settings-schema.json->pref_keep_one_menu_open->description
+msgid "Keep just one sub menu open"
+msgstr "Mantener un solo menú abierto en todo momento"
 
 #. 0dyseus@SimpleToDoList->settings-schema.json->pref_logging_enabled->tooltip
 msgid ""
@@ -826,41 +764,91 @@ msgstr ""
 msgid "Enable logging"
 msgstr "Habilitar el registro"
 
+#. 0dyseus@SimpleToDoList->settings-schema.json->head9->description
+msgid "Colors for \"@medium\" priority tags"
+msgstr "Colores para etiquetas de prioridad \"@media\""
+
+#. 0dyseus@SimpleToDoList->settings-schema.json->head11->description
+msgid "Debugging"
+msgstr "Configuración de depuración"
+
 #. 0dyseus@SimpleToDoList->settings-schema.json->pref_show_tasks_counter_on_applet->description
 msgid "Display tasks counter on applet"
 msgstr "Mostrar contador de tareas en el applet"
 
-#. 0dyseus@SimpleToDoList->settings-schema.json->head2->description
-msgid "Sections appearance"
-msgstr "Apariencia de secciones"
+#. 0dyseus@SimpleToDoList->settings-schema.json->pref_section_set_bold->description
+#. 0dyseus@SimpleToDoList->settings-schema.json->pref_task_set_bold->description
+msgid "Set bold"
+msgstr "Establecer negrita"
 
-#. 0dyseus@SimpleToDoList->settings-schema.json->head4->description
-msgid "Save as TODO file settings"
-msgstr "Preferencias de guardar como archivo TODO"
+#. 0dyseus@SimpleToDoList->settings-schema.json->pref_tasks_priorities_low_background->description
+#. 0dyseus@SimpleToDoList->settings-schema.json->pref_tasks_priorities_medium_background->description
+#. 0dyseus@SimpleToDoList->settings-schema.json->pref_tasks_priorities_critical_background->description
+#. 0dyseus@SimpleToDoList->settings-schema.json->pref_tasks_priorities_today_background->description
+#. 0dyseus@SimpleToDoList->settings-schema.json->pref_tasks_priorities_high_background->description
+msgid "Background color"
+msgstr "Color de fondo"
 
-#. 0dyseus@SimpleToDoList->settings-schema.json->head10->description
-msgid "Colors for \"@low\" priority tags"
-msgstr "Colores para etiquetas de prioridad \"@baja\""
+#. 0dyseus@SimpleToDoList->settings-schema.json->pref_custom_label_for_applet->tooltip
+msgid "Enter custom text to show in the panel."
+msgstr "Introduzca un texto personalizado para mostrar en el panel."
+
+#. 0dyseus@SimpleToDoList->settings-schema.json->pref_custom_label_for_applet->description
+msgid "Custom label"
+msgstr "Etiqueta personalizada"
+
+#. 0dyseus@SimpleToDoList->settings-schema.json->pref_task_notcompleted_character->tooltip
+msgid ""
+"The character or characters that will represent a not completed task on a "
+"TODO file."
+msgstr ""
+"El carácter o caracteres que representará/n una tarea no completada en un "
+"archivo TODO."
+
+#. 0dyseus@SimpleToDoList->settings-schema.json->pref_task_notcompleted_character->description
+msgid "Character/s for not completed tasks"
+msgstr "Carácter/es para tareas no completadas"
+
+#. 0dyseus@SimpleToDoList->settings-schema.json->head3->description
+msgid "Tasks appearance"
+msgstr "Apariencia de tareas"
+
+#. 0dyseus@SimpleToDoList->settings-schema.json->pref_tasks_priorities_highlight_entire_row->tooltip
+msgid ""
+"This option is useful, for example, when the Cinnamon theme used styles "
+"entries with a non transparent background image. The background color set by "
+"a priority tag will not be visible in this case. With this option enabled, "
+"the entire menu item of a task will be colorized and not just its entry."
+msgstr ""
+"Esta opción es útil, por ejemplo, cuando el tema de Cinnamon utilizado "
+"estiliza las entradas de texto con una imagen de fondo no transparente.  El "
+"color de fondo establecido por una etiqueta de prioridad no será visible en "
+"este caso.  Con esta opción activada, todo el elemento de menú de una tarea "
+"se coloreará y no sólo su entrada de texto."
+
+#. 0dyseus@SimpleToDoList->settings-schema.json->pref_tasks_priorities_highlight_entire_row->description
+msgid "Colorize entire menu item"
+msgstr "Colorear por completo el ítem del menú"
 
 #. 0dyseus@SimpleToDoList->settings-schema.json->head6->description
 msgid "Colors for \"@critical\" priority tags"
 msgstr "Colores para etiquetas de prioridad \"@crítica\""
 
-#. 0dyseus@SimpleToDoList->settings-schema.json->pref_task_remove_native_entry_theming->description
-#. 0dyseus@SimpleToDoList->settings-schema.json->pref_section_remove_native_entry_theming->description
-msgid "Remove native entry theming (only visuals)"
-msgstr "Eliminar el tema nativo de la entrada de texto (sólo visuales)"
+#. 0dyseus@SimpleToDoList->settings-schema.json->head0->description
+msgid "Applet settings"
+msgstr "Preferencias del applet"
 
-#. 0dyseus@SimpleToDoList->settings-schema.json->pref_keep_one_menu_open->tooltip
-msgid ""
-"When enabled, the previously opened sub menu will be automatically closed."
-msgstr ""
-"Con esta opción habilitada, un submenú previamente abierto será "
-"automáticamente cerrado."
+#. 0dyseus@SimpleToDoList->settings-schema.json->head8->description
+msgid "Colors for \"@today\" priority tags"
+msgstr "Colores para las etiquetas \"@hoy\""
 
-#. 0dyseus@SimpleToDoList->settings-schema.json->pref_keep_one_menu_open->description
-msgid "Keep just one sub menu open"
-msgstr "Mantener un solo menú abierto en todo momento"
+#. 0dyseus@SimpleToDoList->settings-schema.json->head7->description
+msgid "Colors for \"@high\" priority tags"
+msgstr "Colores para etiquetas de prioridad \"@alta\""
+
+#. 0dyseus@SimpleToDoList->settings-schema.json->pref_overlay_key->description
+msgid "Keyboard shortcut to open and close the menu"
+msgstr "Atajo de teclado para abrir o cerrar el menú"
 
 #. 0dyseus@SimpleToDoList->settings-schema.json->pref_tasks_priorities_colors_enabled->tooltip
 msgid ""
@@ -877,33 +865,53 @@ msgstr ""
 msgid "Enable priority tags colorization"
 msgstr "Habilitar el coloreado de las etiquetas de prioridad"
 
-#. 0dyseus@SimpleToDoList->settings-schema.json->head0->description
-msgid "Applet settings"
-msgstr "Preferencias del applet"
+#. 0dyseus@SimpleToDoList->settings-schema.json->pref_custom_icon_for_applet->tooltip
+msgid "Select an icon to show in the panel."
+msgstr "Seleccionar un ícono para mostrar en el panel."
 
-#. 0dyseus@SimpleToDoList->settings-schema.json->head9->description
-msgid "Colors for \"@medium\" priority tags"
-msgstr "Colores para etiquetas de prioridad \"@media\""
+#. 0dyseus@SimpleToDoList->settings-schema.json->pref_custom_icon_for_applet->description
+msgid "Icon"
+msgstr "Ícono"
 
-#. 0dyseus@SimpleToDoList->settings-schema.json->pref_overlay_key->description
-msgid "Keyboard shortcut to open and close the menu"
-msgstr "Atajo de teclado para abrir o cerrar el menú"
+#. 0dyseus@SimpleToDoList->settings-schema.json->pref_section_remove_native_entry_theming_sizing->description
+#. 0dyseus@SimpleToDoList->settings-schema.json->pref_task_remove_native_entry_theming_sizing->description
+msgid "Remove native entry theming (also sizing)"
+msgstr "Eliminar el tema nativo de la entrada de texto (también el tamaño)"
 
-#. 0dyseus@SimpleToDoList->settings-schema.json->head11->description
-msgid "Debugging"
-msgstr "Configuración de depuración"
+#. 0dyseus@SimpleToDoList->settings-schema.json->pref_task_completed_character->tooltip
+msgid ""
+"The character or characters that will represent a completed task on a TODO "
+"file."
+msgstr ""
+"El carácter o caracteres que representará/n una tarea completada en un "
+"archivo TODO."
 
-#. 0dyseus@SimpleToDoList->settings-schema.json->head1->description
-msgid "Menu settings"
-msgstr "Preferencias del menú"
+#. 0dyseus@SimpleToDoList->settings-schema.json->pref_task_completed_character->description
+msgid "Character/s for completed tasks"
+msgstr "Carácter/es para tareas completadas"
 
-#. 0dyseus@SimpleToDoList->settings-schema.json->pref_custom_label_for_applet->tooltip
-msgid "Enter custom text to show in the panel."
-msgstr "Introduzca un texto personalizado para mostrar en el panel."
+#~ msgid ""
+#~ "A full list of contributors can be found in the CONTRIBUTORS.md file on "
+#~ "the root of this xlet folder."
+#~ msgstr ""
+#~ "Se puede encontrar una lista completa de contribuyentes en el archivo "
+#~ "CONTRIBUTORS.md en la raíz de la carpeta de este xlet."
 
-#. 0dyseus@SimpleToDoList->settings-schema.json->pref_custom_label_for_applet->description
-msgid "Custom label"
-msgstr "Etiqueta personalizada"
+#~ msgid "bsaleil: Author of the gnome-shell extension called Todo list."
+#~ msgstr "bsaleil: Autor de la extensión para gnome-shell llamada Todo List."
+
+#~ msgid ""
+#~ "Thomas Moreau: Author of the gnome-shell extension called Section Todo "
+#~ "List."
+#~ msgstr ""
+#~ "Thomas Moreau: Autor de la extensión para gnome-shell llamada Section "
+#~ "Todo List."
+
+#~ msgid "eson57: Swedish localization"
+#~ msgstr "eson57: Localización Sueca."
+
+#~ msgid "giwhub: Chinese localization"
+#~ msgstr "giwhub: Localización China."
 
 #~ msgid "Help for {xlet_name}"
 #~ msgstr "Ayuda para {xlet_name}"

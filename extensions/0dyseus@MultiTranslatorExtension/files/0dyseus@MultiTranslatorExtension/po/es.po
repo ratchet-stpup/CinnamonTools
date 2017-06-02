@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-05-27 01:12-0300\n"
-"PO-Revision-Date: 2017-05-27 01:12-0300\n"
+"POT-Creation-Date: 2017-06-02 10:42-0300\n"
+"PO-Revision-Date: 2017-06-02 10:42-0300\n"
 "Last-Translator: Odyseus\n"
 "Language-Team: \n"
 "Language: es\n"
@@ -1511,52 +1511,16 @@ msgid "No Yandex API keys were found!!!"
 msgstr "¡No se encontraron claves de API de Yandex!"
 
 #. 0dyseus@MultiTranslatorExtension->metadata.json->contributors
+msgid "Read CONTRIBUTORS.md file inside this xlet folder."
+msgstr "Leer el archivo CONTRIBUTORS.md dentro de la carpeta de este xlet."
+
+#. 0dyseus@MultiTranslatorExtension->metadata.json->description
 msgid ""
-"awamper: Original author of Text Translator gnome-shell extension https://"
-"github.com/awamper/text-translator."
+"Translation of text by different translation providers (currently Google, "
+"Yandex, Bing and Apertium)."
 msgstr ""
-"awamper: Autor original de la extensión Text Translator para gnome-shell "
-"https://github.com/awamper/text-translator."
-
-#. 0dyseus@MultiTranslatorExtension->metadata.json->contributors
-msgid ""
-"gufoe: Author of the newer version of Text Translator gnome-shell extension "
-"https://github.com/gufoe/text-translator."
-msgstr ""
-"gufoe: Autor de la nueva versión de la extensión Text Translator https://"
-"github.com/gufoe/text-translator."
-
-#. 0dyseus@MultiTranslatorExtension->metadata.json->contributors
-msgid ""
-"soimort: Author of the translate-shell script https://github.com/soimort/"
-"translate-shell."
-msgstr ""
-"soimort: Autor del script translate-shell https://github.com/soimort/"
-"translate-shell."
-
-#. 0dyseus@MultiTranslatorExtension->metadata.json->contributors
-msgid "muzena: Croatian localization https://github.com/muzena."
-msgstr "muzena: Localización Croata https://github.com/muzena."
-
-#. 0dyseus@MultiTranslatorExtension->metadata.json->contributors
-msgid "giwhub: Chinese localization https://github.com/giwhub."
-msgstr "giwhub: Localización China https://github.com/giwhub."
-
-#. 0dyseus@MultiTranslatorExtension->metadata.json->contributors
-msgid ""
-"Radek71: Czech localization and author of Thunderbolt theme https://github."
-"com/Radek71."
-msgstr ""
-"Radek71: Localización Checa y autor del tema Thunderbolt https://github.com/"
-"Radek71."
-
-#. 0dyseus@MultiTranslatorExtension->metadata.json->contributors
-msgid "NikoKrause: German localization https://github.com/NikoKrause."
-msgstr "NikoKrause: Localización alemana https://github.com/NikoKrause."
-
-#. 0dyseus@MultiTranslatorExtension->metadata.json->contributors
-msgid "eson57: Swedish localization."
-msgstr "eson57: Localización Sueca."
+"Traducción de texto proporcionado por diferentes proveedores de traducción "
+"(actualmente Google, Yandex, Bing, Translatr and Apertium)."
 
 #. 0dyseus@MultiTranslatorExtension->metadata.json->comments
 msgid ""
@@ -1566,13 +1530,45 @@ msgstr ""
 "Los reportes de fallos, peticiones de características y contribuciones deben "
 "hacerse en el repositorio de este xlet vinculado a continuación."
 
-#. 0dyseus@MultiTranslatorExtension->metadata.json->description
-msgid ""
-"Translation of text by different translation providers (currently Google, "
-"Yandex, Bing and Apertium)."
-msgstr ""
-"Traducción de texto proporcionado por diferentes proveedores de traducción "
-"(actualmente Google, Yandex, Bing, Translatr and Apertium)."
+#~ msgid ""
+#~ "awamper: Original author of Text Translator gnome-shell extension https://"
+#~ "github.com/awamper/text-translator."
+#~ msgstr ""
+#~ "awamper: Autor original de la extensión Text Translator para gnome-shell "
+#~ "https://github.com/awamper/text-translator."
+
+#~ msgid ""
+#~ "gufoe: Author of the newer version of Text Translator gnome-shell "
+#~ "extension https://github.com/gufoe/text-translator."
+#~ msgstr ""
+#~ "gufoe: Autor de la nueva versión de la extensión Text Translator https://"
+#~ "github.com/gufoe/text-translator."
+
+#~ msgid ""
+#~ "soimort: Author of the translate-shell script https://github.com/soimort/"
+#~ "translate-shell."
+#~ msgstr ""
+#~ "soimort: Autor del script translate-shell https://github.com/soimort/"
+#~ "translate-shell."
+
+#~ msgid "muzena: Croatian localization https://github.com/muzena."
+#~ msgstr "muzena: Localización Croata https://github.com/muzena."
+
+#~ msgid "giwhub: Chinese localization https://github.com/giwhub."
+#~ msgstr "giwhub: Localización China https://github.com/giwhub."
+
+#~ msgid ""
+#~ "Radek71: Czech localization and author of Thunderbolt theme https://"
+#~ "github.com/Radek71."
+#~ msgstr ""
+#~ "Radek71: Localización Checa y autor del tema Thunderbolt https://github."
+#~ "com/Radek71."
+
+#~ msgid "NikoKrause: German localization https://github.com/NikoKrause."
+#~ msgstr "NikoKrause: Localización alemana https://github.com/NikoKrause."
+
+#~ msgid "eson57: Swedish localization."
+#~ msgstr "eson57: Localización Sueca."
 
 #~ msgid "Help for {xlet_name}"
 #~ msgstr "Ayuda para {xlet_name}"

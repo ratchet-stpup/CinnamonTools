@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.03\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-05-29 05:37-0300\n"
-"PO-Revision-Date: 2017-05-29 05:37-0300\n"
+"POT-Creation-Date: 2017-06-02 10:44-0300\n"
+"PO-Revision-Date: 2017-06-02 10:44-0300\n"
 "Last-Translator: Odyseus\n"
 "Language-Team: \n"
 "Language: es\n"
@@ -163,26 +163,6 @@ msgstr "Configurar..."
 msgid "Remove '%s'"
 msgstr "Remover '%s'"
 
-#. 0dyseus@window-list-fork->metadata.json->description
-msgid "Fork of the main Cinnamon Window list applet."
-msgstr "Adaptación del applet de Cinnamon llamado Window list"
-
-#. 0dyseus@window-list-fork->metadata.json->contributors
-msgid "NikoKrause: Bug fixes and German localization."
-msgstr "NikoKrause: Localización alemana y reporte de errores."
-
-#. 0dyseus@window-list-fork->metadata.json->contributors
-msgid "muzena: Croatian localization."
-msgstr "muzena: Localización Croata."
-
-#. 0dyseus@window-list-fork->metadata.json->contributors
-msgid "giwhub: Chinese localization."
-msgstr "giwhub: Localización China."
-
-#. 0dyseus@window-list-fork->metadata.json->contributors
-msgid "eson57: Swedish localization."
-msgstr "eson57: Localización Sueca."
-
 #. 0dyseus@window-list-fork->metadata.json->name
 msgid "Window list (Fork By Odyseus)"
 msgstr "Lista de ventanas (Fork By Odyseus)"
@@ -195,6 +175,14 @@ msgstr ""
 "Los reportes de fallos, peticiones de características y contribuciones deben "
 "hacerse en el repositorio de este xlet vinculado a continuación."
 
+#. 0dyseus@window-list-fork->metadata.json->description
+msgid "Fork of the main Cinnamon Window list applet."
+msgstr "Adaptación del applet de Cinnamon llamado Window list"
+
+#. 0dyseus@window-list-fork->metadata.json->contributors
+msgid "Read CONTRIBUTORS.md file inside this xlet folder."
+msgstr "Leer el archivo CONTRIBUTORS.md dentro de la carpeta de este xlet."
+
 #. 0dyseus@window-list-fork->settings-schema.json->pref_buttons_use_entire_space->description
 msgid ""
 "Window buttons can have different sizes and use the entire space available"
@@ -202,51 +190,26 @@ msgstr ""
 "Los botones de las ventanas pueden tener diferentes tamaños y pueden usar "
 "todo el espacio disponible"
 
-#. 0dyseus@window-list-fork->settings-schema.json->pref_hide_labels->description
-msgid "Hide labels in the window list buttons"
-msgstr "Ocultar etiquetas de los botones de la lista de ventanas"
-
 #. 0dyseus@window-list-fork->settings-schema.json->pref_reverse_scrolling->description
 msgid "Reverse the direction of mouse-wheel scrolling in the window list"
 msgstr ""
 "Invertir la dirección de desplazamiento del ratón en la lista de ventanas"
 
-#. 0dyseus@window-list-fork->settings-schema.json->pref_window_preview_custom_height->description
-msgid "Custom height for window thumbnails"
-msgstr "Ancho personalizado para imágenes en miniatura de la ventana"
+#. 0dyseus@window-list-fork->settings-schema.json->pref_invert_menu_items_order->description
+msgid "Invert context menu items order"
+msgstr "Invertir el orden de los ítems en el menú contextual"
 
-#. 0dyseus@window-list-fork->settings-schema.json->pref_window_preview_custom_height->units
-#. 0dyseus@window-list-fork->settings-schema.json->pref_window_preview_custom_width->units
-msgid "pixels"
-msgstr "pixeles"
+#. 0dyseus@window-list-fork->settings-schema.json->pref_sub_menu_placement->options
+msgid "Top of menu"
+msgstr "En la parte superior del menú"
 
-#. 0dyseus@window-list-fork->settings-schema.json->pref_window_preview->description
-msgid "Show window thumbnails on hover"
-msgstr "Mostrar imágenes en miniatura de la ventana al pasar el ratón"
+#. 0dyseus@window-list-fork->settings-schema.json->pref_sub_menu_placement->options
+msgid "Bottom of menu"
+msgstr "En la parte inferior del menú"
 
-#. 0dyseus@window-list-fork->settings-schema.json->pref_middle_click_close->description
-msgid "Middle click to close window"
-msgstr "Cerrar ventana con botón central del ratón"
-
-#. 0dyseus@window-list-fork->settings-schema.json->pref_enable_alerts->description
-msgid ""
-"Show an alert in the window list when a window from another workspace "
-"requires attention"
-msgstr ""
-"Mostrar una alerta en la lista de ventanas cuando una ventana de otra área "
-"de trabajo requiere atención"
-
-#. 0dyseus@window-list-fork->settings-schema.json->pref_enable_scrolling->description
-msgid "Enable mouse-wheel scrolling in the window list"
-msgstr "Activar el desplazamiento del ratón en la lista de ventanas"
-
-#. 0dyseus@window-list-fork->settings-schema.json->pref_hide_tooltips->description
-msgid "Do not display tooltips"
-msgstr "No mostrar caja de herramientas"
-
-#. 0dyseus@window-list-fork->settings-schema.json->pref_sub_menu_placement->description
-msgid "Where to display the \"Preferences\" sub-menu?"
-msgstr "¿Dónde mostrar el submenú \"Preferencias\"?"
+#. 0dyseus@window-list-fork->settings-schema.json->pref_sub_menu_placement->options
+msgid "Do not display"
+msgstr "No mostrar"
 
 #. 0dyseus@window-list-fork->settings-schema.json->pref_sub_menu_placement->tooltip
 msgid ""
@@ -257,25 +220,69 @@ msgstr ""
 "activada, la parte superior del menú será realmente la parte inferior y vice "
 "versa."
 
-#. 0dyseus@window-list-fork->settings-schema.json->pref_sub_menu_placement->options
-msgid "Bottom of menu"
-msgstr "En la parte inferior del menú"
+#. 0dyseus@window-list-fork->settings-schema.json->pref_sub_menu_placement->description
+msgid "Where to display the \"Preferences\" sub-menu?"
+msgstr "¿Dónde mostrar el submenú \"Preferencias\"?"
 
-#. 0dyseus@window-list-fork->settings-schema.json->pref_sub_menu_placement->options
-msgid "Do not display"
-msgstr "No mostrar"
+#. 0dyseus@window-list-fork->settings-schema.json->pref_enable_scrolling->description
+msgid "Enable mouse-wheel scrolling in the window list"
+msgstr "Activar el desplazamiento del ratón en la lista de ventanas"
 
-#. 0dyseus@window-list-fork->settings-schema.json->pref_sub_menu_placement->options
-msgid "Top of menu"
-msgstr "En la parte superior del menú"
+#. 0dyseus@window-list-fork->settings-schema.json->pref_window_preview->description
+msgid "Show window thumbnails on hover"
+msgstr "Mostrar imágenes en miniatura de la ventana al pasar el ratón"
+
+#. 0dyseus@window-list-fork->settings-schema.json->pref_hide_labels->description
+msgid "Hide labels in the window list buttons"
+msgstr "Ocultar etiquetas de los botones de la lista de ventanas"
+
+#. 0dyseus@window-list-fork->settings-schema.json->pref_hide_tooltips->description
+msgid "Do not display tooltips"
+msgstr "No mostrar caja de herramientas"
+
+#. 0dyseus@window-list-fork->settings-schema.json->pref_middle_click_close->description
+msgid "Middle click to close window"
+msgstr "Cerrar ventana con botón central del ratón"
+
+#. 0dyseus@window-list-fork->settings-schema.json->pref_window_preview_custom_height->description
+msgid "Custom height for window thumbnails"
+msgstr "Ancho personalizado para imágenes en miniatura de la ventana"
+
+#. 0dyseus@window-list-fork->settings-schema.json->pref_window_preview_custom_height->units
+#. 0dyseus@window-list-fork->settings-schema.json->pref_window_preview_custom_width->units
+msgid "pixels"
+msgstr "pixeles"
 
 #. 0dyseus@window-list-fork->settings-schema.json->pref_window_preview_custom_width->description
 msgid "Custom width for window thumbnails"
 msgstr "Ancho personalizado para imágenes en miniatura de la ventana"
 
-#. 0dyseus@window-list-fork->settings-schema.json->pref_invert_menu_items_order->description
-msgid "Invert context menu items order"
-msgstr "Invertir el orden de los ítems en el menú contextual"
+#. 0dyseus@window-list-fork->settings-schema.json->pref_enable_alerts->description
+msgid ""
+"Show an alert in the window list when a window from another workspace "
+"requires attention"
+msgstr ""
+"Mostrar una alerta en la lista de ventanas cuando una ventana de otra área "
+"de trabajo requiere atención"
+
+#~ msgid ""
+#~ "A full list of contributors can be found in the CONTRIBUTORS.md file on "
+#~ "the root of this xlet folder."
+#~ msgstr ""
+#~ "Se puede encontrar una lista completa de contribuyentes en el archivo "
+#~ "CONTRIBUTORS.md en la raíz de la carpeta de este xlet."
+
+#~ msgid "NikoKrause: Bug fixes and German localization."
+#~ msgstr "NikoKrause: Localización alemana y reporte de errores."
+
+#~ msgid "muzena: Croatian localization."
+#~ msgstr "muzena: Localización Croata."
+
+#~ msgid "giwhub: Chinese localization."
+#~ msgstr "giwhub: Localización China."
+
+#~ msgid "eson57: Swedish localization."
+#~ msgstr "eson57: Localización Sueca."
 
 #~ msgid "Help for {xlet_name}"
 #~ msgstr "Ayuda para {xlet_name}"

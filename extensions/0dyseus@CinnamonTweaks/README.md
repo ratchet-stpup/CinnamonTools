@@ -35,16 +35,6 @@ For detailed explanations of each option/tweak, see this extension help (accessi
 - **Window shadows tweaks:** Allows to change the windows shadows to some predefined presets or completely customize the shadows of every single type of window. Tweak based on an extension called [Custom Shadows](https://cinnamon-spices.linuxmint.com/extensions/view/43) created by [mikhail-ekzi](https://github.com/mikhail-ekzi).
 - **Windows decorations removal:** Allows to remove the windows decorations from maximized/half-maximized/tiled windows. Tweak based on the Cinnamon extension called [Cinnamon Maximus](https://cinnamon-spices.linuxmint.com/extensions/view/29) by [Fatih Mete](https://github.com/fatihmete) with some options from the gnome-shell extension called [Maximus NG](https://github.com/luispabon/maximus-gnome-shell) by [Luis Pabon](https://github.com/luispabon).
 
-## Contributors/Mentions
-- **[lestcape](https://github.com/lestcape):** He is the brain behind the popup menus and desktop tweaks.
-- **[Radek71](https://github.com/Radek71):** Czech localization.
-- **[muzena](https://github.com/muzena):** Croatian localization.
-- **[mikhail-ekzi](https://github.com/mikhail-ekzi):** Author of the Cinnamon extension called [Custom Shadows](https://cinnamon-spices.linuxmint.com/extensions/view/43).
-- **[Fatih Mete](https://github.com/fatihmete):** Author of the Cinnamon extension called [Cinnamon Maximus](https://cinnamon-spices.linuxmint.com/extensions/view/29).
-- **[Luis Pabon](https://github.com/luispabon):** Author of the gnome-shell extension called [Maximus NG](https://github.com/luispabon/maximus-gnome-shell).
-- **[Florian Muellner](https://github.com/fmuellner):** Author of the gnome-shell extension called [Auto Move Windows](https://extensions.gnome.org/extension/16/auto-move-windows/).
-- **[Valentin Dimitrov](https://github.com/v-dimitrov):** Author of the gnome-shell extension called [Steal My Focus](https://github.com/v-dimitrov/gnome-shell-extension-stealmyfocus).
-- **[awamper](https://github.com/awamper):** Author of the gnome-shell extension called [Window Demands Attention Shortcut](https://github.com/awamper/window-demands-attention-shortcut).
-- **[giwhub](https://github.com/giwhub):** Chinese localization.
+[Contributors/Mentions](https://github.com/Odyseus/CinnamonTools/blob/master/extensions/0dyseus%40CinnamonTweaks/files/0dyseus%40CinnamonTweaks/CONTRIBUTORS.md)
 
 [Full change log](https://github.com/Odyseus/CinnamonTools/blob/master/extensions/0dyseus%40CinnamonTweaks/CHANGE_LOG.md)

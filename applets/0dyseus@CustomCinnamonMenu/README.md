@@ -54,18 +54,7 @@ This applet is a custom version of the default Cinnamon Menu applet, but infinit
 
 ![Whisker menu](https://odyseus.github.io/CinnamonTools/lib/img/CustomCinnamonMenu-001.png "Whisker menu")
 
-## Known issues
-- No known issues.
-
-## Contributors/Mentions
-- **[NikoKrause](https://github.com/NikoKrause):** Bug fixes and German localization.
-- **[Radek71](https://github.com/Radek71):** Czech localization.
-- **[muzena](https://github.com/muzena):** Croatian localization.
-- **[giwhub](https://github.com/giwhub):** Chinese localization.
-- **[lestcape](https://github.com/lestcape):** Some advanced features on this applet are based on his [Configurable Menu applet](https://github.com/lestcape/Configurable-Menu) applet.
-- **[nooulaif](https://github.com/nooulaif):** Fuzzy search feature based on his [Sane Menu](https://cinnamon-spices.linuxmint.com/applets/view/258) applet.
-- **Daniel Bruce:** Some icons used by this menu are from [Entypo pictograms](www.entypo.com).
-- **[eson57](https://github.com/eson57):** Swedish localization.
+[Contributors/Mentions](https://github.com/Odyseus/CinnamonTools/blob/master/applets/0dyseus%40CustomCinnamonMenu/files/0dyseus%40CustomCinnamonMenu/CONTRIBUTORS.md)
 
 [Full change log](https://github.com/Odyseus/CinnamonTools/blob/master/applets/0dyseus%40CustomCinnamonMenu/CHANGE_LOG.md)
 
