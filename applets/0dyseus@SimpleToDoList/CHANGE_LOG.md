@@ -4,6 +4,17 @@
 
 ***
 
+- **Date:** Sat, 3 Jun 2017 09:04:10 +0200
+- **Commit:** [f32484c](https://github.com/Odyseus/CinnamonTools/commit/f32484c)
+- **Author:** Åke Engelbrektson
+
+```
+SimpleToDoList: Update sv.po
+
+```
+
+***
+
 - **Date:** Tue, 30 May 2017 19:52:23 +0800
 - **Commit:** [13354fa](https://github.com/Odyseus/CinnamonTools/commit/13354fa)
 - **Author:** giwhub

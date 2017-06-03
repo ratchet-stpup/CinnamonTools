@@ -4,6 +4,17 @@
 
 ***
 
+- **Date:** Sat, 3 Jun 2017 08:47:24 +0200
+- **Commit:** [3e7a5a0](https://github.com/Odyseus/CinnamonTools/commit/3e7a5a0)
+- **Author:** Åke Engelbrektson
+
+```
+CinnamonMaximusFork: Update sv.po
+
+```
+
+***
+
 - **Date:** Thu, 1 Jun 2017 13:48:42 -0300
 - **Commit:** [3ea4436](https://github.com/Odyseus/CinnamonTools/commit/3ea4436)
 - **Author:** Odyseus

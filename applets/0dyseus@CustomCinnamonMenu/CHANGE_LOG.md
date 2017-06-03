@@ -4,6 +4,17 @@
 
 ***
 
+- **Date:** Sat, 3 Jun 2017 09:10:02 +0200
+- **Commit:** [e7737b2](https://github.com/Odyseus/CinnamonTools/commit/e7737b2)
+- **Author:** Åke Engelbrektson
+
+```
+CustomCinnamonMenu: Update sv.po
+
+```
+
+***
+
 - **Date:** Mon, 29 May 2017 07:19:03 -0300
 - **Commit:** [ddb3599](https://github.com/Odyseus/CinnamonTools/commit/ddb3599)
 - **Author:** Odyseus

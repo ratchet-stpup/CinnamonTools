@@ -4,6 +4,17 @@
 
 ***
 
+- **Date:** Sat, 3 Jun 2017 09:00:29 +0200
+- **Commit:** [6e93724](https://github.com/Odyseus/CinnamonTools/commit/6e93724)
+- **Author:** Åke Engelbrektson
+
+```
+window-list-fork: Update sv.po
+
+```
+
+***
+
 - **Date:** Tue, 30 May 2017 19:54:20 +0800
 - **Commit:** [4dc299d](https://github.com/Odyseus/CinnamonTools/commit/4dc299d)
 - **Author:** giwhub

@@ -10,3 +10,5 @@
 - **[Valentin Dimitrov](https://github.com/v-dimitrov):** Author of the gnome-shell extension called [Steal My Focus](https://github.com/v-dimitrov/gnome-shell-extension-stealmyfocus).
 - **[awamper](https://github.com/awamper):** Author of the gnome-shell extension called [Window Demands Attention Shortcut](https://github.com/awamper/window-demands-attention-shortcut).
 - **[giwhub](https://github.com/giwhub):** Chinese localization.
+- **[eson57](https://github.com/eson57):** Swedish localization.
+- **[Alan01](https://github.com/Alan01):** Danish localization.

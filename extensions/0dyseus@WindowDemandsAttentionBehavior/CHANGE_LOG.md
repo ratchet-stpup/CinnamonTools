@@ -4,6 +4,17 @@
 
 ***
 
+- **Date:** Sat, 3 Jun 2017 07:24:41 +0200
+- **Commit:** [3de8b72](https://github.com/Odyseus/CinnamonTools/commit/3de8b72)
+- **Author:** Åke Engelbrektson
+
+```
+WindowDemandsAttentionBehavior: add sv.po
+Add Swedish translation
+```
+
+***
+
 - **Date:** Sat, 27 May 2017 22:38:48 -0300
 - **Commit:** [f6d00bc](https://github.com/Odyseus/CinnamonTools/commit/f6d00bc)
 - **Author:** Odyseus

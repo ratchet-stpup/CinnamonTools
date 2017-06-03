@@ -4,6 +4,17 @@
 
 ***
 
+- **Date:** Sat, 3 Jun 2017 08:46:13 +0200
+- **Commit:** [6b9c13c](https://github.com/Odyseus/CinnamonTools/commit/6b9c13c)
+- **Author:** Åke Engelbrektson
+
+```
+CinnamonTweaks: Update sv.po
+
+```
+
+***
+
 - **Date:** Wed, 31 May 2017 03:26:21 -0300
 - **Commit:** [8055d64](https://github.com/Odyseus/CinnamonTools/commit/8055d64)
 - **Author:** Odyseus

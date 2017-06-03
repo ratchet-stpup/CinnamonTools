@@ -4,6 +4,17 @@
 
 ***
 
+- **Date:** Sat, 3 Jun 2017 09:01:54 +0200
+- **Commit:** [f39b06c](https://github.com/Odyseus/CinnamonTools/commit/f39b06c)
+- **Author:** Åke Engelbrektson
+
+```
+WallpaperChangerApplet: Update sv.po
+
+```
+
+***
+
 - **Date:** Mon, 29 May 2017 17:10:37 +0800
 - **Commit:** [f05321a](https://github.com/Odyseus/CinnamonTools/commit/f05321a)
 - **Author:** giwhub

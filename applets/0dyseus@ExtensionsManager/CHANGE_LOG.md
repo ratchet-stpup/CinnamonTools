@@ -4,6 +4,17 @@
 
 ***
 
+- **Date:** Sat, 3 Jun 2017 09:07:38 +0200
+- **Commit:** [9ed9e97](https://github.com/Odyseus/CinnamonTools/commit/9ed9e97)
+- **Author:** Åke Engelbrektson
+
+```
+ExtensionsManager: Update sv.po
+
+```
+
+***
+
 - **Date:** Mon, 29 May 2017 17:09:49 +0800
 - **Commit:** [0cf28bc](https://github.com/Odyseus/CinnamonTools/commit/0cf28bc)
 - **Author:** giwhub

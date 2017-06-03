@@ -4,6 +4,17 @@
 
 ***
 
+- **Date:** Sat, 3 Jun 2017 09:06:34 +0200
+- **Commit:** [ce37cb4](https://github.com/Odyseus/CinnamonTools/commit/ce37cb4)
+- **Author:** Åke Engelbrektson
+
+```
+PopupTranslator: Update sv.po
+
+```
+
+***
+
 - **Date:** Mon, 29 May 2017 02:51:15 -0300
 - **Commit:** [1471f4e](https://github.com/Odyseus/CinnamonTools/commit/1471f4e)
 - **Author:** Odyseus

@@ -4,6 +4,17 @@
 
 ***
 
+- **Date:** Sat, 3 Jun 2017 09:08:41 +0200
+- **Commit:** [f9a1b0c](https://github.com/Odyseus/CinnamonTools/commit/f9a1b0c)
+- **Author:** Åke Engelbrektson
+
+```
+DesktopHandler: Update sv.po
+
+```
+
+***
+
 - **Date:** Tue, 30 May 2017 19:48:47 +0800
 - **Commit:** [07dd7ed](https://github.com/Odyseus/CinnamonTools/commit/07dd7ed)
 - **Author:** giwhub

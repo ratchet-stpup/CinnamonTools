@@ -4,6 +4,17 @@
 
 ***
 
+- **Date:** Sat, 3 Jun 2017 08:44:45 +0200
+- **Commit:** [a09ce5c](https://github.com/Odyseus/CinnamonTools/commit/a09ce5c)
+- **Author:** Åke Engelbrektson
+
+```
+MultiTranslatorExtension: Update sv.po
+
+```
+
+***
+
 - **Date:** Mon, 29 May 2017 17:14:08 +0800
 - **Commit:** [63ab5ac](https://github.com/Odyseus/CinnamonTools/commit/63ab5ac)
 - **Author:** giwhub

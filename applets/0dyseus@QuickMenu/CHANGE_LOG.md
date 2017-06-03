@@ -4,6 +4,17 @@
 
 ***
 
+- **Date:** Sat, 3 Jun 2017 09:05:18 +0200
+- **Commit:** [c070757](https://github.com/Odyseus/CinnamonTools/commit/c070757)
+- **Author:** Åke Engelbrektson
+
+```
+QuickMenu: Update sv.po
+
+```
+
+***
+
 - **Date:** Tue, 30 May 2017 19:50:41 +0800
 - **Commit:** [00abcca](https://github.com/Odyseus/CinnamonTools/commit/00abcca)
 - **Author:** giwhub

@@ -4,6 +4,17 @@
 
 ***
 
+- **Date:** Sat, 3 Jun 2017 09:03:06 +0200
+- **Commit:** [1e5e258](https://github.com/Odyseus/CinnamonTools/commit/1e5e258)
+- **Author:** Åke Engelbrektson
+
+```
+SysmonitorByOrcus: Update sv.po
+
+```
+
+***
+
 - **Date:** Tue, 30 May 2017 19:53:26 +0800
 - **Commit:** [925d49b](https://github.com/Odyseus/CinnamonTools/commit/925d49b)
 - **Author:** giwhub
