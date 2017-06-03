@@ -4,6 +4,19 @@
 
 ***
 
+- **Date:** Sat, 3 Jun 2017 19:34:04 -0300
+- **Commit:** [ac8fba5](https://github.com/Odyseus/CinnamonTools/commit/ac8fba5)
+- **Author:** Odyseus
+
+```
+Simple ToDo List applet
+- Fixed an issue that kept an empty label visible on Cinnamon 3.4.x, adding extra spacing to the
+elements of the applet when it shouldn't.
+
+```
+
+***
+
 - **Date:** Sat, 3 Jun 2017 09:04:10 +0200
 - **Commit:** [f32484c](https://github.com/Odyseus/CinnamonTools/commit/f32484c)
 - **Author:** Åke Engelbrektson

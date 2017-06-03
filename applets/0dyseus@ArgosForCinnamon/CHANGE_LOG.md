@@ -4,6 +4,19 @@
 
 ***
 
+- **Date:** Sat, 3 Jun 2017 19:32:35 -0300
+- **Commit:** [c483ead](https://github.com/Odyseus/CinnamonTools/commit/c483ead)
+- **Author:** Odyseus
+
+```
+Argos for Cinnamon applet
+- Fixed an issue that kept an empty label visible on Cinnamon 3.4.x, adding extra spacing to the
+elements of the applet when it shouldn't.
+
+```
+
+***
+
 - **Date:** Wed, 31 May 2017 09:09:42 -0300
 - **Commit:** [a09fd63](https://github.com/Odyseus/CinnamonTools/commit/a09fd63)
 - **Author:** Odyseus

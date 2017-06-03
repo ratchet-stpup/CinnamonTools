@@ -16,7 +16,7 @@ echo "Create changelogs | bash=\"(cd $ROOT_PATH && ./helper.py --create-changelo
 echo "Create packages | bash=\"(cd $ROOT_PATH && ./helper.py --create-packages)\" terminal=true"
 echo "---"
 echo "<b>Bulk actions</b>"
-echo "Create changelogs and packages | bash=\"(cd $ROOT_PATH && ./helper.py --create-changelogs --create-packages)\" terminal=true"
+echo "Create changelogs, localized help and packages | bash=\"(cd $ROOT_PATH && ./helper.py --create-changelogs --create-localized-help --create-packages)\" terminal=true"
 echo "---"
 echo "<b>Files</b>"
 echo "Open localization statistics file | bash=\"xdg-open $ROOT_PATH/tmp/po_files_untranslated_table.md\""

@@ -4,6 +4,19 @@
 
 ***
 
+- **Date:** Sat, 3 Jun 2017 19:33:14 -0300
+- **Commit:** [048aebb](https://github.com/Odyseus/CinnamonTools/commit/048aebb)
+- **Author:** Odyseus
+
+```
+Extensions Manager applet
+- Fixed an issue that kept an empty label visible on Cinnamon 3.4.x, adding extra spacing to the
+elements of the applet when it shouldn't.
+
+```
+
+***
+
 - **Date:** Sat, 3 Jun 2017 09:07:38 +0200
 - **Commit:** [9ed9e97](https://github.com/Odyseus/CinnamonTools/commit/9ed9e97)
 - **Author:** Åke Engelbrektson

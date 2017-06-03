@@ -4,6 +4,19 @@
 
 ***
 
+- **Date:** Sat, 3 Jun 2017 19:33:46 -0300
+- **Commit:** [e1b2df2](https://github.com/Odyseus/CinnamonTools/commit/e1b2df2)
+- **Author:** Odyseus
+
+```
+Quick Menu applet
+- Fixed an issue that kept an empty label visible on Cinnamon 3.4.x, adding extra spacing to the
+elements of the applet when it shouldn't.
+
+```
+
+***
+
 - **Date:** Sat, 3 Jun 2017 09:05:18 +0200
 - **Commit:** [c070757](https://github.com/Odyseus/CinnamonTools/commit/c070757)
 - **Author:** Åke Engelbrektson

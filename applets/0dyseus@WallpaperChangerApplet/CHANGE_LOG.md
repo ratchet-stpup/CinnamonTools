@@ -4,6 +4,19 @@
 
 ***
 
+- **Date:** Sat, 3 Jun 2017 19:34:23 -0300
+- **Commit:** [514aa62](https://github.com/Odyseus/CinnamonTools/commit/514aa62)
+- **Author:** Odyseus
+
+```
+Wallpaper Changer applet
+- Fixed an issue that kept an empty label visible on Cinnamon 3.4.x, adding extra spacing to the
+elements of the applet when it shouldn't.
+
+```
+
+***
+
 - **Date:** Sat, 3 Jun 2017 09:01:54 +0200
 - **Commit:** [f39b06c](https://github.com/Odyseus/CinnamonTools/commit/f39b06c)
 - **Author:** Åke Engelbrektson

@@ -4,6 +4,19 @@
 
 ***
 
+- **Date:** Sat, 3 Jun 2017 19:33:30 -0300
+- **Commit:** [f6a134a](https://github.com/Odyseus/CinnamonTools/commit/f6a134a)
+- **Author:** Odyseus
+
+```
+Popup Translator applet
+- Fixed an issue that kept an empty label visible on Cinnamon 3.4.x, adding extra spacing to the
+elements of the applet when it shouldn't.
+
+```
+
+***
+
 - **Date:** Sat, 3 Jun 2017 09:06:34 +0200
 - **Commit:** [ce37cb4](https://github.com/Odyseus/CinnamonTools/commit/ce37cb4)
 - **Author:** Åke Engelbrektson

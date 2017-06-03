@@ -71,23 +71,23 @@ class Main:
             xlets_helper.update_pot_files()
 
         # Tested OK
-        # Order = 2
+        # Order = 2.
+        # Needs meta file.
+        if options.create_changelogs:
+            xlets_helper.create_changelogs()
+
+        # Tested OK
+        # Order = 3
         # Needs meta file.
         # Needs updated pot files after update_pot_files execution.
         if options.create_localized_help:
             xlets_helper.create_localized_help()
 
         # Tested OK
-        # Order = 3.
+        # Order = 4
         # Needs meta file.
         if options.generate_trans_stats:
             xlets_helper.generate_trans_stats()
-
-        # Tested OK
-        # Order = Last.
-        # Needs meta file.
-        if options.create_changelogs:
-            xlets_helper.create_changelogs()
 
         # Tested OK
         # Order = Doesn't matter.

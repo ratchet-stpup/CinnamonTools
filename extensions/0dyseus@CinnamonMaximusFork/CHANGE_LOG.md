@@ -4,6 +4,20 @@
 
 ***
 
+- **Date:** Sat, 3 Jun 2017 19:37:13 -0300
+- **Commit:** [ca41c6b](https://github.com/Odyseus/CinnamonTools/commit/ca41c6b)
+- **Author:** Odyseus
+
+```
+Cinnamon Maximus (Fork by Odyseus) extension
+- Cleaned up code of unused variables.
+- Changed tabs to spaces. This was overdue. I changed to spaces in all my xlets more than a year
+ago. LOL
+
+```
+
+***
+
 - **Date:** Sat, 3 Jun 2017 08:47:24 +0200
 - **Commit:** [3e7a5a0](https://github.com/Odyseus/CinnamonTools/commit/3e7a5a0)
 - **Author:** Åke Engelbrektson
