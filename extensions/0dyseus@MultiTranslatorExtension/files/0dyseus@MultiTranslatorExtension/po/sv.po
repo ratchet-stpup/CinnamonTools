@@ -6,23 +6,23 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 0dyseus@MultiTranslatorExtension 1.04\n"
-"POT-Creation-Date: 2017-05-26 06:12+0200\n"
-"PO-Revision-Date: 2017-05-27 04:40+0200\n"
+"POT-Creation-Date: 2017-06-03 08:32+0200\n"
+"PO-Revision-Date: 2017-06-03 08:34+0200\n"
+"Last-Translator: Åke Engelbrektson <eson@svenskasprakfiler.se>\n"
 "Language-Team: Svenska Språkfiler <contactform@svenskasprakfiler.se>\n"
+"Language: sv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: make-xlet-pot.py 1.0.32\n"
 "X-Generator: Poedit 1.8.7.1\n"
-"Last-Translator: Åke Engelbrektson <eson@svenskasprakfiler.se>\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"Language: sv\n"
 
-#: ../../create_localized_help.py:63
+#: ../../create_localized_help.py:64
 msgid "Dependencies"
 msgstr "Beroenden"
 
-#: ../../create_localized_help.py:64
+#: ../../create_localized_help.py:65
 msgid ""
 "If one or more of these dependencies are missing in your system, you will "
 "not be able to use this extension."
@@ -30,11 +30,11 @@ msgstr ""
 "Om ett eller flera av dessa beroenden saknas i ditt system, kommer du inte "
 "att kunna använda detta tillägg."
 
-#: ../../create_localized_help.py:65
+#: ../../create_localized_help.py:66
 msgid "xsel command:"
 msgstr "xsel-kommando:"
 
-#: ../../create_localized_help.py:66
+#: ../../create_localized_help.py:67
 msgid ""
 "XSel is a command-line program for getting and setting the contents of the X "
 "selection."
@@ -42,11 +42,11 @@ msgstr ""
 "XSel är ett kommandoradsprogram för att hämta och ställa in innehållet i X-"
 "samlingen."
 
-#: ../../create_localized_help.py:67
+#: ../../create_localized_help.py:68
 msgid "trans command:"
 msgstr "trans-kommando:"
 
-#: ../../create_localized_help.py:68
+#: ../../create_localized_help.py:69
 msgid ""
 "Command provided by the package translate-shell. Is a simple command line "
 "interface for several translation providers (Google Translate, Yandex "
@@ -59,7 +59,7 @@ msgstr ""
 "strängar i din terminal."
 
 #. TO TRANSLATORS: MARKDOWN string. Respect formatting.
-#: ../../create_localized_help.py:70
+#: ../../create_localized_help.py:71
 msgid ""
 "Check translate-shell [dependencies](https://github.com/soimort/translate-"
 "shell#dependencies) and [recommended dependencies](https://github.com/"
@@ -69,11 +69,11 @@ msgstr ""
 "shell#dependencies) och [rekommenderade beroenden](https://github.com/"
 "soimort/translate-shell#recommended-dependencies)."
 
-#: ../../create_localized_help.py:72
+#: ../../create_localized_help.py:73
 msgid "Note:"
 msgstr "Notis:"
 
-#: ../../create_localized_help.py:72
+#: ../../create_localized_help.py:73
 msgid ""
 "The translate-shell package available on Ubuntu 16.04.x/Linux Mint 18.x "
 "repositories is outdated and broken. It can be installed anyway so it will "
@@ -85,33 +85,33 @@ msgstr ""
 "beroenden installeras, men uppdatering till senaste version bör göras som "
 "det beskrivs nedan.."
 
-#: ../../create_localized_help.py:74
+#: ../../create_localized_help.py:75
 msgid "How to install latest version of translate-shell"
 msgstr "Hur man installerar senaste versionen av translate-shell"
 
-#: ../../create_localized_help.py:75
+#: ../../create_localized_help.py:76
 msgid "Option 1. Direct Download"
 msgstr "Alternativ 1. Direkt nerladdning"
 
-#: ../../create_localized_help.py:76
+#: ../../create_localized_help.py:77
 msgid ""
 "This method will only install the trans script into the specified locations."
 msgstr ""
 "Denna metod installerar endast trans-skriptet på specificerade platser."
 
 #. TO TRANSLATORS: MARKDOWN string. Respect formatting.
-#: ../../create_localized_help.py:79
+#: ../../create_localized_help.py:80
 msgid "For the current user only. **~/.local/bin** needs to be in your PATH."
 msgstr ""
 "Endast för aktuell användare. **~/.local/bin** måste finnas i din "
 "användarmapp."
 
-#: ../../create_localized_help.py:85
+#: ../../create_localized_help.py:86
 msgid "For all users without overwriting the installed version."
 msgstr "För alla användare, utan att skriva över installerad version."
 
 #. TO TRANSLATORS: MARKDOWN string. Respect formatting.
-#: ../../create_localized_help.py:93
+#: ../../create_localized_help.py:94
 msgid ""
 "Option 2. From Git - [More details](https://github.com/soimort/translate-"
 "shell/blob/develop/README.md#option-3-from-git-recommended-for-seasoned-"
@@ -121,7 +121,7 @@ msgstr ""
 "shell/blob/develop/README.md#option-3-from-git-recommended-for-seasoned-"
 "hackers)"
 
-#: ../../create_localized_help.py:94
+#: ../../create_localized_help.py:95
 msgid ""
 "This method will not just install the trans script but also its man pages. "
 "Refer to the link above for more installation details."
@@ -129,25 +129,25 @@ msgstr ""
 "Denna metod installerar inte bara trans-skriptet utan också dess man-sidor. "
 "Se ovanstående länk för mer installationsinfo."
 
-#: ../../create_localized_help.py:104
+#: ../../create_localized_help.py:105
 msgid "Extension usage"
 msgstr "Användning av tillägget"
 
-#: ../../create_localized_help.py:105
+#: ../../create_localized_help.py:106
 msgid "Once installed and enabled, the following shortcuts will be available."
 msgstr "Efter installation och aktivering blir följande genvägar tillgängliga."
 
-#: ../../create_localized_help.py:106
+#: ../../create_localized_help.py:107
 msgid "Global shortcuts (configurable from the extension settings)"
 msgstr "Globala genvägar (konfigurerbara i tilläggets inställningar)"
 
 #. TO TRANSLATORS: MARKDOWN string. Respect formatting.
-#: ../../create_localized_help.py:108
+#: ../../create_localized_help.py:109
 msgid "**[[Super]] + [[T]]:** Open translator dialog."
 msgstr "**[[Super]] + [[T]]:** Öppna översättningsdialog."
 
 #. TO TRANSLATORS: MARKDOWN string. Respect formatting.
-#: ../../create_localized_help.py:110
+#: ../../create_localized_help.py:111
 msgid ""
 "**[[Super]] + [[Shift]] + [[T]]:** Open translator dialog and translate text "
 "from clipboard."
@@ -156,7 +156,7 @@ msgstr ""
 "från urklipp."
 
 #. TO TRANSLATORS: MARKDOWN string. Respect formatting.
-#: ../../create_localized_help.py:112
+#: ../../create_localized_help.py:113
 msgid ""
 "**[[Super]] + [[Alt]] + [[T]]:** Open translator dialog and translate from "
 "primary selection."
@@ -164,17 +164,17 @@ msgstr ""
 "**[[Super]] + [[Alt]] + [[T]]:** Öppna översättningsdialog och översätt från "
 "primär markering."
 
-#: ../../create_localized_help.py:114
+#: ../../create_localized_help.py:115
 msgid "Shortcuts available on the translation dialog"
 msgstr "Genvägar i översättningsdialogen"
 
 #. TO TRANSLATORS: MARKDOWN string. Respect formatting.
-#: ../../create_localized_help.py:116
+#: ../../create_localized_help.py:117
 msgid "**[[Ctrl]] + [[Enter]]:** Translate text."
 msgstr "**[[Ctrl]] + [[Enter]]:** Översätt text."
 
 #. TO TRANSLATORS: MARKDOWN string. Respect formatting.
-#: ../../create_localized_help.py:118
+#: ../../create_localized_help.py:119
 msgid ""
 "**[[Shift]] + [[Enter]]:** Force text translation. Ignores translation "
 "history."
@@ -183,30 +183,30 @@ msgstr ""
 "översättningshistorik."
 
 #. TO TRANSLATORS: MARKDOWN string. Respect formatting.
-#: ../../create_localized_help.py:120
+#: ../../create_localized_help.py:121
 msgid "**[[Ctrl]] + [[Shift]] + [[C]]:** Copy translated text to clipboard."
 msgstr "**[[Ctrl]] + [[Shift]] + [[C]]:** Kopiera översatt text till urklipp."
 
 #. TO TRANSLATORS: MARKDOWN string. Respect formatting.
-#: ../../create_localized_help.py:122
+#: ../../create_localized_help.py:123
 msgid "**[[Ctrl]] + [[S]]:** Swap languages."
 msgstr "**[[Ctrl]] + [[S]]:** Växla språk."
 
 #. TO TRANSLATORS: MARKDOWN string. Respect formatting.
-#: ../../create_localized_help.py:124
+#: ../../create_localized_help.py:125
 msgid "**[[Ctrl]] + [[D]]:** Reset languages to default."
 msgstr "**[[Ctrl]] + [[D]]:** Återställ språken till standard."
 
 #. TO TRANSLATORS: MARKDOWN string. Respect formatting.
-#: ../../create_localized_help.py:126
+#: ../../create_localized_help.py:127
 msgid "**[[Escape]]:** Close dialog."
 msgstr "**[[Escape]]:** Stäng fönstret."
 
-#: ../../create_localized_help.py:129
+#: ../../create_localized_help.py:130
 msgid "Extension's settings window"
 msgstr "Inställningsfönster för tilläggsmoduler"
 
-#: ../../create_localized_help.py:130
+#: ../../create_localized_help.py:131
 msgid ""
 "From this extension settings window, all options can be imported, exported "
 "and/or reseted to their defaults."
@@ -214,7 +214,7 @@ msgstr ""
 "Från denna tilläggsmoduls inställningsfönster kan alla alternativ "
 "importeras, exporteras och/eller återställas till standardinställning."
 
-#: ../../create_localized_help.py:132
+#: ../../create_localized_help.py:133
 msgid ""
 "To be able to perform any of these actions, the settings schema needs to be "
 "installed in the system. This is done automatically when the extension is "
@@ -230,17 +230,17 @@ msgstr ""
 "gå till tilläggets installationsmapp och köra följande kommando:"
 
 #. TO TRANSLATORS: MARKDOWN string. Respect formatting.
-#: ../../create_localized_help.py:134
+#: ../../create_localized_help.py:135
 msgid "Command to install the settings schema:"
 msgstr "Kommando för att installera inställningsschema:"
 
 #. TO TRANSLATORS: MARKDOWN string. Respect formatting.
-#: ../../create_localized_help.py:136
+#: ../../create_localized_help.py:138
 msgid "Command to uninstall the settings schema:"
 msgstr "Kommando för att avinstallera inställningsschema:"
 
 #. TO TRANSLATORS: MARKDOWN string. Respect formatting.
-#: ../../create_localized_help.py:138
+#: ../../create_localized_help.py:141
 msgid ""
 "To import/export settings, the **dconf** command needs to be available on "
 "the system."
@@ -248,28 +248,44 @@ msgstr ""
 "För att importera/exportera inställningar, måste **dconf**-kommandot finnas "
 "tillgängligt i systemet."
 
+#: ../../create_localized_help.py:164
+msgid "The following two sections are available only in English."
+msgstr "Följande två sektioner är endast tillgängliga på Engelska."
+
 #. TO TRANSLATORS: This is a placeholder.
 #. Here goes your language name in your own language (a.k.a. endonym).
-#: ../../create_localized_help.py:166 ../../create_localized_help.py:235
+#: ../../create_localized_help.py:189 ../../create_localized_help.py:261
 msgid "language-name"
 msgstr "Svenska"
 
-#: ../../create_localized_help.py:238
+#: ../../create_localized_help.py:264 settings.py:1385 __init__.js:3456
+msgid "Help"
+msgstr "Hjälp"
+
+#: ../../create_localized_help.py:265
+msgid "Contributors"
+msgstr "Medhjälpare"
+
+#: ../../create_localized_help.py:266
+msgid "Changelog"
+msgstr "Ändringslogg"
+
+#: ../../create_localized_help.py:267
 msgid "Choose language"
 msgstr "Välj språk"
 
 #. TO TRANSLATORS: Full sentence:
 #. "Help for <xlet_name>"
-#: ../../create_localized_help.py:239 ../../create_localized_help.py:246
+#: ../../create_localized_help.py:268 ../../create_localized_help.py:275
 #, python-format
 msgid "Help for %s"
 msgstr "Hjälp för %s"
 
-#: ../../create_localized_help.py:247
+#: ../../create_localized_help.py:276
 msgid "IMPORTANT!!!"
 msgstr "VIKTIGT!!!"
 
-#: ../../create_localized_help.py:248
+#: ../../create_localized_help.py:277
 msgid ""
 "Never delete any of the files found inside this xlet folder. It might break "
 "this xlet functionality."
@@ -277,7 +293,7 @@ msgstr ""
 "Ta aldrig bort någon av filerna i den här xlet-mappen. Det kan förstöra "
 "programmets funktioner."
 
-#: ../../create_localized_help.py:249
+#: ../../create_localized_help.py:278
 msgid ""
 "Bug reports, feature requests and contributions should be done on this "
 "xlet's repository linked next."
@@ -285,11 +301,11 @@ msgstr ""
 "Felrapporter, funktionsönskemål och kodbidrag kan lämnas i denna xlets "
 "kodförråd, på följande länk."
 
-#: ../../create_localized_help.py:255
+#: ../../create_localized_help.py:284
 msgid "Applets/Desklets/Extensions (a.k.a. xlets) localization"
 msgstr "Applets/Desklets/Extensions (xlets) översättning"
 
-#: ../../create_localized_help.py:256
+#: ../../create_localized_help.py:285
 msgid ""
 "If this xlet was installed from Cinnamon Settings, all of this xlet's "
 "localizations were automatically installed."
@@ -298,7 +314,7 @@ msgstr ""
 "också alla översättningar automatiskt."
 
 #. TO TRANSLATORS: MARKDOWN string. Respect formatting.
-#: ../../create_localized_help.py:258
+#: ../../create_localized_help.py:287
 msgid ""
 "If this xlet was installed manually and not trough Cinnamon Settings, "
 "localizations can be installed by executing the script called "
@@ -308,13 +324,13 @@ msgstr ""
 "kan översättningar installeras genom att köra skriptet **localizations.sh** "
 "från en terminal öppnad i programmappen."
 
-#: ../../create_localized_help.py:259
+#: ../../create_localized_help.py:288
 msgid ""
 "If this xlet has no locale available for your language, you could create it "
 "by following the following instructions."
 msgstr ""
-"Om ditt språk saknas i denna xlet, kan du översätta den genom följande "
-"instruktioner."
+"Om ditt språk saknas i denna xlet, kan du översätta den med hjälp av "
+"följande instruktioner."
 
 #: extensionHelper.py:271
 msgid "Multi Translator history"
@@ -1140,10 +1156,6 @@ msgstr "Exportera inställningarna till en fil"
 msgid "Remember window size"
 msgstr "Kom ihåg fönsterstorlek"
 
-#: settings.py:1385 __init__.js:3456
-msgid "Help"
-msgstr "Hjälp"
-
 #: settings.py:1387
 msgid "About"
 msgstr "Om"
@@ -1496,54 +1508,51 @@ msgstr ""
 "Översättning av text från olika översättningstjänster (för närvarande "
 "Google, Yandex, Bing och Apertium)."
 
+#. 0dyseus@MultiTranslatorExtension->metadata.json->contributors
+msgid "See this xlet help file."
+msgstr "Se hjälpfilen för denna xlet."
+
 #. 0dyseus@MultiTranslatorExtension->metadata.json->comments
 msgid ""
 "Bug reports, feature requests and contributions should be done on this "
 "xlet's repository linked below."
 msgstr ""
-"Felrapporter, funktionsönskemål och kodbidrag kan göras  i denna xlets "
-"kodförråd, länkat nedan."
+"Felrapporter, funktionsönskemål och kodbidrag kan lämnas  i denna xlets "
+"kodförråd, på nedanstående länk."
 
-#. 0dyseus@MultiTranslatorExtension->metadata.json->contributors
-msgid ""
-"awamper: Original author of Text Translator gnome-shell extension https://"
-"github.com/awamper/text-translator."
-msgstr ""
-"awamper: Ursprunglig utvecklare av Gnome-tillägget Text Translator https://"
-"github.com/awamper/text-translator."
+#~ msgid ""
+#~ "awamper: Original author of Text Translator gnome-shell extension https://"
+#~ "github.com/awamper/text-translator."
+#~ msgstr ""
+#~ "awamper: Ursprunglig utvecklare av Gnome-tillägget Text Translator "
+#~ "https://github.com/awamper/text-translator."
 
-#. 0dyseus@MultiTranslatorExtension->metadata.json->contributors
-msgid ""
-"gufoe: Author of the newer version of Text Translator gnome-shell extension "
-"https://github.com/gufoe/text-translator."
-msgstr ""
-"gufoe: Utvecklare av den nyare versionen av Gnome-tillägget Text Translator "
-"https://github.com/gufoe/text-translator."
+#~ msgid ""
+#~ "gufoe: Author of the newer version of Text Translator gnome-shell "
+#~ "extension https://github.com/gufoe/text-translator."
+#~ msgstr ""
+#~ "gufoe: Utvecklare av den nyare versionen av Gnome-tillägget Text "
+#~ "Translator https://github.com/gufoe/text-translator."
 
-#. 0dyseus@MultiTranslatorExtension->metadata.json->contributors
-msgid ""
-"soimort: Author of the translate-shell script https://github.com/soimort/"
-"translate-shell."
-msgstr ""
-"soimort: Utvecklare av skriptet translate-shell https://github.com/soimort/"
-"translate-shell."
+#~ msgid ""
+#~ "soimort: Author of the translate-shell script https://github.com/soimort/"
+#~ "translate-shell."
+#~ msgstr ""
+#~ "soimort: Utvecklare av skriptet translate-shell https://github.com/"
+#~ "soimort/translate-shell."
 
-#. 0dyseus@MultiTranslatorExtension->metadata.json->contributors
-msgid "muzena: Croatian localization https://github.com/muzena."
-msgstr "muzena: Kroatisk översättning https://github.com/muzena."
+#~ msgid "muzena: Croatian localization https://github.com/muzena."
+#~ msgstr "muzena: Kroatisk översättning https://github.com/muzena."
 
-#. 0dyseus@MultiTranslatorExtension->metadata.json->contributors
-msgid "giwhub: Chinese localization https://github.com/giwhub."
-msgstr "giwhub: Kinesisk översättning https://github.com/giwhub."
+#~ msgid "giwhub: Chinese localization https://github.com/giwhub."
+#~ msgstr "giwhub: Kinesisk översättning https://github.com/giwhub."
 
-#. 0dyseus@MultiTranslatorExtension->metadata.json->contributors
-msgid ""
-"Radek71: Czech localization and author of Thunderbolt theme https://github."
-"com/Radek71."
-msgstr ""
-"Radek71: Tjeckisk översättning och utvecklare av Thunderbolt-temat https://"
-"github.com/Radek71."
+#~ msgid ""
+#~ "Radek71: Czech localization and author of Thunderbolt theme https://"
+#~ "github.com/Radek71."
+#~ msgstr ""
+#~ "Radek71: Tjeckisk översättning och utvecklare av Thunderbolt-temat "
+#~ "https://github.com/Radek71."
 
-#. 0dyseus@MultiTranslatorExtension->metadata.json->contributors
-msgid "NikoKrause: German localization https://github.com/NikoKrause."
-msgstr "NikoKrause: Tysk översättning https://github.com/NikoKrause."
+#~ msgid "NikoKrause: German localization https://github.com/NikoKrause."
+#~ msgstr "NikoKrause: Tysk översättning https://github.com/NikoKrause."
