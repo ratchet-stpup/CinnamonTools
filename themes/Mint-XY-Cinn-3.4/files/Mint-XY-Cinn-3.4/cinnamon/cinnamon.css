@@ -145,22 +145,6 @@ StScrollBar StButton#vhandle:hover {
 /* ===================================================================
  * PopupMenu (popupMenu.js)
  * ===================================================================*/
-.popup-menu-boxpointer {
-    -arrow-border-radius: 4px;
-    -arrow-background-color: #ececec;
-    -arrow-border-width: 1px;
-    -arrow-border-color: rgba(40, 40, 40, 0.3);
-    -arrow-base: 18px;
-    -arrow-rise: 10px;
-    -st-shadow: 0px -1px 2px 0px rgba(255, 255, 255, 0.9);
-    -boxpointer-gap: 2px;
-}
-
-.popup-menu {
-    color: rgb(70, 70, 70);
-    min-width: 100px;
-}
-
 .menu {
     background-color: #ececec;
     border-width: 1px;
@@ -185,8 +169,7 @@ StScrollBar StButton#vhandle:hover {
     border-radius: 4px 0 0 4px;
 }
 
-.menu StEntry,
-.popup-menu StEntry {
+.menu StEntry {
     padding: 4px 12px;
     color: #2b2b2b;
     border-image: url("misc-assets/entry.png") 6;
@@ -200,8 +183,7 @@ StScrollBar StButton#vhandle:hover {
     transition-duration: 150;
 }
 
-.menu StEntry:focus,
-.popup-menu StEntry:focus {
+.menu StEntry:focus {
     padding: 4px 12px;
     color: #2b2b2b;
     border-image: url("misc-assets/entry-focus.png") 6;
@@ -236,7 +218,7 @@ StScrollBar StButton#vhandle:hover {
 }
 
 .popup-sub-menu StScrollBar StBin#trough {
-    background-color: rgba(0, 0, 0, 0)
+    background-color: rgba(0, 0, 0, 0);
 }
 
 .popup-sub-menu StScrollBar StBin#vhandle {
@@ -445,9 +427,12 @@ StScrollBar StButton#vhandle:hover {
     margin: 0px;
 }
 
-/* Introduced in Cinnamon 3.4
-The new warning/error colors used on .system-status-icon are currently used by
-the power applet to warn the user when their battery is low. */
+/* =============================================================================
+ * Added in Cinnamon 3.4
+ *
+ * The new warning/error colors used on .system-status-icon are currently used by
+ * the power applet to warn the user when their battery is low.
+ * ============================================================================= */
 .system-status-icon.warning {
     color: #f4db00;
 }
@@ -970,7 +955,7 @@ the power applet to warn the user when their battery is low. */
 }
 
 .calendar-nonwork-day {
-    background-color: rgba(128, 128, 128, .1);
+    background-color: rgba(128, 128, 128, 0.1);
 }
 
 .calendar-today {
@@ -997,7 +982,7 @@ the power applet to warn the user when their battery is low. */
     width: 34em;
     color: rgb(70, 70, 70);    /* The px are a temporary fix until get_theme_node() can return raw numbers. */
     opacity: 255px;
-    mouseover-opacity: 96px
+    mouseover-opacity: 96px;
 }
 
 #notification.multi-line-notification {
@@ -1651,7 +1636,7 @@ the power applet to warn the user when their battery is low. */
  * Magnifier
  * ===================================================================*/
 .magnifier-zoom-region {
-    border: 2px solid rgba(128, 0, 0, 255);
+    border: 2px solid rgba(128, 0, 0, 1);
 }
 
 .magnifier-zoom-region.full-screen {
@@ -1830,11 +1815,11 @@ the power applet to warn the user when their battery is low. */
 }
 
 .menu-category-button-label:ltr {
-    padding-left: 5px
+    padding-left: 5px;
 }
 
 .menu-category-button-label:rtl {
-    padding-right: 5px
+    padding-right: 5px;
 }
 
 .menu-category-button-button:hover {
@@ -2165,17 +2150,6 @@ the power applet to warn the user when their battery is low. */
     padding-left: 0px;
 }
 
-/* START Left for retro-compatibility */
-.panel-launcher {
-    margin: 1px;
-    padding: 2px;
-}
-
-.panel-launcher:hover {
-    border-image: url("panel-assets/hover-1.svg") 6;
-}
-
-/* END Left for retro-compatibility */
 .panel-launchers {
     spacing: 0;
 }
@@ -2295,6 +2269,14 @@ the power applet to warn the user when their battery is low. */
     border-image: url("panel-assets/hover-1.svg") 6;
 }
 
+/* =============================================================================
+ * Added in Cinnamon 3.4
+ *
+ * The Cinnamon St library now reacts to margin, but that also has the effect of
+ * overriding the margin that was put in programmatically for TextIcon applets
+ * between the icon and the label.
+ * This restores some suitable spacing between icons and their labels.
+ * ============================================================================= */
 .panel-top .applet-box,
 .panel-bottom .applet-box {
     spacing: 3px;
@@ -2358,7 +2340,7 @@ the power applet to warn the user when their battery is low. */
     padding: 8px 12px;
     border-radius: 2px;
     height: 15px;
-    color: rgba(255, 255, 255, .7);
+    color: rgba(255, 255, 255, 0.7);
     text-align: center;
     font-weight: bold;
     selected-color: #fff;
@@ -2642,7 +2624,7 @@ the power applet to warn the user when their battery is low. */
 }
 
 /* ===================================================================
- * Systray Applet - Added on Cinnamon 3.4
+ * Systray Applet - Added in Cinnamon 3.4
  *
  * .systray is for theming to be applied to the systray as a whole.
  * .applet-box is used for indicators (not tray icons) within the systray.
