@@ -161,7 +161,7 @@ class XletsHelperCore():
                 self.exec_command(cmd=cmd,
                                   working_directory=xlet_folder_path)
 
-    def create_localized_help(self):
+    def create_localized_help(self, dev=False):
         """create_localized_help
 
         Execute the create_localized_help.py script for each xlet to generate their HELP.html files.
@@ -175,7 +175,8 @@ class XletsHelperCore():
             if os.path.exists(script_file_path):
                 print(Ansi.INFO("Creating localized help for %s..." % xlet["name"]))
 
-                cmd = "%s -p" % script_file_path
+                arg = "--dev" if dev is True else "--production"
+                cmd = "%s %s" % (script_file_path, arg)
                 self.exec_command(cmd=cmd,
                                   working_directory=script_folder_path)
 

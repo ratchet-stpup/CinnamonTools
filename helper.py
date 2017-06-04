@@ -23,6 +23,8 @@ class Main:
                             dest="render_main_site", default=False)
         parser.add_argument("-l", "--create-localized-help", action="store_true",
                             dest="create_localized_help", default=False)
+        parser.add_argument("-d", "--create-localized-help-dev", action="store_true",
+                            dest="create_localized_help_dev", default=False)
         parser.add_argument("-t", "--generate-trans-stats", action="store_true",
                             dest="generate_trans_stats", default=False)
         parser.add_argument("-u", "--update-pot-files", action="store_true",
@@ -82,6 +84,13 @@ class Main:
         # Needs updated pot files after update_pot_files execution.
         if options.create_localized_help:
             xlets_helper.create_localized_help()
+
+        # Tested OK
+        # Order = 3
+        # Needs meta file.
+        # Needs updated pot files after update_pot_files execution.
+        if options.create_localized_help_dev:
+            xlets_helper.create_localized_help(dev=True)
 
         # Tested OK
         # Order = 4
