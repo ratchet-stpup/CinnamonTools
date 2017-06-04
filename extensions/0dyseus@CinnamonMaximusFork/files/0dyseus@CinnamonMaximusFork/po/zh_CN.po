@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 0.3.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-05-29 17:02+0800\n"
-"PO-Revision-Date: 2017-05-29 17:02+0800\n"
+"POT-Creation-Date: 2017-06-04 19:45+0800\n"
+"PO-Revision-Date: 2017-06-04 19:45+0800\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: zh_CN\n"
@@ -17,6 +17,54 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 1.8.11\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+
+#. 0dyseus@CinnamonMaximusFork->settings-schema.json->head1->description
+msgid "Cinnamon Maximus (Fork by Odyseus) Settings"
+msgstr "Cinnamon Maximus (Fork by Odyseus)设置"
+
+#. 0dyseus@CinnamonMaximusFork->settings-schema.json->pref_whitelist->tooltip
+msgid ""
+"If enabled, only the applications specified bellow will have their titlebar "
+"removed when maximized.\n"
+"If disabled, all maximized windows will have their titlebar removed."
+msgstr ""
+"如果启用，最大化时仅在下方指定的的应用程序会移除其标题栏。\n"
+"如果禁用，所有最大化的窗口都会移除其标题栏。"
+
+#. 0dyseus@CinnamonMaximusFork->settings-schema.json->pref_whitelist->description
+msgid "Use Whitelist"
+msgstr "使用白名单"
+
+#. 0dyseus@CinnamonMaximusFork->settings-schema.json->head2->description
+msgid "Troubleshooting"
+msgstr "故障排除"
+
+#. 0dyseus@CinnamonMaximusFork->settings-schema.json->pref_whitelisted_apps->description
+msgid "List of applications: "
+msgstr "应用程序列表："
+
+#. 0dyseus@CinnamonMaximusFork->settings-schema.json->pref_whitelisted_apps->tooltip
+msgid ""
+"\"Use Whitelist\" option must be checked.\n"
+"Use a \",\" (comma) to seperate applications."
+msgstr ""
+"必须选中“使用白名单”选项。\n"
+"使用\",\"（逗号）分隔应用程序。"
+
+#. 0dyseus@CinnamonMaximusFork->settings-schema.json->pref_restart_cinnamon->tooltip
+msgid ""
+"Check or uncheck this options to restart Cinnamon.\n"
+"Note: I couldn't make a proper button to work in this settings window, so I "
+"had to improvise and I had to use a checkbox. It doesn't really matter if "
+"it's checked or unchecked."
+msgstr ""
+"选中或取消选中此项重启Cinnamon。\n"
+"注意：我无法在这个设置窗口制作一个合适的按钮，所以我不得不临时拼凑并使用一个"
+"复选框。这其实并不重要是否已经选中。"
+
+#. 0dyseus@CinnamonMaximusFork->settings-schema.json->pref_restart_cinnamon->description
+msgid "Check or uncheck to restart Cinnamon"
+msgstr "选中或取消选中重启Cinnamon"
 
 #. 0dyseus@CinnamonMaximusFork->settings-schema.json->pref_logging_enabled->tooltip
 msgid ""
@@ -39,119 +87,79 @@ msgstr "取消装饰所有窗口（实验性，请关闭然后重新打开所有
 msgid "Undecorate when tiled"
 msgstr "平铺时去除装饰"
 
-#. 0dyseus@CinnamonMaximusFork->settings-schema.json->pref_whitelist->tooltip
-msgid ""
-"If enabled, only the applications specified bellow will have their titlebar "
-"removed when maximized.\n"
-"If disabled, all maximized windows will have their titlebar removed."
-msgstr ""
-"如果启用，最大化时仅在下方指定的的应用程序会移除其标题栏。\n"
-"如果禁用，所有最大化的窗口都会移除其标题栏。"
-
-#. 0dyseus@CinnamonMaximusFork->settings-schema.json->pref_whitelist->description
-msgid "Use Whitelist"
-msgstr "使用白名单"
-
-#. 0dyseus@CinnamonMaximusFork->settings-schema.json->pref_restart_cinnamon->tooltip
-msgid ""
-"Check or uncheck this options to restart Cinnamon.\n"
-"Note: I couldn't make a proper button to work in this settings window, so I "
-"had to improvise and I had to use a checkbox. It doesn't really matter if "
-"it's checked or unchecked."
-msgstr ""
-"选中或取消选中此项重启Cinnamon。\n"
-"注意：我无法在这个设置窗口制作一个合适的按钮，所以我不得不临时拼凑并使用一个"
-"复选框。这其实并不重要是否已经选中。"
-
-#. 0dyseus@CinnamonMaximusFork->settings-schema.json->pref_restart_cinnamon->description
-msgid "Check or uncheck to restart Cinnamon"
-msgstr "选中或取消选中重启Cinnamon"
-
-#. 0dyseus@CinnamonMaximusFork->settings-schema.json->head1->description
-msgid "Cinnamon Maximus (Fork by Odyseus) Settings"
-msgstr "Cinnamon Maximus (Fork by Odyseus)设置"
-
-#. 0dyseus@CinnamonMaximusFork->settings-schema.json->head2->description
-msgid "Troubleshooting"
-msgstr "故障排除"
-
-#. 0dyseus@CinnamonMaximusFork->settings-schema.json->pref_whitelisted_apps->tooltip
-msgid ""
-"\"Use Whitelist\" option must be checked.\n"
-"Use a \",\" (comma) to seperate applications."
-msgstr ""
-"必须选中“使用白名单”选项。\n"
-"使用\",\"（逗号）分隔应用程序。"
-
-#. 0dyseus@CinnamonMaximusFork->settings-schema.json->pref_whitelisted_apps->description
-msgid "List of applications: "
-msgstr "应用程序列表："
+#. 0dyseus@CinnamonMaximusFork->metadata.json->description
+msgid "Remove windows decorations from maximized windows."
+msgstr "从最大化的窗口移除窗口装饰。"
 
 #. 0dyseus@CinnamonMaximusFork->metadata.json->contributors
-msgid "Alan01: Danish localization."
-msgstr "Alan01：丹麦语本地化。"
-
-#. 0dyseus@CinnamonMaximusFork->metadata.json->contributors
-msgid "giwhub: Chinese localization."
-msgstr "giwhub：中文本地化。"
-
-#. 0dyseus@CinnamonMaximusFork->metadata.json->contributors
-msgid "muzena: Croatian localization."
-msgstr "muzena：克罗地亚语本地化。"
+msgid "See this xlet help file."
+msgstr "查看该xlet帮助文件。"
 
 #. 0dyseus@CinnamonMaximusFork->metadata.json->name
 msgid "Cinnamon Maximus (Fork by Odyseus)"
 msgstr "Cinnamon Maximus (Fork by Odyseus)"
 
-#. 0dyseus@CinnamonMaximusFork->metadata.json->description
-msgid "Remove windows decorations from maximized windows."
-msgstr "从最大化的窗口移除窗口装饰。"
+#: ../../create_localized_help.py:90
+msgid "The following two sections are available only in English."
+msgstr "以下两个部分仅使用英语。"
 
 #. TO TRANSLATORS: This is a placeholder.
 #. Here goes your language name in your own language (a.k.a. endonym).
-#: ../../create_localized_help.py:94 ../../create_localized_help.py:163
+#: ../../create_localized_help.py:115 ../../create_localized_help.py:187
 msgid "language-name"
 msgstr "简体中文"
 
-#: ../../create_localized_help.py:166
+#: ../../create_localized_help.py:190
+msgid "Help"
+msgstr "帮助"
+
+#: ../../create_localized_help.py:191
+msgid "Contributors"
+msgstr "贡献者"
+
+#: ../../create_localized_help.py:192
+msgid "Changelog"
+msgstr "变更日志"
+
+#: ../../create_localized_help.py:193
 msgid "Choose language"
 msgstr "选择语言"
 
 #. TO TRANSLATORS: Full sentence:
 #. "Help for <xlet_name>"
-#: ../../create_localized_help.py:167 ../../create_localized_help.py:174
+#: ../../create_localized_help.py:194 ../../create_localized_help.py:201
 #, python-format
 msgid "Help for %s"
 msgstr "%s的帮助"
 
-#: ../../create_localized_help.py:175
+#: ../../create_localized_help.py:202
 msgid "IMPORTANT!!!"
 msgstr "重要！！！"
 
-#: ../../create_localized_help.py:176
+#: ../../create_localized_help.py:203
 msgid ""
 "Never delete any of the files found inside this xlet folder. It might break "
 "this xlet functionality."
 msgstr "不要删除该xlet文件夹内的任何文件。可能会损坏该xlet的功能。"
 
-#: ../../create_localized_help.py:177
+#: ../../create_localized_help.py:204
 msgid ""
 "Bug reports, feature requests and contributions should be done on this "
 "xlet's repository linked next."
 msgstr "错误报告，功能请求和贡献应该在下方链接的xlet的仓库上完成。"
 
-#: ../../create_localized_help.py:183
+#: ../../create_localized_help.py:210
 msgid "Applets/Desklets/Extensions (a.k.a. xlets) localization"
 msgstr "小程序/桌面小工具/扩展（也称为xlets）本地化"
 
-#: ../../create_localized_help.py:184
+#: ../../create_localized_help.py:211
 msgid ""
 "If this xlet was installed from Cinnamon Settings, all of this xlet's "
 "localizations were automatically installed."
 msgstr "如果该xlet安装自Cinnamon设置，该xlet的所有本地化已经自动安装。"
 
 #. TO TRANSLATORS: MARKDOWN string. Respect formatting.
-#: ../../create_localized_help.py:186
+#: ../../create_localized_help.py:213
 msgid ""
 "If this xlet was installed manually and not trough Cinnamon Settings, "
 "localizations can be installed by executing the script called "
@@ -160,11 +168,20 @@ msgstr ""
 "如果该xlet是通过手动安装而不是Cinnamon设置，可以通过打开终端执行xlet文件夹内"
 "名为**localizations.sh**的脚本安装本地化。"
 
-#: ../../create_localized_help.py:187
+#: ../../create_localized_help.py:214
 msgid ""
 "If this xlet has no locale available for your language, you could create it "
 "by following the following instructions."
 msgstr "如果该xlet没有您的语言的本地化，您可以按照以下说明进行创建。"
+
+#~ msgid "Alan01: Danish localization."
+#~ msgstr "Alan01：丹麦语本地化。"
+
+#~ msgid "giwhub: Chinese localization."
+#~ msgstr "giwhub：中文本地化。"
+
+#~ msgid "muzena: Croatian localization."
+#~ msgstr "muzena：克罗地亚语本地化。"
 
 #~ msgid "Help for {xlet_name}"
 #~ msgstr "{xlet_name}帮助"
