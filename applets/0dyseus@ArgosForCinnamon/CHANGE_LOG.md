@@ -4,6 +4,21 @@
 
 ***
 
+- **Date:** Sun, 4 Jun 2017 16:12:18 -0300
+- **Commit:** [a3d1d29](https://github.com/Odyseus/CinnamonTools/commit/a3d1d29)
+- **Author:** Odyseus
+
+```
+Argos for Cinnamon applet
+- Removed the two broken *internal links* inside the help file. Since I couldn't fix their behavior,
+I simply removed them and added some *literal references*.
+- Updated localization template, Spanish localization and help file due to changes to the
+create_localized_help.py script.
+
+```
+
+***
+
 - **Date:** Sun, 4 Jun 2017 19:29:42 +0800
 - **Commit:** [07e8226](https://github.com/Odyseus/CinnamonTools/commit/07e8226)
 - **Author:** giwhub
