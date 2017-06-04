@@ -267,11 +267,11 @@ class Widgets():
             output, error_output = po.communicate()
 
             if po.returncode:
-                print(Ansi.RED_BOLD(error_output))
+                print(Ansi.ERROR(error_output))
             else:
-                print(Ansi.GREEN_BOLD(output))
+                print(Ansi.INFO(output))
         except OSError as err:
-            print(Ansi.RED_BOLD("Execution failed"), err, file=sys.stderr)
+            print(Ansi.ERROR("Execution failed"), err, file=sys.stderr)
 
 
 def populate_box(app):

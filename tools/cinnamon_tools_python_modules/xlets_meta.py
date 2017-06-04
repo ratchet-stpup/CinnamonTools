@@ -14,7 +14,7 @@ class XletsMeta(object):
 
 
 def generate_meta_file(root_path=os.getcwd()):
-    print(Ansi.YELLOW_BOLD("Generating xlets metadata file..."))
+    print(Ansi.WARN("Generating xlets metadata file..."))
     xlet_meta_files = []
     xlet_meta = []
 

@@ -3,11 +3,11 @@
 
 class ANSIColors(object):
 
-    def RED_BOLD(self, s):
-        return "\033[31;1m" + str(s) + "\033[0m"
+    def ERROR(self, s):
+        return "\033[38;5;166;1m" + str(s) + "\033[0m"
 
-    def GREEN_BOLD(self, s):
-        return "\033[32;1m" + str(s) + "\033[0m"
+    def INFO(self, s):
+        return "\033[38;5;77;1m" + str(s) + "\033[0m"
 
-    def YELLOW_BOLD(self, s):
-        return "\033[33;1m" + str(s) + "\033[0m"
+    def WARN(self, s):
+        return "\033[38;5;220;1m" + str(s) + "\033[0m"

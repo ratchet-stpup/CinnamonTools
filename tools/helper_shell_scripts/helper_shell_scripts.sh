@@ -7,15 +7,15 @@ xlets_types=("applets" "extensions" "themes" "tools")
 tools_whitelist=("make-xlet-pot" "dead-to-bash")
 
 echoInfo() {
-    [ $# -gt 0 ] && echo -e "$(tput bold)$(tput setaf 10)$1$(tput sgr0)" >&2
+    [ $# -gt 0 ] && echo -e "$(tput bold)$(tput setaf 77)$1$(tput sgr0)" >&2
 }
 
 echoWarn() {
-    [ $# -gt 0 ] && echo -e "$(tput bold)$(tput setaf 11)$1$(tput sgr0)" >&2
+    [ $# -gt 0 ] && echo -e "$(tput bold)$(tput setaf 220)$1$(tput sgr0)" >&2
 }
 
 echoError() {
-    [ $# -gt 0 ] && echo -e "$(tput bold)$(tput setaf 9)$1$(tput sgr0)" >&2
+    [ $# -gt 0 ] && echo -e "$(tput bold)$(tput setaf 166)$1$(tput sgr0)" >&2
 }
 
 renderMainSite() {

@@ -92,10 +92,10 @@ class XletsHelperCore():
 
         for p in itertools.chain(py_list, sh_list):
             if "/tools/" not in p and not is_exec(p):
-                print(Ansi.YELLOW_BOLD("Not an executable: %s" % p[len(self.root_path):]))
+                print(Ansi.WARN("Not an executable: %s" % p[len(self.root_path):]))
 
                 if set_exec:
-                    print(Ansi.GREEN_BOLD("Setting it as such..."))
+                    print(Ansi.INFO("Setting it as such..."))
                     os.chmod(p, 0o755)
 
     def create_changelogs(self):
@@ -103,7 +103,7 @@ class XletsHelperCore():
 
         Generate the CHANGE_LOG.md files for all xlets.
         """
-        print(Ansi.YELLOW_BOLD("Generating change logs..."))
+        print(Ansi.WARN("Generating change logs..."))
 
         logs_storage = os.path.join(self.root_path, "tmp", "changelogs")
         changelog_sanitizer_path = os.path.join(self.root_path, "tools",
@@ -112,7 +112,7 @@ class XletsHelperCore():
         GLib.mkdir_with_parents(logs_storage, 0o755)
 
         for xlet in self.xlets_meta.list:
-            print(Ansi.GREEN_BOLD("Generating change log for %s..." % xlet["name"]))
+            print(Ansi.INFO("Generating change log for %s..." % xlet["name"]))
 
             xlet_root_folder = get_parent_dir(xlet["meta-path"], 2)
             tmp_log_path = os.path.join(logs_storage, xlet["uuid"] + ".md")
@@ -148,13 +148,13 @@ class XletsHelperCore():
 
         Update all .pot files from all xlets.
         """
-        print(Ansi.YELLOW_BOLD("Starting POT files update..."))
+        print(Ansi.WARN("Starting POT files update..."))
 
         for xlet in self.xlets_meta.list:
             xlet_folder_path = get_parent_dir(xlet["meta-path"], 0)
 
             if os.path.exists(xlet_folder_path):
-                print(Ansi.GREEN_BOLD(
+                print(Ansi.INFO(
                     "Updating localization template for %s..." % xlet["name"]))
 
                 cmd = "make-xlet-pot --all"
@@ -166,14 +166,14 @@ class XletsHelperCore():
 
         Execute the create_localized_help.py script for each xlet to generate their HELP.html files.
         """
-        print(Ansi.YELLOW_BOLD("Starting localized help creation..."))
+        print(Ansi.WARN("Starting localized help creation..."))
 
         for xlet in self.xlets_meta.list:
             script_folder_path = get_parent_dir(xlet["meta-path"], 2)
             script_file_path = os.path.join(script_folder_path, "create_localized_help.py")
 
             if os.path.exists(script_file_path):
-                print(Ansi.GREEN_BOLD("Creating localized help for %s..." % xlet["name"]))
+                print(Ansi.INFO("Creating localized help for %s..." % xlet["name"]))
 
                 cmd = "%s -p" % script_file_path
                 self.exec_command(cmd=cmd,
@@ -190,7 +190,7 @@ class XletsHelperCore():
             working_directory {String} -- Working directory for the script that lanches the
             needed commands.
         """
-        print(Ansi.YELLOW_BOLD("Starting rendering of main site..."))
+        print(Ansi.WARN("Starting rendering of main site..."))
 
         cmd = "./tools/helper_shell_scripts/helper_shell_scripts.sh render-main-site &"
         self.exec_command(cmd=cmd,
@@ -202,7 +202,7 @@ class XletsHelperCore():
         Clones the repository's wiki into the /docs folder.
         The wiki's files are used to create part of the main site.
         """
-        print(Ansi.YELLOW_BOLD("Cloning repository's wiki..."))
+        print(Ansi.WARN("Cloning repository's wiki..."))
 
         cmd = "git clone https://github.com/Odyseus/CinnamonTools.wiki.git &"
         self.exec_command(cmd=cmd,
@@ -213,7 +213,7 @@ class XletsHelperCore():
 
         Generates files that contain the amount of untranslated strings an xlet has.
         """
-        print(Ansi.YELLOW_BOLD("Generating translation statistics..."))
+        print(Ansi.WARN("Generating translation statistics..."))
 
         cmd = "./tools/helper_shell_scripts/helper_shell_scripts.sh generate-trans-stats &"
         self.exec_command(cmd=cmd,
@@ -227,7 +227,7 @@ class XletsHelperCore():
         The next time that this function is run, it will only package
         the xlets whose folder contents has been changed.
         """
-        print(Ansi.YELLOW_BOLD("Creating xlets packages..."))
+        print(Ansi.WARN("Creating xlets packages..."))
 
         cmd = "./tools/helper_shell_scripts/helper_shell_scripts.sh create-packages &"
         self.exec_command(cmd=cmd,
@@ -265,11 +265,11 @@ class XletsHelperCore():
                 output, error_output = po.communicate()
 
                 if po.returncode:
-                    print(Ansi.RED_BOLD(error_output))
+                    print(Ansi.ERROR(error_output))
                 else:
-                    print(Ansi.GREEN_BOLD(output))
+                    print(Ansi.INFO(output))
         except OSError as err:
-            print(Ansi.RED_BOLD("Execution failed"), err, file=sys.stderr)
+            print(Ansi.ERROR("Execution failed"), err, file=sys.stderr)
 
 
 def get_parent_dir(fpath, go_up=0):

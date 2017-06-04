@@ -4,6 +4,17 @@
 
 ***
 
+- **Date:** Sun, 4 Jun 2017 19:43:55 +0800
+- **Commit:** [c876863](https://github.com/Odyseus/CinnamonTools/commit/c876863)
+- **Author:** giwhub
+
+```
+Update zh_CN.po
+
+```
+
+***
+
 - **Date:** Sat, 3 Jun 2017 09:00:29 +0200
 - **Commit:** [6e93724](https://github.com/Odyseus/CinnamonTools/commit/6e93724)
 - **Author:** Åke Engelbrektson
