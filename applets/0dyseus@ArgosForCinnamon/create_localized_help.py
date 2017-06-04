@@ -72,7 +72,8 @@ def get_content():
         "## %s" % _("Key features"),
         "\n",
         # TO TRANSLATORS: MARKDOWN string. Respect formatting.
-        "- %s" % _("**100% API [compatible with BitBar 1.9.2](#argos-bitbar-compatibility):** All BitBar plugins that run on Linux (i.e. do not contain macOS-specific code) will work with Argos (else it's a bug)."),
+        "- %s %s" % (_("**100% API compatible with BitBar 1.9.2:** All BitBar plugins that run on Linux (i.e. do not contain macOS-specific code) will work with Argos (else it's a bug)."),
+                     _("See **BitBar plugins with Argos for Cinnamon**.")),
         # TO TRANSLATORS: MARKDOWN string. Respect formatting.
         "- %s" % _("**Beyond BitBar:** Argos can do everything that BitBar can do, but also some things that BitBar can't do (yet). See the documentation for details."),
         # TO TRANSLATORS: MARKDOWN string. Respect formatting.
@@ -84,7 +85,7 @@ def get_content():
         # TO TRANSLATORS: MARKDOWN string. Respect formatting.
         "- %s" % _("**Optimized for minimum resource consumption:** Even with multiple plugins refreshing every second, Argos typically uses less than 1 percent of the CPU."),
         # TO TRANSLATORS: MARKDOWN string. Respect formatting.
-        "- %s" % _("**Fully [documented](#argos-usage).**"),
+        "- %s %s" % (_("**Fully documented:**"), _("See **Usage**.")),
         "***",
         "\n",
         "## %s" % _("Dependencies"),
@@ -95,8 +96,6 @@ def get_content():
                             _("This command is installed with the package called **xdg-utils**."),
                             _("Installed by default in modern versions of Linux Mint.")),
         "***",
-        "\n",
-        "<span id=\"argos-usage\"></span>",
         "\n",
         "## %s" % _("Usage"),
         "\n",
@@ -271,7 +270,6 @@ TEXT | ATTRIBUTE_1=VALUE ATTRIBUTE_2=VALUE ...
          # TO TRANSLATORS: MARKDOWN string. Respect formatting.
          _("If `true`, re-runs the plugin, updating its output.")),
         "***",
-        "<span id=\"argos-bitbar-compatibility\"></span>",
         "## %s" % _("BitBar plugins with Argos for Cinnamon"),
         "<div class=\"alert alert-warning\">",
         "<strong>",
