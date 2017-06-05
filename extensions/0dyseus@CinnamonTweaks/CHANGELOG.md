@@ -4,6 +4,62 @@
 
 ***
 
+- **Date:** Mon, 5 Jun 2017 16:45:00 -0300
+- **Commit:** [dbe46d9](https://github.com/Odyseus/CinnamonTools/commit/dbe46d9)
+- **Author:** Odyseus
+
+```
+Merge branch 'master' of git+ssh://github.com/Odyseus/CinnamonTools
+
+```
+
+***
+
+- **Date:** Mon, 5 Jun 2017 16:39:48 -0300
+- **Commit:** [5d83e9f](https://github.com/Odyseus/CinnamonTools/commit/5d83e9f)
+- **Author:** Odyseus
+
+```
+Update da.po
+
+```
+
+***
+
+- **Date:** Mon, 5 Jun 2017 14:31:37 -0300
+- **Commit:** [dfd1979](https://github.com/Odyseus/CinnamonTools/commit/dfd1979)
+- **Author:** Odyseus
+
+```
+Cinnamon Tweaks extension
+- Updated help file due to updated localization.
+
+```
+
+***
+
+- **Date:** Mon, 5 Jun 2017 19:30:56 +0200
+- **Commit:** [8be938a](https://github.com/Odyseus/CinnamonTools/commit/8be938a)
+- **Author:** Alan01
+
+```
+Fixed typo
+
+```
+
+***
+
+- **Date:** Mon, 5 Jun 2017 19:23:49 +0200
+- **Commit:** [2410246](https://github.com/Odyseus/CinnamonTools/commit/2410246)
+- **Author:** Alan01
+
+```
+Fixed translation omission
+
+```
+
+***
+
 - **Date:** Sun, 4 Jun 2017 19:47:39 +0800
 - **Commit:** [0213787](https://github.com/Odyseus/CinnamonTools/commit/0213787)
 - **Author:** giwhub

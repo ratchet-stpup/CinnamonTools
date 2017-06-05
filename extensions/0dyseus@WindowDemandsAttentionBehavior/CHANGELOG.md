@@ -4,6 +4,19 @@
 
 ***
 
+- **Date:** Mon, 5 Jun 2017 16:48:09 -0300
+- **Commit:** [15b7c68](https://github.com/Odyseus/CinnamonTools/commit/15b7c68)
+- **Author:** Odyseus
+
+```
+Window demands attention behavior extension
+- Changed tabs to spaces. This was overdue. I changed to spaces in all my xlets more than a year
+ago.
+
+```
+
+***
+
 - **Date:** Sun, 4 Jun 2017 19:51:14 +0800
 - **Commit:** [85c482b](https://github.com/Odyseus/CinnamonTools/commit/85c482b)
 - **Author:** giwhub
