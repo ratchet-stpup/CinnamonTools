@@ -672,7 +672,7 @@ msgid ""
 msgstr ""
 "For at kunne udføre disse handlinger skal indstillingsskemaet installeres i "
 "systemet. Dette sker automatisk, hvis udvidelsen installeres gennem "
-"Cinnamons er. Blev udvidelsen installeret manuelt, skal indstillingsskemaet "
+"Cinnamons modul til håndtering af udvidelser. Blev udvidelsen installeret manuelt, skal indstillingsskemaet "
 "også installeres manuelt. Dette gøres ved at gå til udvidelsens mappe og "
 "køre følgende kommando:"
 
