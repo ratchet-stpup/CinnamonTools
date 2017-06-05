@@ -721,7 +721,7 @@ msgid ""
 "Never delete any of the files found inside this xlet folder. It might break "
 "this xlet functionality."
 msgstr ""
-"Slet aldring nogen af filerne i denne udvidelses mappe. Det kan ødelægge "
+"Slet aldrig nogen af filerne i denne udvidelses mappe. Det kan ødelægge "
 "udvidelsens funktionalitet."
 
 #: ../../create_localized_help.py:347
