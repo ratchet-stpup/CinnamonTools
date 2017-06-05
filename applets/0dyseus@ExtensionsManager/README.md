@@ -24,4 +24,4 @@ This applet creates a menu with a list of all installed extensions in Cinnamon. 
 
 [Contributors/Mentions](https://github.com/Odyseus/CinnamonTools/blob/master/applets/0dyseus%40ExtensionsManager/CONTRIBUTORS.md)
 
-[Full change log](https://github.com/Odyseus/CinnamonTools/blob/master/applets/0dyseus%40ExtensionsManager/CHANGE_LOG.md)
+[Full change log](https://github.com/Odyseus/CinnamonTools/blob/master/applets/0dyseus%40ExtensionsManager/CHANGELOG.md)

@@ -27,4 +27,4 @@ More precisely, Argos for Cinnamon is an applet that turns executables' standard
 
 [Contributors/Mentions](https://github.com/Odyseus/CinnamonTools/blob/master/applets/0dyseus%40ArgosForCinnamon/CONTRIBUTORS.md)
 
-[Full change log](https://github.com/Odyseus/CinnamonTools/blob/master/applets/0dyseus%40ArgosForCinnamon/CHANGE_LOG.md)
+[Full change log](https://github.com/Odyseus/CinnamonTools/blob/master/applets/0dyseus%40ArgosForCinnamon/CHANGELOG.md)

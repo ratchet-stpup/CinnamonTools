@@ -48,4 +48,4 @@ Once installed and enabled, the following shortcuts will be available.
 
 [Contributors/Mentions](https://github.com/Odyseus/CinnamonTools/blob/master/extensions/0dyseus%40MultiTranslatorExtension/CONTRIBUTORS.md)
 
-[Full change log](https://github.com/Odyseus/CinnamonTools/blob/master/extensions/0dyseus%40MultiTranslatorExtension/CHANGE_LOG.md)
+[Full change log](https://github.com/Odyseus/CinnamonTools/blob/master/extensions/0dyseus%40MultiTranslatorExtension/CHANGELOG.md)

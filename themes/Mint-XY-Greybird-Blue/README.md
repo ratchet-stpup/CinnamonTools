@@ -18,4 +18,4 @@ This theme is basically the default **Mint-X** theme with some graphics (check/r
 If your system has any other version of gtk3 installed, all gtk3 applications' style will be broken (gkt3 versions 3.20 and 3.22) or your .xsession-errors file will be flooded with hundreds of warnings (gtk3 version 3.10).
 </span>
 
-[Full change log](https://github.com/Odyseus/CinnamonTools/blob/master/themes/Mint-XY-Greybird-Blue/CHANGE_LOG.md)
+[Full change log](https://github.com/Odyseus/CinnamonTools/blob/master/themes/Mint-XY-Greybird-Blue/CHANGELOG.md)

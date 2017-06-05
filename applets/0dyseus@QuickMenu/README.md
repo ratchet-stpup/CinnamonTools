@@ -65,6 +65,6 @@ This applet has to read every single file/folder inside a main folder to create 
 
 [Contributors/Mentions](https://github.com/Odyseus/CinnamonTools/blob/master/applets/0dyseus%40QuickMenu/CONTRIBUTORS.md)
 
-[Full change log](https://github.com/Odyseus/CinnamonTools/blob/master/applets/0dyseus%40QuickMenu/CHANGE_LOG.md)
+[Full change log](https://github.com/Odyseus/CinnamonTools/blob/master/applets/0dyseus%40QuickMenu/CHANGELOG.md)
 
 [ToDo](https://github.com/Odyseus/CinnamonTools/blob/master/applets/0dyseus%40QuickMenu/TODO)

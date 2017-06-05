@@ -101,7 +101,7 @@ class XletsHelperCore():
     def create_changelogs(self):
         """create_changelogs
 
-        Generate the CHANGE_LOG.md files for all xlets.
+        Generate the CHANGELOG.md files for all xlets.
         """
         print(Ansi.WARN("Generating change logs..."))
 
@@ -136,7 +136,7 @@ class XletsHelperCore():
 
             # Sanitize and clean up formatting of the change logs and
             # copy them to their final destinations.
-            cmd3 = '%s "%s" "%s" "%s/CHANGE_LOG.md"' % (changelog_sanitizer_path,
+            cmd3 = '%s "%s" "%s" "%s/CHANGELOG.md"' % (changelog_sanitizer_path,
                                                         xlet["name"],
                                                         tmp_log_path,
                                                         xlet_root_folder)

@@ -29,4 +29,4 @@ This extension is a fork of the [Cinnamon Maximus](https://cinnamon-spices.linux
 
 [Contributors/Mentions](https://github.com/Odyseus/CinnamonTools/blob/master/extensions/0dyseus%40CinnamonMaximusFork/CONTRIBUTORS.md)
 
-[Full change log](https://github.com/Odyseus/CinnamonTools/blob/master/extensions/0dyseus%40CinnamonMaximusFork/CHANGE_LOG.md)
+[Full change log](https://github.com/Odyseus/CinnamonTools/blob/master/extensions/0dyseus%40CinnamonMaximusFork/CHANGELOG.md)

@@ -33,4 +33,4 @@ Applet based on the gnome-shell extension called [Desk Changer](https://github.c
 
 [Contributors/Mentions](https://github.com/Odyseus/CinnamonTools/blob/master/applets/0dyseus%40WallpaperChangerApplet/CONTRIBUTORS.md)
 
-[Full change log](https://github.com/Odyseus/CinnamonTools/blob/master/applets/0dyseus%40WallpaperChangerApplet/CHANGE_LOG.md)
+[Full change log](https://github.com/Odyseus/CinnamonTools/blob/master/applets/0dyseus%40WallpaperChangerApplet/CHANGELOG.md)

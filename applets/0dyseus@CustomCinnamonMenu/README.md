@@ -56,6 +56,6 @@ This applet is a custom version of the default Cinnamon Menu applet, but infinit
 
 [Contributors/Mentions](https://github.com/Odyseus/CinnamonTools/blob/master/applets/0dyseus%40CustomCinnamonMenu/CONTRIBUTORS.md)
 
-[Full change log](https://github.com/Odyseus/CinnamonTools/blob/master/applets/0dyseus%40CustomCinnamonMenu/CHANGE_LOG.md)
+[Full change log](https://github.com/Odyseus/CinnamonTools/blob/master/applets/0dyseus%40CustomCinnamonMenu/CHANGELOG.md)
 
 [ToDo](https://github.com/Odyseus/CinnamonTools/blob/master/applets/0dyseus%40CustomCinnamonMenu/TODO)

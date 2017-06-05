@@ -28,4 +28,4 @@ Applet based on two gnome-shell extensions ([Todo list](https://github.com/bsale
 
 [Contributors/Mentions](https://github.com/Odyseus/CinnamonTools/blob/master/applets/0dyseus%40SimpleToDoList/CONTRIBUTORS.md)
 
-[Full change log](https://github.com/Odyseus/CinnamonTools/blob/master/applets/0dyseus%40SimpleToDoList/CHANGE_LOG.md)
+[Full change log](https://github.com/Odyseus/CinnamonTools/blob/master/applets/0dyseus%40SimpleToDoList/CHANGELOG.md)

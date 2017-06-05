@@ -39,4 +39,4 @@ This applet is based on [Smart Panel](https://cinnamon-spices.linuxmint.com/exte
 
 [Contributors/Mentions](https://github.com/Odyseus/CinnamonTools/blob/master/applets/0dyseus%40DesktopHandler/CONTRIBUTORS.md)
 
-[Full change log](https://github.com/Odyseus/CinnamonTools/blob/master/applets/0dyseus%40DesktopHandler/CHANGE_LOG.md)
+[Full change log](https://github.com/Odyseus/CinnamonTools/blob/master/applets/0dyseus%40DesktopHandler/CHANGELOG.md)

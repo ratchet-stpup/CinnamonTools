@@ -35,7 +35,7 @@ git clone https://github.com/Odyseus/CinnamonTools.wiki.git
 
 #### General notes
 
-- Break **script** closing tags on all JS files. From `"</script>"` to `"</scr"+"ipt>"`. It breaks page loading when the JS code is embedded in the HTML. THe logged error is `SyntaxError: unterminated string literal`. It seems not to be a problem when the scripts are linked files.
+- Break **script** closing tags on all JS files. From `"</script>"` to `"</scr"+"ipt>"`. It breaks page loading when the JS code is embedded in the HTML. The logged error is `SyntaxError: unterminated string literal`. It seems not to be a problem when the scripts are linked files.
 - Use of official CDNs for the [jQuery](https://code.jquery.com/) and [Bootstrap](https://www.bootstrapcdn.com/) script files.
 
 #### Include files notes
@@ -46,7 +46,7 @@ git clone https://github.com/Odyseus/CinnamonTools.wiki.git
 #### Highlight.js notes
 
 - Download [highlight.js](https://highlightjs.org/download/) with support for these languages only (Bash, CSS, JSON, JavaScript, Markdown and Python).
-- The xcode.css file is the theme used for syntax highlighting. Edit this CSS file to change the background color of the .hljs class to #f8f8f8.
+- The xcode.css file is the theme used for syntax highlighting. Edit this CSS file to change the background color of the `hljs` class to `#f8f8f8`.
 
 #### Bootstrap notes
 

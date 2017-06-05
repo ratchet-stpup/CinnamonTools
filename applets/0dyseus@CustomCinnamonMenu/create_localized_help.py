@@ -177,7 +177,7 @@ class Main():
             self.contributors = None
 
         try:
-            changelog_file = open(os.path.join(XLET_DIR, "CHANGE_LOG.md"), "r")
+            changelog_file = open(os.path.join(XLET_DIR, "CHANGELOG.md"), "r")
             changelog_rawdata = changelog_file.read()
             changelog_file.close()
             self.changelog = self.html_templates.boxed_container.format(md(changelog_rawdata))

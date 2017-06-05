@@ -22,4 +22,4 @@ I found two Gnome Shell Extensions and I mixed their functions into one Cinnamon
 
 [Contributors/Mentions](https://github.com/Odyseus/CinnamonTools/blob/master/extensions/0dyseus%40WindowDemandsAttentionBehavior/CONTRIBUTORS.md)
 
-[Full change log](https://github.com/Odyseus/CinnamonTools/blob/master/extensions/0dyseus%40WindowDemandsAttentionBehavior/CHANGE_LOG.md)
+[Full change log](https://github.com/Odyseus/CinnamonTools/blob/master/extensions/0dyseus%40WindowDemandsAttentionBehavior/CHANGELOG.md)

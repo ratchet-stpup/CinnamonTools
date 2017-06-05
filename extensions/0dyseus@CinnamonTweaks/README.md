@@ -37,4 +37,4 @@ For detailed explanations of each option/tweak, see this extension help (accessi
 
 [Contributors/Mentions](https://github.com/Odyseus/CinnamonTools/blob/master/extensions/0dyseus%40CinnamonTweaks/files/0dyseus%40CinnamonTweaks/CONTRIBUTORS.md)
 
-[Full change log](https://github.com/Odyseus/CinnamonTools/blob/master/extensions/0dyseus%40CinnamonTweaks/CHANGE_LOG.md)
+[Full change log](https://github.com/Odyseus/CinnamonTools/blob/master/extensions/0dyseus%40CinnamonTweaks/CHANGELOG.md)
