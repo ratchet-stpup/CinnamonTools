@@ -1,6 +1,6 @@
 ﻿// START jQuery functions after page ready.
 jQuery(document).ready(function($) {
-    if (metadata && metadata.pageType === "cb_documentation") {
+    if (metadata && metadata === "wiki") {
         $('#index-sidebar ul.nav li a').on('click', function() {
             var $target = $($(this).attr('href'));
             $('html, body').animate({

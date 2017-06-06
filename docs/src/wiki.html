@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8">
+    <title>Cinnamon tools wiki - By Odyseus</title>
+    <link rel="shortcut icon" type="image/x-icon" href="lib/img/cinnamon-logo.svg">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link type="text/css" rel="stylesheet" href="lib/css/bootstrap.min.css">
+    <link type="text/css" rel="stylesheet" href="lib/css/highlight.css">
+    <link type="text/css" rel="stylesheet" href="lib/css/tweaks.css">
+    <link type="text/css" rel="stylesheet" href="lib/css/docs.css">
+    <script type="text/javascript">
+    var metadata = "wiki";
+    </script>
+</head>
+
+<body style="position: relative">
+    <!-- include ./includes/_noscript.html-->
+    {_noscript_html}
+    <div>
+        <span id="headmenu">
+            <!-- include ./includes/_navbar.html-->
+            {_navbar_html}
+        </span>
+        <a id="effing_index"></a>
+        <div class="container cb-docs-container">
+            <div class="jumbotron" id="cb_jumbotron">
+                <div class="container">
+                    <h2>Cinnamon tools wiki</h2>
+                    <p>This wiki is basically a list of *how-tos* about basic tasks. I created it to keep track of the things I am learning about Cinnamon customizations. It is oriented mainly to beginners as myself (Odyseus).</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-9" role="main">
+                    <div class="alert alert-info"><strong><p>I will use the word xlet throughout this wiki to refer to any Cinnamon applet, extension or desklet.</p></strong></div>
+                    <h1>GitHub tips &amp; tricks</h1>
+                    <!-- include ../CinnamonTools.wiki/GitHub-tips-&-tricks.md-->
+                    {github_tricks_md}
+                    <h1>Xlet development</h1>
+                    <!-- include ../CinnamonTools.wiki/Xlet-development.md-->
+                    {xlet_development_md}
+                    <h1>Xlet instalation</h1>
+                    <!-- include ../CinnamonTools.wiki/Xlet-instalation.md-->
+                    {xlet_instalation_md}
+                    <h1>Xlet localization</h1>
+                    <!-- include ../CinnamonTools.wiki/Xlet-localization.md-->
+                    {xlet_localization_md}
+                </div>
+                <div class="col-md-3" role="complementary">
+                    <nav class="hidden-print hidden-xs hidden-sm" id="index-sidebar">
+                        <div style="padding-top:1px;padding-bottom:1px;padding-left:20px">
+                            <br><a class="btn btn-info btn-xs" style="font-size:12px;font-weight:bold" data-toggle="tooltip" data-placement="left" data-original-title="Download this wiki as an standalone HTML file." rel="nofollow" title="Download this wiki as an standalone HTML file." href="wiki_standalone.html" download><span class="glyphicon glyphicon-download-alt"></span> Download</a>
+                            <br>
+                        </div>
+                        <!-- include ./includes/_wiki_index.html-->
+                        {_wiki_index_html}
+                    </nav>
+                </div>
+            </div>
+        </div>
+        <div class="navbar navbar-default" id="footer">
+            <!-- include ./includes/_footer.html-->
+            {_footer_html}
+        </div>
+    </div>
+    <!-- include ./includes/_linktotop.html-->
+    {_linktotop_html}
+    <!-- include ./includes/_scriptsatbottom.html-->
+    {_scriptsatbottom_html}
+    <script type="text/javascript" src="lib/js/highlight.pack.js"></script>
+    <script type="text/javascript" src="lib/js/myFunctions.js"></script>
+</body>
+
+</html>

@@ -1,24 +1,10 @@
-### Requirements to build the HTML pages from the PUG files
+### Requirements to build the HTML pages
 
-- Node.js
-    - Download the [source](https://nodejs.org/download/) and install.
-```bash
-$ ./configure
-$ make
-$ [sudo] make install
-```
+The **build_pages.py** script's only dependency is the **mistune** Python module, that it's already icluded in this repository Python modules (**CinnamonTools/tools/cinnamon_tools_python_modules**).
 
-- Pug
-```bash
-$ [sudo] npm install pug-cli -g
-```
-
-- markdown-it
-```bash
-$ [sudo] npm install jstransformer-markdown-it -g
-```
 
 - Git
+
 ```bash
 sudo apt-get install git git-doc git-gui
 ```
@@ -40,8 +26,8 @@ git clone https://github.com/Odyseus/CinnamonTools.wiki.git
 
 #### Include files notes
 
-- The *_navbar.pug* file has relative links.
-- The *_navbar_for_standalone.pug* file has absolute links.
+- The *_navbar.html* file has relative links.
+- The *_navbar_for_standalone.html* file has absolute links.
 
 #### Highlight.js notes
 
