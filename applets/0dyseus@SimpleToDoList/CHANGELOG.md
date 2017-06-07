@@ -4,6 +4,19 @@
 
 ***
 
+- **Date:** Tue, 6 Jun 2017 22:30:27 -0300
+- **Commit:** [e86b5f9](https://github.com/Odyseus/CinnamonTools/commit/e86b5f9)
+- **Author:** Odyseus
+
+```
+Simple ToDo List applet
+- Better handling of **Settings.BindingDirection**. Just to avoid surprises when that constant is
+removed on future versions of Cinnamon.
+
+```
+
+***
+
 - **Date:** Sun, 4 Jun 2017 19:38:41 +0800
 - **Commit:** [8dd523d](https://github.com/Odyseus/CinnamonTools/commit/8dd523d)
 - **Author:** giwhub

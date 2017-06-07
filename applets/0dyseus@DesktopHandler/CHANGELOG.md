@@ -4,6 +4,19 @@
 
 ***
 
+- **Date:** Tue, 6 Jun 2017 22:29:26 -0300
+- **Commit:** [4289024](https://github.com/Odyseus/CinnamonTools/commit/4289024)
+- **Author:** Odyseus
+
+```
+Desktop Handler applet
+- Better handling of **Settings.BindingDirection**. Just to avoid surprises when that constant is
+removed on future versions of Cinnamon.
+
+```
+
+***
+
 - **Date:** Sun, 4 Jun 2017 19:31:37 +0800
 - **Commit:** [45949ee](https://github.com/Odyseus/CinnamonTools/commit/45949ee)
 - **Author:** giwhub

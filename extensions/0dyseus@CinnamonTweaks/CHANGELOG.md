@@ -4,6 +4,25 @@
 
 ***
 
+- **Date:** Tue, 6 Jun 2017 22:32:31 -0300
+- **Commit:** [be1479c](https://github.com/Odyseus/CinnamonTools/commit/be1479c)
+- **Author:** Odyseus
+
+```
+Cinnamon Tweaks extension
+- Better handling of **Settings.BindingDirection**. Just to avoid surprises when that constant is
+removed on future versions of Cinnamon.
+- Windows decorations removal tweak. Added option to handle invisible windows problem. On the
+original Maximus extension (by fmete) I changed one of the _MOTIF_WM_HINTS flags from 0x2 to 0x0 to
+avoid having a border at the top of a maximized window with its title bar removed. This was working
+perfectly fine until Cinnamon 3.4. On Cinnamon 3.4, setting that flag to 0x0 would result on windows
+that started maximized and with their title bars removed to become invisible. I simply added an
+option for people using Cinnamon 3.4 or greater to change that flag.
+
+```
+
+***
+
 - **Date:** Mon, 5 Jun 2017 16:45:00 -0300
 - **Commit:** [dbe46d9](https://github.com/Odyseus/CinnamonTools/commit/dbe46d9)
 - **Author:** Odyseus

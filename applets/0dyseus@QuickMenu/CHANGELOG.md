@@ -4,6 +4,19 @@
 
 ***
 
+- **Date:** Tue, 6 Jun 2017 22:30:14 -0300
+- **Commit:** [86aed4b](https://github.com/Odyseus/CinnamonTools/commit/86aed4b)
+- **Author:** Odyseus
+
+```
+Quick Menu applet
+- Better handling of **Settings.BindingDirection**. Just to avoid surprises when that constant is
+removed on future versions of Cinnamon.
+
+```
+
+***
+
 - **Date:** Sun, 4 Jun 2017 19:36:56 +0800
 - **Commit:** [a80b5dd](https://github.com/Odyseus/CinnamonTools/commit/a80b5dd)
 - **Author:** giwhub

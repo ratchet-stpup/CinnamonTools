@@ -4,6 +4,19 @@
 
 ***
 
+- **Date:** Tue, 6 Jun 2017 22:29:43 -0300
+- **Commit:** [ba83574](https://github.com/Odyseus/CinnamonTools/commit/ba83574)
+- **Author:** Odyseus
+
+```
+Extensions Manager applet
+- Better handling of **Settings.BindingDirection**. Just to avoid surprises when that constant is
+removed on future versions of Cinnamon.
+
+```
+
+***
+
 - **Date:** Sun, 4 Jun 2017 19:33:13 +0800
 - **Commit:** [f298633](https://github.com/Odyseus/CinnamonTools/commit/f298633)
 - **Author:** giwhub

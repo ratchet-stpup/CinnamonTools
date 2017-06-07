@@ -4,6 +4,19 @@
 
 ***
 
+- **Date:** Tue, 6 Jun 2017 22:28:36 -0300
+- **Commit:** [158f4e3](https://github.com/Odyseus/CinnamonTools/commit/158f4e3)
+- **Author:** Odyseus
+
+```
+Argos for Cinnamon applet
+- Better handling of **Settings.BindingDirection**. Just to avoid surprises when that constant is
+removed on future versions of Cinnamon.
+
+```
+
+***
+
 - **Date:** Sun, 4 Jun 2017 16:12:18 -0300
 - **Commit:** [a3d1d29](https://github.com/Odyseus/CinnamonTools/commit/a3d1d29)
 - **Author:** Odyseus

@@ -4,6 +4,20 @@
 
 ***
 
+- **Date:** Tue, 6 Jun 2017 22:34:01 -0300
+- **Commit:** [25428af](https://github.com/Odyseus/CinnamonTools/commit/25428af)
+- **Author:** Odyseus
+
+```
+Window demands attention behavior extension
+- Better handling of **Settings.BindingDirection**. Just to avoid surprises when that constant is
+removed on future versions of Cinnamon.
+- Changed tabs to spaces on the settings-schema.json file.
+
+```
+
+***
+
 - **Date:** Mon, 5 Jun 2017 16:48:09 -0300
 - **Commit:** [15b7c68](https://github.com/Odyseus/CinnamonTools/commit/15b7c68)
 - **Author:** Odyseus

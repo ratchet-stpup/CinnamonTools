@@ -4,6 +4,19 @@
 
 ***
 
+- **Date:** Tue, 6 Jun 2017 22:29:10 -0300
+- **Commit:** [b2a628f](https://github.com/Odyseus/CinnamonTools/commit/b2a628f)
+- **Author:** Odyseus
+
+```
+Custom Cinnamon Menu applet
+- Better handling of **Settings.BindingDirection**. Just to avoid surprises when that constant is
+removed on future versions of Cinnamon.
+
+```
+
+***
+
 - **Date:** Sun, 4 Jun 2017 19:24:26 +0800
 - **Commit:** [98981fe](https://github.com/Odyseus/CinnamonTools/commit/98981fe)
 - **Author:** giwhub

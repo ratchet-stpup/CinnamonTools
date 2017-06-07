@@ -4,6 +4,19 @@
 
 ***
 
+- **Date:** Tue, 6 Jun 2017 22:31:11 -0300
+- **Commit:** [19e2766](https://github.com/Odyseus/CinnamonTools/commit/19e2766)
+- **Author:** Odyseus
+
+```
+Window list (Fork By Odyseus) applet
+- Better handling of **Settings.BindingDirection**. Just to avoid surprises when that constant is
+removed on future versions of Cinnamon.
+
+```
+
+***
+
 - **Date:** Sun, 4 Jun 2017 19:43:55 +0800
 - **Commit:** [c876863](https://github.com/Odyseus/CinnamonTools/commit/c876863)
 - **Author:** giwhub
