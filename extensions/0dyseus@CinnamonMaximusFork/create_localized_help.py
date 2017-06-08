@@ -78,6 +78,12 @@ def get_css_custom():
     return "/* Specific CSS code for specific HELP files */"
 
 
+# Inject some custom JavaScript code to be executed when page finalyzes to load.
+def get_js_custom():
+    return """
+"""
+
+
 class Main():
 
     def __init__(self):
@@ -145,7 +151,8 @@ class Main():
             sections="\n".join(self.sections),
             only_english=self.only_english,
             contributors=self.contributors if self.contributors else "",
-            changelog=self.changelog if self.changelog else ""
+            changelog=self.changelog if self.changelog else "",
+            js_custom=get_js_custom()
         )
 
         localized_help_modules.save_html_file(path=self.help_file_path,

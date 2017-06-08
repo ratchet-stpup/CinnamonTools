@@ -3,6 +3,7 @@
 import os
 import json
 import gettext
+from shutil import copy
 
 HTML_DOC = """<!DOCTYPE html>
 <html>
@@ -25,7 +26,7 @@ HTML_DOC = """<!DOCTYPE html>
 <noscript>
 <div class="alert alert-warning">
 <p><strong>Oh snap! This page needs JavaScript enabled to display correctly.</strong></p>
-<p><strong>This page uses JavaScript only to switch between the available languages.</strong></p>
+<p><strong>This page uses JavaScript only to switch between the available languages and/or display images.</strong></p>
 <p><strong>There are no tracking services of any kind and never will be (at least, not from my side).</strong></p>
 </div> <!-- .alert.alert-warning -->
 </noscript>
@@ -59,7 +60,8 @@ HTML_DOC = """<!DOCTYPE html>
 <span id="xlet-changelog">
 {changelog}
 </div> <!-- #mainarea -->
-<script type="text/javascript">toggleLocalizationVisibility(null);</script>
+<script type="text/javascript">toggleLocalizationVisibility(null);
+{js_custom}</script>
 </body>
 </html>
 """
@@ -270,12 +272,41 @@ class HTMLInlineAssets(object):
             localizations_handler_js.close()
 
 
+def get_parent_dir(fpath, go_up=0):
+    """get_parent_dir
+
+    Extract the path of the parent directory of a file path.
+
+    Arguments:
+        fpath {String} -- The full path to a file.
+
+    Keyword Arguments:
+        go_up {Number} -- How many directories to go up. (default: {0})
+
+    Returns:
+        [string] -- The new path to a directory.
+    """
+    dir_path = os.path.dirname(fpath)
+
+    if go_up >= 1:
+        for x in range(0, int(go_up)):
+            dir_path = os.path.dirname(dir_path)
+
+    return dir_path
+
+
 def save_html_file(path, data):
     try:
         with open(path, "w") as help_file:
             help_file.write(data)
 
         help_file.close()
+
+        if "help_files" not in path:
+            repo_folder = get_parent_dir(path, 4)
+            xlet_uuid = os.path.basename(get_parent_dir(path))
+            destination = os.path.join(repo_folder, "docs", "help_files", xlet_uuid + ".html")
+            copy(path, destination)
     except Exception as detail:
         print("Failed to write to %s" % path)
         print(detail)
