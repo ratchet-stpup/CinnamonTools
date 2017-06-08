@@ -4,6 +4,28 @@
 
 ***
 
+- **Date:** Thu, 8 Jun 2017 18:57:18 -0300
+- **Commit:** [c6f5ec9](https://github.com/Odyseus/CinnamonTools/commit/c6f5ec9)
+- **Author:** Odyseus
+
+```
+Window demands attention behavior extension
+- Added Danish localization.
+```
+
+***
+
+- **Date:** Thu, 8 Jun 2017 19:19:47 +0200
+- **Commit:** [b02a23f](https://github.com/Odyseus/CinnamonTools/commit/b02a23f)
+- **Author:** Alan01
+
+```
+Create da.po
+
+```
+
+***
+
 - **Date:** Tue, 6 Jun 2017 22:34:01 -0300
 - **Commit:** [25428af](https://github.com/Odyseus/CinnamonTools/commit/25428af)
 - **Author:** Odyseus

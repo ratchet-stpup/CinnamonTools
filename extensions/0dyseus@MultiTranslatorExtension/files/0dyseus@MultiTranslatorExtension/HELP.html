@@ -468,6 +468,7 @@ body {
             <label id="localization-chooser-label" class="control-label" for="localization-switch"></label>
             <select class="form-control input-sm" id="localization-switch" onchange="self.toggleLocalizationVisibility(value, this);">
                 <!-- Česky --><option data-title="Nápověda pro Multi Translator" data-language-chooser-label="Zvolte jazyk" data-xlet-help="Nápověda" data-xlet-contributors="Přispěvatelé" data-xlet-changelog="Changelog" value="cs">Česky</option>
+<!-- Dansk --><option data-title="Hjælp til Multi Translator" data-language-chooser-label="Vælg sprog" data-xlet-help="Hjælp" data-xlet-contributors="Bidragydere" data-xlet-changelog="Ændringslog" value="da">Dansk</option>
 <!-- English --><option selected data-title="Help for Multi Translator" data-language-chooser-label="Choose language" data-xlet-help="Help" data-xlet-contributors="Contributors" data-xlet-changelog="Changelog" value="en">English</option>
 <!-- Español --><option data-title="Ayuda para Multi Translator" data-language-chooser-label="Elegir idioma" data-xlet-help="Ayuda" data-xlet-contributors="Colaboradores" data-xlet-changelog="Registro de cambios" value="es">Español</option>
 <!-- Svenska --><option data-title="Hjälp för Multi Translator" data-language-chooser-label="Välj språk" data-xlet-help="Hjälp" data-xlet-contributors="Medhjälpare" data-xlet-changelog="Ändringslogg" value="sv">Svenska</option>
@@ -479,6 +480,87 @@ body {
 </nav>
 <span id="xlet-help">
 <div class="container boxed">
+
+<div id="da" class="localization-content hidden">
+
+<h1>Hjælp til Multi Translator</h1>
+
+<div style="font-weight:bold;" class="alert alert-warning">
+<h2>VIGTIGT!!!</h2>
+
+<p>Slet aldrig nogen af filerne i denne udvidelses mappe. Det kan ødelægge udvidelsens funktionalitet.</p>
+
+<p>Fejlrapporter, forslag til nye funktioner og bidrag bør ske i denne udvidelses arkiv, som der er linket til efterfølgende. <a href="https://github.com/Odyseus/CinnamonTools">GitHub</a></p>
+
+</div>
+<hr>
+
+<h2>Afhængigheder</h2>
+<p><strong>Hvis en eller flere af disse afhængigheder mangler i dit system, kan du ikke bruge denne udvidelse.</strong></p>
+<ul>
+<li>Kommandoen xsel: XSel er et kommandolinjeprogram til at hente og indstille indholdet af X-markeringen.</li>
+<li>Kommandoen trans: Kommando i pakken translate-shell. Det er en simpel kommandolinjegrænseflade til adskillige udbydere af oversættelser (Google Translate, Yandex Translate, Bing Translate og Apertium), som lader dig oversætte strenge i din terminal.<ul>
+<li>Tjek translate-shell <a href="https://github.com/soimort/translate-shell#dependencies">afhængigheder</a> og <a href="https://github.com/soimort/translate-shell#recommended-dependencies">anbefalede afhængigheder</a>.</li>
+</ul>
+</li>
+</ul>
+<p><strong>Bemærk:</strong> I Ubuntu 16.04.x's/Linux Mint 18.x's arkiver er pakken translate-shell forældet og i stykker. Pakken kan alligevel installeres og afhængighederne vil også blive installeret. Men der bør opdateres til nyeste version som beskrevet nedenfor.</p>
+<h2>Sådan installeres nyeste version af translate-shell</h2>
+<h3>Mulighed 1. Direkte download</h3>
+<p>Denne metode vil kun installere trans-skriptet i de angivne placeringer.</p>
+<p>Kun for den aktuelle bruger. <strong>~/.local/bin</strong> skal være i din PATH.</p>
+<pre><code class="lang-shell">$ wget -O ~/.local/bin/trans git.io/trans &amp;&amp; chmod ugo+rx ~/.local/bin/trans
+</code></pre>
+<p>For alle brugere uden at overskrive den installerede version.</p>
+<pre><code class="lang-shell">$ sudo wget -O /usr/local/bin/trans git.io/trans &amp;&amp; sudo chmod ugo+rx /usr/local/bin/trans
+</code></pre>
+<h3>Mulighed 2. Fra Git <a href="https://github.com/soimort/translate-shell/blob/develop/README.md#option-3-from-git-recommended-for-seasoned-hackers">Flere detaljer</a></h3>
+<p>Denne metode vil ikke kun installere trans-skriptet, men også man-siderne. Se linket ovenfor for flere detaljer om installation.</p>
+<pre><code class="lang-shell">$ git clone https://github.com/soimort/translate-shell
+$ cd translate-shell
+$ make
+$ sudo make install
+</code></pre>
+<hr>
+<h2>Brug af udvidelsen</h2>
+<p>Når installeret og aktiveret vil følgende genveje være tilgængelige.</p>
+<h3>Globale genveje (kan konfigureres fra udvidelsens indstillinger)</h3>
+<ul>
+<li><strong><kbd>Super</kbd> + <kbd>T</kbd>:</strong> Åbn oversættelsesvinduet.</li>
+<li><strong><kbd>Super</kbd> + <kbd>Shift</kbd> + <kbd>T</kbd>:</strong> Åbn oversættelsesvinduet og oversæt teksten i udklipsholderen.</li>
+<li><strong><kbd>Super</kbd> + <kbd>Alt</kbd> + <kbd>T</kbd>:</strong> Åbn oversættelsesvinduet og oversæt indholdet i den primære markering.</li>
+</ul>
+<h3>Genveje tilgængelige i oversættelsesvinduet</h3>
+<ul>
+<li><strong><kbd>Ctrl</kbd> + <kbd>Enter</kbd>:</strong> Oversæt tekst.</li>
+<li><strong><kbd>Shift</kbd> + <kbd>Enter</kbd>:</strong> Gennemtving oversættelse af tekst. Ignorerer oversættelseshistorik.</li>
+<li><strong><kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>C</kbd>:</strong> Kopiér oversat tekst til udklipsholderen.</li>
+<li><strong><kbd>Ctrl</kbd> + <kbd>S</kbd>:</strong> Ombyt sprog.</li>
+<li><strong><kbd>Ctrl</kbd> + <kbd>D</kbd>:</strong> Nulstil sprog til standard.</li>
+<li><strong><kbd>Escape</kbd>:</strong> Luk vindue.</li>
+</ul>
+<hr>
+<h2>Udvidelsens indstillingsvindue</h2>
+<p>Fra udvidelsens indstillingsvindue kan alle indstillinger importeres, eksporteres eller nulstilles til standardværdierne.</p>
+<ul>
+<li>For at kunne udføre disse handlinger skal indstillingsskemaet installeres i systemet. Dette sker automatisk, hvis udvidelsen installeres gennem Cinnamons modul til håndtering af udvidelser. Blev udvidelsen installeret manuelt, skal indstillingsskemaet også installeres manuelt. Dette gøres ved at gå til udvidelsens mappe og køre følgende kommando:<ul>
+<li>Kommando til at installere indstillingsskemaet: <code>./settings.py install-schema</code></li>
+<li>Kommando til at afinstallere indstillingsskemaet: <code>./settings.py remove-schema</code></li>
+</ul>
+</li>
+<li>For at importere/eksportere indstillinger skal kommandoen <strong>dconf</strong> findes i systemet.</li>
+</ul>
+<hr>
+
+<h2>Oversættelser af panelprogrammer, skrivebordsprogrammer og udvidelser</h2>
+<ul>
+<li>Hvis denne udvidelse blev installeret gennem Cinnamons indstillinger, blev alle oversættelser automatisk installeret.</li>
+<li>Hvis denne udvidelse blev installeret manuelt og ikke gennem Cinnamons indstillinger, kan alle oversættelser installeres ved at køre skriptet <strong>localizations.sh</strong> i en terminal åbnet i udvidelsens mappe.</li>
+<li>Hvis der ikke er nogen oversættelse til denne udvidelse tilgængelig på dit sprog, kan du oprette en ved at følge de efterfølgende instruktioner. <a href="https://github.com/Odyseus/CinnamonTools/wiki/Xlet-localization">Wiki</a></li>
+</ul>
+
+</div> <!-- .localization-content -->
+
 
 <div id="zh_CN" class="localization-content hidden">
 
@@ -898,6 +980,7 @@ $ sudo make install
 <li><strong><a href="https://github.com/Radek71">Radek71</a>:</strong> Czech localization and author of Thunderbolt theme.</li>
 <li><strong><a href="https://github.com/NikoKrause">NikoKrause</a>:</strong> German localization.</li>
 <li><strong><a href="https://github.com/eson57">eson57</a>:</strong> Swedish localization.</li>
+<li><strong><a href="https://github.com/Alan01">Alan01</a>:</strong> Danish localization.</li>
 </ul>
 
 </div> <!-- .container.boxed -->
@@ -906,6 +989,23 @@ $ sudo make install
 <div class="container boxed">
 <h2>Multi Translator changelog</h2>
 <h4>This change log is only valid for the version of the xlet hosted on <a href="https://github.com/Odyseus/CinnamonTools">its original repository</a></h4>
+<hr>
+<ul>
+<li><strong>Date:</strong> Thu, 8 Jun 2017 18:56:10 -0300</li>
+<li><strong>Commit:</strong> <a href="https://github.com/Odyseus/CinnamonTools/commit/727b583">727b583</a></li>
+<li><strong>Author:</strong> Odyseus</li>
+</ul>
+<pre><code>Multi Translator extension
+- Added Danish localization.
+</code></pre>
+<hr>
+<ul>
+<li><strong>Date:</strong> Thu, 8 Jun 2017 19:08:01 +0200</li>
+<li><strong>Commit:</strong> <a href="https://github.com/Odyseus/CinnamonTools/commit/eb0ff14">eb0ff14</a></li>
+<li><strong>Author:</strong> Alan01</li>
+</ul>
+<pre><code>Create da.po
+</code></pre>
 <hr>
 <ul>
 <li><strong>Date:</strong> Thu, 8 Jun 2017 02:02:08 -0300</li>

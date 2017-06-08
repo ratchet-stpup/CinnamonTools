@@ -4,6 +4,28 @@
 
 ***
 
+- **Date:** Thu, 8 Jun 2017 18:56:10 -0300
+- **Commit:** [727b583](https://github.com/Odyseus/CinnamonTools/commit/727b583)
+- **Author:** Odyseus
+
+```
+Multi Translator extension
+- Added Danish localization.
+```
+
+***
+
+- **Date:** Thu, 8 Jun 2017 19:08:01 +0200
+- **Commit:** [eb0ff14](https://github.com/Odyseus/CinnamonTools/commit/eb0ff14)
+- **Author:** Alan01
+
+```
+Create da.po
+
+```
+
+***
+
 - **Date:** Thu, 8 Jun 2017 02:02:08 -0300
 - **Commit:** [e47ca02](https://github.com/Odyseus/CinnamonTools/commit/e47ca02)
 - **Author:** Odyseus

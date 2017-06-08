@@ -8,3 +8,4 @@
 - **[Radek71](https://github.com/Radek71):** Czech localization and author of Thunderbolt theme.
 - **[NikoKrause](https://github.com/NikoKrause):** German localization.
 - **[eson57](https://github.com/eson57):** Swedish localization.
+- **[Alan01](https://github.com/Alan01):** Danish localization.

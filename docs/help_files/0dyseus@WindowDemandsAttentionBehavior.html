@@ -467,7 +467,8 @@ body {
         <div class="form-group">
             <label id="localization-chooser-label" class="control-label" for="localization-switch"></label>
             <select class="form-control input-sm" id="localization-switch" onchange="self.toggleLocalizationVisibility(value, this);">
-                <!-- English --><option selected data-title="Help for Window demands attention behavior" data-language-chooser-label="Choose language" data-xlet-help="Help" data-xlet-contributors="Contributors" data-xlet-changelog="Changelog" value="en">English</option>
+                <!-- Dansk --><option data-title="Hjælp til Window demands attention behavior" data-language-chooser-label="Vælg sprog" data-xlet-help="Hjælp" data-xlet-contributors="Bidragydere" data-xlet-changelog="Ændringslog" value="da">Dansk</option>
+<!-- English --><option selected data-title="Help for Window demands attention behavior" data-language-chooser-label="Choose language" data-xlet-help="Help" data-xlet-contributors="Contributors" data-xlet-changelog="Changelog" value="en">English</option>
 <!-- Español --><option data-title="Ayuda para Window demands attention behavior" data-language-chooser-label="Elegir idioma" data-xlet-help="Ayuda" data-xlet-contributors="Colaboradores" data-xlet-changelog="Registro de cambios" value="es">Español</option>
 <!-- Svenska --><option data-title="Hjälp för Window demands attention behavior" data-language-chooser-label="Välj språk" data-xlet-help="Hjälp" data-xlet-contributors="Medhjälpare" data-xlet-changelog="Ändringslogg" value="sv">Svenska</option>
 <!-- 简体中文 --><option data-title="Window demands attention behavior的帮助" data-language-chooser-label="选择语言" data-xlet-help="帮助" data-xlet-contributors="贡献者" data-xlet-changelog="变更日志" value="zh_CN">简体中文</option>
@@ -478,6 +479,31 @@ body {
 </nav>
 <span id="xlet-help">
 <div class="container boxed">
+
+<div id="da" class="localization-content hidden">
+
+<h1>Hjælp til Window demands attention behavior</h1>
+
+<div style="font-weight:bold;" class="alert alert-warning">
+<h2>VIGTIGT!!!</h2>
+
+<p>Slet aldrig nogen af filerne i denne udvidelses mappe. Det kan ødelægge udvidelsens funktionalitet.</p>
+
+<p>Fejlrapporter, forslag til nye funktioner og bidrag bør ske i denne udvidelses arkiv, som der er linket til efterfølgende. <a href="https://github.com/Odyseus/CinnamonTools">GitHub</a></p>
+
+</div>
+<hr>
+
+
+<h2>Oversættelser af panelprogrammer, skrivebordsprogrammer og udvidelser</h2>
+<ul>
+<li>Hvis denne udvidelse blev installeret gennem Cinnamons indstillinger, blev alle oversættelser automatisk installeret.</li>
+<li>Hvis denne udvidelse blev installeret manuelt og ikke gennem Cinnamons indstillinger, kan alle oversættelser installeres ved at køre skriptet <strong>localizations.sh</strong> i en terminal åbnet i udvidelsens mappe.</li>
+<li>Hvis der ikke er nogen oversættelse til denne udvidelse tilgængelig på dit sprog, kan du oprette en ved at følge de efterfølgende instruktioner. <a href="https://github.com/Odyseus/CinnamonTools/wiki/Xlet-localization">Wiki</a></li>
+</ul>
+
+</div> <!-- .localization-content -->
+
 
 <div id="zh_CN" class="localization-content hidden">
 
@@ -587,6 +613,7 @@ body {
 <li><strong><a href="https://github.com/muzena">muzena</a>:</strong> Croatian localization.</li>
 <li><strong><a href="https://github.com/giwhub">giwhub</a>:</strong> Chinese localization.</li>
 <li><strong><a href="https://github.com/eson57">eson57</a>:</strong> Swedish localization.</li>
+<li><strong><a href="https://github.com/Alan01">Alan01</a>:</strong> Danish localization.</li>
 </ul>
 
 </div> <!-- .container.boxed -->
@@ -595,6 +622,23 @@ body {
 <div class="container boxed">
 <h2>Window demands attention behavior changelog</h2>
 <h4>This change log is only valid for the version of the xlet hosted on <a href="https://github.com/Odyseus/CinnamonTools">its original repository</a></h4>
+<hr>
+<ul>
+<li><strong>Date:</strong> Thu, 8 Jun 2017 18:57:18 -0300</li>
+<li><strong>Commit:</strong> <a href="https://github.com/Odyseus/CinnamonTools/commit/c6f5ec9">c6f5ec9</a></li>
+<li><strong>Author:</strong> Odyseus</li>
+</ul>
+<pre><code>Window demands attention behavior extension
+- Added Danish localization.
+</code></pre>
+<hr>
+<ul>
+<li><strong>Date:</strong> Thu, 8 Jun 2017 19:19:47 +0200</li>
+<li><strong>Commit:</strong> <a href="https://github.com/Odyseus/CinnamonTools/commit/b02a23f">b02a23f</a></li>
+<li><strong>Author:</strong> Alan01</li>
+</ul>
+<pre><code>Create da.po
+</code></pre>
 <hr>
 <ul>
 <li><strong>Date:</strong> Tue, 6 Jun 2017 22:34:01 -0300</li>
