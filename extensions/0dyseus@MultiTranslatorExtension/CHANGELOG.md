@@ -4,6 +4,18 @@
 
 ***
 
+- **Date:** Thu, 8 Jun 2017 02:02:08 -0300
+- **Commit:** [e47ca02](https://github.com/Odyseus/CinnamonTools/commit/e47ca02)
+- **Author:** Odyseus
+
+```
+Multi Translator extension
+- Updated Czech localization.
+
+```
+
+***
+
 - **Date:** Sun, 4 Jun 2017 19:49:32 +0800
 - **Commit:** [a5916cd](https://github.com/Odyseus/CinnamonTools/commit/a5916cd)
 - **Author:** giwhub

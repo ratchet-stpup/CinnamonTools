@@ -4,6 +4,18 @@
 
 ***
 
+- **Date:** Thu, 8 Jun 2017 01:36:50 -0300
+- **Commit:** [385d917](https://github.com/Odyseus/CinnamonTools/commit/385d917)
+- **Author:** Odyseus
+
+```
+Cinnamon Tweaks extension
+- Corrected Markdown formatting on some links of the Czech localization.
+
+```
+
+***
+
 - **Date:** Thu, 8 Jun 2017 00:58:34 -0300
 - **Commit:** [403a55c](https://github.com/Odyseus/CinnamonTools/commit/403a55c)
 - **Author:** Odyseus
