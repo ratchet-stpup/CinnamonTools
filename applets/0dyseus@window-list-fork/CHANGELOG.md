@@ -4,6 +4,21 @@
 
 ***
 
+- **Date:** Sun, 11 Jun 2017 03:13:23 -0300
+- **Commit:** [68a7103](https://github.com/Odyseus/CinnamonTools/commit/68a7103)
+- **Author:** Odyseus
+
+```
+Window list (Fork By Odyseus) applet
+- Fixed the impossibility to open the applet settings window. This was caused when I changed the use
+of spawnCommandLine for spawn_async and passed the wrong arguments. Affected only Cinnamon versions
+2.8 and 3.0.
+- Applied window preview upstream tweaks.
+
+```
+
+***
+
 - **Date:** Tue, 6 Jun 2017 22:31:11 -0300
 - **Commit:** [19e2766](https://github.com/Odyseus/CinnamonTools/commit/19e2766)
 - **Author:** Odyseus

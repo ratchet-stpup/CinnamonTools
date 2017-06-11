@@ -35,9 +35,9 @@ HTML_DOC = """<!DOCTYPE html>
     <div class="container-fluid">
     <div class="navbar-header">
         <ul class="nav navbar-nav">
-            <li><a id="nav-xlet-help" class="navbar-brand" href="#xlet-help"></a></li>
-            <li><a id="nav-xlet-contributors" class="navbar-brand" href="#xlet-contributors"></a></li>
-            <li><a id="nav-xlet-changelog" class="navbar-brand" href="#xlet-changelog"></a></li>
+            <li><a id="nav-xlet-help" class="js_smoothScroll navbar-brand" href="#xlet-help"></a></li>
+            <li><a id="nav-xlet-contributors" class="js_smoothScroll navbar-brand" href="#xlet-contributors"></a></li>
+            <li><a id="nav-xlet-changelog" class="js_smoothScroll navbar-brand" href="#xlet-changelog"></a></li>
         </ul>
     </div>
     <form class="navbar-form navbar-collapse collapse navbar-right">
