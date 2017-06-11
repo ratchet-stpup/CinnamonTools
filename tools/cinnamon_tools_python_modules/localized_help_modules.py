@@ -50,14 +50,14 @@ HTML_DOC = """<!DOCTYPE html>
     </form>
     </div>
 </nav>
-<span id="xlet-help">
+<span id="xlet-help" style="padding-top:70px;">
 <div class="container boxed">
 {sections}
 </div> <!-- .container.boxed -->
 {only_english}
-<span id="xlet-contributors">
+<span id="xlet-contributors" style="padding-top:120px;">
 {contributors}
-<span id="xlet-changelog">
+<span id="xlet-changelog" style="padding-top:70px;">
 {changelog}
 </div> <!-- #mainarea -->
 <script type="text/javascript">toggleLocalizationVisibility(null);
