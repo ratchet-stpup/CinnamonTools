@@ -177,8 +177,6 @@ class Main():
         self.lang_list = []
         self.sections = []
         self.options = []
-        self.only_english = md("<div style=\"font-weight:bold;\" class=\"container alert alert-info\">{0}</div>".format(
-            _("The following two sections are available only in English.")))
 
         try:
             contributors_file = open(os.path.join(XLET_DIR, "CONTRIBUTORS.md"), "r")
@@ -208,12 +206,16 @@ class Main():
                 # Placed this comment here so the comment isn't extracted by xgettext.
                 continue
 
+            only_english = md("<div style=\"font-weight:bold;\" class=\"alert alert-info\">{0}</div>".format(
+                _("The following two sections are available only in English.")))
+
             section = self.html_templates.locale_section_base.format(
                 language_code=current_language,
                 hidden="" if current_language is "en" else " hidden",
                 introduction=self.get_introduction(),
                 content=get_content(),
-                localize_info=self.get_localize_info()
+                localize_info=self.get_localize_info(),
+                only_english=only_english,
             )
             self.sections.append(section)
 
@@ -234,7 +236,6 @@ class Main():
             css_custom=get_css_custom(),
             options="\n".join(sorted(self.options, key=pyuca_collator.sort_key)),
             sections="\n".join(self.sections),
-            only_english=self.only_english,
             contributors=self.contributors if self.contributors else "",
             changelog=self.changelog if self.changelog else "",
             js_custom=get_js_custom()

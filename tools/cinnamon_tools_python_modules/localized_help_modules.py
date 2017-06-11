@@ -54,8 +54,7 @@ HTML_DOC = """<!DOCTYPE html>
 <div class="container boxed">
 {sections}
 </div> <!-- .container.boxed -->
-{only_english}
-<span id="xlet-contributors" style="padding-top:120px;">
+<span id="xlet-contributors" style="padding-top:140px;">
 {contributors}
 <span id="xlet-changelog" style="padding-top:70px;">
 {changelog}
@@ -118,6 +117,7 @@ LOCALE_SECTION = """
 {introduction}
 {content}
 {localize_info}
+{only_english}
 </div> <!-- .localization-content -->
 """
 
