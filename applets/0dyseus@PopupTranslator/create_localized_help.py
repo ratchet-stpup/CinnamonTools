@@ -283,7 +283,6 @@ class Main():
             xlet_help=_("Help"),
             xlet_contributors=_("Contributors"),
             xlet_changelog=_("Changelog"),
-            language_chooser_label=_("Choose language"),
             title=_("Help for %s") % xlet_meta["name"]
         )
 

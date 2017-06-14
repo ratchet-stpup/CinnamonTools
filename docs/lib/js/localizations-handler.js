@@ -247,18 +247,24 @@ function toggleLocalizationVisibility(aValue) {
             });
 
         var option = selector.options[selector.selectedIndex];
-        var chooseLanguageLabel = document.getElementById("localization-chooser-label");
         var navXletHelp = document.getElementById("nav-xlet-help");
         var navXletContributors = document.getElementById("nav-xlet-contributors");
         var navXletChangelog = document.getElementById("nav-xlet-changelog");
 
-        // Set localized navigation bar labels.
-        chooseLanguageLabel.innerText = option.getAttribute("data-language-chooser-label");
-        navXletHelp.innerText = option.getAttribute("data-xlet-help");
-        navXletContributors.innerText = option.getAttribute("data-xlet-contributors");
-        navXletChangelog.innerText = option.getAttribute("data-xlet-changelog");
-        // Set localized page title.
-        document.title = option.getAttribute("data-title");
+        if (option) {
+            // Set localized navigation bar labels.
+            if (navXletHelp)
+                navXletHelp.innerText = option.getAttribute("data-xlet-help");
+
+            if (navXletContributors)
+                navXletContributors.innerText = option.getAttribute("data-xlet-contributors");
+
+            if (navXletChangelog)
+                navXletChangelog.innerText = option.getAttribute("data-xlet-changelog");
+
+            // Set localized page title.
+            document.title = option.getAttribute("data-title");
+        }
     } finally {
         if (language && validLanguage) {
             // If there is language and it's also an element of the language selector,

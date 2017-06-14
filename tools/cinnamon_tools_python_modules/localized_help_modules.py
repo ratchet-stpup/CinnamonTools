@@ -34,15 +34,15 @@ HTML_DOC = """<!DOCTYPE html>
 <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
     <div class="container-fluid">
     <div class="navbar-header">
-        <ul class="nav navbar-nav">
-            <li><a id="nav-xlet-help" class="js_smoothScroll navbar-brand" href="#xlet-help"></a></li>
-            <li><a id="nav-xlet-contributors" class="js_smoothScroll navbar-brand" href="#xlet-contributors"></a></li>
-            <li><a id="nav-xlet-changelog" class="js_smoothScroll navbar-brand" href="#xlet-changelog"></a></li>
+        <ul class="nav navbar-nav navbar-left">
+            <li><a id="nav-xlet-help" class="js_smoothScroll navbar-brand" href="#xlet-help">Help</a></li>
+            <li><a id="nav-xlet-contributors" class="js_smoothScroll navbar-brand" href="#xlet-contributors">Contributors</a></li>
+            <li><a id="nav-xlet-changelog" class="js_smoothScroll navbar-brand" href="#xlet-changelog">Changelog</a></li>
         </ul>
     </div>
-    <form class="navbar-form navbar-collapse collapse navbar-right">
+    <form class="navbar-form navbar-right">
         <div class="form-group">
-            <label id="localization-chooser-label" class="control-label" for="localization-switch"></label>
+            <span class="standalone-glyphicon-globe-wrapper"><span class="standalone-glyphicon-globe"></span></span>
             <select class="form-control input-sm" id="localization-switch" onchange="self.toggleLocalizationVisibility(value, this);">
                 {options}
             </select>
@@ -80,23 +80,33 @@ body {
 }
 /* For fixed header */
 
-.localization-chooser {
-    padding: 1em !important;
-    width: %100 !important;
+.navbar-form {
+    margin-top: 8px !important;
 }
 
-/* Override %100 width so it doesn't ocupy the entire page width. */
+.navbar-form .form-group {
+    display: block !important;
+}
+
+/* Override %100 width so it doesn't occupy the entire page width. */
 #localization-switch {
     font-weight: bold !important;
     width: auto !important;
+    display: inline-block !important;
 }
 
-#localization-chooser-label {
-    color: #FFFFFF !important;
+/* Wrapper class for resizing and centering the language selector image
+   on the navigation bar of the help files */
+.standalone-glyphicon-globe-wrapper {
+    vertical-align: middle;
+    display: inline-block;
+    width: 32px;
+    height: 32px;
 }
 
-.navbar-form {
-    margin-top: 8px !important;
+/* Replaces the glyphicon-globe class */
+.standalone-glyphicon-globe:before {
+    content: url('data:image/svg+xml;utf8,<svg enable-background="new 0 0 64 64" id="Layer_1" version="1.1" viewBox="0 0 64 64" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M32,7.173c-13.689,0-24.826,11.137-24.826,24.826c0,5.613,1.828,10.909,5.285,15.314c4.743,6.046,11.866,9.514,19.542,9.514  s14.799-3.468,19.543-9.515c3.456-4.406,5.283-9.702,5.283-15.313C56.826,18.31,45.689,7.173,32,7.173z M41.525,30.543  c-0.109-2.41-0.472-4.68-1.003-6.784c3.066-0.744,5.701-1.81,7.858-2.912c1.914,2.802,3.111,6.12,3.373,9.696H41.525z M31.83,51.822  c-0.07-0.001-0.139-0.005-0.208-0.006c-1.283-1.658-3.306-4.707-4.782-8.936c1.611-0.254,3.33-0.411,5.161-0.411  c1.614,0,3.143,0.121,4.592,0.322C35.089,46.914,33.082,50.079,31.83,51.822z M32,39.469c-2.15,0-4.151,0.204-6.022,0.521  c-0.488-1.96-0.833-4.112-0.94-6.448h13.494c-0.121,2.252-0.498,4.38-1.025,6.349C35.782,39.627,33.946,39.469,32,39.469z   M12.248,30.543c0.262-3.576,1.459-6.894,3.373-9.696c2.034,1.039,4.504,2.048,7.36,2.785c-0.499,2.106-0.834,4.414-0.932,6.912  H12.248z M25.037,30.543c0.099-2.267,0.423-4.363,0.887-6.281c1.89,0.321,3.917,0.511,6.076,0.511c1.97,0,3.826-0.162,5.572-0.433  c0.5,1.928,0.853,4.005,0.964,6.202H25.037z M31.837,12.181c1.277,1.773,3.334,5.021,4.844,9.258  c-1.476,0.209-3.035,0.334-4.682,0.334c-1.853,0-3.597-0.154-5.233-0.414c1.482-4.338,3.552-7.473,4.856-9.167  C31.695,12.191,31.765,12.182,31.837,12.181z M46.442,18.459c-1.896,0.923-4.16,1.796-6.761,2.415  c-1.168-3.427-2.681-6.264-3.985-8.343C39.899,13.328,43.626,15.457,46.442,18.459z M27.597,12.683  c-1.284,2.001-2.711,4.708-3.809,8.06c-2.382-0.609-4.466-1.426-6.23-2.284C20.215,15.627,23.683,13.575,27.597,12.683z   M12.237,33.543h9.814c0.107,2.564,0.465,4.925,0.99,7.073c-2.907,0.746-5.359,1.747-7.289,2.723  C13.71,40.426,12.506,37.086,12.237,33.543z M17.692,45.718c1.685-0.808,3.77-1.608,6.172-2.218c1.091,3.254,2.49,5.883,3.747,7.839  C23.837,50.491,20.401,48.552,17.692,45.718z M35.689,51.48c1.277-2.034,2.756-4.796,3.916-8.129  c2.589,0.61,4.833,1.471,6.702,2.369C43.431,48.726,39.736,50.722,35.689,51.48z M48.252,43.333  c-2.122-1.072-4.733-2.126-7.788-2.862c0.556-2.143,0.939-4.462,1.057-6.928h10.242C51.494,37.083,50.291,40.422,48.252,43.333z" style="fill:%23ffffff;fill-opacity:1;"/></svg>') !important;
 }
 """
 
@@ -123,7 +133,7 @@ LOCALE_SECTION = """
 
 # {endonym} inside an HTML comment at the very begening of the string so I can sort all
 # the "option" elements by endonym.
-OPTION = """<!-- {endonym} --><option {selected}data-title="{title}" data-language-chooser-label="{language_chooser_label}" data-xlet-help="{xlet_help}" data-xlet-contributors="{xlet_contributors}" data-xlet-changelog="{xlet_changelog}" value="{language_code}">{endonym}</option>"""
+OPTION = """<!-- {endonym} --><option {selected}data-title="{title}" data-xlet-help="{xlet_help}" data-xlet-contributors="{xlet_contributors}" data-xlet-changelog="{xlet_changelog}" value="{language_code}">{endonym}</option>"""
 
 
 USAGE = """
@@ -250,7 +260,7 @@ class HTMLInlineAssets(object):
         self.js_localizations_handler = None
 
         self.path_css_bootstrap = os.path.join(
-            repo_folder, "docs", "lib", "css", "bootstrap.min.css")
+            repo_folder, "docs", "lib", "css", "bootstrap-for-standalone.min.css")
         self.path_css_tweaks = os.path.join(repo_folder, "docs", "lib", "css", "tweaks.css")
         self.path_js_localizations_handler = os.path.join(
             repo_folder, "docs", "lib", "js", "localizations-handler.js")
