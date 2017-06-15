@@ -21,12 +21,7 @@ echoError() {
 renderMainSite() {
     # This requires to have the repository wiki cloned into a folder inside the docs folder.
     cd "docs/src"
-    for pug_file in "${main_site_pug_files[@]}" ; do
-        echo " " >&2
-        echoInfo "====== Rendering $pug_file ======"
-        # The >&2 is so the output of the command is shown when the script is run from Python code.
-        pug $pug_file -o ../ >&2
-    done
+    ./build_pages.py
 }
 
 

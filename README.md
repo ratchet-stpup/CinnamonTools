@@ -33,7 +33,9 @@ All these applets/extensions/themes can be installed directly from Cinnamon's ap
 | D | S | Name | Description |
 | :-: | :-: | - | --------- |
 | [<img height="18" width="18" src="https://odyseus.github.io/CinnamonTools/lib/img/download.svg">](https://odyseus.github.io/CinnamonTools/pkg/Mint-XY.tar.gz "Download from this repository for manual installation") | [<img height="18" width="18" src="https://odyseus.github.io/CinnamonTools/lib/img/cinnamon-logo.svg">](https://cinnamon-spices.linuxmint.com/themes/view/Mint-XY "Go to this xlet Spices website") | **Mint-XY** | Theme based on the default Mint-X theme with graphics from Mint-Y theme. |
+| [<img height="18" width="18" src="https://odyseus.github.io/CinnamonTools/lib/img/download.svg">](https://odyseus.github.io/CinnamonTools/pkg/Mint-XY-Cinn-3.4.tar.gz "Download from this repository for manual installation") | [<img height="18" width="18" src="https://odyseus.github.io/CinnamonTools/lib/img/cinnamon-logo.svg">](https://cinnamon-spices.linuxmint.com/themes/view/Mint-XY-Cinn-3.4 "Go to this xlet Spices website") | **Mint-XY-Cinn-3.4** | This theme complements the **Mint-XY** and is a Cinnamon only theme. It's a theme for Cinnamon 3.4.x or greater. |
 | [<img height="18" width="18" src="https://odyseus.github.io/CinnamonTools/lib/img/download.svg">](https://odyseus.github.io/CinnamonTools/pkg/Mint-XY-Greybird-Blue.tar.gz "Download from this repository for manual installation") | [<img height="18" width="18" src="https://odyseus.github.io/CinnamonTools/lib/img/cinnamon-logo.svg">](https://cinnamon-spices.linuxmint.com/themes/view/Mint-XY-Greybird-Blue "Go to this xlet Spices website") | **Mint-XY-Greybird-Blue** | Theme based on the default Mint-X theme with graphics from Mint-Y theme. |
+| [<img height="18" width="18" src="https://odyseus.github.io/CinnamonTools/lib/img/download.svg">](https://odyseus.github.io/CinnamonTools/pkg/Mint-XY-Greybird-Blue-Cinn-3.4.tar.gz "Download from this repository for manual installation") | [<img height="18" width="18" src="https://odyseus.github.io/CinnamonTools/lib/img/cinnamon-logo.svg">](https://cinnamon-spices.linuxmint.com/themes/view/Mint-XY-Greybird-Blue-Cinn-3.4 "Go to this xlet Spices website") | **Mint-XY-Greybird-Blue-Cinn-3.4** | This theme complements the **Mint-XY-Greybird-Blue** and is a Cinnamon only theme. It's a theme for Cinnamon 3.4.x or greater. |
 
 ### Other Tools
 
@@ -43,4 +45,3 @@ All these applets/extensions/themes can be installed directly from Cinnamon's ap
 
 ### This repository's wiki
 It contains various how-tos about basic tasks.
-

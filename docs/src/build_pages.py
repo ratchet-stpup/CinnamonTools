@@ -14,7 +14,9 @@ if tools_folder not in sys.path:
     sys.path.insert(0, tools_folder)
 
 from cinnamon_tools_python_modules import mistune
+from cinnamon_tools_python_modules import ansi_colors
 
+Ansi = ansi_colors.ANSIColors()
 md = mistune.Markdown()
 
 
@@ -76,55 +78,72 @@ class Main():
                 print(detail)
                 self.data[p] = ""
 
-    def create_html_document(self):
-        index_doc = self.data["index_doc"].format(
-            _index_css=self.data["index_css"],
-            _noscript_html=self.data["noscript_html"],
-            _navbar_html=self.data["navbar_html"],
-            readme_md=md(self.data["readme_md"]),
-            _footer_html=self.data["footer_html"],
-            _linktotop_html=self.data["linktotop_html"],
-            _scriptsatbottom_html=self.data["scriptsatbottom_html"],
-        )
+    def create_html_documents(self):
+        try:
+            print(Ansi.INFO("Creating \"index.html\" document..."))
+            index_doc = self.data["index_doc"].format(
+                _index_css=self.data["index_css"],
+                _noscript_html=self.data["noscript_html"],
+                _navbar_html=self.data["navbar_html"],
+                readme_md=md(self.data["readme_md"]),
+                _footer_html=self.data["footer_html"],
+                _linktotop_html=self.data["linktotop_html"],
+                _scriptsatbottom_html=self.data["scriptsatbottom_html"],
+            )
 
-        wiki_doc = self.data["wiki_doc"].format(
-            _noscript_html=self.data["noscript_html"],
-            _navbar_html=self.data["navbar_html"],
-            github_tricks_md=md(self.data["github_tricks_md"]),
-            xlet_development_md=md(self.data["xlet_development_md"]),
-            xlet_instalation_md=md(self.data["xlet_instalation_md"]),
-            xlet_localization_md=md(self.data["xlet_localization_md"]),
-            _wiki_index_html=self.data["wiki_index_html"],
-            _footer_html=self.data["footer_html"],
-            _linktotop_html=self.data["linktotop_html"],
-            _scriptsatbottom_html=self.data["scriptsatbottom_html"],
-        )
+            print(Ansi.INFO("Saving \"index.html\" document..."))
+            self.save_file(os.path.join(repo_folder, "docs", "index.html"), index_doc)
+        except Exception as detail:
+            print(Ansi.ERROR(detail))
 
-        wiki_stabdalone_doc = self.data["wiki_stabdalone_doc"].format(
-            bootstrap_standalone_css=self.data["bootstrap_standalone_css"],
-            highlight_css=self.data["highlight_css"],
-            tweaks_css=self.data["tweaks_css"],
-            docs_css=self.data["docs_css"],
-            _wiki_standalone_css=self.data["wiki_standalone_css"],
-            _noscript_for_standalone_html=self.data["noscript_for_standalone_html"],
-            _navbar_for_standalone_html=self.data["navbar_for_standalone_html"],
-            github_tricks_md=md(self.data["github_tricks_md"]),
-            xlet_development_md=md(self.data["xlet_development_md"]),
-            xlet_instalation_md=md(self.data["xlet_instalation_md"]),
-            xlet_localization_md=md(self.data["xlet_localization_md"]),
-            _wiki_index_html=self.data["wiki_index_html"],
-            _footer_html=self.data["footer_html"],
-            _linktotop_html=self.data["linktotop_html"],
-            jquery_js=self.data["jquery_js"],
-            bootstrap_js=self.data["bootstrap_js"],
-            highlight_js=self.data["highlight_js"],
-            myfunctions_js=self.data["myfunctions_js"],
-        )
+        try:
+            print(Ansi.INFO("Creating \"wiki.html\" document..."))
+            wiki_doc = self.data["wiki_doc"].format(
+                _noscript_html=self.data["noscript_html"],
+                _navbar_html=self.data["navbar_html"],
+                github_tricks_md=md(self.data["github_tricks_md"]),
+                xlet_development_md=md(self.data["xlet_development_md"]),
+                xlet_instalation_md=md(self.data["xlet_instalation_md"]),
+                xlet_localization_md=md(self.data["xlet_localization_md"]),
+                _wiki_index_html=self.data["wiki_index_html"],
+                _footer_html=self.data["footer_html"],
+                _linktotop_html=self.data["linktotop_html"],
+                _scriptsatbottom_html=self.data["scriptsatbottom_html"],
+            )
 
-        self.save_file(os.path.join(repo_folder, "docs", "index.html"), index_doc)
-        self.save_file(os.path.join(repo_folder, "docs", "wiki.html"), wiki_doc)
-        self.save_file(os.path.join(repo_folder, "docs",
-                                    "wiki_standalone.html"), wiki_stabdalone_doc)
+            print(Ansi.INFO("Saving \"wiki.html\" document..."))
+            self.save_file(os.path.join(repo_folder, "docs", "wiki.html"), wiki_doc)
+        except Exception as detail:
+            print(Ansi.ERROR(detail))
+
+        try:
+            print(Ansi.INFO("Creating \"wiki_standalone.html\" document..."))
+            wiki_stabdalone_doc = self.data["wiki_stabdalone_doc"].format(
+                bootstrap_standalone_css=self.data["bootstrap_standalone_css"],
+                highlight_css=self.data["highlight_css"],
+                tweaks_css=self.data["tweaks_css"],
+                docs_css=self.data["docs_css"],
+                _wiki_standalone_css=self.data["wiki_standalone_css"],
+                _noscript_for_standalone_html=self.data["noscript_for_standalone_html"],
+                _navbar_for_standalone_html=self.data["navbar_for_standalone_html"],
+                github_tricks_md=md(self.data["github_tricks_md"]),
+                xlet_development_md=md(self.data["xlet_development_md"]),
+                xlet_instalation_md=md(self.data["xlet_instalation_md"]),
+                xlet_localization_md=md(self.data["xlet_localization_md"]),
+                _wiki_index_html=self.data["wiki_index_html"],
+                _footer_html=self.data["footer_html"],
+                _linktotop_html=self.data["linktotop_html"],
+                jquery_js=self.data["jquery_js"],
+                bootstrap_js=self.data["bootstrap_js"],
+                highlight_js=self.data["highlight_js"],
+                myfunctions_js=self.data["myfunctions_js"],
+            )
+
+            print(Ansi.INFO("Saving \"wiki_standalone.html\" document..."))
+            self.save_file(os.path.join(repo_folder, "docs",
+                                        "wiki_standalone.html"), wiki_stabdalone_doc)
+        except Exception as detail:
+            print(Ansi.ERROR(detail))
 
     def save_file(self, path, data):
         try:
@@ -133,10 +152,10 @@ class Main():
 
             html_file.close()
         except Exception as detail:
-            print("Failed to write to %s" % path)
-            print(detail)
+            print(Ansi.ERROR("Failed to write to %s" % path))
+            print(Ansi.ERROR(detail))
 
 
 if __name__ == "__main__":
     m = Main()
-    m.create_html_document()
+    m.create_html_documents()
