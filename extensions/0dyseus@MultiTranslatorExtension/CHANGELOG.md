@@ -4,6 +4,29 @@
 
 ***
 
+- **Date:** Fri, 16 Jun 2017 20:19:37 -0300
+- **Commit:** [53edd4a](https://github.com/Odyseus/CinnamonTools/commit/53edd4a)
+- **Author:** Odyseus
+
+```
+Multi Translator extension
+- Fixed French localization *endonym*.
+
+```
+
+***
+
+- **Date:** Fri, 16 Jun 2017 13:39:10 +0200
+- **Commit:** [f3c195f](https://github.com/Odyseus/CinnamonTools/commit/f3c195f)
+- **Author:** Mickael Albertus
+
+```
+Add french translation
+
+```
+
+***
+
 - **Date:** Thu, 8 Jun 2017 18:56:10 -0300
 - **Commit:** [727b583](https://github.com/Odyseus/CinnamonTools/commit/727b583)
 - **Author:** Odyseus

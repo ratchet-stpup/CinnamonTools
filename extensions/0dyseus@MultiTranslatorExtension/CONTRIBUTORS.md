@@ -9,3 +9,4 @@
 - **[NikoKrause](https://github.com/NikoKrause):** German localization.
 - **[eson57](https://github.com/eson57):** Swedish localization.
 - **[Alan01](https://github.com/Alan01):** Danish localization.
+- **[mickaelalbertus](https://github.com/mickaelalbertus):** French localization.

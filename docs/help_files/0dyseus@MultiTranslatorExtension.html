@@ -584,6 +584,7 @@ body {
 <!-- Dansk --><option data-title="Hjælp til Multi Translator" data-xlet-help="Hjælp" data-xlet-contributors="Bidragydere" data-xlet-changelog="Ændringslog" value="da">Dansk</option>
 <!-- English --><option selected data-title="Help for Multi Translator" data-xlet-help="Help" data-xlet-contributors="Contributors" data-xlet-changelog="Changelog" value="en">English</option>
 <!-- Español --><option data-title="Ayuda para Multi Translator" data-xlet-help="Ayuda" data-xlet-contributors="Colaboradores" data-xlet-changelog="Registro de cambios" value="es">Español</option>
+<!-- Français --><option data-title="Aide pour Multi Translator" data-xlet-help="Aide" data-xlet-contributors="Contributeurs" data-xlet-changelog="Journal des modifications" value="fr">Français</option>
 <!-- Svenska --><option data-title="Hjälp för Multi Translator" data-xlet-help="Hjälp" data-xlet-contributors="Medhjälpare" data-xlet-changelog="Ändringslogg" value="sv">Svenska</option>
 <!-- 简体中文 --><option data-title="Multi Translator的帮助" data-xlet-help="帮助" data-xlet-contributors="贡献者" data-xlet-changelog="变更日志" value="zh_CN">简体中文</option>
             </select>
@@ -673,6 +674,88 @@ $ sudo make install
 </ul>
 
 <div style="font-weight:bold;" class="alert alert-info">De næste to afsnit er kun tilgængelig på engelsk.</div>
+</div> <!-- .localization-content -->
+
+
+<div id="fr" class="localization-content hidden">
+
+<h1>Aide pour Multi Translator</h1>
+
+<div style="font-weight:bold;" class="alert alert-warning">
+<h2>IMPORTANT !!!</h2>
+
+<p>Ne jamais supprimez aucun des fichiers contenus dans le dossier xlet. Cela peut empêcher le fonctionnement de xlet.</p>
+
+<p>Les rapports de bogues, les demandes de fonctionnalités et les contributions devraient être effectués dans le dépôt xlet dont le lien est donné ci-après. <a href="https://github.com/Odyseus/CinnamonTools">GitHub</a></p>
+
+</div>
+<hr>
+
+<h2>Dépendances</h2>
+<p><strong>Si une des dépendances ou plus est manquante dans votre système, vous ne serez pas capable d'utiliser cette extension.</strong></p>
+<ul>
+<li>Commande xsel : Xsel est un programme en ligne de commande pour obtenir et modifier le contenu de la sélection X.</li>
+<li>Commande trans : La commande est fournie par le paquet translate-shell. C'est une ligne de commande simple pour plusieurs services de traduction (Google Translate, Yandex Translate, Bing Translate et Apertium) qui vous autorise à traduire des chaînes dans votre terminal.<ul>
+<li>Vérifier les <a href="https://github.com/soimort/translate-shell#dependencies">dépendances</a> et les <a href="https://github.com/soimort/translate-shell#recommended-dependencies">dépendances recommandées</a> de translate-shell.</li>
+</ul>
+</li>
+</ul>
+<p><strong>Note :</strong> Le paquet translate-shell disponible dans les dépôts Ubuntu 16.04.x/Linux Mint 18.x est dépassé et cassé. Il peut toutefois être installé, ce qui installera aussi ses dépendances. Cependant la mise à jour vers la dernière version doit être faite comme décrit ci-dessous.</p>
+<h2>Comment installer la dernière version de translate-shell</h2>
+<h3>Option 1. Téléchargement direct</h3>
+<p>Cette méthode installera uniquement le script trans à l'emplacement spécifié.</p>
+<p>Pour l'utilisateur actuel uniquement. <strong>~/.local/bin</strong> nécessite d'être dans PATH.</p>
+<pre><code class="lang-shell">$ wget -O ~/.local/bin/trans git.io/trans &amp;&amp; chmod ugo+rx ~/.local/bin/trans
+</code></pre>
+<p>Pour tous les utilisateurs sans écraser la version installée.</p>
+<pre><code class="lang-shell">$ sudo wget -O /usr/local/bin/trans git.io/trans &amp;&amp; sudo chmod ugo+rx /usr/local/bin/trans
+</code></pre>
+<h3>Option. À partir de Git - <a href="https://github.com/soimort/translate-shell/blob/develop/README.md#option-3-from-git-recommended-for-seasoned-hackers">Plus de détails</a></h3>
+<p>Cette méthode n'installera pas seulement le script trans mais également les pages man. Référez-vous au lien ci-dessus pour plus de détails concernant l'installation.</p>
+<pre><code class="lang-shell">$ git clone https://github.com/soimort/translate-shell
+$ cd translate-shell
+$ make
+$ sudo make install
+</code></pre>
+<hr>
+<h2>Utilisation de l'extension</h2>
+<p>Une fois installé et activé, les raccourcis suivants seront disponibles.</p>
+<h3>Raccourcis généraux (configurable à partir des paramètres de l'extension)</h3>
+<ul>
+<li><strong><kbd>Super</kbd> + <kbd>T</kbd> : </strong> Ouvrir la fenêtre du traducteur.</li>
+<li><strong><kbd>Super</kbd> + <kbd>Shift</kbd> + <kbd>T</kbd> : </strong> Ouvrir la fenêtre du traducteur et traduire le texte du presse-papiers.</li>
+<li><strong><kbd>Super</kbd> + <kbd>Alt</kbd> + <kbd>T</kbd> : </strong> Ouvrir la fenêtre du traducteur et traduire la première sélection.</li>
+</ul>
+<h3>Raccourcis disponibles pour la fenêtre de traduction</h3>
+<ul>
+<li><strong><kbd>Ctrl</kbd> + <kbd>Enter</kbd> : </strong> Traduire le texte.</li>
+<li><strong><kbd>Shift</kbd> + <kbd>Enter</kbd> : </strong> Forcer la traduction du texte. Ignorer l'historique de traduction.</li>
+<li><strong><kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>C</kbd> : </strong> Copier le texte traduit dans le presse-papiers.</li>
+<li><strong><kbd>Ctrl</kbd> + <kbd>S</kbd> : </strong> Échanger les langues.</li>
+<li><strong><kbd>Ctrl</kbd> + <kbd>D</kbd> : </strong> Réinitialiser les langues par défaut.</li>
+<li><strong><kbd>Escape</kbd> : </strong> Fermer la fenêtre.</li>
+</ul>
+<hr>
+<h2>Fenêtre des paramètres de l'extension</h2>
+<p>À partir de la fenêtre des paramètres de l'extension, toutes les options peuvent être importées, exportées et/ou réinitialisées.</p>
+<ul>
+<li>Pour pouvoir effectuer l'une de ces actions, le schéma de paramètres doit être installé dans le système. Cela se fait automatiquement lorsque l'extension est installée à partir du gestionnaire des extensions Cinnamon. Mais si l'extension a été installée manuellement, le schéma de configuration doit également être installé manuellement. Cela se réalise en allant simplement au dossier d'extension et en lançant la commande suivante :<ul>
+<li>Commande pour installer le schéma de paramètres : <code>./settings.py install-schema</code></li>
+<li>Commande pour désinstaller le schéma de paramètres : <code>./settings.py remove-schema</code></li>
+</ul>
+</li>
+<li>Pour importer/exporter les paramètres, la commande <strong>dconf</strong> nécessite d'être installée sur votre système.</li>
+</ul>
+<hr>
+
+<h2>Traduction des Applets/Desklets/Extensions (xlets)</h2>
+<ul>
+<li>Si ce xlet a été installé à partir des paramètres de Cinnamon, toutes les traductions de ce xlet seront automatiquement installées.</li>
+<li>Si ce xlet a été installé manuellement et non avec les paramètres de Cinnamon, les traductions peuvent être installées en exécutant le script appelé <strong>localizations.sh</strong> à partir d'un terminal ouvert depuis le dossier du xlet.</li>
+<li>Si ce xlet n'a pas de traduction disponible dans votre langue, vous pouvez la créer en suivant les instructions suivantes. <a href="https://github.com/Odyseus/CinnamonTools/wiki/Xlet-localization">Wiki</a></li>
+</ul>
+
+<div style="font-weight:bold;" class="alert alert-info">Les deux sections suivantes sont disponibles uniquement en anglais.</div>
 </div> <!-- .localization-content -->
 
 
@@ -1099,6 +1182,7 @@ $ sudo make install
 <li><strong><a href="https://github.com/NikoKrause">NikoKrause</a>:</strong> German localization.</li>
 <li><strong><a href="https://github.com/eson57">eson57</a>:</strong> Swedish localization.</li>
 <li><strong><a href="https://github.com/Alan01">Alan01</a>:</strong> Danish localization.</li>
+<li><strong><a href="https://github.com/mickaelalbertus">mickaelalbertus</a>:</strong> French localization.</li>
 </ul>
 
 </div> <!-- .container.boxed -->
@@ -1107,6 +1191,23 @@ $ sudo make install
 <div class="container boxed">
 <h2>Multi Translator changelog</h2>
 <h4>This change log is only valid for the version of the xlet hosted on <a href="https://github.com/Odyseus/CinnamonTools">its original repository</a></h4>
+<hr>
+<ul>
+<li><strong>Date:</strong> Fri, 16 Jun 2017 20:19:37 -0300</li>
+<li><strong>Commit:</strong> <a href="https://github.com/Odyseus/CinnamonTools/commit/53edd4a">53edd4a</a></li>
+<li><strong>Author:</strong> Odyseus</li>
+</ul>
+<pre><code>Multi Translator extension
+- Fixed French localization *endonym*.
+</code></pre>
+<hr>
+<ul>
+<li><strong>Date:</strong> Fri, 16 Jun 2017 13:39:10 +0200</li>
+<li><strong>Commit:</strong> <a href="https://github.com/Odyseus/CinnamonTools/commit/f3c195f">f3c195f</a></li>
+<li><strong>Author:</strong> Mickael Albertus</li>
+</ul>
+<pre><code>Add french translation
+</code></pre>
 <hr>
 <ul>
 <li><strong>Date:</strong> Thu, 8 Jun 2017 18:56:10 -0300</li>
