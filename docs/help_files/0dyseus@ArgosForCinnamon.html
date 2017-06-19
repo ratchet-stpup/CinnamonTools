@@ -526,6 +526,39 @@ body {
 }
 /* For fixed header */
 
+/* Tweak spacing of the compatibility badges inside a panel */
+.panel-body.compatibility > .compatibility-disclaimer,
+.panel-body.compatibility > .compatibility-badge {
+    margin: 5px;
+    line-height: 2.5em;
+}
+/* Tweak spacing of the compatibility badges inside a panel */
+
+/* Tweak appearance of the compatibility badges inside a panel */
+.panel-body.compatibility > .compatibility-disclaimer {
+    font-weight: bold;
+}
+.panel-body.compatibility > .compatibility-badge > .label-primary {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+.panel-body.compatibility > .compatibility-badge > .label-warning,
+.panel-body.compatibility > .compatibility-badge > .label-success,
+.panel-body.compatibility > .compatibility-badge > .label-info {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+.panel-body.compatibility > .compatibility-badge > .label-warning {
+    background-color: #dfb317;
+}
+.panel-body.compatibility > .compatibility-badge > .label-success {
+    background-color: #97CA00;
+}
+.panel-body.compatibility > .compatibility-badge > .label-info {
+    background-color: #439cf7;
+}
+/* Tweak appearance of the compatibility badges inside a panel */
+
 .navbar-form {
     margin-top: 8px !important;
 }
@@ -673,14 +706,24 @@ table>tfoot>tr.active>th {
 <p>错误报告，功能请求和贡献应该在下方链接的xlet的仓库上完成。 <a href="https://github.com/Odyseus/CinnamonTools">GitHub</a></p>
 
 </div>
-<hr>
+
+
+<div class="panel panel-success">
+    <div class="panel-heading">
+        <h3 class="panel-title">Compatibility</h3>
+    </div>
+    <div class="panel-body compatibility">
+        <span class="compatibility-badge"><span class="label label-primary">Cinnamon</span><span class="label label-warning">2.8</span></span>
+<span class="compatibility-badge"><span class="label label-primary">Cinnamon</span><span class="label label-success">3.0</span></span>
+<span class="compatibility-badge"><span class="label label-primary">Cinnamon</span><span class="label label-success">3.2</span></span>
+<span class="compatibility-badge"><span class="label label-primary">Cinnamon</span><span class="label label-success">3.4</span></span>
+
+<br/><p class="text-danger compatibility-disclaimer">Do not install on any other version of Cinnamon.</p>
+    </div>
+</div>
 
 <h2>描述</h2>
 <p>Cinnamon的Argos是将可执行文件的标准输出转换为面板下拉菜单的小程序。它受到<a href="https://github.com/pew">Philipp Emanuel Weidmann</a>的[Argos[(<a href="https://github.com/pew/argos)Gnome">https://github.com/pew/argos)Gnome</a> Shell扩展的启发并与之完全兼容，其反过来又受到<a href="https://github.com/matryer/bitbar">BitBar</a>macOS应用程序的启发并与之完全兼容。Cinnamon的Argos无需修改即可支持许多<a href="https://github.com/matryer/bitbar-plugins">BitBar插件</a>，您可以访问经过良好测试的脚本的大型库，以及能够编写自己的脚本。</p>
-<div class="alert alert-info">
-<p>当引用与<strong>Argos for Cinnamon</strong>小程序上的实例相关联的脚本文件时，我将使用<em>plugin</em>或<em>script</em>。</p>
-
-</div><hr>
 <h2>主要功能</h2>
 <ul>
 <li><strong>100% API compatible with BitBar 1.9.2:</strong> All BitBar plugins that run on Linux (i.e. do not contain macOS-specific code) will work with Argos (else it's a bug). See <strong>BitBar plugins with Argos for Cinnamon</strong>.</li>
@@ -690,7 +733,6 @@ table>tfoot>tr.active>th {
 <li><strong>优化最小资源消耗：</strong>即使多个插件每秒刷新一次，Argos通常使用的CPU不到1%。</li>
 <li><strong>Fully documented:</strong> See <strong>Usage</strong>.</li>
 </ul>
-<hr>
 <h2>依赖关系</h2>
 <ul>
 <li><strong>xdg-open命令:</strong> Open a URI in the user's preferred application that handles the respective URI or file type.<ul>
@@ -698,9 +740,12 @@ table>tfoot>tr.active>th {
 </ul>
 </li>
 </ul>
-<hr>
+
 <h2>用法</h2>
-<p>将<strong>Argos for Cinnamon</strong>的新实例放入面板后，该小程序提供的示例脚本之一将自动附加到它，并且将基于执行的插件的输出创建一个菜单。这些示例脚本包含了各种<strong>Argos for Cinnamon</strong>可以做的例子。</p>
+<div class="alert alert-info">
+<p>I will use the words <em>plugin</em> or <em>script</em> when referring to a script file associated with an instance of <strong>Argos for Cinnamon</strong> applet.</p>
+
+</div><p>将<strong>Argos for Cinnamon</strong>的新实例放入面板后，该小程序提供的示例脚本之一将自动附加到它，并且将基于执行的插件的输出创建一个菜单。这些示例脚本包含了各种<strong>Argos for Cinnamon</strong>可以做的例子。</p>
 <p>刚刚放置的小程序将具有0秒（零秒）的初始执行间隔和3秒（3秒）的初始小程序文本轮流间隔。执行间隔设置为0秒，因为初始示例脚本没有任何需要更新的动态数据。小程序文本轮流间隔设置为3秒，因此可以在操作中看到示例脚本的文本轮流。</p>
 <p>对于显示非动态数据的脚本，不需要执行间隔。但是，如果您的脚本显示动态数据（例如时钟），则需要指定执行和/或小程序文本轮流间隔。这两个值都可以从小程序右键菜单中设置。</p>
 <div class="alert alert-info">
@@ -708,7 +753,6 @@ table>tfoot>tr.active>th {
 
 </div>
 <div class="alert alert-warning">
-
 
 <strong>不要将自定义插件/脚本保存在此小程序文件夹中。否则，当有小程序的更新时，您将丢失它们。</strong>
 </div><h3>文件名格式</h3>
@@ -728,7 +772,6 @@ table>tfoot>tr.active>th {
 <p><a href="http://www.emoji-cheat-sheet.com">Emoji code</a>如<code>:horse:</code>和<code>:smile:</code>在行文本中被替换为相应的Unicode字符（除非<code>emojize</code>属性设置为<code>false</code>）。请注意，未打补丁的Cinnamon尚不支持多色emoji。</p>
 <p><a href="https://en.wikipedia.org/wiki/ANSI_escape_code#graphics">ANSI SGR转义序列</a>和<a href="https://developer.gnome.org/pango/stable/PangoMarkupFormat.html">Pango标记</a>标记可用于造型。可以通过分别将<code>ansi</code>和<code>useMarkup</code>属性分别设置为<code>false</code>来禁用。</p>
 <p>在行文本中如“\n”和“\t”的反斜杠转义将转换为相应的字符（在这种情况下为换行符和标签），可以通过将<code>unescape</code>属性设置为<code>false</code>来避免。换行符可用于创建多行菜单条目。</p>
-<hr>
 <h2>行属性</h2>
 <h3>显示</h3>
 <p>控制行的呈现方式。</p>
@@ -881,7 +924,6 @@ table>tfoot>tr.active>th {
 </tr>
 </tbody>
 </table>
-<hr>
 <h2>用于Argos for Cinnamon的BitBar插件</h2>
 <div class="alert alert-warning">
 <strong>
@@ -929,7 +971,6 @@ table>tfoot>tr.active>th {
 </tr>
 </tbody>
 </table>
-<hr>
 
 <h2>小程序/桌面小工具/扩展（也称为xlets）本地化</h2>
 <ul>
@@ -954,14 +995,24 @@ table>tfoot>tr.active>th {
 <p>Los reportes de fallos, peticiones de características y contribuciones deben hacerse en el repositorio de este xlet vinculado a continuación. <a href="https://github.com/Odyseus/CinnamonTools">GitHub</a></p>
 
 </div>
-<hr>
+
+
+<div class="panel panel-success">
+    <div class="panel-heading">
+        <h3 class="panel-title">Copatibilidad</h3>
+    </div>
+    <div class="panel-body compatibility">
+        <span class="compatibility-badge"><span class="label label-primary">Cinnamon</span><span class="label label-warning">2.8</span></span>
+<span class="compatibility-badge"><span class="label label-primary">Cinnamon</span><span class="label label-success">3.0</span></span>
+<span class="compatibility-badge"><span class="label label-primary">Cinnamon</span><span class="label label-success">3.2</span></span>
+<span class="compatibility-badge"><span class="label label-primary">Cinnamon</span><span class="label label-success">3.4</span></span>
+
+<br/><p class="text-danger compatibility-disclaimer">No instalar en ninguna otra versión de Cinnamon.</p>
+    </div>
+</div>
 
 <h2>Descripción</h2>
 <p>Argos para Cinnamon es un applet que convierte la salida estándar de archivos de comando en menúes desplegables del panel.  Está inspirado y es totalmente compatible con la extensión para Gnome Shell llamada <a href="https://github.com/pew/argos">Argos</a> por <a href="https://github.com/pew">Philipp Emanuel Weidmann</a>, que  a su vez está inspirada y es totalmente compatible con la aplicación <a href="https://github.com/matryer/bitbar">BitBar</a> para macOS.  Argos para Cinnamon soporta muchos <a href="https://github.com/matryer/bitbar-plugins">complementos de BitBar</a> sin modificaciones, lo que le da acceso a una gran biblioteca de archivos de comandos bien probados, además de ser capaz de escribir el suyo propio.</p>
-<div class="alert alert-info">
-<p>Voy a usar las palabras <em>complemento</em> o <em>archivo de comandos</em> cuando me refiera a un archivo de comandos asociado a una instancia del applet <strong>Argos para Cinnamon</strong>.</p>
-
-</div><hr>
 <h2>Características principales</h2>
 <ul>
 <li><strong>100% API compatible con BitBar 1.9.2:</strong> Todos los complementos para BitBar que corren en Linux (por ejemplo, que no contienen código específico de macOS) van a funcionar con Argos (si no funcionan, es un error en Argos). Ver <strong>Complementos de BitBar con Argos para Cinnamon</strong>.</li>
@@ -971,7 +1022,6 @@ table>tfoot>tr.active>th {
 <li><strong>Optimizado para el consumo mínimo de recursos:</strong> Incluso con varios complementos actualizando cada segundo, Argos normalmente usa menos del 1 por ciento de la CPU.</li>
 <li><strong>Totalmente documentado:</strong> Ver <strong>Uso del applet</strong>.</li>
 </ul>
-<hr>
 <h2>Dependencias</h2>
 <ul>
 <li><strong>Comando xdg-open:</strong> Open a URI in the user's preferred application that handles the respective URI or file type.<ul>
@@ -979,9 +1029,12 @@ table>tfoot>tr.active>th {
 </ul>
 </li>
 </ul>
-<hr>
+
 <h2>Uso del applet</h2>
-<p>Después de colocar una nueva instancia de <strong>Argos para Cinnamon</strong> en un panel, uno de los archivos de comandos de ejemplo proporcionados por este applet se adjuntará automáticamente a él y se creará un menú basado en la salida del complemento ejecutado.  Estos archivos de comandos de ejemplo contienen varios ejemplos de lo que <strong>Argos para Cinnamon</strong> es capaz de hacer.</p>
+<div class="alert alert-info">
+<p>Voy a usar las palabras <em>complemento</em> o <em>archivo de comandos</em> cuando me refiera a un archivo de comandos asociado a una instancia del applet <strong>Argos para Cinnamon</strong>.</p>
+
+</div><p>Después de colocar una nueva instancia de <strong>Argos para Cinnamon</strong> en un panel, uno de los archivos de comandos de ejemplo proporcionados por este applet se adjuntará automáticamente a él y se creará un menú basado en la salida del complemento ejecutado.  Estos archivos de comandos de ejemplo contienen varios ejemplos de lo que <strong>Argos para Cinnamon</strong> es capaz de hacer.</p>
 <p>Un applet recién colocado tendrá un intervalo de ejecución inicial de 0 segundos (cero segundos) y un intervalo inicial de rotación de texto de applet de 3 segundos (tres segundos).  El intervalo de ejecución se establece en 0 segundos porque la secuencia de comandos de ejemplo inicial no tiene ningún dato dinámico que requiera actualización.  Y el intervalo de rotación de texto de applet se establece en 3 segundos para que la rotación de texto del archivo de comandos de ejemplo se pueda ver en acción.</p>
 <p>Para los archivos de comandos que muestran datos no dinámicos, no se necesita un intervalo de ejecución.  Pero si su archivo de comandos muestra datos dinámicos (un reloj por ejemplo), entonces se debe especificar un intervalo de ejecución y/o de rotación de texto del  applet.  Ambos valores se pueden establecer desde el menú contextual del applet.</p>
 <div class="alert alert-info">
@@ -989,7 +1042,6 @@ table>tfoot>tr.active>th {
 
 </div>
 <div class="alert alert-warning">
-
 
 <strong>Nunca guarde sus complementos/archivos de comandos personalizados dentro de la carpeta de este applet.  De lo contrario, los perderá todos cuando haya una actualización para el applet.</strong>
 </div><h3>Formato del nombre de archivo</h3>
@@ -1009,7 +1061,6 @@ table>tfoot>tr.active>th {
 <p><a href="http://www.emoji-cheat-sheet.com">Códigos emoji</a> como <code>:horse:</code> y <code>:smile:</code> en el texto de línea se sustituyen por sus caracteres Unicode correspondientes (a menos que el atributo <code>emojize</code> sea  establecido en <code>false</code>).  Tener en cuenta que Cinnamon "sin parchear" todavía no soporta emojis multicolor.</p>
 <p><a href="https://en.wikipedia.org/wiki/ANSI_escape_code#graphics">Secuencias de escape ANSI SGR</a> y <a href="https://developer.gnome.org/pango/stable/PangoMarkupFormat.html">etiquetas de marcado Pango</a> pueden ser utilizadas para darle estilo al texto.  Esto puede desactivarse estableciendo los atributos <code>ansi</code> y <code>useMarkup</code>, respectivamente, en <code>false</code>.</p>
 <p>Los escapes de barra invertida como <code>\n</code> y <code>\t</code> en el texto de línea se convierten a sus caracteres correspondientes (nueva línea y tabulador en este caso), lo que puede evitarse si se establece el atributo <code>unescape</code> en <code>false</code>.  Las salidas de nueva línea se pueden utilizar para crear elementos de menú de varias líneas.</p>
-<hr>
 <h2>Atributos de línea</h2>
 <h3>Visualización</h3>
 <p>Controla cómo se representa la línea.</p>
@@ -1162,7 +1213,6 @@ table>tfoot>tr.active>th {
 </tr>
 </tbody>
 </table>
-<hr>
 <h2>Complementos de BitBar con Argos para Cinnamon</h2>
 <div class="alert alert-warning">
 <strong>
@@ -1210,7 +1260,6 @@ table>tfoot>tr.active>th {
 </tr>
 </tbody>
 </table>
-<hr>
 
 <h2>Localización de applets/desklets/extensiones (también conocidos como xlets)</h2>
 <ul>
@@ -1235,14 +1284,24 @@ table>tfoot>tr.active>th {
 <p>Bug reports, feature requests and contributions should be done on this xlet's repository linked next. <a href="https://github.com/Odyseus/CinnamonTools">GitHub</a></p>
 
 </div>
-<hr>
+
+
+<div class="panel panel-success">
+    <div class="panel-heading">
+        <h3 class="panel-title">Compatibility</h3>
+    </div>
+    <div class="panel-body compatibility">
+        <span class="compatibility-badge"><span class="label label-primary">Cinnamon</span><span class="label label-warning">2.8</span></span>
+<span class="compatibility-badge"><span class="label label-primary">Cinnamon</span><span class="label label-success">3.0</span></span>
+<span class="compatibility-badge"><span class="label label-primary">Cinnamon</span><span class="label label-success">3.2</span></span>
+<span class="compatibility-badge"><span class="label label-primary">Cinnamon</span><span class="label label-success">3.4</span></span>
+
+<br/><p class="text-danger compatibility-disclaimer">Do not install on any other version of Cinnamon.</p>
+    </div>
+</div>
 
 <h2>Description</h2>
 <p>Argos for Cinnamon is an applet that turns executables' standard output into panel dropdown menus. It is inspired by, and fully compatible with, the Gnome Shell extension called <a href="https://github.com/p-e-w/argos">Argos</a> by <a href="https://github.com/p-e-w">Philipp Emanuel Weidmann</a>, which in turn is inspired by, and fully compatible with, the <a href="https://github.com/matryer/bitbar">BitBar</a> application for macOS. Argos for Cinnamon supports many <a href="https://github.com/matryer/bitbar-plugins">BitBar plugins</a> without modifications, giving you access to a large library of well-tested scripts in addition to being able to write your own.</p>
-<div class="alert alert-info">
-<p>I will use the words <em>plugin</em> or <em>script</em> when referring to a script file associated with an instance on <strong>Argos for Cinnamon</strong> applet.</p>
-
-</div><hr>
 <h2>Key features</h2>
 <ul>
 <li><strong>100% API compatible with BitBar 1.9.2:</strong> All BitBar plugins that run on Linux (i.e. do not contain macOS-specific code) will work with Argos (else it's a bug). See <strong>BitBar plugins with Argos for Cinnamon</strong>.</li>
@@ -1252,7 +1311,6 @@ table>tfoot>tr.active>th {
 <li><strong>Optimized for minimum resource consumption:</strong> Even with multiple plugins refreshing every second, Argos typically uses less than 1 percent of the CPU.</li>
 <li><strong>Fully documented:</strong> See <strong>Usage</strong>.</li>
 </ul>
-<hr>
 <h2>Dependencies</h2>
 <ul>
 <li><strong>xdg-open command:</strong> Open a URI in the user's preferred application that handles the respective URI or file type.<ul>
@@ -1260,9 +1318,12 @@ table>tfoot>tr.active>th {
 </ul>
 </li>
 </ul>
-<hr>
+
 <h2>Usage</h2>
-<p>After placing a new instance of <strong>Argos for Cinnamon</strong> into a panel, one of the example scripts provided by this applet will be automatically attached to it and a menu will be created based on the output of the executed plugin. These example scripts contain various examples of what <strong>Argos for Cinnamon</strong> can do.</p>
+<div class="alert alert-info">
+<p>I will use the words <em>plugin</em> or <em>script</em> when referring to a script file associated with an instance of <strong>Argos for Cinnamon</strong> applet.</p>
+
+</div><p>After placing a new instance of <strong>Argos for Cinnamon</strong> into a panel, one of the example scripts provided by this applet will be automatically attached to it and a menu will be created based on the output of the executed plugin. These example scripts contain various examples of what <strong>Argos for Cinnamon</strong> can do.</p>
 <p>A just placed applet will have an initial execution interval of 0 seconds (zero seconds) and an initial applet text rotation interval of 3 seconds (three seconds). The execution interval is set to 0 seconds because the initial example script doesn't have any dynamic data that requires update. And the applet text rotation interval is set to 3 seconds so the text rotation of the example script can be seen in action.</p>
 <p>For scripts that display non dynamic data, it isn't needed an execution interval. But if your script displays dynamic data (a clock for example), then an execution and/or applet text rotation interval needs to be specified. Both of these values can be set from the applet context menu.</p>
 <div class="alert alert-info">
@@ -1270,7 +1331,6 @@ table>tfoot>tr.active>th {
 
 </div>
 <div class="alert alert-warning">
-
 
 <strong>Never save your custom plugins/scripts inside this applet folder. Otherwise, you will loose them all when there is an update for the applet.</strong>
 </div><h3>File name format</h3>
@@ -1290,7 +1350,6 @@ table>tfoot>tr.active>th {
 <p><a href="http://www.emoji-cheat-sheet.com">Emoji codes</a> like <code>:horse:</code> and <code>:smile:</code> in the line text are replaced with their corresponding Unicode characters (unless the <code>emojize</code> attribute is set to <code>false</code>). Note that unpatched Cinnamon does not yet support multicolor emoji.</p>
 <p><a href="https://en.wikipedia.org/wiki/ANSI_escape_code#graphics">ANSI SGR escape sequences</a> and <a href="https://developer.gnome.org/pango/stable/PangoMarkupFormat.html">Pango markup</a> tags may be used for styling. This can be disabled by setting the <code>ansi</code> and <code>useMarkup</code> attributes, respectively, to <code>false</code>.</p>
 <p>Backslash escapes such as <code>\n</code> and <code>\t</code> in the line text are converted to their corresponding characters (newline and tab in this case), which can be prevented by setting the <code>unescape</code> attribute to <code>false</code>. Newline escapes can be used to create multi-line menu items.</p>
-<hr>
 <h2>Line attributes</h2>
 <h3>Display</h3>
 <p>Control how the line is rendered.</p>
@@ -1443,7 +1502,6 @@ table>tfoot>tr.active>th {
 </tr>
 </tbody>
 </table>
-<hr>
 <h2>BitBar plugins with Argos for Cinnamon</h2>
 <div class="alert alert-warning">
 <strong>
@@ -1491,7 +1549,6 @@ WARNING!!! DO NOT RANDOMLY TEST SCRIPTS!!!
 </tr>
 </tbody>
 </table>
-<hr>
 
 <h2>Applets/Desklets/Extensions (a.k.a. xlets) localization</h2>
 <ul>

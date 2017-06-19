@@ -1,11 +1,26 @@
 <h2 style="color:red;">Bug reports, feature requests and contributions</h2>
 <span style="color:red;">
-If anyone has bugs to report, a feature request or a contribution, do so on <a href="https://github.com/Odyseus/CinnamonTools">this xlet GitHub page</a>.
+Bug reports, feature requests and contributions should be done on this xlet's repository linked next.
 </span>
 
-## Desktop Handler applet description
-
-This applet is based on [Smart Panel](https://cinnamon-spices.linuxmint.com/extensions/view/32) extension and [Show Desktop ++](https://cinnamon-spices.linuxmint.com/applets/view/165) applet, both authored by  **mohammad-sn**. I *mixed* both of them into an applet because there is not always room on the panel to perform the actions added by **Smart Panel**. The **Smart Panel** extension can still be installed and activated at the same time than this applet to have even more desktop actions.
+<table><tbody>
+<tr><td><img src="https://odyseus.github.io/CinnamonTools/lib/img/issues.svg"></td>
+<td><a href="https://github.com/Odyseus/CinnamonTools"><strong style="color: red; font-size: 1.2em">
+Bug reports/Feature requests/Contributions
+</strong></a></td></tr>
+<tr><td><img src="https://odyseus.github.io/CinnamonTools/lib/img/help.svg"></td>
+<td><a href="https://odyseus.github.io/CinnamonTools/help_files/0dyseus@DesktopHandler.html"><strong style="font-size: 1.2em">
+Localized help
+</strong></a></td></tr>
+<tr><td><img src="https://odyseus.github.io/CinnamonTools/lib/img/contributors.svg"></td>
+<td><a href="https://odyseus.github.io/CinnamonTools/help_files/0dyseus@DesktopHandler.html#xlet-contributors"><strong style="font-size: 1.2em">
+Contributors/Mentions
+</strong></a></td></tr>
+<tr><td><img src="https://odyseus.github.io/CinnamonTools/lib/img/changelog.svg"></td>
+<td><a href="https://odyseus.github.io/CinnamonTools/help_files/0dyseus@DesktopHandler.html#xlet-changelog"><strong style="font-size: 1.2em">
+Full change log
+</strong></a></td></tr>
+</tbody></table>
 
 ## Compatibility
 
@@ -13,6 +28,12 @@ This applet is based on [Smart Panel](https://cinnamon-spices.linuxmint.com/exte
 ![Cinnamon 3.0](https://odyseus.github.io/CinnamonTools/lib/badges/cinn-3.0.svg)
 ![Cinnamon 3.2](https://odyseus.github.io/CinnamonTools/lib/badges/cinn-3.2.svg)
 ![Cinnamon 3.4](https://odyseus.github.io/CinnamonTools/lib/badges/cinn-3.4.svg)
+
+<span style="color:red;font-weight:bold;">Do not install on any other version of Cinnamon.</span>
+
+## Description
+
+This applet is based on [Smart Panel](https://cinnamon-spices.linuxmint.com/extensions/view/32) extension and [Show Desktop ++](https://cinnamon-spices.linuxmint.com/applets/view/165) applet, both authored by  **mohammad-sn**. I *mixed* both of them into an applet because there is not always room on the panel to perform the actions added by **Smart Panel**. The **Smart Panel** extension can still be installed and activated at the same time than this applet to have even more desktop actions.
 
 ## Features
 
@@ -36,7 +57,3 @@ This applet is based on [Smart Panel](https://cinnamon-spices.linuxmint.com/exte
 - Posibility to create a windows list menu.
 - Left/Middle/Right click on applet can be configured to open the windows list menu.
 - Desktop peek functionality with configurable levels of opacity.
-
-#### [Localized help](https://odyseus.github.io/CinnamonTools/help_files/0dyseus@DesktopHandler.html)
-#### [Contributors/Mentions](https://odyseus.github.io/CinnamonTools/help_files/0dyseus@DesktopHandler.html#xlet-contributors)
-#### [Full change log](https://odyseus.github.io/CinnamonTools/help_files/0dyseus@DesktopHandler.html#xlet-changelog)

@@ -526,6 +526,39 @@ body {
 }
 /* For fixed header */
 
+/* Tweak spacing of the compatibility badges inside a panel */
+.panel-body.compatibility > .compatibility-disclaimer,
+.panel-body.compatibility > .compatibility-badge {
+    margin: 5px;
+    line-height: 2.5em;
+}
+/* Tweak spacing of the compatibility badges inside a panel */
+
+/* Tweak appearance of the compatibility badges inside a panel */
+.panel-body.compatibility > .compatibility-disclaimer {
+    font-weight: bold;
+}
+.panel-body.compatibility > .compatibility-badge > .label-primary {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+.panel-body.compatibility > .compatibility-badge > .label-warning,
+.panel-body.compatibility > .compatibility-badge > .label-success,
+.panel-body.compatibility > .compatibility-badge > .label-info {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+.panel-body.compatibility > .compatibility-badge > .label-warning {
+    background-color: #dfb317;
+}
+.panel-body.compatibility > .compatibility-badge > .label-success {
+    background-color: #97CA00;
+}
+.panel-body.compatibility > .compatibility-badge > .label-info {
+    background-color: #439cf7;
+}
+/* Tweak appearance of the compatibility badges inside a panel */
+
 .navbar-form {
     margin-top: 8px !important;
 }
@@ -604,17 +637,43 @@ body {
 <p>错误报告，功能请求和贡献应该在下方链接的xlet的仓库上完成。 <a href="https://github.com/Odyseus/CinnamonTools">GitHub</a></p>
 
 </div>
-<hr>
+
+
+<div class="panel panel-success">
+    <div class="panel-heading">
+        <h3 class="panel-title">Compatibility</h3>
+    </div>
+    <div class="panel-body compatibility">
+        <span class="compatibility-badge"><span class="label label-primary">Cinnamon</span><span class="label label-warning">2.8</span></span>
+<span class="compatibility-badge"><span class="label label-primary">Cinnamon</span><span class="label label-success">3.0</span></span>
+<span class="compatibility-badge"><span class="label label-primary">Cinnamon</span><span class="label label-success">3.2</span></span>
+<span class="compatibility-badge"><span class="label label-primary">Cinnamon</span><span class="label label-success">3.4</span></span>
+
+<br/><p class="text-danger compatibility-disclaimer">Do not install on any other version of Cinnamon.</p>
+    </div>
+</div>
+
+<h2>Description</h2>
+<p>The function of this applet is very simple, create a menu based on the files/folders found inside a main folder (specified on this applet settings window). The files will be used to create menu items and the sub folders will be used to create sub-menus.</p>
+<p>I mainly created this applet to replicate the functionality of the XFCE plugin called <strong>Directory Menu</strong> and the KDE widget called <strong>Quick access</strong>.</p>
+<div class="alert alert-warning"><h2>Warning</h2>
+<p>This applet has to read every single file/folder inside a main folder to create its menu. So, do not try to use this applet to create a menu based on a folder that contains thousands of files!!! Your system may slow down, freeze or even crash!!!</p></div><h2>Features</h2>
+<ul>
+<li>More than one instance of this applet can be installed at the same time.</li>
+<li>A hotkey can be assigned to open/close the menu.</li>
+<li>菜单项转到.desktop文件将显示.desktop文件本身声明的图标和名称。</li>
+<li>按<kbd>Ctrl</kbd> + <strong>左键点击</strong>或使用<strong>中键点击</strong>激活菜单条目时保持菜单打开。</li>
+<li>This applet can create menu and sub-menu items even from symbolic links found inside the main folder.</li>
+</ul>
 
 <h2>小程序用法</h2>
 <ul>
 <li>菜单项转到.desktop文件将显示.desktop文件本身声明的图标和名称。</li>
-<li>按<kbd>Ctrl</kbd> + <strong>左键点击</strong>或使用<strong>中键点击</strong>激活菜单条目时保持菜单打开。</li>
-</ul>
-<hr>
-<h2>设置每个子菜单的其他图标的方式</h2>
-<ul>
-<li>在文件夹同级目录创建用于创建子菜单的文件。</li>
+<li><p>按<kbd>Ctrl</kbd> + <strong>左键点击</strong>或使用<strong>中键点击</strong>激活菜单条目时保持菜单打开。
+## 设置每个子菜单的其他图标的方式</p>
+</li>
+<li><p>在文件夹同级目录创建用于创建子菜单的文件。</p>
+</li>
 <li>文件名可以自定义，不需要扩展名，也可以是隐藏文件（.文件）。默认情况下称为<strong>0_icons_for_sub_menus.json</strong>。</li>
 <li>无论选择了什么文件名称，它都会被自动忽略并且不会显示在菜单上。</li>
 <li>图标的路径必须是完整路径。可以使用以<strong>~/</strong>开头的路径并将其扩展到用户的主文件夹。</li>
@@ -629,7 +688,6 @@ body {
 }
 </code></pre>
 <p><strong>警告！！！</strong> JSON<em>语言</em>非常严格。只需确保仅使用双引号。并且最后一个键/值组合不必以逗号结尾（在前面的例子中是<strong>文件名 #n</strong>）。</p>
-<hr>
 
 <h2>小程序/桌面小工具/扩展（也称为xlets）本地化</h2>
 <ul>
@@ -654,17 +712,43 @@ body {
 <p>Los reportes de fallos, peticiones de características y contribuciones deben hacerse en el repositorio de este xlet vinculado a continuación. <a href="https://github.com/Odyseus/CinnamonTools">GitHub</a></p>
 
 </div>
-<hr>
+
+
+<div class="panel panel-success">
+    <div class="panel-heading">
+        <h3 class="panel-title">Copatibilidad</h3>
+    </div>
+    <div class="panel-body compatibility">
+        <span class="compatibility-badge"><span class="label label-primary">Cinnamon</span><span class="label label-warning">2.8</span></span>
+<span class="compatibility-badge"><span class="label label-primary">Cinnamon</span><span class="label label-success">3.0</span></span>
+<span class="compatibility-badge"><span class="label label-primary">Cinnamon</span><span class="label label-success">3.2</span></span>
+<span class="compatibility-badge"><span class="label label-primary">Cinnamon</span><span class="label label-success">3.4</span></span>
+
+<br/><p class="text-danger compatibility-disclaimer">No instalar en ninguna otra versión de Cinnamon.</p>
+    </div>
+</div>
+
+<h2>Descripción</h2>
+<p>La función de este applet es muy simple, crear un menú basado en los archivos/carpetas que se encuentran dentro de una carpeta principal (especificada en la ventana de configuración de este applet).  Los archivos se utilizarán para crear elementos de menú y las subcarpetas se utilizarán para crear submenús.</p>
+<p>Creé principalmente este applet para replicar la funcionalidad del complemento para XFCE llamado <strong>Menú Directorio</strong> y el widget para KDE llamado <strong>Acceso rápido</strong>.</p>
+<div class="alert alert-warning"><h2>Advertencia</h2>
+<p>Este applet tiene que leer cada archivo/carpeta dentro de una carpeta principal para crear su menú.  Por lo tanto, no intentar usar este applet para crear un menú basado en una carpeta que contiene miles de archivos!  Su sistema puede ralentizarse, congelarse o incluso caerse!</p></div><h2>Características</h2>
+<ul>
+<li>Se pueden instalar más de una instancia de este applet al mismo tiempo.</li>
+<li>Atajo de teclado configurable para abrir/cerrar el menú.</li>
+<li>Ítems del menú a archivos .desktop serán mostrados con el ícono y el nombre declarado dentro de los mismos archivos .desktop.</li>
+<li>El menú puede ser mantenido abierto mientras se activan menú ítems con sólo presionar <kbd>Ctrl</kbd> + <strong>Clic Izquierdo</strong> o <strong>Clic Medio</strong>.</li>
+<li>Este applet puede crear elementos de menú y submenú incluso de enlaces simbólicos encontrados dentro de la carpeta principal.</li>
+</ul>
 
 <h2>Uso del applet</h2>
 <ul>
 <li>Ítems del menú a archivos .desktop serán mostrados con el ícono y el nombre declarado dentro de los mismos archivos .desktop.</li>
-<li>El menú puede ser mantenido abierto mientras se activan menú ítems con sólo presionar <kbd>Ctrl</kbd> + <strong>Clic Izquierdo</strong> o <strong>Clic Medio</strong>.</li>
-</ul>
-<hr>
-<h2>Cómo especificar un ícono diferente por cada sub menú ítem</h2>
-<ul>
-<li>Crear un archivo al mismo nivel que las carpetas que van a ser usadas para crear los sub menúes.</li>
+<li><p>El menú puede ser mantenido abierto mientras se activan menú ítems con sólo presionar <kbd>Ctrl</kbd> + <strong>Clic Izquierdo</strong> o <strong>Clic Medio</strong>.
+## Cómo especificar un ícono diferente por cada sub menú ítem</p>
+</li>
+<li><p>Crear un archivo al mismo nivel que las carpetas que van a ser usadas para crear los sub menúes.</p>
+</li>
 <li>El nombre del archivo puede ser personalizado, no necesita tener una extensión y puede ser un archivo oculto (un archivo "punto"). Por defecto is llamado <strong>0_icons_for_sub_menus.json</strong> (íconos para submenúes).</li>
 <li>Cualquiera sea el nombre elegido para el archivo, éste será automáticamente ignorado y jamás será mostrado en el menú.</li>
 <li>La ruta del ícono tiene que ser una ruta completa. Una ruta que comienza con <strong>~/</strong> puede ser usada y será.</li>
@@ -679,7 +763,6 @@ body {
 }
 </code></pre>
 <p><strong>¡ADVERTENCIA!</strong> El <em>lenguaje</em> JSON es muy estricto. Asegurarse de utilizar SOLAMENTE comillas dobles. Y la combinación llave/valor no tiene que finalizar con una coma (<strong>Nombre de carpeta #n</strong> en el ejemplo anterior).</p>
-<hr>
 
 <h2>Localización de applets/desklets/extensiones (también conocidos como xlets)</h2>
 <ul>
@@ -704,17 +787,43 @@ body {
 <p>Felrapporter, funktionsönskemål och kodbidrag kan lämnas i denna xlets kodförråd, på följande länk. <a href="https://github.com/Odyseus/CinnamonTools">GitHub</a></p>
 
 </div>
-<hr>
+
+
+<div class="panel panel-success">
+    <div class="panel-heading">
+        <h3 class="panel-title">Compatibility</h3>
+    </div>
+    <div class="panel-body compatibility">
+        <span class="compatibility-badge"><span class="label label-primary">Cinnamon</span><span class="label label-warning">2.8</span></span>
+<span class="compatibility-badge"><span class="label label-primary">Cinnamon</span><span class="label label-success">3.0</span></span>
+<span class="compatibility-badge"><span class="label label-primary">Cinnamon</span><span class="label label-success">3.2</span></span>
+<span class="compatibility-badge"><span class="label label-primary">Cinnamon</span><span class="label label-success">3.4</span></span>
+
+<br/><p class="text-danger compatibility-disclaimer">Do not install on any other version of Cinnamon.</p>
+    </div>
+</div>
+
+<h2>Description</h2>
+<p>The function of this applet is very simple, create a menu based on the files/folders found inside a main folder (specified on this applet settings window). The files will be used to create menu items and the sub folders will be used to create sub-menus.</p>
+<p>I mainly created this applet to replicate the functionality of the XFCE plugin called <strong>Directory Menu</strong> and the KDE widget called <strong>Quick access</strong>.</p>
+<div class="alert alert-warning"><h2>Warning</h2>
+<p>This applet has to read every single file/folder inside a main folder to create its menu. So, do not try to use this applet to create a menu based on a folder that contains thousands of files!!! Your system may slow down, freeze or even crash!!!</p></div><h2>Features</h2>
+<ul>
+<li>More than one instance of this applet can be installed at the same time.</li>
+<li>A hotkey can be assigned to open/close the menu.</li>
+<li>Menyposter från .desktop-filer</li>
+<li>Menyn kan hållas öppen för aktivering av menyposter, med [Ctrl]+<strong>Vänsterklick</strong> eller med <strong>Mushjulsklick</strong>.</li>
+<li>This applet can create menu and sub-menu items even from symbolic links found inside the main folder.</li>
+</ul>
 
 <h2>Programanvändning</h2>
 <ul>
 <li>Menyposter från .desktop-filer</li>
-<li>Menyn kan hållas öppen för aktivering av menyposter, med [Ctrl]+<strong>Vänsterklick</strong> eller med <strong>Mushjulsklick</strong>.</li>
-</ul>
-<hr>
-<h2>Hur man anger olika ikoner för varje undermeny</h2>
-<ul>
-<li>Skapa en fil på samma nivå som de mappar som skall användas för att skapa undermenyer.</li>
+<li><p>Menyn kan hållas öppen för aktivering av menyposter, med [Ctrl]+<strong>Vänsterklick</strong> eller med <strong>Mushjulsklick</strong>.
+## Hur man anger olika ikoner för varje undermeny</p>
+</li>
+<li><p>Skapa en fil på samma nivå som de mappar som skall användas för att skapa undermenyer.</p>
+</li>
 <li>Filnamnet kan anpassas, behöver inte ha någon filändelse och kan vara en dold fil (.filnamn). Som standard heter den <strong>0_icons_for_sub_menus.json</strong>.</li>
 <li>Vad du än väljer för filnamn, kommer den att undantas automatiskt och aldrig visas på menyn.</li>
 <li>Sökvägen till ikonen måste vara en fullständig sökväg. En sökväg som börjar med tilde (<strong>~/</strong>) kan användas och expanderas till användarens hemkatalog.</li>
@@ -729,7 +838,6 @@ body {
 }
 </code></pre>
 <p><strong>Varning!!!</strong> JSON <em>kodspråket</em> är mycket strikt. Använd ENDAST dubbla citationstecken, och den sista nyckel-/värdekombinationen behöver INTE avslutas med kommatecken (<strong>Folder name #n</strong> i föregående exempel).</p>
-<hr>
 
 <h2>Applets/Desklets/Extensions (xlets) översättning</h2>
 <ul>
@@ -754,17 +862,43 @@ body {
 <p>Bug reports, feature requests and contributions should be done on this xlet's repository linked next. <a href="https://github.com/Odyseus/CinnamonTools">GitHub</a></p>
 
 </div>
-<hr>
+
+
+<div class="panel panel-success">
+    <div class="panel-heading">
+        <h3 class="panel-title">Compatibility</h3>
+    </div>
+    <div class="panel-body compatibility">
+        <span class="compatibility-badge"><span class="label label-primary">Cinnamon</span><span class="label label-warning">2.8</span></span>
+<span class="compatibility-badge"><span class="label label-primary">Cinnamon</span><span class="label label-success">3.0</span></span>
+<span class="compatibility-badge"><span class="label label-primary">Cinnamon</span><span class="label label-success">3.2</span></span>
+<span class="compatibility-badge"><span class="label label-primary">Cinnamon</span><span class="label label-success">3.4</span></span>
+
+<br/><p class="text-danger compatibility-disclaimer">Do not install on any other version of Cinnamon.</p>
+    </div>
+</div>
+
+<h2>Description</h2>
+<p>The function of this applet is very simple, create a menu based on the files/folders found inside a main folder (specified on this applet settings window). The files will be used to create menu items and the sub folders will be used to create sub-menus.</p>
+<p>I mainly created this applet to replicate the functionality of the XFCE plugin called <strong>Directory Menu</strong> and the KDE widget called <strong>Quick access</strong>.</p>
+<div class="alert alert-warning"><h2>Warning</h2>
+<p>This applet has to read every single file/folder inside a main folder to create its menu. So, do not try to use this applet to create a menu based on a folder that contains thousands of files!!! Your system may slow down, freeze or even crash!!!</p></div><h2>Features</h2>
+<ul>
+<li>More than one instance of this applet can be installed at the same time.</li>
+<li>A hotkey can be assigned to open/close the menu.</li>
+<li>Menu items to .desktop files will be displayed with the icon and name declared inside the .desktop files themselves.</li>
+<li>The menu can be kept open while activating menu items by pressing <kbd>Ctrl</kbd> + <strong>Left click</strong> or with <strong>Middle click</strong>.</li>
+<li>This applet can create menu and sub-menu items even from symbolic links found inside the main folder.</li>
+</ul>
 
 <h2>Applet usage</h2>
 <ul>
 <li>Menu items to .desktop files will be displayed with the icon and name declared inside the .desktop files themselves.</li>
-<li>The menu can be kept open while activating menu items by pressing <kbd>Ctrl</kbd> + <strong>Left click</strong> or with <strong>Middle click</strong>.</li>
-</ul>
-<hr>
-<h2>How to set a different icon for each sub-menu</h2>
-<ul>
-<li>Create a file at the same level as the folders that will be used to create the sub-menus.</li>
+<li><p>The menu can be kept open while activating menu items by pressing <kbd>Ctrl</kbd> + <strong>Left click</strong> or with <strong>Middle click</strong>.
+## How to set a different icon for each sub-menu</p>
+</li>
+<li><p>Create a file at the same level as the folders that will be used to create the sub-menus.</p>
+</li>
 <li>The file name can be customized, doesn't need to have an extension name and can be a hidden file (a dot file). By default is called <strong>0_icons_for_sub_menus.json</strong>.</li>
 <li>Whatever name is chosen for the file, it will be automatically ignored and will never be shown on the menu.</li>
 <li>The path to the icon has to be a full path. A path starting with <strong>~/</strong> can be used and will be expanded to the user's home folder.</li>
@@ -779,7 +913,6 @@ body {
 }
 </code></pre>
 <p><strong>Warning!!!</strong> JSON <em>language</em> is very strict. Just be sure to ONLY use double quotes. And the last key/value combination DOESN'T have to end with a comma (<strong>Folder name #n</strong> in the previous example).</p>
-<hr>
 
 <h2>Applets/Desklets/Extensions (a.k.a. xlets) localization</h2>
 <ul>

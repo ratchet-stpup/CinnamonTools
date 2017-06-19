@@ -26,7 +26,7 @@ renderMainSite() {
 
 
 # Tried to convert this function to Python. Didn't work out that well.
-# Next time, I try with threading or multiprocess.
+# Next time, I will try with threading or multiprocess.
 # For the moment, that's way out of my league.
 generateTransStats() {
     # Create the tmp dir to store the .po files lists if it doesn't exists.
@@ -115,6 +115,28 @@ generateTransStats() {
     # Leave Markdown data as is.
     column -t $ROOT_PATH/tmp/po_files_untranslated_count \
     > $ROOT_PATH/tmp/po_files_untranslated_count_column
+}
+
+# Update all es.po files from their corresponding .pot files.
+updateSpanishPOs() {
+    for type in "$@"; do
+        # Using a sub-shell to switch directories to avoid "back and forth".
+        (
+            cd $type
+            for xlet in *; do
+                if [ -d "$xlet/files/$xlet/po" ]; then
+                    echoWarn "$xlet"
+                    (
+                        cd "$xlet/files/$xlet/po"
+                        msgmerge -N --previous --backup=off --update es.po $xlet.pot \
+                        || echoError "Error updating $PO_FILE"
+                    )
+
+                    sleep 0.5
+                fi
+            done
+        )
+    done
 }
 
 # StackOverflow to the rescue!!! http://stackoverflow.com/a/35832513/4147432
@@ -247,6 +269,8 @@ if [ "$arg" == "render-main-site" ]; then
     renderMainSite
 elif [ "$arg" == "generate-trans-stats" ]; then
     generateTransStats "applets" "extensions"
+elif [ "$arg" == "update-spanish-localizations" ]; then
+    updateSpanishPOs "applets" "extensions"
 elif [ "$arg" == "create-packages" ]; then
     createPackages
 fi

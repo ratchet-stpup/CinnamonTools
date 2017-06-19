@@ -58,50 +58,75 @@ def _(aStr):
     return aStr
 
 
-# The real content of the HELP file.
-def get_content():
-    return md("{}".format("\n".join([
+# Base information about the xlet (Description, features, dependencies, etc.).
+# This is used by the xlet README and the xlets help file.
+# Returns a "raw markdown string" that it is used "as-is" for the README creation,
+# but it's converted to HTML when used by the help file.
+#
+# Separate each "block" with an empty space, not a new line. When joining the
+# string with a new line character, an empty space will add one line, but a
+# new line character will add two lines. This is just to keep the README content
+# somewhat homogeneous.
+def get_content_base(for_readme=False):
+    return "\n".join([
+        "## %s" % _("Description"),
+        "",
+        # TO TRANSLATORS: MARKDOWN string. Respect formatting.
+        _("The Multi Translator extension is an extension ported from a gnome-shell extension called [Text Translator](https://github.com/gufoe/text-translator) by [gufoe](https://github.com/gufoe). It provides translation of text by different translation providers (currently [Google](https://translate.google.com), [Yandex](https://translate.yandex.net), [Bing](https://www.bing.com/translator), [Apertium](https://www.apertium.org) and [Transltr](http://transltr.org))."),
+        "",
         "## %s" % _("Dependencies"),
+        "",
         "**%s**" % _("If one or more of these dependencies are missing in your system, you will not be able to use this extension."),
+        "",
         "- %s %s" % (_("xsel command:"),
                      _("XSel is a command-line program for getting and setting the contents of the X selection.")),
         "- %s %s" % (_("trans command:"),
                      _("Command provided by the package translate-shell. Is a simple command line interface for several translation providers (Google Translate, Yandex Translate, Bing Translate and Apertium) which allows you to translate strings in your terminal.")),
         # TO TRANSLATORS: MARKDOWN string. Respect formatting.
         "    - %s" % _("Check translate-shell [dependencies](https://github.com/soimort/translate-shell#dependencies) and [recommended dependencies](https://github.com/soimort/translate-shell#recommended-dependencies)."),
-        "\n",
-        "**%s** %s" % (_("Note:"), _("The translate-shell package available on Ubuntu 16.04.x/Linux Mint 18.x repositories is outdated and broken. It can be installed anyway so it will also install its dependencies. But updating to the latest version should be done as described bellow.")),
-        "\n",
+        "",
+        "**%s** %s" % (_("Note:"), _("The translate-shell package available on Ubuntu 16.04.x/Linux Mint 18.x repositories is outdated and broken. It can be installed anyway so it will also install its dependencies. But updating to the latest version should be done as described bellow.")) if not for_readme else "",
+        "",
+        "**Read this extension help file for more details.**" if for_readme else "",
+        "",
+        "## Settings window image" if for_readme else "",
+        "",
+        "![MultiTranslatorExtension-options](https://odyseus.github.io/CinnamonTools/lib/img/MultiTranslatorExtension-options.gif)" if for_readme else ""
+    ])
+
+
+# The real content of the HELP file.
+def get_content_extra():
+    return md("{}".format("\n".join([
         "## %s" % _("How to install latest version of translate-shell"),
         "### %s" % _("Option 1. Direct Download"),
         _("This method will only install the trans script into the specified locations."),
-        "\n",
+        "",
         # TO TRANSLATORS: MARKDOWN string. Respect formatting.
         _("For the current user only. **~/.local/bin** needs to be in your PATH."),
-        "\n",
+        "",
         """```shell
 $ wget -O ~/.local/bin/trans git.io/trans && chmod ugo+rx ~/.local/bin/trans
 ```""",
-        "\n",
+        "",
         _("For all users without overwriting the installed version."),
-        "\n",
+        "",
         """```shell
 $ sudo wget -O /usr/local/bin/trans git.io/trans && sudo chmod ugo+rx /usr/local/bin/trans
 ```""",
-        "\n",
+        "",
         "### %s" %
         # TO TRANSLATORS: MARKDOWN string. Respect formatting.
         _("Option 2. From Git - [More details](https://github.com/soimort/translate-shell/blob/develop/README.md#option-3-from-git-recommended-for-seasoned-hackers)"),
         _("This method will not just install the trans script but also its man pages. Refer to the link above for more installation details."),
-        "\n",
+        "",
         """```shell
 $ git clone https://github.com/soimort/translate-shell
 $ cd translate-shell
 $ make
 $ sudo make install
 ```""",
-        "\n",
-        "***",
+        "",
         "## %s" % _("Extension usage"),
         _("Once installed and enabled, the following shortcuts will be available."),
         "### %s" % _("Global shortcuts (configurable from the extension settings)"),
@@ -111,7 +136,7 @@ $ sudo make install
         "- %s" % _("**[[Super]] + [[Shift]] + [[T]]:** Open translator dialog and translate text from clipboard."),
         # TO TRANSLATORS: MARKDOWN string. Respect formatting.
         "- %s" % _("**[[Super]] + [[Alt]] + [[T]]:** Open translator dialog and translate from primary selection."),
-        "\n",
+        "",
         "### %s" % _("Shortcuts available on the translation dialog"),
         # TO TRANSLATORS: MARKDOWN string. Respect formatting.
         "- %s" % _("**[[Ctrl]] + [[Enter]]:** Translate text."),
@@ -125,11 +150,10 @@ $ sudo make install
         "- %s" % _("**[[Ctrl]] + [[D]]:** Reset languages to default."),
         # TO TRANSLATORS: MARKDOWN string. Respect formatting.
         "- %s" % _("**[[Escape]]:** Close dialog."),
-        "\n",
-        "***",
+        "",
         "## %s" % _("Extension's settings window"),
         _("From this extension settings window, all options can be imported, exported and/or reseted to their defaults."),
-        "\n",
+        "",
         "- %s" % _("To be able to perform any of these actions, the settings schema needs to be installed in the system. This is done automatically when the extension is installed from the Cinnamon extensions manager. But if the extension was installed manually, the settings schema also needs to be installed manually. This is achieved by simply going to the extension folder and launch the following command:"),
         # TO TRANSLATORS: MARKDOWN string. Respect formatting.
         "    - %s %s" % (_("Command to install the settings schema:"),
@@ -139,8 +163,7 @@ $ sudo make install
                          "`./settings.py remove-schema`"),
         # TO TRANSLATORS: MARKDOWN string. Respect formatting.
         "- %s" % _("To import/export settings, the **dconf** command needs to be available on the system."),
-        "\n",
-        "***"
+        ""
     ])
     ))
 
@@ -163,6 +186,10 @@ class Main():
     def __init__(self):
         self.html_templates = localized_help_modules.HTMLTemplates()
         self.html_assets = localized_help_modules.HTMLInlineAssets(repo_folder=repo_folder)
+        self.compatibility_data = localized_help_modules.get_compatibility(
+            xlet_meta=xlet_meta,
+            for_readme=False
+        )
         self.lang_list = []
         self.sections = []
         self.options = []
@@ -190,19 +217,40 @@ class Main():
             global current_language
             current_language = lang
 
+            if current_language == "en":
+                localized_help_modules.create_readme(
+                    xlet_dir=XLET_DIR,
+                    xlet_meta=xlet_meta,
+                    content_base=get_content_base(for_readme=True)
+                )
+
             if current_language != "en" and _("language-name") == "language-name":
                 # If the endonym isn't provided, assume that the HELP file isn't translated.
                 # Placed this comment here so the comment isn't extracted by xgettext.
                 continue
 
             only_english = md("<div style=\"font-weight:bold;\" class=\"alert alert-info\">{0}</div>".format(
-                _("The following two sections are available only in English.")))
+                _("The following two sections are available only in English."))
+            )
+
+            compatibility_disclaimer = "<p class=\"text-danger compatibility-disclaimer\">{}</p>".format(
+                _("Do not install on any other version of Cinnamon.")
+            )
+
+            compatibility_block = self.html_templates.bt_panel.format(
+                context="success",
+                custom_class="compatibility",
+                title=_("Compatibility"),
+                content=self.compatibility_data + "\n<br/>" + compatibility_disclaimer,
+            )
 
             section = self.html_templates.locale_section_base.format(
                 language_code=current_language,
                 hidden="" if current_language is "en" else " hidden",
                 introduction=self.get_introduction(),
-                content=get_content(),
+                compatibility=compatibility_block,
+                content_base=md(get_content_base(for_readme=False)),
+                content_extra=get_content_extra(),
                 localize_info=self.get_localize_info(),
                 only_english=only_english,
             )
@@ -230,8 +278,9 @@ class Main():
             js_custom=get_js_custom()
         )
 
-        localized_help_modules.save_html_file(path=self.help_file_path,
-                                              data=html_doc)
+        localized_help_modules.save_file(path=self.help_file_path,
+                                         data=html_doc,
+                                         creation_type=self.creation_type)
 
     def do_dummy_install(self):
         podir = os.path.join(XLET_DIR, "files", XLET_UUID, "po")
@@ -321,15 +370,19 @@ if __name__ == "__main__":
         quit()
 
     help_file_path = None
+    creation_type = None
 
     if options.production:
+        creation_type = "production"
         help_file_path = os.path.join(XLET_DIR, "files", XLET_UUID, "HELP.html")
     elif options.dev:
+        creation_type = "dev"
         repo_tmp_folder = os.path.join(repo_folder, "tmp", "help_files")
         GLib.mkdir_with_parents(repo_tmp_folder, 0o755)
         help_file_path = os.path.join(repo_tmp_folder, XLET_UUID + "-HELP.html")
 
     if help_file_path is not None:
         m = Main()
+        m.creation_type = creation_type
         m.help_file_path = help_file_path
         m.do_dummy_install()

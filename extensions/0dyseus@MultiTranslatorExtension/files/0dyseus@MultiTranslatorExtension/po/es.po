@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-06-02 17:08-0300\n"
-"PO-Revision-Date: 2017-06-02 17:08-0300\n"
+"POT-Creation-Date: 2017-06-18 21:53-0300\n"
+"PO-Revision-Date: 2017-06-19 00:40-0300\n"
 "Last-Translator: Odyseus\n"
 "Language-Team: \n"
 "Language: es\n"
@@ -18,11 +18,34 @@ msgstr ""
 "X-Generator: Poedit 1.8.7.1\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ../../create_localized_help.py:64
+#: ../../create_localized_help.py:72
+msgid "Description"
+msgstr "Descripción"
+
+#. TO TRANSLATORS: MARKDOWN string. Respect formatting.
+#: ../../create_localized_help.py:75
+msgid ""
+"The Multi Translator extension is an extension ported from a gnome-shell "
+"extension called [Text Translator](https://github.com/gufoe/text-translator) "
+"by [gufoe](https://github.com/gufoe). It provides translation of text by "
+"different translation providers (currently [Google](https://translate.google."
+"com), [Yandex](https://translate.yandex.net), [Bing](https://www.bing.com/"
+"translator), [Apertium](https://www.apertium.org) and [Transltr](http://"
+"transltr.org))."
+msgstr ""
+"La extensión Multi Traductor está basada en una extensión para gnome-shell "
+"llamada [Text Translator](https://github.com/gufoe/text-translator) por "
+"[gufoe](https://github.com/gufoe). Proporciona traducción de texto por "
+"diferentes proveedores de traducción (actualmente [Google](https://translate."
+"google.com), [Yandex](https://translate.yandex.net), [Bing](https://www.bing."
+"com/translator), [Apertium](https://www.apertium.org) and [Transltr](http://"
+"transltr.org))."
+
+#: ../../create_localized_help.py:77
 msgid "Dependencies"
 msgstr "Dependencias"
 
-#: ../../create_localized_help.py:65
+#: ../../create_localized_help.py:79
 msgid ""
 "If one or more of these dependencies are missing in your system, you will "
 "not be able to use this extension."
@@ -30,11 +53,11 @@ msgstr ""
 "Si una o más de estas dependencias faltan en su sistema, no podrá utilizar "
 "esta extensión."
 
-#: ../../create_localized_help.py:66
+#: ../../create_localized_help.py:81
 msgid "xsel command:"
 msgstr "Comando xsel"
 
-#: ../../create_localized_help.py:67
+#: ../../create_localized_help.py:82
 msgid ""
 "XSel is a command-line program for getting and setting the contents of the X "
 "selection."
@@ -42,11 +65,11 @@ msgstr ""
 "XSel es un programa de la consola para obtener y asignar los contenidos de "
 "una selección en X."
 
-#: ../../create_localized_help.py:68
+#: ../../create_localized_help.py:83
 msgid "trans command:"
 msgstr "Comando trans:"
 
-#: ../../create_localized_help.py:69
+#: ../../create_localized_help.py:84
 msgid ""
 "Command provided by the package translate-shell. Is a simple command line "
 "interface for several translation providers (Google Translate, Yandex "
@@ -59,7 +82,7 @@ msgstr ""
 "de texto desde la terminal."
 
 #. TO TRANSLATORS: MARKDOWN string. Respect formatting.
-#: ../../create_localized_help.py:71
+#: ../../create_localized_help.py:86
 msgid ""
 "Check translate-shell [dependencies](https://github.com/soimort/translate-"
 "shell#dependencies) and [recommended dependencies](https://github.com/"
@@ -69,11 +92,11 @@ msgstr ""
 "shell#dependencies) y [dependencias recomendadas](https://github.com/soimort/"
 "translate-shell#recommended-dependencies) de translate-shell."
 
-#: ../../create_localized_help.py:73
+#: ../../create_localized_help.py:88
 msgid "Note:"
 msgstr "Nota:"
 
-#: ../../create_localized_help.py:73
+#: ../../create_localized_help.py:88
 msgid ""
 "The translate-shell package available on Ubuntu 16.04.x/Linux Mint 18.x "
 "repositories is outdated and broken. It can be installed anyway so it will "
@@ -85,32 +108,32 @@ msgstr ""
 "maneras así también se instalan sus dependencias. Pero actualizar el script "
 "a su última versión debe hacerse como se describe a continuación."
 
-#: ../../create_localized_help.py:75
+#: ../../create_localized_help.py:101
 msgid "How to install latest version of translate-shell"
 msgstr "Cómo instalar la última versión de translate-shell"
 
-#: ../../create_localized_help.py:76
+#: ../../create_localized_help.py:102
 msgid "Option 1. Direct Download"
 msgstr "Opción 1. Descarga directa"
 
-#: ../../create_localized_help.py:77
+#: ../../create_localized_help.py:103
 msgid ""
 "This method will only install the trans script into the specified locations."
 msgstr ""
 "Este método sólo instalará el script **trans** en la ubicación especificada."
 
 #. TO TRANSLATORS: MARKDOWN string. Respect formatting.
-#: ../../create_localized_help.py:80
+#: ../../create_localized_help.py:106
 msgid "For the current user only. **~/.local/bin** needs to be in your PATH."
 msgstr ""
 "Sólo para el usuario actual. **~/.local/bin** necesita estar en su PATH."
 
-#: ../../create_localized_help.py:86
+#: ../../create_localized_help.py:112
 msgid "For all users without overwriting the installed version."
 msgstr "Para todos los usuarios sin sobre-escribir la versión instalada."
 
 #. TO TRANSLATORS: MARKDOWN string. Respect formatting.
-#: ../../create_localized_help.py:94
+#: ../../create_localized_help.py:120
 msgid ""
 "Option 2. From Git - [More details](https://github.com/soimort/translate-"
 "shell/blob/develop/README.md#option-3-from-git-recommended-for-seasoned-"
@@ -120,7 +143,7 @@ msgstr ""
 "shell/blob/develop/README.md#option-3-from-git-recommended-for-seasoned-"
 "hackers)"
 
-#: ../../create_localized_help.py:95
+#: ../../create_localized_help.py:121
 msgid ""
 "This method will not just install the trans script but also its man pages. "
 "Refer to the link above for more installation details."
@@ -129,27 +152,27 @@ msgstr ""
 "man. Consultar el enlace anterior para obtener más detalles sobre la "
 "instalación."
 
-#: ../../create_localized_help.py:105
+#: ../../create_localized_help.py:130
 msgid "Extension usage"
 msgstr "Uso de la extensión"
 
-#: ../../create_localized_help.py:106
+#: ../../create_localized_help.py:131
 msgid "Once installed and enabled, the following shortcuts will be available."
 msgstr ""
 "Una vez instalada y activada, los siguientes atajos de teclado estarán "
 "disponibles."
 
-#: ../../create_localized_help.py:107
+#: ../../create_localized_help.py:132
 msgid "Global shortcuts (configurable from the extension settings)"
 msgstr "Atajos globales (Configurable desde las preferencias de la extensión)"
 
 #. TO TRANSLATORS: MARKDOWN string. Respect formatting.
-#: ../../create_localized_help.py:109
+#: ../../create_localized_help.py:134
 msgid "**[[Super]] + [[T]]:** Open translator dialog."
 msgstr "**[[Súper]] + [[T]]:** Abre el diálogo de traducción."
 
 #. TO TRANSLATORS: MARKDOWN string. Respect formatting.
-#: ../../create_localized_help.py:111
+#: ../../create_localized_help.py:136
 msgid ""
 "**[[Super]] + [[Shift]] + [[T]]:** Open translator dialog and translate text "
 "from clipboard."
@@ -158,7 +181,7 @@ msgstr ""
 "el texto desde el porta papeles."
 
 #. TO TRANSLATORS: MARKDOWN string. Respect formatting.
-#: ../../create_localized_help.py:113
+#: ../../create_localized_help.py:138
 msgid ""
 "**[[Super]] + [[Alt]] + [[T]]:** Open translator dialog and translate from "
 "primary selection."
@@ -166,17 +189,17 @@ msgstr ""
 "**[[Súper]] + [[Alt]] + [[T]]:** Abre el diálogo de traducción y traduce el "
 "texto desde la selección primaria."
 
-#: ../../create_localized_help.py:115
+#: ../../create_localized_help.py:140
 msgid "Shortcuts available on the translation dialog"
 msgstr "Atajos disponibles en el diálogo de traducción"
 
 #. TO TRANSLATORS: MARKDOWN string. Respect formatting.
-#: ../../create_localized_help.py:117
+#: ../../create_localized_help.py:142
 msgid "**[[Ctrl]] + [[Enter]]:** Translate text."
 msgstr "**[[Ctrl]] + [[Enter]]:** Traduce el texto."
 
 #. TO TRANSLATORS: MARKDOWN string. Respect formatting.
-#: ../../create_localized_help.py:119
+#: ../../create_localized_help.py:144
 msgid ""
 "**[[Shift]] + [[Enter]]:** Force text translation. Ignores translation "
 "history."
@@ -185,31 +208,31 @@ msgstr ""
 "historial de traducción."
 
 #. TO TRANSLATORS: MARKDOWN string. Respect formatting.
-#: ../../create_localized_help.py:121
+#: ../../create_localized_help.py:146
 msgid "**[[Ctrl]] + [[Shift]] + [[C]]:** Copy translated text to clipboard."
 msgstr ""
 "**[[Ctrl]] + [[Shift]] + [[C]]:** Copia el texto traducido al porta papeles."
 
 #. TO TRANSLATORS: MARKDOWN string. Respect formatting.
-#: ../../create_localized_help.py:123
+#: ../../create_localized_help.py:148
 msgid "**[[Ctrl]] + [[S]]:** Swap languages."
 msgstr "**[[Ctrl]] + [[S]]:** Cambia idiomas."
 
 #. TO TRANSLATORS: MARKDOWN string. Respect formatting.
-#: ../../create_localized_help.py:125
+#: ../../create_localized_help.py:150
 msgid "**[[Ctrl]] + [[D]]:** Reset languages to default."
 msgstr "**[[Ctrl]] + [[D]]:** Restablece los idiomas predeterminados."
 
 #. TO TRANSLATORS: MARKDOWN string. Respect formatting.
-#: ../../create_localized_help.py:127
+#: ../../create_localized_help.py:152
 msgid "**[[Escape]]:** Close dialog."
 msgstr "**[[Escape]]:** Cierra el diálogo."
 
-#: ../../create_localized_help.py:130
+#: ../../create_localized_help.py:154
 msgid "Extension's settings window"
 msgstr "Ventana de preferencias de la extensión"
 
-#: ../../create_localized_help.py:131
+#: ../../create_localized_help.py:155
 msgid ""
 "From this extension settings window, all options can be imported, exported "
 "and/or reseted to their defaults."
@@ -217,7 +240,7 @@ msgstr ""
 "Desde la ventana de preferencias de la extensión, todas las opciones pueden "
 "ser importadas, exportadas y/o restablecidas a sus valores por defecto."
 
-#: ../../create_localized_help.py:133
+#: ../../create_localized_help.py:157
 msgid ""
 "To be able to perform any of these actions, the settings schema needs to be "
 "installed in the system. This is done automatically when the extension is "
@@ -235,17 +258,17 @@ msgstr ""
 "siguiente comando:"
 
 #. TO TRANSLATORS: MARKDOWN string. Respect formatting.
-#: ../../create_localized_help.py:135
+#: ../../create_localized_help.py:159
 msgid "Command to install the settings schema:"
 msgstr "Comando para instalar el esquema de preferencias:"
 
 #. TO TRANSLATORS: MARKDOWN string. Respect formatting.
-#: ../../create_localized_help.py:138
+#: ../../create_localized_help.py:162
 msgid "Command to uninstall the settings schema:"
 msgstr "Comando para desinstalar el esquema de preferencias:"
 
 #. TO TRANSLATORS: MARKDOWN string. Respect formatting.
-#: ../../create_localized_help.py:141
+#: ../../create_localized_help.py:165
 msgid ""
 "To import/export settings, the **dconf** command needs to be available on "
 "the system."
@@ -253,44 +276,48 @@ msgstr ""
 "Para importar/exportar preferencias, el comando **dconf** necesita estar "
 "disponible en el sistema."
 
-#: ../../create_localized_help.py:164
-msgid "The following two sections are available only in English."
-msgstr "Las siguientes dos secciones están disponibles sólo en Inglés."
-
 #. TO TRANSLATORS: This is a placeholder.
 #. Here goes your language name in your own language (a.k.a. endonym).
-#: ../../create_localized_help.py:189 ../../create_localized_help.py:261
+#: ../../create_localized_help.py:227 ../../create_localized_help.py:318
 msgid "language-name"
 msgstr "Español"
 
-#: ../../create_localized_help.py:264 settings.py:1385 __init__.js:3456
+#: ../../create_localized_help.py:233
+msgid "The following two sections are available only in English."
+msgstr "Las siguientes dos secciones están disponibles sólo en Inglés."
+
+#: ../../create_localized_help.py:237
+msgid "Do not install on any other version of Cinnamon."
+msgstr "No instalar en ninguna otra versión de Cinnamon."
+
+#: ../../create_localized_help.py:243
+msgid "Compatibility"
+msgstr "Copatibilidad"
+
+#: ../../create_localized_help.py:321 settings.py:1385 __init__.js:3456
 msgid "Help"
 msgstr "Ayuda"
 
-#: ../../create_localized_help.py:265
+#: ../../create_localized_help.py:322
 msgid "Contributors"
 msgstr "Colaboradores"
 
-#: ../../create_localized_help.py:266
+#: ../../create_localized_help.py:323
 msgid "Changelog"
 msgstr "Registro de cambios"
 
-#: ../../create_localized_help.py:267
-msgid "Choose language"
-msgstr "Elegir idioma"
-
 #. TO TRANSLATORS: Full sentence:
 #. "Help for <xlet_name>"
-#: ../../create_localized_help.py:268 ../../create_localized_help.py:275
+#: ../../create_localized_help.py:324 ../../create_localized_help.py:331
 #, python-format
 msgid "Help for %s"
 msgstr "Ayuda para %s"
 
-#: ../../create_localized_help.py:276
+#: ../../create_localized_help.py:332
 msgid "IMPORTANT!!!"
 msgstr "¡IMPORTANTE!"
 
-#: ../../create_localized_help.py:277
+#: ../../create_localized_help.py:333
 msgid ""
 "Never delete any of the files found inside this xlet folder. It might break "
 "this xlet functionality."
@@ -298,7 +325,8 @@ msgstr ""
 "Jamás borrar ninguno de los archivos encontrados dentro de la carpeta de "
 "este xlet. Podría romper la funcionalidad del xlet."
 
-#: ../../create_localized_help.py:278
+#. 0dyseus@MultiTranslatorExtension->metadata.json->comments
+#: ../../create_localized_help.py:334
 msgid ""
 "Bug reports, feature requests and contributions should be done on this "
 "xlet's repository linked next."
@@ -306,12 +334,12 @@ msgstr ""
 "Los reportes de fallos, peticiones de características y contribuciones deben "
 "hacerse en el repositorio de este xlet vinculado a continuación."
 
-#: ../../create_localized_help.py:284
+#: ../../create_localized_help.py:340
 msgid "Applets/Desklets/Extensions (a.k.a. xlets) localization"
 msgstr ""
 "Localización de applets/desklets/extensiones (también conocidos como xlets)"
 
-#: ../../create_localized_help.py:285
+#: ../../create_localized_help.py:341
 msgid ""
 "If this xlet was installed from Cinnamon Settings, all of this xlet's "
 "localizations were automatically installed."
@@ -320,7 +348,7 @@ msgstr ""
 "localizaciones de este xlet se instalaron automáticamente."
 
 #. TO TRANSLATORS: MARKDOWN string. Respect formatting.
-#: ../../create_localized_help.py:287
+#: ../../create_localized_help.py:343
 msgid ""
 "If this xlet was installed manually and not trough Cinnamon Settings, "
 "localizations can be installed by executing the script called "
@@ -331,7 +359,7 @@ msgstr ""
 "llamado **localizations.sh** desde una terminal abierta dentro de la carpeta "
 "del xlet."
 
-#: ../../create_localized_help.py:288
+#: ../../create_localized_help.py:344
 msgid ""
 "If this xlet has no locale available for your language, you could create it "
 "by following the following instructions."
@@ -1522,6 +1550,10 @@ msgstr "No se admite la dirección de traducción especificada"
 msgid "No Yandex API keys were found!!!"
 msgstr "¡No se encontraron claves de API de Yandex!"
 
+#. 0dyseus@MultiTranslatorExtension->metadata.json->contributors
+msgid "See this xlet help file."
+msgstr "Ver el archivo de ayuda de este xlet."
+
 #. 0dyseus@MultiTranslatorExtension->metadata.json->description
 msgid ""
 "Translation of text by different translation providers (currently Google, "
@@ -1530,17 +1562,15 @@ msgstr ""
 "Traducción de texto proporcionado por diferentes proveedores de traducción "
 "(actualmente Google, Yandex, Bing, Translatr and Apertium)."
 
-#. 0dyseus@MultiTranslatorExtension->metadata.json->contributors
-msgid "See this xlet help file."
-msgstr "Ver el archivo de ayuda de este xlet."
+#~ msgid "Choose language"
+#~ msgstr "Elegir idioma"
 
-#. 0dyseus@MultiTranslatorExtension->metadata.json->comments
-msgid ""
-"Bug reports, feature requests and contributions should be done on this "
-"xlet's repository linked below."
-msgstr ""
-"Los reportes de fallos, peticiones de características y contribuciones deben "
-"hacerse en el repositorio de este xlet vinculado a continuación."
+#~ msgid ""
+#~ "Bug reports, feature requests and contributions should be done on this "
+#~ "xlet's repository linked below."
+#~ msgstr ""
+#~ "Los reportes de fallos, peticiones de características y contribuciones "
+#~ "deben hacerse en el repositorio de este xlet vinculado a continuación."
 
 #~ msgid "Read CONTRIBUTORS.md file inside this xlet folder."
 #~ msgstr "Leer el archivo CONTRIBUTORS.md dentro de la carpeta de este xlet."

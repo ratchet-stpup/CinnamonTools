@@ -58,8 +58,44 @@ def _(aStr):
     return aStr
 
 
+# Base information about the xlet (Description, features, dependencies, etc.).
+# This is used by the xlet README and the xlets help file.
+# Returns a "raw markdown string" that it is used "as-is" for the README creation,
+# but it's converted to HTML when used by the help file.
+#
+# Separate each "block" with an empty space, not a new line. When joining the
+# string with a new line character, an empty space will add one line, but a
+# new line character will add two lines. This is just to keep the README content
+# somewhat homogeneous.
+def get_content_base(for_readme=False):
+    return "\n".join([
+        "## %s" % _("Description"),
+        "",
+        _("This extension adds some options to modify the default behaviour of certain Cinnamon features."),
+        "",
+        "\n".join([
+            "## Features/Options",
+            "",
+            "<span style=\"color:red;font-weight: bold;font-size: large;\">Some tweaks have warnings, dependencies, limitations and or known issues that must be read and understood before a tweak is enabled. No worries, nothing <em>fatal</em> could ever happen.</span>",
+            "",
+            "For detailed explanations of each option/tweak, see this extension help (accessible from this extension settings window).",
+            "",
+            "- **Applets/Desklets tweaks:** confirmation dialogs can be added to applet/desklet removal to avoid accidental removal. New items can be added to applets/desklets context menus (**Open applet/desklet folder** and **Edit applet/desklet main file**).",
+            "- **Hot corners tweaks:** Allows to set a hover activation delay in milliseconds for each hot corner. This tweak is only available for Cinnamon versions lower than 3.2 (Cinnamon 3.2.x already has hot corners delay activation).",
+            "- **Desktop area tweaks:** Allows to drag applications from the menu or from the launchers applets into the desktop.",
+            "- **Popup menus tweaks:** Allows to change the behavior of the applets menus.",
+            "- **Tooltips tweaks:** Allows to tweak the position and show delay of Cinnamon's UI tooltips. The position of the tooltip is only available for Cinnamon versions lower than 3.2 (Cinnamon 3.2.x already has the position of the tooltips changed).",
+            "- **Notifications tweaks:** Allows changing the notification popups to the bottom of the screen and change its top/bottom/right margins.",
+            "- **Window focus tweaks:** Allows the activation of windows demanding attention with a keyboard shortcut or forced. Tweak based on the gnome-shell extension called [Steal My Focus](https://github.com/v-dimitrov/gnome-shell-extension-stealmyfocus) by [Valentin Dimitrov](https://github.com/v-dimitrov) and another gnome-shell extension called [Window Demands Attention Shortcut](https://github.com/awamper/window-demands-attention-shortcut) by [awamper](https://github.com/awamper).",
+            "- **Auto move windows:** Enables the ability to set rules to open determined applications on specific workspaces. Tweak based on the gnome-shell extension called [Auto Move Windows](https://extensions.gnome.org/extension/16/auto-move-windows/) by [Florian Muellner](https://github.com/fmuellner).",
+            "- **Window shadows tweaks:** Allows to change the windows shadows to some predefined presets or completely customize the shadows of every single type of window. Tweak based on an extension called [Custom Shadows](https://cinnamon-spices.linuxmint.com/extensions/view/43) created by [mikhail-ekzi](https://github.com/mikhail-ekzi).",
+            "- **Windows decorations removal:** Allows to remove the windows decorations from maximized/half-maximized/tiled windows. Tweak based on the Cinnamon extension called [Cinnamon Maximus](https://cinnamon-spices.linuxmint.com/extensions/view/29) by [Fatih Mete](https://github.com/fatihmete) with some options from the gnome-shell extension called [Maximus NG](https://github.com/luispabon/maximus-gnome-shell) by [Luis Pabon](https://github.com/luispabon).",
+        ]) if for_readme else "",
+    ])
+
+
 # The real content of the HELP file.
-def get_content():
+def get_content_extra():
     return md("{}".format("\n".join([
 
         "## %s" % _("Extension options details"),
@@ -73,30 +109,30 @@ def get_content():
         "- **%s** & **%s** %s" % (_("Display \"Open applet/desklet folder\" on context menu for applets/desklets"), _("Display \"Edit applet/desklet main file\" on context menu for applets/desklet:"),
                                   # TO TRANSLATORS: MARKDOWN string. Respect formatting.
                                   _("These options will add new menu items to the applets/desklets context menus. The place where this items will be located is chosen by the option **Where to place the menu item?**.")),
-        "\n",
+        "",
         "### %s" % _("Hot Corners tweaks"),
         _("This tweak is only available for Cinnamon versions lower than 3.2. Cinnamon 3.2.x already has hot corners delay activation."),
         "- **%s** %s" % (_("Top left hot corner activation delay:"), _("Crystal clear.")),
         "- **%s** %s" % (_("Top right hot corner activation delay:"), _("Crystal clear.")),
         "- **%s** %s" % (_("Bottom left hot corner activation delay:"), _("Crystal clear.")),
         "- **%s** %s" % (_("Bottom right hot corner activation delay:"), _("Crystal clear.")),
-        "\n",
+        "",
         "### %s" % _("Desktop area tweaks"),
         "- **%s** %s" % (_("Enable applications drop to the Desktop:"), _(
             "This tweak enables the ability to drag and drop applications from the menu applet and from the panel launchers applet into the desktop.")),
-        "\n",
+        "",
         "### %s" % _("Popup menus tweaks"),
         "##### %s" % _("Panel menus behavior"),
         "**%s** %s" % (_("Note:"), _(
             "This setting affects only the behavior of menus that belongs to applets placed on any panel.")),
-        "\n",
+        "",
         "- **%s** %s" % (_("Emulate Gnome Shell behavior:"), _("When a menu is open on Genome Shell, and then the mouse cursor is moved to another button on the top panel, the menu of the hovered buttons will automatically open without the need to click on them. With this option enabled, that same behavior can be reproduced on Cinnamon.")),
         "- **%s** %s" % (_("Don't eat clicks:"), _("By default, when one opens an applet's menu on Cinnamon and then click on another applet to open its menu, the first click is used to close the first opened menu, and then another click has to be performed to open the menu of the second applet. With this option enabled, one can directly open the menu of any applet even if another applet has its menu open.")),
-        "\n",
+        "",
         "### %s" % _("Tooltips tweaks"),
         "- **%s** %s" % (_("Avoid mouse pointer overlapping tooltips:"), _("Tooltips on Cinnamon's UI are aligned to the top-left corner of the mouse pointer. This leads to having tooltips overlapped by the mouse pointer. This tweak aligns the tooltip to the bottom-right corner of the mouse pointer (approximately), reducing the possibility of the mouse pointer to overlap the tooltip. This tweak is only available for Cinnamon versions lower than 3.2. Cinnamon 3.2.x already has the position of the tooltips changed.")),
         "- **%s** %s" % (_("Tooltips show delay:"), _("Crystal clear.")),
-        "\n",
+        "",
         "### %s" % _("Notifications tweaks"),
         "- **%s** %s" % (_("Enable notifications open/close animation:"), _("Crystal clear.")),
         "- **%s** %s" % (_("Notifications position:"), _(
@@ -108,13 +144,13 @@ def get_content():
             "This is the distance between the top border of the bottom panel (if no bottom panel, from the bottom of the screen) to the bottom border of the notification popup.")),
         "- **%s** %s" % (_("Notification popup right margin:"), _(
             "By default, the right margin of the notification popup is defined by the currently used theme. This option, set to any value other than 0 (zero), allows to set a custom right margin, ignoring the defined by the theme.")),
-        "\n",
+        "",
         "### %s" % _("Window focus tweaks"),
         # TO TRANSLATORS: MARKDOWN string. Respect formatting.
         _("Tweak based on the gnome-shell extension called [Steal My Focus](https://github.com/v-dimitrov/gnome-shell-extension-stealmyfocus) by [Valentin Dimitrov](https://github.com/v-dimitrov) and another gnome-shell extension called [Window Demands Attention Shortcut](https://github.com/awamper/window-demands-attention-shortcut) by [awamper](https://github.com/awamper)."),
-        "\n",
+        "",
         _("Some windows that demands attention will not gain focus regardless of the settings combination on Cinnamon settings. This option will allow you to correct that."),
-        "\n",
+        "",
         "- **%s**" % _("The activation of windows demanding attention...:"),
         "    - **%s** %s" % (_("...is handled by the system:"), _("Crystal clear.")),
         "    - **%s** %s" % (_("...is immediate:"),
@@ -123,30 +159,30 @@ def get_content():
                              _("will focus windows demanding attention with a keyboard shortcut.")),
         "- **%s** %s" % (_("Keyboard shortcut:"),
                          _("Set a keyboard shortcut for the option **...is performed with a keyboard shortcut**.")),
-        "\n",
+        "",
         "### %s" % _("Window Shadows tweaks"),
         # TO TRANSLATORS: MARKDOWN string. Respect formatting.
         _("Tweak based on a Cinnamon extension called [Custom Shadows](https://cinnamon-spices.linuxmint.com/extensions/view/43) created by [mikhail-ekzi](https://github.com/mikhail-ekzi). It allows to modify the shadows used by Cinnamon's window manager (Muffin)."),
-        "\n",
+        "",
         "**%s** %s" % (_("Note:"), _("Client side decorated windows aren't affected by this tweak.")),
-        "\n",
+        "",
         "##### %s" % _("Shadow presets"),
         "- **%s**" % _("Custom shadows"),
         "- **%s**" % _("Default shadows"),
         "- **%s**" % _("No shadows"),
         "- **%s**" % _("Windows 10 shadows"),
-        "\n",
+        "",
         "### %s" % _("Auto move windows"),
         # TO TRANSLATORS: MARKDOWN string. Respect formatting.
         _("Tweak based on the gnome-shell extension called [Auto Move Windows](https://extensions.gnome.org/extension/16/auto-move-windows/) by [Florian Muellner](https://github.com/fmuellner). It enables the ability to set rules to open determined applications on specific workspaces."),
-        "\n",
+        "",
         "**%s** %s" % (_("Note:"),
                        # TO TRANSLATORS: MARKDOWN string. Respect formatting.
                        _("If the application that you want to select doesn't show up on the application chooser dialog, read the section on this help file called **Applications not showing up on the applications chooser dialogs**.")),
         "### %s" % _("Windows decorations removal"),
         # TO TRANSLATORS: MARKDOWN string. Respect formatting.
         _("Tweak based on the extension called [Cinnamon Maximus](https://cinnamon-spices.linuxmint.com/extensions/view/29) by [Fatih Mete](https://github.com/fatihmete) with some options from the gnome-shell extension called [Maximus NG](https://github.com/luispabon/maximus-gnome-shell) by [Luis Pabon](https://github.com/luispabon). This tweak allows to remove the windows decorations from maximized/half-maximized/tiled windows."),
-        "\n",
+        "",
         "**%s** %s" % (_("Note:"),
                        # TO TRANSLATORS: MARKDOWN string. Respect formatting.
                        _("If the application that you want to select doesn't show up on the application chooser dialog, read the section on this help file called **Applications not showing up on the applications chooser dialogs**.")),
@@ -162,17 +198,17 @@ def get_content():
         "- %s %s" % (_("Fedora based distributions:"),
                      # TO TRANSLATORS: MARKDOWN string. Respect formatting.
                      _("These commands are provided by the **xorg-x11-utils** package.")),
-        "\n",
+        "",
         "#### %s" % _("Warnings"),
         "- %s" % _("Client side decorated windows and WINE applications aren't affected by this tweak."),
         "- %s" % _("Close all windows that belongs to an application that is going to be added to the applications list and before applying the settings of this tweak."),
         "- %s" % _("As a general rule to avoid issues, before enabling and configuring this tweak, close all windows currently opened, enable and configure this tweak and then log out and log back in."),
-        "\n",
+        "",
         "#### %s" % _("Known issues"),
         "- **%s** %s" % (_("Invisible windows:"), _("Sometimes, windows of applications that are configured to remove their decorations can become invisible. The application's icon can still be seen in the panel (taskbar) and when clicked to focus its respective window, the invisible window will block the clicks as if it were visible. To fix this, the window needs to be unmaximized (it will become visible again) and then closed. When reopened, the window should behave normally.")),
         "- **%s** %s" % (_("Applications stuck undecorated:"), _(
             "Some times, an application will get stuck undecorated even after unmaximizing it. Restarting the application will recover its ability to decorate and undecorate itself.")),
-        "\n",
+        "",
         "#### %s" % _("Alternative"),
         _("There is an alternative way of hiding the title bar of absolutely all maximized windows without exceptions. By editing your Metacity theme (window decorations theme). It works infinitely better and without any of the issues this tweak on this extension has."),
         # TO TRANSLATORS: MARKDOWN string. Respect formatting.
@@ -182,7 +218,7 @@ def get_content():
         "- %s" % _("Basically, one has to set to that element the attribute **has_title** to false, and then set all sizes of all its properties to 0 (zero). Some themes might require to add more properties and set them to 0 (zero) to completely get rid of the title bar."),
         # TO TRANSLATORS: MARKDOWN string. Respect formatting.
         "- %s" % _("Next you will find examples on how to edit the Metacity themes found on the **Mint-X** and **Mint-Y** themes."),
-        "\n",
+        "",
         "##### %s" % _("For the Metacity theme found on the Mint-X theme"),
         """
 ```xml
@@ -197,7 +233,7 @@ def get_content():
 </frame_geometry>
 ```
 """,
-        "\n",
+        "",
         "##### %s" % _("For the Metacity theme found on Mint-Y theme"),
         """
 ```xml
@@ -214,18 +250,16 @@ def get_content():
 </frame_geometry>
 ```
 """,
-        "\n",
-        "***",
+        "",
         "## %s" % _("General extension issues"),
         "### %s" % _("Applications not showing up on the applications chooser dialogs"),
         # TO TRANSLATORS: MARKDOWN string. Respect formatting.
         _("The application chooser dialog used by the settings window of this extension lists only those applications that have available .desktop files. Simply because these applications are the only ones that any of the tweaks that require an application ID (**Auto move windows** and **Windows decorations removal**) will recognize and handle."),
-        "\n",
+        "",
         _("Following the [Desktop Entry Specification](https://specifications.freedesktop.org/desktop-entry-spec/latest/index.html), one can create a .desktop file for any application that doesn't appear in the applications list."),
-        "***",
         "## %s" % _("Extension's settings window"),
         _("From this extension settings window, all options can be imported, exported and/or reseted to their defaults."),
-        "\n",
+        "",
         "- %s" % _("To be able to perform any of these actions, the settings schema needs to be installed in the system. This is done automatically when the extension is installed from the Cinnamon extensions manager. But if the extension was installed manually, the settings schema also needs to be installed manually. This is achieved by simply going to the extension folder and launch the following command:"),
         # TO TRANSLATORS: MARKDOWN string. Respect formatting.
         "    - %s %s" % (_("Command to install the settings schema:"),
@@ -235,8 +269,7 @@ def get_content():
                          "`./settings.py remove-schema`"),
         # TO TRANSLATORS: MARKDOWN string. Respect formatting.
         "- %s" % _("To import/export settings, the **dconf** command needs to be available on the system."),
-        "\n",
-        "***"
+        "",
     ])
     ))
 
@@ -259,6 +292,10 @@ class Main():
     def __init__(self):
         self.html_templates = localized_help_modules.HTMLTemplates()
         self.html_assets = localized_help_modules.HTMLInlineAssets(repo_folder=repo_folder)
+        self.compatibility_data = localized_help_modules.get_compatibility(
+            xlet_meta=xlet_meta,
+            for_readme=False
+        )
         self.lang_list = []
         self.sections = []
         self.options = []
@@ -286,19 +323,40 @@ class Main():
             global current_language
             current_language = lang
 
+            if current_language == "en":
+                localized_help_modules.create_readme(
+                    xlet_dir=XLET_DIR,
+                    xlet_meta=xlet_meta,
+                    content_base=get_content_base(for_readme=True)
+                )
+
             if current_language != "en" and _("language-name") == "language-name":
                 # If the endonym isn't provided, assume that the HELP file isn't translated.
                 # Placed this comment here so the comment isn't extracted by xgettext.
                 continue
 
             only_english = md("<div style=\"font-weight:bold;\" class=\"alert alert-info\">{0}</div>".format(
-                _("The following two sections are available only in English.")))
+                _("The following two sections are available only in English."))
+            )
+
+            compatibility_disclaimer = "<p class=\"text-danger compatibility-disclaimer\">{}</p>".format(
+                _("Do not install on any other version of Cinnamon.")
+            )
+
+            compatibility_block = self.html_templates.bt_panel.format(
+                context="success",
+                custom_class="compatibility",
+                title=_("Compatibility"),
+                content=self.compatibility_data + "\n<br/>" + compatibility_disclaimer,
+            )
 
             section = self.html_templates.locale_section_base.format(
                 language_code=current_language,
                 hidden="" if current_language is "en" else " hidden",
                 introduction=self.get_introduction(),
-                content=get_content(),
+                compatibility=compatibility_block,
+                content_base=md(get_content_base(for_readme=False)),
+                content_extra=get_content_extra(),
                 localize_info=self.get_localize_info(),
                 only_english=only_english,
             )
@@ -326,8 +384,9 @@ class Main():
             js_custom=get_js_custom()
         )
 
-        localized_help_modules.save_html_file(path=self.help_file_path,
-                                              data=html_doc)
+        localized_help_modules.save_file(path=self.help_file_path,
+                                         data=html_doc,
+                                         creation_type=self.creation_type)
 
     def do_dummy_install(self):
         podir = os.path.join(XLET_DIR, "files", XLET_UUID, "po")
@@ -417,15 +476,19 @@ if __name__ == "__main__":
         quit()
 
     help_file_path = None
+    creation_type = None
 
     if options.production:
+        creation_type = "production"
         help_file_path = os.path.join(XLET_DIR, "files", XLET_UUID, "HELP.html")
     elif options.dev:
+        creation_type = "dev"
         repo_tmp_folder = os.path.join(repo_folder, "tmp", "help_files")
         GLib.mkdir_with_parents(repo_tmp_folder, 0o755)
         help_file_path = os.path.join(repo_tmp_folder, XLET_UUID + "-HELP.html")
 
     if help_file_path is not None:
         m = Main()
+        m.creation_type = creation_type
         m.help_file_path = help_file_path
         m.do_dummy_install()

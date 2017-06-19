@@ -58,17 +58,57 @@ def _(aStr):
     return aStr
 
 
+# Base information about the xlet (Description, features, dependencies, etc.).
+# This is used by the xlet README and the xlets help file.
+# Returns a "raw markdown string" that it is used "as-is" for the README creation,
+# but it's converted to HTML when used by the help file.
+#
+# Separate each "block" with an empty space, not a new line. When joining the
+# string with a new line character, an empty space will add one line, but a
+# new line character will add two lines. This is just to keep the README content
+# somewhat homogeneous.
+def get_content_base(for_readme=False):
+    return "\n".join([
+        "## %s" % _("Description"),
+        "",
+        _("The function of this applet is very simple, create a menu based on the files/folders found inside a main folder (specified on this applet settings window). The files will be used to create menu items and the sub folders will be used to create sub-menus."),
+        "",
+        # TO TRANSLATORS: MARKDOWN string. Respect formatting.
+        _("I mainly created this applet to replicate the functionality of the XFCE plugin called **Directory Menu** and the KDE widget called **Quick access**."),
+        "",
+        ("<h2 style=\"color:red;\">%s</h2>\n<span style=\"font-weight:bold; color:red;\">%s</span>" if for_readme else "<div class=\"alert alert-warning\"><h2>%s</h2>\n<p>%s</p></div>") % (
+            _("Warning"),
+            _("This applet has to read every single file/folder inside a main folder to create its menu. So, do not try to use this applet to create a menu based on a folder that contains thousands of files!!! Your system may slow down, freeze or even crash!!!")
+        ),
+        "",
+        "## %s" % _("Features"),
+        "- %s" % _("More than one instance of this applet can be installed at the same time."),
+        "- %s" % _("A hotkey can be assigned to open/close the menu."),
+        "- %s" % _("Menu items to .desktop files will be displayed with the icon and name declared inside the .desktop files themselves."),
+        # TO TRANSLATORS: MARKDOWN string. Respect formatting.
+        "- %s" % _("The menu can be kept open while activating menu items by pressing [[Ctrl]] + **Left click** or with **Middle click**."),
+        "- %s" % _("This applet can create menu and sub-menu items even from symbolic links found inside the main folder."),
+        "## %s" % _("Settings window") if for_readme else "",
+        "",
+        "![Settings window](https://odyseus.github.io/CinnamonTools/lib/img/QuickMenu-001.png \"Settings window\")" if for_readme else "",
+        "",
+        "## %s" % _(
+            "Image featuring different icons for each sub-menu and different icon sizes") if for_readme else "",
+        "",
+        "![Image featuring different icons for each sub-menu and different icon sizes](https://odyseus.github.io/CinnamonTools/lib/img/QuickMenu-002.png \"Image featuring different icons for each sub-menu and different icon sizes\")" if for_readme else "",
+    ])
+
+
 # The real content of the HELP file.
-def get_content():
+def get_content_extra():
     return md("{}".format("\n".join([
         "## %s" % _("Applet usage"),
         "- " + _("Menu items to .desktop files will be displayed with the icon and name declared inside the .desktop files themselves."),
         # TO TRANSLATORS: MARKDOWN string. Respect formatting.
         "- %s" % _(
             "The menu can be kept open while activating menu items by pressing [[Ctrl]] + **Left click** or with **Middle click**."),
-        "***",
         "## %s" % _("How to set a different icon for each sub-menu"),
-        "\n",
+        "",
         "- %s" %
         _("Create a file at the same level as the folders that will be used to create the sub-menus."),
         # TO TRANSLATORS: MARKDOWN string. Respect formatting.
@@ -81,7 +121,7 @@ def get_content():
         "- %s" % _("If any sub-folder has more folders that need to have custom icons, just create another **0_icons_for_sub_menus.json** file at the same level that those folders."),
         # TO TRANSLATORS: MARKDOWN string. Respect formatting.
         "- %s" % _("The content of the file is a *JSON object* and has to look as follows:"),
-        "\n",
+        "",
         """```
 {0}
 {1}
@@ -98,11 +138,10 @@ def get_content():
                       "Icon name or icon path for Folder name"))
               ]),
               "}"),
-        "\n",
+        "",
         "**%s** %s" % (_("Warning!!!"),
                        # TO TRANSLATORS: MARKDOWN string. Respect formatting.
                        _("JSON *language* is very strict. Just be sure to ONLY use double quotes. And the last key/value combination DOESN'T have to end with a comma (**Folder name #n** in the previous example).")),
-        "***"
     ])
     ))
 
@@ -125,6 +164,10 @@ class Main():
     def __init__(self):
         self.html_templates = localized_help_modules.HTMLTemplates()
         self.html_assets = localized_help_modules.HTMLInlineAssets(repo_folder=repo_folder)
+        self.compatibility_data = localized_help_modules.get_compatibility(
+            xlet_meta=xlet_meta,
+            for_readme=False
+        )
         self.lang_list = []
         self.sections = []
         self.options = []
@@ -152,19 +195,40 @@ class Main():
             global current_language
             current_language = lang
 
+            if current_language == "en":
+                localized_help_modules.create_readme(
+                    xlet_dir=XLET_DIR,
+                    xlet_meta=xlet_meta,
+                    content_base=get_content_base(for_readme=True)
+                )
+
             if current_language != "en" and _("language-name") == "language-name":
                 # If the endonym isn't provided, assume that the HELP file isn't translated.
                 # Placed this comment here so the comment isn't extracted by xgettext.
                 continue
 
             only_english = md("<div style=\"font-weight:bold;\" class=\"alert alert-info\">{0}</div>".format(
-                _("The following two sections are available only in English.")))
+                _("The following two sections are available only in English."))
+            )
+
+            compatibility_disclaimer = "<p class=\"text-danger compatibility-disclaimer\">{}</p>".format(
+                _("Do not install on any other version of Cinnamon.")
+            )
+
+            compatibility_block = self.html_templates.bt_panel.format(
+                context="success",
+                custom_class="compatibility",
+                title=_("Compatibility"),
+                content=self.compatibility_data + "\n<br/>" + compatibility_disclaimer,
+            )
 
             section = self.html_templates.locale_section_base.format(
                 language_code=current_language,
                 hidden="" if current_language is "en" else " hidden",
                 introduction=self.get_introduction(),
-                content=get_content(),
+                compatibility=compatibility_block,
+                content_base=md(get_content_base(for_readme=False)),
+                content_extra=get_content_extra(),
                 localize_info=self.get_localize_info(),
                 only_english=only_english,
             )
@@ -192,8 +256,9 @@ class Main():
             js_custom=get_js_custom()
         )
 
-        localized_help_modules.save_html_file(path=self.help_file_path,
-                                              data=html_doc)
+        localized_help_modules.save_file(path=self.help_file_path,
+                                         data=html_doc,
+                                         creation_type=self.creation_type)
 
     def do_dummy_install(self):
         podir = os.path.join(XLET_DIR, "files", XLET_UUID, "po")
@@ -283,15 +348,19 @@ if __name__ == "__main__":
         quit()
 
     help_file_path = None
+    creation_type = None
 
     if options.production:
+        creation_type = "production"
         help_file_path = os.path.join(XLET_DIR, "files", XLET_UUID, "HELP.html")
     elif options.dev:
+        creation_type = "dev"
         repo_tmp_folder = os.path.join(repo_folder, "tmp", "help_files")
         GLib.mkdir_with_parents(repo_tmp_folder, 0o755)
         help_file_path = os.path.join(repo_tmp_folder, XLET_UUID + "-HELP.html")
 
     if help_file_path is not None:
         m = Main()
+        m.creation_type = creation_type
         m.help_file_path = help_file_path
         m.do_dummy_install()

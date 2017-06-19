@@ -526,6 +526,39 @@ body {
 }
 /* For fixed header */
 
+/* Tweak spacing of the compatibility badges inside a panel */
+.panel-body.compatibility > .compatibility-disclaimer,
+.panel-body.compatibility > .compatibility-badge {
+    margin: 5px;
+    line-height: 2.5em;
+}
+/* Tweak spacing of the compatibility badges inside a panel */
+
+/* Tweak appearance of the compatibility badges inside a panel */
+.panel-body.compatibility > .compatibility-disclaimer {
+    font-weight: bold;
+}
+.panel-body.compatibility > .compatibility-badge > .label-primary {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+.panel-body.compatibility > .compatibility-badge > .label-warning,
+.panel-body.compatibility > .compatibility-badge > .label-success,
+.panel-body.compatibility > .compatibility-badge > .label-info {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+.panel-body.compatibility > .compatibility-badge > .label-warning {
+    background-color: #dfb317;
+}
+.panel-body.compatibility > .compatibility-badge > .label-success {
+    background-color: #97CA00;
+}
+.panel-body.compatibility > .compatibility-badge > .label-info {
+    background-color: #439cf7;
+}
+/* Tweak appearance of the compatibility badges inside a panel */
+
 .navbar-form {
     margin-top: 8px !important;
 }
@@ -607,8 +640,24 @@ body {
 <p>Fejlrapporter, forslag til nye funktioner og bidrag bør ske i denne udvidelses arkiv, som der er linket til efterfølgende. <a href="https://github.com/Odyseus/CinnamonTools">GitHub</a></p>
 
 </div>
-<hr>
 
+
+<div class="panel panel-success">
+    <div class="panel-heading">
+        <h3 class="panel-title">Compatibility</h3>
+    </div>
+    <div class="panel-body compatibility">
+        <span class="compatibility-badge"><span class="label label-primary">Cinnamon</span><span class="label label-warning">2.8</span></span>
+<span class="compatibility-badge"><span class="label label-primary">Cinnamon</span><span class="label label-success">3.0</span></span>
+<span class="compatibility-badge"><span class="label label-primary">Cinnamon</span><span class="label label-success">3.2</span></span>
+<span class="compatibility-badge"><span class="label label-primary">Cinnamon</span><span class="label label-success">3.4</span></span>
+
+<br/><p class="text-danger compatibility-disclaimer">Do not install on any other version of Cinnamon.</p>
+    </div>
+</div>
+
+<h2>Description</h2>
+<p>The Multi Translator extension is an extension ported from a gnome-shell extension called <a href="https://github.com/gufoe/text-translator">Text Translator</a> by <a href="https://github.com/gufoe">gufoe</a>. It provides translation of text by different translation providers (currently <a href="https://translate.google.com">Google</a>, <a href="https://translate.yandex.net">Yandex</a>, <a href="https://www.bing.com/translator">Bing</a>, <a href="https://www.apertium.org">Apertium</a> and <a href="http://transltr.org">Transltr</a>).</p>
 <h2>Afhængigheder</h2>
 <p><strong>Hvis en eller flere af disse afhængigheder mangler i dit system, kan du ikke bruge denne udvidelse.</strong></p>
 <ul>
@@ -619,6 +668,7 @@ body {
 </li>
 </ul>
 <p><strong>Bemærk:</strong> I Ubuntu 16.04.x's/Linux Mint 18.x's arkiver er pakken translate-shell forældet og i stykker. Pakken kan alligevel installeres og afhængighederne vil også blive installeret. Men der bør opdateres til nyeste version som beskrevet nedenfor.</p>
+
 <h2>Sådan installeres nyeste version af translate-shell</h2>
 <h3>Mulighed 1. Direkte download</h3>
 <p>Denne metode vil kun installere trans-skriptet i de angivne placeringer.</p>
@@ -635,7 +685,6 @@ $ cd translate-shell
 $ make
 $ sudo make install
 </code></pre>
-<hr>
 <h2>Brug af udvidelsen</h2>
 <p>Når installeret og aktiveret vil følgende genveje være tilgængelige.</p>
 <h3>Globale genveje (kan konfigureres fra udvidelsens indstillinger)</h3>
@@ -653,7 +702,6 @@ $ sudo make install
 <li><strong><kbd>Ctrl</kbd> + <kbd>D</kbd>:</strong> Nulstil sprog til standard.</li>
 <li><strong><kbd>Escape</kbd>:</strong> Luk vindue.</li>
 </ul>
-<hr>
 <h2>Udvidelsens indstillingsvindue</h2>
 <p>Fra udvidelsens indstillingsvindue kan alle indstillinger importeres, eksporteres eller nulstilles til standardværdierne.</p>
 <ul>
@@ -664,7 +712,6 @@ $ sudo make install
 </li>
 <li>For at importere/eksportere indstillinger skal kommandoen <strong>dconf</strong> findes i systemet.</li>
 </ul>
-<hr>
 
 <h2>Oversættelser af panelprogrammer, skrivebordsprogrammer og udvidelser</h2>
 <ul>
@@ -689,8 +736,24 @@ $ sudo make install
 <p>Les rapports de bogues, les demandes de fonctionnalités et les contributions devraient être effectués dans le dépôt xlet dont le lien est donné ci-après. <a href="https://github.com/Odyseus/CinnamonTools">GitHub</a></p>
 
 </div>
-<hr>
 
+
+<div class="panel panel-success">
+    <div class="panel-heading">
+        <h3 class="panel-title">Compatibility</h3>
+    </div>
+    <div class="panel-body compatibility">
+        <span class="compatibility-badge"><span class="label label-primary">Cinnamon</span><span class="label label-warning">2.8</span></span>
+<span class="compatibility-badge"><span class="label label-primary">Cinnamon</span><span class="label label-success">3.0</span></span>
+<span class="compatibility-badge"><span class="label label-primary">Cinnamon</span><span class="label label-success">3.2</span></span>
+<span class="compatibility-badge"><span class="label label-primary">Cinnamon</span><span class="label label-success">3.4</span></span>
+
+<br/><p class="text-danger compatibility-disclaimer">Do not install on any other version of Cinnamon.</p>
+    </div>
+</div>
+
+<h2>Description</h2>
+<p>The Multi Translator extension is an extension ported from a gnome-shell extension called <a href="https://github.com/gufoe/text-translator">Text Translator</a> by <a href="https://github.com/gufoe">gufoe</a>. It provides translation of text by different translation providers (currently <a href="https://translate.google.com">Google</a>, <a href="https://translate.yandex.net">Yandex</a>, <a href="https://www.bing.com/translator">Bing</a>, <a href="https://www.apertium.org">Apertium</a> and <a href="http://transltr.org">Transltr</a>).</p>
 <h2>Dépendances</h2>
 <p><strong>Si une des dépendances ou plus est manquante dans votre système, vous ne serez pas capable d'utiliser cette extension.</strong></p>
 <ul>
@@ -701,6 +764,7 @@ $ sudo make install
 </li>
 </ul>
 <p><strong>Note :</strong> Le paquet translate-shell disponible dans les dépôts Ubuntu 16.04.x/Linux Mint 18.x est dépassé et cassé. Il peut toutefois être installé, ce qui installera aussi ses dépendances. Cependant la mise à jour vers la dernière version doit être faite comme décrit ci-dessous.</p>
+
 <h2>Comment installer la dernière version de translate-shell</h2>
 <h3>Option 1. Téléchargement direct</h3>
 <p>Cette méthode installera uniquement le script trans à l'emplacement spécifié.</p>
@@ -717,7 +781,6 @@ $ cd translate-shell
 $ make
 $ sudo make install
 </code></pre>
-<hr>
 <h2>Utilisation de l'extension</h2>
 <p>Une fois installé et activé, les raccourcis suivants seront disponibles.</p>
 <h3>Raccourcis généraux (configurable à partir des paramètres de l'extension)</h3>
@@ -735,7 +798,6 @@ $ sudo make install
 <li><strong><kbd>Ctrl</kbd> + <kbd>D</kbd> : </strong> Réinitialiser les langues par défaut.</li>
 <li><strong><kbd>Escape</kbd> : </strong> Fermer la fenêtre.</li>
 </ul>
-<hr>
 <h2>Fenêtre des paramètres de l'extension</h2>
 <p>À partir de la fenêtre des paramètres de l'extension, toutes les options peuvent être importées, exportées et/ou réinitialisées.</p>
 <ul>
@@ -746,7 +808,6 @@ $ sudo make install
 </li>
 <li>Pour importer/exporter les paramètres, la commande <strong>dconf</strong> nécessite d'être installée sur votre système.</li>
 </ul>
-<hr>
 
 <h2>Traduction des Applets/Desklets/Extensions (xlets)</h2>
 <ul>
@@ -771,8 +832,24 @@ $ sudo make install
 <p>错误报告，功能请求和贡献应该在下方链接的xlet的仓库上完成。 <a href="https://github.com/Odyseus/CinnamonTools">GitHub</a></p>
 
 </div>
-<hr>
 
+
+<div class="panel panel-success">
+    <div class="panel-heading">
+        <h3 class="panel-title">Compatibility</h3>
+    </div>
+    <div class="panel-body compatibility">
+        <span class="compatibility-badge"><span class="label label-primary">Cinnamon</span><span class="label label-warning">2.8</span></span>
+<span class="compatibility-badge"><span class="label label-primary">Cinnamon</span><span class="label label-success">3.0</span></span>
+<span class="compatibility-badge"><span class="label label-primary">Cinnamon</span><span class="label label-success">3.2</span></span>
+<span class="compatibility-badge"><span class="label label-primary">Cinnamon</span><span class="label label-success">3.4</span></span>
+
+<br/><p class="text-danger compatibility-disclaimer">Do not install on any other version of Cinnamon.</p>
+    </div>
+</div>
+
+<h2>Description</h2>
+<p>The Multi Translator extension is an extension ported from a gnome-shell extension called <a href="https://github.com/gufoe/text-translator">Text Translator</a> by <a href="https://github.com/gufoe">gufoe</a>. It provides translation of text by different translation providers (currently <a href="https://translate.google.com">Google</a>, <a href="https://translate.yandex.net">Yandex</a>, <a href="https://www.bing.com/translator">Bing</a>, <a href="https://www.apertium.org">Apertium</a> and <a href="http://transltr.org">Transltr</a>).</p>
 <h2>依赖关系</h2>
 <p><strong>如果您的系统缺少其中一个或多个依赖，您将不能够使用该扩展。</strong></p>
 <ul>
@@ -783,6 +860,7 @@ $ sudo make install
 </li>
 </ul>
 <p><strong>注意：</strong> Ubuntu 16.04.x/Linux Mint 18.x存储库中提供的translate-shell软件包已经过时和破损。它可以安装，所以它也将会安装它的依赖。但是更新到最新版本应该如下所述完成。</p>
+
 <h2>安装translate-shell最新版本的方式</h2>
 <h3>选项1.直接下载</h3>
 <p>此方法将仅安装trans脚本到指定的位置。</p>
@@ -799,7 +877,6 @@ $ cd translate-shell
 $ make
 $ sudo make install
 </code></pre>
-<hr>
 <h2>扩展用法</h2>
 <p>一旦安装并启用，以下快捷键将可用。</p>
 <h3>全局快捷键（从扩展设置中配置）</h3>
@@ -817,7 +894,6 @@ $ sudo make install
 <li><strong><kbd>Ctrl</kbd> + <kbd>D</kbd>:</strong>重置语言为默认。</li>
 <li><strong><kbd>Escape</kbd>:</strong>关闭对话框。</li>
 </ul>
-<hr>
 <h2>扩展的窗口设置</h2>
 <p>在此扩展设置窗口中，所有选项都可以导入，导出和/或重置为默认值。</p>
 <ul>
@@ -828,7 +904,6 @@ $ sudo make install
 </li>
 <li>要导入/导出设置，<strong>dconf</strong>命令需要在系统上可用。</li>
 </ul>
-<hr>
 
 <h2>小程序/桌面小工具/扩展（也称为xlets）本地化</h2>
 <ul>
@@ -853,8 +928,24 @@ $ sudo make install
 <p>Los reportes de fallos, peticiones de características y contribuciones deben hacerse en el repositorio de este xlet vinculado a continuación. <a href="https://github.com/Odyseus/CinnamonTools">GitHub</a></p>
 
 </div>
-<hr>
 
+
+<div class="panel panel-success">
+    <div class="panel-heading">
+        <h3 class="panel-title">Copatibilidad</h3>
+    </div>
+    <div class="panel-body compatibility">
+        <span class="compatibility-badge"><span class="label label-primary">Cinnamon</span><span class="label label-warning">2.8</span></span>
+<span class="compatibility-badge"><span class="label label-primary">Cinnamon</span><span class="label label-success">3.0</span></span>
+<span class="compatibility-badge"><span class="label label-primary">Cinnamon</span><span class="label label-success">3.2</span></span>
+<span class="compatibility-badge"><span class="label label-primary">Cinnamon</span><span class="label label-success">3.4</span></span>
+
+<br/><p class="text-danger compatibility-disclaimer">No instalar en ninguna otra versión de Cinnamon.</p>
+    </div>
+</div>
+
+<h2>Descripción</h2>
+<p>La extensión Multi Traductor está basada en una extensión para gnome-shell llamada <a href="https://github.com/gufoe/text-translator">Text Translator</a> por <a href="https://github.com/gufoe">gufoe</a>. Proporciona traducción de texto por diferentes proveedores de traducción (actualmente <a href="https://translate.google.com">Google</a>, <a href="https://translate.yandex.net">Yandex</a>, <a href="https://www.bing.com/translator">Bing</a>, <a href="https://www.apertium.org">Apertium</a> and <a href="http://transltr.org">Transltr</a>).</p>
 <h2>Dependencias</h2>
 <p><strong>Si una o más de estas dependencias faltan en su sistema, no podrá utilizar esta extensión.</strong></p>
 <ul>
@@ -865,6 +956,7 @@ $ sudo make install
 </li>
 </ul>
 <p><strong>Nota:</strong> El paquete <strong>translate-shell</strong> disponible en los repositorios de Ubuntu 16.04.x/Linux Mint 18.x es anticuado y roto. Puede ser instalado de todas maneras así también se instalan sus dependencias. Pero actualizar el script a su última versión debe hacerse como se describe a continuación.</p>
+
 <h2>Cómo instalar la última versión de translate-shell</h2>
 <h3>Opción 1. Descarga directa</h3>
 <p>Este método sólo instalará el script <strong>trans</strong> en la ubicación especificada.</p>
@@ -881,7 +973,6 @@ $ cd translate-shell
 $ make
 $ sudo make install
 </code></pre>
-<hr>
 <h2>Uso de la extensión</h2>
 <p>Una vez instalada y activada, los siguientes atajos de teclado estarán disponibles.</p>
 <h3>Atajos globales (Configurable desde las preferencias de la extensión)</h3>
@@ -899,7 +990,6 @@ $ sudo make install
 <li><strong><kbd>Ctrl</kbd> + <kbd>D</kbd>:</strong> Restablece los idiomas predeterminados.</li>
 <li><strong><kbd>Escape</kbd>:</strong> Cierra el diálogo.</li>
 </ul>
-<hr>
 <h2>Ventana de preferencias de la extensión</h2>
 <p>Desde la ventana de preferencias de la extensión, todas las opciones pueden ser importadas, exportadas y/o restablecidas a sus valores por defecto.</p>
 <ul>
@@ -910,7 +1000,6 @@ $ sudo make install
 </li>
 <li>Para importar/exportar preferencias, el comando <strong>dconf</strong> necesita estar disponible en el sistema.</li>
 </ul>
-<hr>
 
 <h2>Localización de applets/desklets/extensiones (también conocidos como xlets)</h2>
 <ul>
@@ -935,8 +1024,24 @@ $ sudo make install
 <p>Zprávy o chybách, požadavky na funkce a příspěvky by měly být prováděny v repozitáři tohoto xletu, na který je odkaz dále. <a href="https://github.com/Odyseus/CinnamonTools">GitHub</a></p>
 
 </div>
-<hr>
 
+
+<div class="panel panel-success">
+    <div class="panel-heading">
+        <h3 class="panel-title">Compatibility</h3>
+    </div>
+    <div class="panel-body compatibility">
+        <span class="compatibility-badge"><span class="label label-primary">Cinnamon</span><span class="label label-warning">2.8</span></span>
+<span class="compatibility-badge"><span class="label label-primary">Cinnamon</span><span class="label label-success">3.0</span></span>
+<span class="compatibility-badge"><span class="label label-primary">Cinnamon</span><span class="label label-success">3.2</span></span>
+<span class="compatibility-badge"><span class="label label-primary">Cinnamon</span><span class="label label-success">3.4</span></span>
+
+<br/><p class="text-danger compatibility-disclaimer">Do not install on any other version of Cinnamon.</p>
+    </div>
+</div>
+
+<h2>Description</h2>
+<p>The Multi Translator extension is an extension ported from a gnome-shell extension called <a href="https://github.com/gufoe/text-translator">Text Translator</a> by <a href="https://github.com/gufoe">gufoe</a>. It provides translation of text by different translation providers (currently <a href="https://translate.google.com">Google</a>, <a href="https://translate.yandex.net">Yandex</a>, <a href="https://www.bing.com/translator">Bing</a>, <a href="https://www.apertium.org">Apertium</a> and <a href="http://transltr.org">Transltr</a>).</p>
 <h2>Závislosti</h2>
 <p><strong>Pokud v systému chybí jedna nebo více těchto závislostí, nebudete moci toto rozšíření používat.</strong></p>
 <ul>
@@ -947,6 +1052,7 @@ $ sudo make install
 </li>
 </ul>
 <p><strong>Poznámka:</strong> Balík translate-shell dostupný v repozitářích Ubuntu 16.04.x ​​/ Linux Mint 18.x je zastaralý a porušený. Přesto může být instalován tak, že bude také instalovat jeho závislosti. Aktualizace na nejnovější verzi by měla být provedena způsobem popsaným níže.</p>
+
 <h2>Jak nainstalovat nejnovější verzi translate-shell</h2>
 <h3>Možnost 1. Přímé stažení</h3>
 <p>Tato metoda pouze nainstaluje skript trans do určených umístění.</p>
@@ -963,7 +1069,6 @@ $ cd translate-shell
 $ make
 $ sudo make install
 </code></pre>
-<hr>
 <h2>Používání rozšíření</h2>
 <p>Po instalaci a aktivaci rozšíření budou k dispozici následující klávesové zkratky.</p>
 <h3>Globální klávesové zkratky (konfigurovatelné z nastavení rozšíření)</h3>
@@ -981,7 +1086,6 @@ $ sudo make install
 <li><strong><kbd>Ctrl</kbd> + <kbd>D</kbd>:</strong> Resetovat jazyky do výchozího stavu.</li>
 <li><strong><kbd>Escape</kbd>:</strong> Zavřít dialog.</li>
 </ul>
-<hr>
 <h2>Okno nastavení rozšíření</h2>
 <p>Z tohoto okna nastavení rozšíření lze všechny volby importovat, exportovat a/nebo je resetovat na výchozí hodnoty.</p>
 <ul>
@@ -992,7 +1096,6 @@ $ sudo make install
 </li>
 <li>Chcete-li importovat/exportovat nastavení, musí být v systému k dispozici příkaz <strong>dconf</strong>.</li>
 </ul>
-<hr>
 
 <h2>Lokalizace apletů/deskletů/rozšíření (a.k.a. xlety)</h2>
 <ul>
@@ -1017,8 +1120,24 @@ $ sudo make install
 <p>Felrapporter, funktionsönskemål och kodbidrag kan lämnas i denna xlets kodförråd, på följande länk. <a href="https://github.com/Odyseus/CinnamonTools">GitHub</a></p>
 
 </div>
-<hr>
 
+
+<div class="panel panel-success">
+    <div class="panel-heading">
+        <h3 class="panel-title">Compatibility</h3>
+    </div>
+    <div class="panel-body compatibility">
+        <span class="compatibility-badge"><span class="label label-primary">Cinnamon</span><span class="label label-warning">2.8</span></span>
+<span class="compatibility-badge"><span class="label label-primary">Cinnamon</span><span class="label label-success">3.0</span></span>
+<span class="compatibility-badge"><span class="label label-primary">Cinnamon</span><span class="label label-success">3.2</span></span>
+<span class="compatibility-badge"><span class="label label-primary">Cinnamon</span><span class="label label-success">3.4</span></span>
+
+<br/><p class="text-danger compatibility-disclaimer">Do not install on any other version of Cinnamon.</p>
+    </div>
+</div>
+
+<h2>Description</h2>
+<p>The Multi Translator extension is an extension ported from a gnome-shell extension called <a href="https://github.com/gufoe/text-translator">Text Translator</a> by <a href="https://github.com/gufoe">gufoe</a>. It provides translation of text by different translation providers (currently <a href="https://translate.google.com">Google</a>, <a href="https://translate.yandex.net">Yandex</a>, <a href="https://www.bing.com/translator">Bing</a>, <a href="https://www.apertium.org">Apertium</a> and <a href="http://transltr.org">Transltr</a>).</p>
 <h2>Beroenden</h2>
 <p><strong>Om ett eller flera av dessa beroenden saknas i ditt system, kommer du inte att kunna använda detta tillägg.</strong></p>
 <ul>
@@ -1029,6 +1148,7 @@ $ sudo make install
 </li>
 </ul>
 <p><strong>Notis:</strong> Det translate-shell-paket som finns i förrådet för Ubuntu 16.04.x/Linux Mint 18.x är utdaterat och trasigt. Det kan ändå installeras, så att också alla beroenden installeras, men uppdatering till senaste version bör göras som det beskrivs nedan..</p>
+
 <h2>Hur man installerar senaste versionen av translate-shell</h2>
 <h3>Alternativ 1. Direkt nerladdning</h3>
 <p>Denna metod installerar endast trans-skriptet på specificerade platser.</p>
@@ -1045,7 +1165,6 @@ $ cd translate-shell
 $ make
 $ sudo make install
 </code></pre>
-<hr>
 <h2>Användning av tillägget</h2>
 <p>Efter installation och aktivering blir följande genvägar tillgängliga.</p>
 <h3>Globala genvägar (konfigurerbara i tilläggets inställningar)</h3>
@@ -1063,7 +1182,6 @@ $ sudo make install
 <li><strong><kbd>Ctrl</kbd> + <kbd>D</kbd>:</strong> Återställ språken till standard.</li>
 <li><strong><kbd>Escape</kbd>:</strong> Stäng fönstret.</li>
 </ul>
-<hr>
 <h2>Inställningsfönster för tilläggsmoduler</h2>
 <p>Från denna tilläggsmoduls inställningsfönster kan alla alternativ importeras, exporteras och/eller återställas till standardinställning.</p>
 <ul>
@@ -1074,7 +1192,6 @@ $ sudo make install
 </li>
 <li>För att importera/exportera inställningar, måste <strong>dconf</strong>-kommandot finnas tillgängligt i systemet.</li>
 </ul>
-<hr>
 
 <h2>Applets/Desklets/Extensions (xlets) översättning</h2>
 <ul>
@@ -1099,8 +1216,24 @@ $ sudo make install
 <p>Bug reports, feature requests and contributions should be done on this xlet's repository linked next. <a href="https://github.com/Odyseus/CinnamonTools">GitHub</a></p>
 
 </div>
-<hr>
 
+
+<div class="panel panel-success">
+    <div class="panel-heading">
+        <h3 class="panel-title">Compatibility</h3>
+    </div>
+    <div class="panel-body compatibility">
+        <span class="compatibility-badge"><span class="label label-primary">Cinnamon</span><span class="label label-warning">2.8</span></span>
+<span class="compatibility-badge"><span class="label label-primary">Cinnamon</span><span class="label label-success">3.0</span></span>
+<span class="compatibility-badge"><span class="label label-primary">Cinnamon</span><span class="label label-success">3.2</span></span>
+<span class="compatibility-badge"><span class="label label-primary">Cinnamon</span><span class="label label-success">3.4</span></span>
+
+<br/><p class="text-danger compatibility-disclaimer">Do not install on any other version of Cinnamon.</p>
+    </div>
+</div>
+
+<h2>Description</h2>
+<p>The Multi Translator extension is an extension ported from a gnome-shell extension called <a href="https://github.com/gufoe/text-translator">Text Translator</a> by <a href="https://github.com/gufoe">gufoe</a>. It provides translation of text by different translation providers (currently <a href="https://translate.google.com">Google</a>, <a href="https://translate.yandex.net">Yandex</a>, <a href="https://www.bing.com/translator">Bing</a>, <a href="https://www.apertium.org">Apertium</a> and <a href="http://transltr.org">Transltr</a>).</p>
 <h2>Dependencies</h2>
 <p><strong>If one or more of these dependencies are missing in your system, you will not be able to use this extension.</strong></p>
 <ul>
@@ -1111,6 +1244,7 @@ $ sudo make install
 </li>
 </ul>
 <p><strong>Note:</strong> The translate-shell package available on Ubuntu 16.04.x/Linux Mint 18.x repositories is outdated and broken. It can be installed anyway so it will also install its dependencies. But updating to the latest version should be done as described bellow.</p>
+
 <h2>How to install latest version of translate-shell</h2>
 <h3>Option 1. Direct Download</h3>
 <p>This method will only install the trans script into the specified locations.</p>
@@ -1127,7 +1261,6 @@ $ cd translate-shell
 $ make
 $ sudo make install
 </code></pre>
-<hr>
 <h2>Extension usage</h2>
 <p>Once installed and enabled, the following shortcuts will be available.</p>
 <h3>Global shortcuts (configurable from the extension settings)</h3>
@@ -1145,7 +1278,6 @@ $ sudo make install
 <li><strong><kbd>Ctrl</kbd> + <kbd>D</kbd>:</strong> Reset languages to default.</li>
 <li><strong><kbd>Escape</kbd>:</strong> Close dialog.</li>
 </ul>
-<hr>
 <h2>Extension's settings window</h2>
 <p>From this extension settings window, all options can be imported, exported and/or reseted to their defaults.</p>
 <ul>
@@ -1156,7 +1288,6 @@ $ sudo make install
 </li>
 <li>To import/export settings, the <strong>dconf</strong> command needs to be available on the system.</li>
 </ul>
-<hr>
 
 <h2>Applets/Desklets/Extensions (a.k.a. xlets) localization</h2>
 <ul>

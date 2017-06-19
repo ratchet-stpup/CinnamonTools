@@ -526,6 +526,39 @@ body {
 }
 /* For fixed header */
 
+/* Tweak spacing of the compatibility badges inside a panel */
+.panel-body.compatibility > .compatibility-disclaimer,
+.panel-body.compatibility > .compatibility-badge {
+    margin: 5px;
+    line-height: 2.5em;
+}
+/* Tweak spacing of the compatibility badges inside a panel */
+
+/* Tweak appearance of the compatibility badges inside a panel */
+.panel-body.compatibility > .compatibility-disclaimer {
+    font-weight: bold;
+}
+.panel-body.compatibility > .compatibility-badge > .label-primary {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+.panel-body.compatibility > .compatibility-badge > .label-warning,
+.panel-body.compatibility > .compatibility-badge > .label-success,
+.panel-body.compatibility > .compatibility-badge > .label-info {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+.panel-body.compatibility > .compatibility-badge > .label-warning {
+    background-color: #dfb317;
+}
+.panel-body.compatibility > .compatibility-badge > .label-success {
+    background-color: #97CA00;
+}
+.panel-body.compatibility > .compatibility-badge > .label-info {
+    background-color: #439cf7;
+}
+/* Tweak appearance of the compatibility badges inside a panel */
+
 .navbar-form {
     margin-top: 8px !important;
 }
@@ -605,8 +638,24 @@ body {
 <p>错误报告，功能请求和贡献应该在下方链接的xlet的仓库上完成。 <a href="https://github.com/Odyseus/CinnamonTools">GitHub</a></p>
 
 </div>
-<hr>
 
+
+<div class="panel panel-success">
+    <div class="panel-heading">
+        <h3 class="panel-title">Compatibility</h3>
+    </div>
+    <div class="panel-body compatibility">
+        <span class="compatibility-badge"><span class="label label-primary">Cinnamon</span><span class="label label-warning">2.8</span></span>
+<span class="compatibility-badge"><span class="label label-primary">Cinnamon</span><span class="label label-success">3.0</span></span>
+<span class="compatibility-badge"><span class="label label-primary">Cinnamon</span><span class="label label-success">3.2</span></span>
+<span class="compatibility-badge"><span class="label label-primary">Cinnamon</span><span class="label label-success">3.4</span></span>
+
+<br/><p class="text-danger compatibility-disclaimer">Do not install on any other version of Cinnamon.</p>
+    </div>
+</div>
+
+<h2>Description</h2>
+<p>Simple translator applet that will allow to display the translation of any selected text from any application on a system in a popup.</p>
 <h2>依赖关系</h2>
 <p><strong>如果您的系统中缺少其中一个或多个依赖，您将不能够使用该小程序。</strong></p>
 <h3>xsel命令</h3>
@@ -630,7 +679,7 @@ body {
 </ul>
 <p><strong>安装任何缺少的依赖后，需要重新启动Cinnamon</strong></p>
 <p><strong>注意：</strong> 我不使用任何其他类型的Linux发行版（Gentoo系、Slackware系，等等）。如果任何前面的软件包/模块以不同的方式命名，请告诉我，我将在此帮助文件中指定它们。</p>
-<hr>
+
 <h2>用法</h2>
 <p>有4种<em>翻译机制</em>（<strong>左键点击</strong>、<strong>中键点击</strong>、<strong>热键 #1</strong>和<strong>热键 #2</strong>）。每个翻译机制都可以配置自己的服务提供者，语言配对和热键。</p>
 <ul>
@@ -640,19 +689,15 @@ body {
 <li><strong>第二个翻译机制(<kbd>Ctrl</kbd> + 中键点击):</strong>同<kbd>Ctrl</kbd> + <strong>左键点击</strong>。</li>
 <li><strong>第三个翻译机制(热键 #1):</strong>可以配置两个热键用来执行翻译和强制翻译。</li>
 <li><strong>第四个翻译机制(热键 #2):</strong>可以配置两个热键用来执行翻译和强制翻译。
-所有的翻译都存储在翻译历史中。如果在以前已经翻译了一串文本，弹窗将会显示所存储的翻译文本而不使用提供者的翻译服务。</li>
-</ul>
-<hr>
-<h2>关于翻译历史</h2>
-<p>我创建了翻译历史机制，主要是为了避免翻译服务的滥用。</p>
-<ul>
+所有的翻译都存储在翻译历史中。如果在以前已经翻译了一串文本，弹窗将会显示所存储的翻译文本而不使用提供者的翻译服务。
+## 关于翻译历史
+我创建了翻译历史机制，主要是为了避免翻译服务的滥用。</li>
 <li>如果Google Translate服务被滥用，Google可能暂时阻止您的IP。但更糟糕的是，他们可以改变翻译机制使得这个小程序无用，并迫使我更新其代码。</li>
 <li>如果Yandex Translate服务被“滥用”，您正在“浪费”您的API密钥配额并将会（临时或永久）被封。
 在这个小程序的右键菜单中有一个条目可以打开翻译历史文件所存储的文件夹。从那里可以备份或删除翻译历史文件。</li>
 </ul>
 <p><strong>不要手动编辑翻译历史文件！！！</strong></p>
 <p><strong>如果删除/重命名/移动了翻译历史文件，需要重新启动Cinnamon。</strong></p>
-<hr>
 <h2>获取Yandex translator API密钥的方法</h2>
 <ul>
 <li>访问以下其中一个链接并注册Yandex帐户（或使用其中一个可用的社交服务）。<ul>
@@ -669,7 +714,6 @@ body {
 <li><strong>不要公开您的API密钥！！！</strong>获取您自己的API密钥遇到麻烦的原因只有一个，你和别人“正在消耗他们的极限”。</li>
 <li>使用每个Yandex translator密钥，您<strong>至多</strong>每天可以翻译1.000.000 (1百万)个字符，<strong>但不能超过</strong>每个月10.000.000 (10百万)个字符。</li>
 </ul>
-<hr>
 
 <h2>小程序/桌面小工具/扩展（也称为xlets）本地化</h2>
 <ul>
@@ -694,8 +738,24 @@ body {
 <p>Los reportes de fallos, peticiones de características y contribuciones deben hacerse en el repositorio de este xlet vinculado a continuación. <a href="https://github.com/Odyseus/CinnamonTools">GitHub</a></p>
 
 </div>
-<hr>
 
+
+<div class="panel panel-success">
+    <div class="panel-heading">
+        <h3 class="panel-title">Copatibilidad</h3>
+    </div>
+    <div class="panel-body compatibility">
+        <span class="compatibility-badge"><span class="label label-primary">Cinnamon</span><span class="label label-warning">2.8</span></span>
+<span class="compatibility-badge"><span class="label label-primary">Cinnamon</span><span class="label label-success">3.0</span></span>
+<span class="compatibility-badge"><span class="label label-primary">Cinnamon</span><span class="label label-success">3.2</span></span>
+<span class="compatibility-badge"><span class="label label-primary">Cinnamon</span><span class="label label-success">3.4</span></span>
+
+<br/><p class="text-danger compatibility-disclaimer">No instalar en ninguna otra versión de Cinnamon.</p>
+    </div>
+</div>
+
+<h2>Descripción</h2>
+<p>Simple applet que permite traducir cualquier texto seleccionado desde cualquier aplicación en un sistema y mostrarlo en una ventana emergente.</p>
 <h2>Dependencias</h2>
 <p><strong>Si una o más de estas dependencias faltan en su sistema, no podrá utilizar este applet.</strong></p>
 <h3>Comando xsel</h3>
@@ -719,7 +779,7 @@ body {
 </ul>
 <p><strong>Luego de instalar cualquiera de las dependencias faltantes, Cinnamon necesita ser reiniciado</strong></p>
 <p><strong>Nota:</strong> Yo no uso ningún otro tipo de distribución Linux (basada en Gentoo, basada en Slackware, etc.). Si alguno de los previos paquetes/módulos son nombrados deferente, por favor, háganmelo saber y los especificaré en este archivo de ayuda.</p>
-<hr>
+
 <h2>Uso del applet</h2>
 <p>Existen 4 <em>mecanismos de traducción</em> diferentes (<strong>Clic izquierdo</strong>, <strong>Clic medio</strong>, <strong>Atajo de teclado #1</strong> y <strong>Atajo de teclado #2</strong>), Cada mecanismo de traducción puede ser configurado con sus propios proveedores de servicio, par de lenguajes y atajos de teclado.</p>
 <ul>
@@ -729,19 +789,15 @@ body {
 <li><strong>Segundo mecanismo de traducción (<kbd>Ctrl</kbd> + Clic medio):</strong> Igual que <strong><kbd>Ctrl</kbd> + Clic izquierdo</strong>.</li>
 <li><strong>Tercer mecanismo de traducción (Atajo de teclado #1):</strong> Dos atajos de teclado pueden ser configurados para realizar una traducción y una traducción forzada.</li>
 <li><strong>Cuarto mecanismo de traducción (Atajo de teclado #1):</strong> Dos atajos de teclado pueden ser configurados para realizar una traducción y una traducción forzada.
-Todas las traducciones son guardadas en el historial de traducciones. Si una cadena de texto ya fue traducida en el pasado, el menú emergente mostrará esa cadena de texto guardada sin hacer uso del servicio de traducción del proveedor.</li>
-</ul>
-<hr>
-<h2>Sobre el historial de traducción</h2>
-<p>He creado el mecanismo del historial de traducciones mayormente para evitar el abuso de los servicios de traducción.</p>
-<ul>
+Todas las traducciones son guardadas en el historial de traducciones. Si una cadena de texto ya fue traducida en el pasado, el menú emergente mostrará esa cadena de texto guardada sin hacer uso del servicio de traducción del proveedor.
+## Sobre el historial de traducción
+He creado el mecanismo del historial de traducciones mayormente para evitar el abuso de los servicios de traducción.</li>
 <li>Si el servicio de Google Translate is "abusado", Google puede que bloquee temporalmente su IP. O lo que es peor, ellos podrían cambiar el mecanismo de traducción usado haciendo este applet inútil y obligándome a actualizar su código.</li>
 <li>Si el servicio de Yandex Translate is "abusado", usted está "desperdiciando" la cuota de sus llaves de la API y estas serán bloqueadas (temporalmente o permanentemente).
 En el menú contextual de este applet existe un ítem que permite abrir la carpeta donde el historial de traducciones está guardado. Desde allí, el archivo de historial puede ser respaldado o incluso borrado.</li>
 </ul>
 <p><strong>¡NUNCA editar el archivo de historial manualmente!</strong></p>
 <p><strong>Si el archivo de historial es borrado/renombrado/movido, Cinnamon necesita ser reiniciado.</strong></p>
-<hr>
 <h2>¿Cómo obtener llaves de API para Yandex translator?</h2>
 <ul>
 <li>Visitar uno de los enlaces siguientes y registrar una cuenta de Yandex (o usar uno de los servicios sociales disponibles).<ul>
@@ -758,7 +814,6 @@ En el menú contextual de este applet existe un ítem que permite abrir la carpe
 <li><strong>¡NUNCA hacer públicas las llaves de API!</strong> El sólo propósito de tomarse la molestia de obtener sus propias claves API es que el único el "consumir sus límites" es usted y nadie más.</li>
 <li>Con cada llave de API Yandex uno puede traducir <strong>HASTA</strong> 1.000.000 (1 millón) de caracteres por día <strong>PERO NO MÁS</strong> de 10.000.000 (10 millones) por mes.</li>
 </ul>
-<hr>
 
 <h2>Localización de applets/desklets/extensiones (también conocidos como xlets)</h2>
 <ul>
@@ -783,8 +838,24 @@ En el menú contextual de este applet existe un ítem que permite abrir la carpe
 <p>Zprávy o chybách, požadavky na funkce a příspěvky by měly být prováděny v repozitáři tohoto xletu, na který je odkaz dále. <a href="https://github.com/Odyseus/CinnamonTools">GitHub</a></p>
 
 </div>
-<hr>
 
+
+<div class="panel panel-success">
+    <div class="panel-heading">
+        <h3 class="panel-title">Compatibility</h3>
+    </div>
+    <div class="panel-body compatibility">
+        <span class="compatibility-badge"><span class="label label-primary">Cinnamon</span><span class="label label-warning">2.8</span></span>
+<span class="compatibility-badge"><span class="label label-primary">Cinnamon</span><span class="label label-success">3.0</span></span>
+<span class="compatibility-badge"><span class="label label-primary">Cinnamon</span><span class="label label-success">3.2</span></span>
+<span class="compatibility-badge"><span class="label label-primary">Cinnamon</span><span class="label label-success">3.4</span></span>
+
+<br/><p class="text-danger compatibility-disclaimer">Do not install on any other version of Cinnamon.</p>
+    </div>
+</div>
+
+<h2>Description</h2>
+<p>Simple translator applet that will allow to display the translation of any selected text from any application on a system in a popup.</p>
 <h2>Závislosti</h2>
 <p><strong>Pokud v systému chybí jedna nebo více těchto závislostí, nebudete moci tento aplet používat.</strong></p>
 <h3>xsel příkaz</h3>
@@ -808,7 +879,7 @@ En el menú contextual de este applet existe un ítem que permite abrir la carpe
 </ul>
 <p><strong>Po instalaci jakékoli chybějících závislosti je nutné restartovat Cinnamon.</strong></p>
 <p><strong>Poznámka:</strong> Nepoužívám žádný jiný typ distribuce Linuxu (založený na Gentoo, založeném na Slackware atd.). Pokud se některý z předchozích balíčků / modulů jmenuje jinak, dejte mi vědět a já doplním tento soubor s nápovědou.</p>
-<hr>
+
 <h2>Používání</h2>
 <p>Existují 4 <em>mechanismy překladů</em> (<strong>levým tlačítkem</strong>, <strong>středním tlačítkem</strong>, <strong>klávesová zkratka # 1</strong> a <strong>klávesová zkratka # 2</strong>). Každý mechanismus překladu může být konfigurován s vlastními poskytovateli služeb, jazykovými páry a klávesovými zkratkami.</p>
 <ul>
@@ -818,19 +889,15 @@ En el menú contextual de este applet existe un ítem que permite abrir la carpe
 <li><strong>Mechanismus druhého překladu (<kbd>Ctrl</kbd> + prostředním tlačítkem myši):</strong> Stejné jako <kbd>Ctrl</kbd> + <strong>levým tlačítkem</strong>.</li>
 <li><strong>Mechanismus třetího překladu (klávesová zkratka # 1):</strong> Dvě klávesové zkratky mohou být nakonfigurovány pro překlad a vynucený překlad.</li>
 <li><strong>Mechanismus čtvrtého překladu (klávesová zkratka # 2):</strong> Dvě klávesové zkratky mohou být nakonfigurovány pro překlad a vynucený překlad.
-Všechny překlady jsou uloženy do historie překladů. Pokud byl řetězec textu již v minulosti přeložen, vyskakovací okno zobrazí tento uložený přeložený text bez použití služby poskytovatele překladu. </li>
-</ul>
-<hr>
-<h2>O historii překladů</h2>
-<p>Vytvořil jsem mechanismus historie překladu hlavně proto, aby se zabránilo zneužívání překladatelských služeb.</p>
-<ul>
+Všechny překlady jsou uloženy do historie překladů. Pokud byl řetězec textu již v minulosti přeložen, vyskakovací okno zobrazí tento uložený přeložený text bez použití služby poskytovatele překladu. 
+## O historii překladů
+Vytvořil jsem mechanismus historie překladu hlavně proto, aby se zabránilo zneužívání překladatelských služeb.</li>
 <li>Pokud je služba Google Translate "zneužívána", může společnost Google dočasně zablokovat vaši IP adresu. Nebo co je horší, mohou změnit překladový mechanismus, což způsobí nepoužitelnost tohoto apletu a donutí mě aktualizovat jeho kód. </li>
 <li>Pokud je služba Yandex Translate "zneužívána", "utrácíte" kvótu na klíče API a ty budou blokovány (dočasně nebo trvale).
 V kontextovém menu tohoto apletu je položka, která může otevřít složku se souborem historie překladů. Odtud může být soubor historie překladů zálohován nebo smazán. </li>
 </ul>
 <p><strong>NIKDY neupravujte soubor historie překladu ručně!!!</strong></p>
 <p><strong>Pokud je soubor s historií překladů smazán/přejmenován/přesunut, je třeba restartovat Cinnamon.</strong></p>
-<hr>
 <h2>Jak získat klíče API pro překladač Yandex</h2>
 <ul>
 <li>Navštivte některý z následujících odkazů a zaregistrujte účet Yandex (nebo použijte jednu z dostupných sociálních služeb).<ul>
@@ -847,7 +914,6 @@ V kontextovém menu tohoto apletu je položka, která může otevřít složku s
 <li><strong>NIKDY nezveřejňujte své klíče API</strong> Celý proces získání vlastních klíčů API, má jediný účel a tím je, že jediný kdo spotřebovává jejich limity jste vy a nikdo jiný.</li>
 <li>S každým klíčem API pro překladač Yandex můžete přeložit <strong>AŽ DO</strong> 1.000.000 (1 milion) znaků za den <strong>ALE NE VÍCE</strong> než 10.000.000 (10 milionů) za měsíc.</li>
 </ul>
-<hr>
 
 <h2>Lokalizace apletů/deskletů/rozšíření (a.k.a. xlety)</h2>
 <ul>
@@ -872,8 +938,24 @@ V kontextovém menu tohoto apletu je položka, která může otevřít složku s
 <p>Felrapporter, funktionsönskemål och kodbidrag kan lämnas i denna xlets kodförråd, på följande länk. <a href="https://github.com/Odyseus/CinnamonTools">GitHub</a></p>
 
 </div>
-<hr>
 
+
+<div class="panel panel-success">
+    <div class="panel-heading">
+        <h3 class="panel-title">Compatibility</h3>
+    </div>
+    <div class="panel-body compatibility">
+        <span class="compatibility-badge"><span class="label label-primary">Cinnamon</span><span class="label label-warning">2.8</span></span>
+<span class="compatibility-badge"><span class="label label-primary">Cinnamon</span><span class="label label-success">3.0</span></span>
+<span class="compatibility-badge"><span class="label label-primary">Cinnamon</span><span class="label label-success">3.2</span></span>
+<span class="compatibility-badge"><span class="label label-primary">Cinnamon</span><span class="label label-success">3.4</span></span>
+
+<br/><p class="text-danger compatibility-disclaimer">Do not install on any other version of Cinnamon.</p>
+    </div>
+</div>
+
+<h2>Description</h2>
+<p>Simple translator applet that will allow to display the translation of any selected text from any application on a system in a popup.</p>
 <h2>Beroenden</h2>
 <p><strong>Om ett eller flera av dessa beroenden saknas i ditt system, kommer du inte att kunna använda det här panelprogrammet.</strong></p>
 <h3>xsel-kommando</h3>
@@ -897,7 +979,7 @@ V kontextovém menu tohoto apletu je položka, která může otevřít složku s
 </ul>
 <p><strong>Efter installation av något saknat beroende, måste Cinnamon startas om.</strong></p>
 <p><strong>Notis:</strong> Jag använder inga andra typer av Linux-distributioner (Gentoo-baserade, Slackware-baserade, etc.). Meddela mig, om något av föregående paket/moduler är annorlunda namngivna, så kan jag specificera dem i denna hjälpfil.</p>
-<hr>
+
 <h2>Användning</h2>
 <p>Det finns 4 <em>översättningsfunktioner</em> (<strong>Vänsterklick</strong>, <strong>Mushjulsklick</strong>, <strong>Snabbtangent #1</strong> och <strong>Snabbtangent #2</strong>). Varje översättningsfunktion kan konfigureras med sin egen uppsättning tjänstleverantör, språkpar och snabbtangent.</p>
 <ul>
@@ -907,19 +989,15 @@ V kontextovém menu tohoto apletu je položka, která může otevřít složku s
 <li><strong>Andra översättningsfunktionen (<kbd>Ctrl</kbd> + Mushjulsklick):</strong> Samma som <kbd>Ctrl</kbd> + <strong>Vänsterklick</strong>.</li>
 <li><strong>Tredje översättningsfunktionen (Snabbtangent #1):</strong> Två snabbtangenter kan konfigureras för att utföra en översättning och en "Tvingad" översättning.</li>
 <li><strong>Fjärde översättningsfunktionen (Snabbtangent #2):</strong> Två snabbtangenter kan konfigureras för att utföra en översättning och en "Tvingad" översättning.
-Alla översättningar lagras i översättningshistoriken. Om en textsträng redan tidigare har översatts, Kommer popup-rutan att visa den lagrade översättningen, utan att använda leverantörens översättningstjänst.</li>
-</ul>
-<hr>
-<h2>Om översättningshistorik</h2>
-<p>Jag skapade historikfunktionen för översättningar, i huvudsak för att undvika missbruk av översättningstjänsterna.</p>
-<ul>
+Alla översättningar lagras i översättningshistoriken. Om en textsträng redan tidigare har översatts, Kommer popup-rutan att visa den lagrade översättningen, utan att använda leverantörens översättningstjänst.
+## Om översättningshistorik
+Jag skapade historikfunktionen för översättningar, i huvudsak för att undvika missbruk av översättningstjänsterna.</li>
 <li>Om Google Translate "missbrukas" kan det hända att Google blockerar din IP-adress temporärt. Eller vad som är värre, de kan ändra översättningsfunktionen så att det här panelprogrammet blir obrukbart och tvinga mig att skriva om koden.</li>
 <li>Om Yandex Translate "missbrukas", har du "kastat bort" dina API-nycklar som kommer att blockeras (temporärt eller permanent).
 I panelprogrammets kontextmeny (högerklick på ikonen) kan du öppna den mapp där översättningshistoriken lagras. Därifrån kan du säkerhetskopiera eller ta bort historiken.</li>
 </ul>
 <p><strong>Redigera ALDRIG översättningshistoriken manuellt!</strong></p>
 <p><strong>Om historikfilen tas bort, döps om eller flyttas, måste Cinnamon startas om.</strong></p>
-<hr>
 <h2>Hur man skaffar Yandex translators API-nycklar</h2>
 <ul>
 <li>Besök en av följande länkar och registrera ett Yandex-konto (eller använd ett av tillgängliga sociala medier).<ul>
@@ -936,7 +1014,6 @@ I panelprogrammets kontextmeny (högerklick på ikonen) kan du öppna den mapp d
 <li><strong>Offentliggör ALDRIG dina API-nycklar!!!</strong> Hela syftet med att göra sig besväret att skaffa sina egna API-nycklar, är att endast du skall kunna nyttja den begränsade mängden översatta tecken.</li>
 <li>Med varje Yandex translator API-nyckel kan du översätta <strong>UPP TILL</strong> 1.000.000 (1 miljon) tecken per dag. <strong>MEN INTE MER ÄN</strong> 10.000.000 (10 miljoner) per månad.</li>
 </ul>
-<hr>
 
 <h2>Applets/Desklets/Extensions (xlets) översättning</h2>
 <ul>
@@ -961,8 +1038,24 @@ I panelprogrammets kontextmeny (högerklick på ikonen) kan du öppna den mapp d
 <p>Bug reports, feature requests and contributions should be done on this xlet's repository linked next. <a href="https://github.com/Odyseus/CinnamonTools">GitHub</a></p>
 
 </div>
-<hr>
 
+
+<div class="panel panel-success">
+    <div class="panel-heading">
+        <h3 class="panel-title">Compatibility</h3>
+    </div>
+    <div class="panel-body compatibility">
+        <span class="compatibility-badge"><span class="label label-primary">Cinnamon</span><span class="label label-warning">2.8</span></span>
+<span class="compatibility-badge"><span class="label label-primary">Cinnamon</span><span class="label label-success">3.0</span></span>
+<span class="compatibility-badge"><span class="label label-primary">Cinnamon</span><span class="label label-success">3.2</span></span>
+<span class="compatibility-badge"><span class="label label-primary">Cinnamon</span><span class="label label-success">3.4</span></span>
+
+<br/><p class="text-danger compatibility-disclaimer">Do not install on any other version of Cinnamon.</p>
+    </div>
+</div>
+
+<h2>Description</h2>
+<p>Simple translator applet that will allow to display the translation of any selected text from any application on a system in a popup.</p>
 <h2>Dependencies</h2>
 <p><strong>If one or more of these dependencies are missing in your system, you will not be able to use this applet.</strong></p>
 <h3>xsel command</h3>
@@ -986,7 +1079,7 @@ I panelprogrammets kontextmeny (högerklick på ikonen) kan du öppna den mapp d
 </ul>
 <p><strong>After installing any of the missing dependencies, Cinnamon needs to be restarted</strong></p>
 <p><strong>Note:</strong> I don't use any other type of Linux distribution (Gentoo based, Slackware based, etc.). If any of the previous packages/modules are named differently, please, let me know and I will specify them in this help file.</p>
-<hr>
+
 <h2>Usage</h2>
 <p>There are 4 <em>translations mechanisms</em> (<strong>Left click</strong>, <strong>Middle click</strong>, <strong>Hotkey #1</strong> and <strong>Hotkey #2</strong>). Each translation mechanism can be configured with their own service providers, language pairs and hotkeys.</p>
 <ul>
@@ -996,19 +1089,15 @@ I panelprogrammets kontextmeny (högerklick på ikonen) kan du öppna den mapp d
 <li><strong>Second translation mechanism (<kbd>Ctrl</kbd> + Middle click):</strong> Same as <kbd>Ctrl</kbd> + <strong>Left click</strong>.</li>
 <li><strong>Third translation mechanism (Hotkey #1):</strong> Two hotkeys can be configured to perform a translation and a forced translation.</li>
 <li><strong>Fourth translation mechanism (Hotkey #2):</strong> Two hotkeys can be configured to perform a translation and a forced translation.
-All translations are stored into the translation history. If a string of text was already translated in the past, the popup will display that stored translated text without making use of the provider's translation service.</li>
-</ul>
-<hr>
-<h2>About translation history</h2>
-<p>I created the translation history mechanism mainly to avoid the abuse of the translation services.</p>
-<ul>
+All translations are stored into the translation history. If a string of text was already translated in the past, the popup will display that stored translated text without making use of the provider's translation service.
+## About translation history
+I created the translation history mechanism mainly to avoid the abuse of the translation services.</li>
 <li>If the Google Translate service is "abused", Google may block temporarily your IP. Or what is worse, they could change the translation mechanism making this applet useless and forcing me to update its code.</li>
 <li>If the Yandex Translate service is "abused", you are "wasting" your API keys quota and they will be blocked (temporarily or permanently).
 In the context menu of this applet is an item that can open the folder were the translation history file is stored. From there, the translation history file can be backed up or deleted.</li>
 </ul>
 <p><strong>NEVER edit the translation history file manually!!!</strong></p>
 <p><strong>If the translation history file is deleted/renamed/moved, Cinnamon needs to be restarted.</strong></p>
-<hr>
 <h2>How to get Yandex translator API keys</h2>
 <ul>
 <li>Visit one of the following links and register a Yandex account (or use one of the available social services).<ul>
@@ -1025,7 +1114,6 @@ In the context menu of this applet is an item that can open the folder were the 
 <li><strong>NEVER make your API keys public!!!</strong> The whole purpose of going to the trouble of getting your own API keys is that the only one "consuming their limits" is you and nobody else.</li>
 <li>With each Yandex translator API key you can translate <strong>UP TO</strong> 1.000.000 (1 million) characters per day <strong>BUT NOT MORE</strong> than 10.000.000 (10 millions) per month.</li>
 </ul>
-<hr>
 
 <h2>Applets/Desklets/Extensions (a.k.a. xlets) localization</h2>
 <ul>

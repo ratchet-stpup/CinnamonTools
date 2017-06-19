@@ -8,6 +8,7 @@ import itertools
 import gi
 from . import xlets_meta
 from . import ansi_colors
+from . import changelog_sanitizer
 
 gi.require_version("Gtk", "3.0")
 
@@ -106,42 +107,42 @@ class XletsHelperCore():
         print(Ansi.WARN("Generating change logs..."))
 
         logs_storage = os.path.join(self.root_path, "tmp", "changelogs")
-        changelog_sanitizer_path = os.path.join(self.root_path, "tools",
-                                                "changelog_handler", "changelog_sanitizer.py")
 
         GLib.mkdir_with_parents(logs_storage, 0o755)
 
         for xlet in self.xlets_meta.list:
             print(Ansi.INFO("Generating change log for %s..." % xlet["name"]))
 
-            xlet_root_folder = get_parent_dir(xlet["meta-path"], 2)
-            tmp_log_path = os.path.join(logs_storage, xlet["uuid"] + ".md")
+            try:
+                xlet_root_folder = get_parent_dir(xlet["meta-path"], 2)
+                tmp_log_path = os.path.join(logs_storage, xlet["uuid"] + ".md")
 
-            # Generate change log from current repository paths.
-            relative_xlet_path1 = "./" + xlet["type"] + "s/" + xlet["uuid"]
-            cmd1 = git_log_cmd.format(relative_xlet_path=relative_xlet_path1,
-                                      append_or_override=">",
-                                      tmp_log_path=tmp_log_path)
-            self.exec_command(cmd=cmd1,
-                              working_directory=self.root_path)
+                # Generate change log from current repository paths.
+                relative_xlet_path1 = "./" + xlet["type"] + "s/" + xlet["uuid"]
+                cmd1 = git_log_cmd.format(relative_xlet_path=relative_xlet_path1,
+                                          append_or_override=">",
+                                          tmp_log_path=tmp_log_path)
+                self.exec_command(cmd=cmd1,
+                                  working_directory=self.root_path)
 
-            # Generate change log from old repository paths (before repository rearrangement).
-            # Then append them to the previously generated change log.
-            relative_xlet_path2 = "./" + xlet["type"].capitalize() + "s/" + xlet["uuid"]
-            cmd2 = git_log_cmd.format(relative_xlet_path=relative_xlet_path2,
-                                      append_or_override=">>",
-                                      tmp_log_path=tmp_log_path)
-            self.exec_command(cmd=cmd2,
-                              working_directory=self.root_path)
+                # Generate change log from old repository paths (before repository rearrangement).
+                # Then append them to the previously generated change log.
+                relative_xlet_path2 = "./" + xlet["type"].capitalize() + "s/" + xlet["uuid"]
+                cmd2 = git_log_cmd.format(relative_xlet_path=relative_xlet_path2,
+                                          append_or_override=">>",
+                                          tmp_log_path=tmp_log_path)
+                self.exec_command(cmd=cmd2,
+                                  working_directory=self.root_path)
+            finally:
+                # Sanitize and clean up formatting of the change logs and
+                # copy them to their final destinations.
+                sanitizer = changelog_sanitizer.ChangelogSanitizer(
+                    xlet_name=xlet["name"],
+                    source_path=tmp_log_path,
+                    target_path=xlet_root_folder + "/CHANGELOG.md"
+                )
 
-            # Sanitize and clean up formatting of the change logs and
-            # copy them to their final destinations.
-            cmd3 = '%s "%s" "%s" "%s/CHANGELOG.md"' % (changelog_sanitizer_path,
-                                                        xlet["name"],
-                                                        tmp_log_path,
-                                                        xlet_root_folder)
-            self.exec_command(cmd=cmd3,
-                              working_directory=xlet_root_folder)
+                sanitizer.sanitize()
 
     def update_pot_files(self):
         """update_pot_files
@@ -217,6 +218,17 @@ class XletsHelperCore():
         print(Ansi.WARN("Generating translation statistics..."))
 
         cmd = "./tools/helper_shell_scripts/helper_shell_scripts.sh generate-trans-stats &"
+        self.exec_command(cmd=cmd,
+                          working_directory=self.root_path)
+
+    def update_spanish_localizations(self):
+        """[summary]
+
+        Update all Spanish localizations from all xlets.
+        """
+        print(Ansi.WARN("Updating Spanish localizations..."))
+
+        cmd = "./tools/helper_shell_scripts/helper_shell_scripts.sh update-spanish-localizations &"
         self.exec_command(cmd=cmd,
                           working_directory=self.root_path)
 

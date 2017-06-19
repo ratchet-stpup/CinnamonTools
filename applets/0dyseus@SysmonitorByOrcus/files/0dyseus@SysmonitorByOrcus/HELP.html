@@ -526,6 +526,39 @@ body {
 }
 /* For fixed header */
 
+/* Tweak spacing of the compatibility badges inside a panel */
+.panel-body.compatibility > .compatibility-disclaimer,
+.panel-body.compatibility > .compatibility-badge {
+    margin: 5px;
+    line-height: 2.5em;
+}
+/* Tweak spacing of the compatibility badges inside a panel */
+
+/* Tweak appearance of the compatibility badges inside a panel */
+.panel-body.compatibility > .compatibility-disclaimer {
+    font-weight: bold;
+}
+.panel-body.compatibility > .compatibility-badge > .label-primary {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+.panel-body.compatibility > .compatibility-badge > .label-warning,
+.panel-body.compatibility > .compatibility-badge > .label-success,
+.panel-body.compatibility > .compatibility-badge > .label-info {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+.panel-body.compatibility > .compatibility-badge > .label-warning {
+    background-color: #dfb317;
+}
+.panel-body.compatibility > .compatibility-badge > .label-success {
+    background-color: #97CA00;
+}
+.panel-body.compatibility > .compatibility-badge > .label-info {
+    background-color: #439cf7;
+}
+/* Tweak appearance of the compatibility badges inside a panel */
+
 .navbar-form {
     margin-top: 8px !important;
 }
@@ -604,8 +637,33 @@ body {
 <p>错误报告，功能请求和贡献应该在下方链接的xlet的仓库上完成。 <a href="https://github.com/Odyseus/CinnamonTools">GitHub</a></p>
 
 </div>
-<hr>
 
+
+<div class="panel panel-success">
+    <div class="panel-heading">
+        <h3 class="panel-title">Compatibility</h3>
+    </div>
+    <div class="panel-body compatibility">
+        <span class="compatibility-badge"><span class="label label-primary">Cinnamon</span><span class="label label-warning">2.8</span></span>
+<span class="compatibility-badge"><span class="label label-primary">Cinnamon</span><span class="label label-success">3.0</span></span>
+<span class="compatibility-badge"><span class="label label-primary">Cinnamon</span><span class="label label-success">3.2</span></span>
+<span class="compatibility-badge"><span class="label label-primary">Cinnamon</span><span class="label label-success">3.4</span></span>
+
+<br/><p class="text-danger compatibility-disclaimer">Do not install on any other version of Cinnamon.</p>
+    </div>
+</div>
+
+<h2>Description</h2>
+<p>This applet is a fork of <a href="https://cinnamon-spices.linuxmint.com/applets/view/88">System Monitor</a> applet by Josef Michálek (a.k.a. Orcus).</p>
+<h2>Differences with the original applet</h2>
+<p><strong>This applet is not compatible with vertical panels!</strong></p>
+<ul>
+<li>This applet uses Cinnamon's native settings system instead of an external library (gjs).</li>
+<li>I added an option to use a custom command on applet click.</li>
+<li>I added an option to set a custom width for each graph individually.</li>
+<li>I added an option to align this applet tooltip text to the left.</li>
+<li>Removed NetworkManager dependency.</li>
+</ul>
 <h2>检查依赖关系</h2>
 <ul>
 <li><strong>GTop:</strong> gtop库读取有关进程和系统状态的信息。<ul>
@@ -623,7 +681,7 @@ body {
 </ul>
 <p><strong>重要提示：</strong> 仅当系统上安装的<strong> GTop </strong>库版本&lt;<strong> 2.32 </strong>且不支持某些库调用时，才使用NetworkManager。 所以，基本上，如果这个小程序上的网络图表在没有安装NetworkManager的情况下工作，那么你无需安装它。</p>
 <p><strong>安装软件包之后重启Cinnamon以便小程序能够识别。</strong></p>
-<hr>
+
 
 <h2>小程序/桌面小工具/扩展（也称为xlets）本地化</h2>
 <ul>
@@ -648,8 +706,33 @@ body {
 <p>Los reportes de fallos, peticiones de características y contribuciones deben hacerse en el repositorio de este xlet vinculado a continuación. <a href="https://github.com/Odyseus/CinnamonTools">GitHub</a></p>
 
 </div>
-<hr>
 
+
+<div class="panel panel-success">
+    <div class="panel-heading">
+        <h3 class="panel-title">Copatibilidad</h3>
+    </div>
+    <div class="panel-body compatibility">
+        <span class="compatibility-badge"><span class="label label-primary">Cinnamon</span><span class="label label-warning">2.8</span></span>
+<span class="compatibility-badge"><span class="label label-primary">Cinnamon</span><span class="label label-success">3.0</span></span>
+<span class="compatibility-badge"><span class="label label-primary">Cinnamon</span><span class="label label-success">3.2</span></span>
+<span class="compatibility-badge"><span class="label label-primary">Cinnamon</span><span class="label label-success">3.4</span></span>
+
+<br/><p class="text-danger compatibility-disclaimer">No instalar en ninguna otra versión de Cinnamon.</p>
+    </div>
+</div>
+
+<h2>Descripción</h2>
+<p>Este applet está basado en el applet <a href="https://cinnamon-spices.linuxmint.com/applets/view/88">System Monitor</a> por Josef Michálek (también conocido como Orcus).</p>
+<h2>Diferencias con el original</h2>
+<p><strong>This applet is not compatible with vertical panels!</strong></p>
+<ul>
+<li>Este applet utiliza el sistema de configuración nativo de Cinnamon en lugar de una biblioteca externa (gjs).</li>
+<li>He añadido una opción para usar un comando personalizado al hacer clic en el applet.</li>
+<li>He añadido una opción para establecer un ancho personalizado para cada gráfico individualmente.</li>
+<li>He añadido una opción para alinear el texto de información de este applet a la izquierda.</li>
+<li>Se eliminó la dependencia de NetworkManager.</li>
+</ul>
 <h2>Dependencias</h2>
 <ul>
 <li><strong>GTop:</strong> La biblioteca gtop lee información acerca de procesos y el estado del sistema.<ul>
@@ -667,7 +750,7 @@ body {
 </ul>
 <p><strong>Nota importante:</strong> NetworkManager is usado sólo si la versión de la librería <strong>GTop</strong> instalada en el sistema es &lt; 2.32 y no soporta ciertas llamadas a la librería. Básicamente, si el gráfico de red de este applet funciona sin tener instalado NetworkManager, entonces no es necesario que sea instalado.</p>
 <p><strong>Reiniciar Cinnamon luego de haber instalado los paquetes para que el applet los reconozca.</strong></p>
-<hr>
+
 
 <h2>Localización de applets/desklets/extensiones (también conocidos como xlets)</h2>
 <ul>
@@ -692,8 +775,33 @@ body {
 <p>Felrapporter, funktionsönskemål och kodbidrag kan lämnas i denna xlets kodförråd, på följande länk. <a href="https://github.com/Odyseus/CinnamonTools">GitHub</a></p>
 
 </div>
-<hr>
 
+
+<div class="panel panel-success">
+    <div class="panel-heading">
+        <h3 class="panel-title">Compatibility</h3>
+    </div>
+    <div class="panel-body compatibility">
+        <span class="compatibility-badge"><span class="label label-primary">Cinnamon</span><span class="label label-warning">2.8</span></span>
+<span class="compatibility-badge"><span class="label label-primary">Cinnamon</span><span class="label label-success">3.0</span></span>
+<span class="compatibility-badge"><span class="label label-primary">Cinnamon</span><span class="label label-success">3.2</span></span>
+<span class="compatibility-badge"><span class="label label-primary">Cinnamon</span><span class="label label-success">3.4</span></span>
+
+<br/><p class="text-danger compatibility-disclaimer">Do not install on any other version of Cinnamon.</p>
+    </div>
+</div>
+
+<h2>Description</h2>
+<p>This applet is a fork of <a href="https://cinnamon-spices.linuxmint.com/applets/view/88">System Monitor</a> applet by Josef Michálek (a.k.a. Orcus).</p>
+<h2>Differences with the original applet</h2>
+<p><strong>This applet is not compatible with vertical panels!</strong></p>
+<ul>
+<li>This applet uses Cinnamon's native settings system instead of an external library (gjs).</li>
+<li>I added an option to use a custom command on applet click.</li>
+<li>I added an option to set a custom width for each graph individually.</li>
+<li>I added an option to align this applet tooltip text to the left.</li>
+<li>Removed NetworkManager dependency.</li>
+</ul>
 <h2>Beroenden</h2>
 <ul>
 <li><strong>GTop:</strong> gtop-biblioteket läser information om processer och status för systemet.<ul>
@@ -711,7 +819,7 @@ body {
 </ul>
 <p><strong>Viktig notis:</strong> NetworkManager används endast om <strong>GTop</strong>-biblioteket version &lt; <strong>2.32</strong> finns installerat i systemet och inte stödjer vissa biblioteksanrop. Så om nätverksdiagrammet på detta panelprogram fungerar utan att du har installerat "NetworkManager", behöver du heller inte installera det.</p>
 <p><strong>Starta om Cinnamon efter paketinstallationen så att panelprogrammet kan identifiera dem.</strong></p>
-<hr>
+
 
 <h2>Applets/Desklets/Extensions (xlets) översättning</h2>
 <ul>
@@ -736,8 +844,33 @@ body {
 <p>Bug reports, feature requests and contributions should be done on this xlet's repository linked next. <a href="https://github.com/Odyseus/CinnamonTools">GitHub</a></p>
 
 </div>
-<hr>
 
+
+<div class="panel panel-success">
+    <div class="panel-heading">
+        <h3 class="panel-title">Compatibility</h3>
+    </div>
+    <div class="panel-body compatibility">
+        <span class="compatibility-badge"><span class="label label-primary">Cinnamon</span><span class="label label-warning">2.8</span></span>
+<span class="compatibility-badge"><span class="label label-primary">Cinnamon</span><span class="label label-success">3.0</span></span>
+<span class="compatibility-badge"><span class="label label-primary">Cinnamon</span><span class="label label-success">3.2</span></span>
+<span class="compatibility-badge"><span class="label label-primary">Cinnamon</span><span class="label label-success">3.4</span></span>
+
+<br/><p class="text-danger compatibility-disclaimer">Do not install on any other version of Cinnamon.</p>
+    </div>
+</div>
+
+<h2>Description</h2>
+<p>This applet is a fork of <a href="https://cinnamon-spices.linuxmint.com/applets/view/88">System Monitor</a> applet by Josef Michálek (a.k.a. Orcus).</p>
+<h2>Differences with the original applet</h2>
+<p><strong>This applet is not compatible with vertical panels!</strong></p>
+<ul>
+<li>This applet uses Cinnamon's native settings system instead of an external library (gjs).</li>
+<li>I added an option to use a custom command on applet click.</li>
+<li>I added an option to set a custom width for each graph individually.</li>
+<li>I added an option to align this applet tooltip text to the left.</li>
+<li>Removed NetworkManager dependency.</li>
+</ul>
 <h2>Dependencies</h2>
 <ul>
 <li><strong>GTop:</strong> The gtop library reads information about processes and the state of the system.<ul>
@@ -755,7 +888,7 @@ body {
 </ul>
 <p><strong>Important note:</strong> NetworkManager is only used if the <strong>GTop</strong> library version installed on a system is &lt; <strong>2.32</strong> and doesn't support certain library calls. So, basically, if the network graph on this applet works without having installed NetworkManager, then you don't need to install it.</p>
 <p><strong>Restart Cinnamon after installing the packages for the applet to recognize them.</strong></p>
-<hr>
+
 
 <h2>Applets/Desklets/Extensions (a.k.a. xlets) localization</h2>
 <ul>

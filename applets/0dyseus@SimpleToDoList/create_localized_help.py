@@ -58,30 +58,50 @@ def _(aStr):
     return aStr
 
 
-# The real content of the HELP file.
-def get_content():
-    return md("{}".format("\n".join([
+# Base information about the xlet (Description, features, dependencies, etc.).
+# This is used by the xlet README and the xlets help file.
+# Returns a "raw markdown string" that it is used "as-is" for the README creation,
+# but it's converted to HTML when used by the help file.
+#
+# Separate each "block" with an empty space, not a new line. When joining the
+# string with a new line character, an empty space will add one line, but a
+# new line character will add two lines. This is just to keep the README content
+# somewhat homogeneous.
+def get_content_base(for_readme=False):
+    return "\n".join([
+        "## %s" % _("Description"),
+        "",
+        # TO TRANSLATORS: MARKDOWN string. Respect formatting.
+        _("Applet based on two gnome-shell extensions ([Todo list](https://github.com/bsaleil/todolist-gnome-shell-extension) and [Section Todo List](https://github.com/tomMoral/ToDoList)). It allows to create simple ToDo lists from a menu on the panel."),
+        "",
         "## %s" % _("Applet usage and features"),
+        "",
         _("The usage of this applet is very simple. Each task list is represented by a sub menu and each sub menu item inside a sub menu represents a task."),
+        "",
         # TO TRANSLATORS: MARKDOWN string. Respect formatting.
-        "- " + \
-        _("To add a new tasks list, simply focus the **New tasks list...** entry, give a name to the tasks list and press [[Enter]]."),
+        "- %s" % _(
+            "To add a new tasks list, simply focus the **New tasks list...** entry, give a name to the tasks list and press [[Enter]]."),
         # TO TRANSLATORS: MARKDOWN string. Respect formatting.
-        "- " + \
-        _("To add a new task, simply focus the **New task...** entry, give a name to the task and press [[Enter]]."),
-        "- " + _("All tasks lists and tasks can be edited in-line."),
-        "- " + _("Tasks can be marked as completed by changing the checked state of their sub menu items."),
-        "- " + _("Each tasks list can have its own settings for sorting tasks (by name and/or by completed state), remove task button visibility and completed tasks visibility."),
-        "- " + _("Each tasks list can be saved as individual TODO files and also can be exported into a file for backup purposes."),
-        "- " + _("Tasks can be reordered by simply dragging them inside the tasks list they belong to (only if all automatic sorting options for the tasks list are disabled)."),
-        "- " + _("Tasks can be deleted by simply pressing the delete task button (if visible)."),
-        "- " + _("Colorized priority tags support. The background and text colors of a task can be colorized depending on the @tag found inside the task text."),
-        "- " + _("Configurable hotkey to open/close the menu."),
-        "- " + _("Read the tooltips of each option on this applet settings window for more details."),
-        "***",
+        "- %s" % _(
+            "To add a new task, simply focus the **New task...** entry, give a name to the task and press [[Enter]]."),
+        "- %s" % _("All tasks lists and tasks can be edited in-line."),
+        "- %s" % _("Tasks can be marked as completed by changing the checked state of their sub menu items."),
+        "- %s" % _("Each tasks list can have its own settings for sorting tasks (by name and/or by completed state), remove task button visibility and completed tasks visibility."),
+        "- %s" % _("Each tasks list can be saved as individual TODO files and also can be exported into a file for backup purposes."),
+        "- %s" % _("Tasks can be reordered by simply dragging them inside the tasks list they belong to (only if all automatic sorting options for the tasks list are disabled)."),
+        "- %s" % _("Tasks can be deleted by simply pressing the delete task button (if visible)."),
+        "- %s" % _("Colorized priority tags support. The background and text colors of a task can be colorized depending on the @tag found inside the task text."),
+        "- %s" % _("Configurable hotkey to open/close the menu."),
+        "- %s" % _("Read the tooltips of each option on this applet settings window for more details."),
+    ])
+
+
+# The real content of the HELP file.
+def get_content_extra():
+    return md("{}".format("\n".join([
         "## %s" % _("Keyboard shortcuts"),
         _("The keyboard navigation inside this applet menu is very similar to the keyboard navigation used by any other menu on Cinnamon. But it's slightly changed to facilitate tasks and sections handling and edition."),
-        "\n",
+        "",
         "### %s" % _("When the focus is on a task"),
         # TO TRANSLATORS: MARKDOWN string. Respect formatting.
         "- " + _("[[Ctrl]] + [[Spacebar]]: Toggle the completed (checked) state of a task."),
@@ -93,36 +113,34 @@ def get_content():
         "- " + _("[[Ctrl]] + [[Arrow Up]] or [[Ctrl]] + [[Arrow Down]]: Moves a task inside its tasks list."),
         # TO TRANSLATORS: MARKDOWN string. Respect formatting.
         "- " + _("[[Insert]]: Will focus the **New task...** entry of the currently opened task section."),
-        "\n",
+        "",
         "### %s" % _("When the focus is on a task section"),
         # TO TRANSLATORS: MARKDOWN string. Respect formatting.
         "- " + _("[[Arrow Left]] and [[Arrow Right]]: If the tasks list (sub menu) is closed, these keys will open the sub menu. If the sub menu is open, these keys will move the cursor inside the sub menu label to allow the edition of the section text."),
         # TO TRANSLATORS: MARKDOWN string. Respect formatting.
         "- " + _("[[Insert]]: Will focus the **New task...** entry inside the task section. If the task section sub menu isn't open, it will be opened."),
-        "\n",
+        "",
         # TO TRANSLATORS: MARKDOWN string. Respect formatting.
         "### %s" % _("When the focus is on the **New task...** entry"),
         # TO TRANSLATORS: MARKDOWN string. Respect formatting.
         "- " + _("[[Ctrl]] + [[Spacebar]]: Toggles the visibility of the tasks list options menu."),
-        "***",
         "## %s" % _("Known issues"),
         # TO TRANSLATORS: MARKDOWN string. Respect formatting.
         "- " + _("**Hovering over items inside the menu doesn't highlight menu items nor sub menus:** This is actually a desired feature. Allowing the items to highlight on mouse hover would cause the entries to loose focus, resulting in the impossibility to keep typing text inside them and constantly forcing us to move the mouse cursor to regain focus."),
         "- **%s** %s" % (_("Task entries look wrong:"), _(
             # TO TRANSLATORS: MARKDOWN string. Respect formatting.
             "Task entries on this applet have the ability to wrap its text in case one sets a fixed width for them. They also can be multi line ([[Shift]] + [[Enter]] inside an entry will create a new line). Some Cinnamon themes, like the default Mint-X family of themes, set a fixed width and a fixed height for entries inside menus. These fixed sizes makes it impossible to programmatically set a desired width for the entries (at least, I couldn't find a way to do it). And the fixed height doesn't allow the entries to expand, completely breaking the entries capability to wrap its text and to be multi line.")),
-        "\n",
+        "",
         "### %s" % _("This is how entries should look like"),
-        "\n",
+        "",
         "<img class=\"correct-entries-styling\" alt=\"%s\">" % _("Correct entries styling"),
-        "\n",
+        "",
         "### %s" % _("This is how entries SHOULD NOT look like"),
-        "\n",
+        "",
         "<img class=\"incorrect-entries-styling\" alt=\"%s\">" % _("Incorrect entries styling"),
-        "\n",
+        "",
         # TO TRANSLATORS: MARKDOWN string. Respect formatting.
         _("The only way to fix this (that I could find) is by editing the Cinnamon theme that one is using and remove those fixed sizes. The CSS selectors that needs to be edited are **.menu StEntry**, **.menu StEntry:focus**, **.popup-menu StEntry** and **.popup-menu StEntry:focus**. Depending on the Cinnamon version the theme was created for, one might find just the first two selectors or the last two or all of them. The CSS properties that need to be edited are **width** and **height**. They could be removed, but the sensible thing to do is to rename them to **min-width** and **min-height** respectively. After editing the theme's file and restarting Cinnamon, the entries inside this applet will look and work like they should."),
-        "***"
     ])
     ))
 
@@ -151,6 +169,10 @@ class Main():
     def __init__(self):
         self.html_templates = localized_help_modules.HTMLTemplates()
         self.html_assets = localized_help_modules.HTMLInlineAssets(repo_folder=repo_folder)
+        self.compatibility_data = localized_help_modules.get_compatibility(
+            xlet_meta=xlet_meta,
+            for_readme=False
+        )
         self.lang_list = []
         self.sections = []
         self.options = []
@@ -178,19 +200,40 @@ class Main():
             global current_language
             current_language = lang
 
+            if current_language == "en":
+                localized_help_modules.create_readme(
+                    xlet_dir=XLET_DIR,
+                    xlet_meta=xlet_meta,
+                    content_base=get_content_base(for_readme=True)
+                )
+
             if current_language != "en" and _("language-name") == "language-name":
                 # If the endonym isn't provided, assume that the HELP file isn't translated.
                 # Placed this comment here so the comment isn't extracted by xgettext.
                 continue
 
             only_english = md("<div style=\"font-weight:bold;\" class=\"alert alert-info\">{0}</div>".format(
-                _("The following two sections are available only in English.")))
+                _("The following two sections are available only in English."))
+            )
+
+            compatibility_disclaimer = "<p class=\"text-danger compatibility-disclaimer\">{}</p>".format(
+                _("Do not install on any other version of Cinnamon.")
+            )
+
+            compatibility_block = self.html_templates.bt_panel.format(
+                context="success",
+                custom_class="compatibility",
+                title=_("Compatibility"),
+                content=self.compatibility_data + "\n<br/>" + compatibility_disclaimer,
+            )
 
             section = self.html_templates.locale_section_base.format(
                 language_code=current_language,
                 hidden="" if current_language is "en" else " hidden",
                 introduction=self.get_introduction(),
-                content=get_content(),
+                compatibility=compatibility_block,
+                content_base=md(get_content_base(for_readme=False)),
+                content_extra=get_content_extra(),
                 localize_info=self.get_localize_info(),
                 only_english=only_english,
             )
@@ -218,8 +261,9 @@ class Main():
             js_custom=get_js_custom()
         )
 
-        localized_help_modules.save_html_file(path=self.help_file_path,
-                                              data=html_doc)
+        localized_help_modules.save_file(path=self.help_file_path,
+                                         data=html_doc,
+                                         creation_type=self.creation_type)
 
     def do_dummy_install(self):
         podir = os.path.join(XLET_DIR, "files", XLET_UUID, "po")
@@ -309,15 +353,19 @@ if __name__ == "__main__":
         quit()
 
     help_file_path = None
+    creation_type = None
 
     if options.production:
+        creation_type = "production"
         help_file_path = os.path.join(XLET_DIR, "files", XLET_UUID, "HELP.html")
     elif options.dev:
+        creation_type = "dev"
         repo_tmp_folder = os.path.join(repo_folder, "tmp", "help_files")
         GLib.mkdir_with_parents(repo_tmp_folder, 0o755)
         help_file_path = os.path.join(repo_tmp_folder, XLET_UUID + "-HELP.html")
 
     if help_file_path is not None:
         m = Main()
+        m.creation_type = creation_type
         m.help_file_path = help_file_path
         m.do_dummy_install()

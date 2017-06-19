@@ -58,13 +58,80 @@ def _(aStr):
     return aStr
 
 
+# Base information about the xlet (Description, features, dependencies, etc.).
+# This is used by the xlet README and the xlets help file.
+# Returns a "raw markdown string" that it is used "as-is" for the README creation,
+# but it's converted to HTML when used by the help file.
+#
+# Separate each "block" with an empty space, not a new line. When joining the
+# string with a new line character, an empty space will add one line, but a
+# new line character will add two lines. This is just to keep the README content
+# somewhat homogeneous.
+def get_content_base(for_readme=False):
+    return "\n".join([
+        "## %s" % _("Description"),
+        "",
+        _("This applet is a custom version of the default Cinnamon Menu applet, but infinitely more customizable."),
+        "",
+        "## %s" % _("Added options/features"),
+        "",
+        # TO TRANSLATORS: MARKDOWN string. Respect formatting.
+        "**Note:** Read the help file for this applet (Help item on this applet context menu) for detailed information about this applet keyboard navigation and other features." if for_readme else "",
+        "",
+        "- %s" % _("All mayor elements of the menu can be hidden or placed anywhere on the menu."),
+        # TO TRANSLATORS: MARKDOWN string. Respect formatting.
+        "- %s" % _(
+            "Added Fuzzy search. Based on [Sane Menu](https://cinnamon-spices.linuxmint.com/applets/view/258s) applet by **nooulaif**."),
+        "- %s" % _("Added a custom launchers box that can run any command/script/file and can be placed at the top/bottom of the menu or to the left/right of the searchbox."),
+        "- %s" % _("Custom launchers icons can have a custom size and can be symbolic or full color."),
+        "- %s" % _("Custom launchers can execute any command (as entered in a terminal) or a path to a file. If the file is an executable script, an attempt to execute it will be made. Otherwise, the file will be opened with the systems handler for that file type."),
+        # TO TRANSLATORS: MARKDOWN string. Respect formatting.
+        "- %s" % _("The **Quit buttons** can now be moved next the the custom launchers box and can have custom icons (ONLY when they are placed next to the custom launchers box). They also can be hidden all at once or individually."),
+        "- %s" % _("The searchbox can have a fixed width or an automatic width to fit the menu width."),
+        "- %s" % _("The applications info box can be hidden or replaced by traditional tooltips. Its text can also be aligned to the left."),
+        "- %s" % _("The size of the Favorites/Categories/Applications icons can be customized."),
+        "- %s" % _("The amount of recent files can be customized."),
+        # TO TRANSLATORS: MARKDOWN string. Respect formatting.
+        "- %s" % _("The **Recent Files** category can be hidden. This is for people who want the **Recent Files** category hidden without disabling recent files globally."),
+        # TO TRANSLATORS: MARKDOWN string. Respect formatting.
+        "- %s" % _("The **All Applications** category can be removed from the menu."),
+        # TO TRANSLATORS: MARKDOWN string. Respect formatting.
+        "- %s" % _("The **Favorites** can now be displayed as one more category. The **All Applications** category has to be hidden."),
+        "- %s" % _("The placement of the categories box and the applications box can be swapped."),
+        "- %s" % _("Scrollbars in the applications box can be hidden."),
+        "- %s" % _("The padding of certain menu elements can be customized to override the current theme stylesheets."),
+        "- %s" % _("Recently installed applications highlighting can be disabled."),
+        "- %s" % _("Recently used applications can be remembered and will be displayed on a category called **Recent Apps**. The applications will be sorted by execution time and the name and icon of the category can be customized."),
+        "- %s" % _("Categories can be selected on hover (system default) or by clicking on them."),
+        # TO TRANSLATORS: MARKDOWN string. Respect formatting.
+        "- %s" % _("The default **Add to panel**, **Add to desktop** and **Uninstall** context menu items can be hidden."),
+        "- %s" % _("The menu editor can be directly opened from this applet context menu without the need to open it from the settings windows of this applet."),
+        "- %s" % _("The context menu for applications has 5 new items:"),
+        # TO TRANSLATORS: MARKDOWN string. Respect formatting.
+        "    - %s" % _("**Run as root:** Executes application as root."),
+        # TO TRANSLATORS: MARKDOWN string. Respect formatting.
+        "    - %s" % _("**Edit .desktop file:** Open the application's .desktop file with a text editor."),
+        # TO TRANSLATORS: MARKDOWN string. Respect formatting.
+        "    - %s" % _("**Open .desktop file folder:** Open the folder where the application's .desktop file is stored."),
+        # TO TRANSLATORS: MARKDOWN string. Respect formatting.
+        "    - %s" % _("**Run from terminal:** Open a terminal and run application from there."),
+        # TO TRANSLATORS: MARKDOWN string. Respect formatting.
+        "    - %s" % _("**Run from terminal as root:** Same as above but the application is executed as root."),
+        "",
+        # TO TRANSLATORS: MARKDOWN string. Respect formatting.
+        "## Menu *emulating* the Whisker menu (XFCE)" if for_readme else "",
+        "",
+        "![Whisker menu](https://odyseus.github.io/CinnamonTools/lib/img/CustomCinnamonMenu-001.png \"Whisker menu\")" if for_readme else "",
+    ])
+
+
 # The real content of the HELP file.
-def get_content():
+def get_content_extra():
     return md("{}".format("\n".join([
         "## %s" % _("Keyboard navigation"),
         # TO TRANSLATORS: MARKDOWN string. Respect formatting.
         "**%s** %s" % (_("Note:"), _("Almost all keyboard shortcuts on this menu are the same as the original menu. There are just a couple of differences that I was forced to add to my menu to make some of its features to work.")),
-        "\n",
+        "",
         # TO TRANSLATORS: MARKDOWN string. Respect formatting.
         "- %s" % _("[[Left Arrow]] and [[Right Arrow]] keys:"),
         "    - %s" %
@@ -102,7 +169,6 @@ def get_content():
         # TO TRANSLATORS: MARKDOWN string. Respect formatting.
         "- %s" % _("[[Ctrl]] + [[Shift]] + [[Enter]]: Open a terminal and run application from there, but the application is executed as root. This doesn't affect the custom launchers."),
         # TO TRANSLATORS: MARKDOWN string. Respect formatting.
-        "***",
         "## %s" % _("Applications left click extra actions"),
         _("When left clicking an application on the menu, certain key modifiers can be pressed to execute an application in a special way."),
         # TO TRANSLATORS: MARKDOWN string. Respect formatting.
@@ -111,13 +177,11 @@ def get_content():
         "- %s" % _("[[Ctrl]] + **Left click**: Open a terminal and run application from there."),
         # TO TRANSLATORS: MARKDOWN string. Respect formatting.
         "- %s" % _("[[Ctrl]] + [[Shift]] + **Left click**: Open a terminal and run application from there, but the application is executed as root."),
-        "***",
         "## %s" % _("About \"Run from terminal\" options"),
         _("These options are meant for debugging purposes (to see the console output after opening/closing a program to detect possible errors, for example). Instead of opening a terminal to launch a program of which one might not know its command, one can do it directly from the menu and in just one step. Options to run from a terminal an application listed on the menu can be found on the applications context menu and can be hidden/shown from this applet settings window."),
-        "\n",
+        "",
         # TO TRANSLATORS: MARKDOWN string. Respect formatting.
         _("By default, these options will use the system's default terminal emulator (**x-terminal-emulator** on Debian based distributions). Any other terminal emulator can be specified inside the settings window of this applet, as long as said emulator has support for the **-e** argument. I did my tests with **gnome-terminal**, **xterm** and **terminator**. Additional arguments could be passed to the terminal emulator, but it's not supported by me."),
-        "***",
         "## %s" % _("Favorites handling"),
         # TO TRANSLATORS: MARKDOWN string. Respect formatting.
         "- %s" % _("If the favorites box is **displayed**, favorites can be added/removed from the context menu for applications and by dragging and dropping applications to/from the favorites box."),
@@ -128,7 +192,6 @@ def get_content():
         "- %s" % _("If the favorites box is **hidden** and the favorites category is enabled, favorites can be added/removed from the context menu for applications and by dragging and dropping applications to the favorites category. Its simple, if a favorite is dragged into the favorites category, the favorite will be removed. If what you drag into the favorites category is a non bookmarked application, then that application will be added to the favorites."),
         # TO TRANSLATORS: MARKDOWN string. Respect formatting.
         "    " + _("**Note:** The favorites category will update its content after changing to another category and going back to the favorites category."),
-        "***",
         "## %s" % _("Troubleshooting/extra information"),
         "1. " + _("Run from terminal."),
         # TO TRANSLATORS: MARKDOWN string. Respect formatting.
@@ -144,7 +207,6 @@ def get_content():
         "2. %s" % _("There is a file inside this applet directory called **run_from_terminal.sh**. ***Do not remove, rename or edit this file***. Otherwise, all of the *Run from terminal* options will break."),
         # TO TRANSLATORS: MARKDOWN string. Respect formatting.
         "3. %s" % _("There is a folder named **icons** inside this applet directory. It contains several symbolic icons (most of them are from the Faenza icon theme) and each icon can be used directly by name (on a custom launcher, for example)."),
-        "***"
     ])
     ))
 
@@ -167,6 +229,10 @@ class Main():
     def __init__(self):
         self.html_templates = localized_help_modules.HTMLTemplates()
         self.html_assets = localized_help_modules.HTMLInlineAssets(repo_folder=repo_folder)
+        self.compatibility_data = localized_help_modules.get_compatibility(
+            xlet_meta=xlet_meta,
+            for_readme=False
+        )
         self.lang_list = []
         self.sections = []
         self.options = []
@@ -194,19 +260,40 @@ class Main():
             global current_language
             current_language = lang
 
+            if current_language == "en":
+                localized_help_modules.create_readme(
+                    xlet_dir=XLET_DIR,
+                    xlet_meta=xlet_meta,
+                    content_base=get_content_base(for_readme=True)
+                )
+
             if current_language != "en" and _("language-name") == "language-name":
                 # If the endonym isn't provided, assume that the HELP file isn't translated.
                 # Placed this comment here so the comment isn't extracted by xgettext.
                 continue
 
             only_english = md("<div style=\"font-weight:bold;\" class=\"alert alert-info\">{0}</div>".format(
-                _("The following two sections are available only in English.")))
+                _("The following two sections are available only in English."))
+            )
+
+            compatibility_disclaimer = "<p class=\"text-danger compatibility-disclaimer\">{}</p>".format(
+                _("Do not install on any other version of Cinnamon.")
+            )
+
+            compatibility_block = self.html_templates.bt_panel.format(
+                context="success",
+                custom_class="compatibility",
+                title=_("Compatibility"),
+                content=self.compatibility_data + "\n<br/>" + compatibility_disclaimer,
+            )
 
             section = self.html_templates.locale_section_base.format(
                 language_code=current_language,
                 hidden="" if current_language is "en" else " hidden",
                 introduction=self.get_introduction(),
-                content=get_content(),
+                compatibility=compatibility_block,
+                content_base=md(get_content_base(for_readme=False)),
+                content_extra=get_content_extra(),
                 localize_info=self.get_localize_info(),
                 only_english=only_english,
             )
@@ -234,8 +321,9 @@ class Main():
             js_custom=get_js_custom()
         )
 
-        localized_help_modules.save_html_file(path=self.help_file_path,
-                                              data=html_doc)
+        localized_help_modules.save_file(path=self.help_file_path,
+                                         data=html_doc,
+                                         creation_type=self.creation_type)
 
     def do_dummy_install(self):
         podir = os.path.join(XLET_DIR, "files", XLET_UUID, "po")
@@ -325,15 +413,19 @@ if __name__ == "__main__":
         quit()
 
     help_file_path = None
+    creation_type = None
 
     if options.production:
+        creation_type = "production"
         help_file_path = os.path.join(XLET_DIR, "files", XLET_UUID, "HELP.html")
     elif options.dev:
+        creation_type = "dev"
         repo_tmp_folder = os.path.join(repo_folder, "tmp", "help_files")
         GLib.mkdir_with_parents(repo_tmp_folder, 0o755)
         help_file_path = os.path.join(repo_tmp_folder, XLET_UUID + "-HELP.html")
 
     if help_file_path is not None:
         m = Main()
+        m.creation_type = creation_type
         m.help_file_path = help_file_path
         m.do_dummy_install()

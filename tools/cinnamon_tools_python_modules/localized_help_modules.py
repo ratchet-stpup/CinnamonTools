@@ -80,6 +80,39 @@ body {
 }
 /* For fixed header */
 
+/* Tweak spacing of the compatibility badges inside a panel */
+.panel-body.compatibility > .compatibility-disclaimer,
+.panel-body.compatibility > .compatibility-badge {
+    margin: 5px;
+    line-height: 2.5em;
+}
+/* Tweak spacing of the compatibility badges inside a panel */
+
+/* Tweak appearance of the compatibility badges inside a panel */
+.panel-body.compatibility > .compatibility-disclaimer {
+    font-weight: bold;
+}
+.panel-body.compatibility > .compatibility-badge > .label-primary {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+.panel-body.compatibility > .compatibility-badge > .label-warning,
+.panel-body.compatibility > .compatibility-badge > .label-success,
+.panel-body.compatibility > .compatibility-badge > .label-info {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+.panel-body.compatibility > .compatibility-badge > .label-warning {
+    background-color: #dfb317;
+}
+.panel-body.compatibility > .compatibility-badge > .label-success {
+    background-color: #97CA00;
+}
+.panel-body.compatibility > .compatibility-badge > .label-info {
+    background-color: #439cf7;
+}
+/* Tweak appearance of the compatibility badges inside a panel */
+
 .navbar-form {
     margin-top: 8px !important;
 }
@@ -118,14 +151,15 @@ INTRODUCTION = """
 {2}
 {3}
 </div>
-<hr>
 """
 
 
 LOCALE_SECTION = """
 <div id="{language_code}" class="localization-content{hidden}">
 {introduction}
-{content}
+{compatibility}
+{content_base}
+{content_extra}
 {localize_info}
 {only_english}
 </div> <!-- .localization-content -->
@@ -134,6 +168,54 @@ LOCALE_SECTION = """
 # {endonym} inside an HTML comment at the very begening of the string so I can sort all
 # the "option" elements by endonym.
 OPTION = """<!-- {endonym} --><option {selected}data-title="{title}" data-xlet-help="{xlet_help}" data-xlet-contributors="{xlet_contributors}" data-xlet-changelog="{xlet_changelog}" value="{language_code}">{endonym}</option>"""
+
+# The xlet README "header" doesn't need to be localized.
+README_HEADER = """<h2 style="color:red;">Bug reports, feature requests and contributions</h2>
+<span style="color:red;">
+Bug reports, feature requests and contributions should be done on this xlet's repository linked next.
+</span>
+
+<table><tbody>
+<tr><td><img src="https://odyseus.github.io/CinnamonTools/lib/img/issues.svg"></td>
+<td><a href="https://github.com/Odyseus/CinnamonTools"><strong style="color: red; font-size: 1.2em">
+Bug reports/Feature requests/Contributions
+</strong></a></td></tr>
+<tr><td><img src="https://odyseus.github.io/CinnamonTools/lib/img/help.svg"></td>
+<td><a href="https://odyseus.github.io/CinnamonTools/help_files/{xlet_uuid}.html"><strong style="font-size: 1.2em">
+Localized help
+</strong></a></td></tr>
+<tr><td><img src="https://odyseus.github.io/CinnamonTools/lib/img/contributors.svg"></td>
+<td><a href="https://odyseus.github.io/CinnamonTools/help_files/{xlet_uuid}.html#xlet-contributors"><strong style="font-size: 1.2em">
+Contributors/Mentions
+</strong></a></td></tr>
+<tr><td><img src="https://odyseus.github.io/CinnamonTools/lib/img/changelog.svg"></td>
+<td><a href="https://odyseus.github.io/CinnamonTools/help_files/{xlet_uuid}.html#xlet-changelog"><strong style="font-size: 1.2em">
+Full change log
+</strong></a></td></tr>
+</tbody></table>
+"""
+
+README_DOC = """{readme_header}
+{readme_compatibility}
+{readme_content}
+"""
+
+BOOTSTRAP_PANEL = """
+<div class="panel panel-{context}">
+    <div class="panel-heading">
+        <h3 class="panel-title">{title}</h3>
+    </div>
+    <div class="panel-body {custom_class}">
+        {content}
+    </div>
+</div>
+"""
+
+BOOTSTRAP_ALERT = """
+<div class="alert alert-{context}">
+{content}
+</div>
+"""
 
 
 USAGE = """
@@ -172,6 +254,10 @@ class HTMLTemplates():
         self.locale_section_base = LOCALE_SECTION
         self.option_base = OPTION
         self.boxed_container = BOXED_CONTAINER
+        self.readme_doc = README_DOC
+        self.readme_header = README_HEADER
+        self.bt_panel = BOOTSTRAP_PANEL
+        self.bt_alert = BOOTSTRAP_ALERT
 
 
 # Use pure HTML instead of Markdown so I can "cut the middle man" (pug).
@@ -305,14 +391,16 @@ def get_parent_dir(fpath, go_up=0):
     return dir_path
 
 
-def save_html_file(path, data):
+def save_file(path, data, creation_type=None):
     try:
-        with open(path, "w") as help_file:
-            help_file.write(data)
+        with open(path, "w") as f:
+            f.write(data)
 
-        help_file.close()
+        f.close()
 
-        if "help_files" not in path:
+        # This copies the HELP.html files just created to
+        # docs/help_files for on-line hosting.
+        if creation_type == "production":
             repo_folder = get_parent_dir(path, 4)
             xlet_uuid = os.path.basename(get_parent_dir(path))
             destination = os.path.join(repo_folder, "docs", "help_files", xlet_uuid + ".html")
@@ -322,4 +410,43 @@ def save_html_file(path, data):
         print(detail)
         quit()
 
-    quit()
+
+def get_compatibility(xlet_meta=None, for_readme=False):
+    data = ""
+
+    if for_readme:
+        data += "## Compatibility\n\n"
+
+    for version in sorted(xlet_meta["cinnamon-version"]):
+        if for_readme:
+            # The README files uses SVG images hosted on-line for the compatibility badges.
+            data += "![Cinnamon {0}](https://odyseus.github.io/CinnamonTools/lib/badges/cinn-{0}.svg)\n".format(version)
+        else:
+            # The help files uses a custom Bootstrap label for the compatibility badges.
+            span = "<span class=\"compatibility-badge\"><span class=\"label label-primary\">Cinnamon</span><span class=\"label label-{0}\">{1}</span></span>\n"
+
+            if version.startswith("2"):
+                data += span.format("warning", version)
+            elif version.startswith("3"):
+                data += span.format("success", version)
+            elif version.startswith("4"):
+                data += span.format("info", version)
+            else:
+                data += span.format("warning", version)
+
+    if for_readme:
+        data += "\n<span style=\"color:red;font-weight:bold;\">Do not install on any other version of Cinnamon.</span>\n"
+
+    return data
+
+
+def create_readme(xlet_dir=None, xlet_meta=None, content_base=""):
+    readme_path = os.path.join(xlet_dir, "README.md")
+    readme_doc = HTMLTemplates().readme_doc.format(
+        readme_header=HTMLTemplates().readme_header.format(xlet_uuid=xlet_meta["uuid"]),
+        readme_compatibility=get_compatibility(xlet_meta=xlet_meta, for_readme=True),
+        readme_content=content_base,
+    )
+
+    # Strip the readme_doc string, but add a new line at the end.
+    save_file(readme_path, readme_doc.strip() + "\n")

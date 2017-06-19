@@ -58,33 +58,54 @@ def _(aStr):
     return aStr
 
 
-# The real content of the HELP file.
-def get_content():
-    return md("{}".format("\n".join([
+# Base information about the xlet (Description, features, dependencies, etc.).
+# This is used by the xlet README and the xlets help file.
+# Returns a "raw markdown string" that it is used "as-is" for the README creation,
+# but it's converted to HTML when used by the help file.
+#
+# Separate each "block" with an empty space, not a new line. When joining the
+# string with a new line character, an empty space will add one line, but a
+# new line character will add two lines. This is just to keep the README content
+# somewhat homogeneous.
+def get_content_base(for_readme=False):
+    return "\n".join([
+        "## %s" % _("Description"),
+        "",
+        _("Simple translator applet that will allow to display the translation of any selected text from any application on a system in a popup."),
+        "",
         "## %s" % _("Dependencies"),
+        "",
         "**%s**" % _("If one or more of these dependencies are missing in your system, you will not be able to use this applet."),
+        "",
         "### %s" % _("xsel command"),
+        "",
         _("XSel is a command-line program for getting and setting the contents of the X selection."),
+        "",
         "- %s %s" % (
             _("Debian and Archlinux based distributions:"),
             # TO TRANSLATORS: MARKDOWN string. Respect formatting.
             _("The package is called **xsel**.")
         ),
-        "\n",
+        "",
         "### %s" % _("xdg-open command"),
+        "",
         _("Open a URI in the user's preferred application that handles the respective URI or file type."),
+        "",
         "- %s %s %s" % (
             _("Debian and Archlinux based distributions:"),
             # TO TRANSLATORS: MARKDOWN string. Respect formatting.
             _("This command is installed with the package called **xdg-utils**."),
             _("Installed by default in modern versions of Linux Mint.")
         ),
-        "\n",
+        "",
         "### %s" % _("Python 3"),
+        "",
         _("It should come already installed in all Linux distributions."),
-        "\n",
+        "",
         "### %s" % _("requests Python 3 module"),
+        "",
         _("Requests allow you to send HTTP/1.1 requests. You can add headers, form data, multi-part files, and parameters with simple Python dictionaries, and access the response data in the same way. It's powered by httplib and urllib3, but it does all the hard work and crazy hacks for you."),
+        "",
         "- %s %s %s" % (
             _("Debian and Archlinux based distributions:"),
             # TO TRANSLATORS: MARKDOWN string. Respect formatting.
@@ -102,11 +123,20 @@ def get_content():
             # TO TRANSLATORS: MARKDOWN string. Respect formatting.
             _("The package is called **python-requests**.")
         ),
-        "\n",
+        "",
         "**%s**" % _("After installing any of the missing dependencies, Cinnamon needs to be restarted"),
-        "\n",
+        "",
         "**%s** %s" % (_("Note:"), _("I don't use any other type of Linux distribution (Gentoo based, Slackware based, etc.). If any of the previous packages/modules are named differently, please, let me know and I will specify them in this help file.")),
-        "***",
+        "",
+        "## Translation history window" if for_readme else "",
+        "",
+        "![Translation history window](https://odyseus.github.io/CinnamonTools/lib/img/PopupTranslator-001.png \"Translation history window\")" if for_readme else "",
+    ])
+
+
+# The real content of the HELP file.
+def get_content_extra():
+    return md("{}".format("\n".join([
         "## %s" % _("Usage"),
         # TO TRANSLATORS: MARKDOWN string. Respect formatting.
         _("There are 4 *translations mechanisms* (**Left click**, **Middle click**, **Hotkey #1** and **Hotkey #2**). Each translation mechanism can be configured with their own service providers, language pairs and hotkeys."),
@@ -124,17 +154,15 @@ def get_content():
         # TO TRANSLATORS: MARKDOWN string. Respect formatting.
         "- %s" % _("**Fourth translation mechanism (Hotkey #2):** Two hotkeys can be configured to perform a translation and a forced translation."),
         _("All translations are stored into the translation history. If a string of text was already translated in the past, the popup will display that stored translated text without making use of the provider's translation service."),
-        "***",
         "## %s" % _("About translation history"),
         _("I created the translation history mechanism mainly to avoid the abuse of the translation services."),
         "- %s" % _("If the Google Translate service is \"abused\", Google may block temporarily your IP. Or what is worse, they could change the translation mechanism making this applet useless and forcing me to update its code."),
         "- %s" % _("If the Yandex Translate service is \"abused\", you are \"wasting\" your API keys quota and they will be blocked (temporarily or permanently)."),
         _("In the context menu of this applet is an item that can open the folder were the translation history file is stored. From there, the translation history file can be backed up or deleted."),
-        "\n",
+        "",
         "**%s**" % _("NEVER edit the translation history file manually!!!"),
-        "\n",
+        "",
         "**%s**" % _("If the translation history file is deleted/renamed/moved, Cinnamon needs to be restarted."),
-        "***",
         "## %s" % _("How to get Yandex translator API keys"),
         "- %s" % _("Visit one of the following links and register a Yandex account (or use one of the available social services)."),
         # TO TRANSLATORS: URL pointing to website in English
@@ -144,14 +172,13 @@ def get_content():
         # TO TRANSLATORS: MARKDOWN string. Respect formatting.
         "- %s" % _("Once you successfully finish creating your Yandex account, you can visit the link provided several times to create several API keys. **DO NOT ABUSE!!!**"),
         "- %s" % _("Once you have several API keys, you can add them to Popup Translator's settings window (one API key per line)."),
-        "\n",
+        "",
         "### %s" % _("Important notes about Yandex API keys"),
         "- %s" % _("The API keys will be stored into a preference. Keep your API keys backed up in case you reset Popup Translator's preferences."),
         # TO TRANSLATORS: MARKDOWN string. Respect formatting.
         "- %s" % _("**NEVER make your API keys public!!!** The whole purpose of going to the trouble of getting your own API keys is that the only one \"consuming their limits\" is you and nobody else."),
         # TO TRANSLATORS: MARKDOWN string. Respect formatting.
         "- %s" % _("With each Yandex translator API key you can translate **UP TO** 1.000.000 (1 million) characters per day **BUT NOT MORE** than 10.000.000 (10 millions) per month."),
-        "***"
     ])
     ))
 
@@ -174,6 +201,10 @@ class Main():
     def __init__(self):
         self.html_templates = localized_help_modules.HTMLTemplates()
         self.html_assets = localized_help_modules.HTMLInlineAssets(repo_folder=repo_folder)
+        self.compatibility_data = localized_help_modules.get_compatibility(
+            xlet_meta=xlet_meta,
+            for_readme=False
+        )
         self.lang_list = []
         self.sections = []
         self.options = []
@@ -201,19 +232,40 @@ class Main():
             global current_language
             current_language = lang
 
+            if current_language == "en":
+                localized_help_modules.create_readme(
+                    xlet_dir=XLET_DIR,
+                    xlet_meta=xlet_meta,
+                    content_base=get_content_base(for_readme=True)
+                )
+
             if current_language != "en" and _("language-name") == "language-name":
                 # If the endonym isn't provided, assume that the HELP file isn't translated.
                 # Placed this comment here so the comment isn't extracted by xgettext.
                 continue
 
             only_english = md("<div style=\"font-weight:bold;\" class=\"alert alert-info\">{0}</div>".format(
-                _("The following two sections are available only in English.")))
+                _("The following two sections are available only in English."))
+            )
+
+            compatibility_disclaimer = "<p class=\"text-danger compatibility-disclaimer\">{}</p>".format(
+                _("Do not install on any other version of Cinnamon.")
+            )
+
+            compatibility_block = self.html_templates.bt_panel.format(
+                context="success",
+                custom_class="compatibility",
+                title=_("Compatibility"),
+                content=self.compatibility_data + "\n<br/>" + compatibility_disclaimer,
+            )
 
             section = self.html_templates.locale_section_base.format(
                 language_code=current_language,
                 hidden="" if current_language is "en" else " hidden",
                 introduction=self.get_introduction(),
-                content=get_content(),
+                compatibility=compatibility_block,
+                content_base=md(get_content_base(for_readme=False)),
+                content_extra=get_content_extra(),
                 localize_info=self.get_localize_info(),
                 only_english=only_english,
             )
@@ -241,8 +293,9 @@ class Main():
             js_custom=get_js_custom()
         )
 
-        localized_help_modules.save_html_file(path=self.help_file_path,
-                                              data=html_doc)
+        localized_help_modules.save_file(path=self.help_file_path,
+                                         data=html_doc,
+                                         creation_type=self.creation_type)
 
     def do_dummy_install(self):
         podir = os.path.join(XLET_DIR, "files", XLET_UUID, "po")
@@ -332,15 +385,19 @@ if __name__ == "__main__":
         quit()
 
     help_file_path = None
+    creation_type = None
 
     if options.production:
+        creation_type = "production"
         help_file_path = os.path.join(XLET_DIR, "files", XLET_UUID, "HELP.html")
     elif options.dev:
+        creation_type = "dev"
         repo_tmp_folder = os.path.join(repo_folder, "tmp", "help_files")
         GLib.mkdir_with_parents(repo_tmp_folder, 0o755)
         help_file_path = os.path.join(repo_tmp_folder, XLET_UUID + "-HELP.html")
 
     if help_file_path is not None:
         m = Main()
+        m.creation_type = creation_type
         m.help_file_path = help_file_path
         m.do_dummy_install()

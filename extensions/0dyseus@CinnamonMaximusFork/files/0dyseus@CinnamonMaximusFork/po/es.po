@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 0.3.4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-06-06 22:14-0300\n"
-"PO-Revision-Date: 2017-06-06 22:14-0300\n"
+"POT-Creation-Date: 2017-06-18 23:49-0300\n"
+"PO-Revision-Date: 2017-06-19 00:38-0300\n"
 "Last-Translator: Odyseus\n"
 "Language-Team: \n"
 "Language: es\n"
@@ -105,92 +105,6 @@ msgstr ""
 msgid "Cinnamon Maximus (Fork by Odyseus) Settings"
 msgstr "Opciones de Cinnamon Maximus (Fork by Odyseus)"
 
-#: ../../create_localized_help.py:90
-msgid "The following two sections are available only in English."
-msgstr "Las siguientes dos secciones están disponibles sólo en Inglés."
-
-#. TO TRANSLATORS: This is a placeholder.
-#. Here goes your language name in your own language (a.k.a. endonym).
-#: ../../create_localized_help.py:115 ../../create_localized_help.py:187
-msgid "language-name"
-msgstr "Español"
-
-#: ../../create_localized_help.py:190
-msgid "Help"
-msgstr "Ayuda"
-
-#: ../../create_localized_help.py:191
-msgid "Contributors"
-msgstr "Colaboradores"
-
-#: ../../create_localized_help.py:192
-msgid "Changelog"
-msgstr "Registro de cambios"
-
-#: ../../create_localized_help.py:193
-msgid "Choose language"
-msgstr "Elegir idioma"
-
-#. TO TRANSLATORS: Full sentence:
-#. "Help for <xlet_name>"
-#: ../../create_localized_help.py:194 ../../create_localized_help.py:201
-#, python-format
-msgid "Help for %s"
-msgstr "Ayuda para %s"
-
-#: ../../create_localized_help.py:202
-msgid "IMPORTANT!!!"
-msgstr "¡IMPORTANTE!"
-
-#: ../../create_localized_help.py:203
-msgid ""
-"Never delete any of the files found inside this xlet folder. It might break "
-"this xlet functionality."
-msgstr ""
-"Jamás borrar ninguno de los archivos encontrados dentro de la carpeta de "
-"este xlet. Podría romper la funcionalidad del xlet."
-
-#: ../../create_localized_help.py:204
-msgid ""
-"Bug reports, feature requests and contributions should be done on this "
-"xlet's repository linked next."
-msgstr ""
-"Los reportes de fallos, peticiones de características y contribuciones deben "
-"hacerse en el repositorio de este xlet vinculado a continuación."
-
-#: ../../create_localized_help.py:210
-msgid "Applets/Desklets/Extensions (a.k.a. xlets) localization"
-msgstr ""
-"Localización de applets/desklets/extensiones (también conocidos como xlets)"
-
-#: ../../create_localized_help.py:211
-msgid ""
-"If this xlet was installed from Cinnamon Settings, all of this xlet's "
-"localizations were automatically installed."
-msgstr ""
-"Si este xlet se instaló desde Configuración de Cinnamon, todas las "
-"localizaciones de este xlet se instalaron automáticamente."
-
-#. TO TRANSLATORS: MARKDOWN string. Respect formatting.
-#: ../../create_localized_help.py:213
-msgid ""
-"If this xlet was installed manually and not trough Cinnamon Settings, "
-"localizations can be installed by executing the script called "
-"**localizations.sh** from a terminal opened inside the xlet's folder."
-msgstr ""
-"Si este xlet se instaló manualmente y no a través de Configuración de "
-"Cinnamon, las localizaciones se pueden instalar ejecutando el archivo "
-"llamado **localizations.sh** desde una terminal abierta dentro de la carpeta "
-"del xlet."
-
-#: ../../create_localized_help.py:214
-msgid ""
-"If this xlet has no locale available for your language, you could create it "
-"by following the following instructions."
-msgstr ""
-"Si este xlet no está disponible en su idioma, la localización puede ser "
-"creada siguiendo las siguientes instrucciones."
-
 #. 0dyseus@CinnamonMaximusFork->settings-schema.json->pref_invisible_windows_hack->description
 msgid "Enable hack for invisible windows"
 msgstr "Habilitar hack para ventanas invisibles"
@@ -209,6 +123,186 @@ msgstr ""
 "también puede agregar un borde de aproximadamente 1 píxel en lugar de la "
 "barra de título (puede depender del tema de metacity (bordes de ventana) "
 "utilizado)."
+
+#: ../../create_localized_help.py:72
+msgid "Description"
+msgstr "Descripción"
+
+#. TO TRANSLATORS: MARKDOWN string. Respect formatting.
+#: ../../create_localized_help.py:75
+msgid ""
+"This extension is a fork of the [Cinnamon Maximus](https://cinnamon-spices."
+"linuxmint.com/extensions/view/29) extension by Fatih Mete. The main "
+"difference with the original is that I removed the blacklist feature in "
+"favor of a whitelist feature. I also added a couple of options for "
+"troubleshooting and completely removed the top border of undecorated "
+"maximized windows."
+msgstr ""
+"Esta extensión está basada el la extensión [Cinnamon Maximus](https://"
+"cinnamon-spices.linuxmint.com/extensions/view/29) por Fatih Mete. La "
+"diferencia principal con la original es que quité la característica de lista "
+"negra en favor de una característica de lista blanca.  También he añadido un "
+"par de opciones para la solución de problemas y eliminado por completo el "
+"borde superior de ventanas maximizadas sin decoraciones."
+
+#: ../../create_localized_help.py:77
+msgid "Dependencies"
+msgstr "Dependencias"
+
+#. TO TRANSLATORS: MARKDOWN string. Respect formatting.
+#: ../../create_localized_help.py:79
+msgid ""
+"The **xprop** and **xwininfo** commands needs to be available on the system."
+msgstr ""
+"Los comandos **xprop** y **xwininfo** necesitan estar disponibles en el "
+"sistema."
+
+#: ../../create_localized_help.py:81
+msgid "Debian based distributions:"
+msgstr "Distribuciones basadas en Debian:"
+
+#. TO TRANSLATORS: MARKDOWN string. Respect formatting.
+#: ../../create_localized_help.py:83
+msgid ""
+"These commands are provided by the **x11-utils** package. Linux Mint already "
+"has this package installed."
+msgstr ""
+"Estos comandos son proporcionados por el paquete **x11-utils**. Linux Mint "
+"ya tiene este paquete instalado."
+
+#: ../../create_localized_help.py:84
+msgid "Archlinux based distributions:"
+msgstr "Distribuciones basadas en Archlinux:"
+
+#. TO TRANSLATORS: MARKDOWN string. Respect formatting.
+#: ../../create_localized_help.py:86
+msgid ""
+"These commands are provided by the **xorg-xprop** and **xorg-xwininfo** "
+"packages."
+msgstr ""
+"Estos comandos son proporcionados por los paquetes **xorg-xprop** y **xorg-"
+"xwininfo**."
+
+#: ../../create_localized_help.py:87
+msgid "Fedora based distributions:"
+msgstr "Distribuciones basadas en Fedora:"
+
+#. TO TRANSLATORS: MARKDOWN string. Respect formatting.
+#: ../../create_localized_help.py:89
+msgid "These commands are provided by the **xorg-x11-utils** package."
+msgstr "Estos comandos son proporcionados por el paquete **xorg-x11-utils**."
+
+#: ../../create_localized_help.py:90 ../../create_localized_help.py:96
+#: ../../create_localized_help.py:125 ../../create_localized_help.py:168
+msgid "The following two sections are available only in English."
+msgstr "Las siguientes dos secciones están disponibles sólo en Inglés."
+
+#. TO TRANSLATORS: This is a placeholder.
+#. Here goes your language name in your own language (a.k.a. endonym).
+#: ../../create_localized_help.py:115 ../../create_localized_help.py:119
+#: ../../create_localized_help.py:121 ../../create_localized_help.py:162
+#: ../../create_localized_help.py:187 ../../create_localized_help.py:194
+#: ../../create_localized_help.py:195 ../../create_localized_help.py:253
+msgid "language-name"
+msgstr "Español"
+
+#: ../../create_localized_help.py:172
+msgid "Do not install on any other version of Cinnamon."
+msgstr "No instalar en ninguna otra versión de Cinnamon."
+
+#: ../../create_localized_help.py:178
+msgid "Compatibility"
+msgstr "Copatibilidad"
+
+#: ../../create_localized_help.py:190 ../../create_localized_help.py:197
+#: ../../create_localized_help.py:198 ../../create_localized_help.py:256
+msgid "Help"
+msgstr "Ayuda"
+
+#: ../../create_localized_help.py:191 ../../create_localized_help.py:198
+#: ../../create_localized_help.py:199 ../../create_localized_help.py:257
+msgid "Contributors"
+msgstr "Colaboradores"
+
+#: ../../create_localized_help.py:192 ../../create_localized_help.py:199
+#: ../../create_localized_help.py:200 ../../create_localized_help.py:258
+msgid "Changelog"
+msgstr "Registro de cambios"
+
+#: ../../create_localized_help.py:193 ../../create_localized_help.py:200
+#: ../../create_localized_help.py:201
+msgid "Choose language"
+msgstr "Elegir idioma"
+
+#. TO TRANSLATORS: Full sentence:
+#. "Help for <xlet_name>"
+#: ../../create_localized_help.py:194 ../../create_localized_help.py:201
+#: ../../create_localized_help.py:202 ../../create_localized_help.py:208
+#: ../../create_localized_help.py:209 ../../create_localized_help.py:259
+#: ../../create_localized_help.py:266
+#, python-format
+msgid "Help for %s"
+msgstr "Ayuda para %s"
+
+#: ../../create_localized_help.py:202 ../../create_localized_help.py:209
+#: ../../create_localized_help.py:210 ../../create_localized_help.py:267
+msgid "IMPORTANT!!!"
+msgstr "¡IMPORTANTE!"
+
+#: ../../create_localized_help.py:203 ../../create_localized_help.py:210
+#: ../../create_localized_help.py:211 ../../create_localized_help.py:268
+msgid ""
+"Never delete any of the files found inside this xlet folder. It might break "
+"this xlet functionality."
+msgstr ""
+"Jamás borrar ninguno de los archivos encontrados dentro de la carpeta de "
+"este xlet. Podría romper la funcionalidad del xlet."
+
+#: ../../create_localized_help.py:204 ../../create_localized_help.py:211
+#: ../../create_localized_help.py:212 ../../create_localized_help.py:269
+msgid ""
+"Bug reports, feature requests and contributions should be done on this "
+"xlet's repository linked next."
+msgstr ""
+"Los reportes de fallos, peticiones de características y contribuciones deben "
+"hacerse en el repositorio de este xlet vinculado a continuación."
+
+#: ../../create_localized_help.py:210 ../../create_localized_help.py:217
+#: ../../create_localized_help.py:218 ../../create_localized_help.py:275
+msgid "Applets/Desklets/Extensions (a.k.a. xlets) localization"
+msgstr ""
+"Localización de applets/desklets/extensiones (también conocidos como xlets)"
+
+#: ../../create_localized_help.py:211 ../../create_localized_help.py:218
+#: ../../create_localized_help.py:219 ../../create_localized_help.py:276
+msgid ""
+"If this xlet was installed from Cinnamon Settings, all of this xlet's "
+"localizations were automatically installed."
+msgstr ""
+"Si este xlet se instaló desde Configuración de Cinnamon, todas las "
+"localizaciones de este xlet se instalaron automáticamente."
+
+#. TO TRANSLATORS: MARKDOWN string. Respect formatting.
+#: ../../create_localized_help.py:213 ../../create_localized_help.py:220
+#: ../../create_localized_help.py:221 ../../create_localized_help.py:278
+msgid ""
+"If this xlet was installed manually and not trough Cinnamon Settings, "
+"localizations can be installed by executing the script called "
+"**localizations.sh** from a terminal opened inside the xlet's folder."
+msgstr ""
+"Si este xlet se instaló manualmente y no a través de Configuración de "
+"Cinnamon, las localizaciones se pueden instalar ejecutando el archivo "
+"llamado **localizations.sh** desde una terminal abierta dentro de la carpeta "
+"del xlet."
+
+#: ../../create_localized_help.py:214 ../../create_localized_help.py:221
+#: ../../create_localized_help.py:222 ../../create_localized_help.py:279
+msgid ""
+"If this xlet has no locale available for your language, you could create it "
+"by following the following instructions."
+msgstr ""
+"Si este xlet no está disponible en su idioma, la localización puede ser "
+"creada siguiendo las siguientes instrucciones."
 
 #~ msgid "Read CONTRIBUTORS.md file inside this xlet folder."
 #~ msgstr "Leer el archivo CONTRIBUTORS.md dentro de la carpeta de este xlet."

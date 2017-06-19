@@ -58,22 +58,28 @@ def _(aStr):
     return aStr
 
 
-# The real content of the HELP file.
-def get_content():
-    return md("{}".format("\n".join([
+# Base information about the xlet (Description, features, dependencies, etc.).
+# This is used by the xlet README and the xlets help file.
+# Returns a "raw markdown string" that it is used "as-is" for the README creation,
+# but it's converted to HTML when used by the help file.
+#
+# Separate each "block" with an empty space, not a new line. When joining the
+# string with a new line character, an empty space will add one line, but a
+# new line character will add two lines. This is just to keep the README content
+# somewhat homogeneous.
+def get_content_base(for_readme=False):
+    return "\n".join([
         "## %s" % _("Description"),
+        "",
         _("Argos for Cinnamon is an applet that turns executables' standard output into panel dropdown menus. It is inspired by, and fully compatible with, the Gnome Shell extension called [Argos](https://github.com/p-e-w/argos) by [Philipp Emanuel Weidmann](https://github.com/p-e-w), which in turn is inspired by, and fully compatible with, the [BitBar](https://github.com/matryer/bitbar) application for macOS. Argos for Cinnamon supports many [BitBar plugins](https://github.com/matryer/bitbar-plugins) without modifications, giving you access to a large library of well-tested scripts in addition to being able to write your own."),
-        "<div class=\"alert alert-info\">",
-        md(_("I will use the words *plugin* or *script* when referring to a script file associated with an instance on **Argos for Cinnamon** applet.")),
-        "</div>",
-        "\n",
-        "***",
-        "\n",
+        "",
         "## %s" % _("Key features"),
-        "\n",
+        "",
         # TO TRANSLATORS: MARKDOWN string. Respect formatting.
-        "- %s %s" % (_("**100% API compatible with BitBar 1.9.2:** All BitBar plugins that run on Linux (i.e. do not contain macOS-specific code) will work with Argos (else it's a bug)."),
-                     _("See **BitBar plugins with Argos for Cinnamon**.")),
+        ("- %s %s" % (
+            _("**100% API compatible with BitBar 1.9.2:** All BitBar plugins that run on Linux (i.e. do not contain macOS-specific code) will work with Argos (else it's a bug)."),
+            "" if for_readme else _("See **BitBar plugins with Argos for Cinnamon**.")
+        )).strip(),
         # TO TRANSLATORS: MARKDOWN string. Respect formatting.
         "- %s" % _("**Beyond BitBar:** Argos can do everything that BitBar can do, but also some things that BitBar can't do (yet). See the documentation for details."),
         # TO TRANSLATORS: MARKDOWN string. Respect formatting.
@@ -85,35 +91,47 @@ def get_content():
         # TO TRANSLATORS: MARKDOWN string. Respect formatting.
         "- %s" % _("**Optimized for minimum resource consumption:** Even with multiple plugins refreshing every second, Argos typically uses less than 1 percent of the CPU."),
         # TO TRANSLATORS: MARKDOWN string. Respect formatting.
-        "- %s %s" % (_("**Fully documented:**"), _("See **Usage**.")),
-        "***",
-        "\n",
+        ("- %s %s" % (
+            _("**Fully documented:**"),
+            "" if for_readme else _("See **Usage**.")
+        )).strip(),
+        "",
         "## %s" % _("Dependencies"),
+        "",
         # TO TRANSLATORS: MARKDOWN string. Respect formatting.
         "- **%s:** %s" % (_("xdg-open command"),
                           ("Open a URI in the user's preferred application that handles the respective URI or file type.")),
         "    - %s %s %s" % (_("Debian and Archlinux based distributions:"),
                             _("This command is installed with the package called **xdg-utils**."),
                             _("Installed by default in modern versions of Linux Mint.")),
-        "***",
-        "\n",
+        "\n"
+    ])
+
+
+# The real content of the HELP file.
+def get_content_extra():
+    return md("{}".format("\n".join([
         "## %s" % _("Usage"),
-        "\n",
+        "",
+        "<div class=\"alert alert-info\">",
+        md(_("I will use the words *plugin* or *script* when referring to a script file associated with an instance of **Argos for Cinnamon** applet.")),
+        "</div>",
+        "",
         _("After placing a new instance of **Argos for Cinnamon** into a panel, one of the example scripts provided by this applet will be automatically attached to it and a menu will be created based on the output of the executed plugin. These example scripts contain various examples of what **Argos for Cinnamon** can do."),
-        "\n",
+        "",
         _("A just placed applet will have an initial execution interval of 0 seconds (zero seconds) and an initial applet text rotation interval of 3 seconds (three seconds). The execution interval is set to 0 seconds because the initial example script doesn't have any dynamic data that requires update. And the applet text rotation interval is set to 3 seconds so the text rotation of the example script can be seen in action."),
-        "\n",
+        "",
         _("For scripts that display non dynamic data, it isn't needed an execution interval. But if your script displays dynamic data (a clock for example), then an execution and/or applet text rotation interval needs to be specified. Both of these values can be set from the applet context menu."),
-        "\n",
+        "",
         "<div class=\"alert alert-info\">",
         md(_("The three example scripts provided by this applet will produce the exact same output, but they are created using three different languages (**bash_examples.sh**, **python_examples.py** and **ruby_examples.rb**).")),
         "</div>",
         "<div class=\"alert alert-warning\">",
-        "\n",
+        "",
         "<strong>%s</strong>" % _(
             "Never save your custom plugins/scripts inside this applet folder. Otherwise, you will loose them all when there is an update for the applet."),
         "</div>",
-        "\n",
+        "",
         "### %s" % _("File name format"),
         # TO TRANSLATORS: MARKDOWN string. Respect formatting.
         _("**Argos for Gnome Shell** parses the script's file name to extract certain set of preferences. **Argos for Cinnamon** doesn't parse the script's file name in such way (nor in any other way). All the applet settings can be set from the applet settings window and/or from the applet context menu."),
@@ -123,42 +141,41 @@ def get_content():
         """```
 TEXT | ATTRIBUTE_1=VALUE ATTRIBUTE_2=VALUE ...
 ```""",
-        "\n",
+        "",
         _("All attributes are optional, so the most basic plugins simply print lines consisting of text to be displayed. To include whitespace, attribute values may be quoted using the same convention employed by most command line shells."),
-        "\n",
+        "",
         "<div class=\"alert alert-info\">",
         "<strong>%s</strong>" % _(
             "(*) Not just shell scripts, but also python scripts, ruby scripts or any other script in any other language that can print to standard output."),
         "</div>",
-        "\n",
+        "",
         "### %s" % _("Rendering"),
-        "\n",
+        "",
         # TO TRANSLATORS: MARKDOWN string. Respect formatting.
         _("Lines containing only dashes (`---`) are *separators*."),
-        "\n",
+        "",
         # TO TRANSLATORS: MARKDOWN string. Respect formatting.
         _("Lines above the first separator belong to the applet button itself. If there are multiple such lines, they are displayed in succession, each of them for a configurable amount of time (rotation interval) before switching to the next. Additionally, all button lines get a dropdown menu item, except if their `dropdown` attribute is set to `false`."),
-        "\n",
+        "",
         _("Lines below the first separator are rendered as dropdown menu items. Further separators create graphical separator menu items."),
-        "\n",
+        "",
         # TO TRANSLATORS: MARKDOWN string. Respect formatting.
         _("Lines beginning with `--` are rendered in a submenu associated with the preceding unindented line. **Argos for Cinnamon** supports unlimited number of nested submenus."),
-        "\n",
+        "",
         # TO TRANSLATORS: MARKDOWN string. Respect formatting.
         _("[Emoji codes](http://www.emoji-cheat-sheet.com) like `:horse:` and `:smile:` in the line text are replaced with their corresponding Unicode characters (unless the `emojize` attribute is set to `false`). Note that unpatched Cinnamon does not yet support multicolor emoji."),
-        "\n",
+        "",
         # TO TRANSLATORS: MARKDOWN string. Respect formatting.
         _("[ANSI SGR escape sequences](https://en.wikipedia.org/wiki/ANSI_escape_code#graphics) and [Pango markup](https://developer.gnome.org/pango/stable/PangoMarkupFormat.html) tags may be used for styling. This can be disabled by setting the `ansi` and `useMarkup` attributes, respectively, to `false`."),
-        "\n",
+        "",
         # TO TRANSLATORS: MARKDOWN string. Respect formatting.
         _("Backslash escapes such as `\\n` and `\\t` in the line text are converted to their corresponding characters (newline and tab in this case), which can be prevented by setting the `unescape` attribute to `false`. Newline escapes can be used to create multi-line menu items."),
-        "***",
-        "\n",
+        "",
         "## %s" % _("Line attributes"),
-        "\n",
+        "",
         "### %s" % _("Display"),
         _("Control how the line is rendered."),
-        "\n",
+        "",
         "| %s | %s | %s |" % (_("Attribute"), _("Value"), _("Description")),
         "| --- | --- | --- |",
         "| `color` | %s | %s |" % (_("Hex RGB/RGBA or color name"),
@@ -221,10 +238,10 @@ TEXT | ATTRIBUTE_1=VALUE ATTRIBUTE_2=VALUE ...
         (_("or"),
          # TO TRANSLATORS: MARKDOWN string. Respect formatting.
          _("If `false`, disable interpretation of backslash escapes such as `\\n` in the line text. **Argos only.**")),
-        "\n",
+        "",
         # TO TRANSLATORS: MARKDOWN string. Respect formatting.
         _("Attributes available on **Argos for Cinnamon** only."),
-        "\n",
+        "",
         "| %s | %s | %s |" % (_("Attribute"), _("Value"), _("Description")),
         "| --- | --- | --- |",
         "| `tooltip` | %s | %s |" % (_("Text to display as toolip"),
@@ -240,10 +257,10 @@ TEXT | ATTRIBUTE_1=VALUE ATTRIBUTE_2=VALUE ...
          _("If `true`, the symbolic version of `iconName` will be used on the item (if exists).")),
         "### %s" % _("Actions"),
         _("Define actions to be performed when the user clicks on the line's menu item."),
-        "\n",
+        "",
         # TO TRANSLATORS: MARKDOWN string. Respect formatting.
         _("Action attributes are *not* mutually exclusive. Any combination of them may be associated with the same item, and all actions are executed when the item is clicked."),
-        "\n",
+        "",
         "| %s | %s | %s |" % (_("Attribute"), _("Value"), _("Description")),
         "| --- | --- | --- |",
         "| `bash` | %s | %s |" % (_("Bash command"), _(
@@ -269,7 +286,6 @@ TEXT | ATTRIBUTE_1=VALUE ATTRIBUTE_2=VALUE ...
         (_("or"),
          # TO TRANSLATORS: MARKDOWN string. Respect formatting.
          _("If `true`, re-runs the plugin, updating its output.")),
-        "***",
         "## %s" % _("BitBar plugins with Argos for Cinnamon"),
         "<div class=\"alert alert-warning\">",
         "<strong>",
@@ -284,16 +300,15 @@ TEXT | ATTRIBUTE_1=VALUE ATTRIBUTE_2=VALUE ...
         "\n<br>",
         "</strong>",
         "</div>",
-        "\n",
+        "",
         _("These screenshots show how some scripts from the BitBar plugin repository look when rendered by Argos compared to the \"canonical\" BitBar rendering (macOS screenshots taken from https://getbitbar.com)."),
-        "\n",
+        "",
         "| %s | %s | %s |" % (_("Plugin"), _("BitBar on macOS"), _("Argos on Cinnamon")),
         "| --- | :---: | :---: |",
         "| [**Ping**](https://getbitbar.com/plugins/Network/ping.10s.sh) | <img class=\"image-ping-bitbar\" alt=\"Ping/BitBar\"> | <img class=\"image-ping-argos\" alt=\"Ping/Argos\"> |",
         "| [**Stock Ticker**](https://getbitbar.com/plugins/Finance/gfinance.5m.py) | <img class=\"stock-ticker-bitbar\" alt=\"Stock Ticker/BitBar\"> | <img class=\"stock-ticker-argos\" alt=\"Stock Ticker/BitBar\"> |",
         "| [**World Clock**](https://getbitbar.com/plugins/Time/worldclock.1s.sh) | <img class=\"world-clock-bitbar\" alt=\"World Clock/BitBar\"> | <img class=\"world-clock-argos\" alt=\"World Clock/BitBar\"> |",
         "| [**ANSI**](https://getbitbar.com/plugins/Tutorial/ansi.sh) | <img class=\"ansi-bitbar\" alt=\"ANSI/BitBar\"> | <img class=\"ansi-argos\" alt=\"ANSI/BitBar\"> |",
-        "***"
     ])
     ))
 
@@ -410,6 +425,10 @@ class Main():
     def __init__(self):
         self.html_templates = localized_help_modules.HTMLTemplates()
         self.html_assets = localized_help_modules.HTMLInlineAssets(repo_folder=repo_folder)
+        self.compatibility_data = localized_help_modules.get_compatibility(
+            xlet_meta=xlet_meta,
+            for_readme=False
+        )
         self.lang_list = []
         self.sections = []
         self.options = []
@@ -437,19 +456,40 @@ class Main():
             global current_language
             current_language = lang
 
+            if current_language == "en":
+                localized_help_modules.create_readme(
+                    xlet_dir=XLET_DIR,
+                    xlet_meta=xlet_meta,
+                    content_base=get_content_base(for_readme=True)
+                )
+
             if current_language != "en" and _("language-name") == "language-name":
                 # If the endonym isn't provided, assume that the HELP file isn't translated.
                 # Placed this comment here so the comment isn't extracted by xgettext.
                 continue
 
             only_english = md("<div style=\"font-weight:bold;\" class=\"alert alert-info\">{0}</div>".format(
-                _("The following two sections are available only in English.")))
+                _("The following two sections are available only in English."))
+            )
+
+            compatibility_disclaimer = "<p class=\"text-danger compatibility-disclaimer\">{}</p>".format(
+                _("Do not install on any other version of Cinnamon.")
+            )
+
+            compatibility_block = self.html_templates.bt_panel.format(
+                context="success",
+                custom_class="compatibility",
+                title=_("Compatibility"),
+                content=self.compatibility_data + "\n<br/>" + compatibility_disclaimer,
+            )
 
             section = self.html_templates.locale_section_base.format(
                 language_code=current_language,
                 hidden="" if current_language is "en" else " hidden",
                 introduction=self.get_introduction(),
-                content=get_content(),
+                compatibility=compatibility_block,
+                content_base=md(get_content_base(for_readme=False)),
+                content_extra=get_content_extra(),
                 localize_info=self.get_localize_info(),
                 only_english=only_english,
             )
@@ -477,8 +517,9 @@ class Main():
             js_custom=get_js_custom()
         )
 
-        localized_help_modules.save_html_file(path=self.help_file_path,
-                                              data=html_doc)
+        localized_help_modules.save_file(path=self.help_file_path,
+                                         data=html_doc,
+                                         creation_type=self.creation_type)
 
     def do_dummy_install(self):
         podir = os.path.join(XLET_DIR, "files", XLET_UUID, "po")
@@ -568,15 +609,19 @@ if __name__ == "__main__":
         quit()
 
     help_file_path = None
+    creation_type = None
 
     if options.production:
+        creation_type = "production"
         help_file_path = os.path.join(XLET_DIR, "files", XLET_UUID, "HELP.html")
     elif options.dev:
+        creation_type = "dev"
         repo_tmp_folder = os.path.join(repo_folder, "tmp", "help_files")
         GLib.mkdir_with_parents(repo_tmp_folder, 0o755)
         help_file_path = os.path.join(repo_tmp_folder, XLET_UUID + "-HELP.html")
 
     if help_file_path is not None:
         m = Main()
+        m.creation_type = creation_type
         m.help_file_path = help_file_path
         m.do_dummy_install()

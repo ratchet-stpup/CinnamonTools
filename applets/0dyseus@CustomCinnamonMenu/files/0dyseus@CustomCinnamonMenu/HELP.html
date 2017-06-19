@@ -526,6 +526,39 @@ body {
 }
 /* For fixed header */
 
+/* Tweak spacing of the compatibility badges inside a panel */
+.panel-body.compatibility > .compatibility-disclaimer,
+.panel-body.compatibility > .compatibility-badge {
+    margin: 5px;
+    line-height: 2.5em;
+}
+/* Tweak spacing of the compatibility badges inside a panel */
+
+/* Tweak appearance of the compatibility badges inside a panel */
+.panel-body.compatibility > .compatibility-disclaimer {
+    font-weight: bold;
+}
+.panel-body.compatibility > .compatibility-badge > .label-primary {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+.panel-body.compatibility > .compatibility-badge > .label-warning,
+.panel-body.compatibility > .compatibility-badge > .label-success,
+.panel-body.compatibility > .compatibility-badge > .label-info {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+.panel-body.compatibility > .compatibility-badge > .label-warning {
+    background-color: #dfb317;
+}
+.panel-body.compatibility > .compatibility-badge > .label-success {
+    background-color: #97CA00;
+}
+.panel-body.compatibility > .compatibility-badge > .label-info {
+    background-color: #439cf7;
+}
+/* Tweak appearance of the compatibility badges inside a panel */
+
 .navbar-form {
     margin-top: 8px !important;
 }
@@ -605,7 +638,55 @@ body {
 <p>错误报告，功能请求和贡献应该在下方链接的xlet的仓库上完成。 <a href="https://github.com/Odyseus/CinnamonTools">GitHub</a></p>
 
 </div>
-<hr>
+
+
+<div class="panel panel-success">
+    <div class="panel-heading">
+        <h3 class="panel-title">Compatibility</h3>
+    </div>
+    <div class="panel-body compatibility">
+        <span class="compatibility-badge"><span class="label label-primary">Cinnamon</span><span class="label label-success">3.0</span></span>
+<span class="compatibility-badge"><span class="label label-primary">Cinnamon</span><span class="label label-success">3.2</span></span>
+<span class="compatibility-badge"><span class="label label-primary">Cinnamon</span><span class="label label-success">3.4</span></span>
+
+<br/><p class="text-danger compatibility-disclaimer">Do not install on any other version of Cinnamon.</p>
+    </div>
+</div>
+
+<h2>Description</h2>
+<p>This applet is a custom version of the default Cinnamon Menu applet, but infinitely more customizable.</p>
+<h2>Added options/features</h2>
+<ul>
+<li>All mayor elements of the menu can be hidden or placed anywhere on the menu.</li>
+<li>Added Fuzzy search. Based on <a href="https://cinnamon-spices.linuxmint.com/applets/view/258s">Sane Menu</a> applet by <strong>nooulaif</strong>.</li>
+<li>Added a custom launchers box that can run any command/script/file and can be placed at the top/bottom of the menu or to the left/right of the searchbox.</li>
+<li>Custom launchers icons can have a custom size and can be symbolic or full color.</li>
+<li>Custom launchers can execute any command (as entered in a terminal) or a path to a file. If the file is an executable script, an attempt to execute it will be made. Otherwise, the file will be opened with the systems handler for that file type.</li>
+<li>The <strong>Quit buttons</strong> can now be moved next the the custom launchers box and can have custom icons (ONLY when they are placed next to the custom launchers box). They also can be hidden all at once or individually.</li>
+<li>The searchbox can have a fixed width or an automatic width to fit the menu width.</li>
+<li>The applications info box can be hidden or replaced by traditional tooltips. Its text can also be aligned to the left.</li>
+<li>The size of the Favorites/Categories/Applications icons can be customized.</li>
+<li>The amount of recent files can be customized.</li>
+<li>The <strong>Recent Files</strong> category can be hidden. This is for people who want the <strong>Recent Files</strong> category hidden without disabling recent files globally.</li>
+<li>The <strong>All Applications</strong> category can be removed from the menu.</li>
+<li>The <strong>Favorites</strong> can now be displayed as one more category. The <strong>All Applications</strong> category has to be hidden.</li>
+<li>The placement of the categories box and the applications box can be swapped.</li>
+<li>Scrollbars in the applications box can be hidden.</li>
+<li>The padding of certain menu elements can be customized to override the current theme stylesheets.</li>
+<li>Recently installed applications highlighting can be disabled.</li>
+<li>Recently used applications can be remembered and will be displayed on a category called <strong>Recent Apps</strong>. The applications will be sorted by execution time and the name and icon of the category can be customized.</li>
+<li>Categories can be selected on hover (system default) or by clicking on them.</li>
+<li>The default <strong>Add to panel</strong>, <strong>Add to desktop</strong> and <strong>Uninstall</strong> context menu items can be hidden.</li>
+<li>The menu editor can be directly opened from this applet context menu without the need to open it from the settings windows of this applet.</li>
+<li>The context menu for applications has 5 new items:<ul>
+<li><strong>Run as root:</strong> Executes application as root.</li>
+<li><strong>Edit .desktop file:</strong> Open the application's .desktop file with a text editor.</li>
+<li><strong>Open .desktop file folder:</strong> Open the folder where the application's .desktop file is stored.</li>
+<li><strong>Run from terminal:</strong> Open a terminal and run application from there.</li>
+<li><strong>Run from terminal as root:</strong> Same as above but the application is executed as root.</li>
+</ul>
+</li>
+</ul>
 
 <h2>键盘导航</h2>
 <p><strong>注意：</strong> 此菜单上的所有键盘快捷键几乎与原来的菜单相同。只是有些不同，我只好将其添加到我的菜单以使其中一些功能能够工作。</p>
@@ -632,31 +713,23 @@ body {
 <li><kbd>Escape</kbd>键：关闭主菜单。如果打开了一个右键菜单，它将会关闭右键菜单，再次点击此键将会关闭主菜单。</li>
 <li><kbd>Shift</kbd> + <kbd>Enter</kbd>：以root身份执行应用程序。这不会影响自定义启动器。</li>
 <li><kbd>Ctrl</kbd> + <kbd>Enter</kbd>：打开终端并从中运行应用程序。这不会影响自定义启动器。</li>
-<li><kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>Enter</kbd>：打开终端并从中运行应用程序，但应用程序会以root用户身份执行。这不会影响自定义启动器。</li>
-</ul>
-<hr>
-<h2>左键点击应用程序附加动作</h2>
-<p>当左键点击菜单上的应用程序时，可以用特定方式按某些修饰键执行应用程序。</p>
-<ul>
+<li><kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>Enter</kbd>：打开终端并从中运行应用程序，但应用程序会以root用户身份执行。这不会影响自定义启动器。
+## 左键点击应用程序附加动作
+当左键点击菜单上的应用程序时，可以用特定方式按某些修饰键执行应用程序。</li>
 <li><kbd>Shift</kbd> + <strong>左键单击</strong>：以root身份执行应用程序。</li>
 <li><kbd>Ctrl</kbd> + <strong>左键单击</strong>：打开终端并从中运行应用程序。</li>
-<li><kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <strong>左键单击</strong>：打开终端并从中运行应用程序，但应用程序会以root用户身份执行。</li>
+<li><kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <strong>左键单击</strong>：打开终端并从中运行应用程序，但应用程序会以root用户身份执行。
+## 关于“从终端运行”选项
+这些选项用于调试目的（例如，打开/关闭程序以检测可能出现的错误后查看控制台输出）。不用打开一个终端来启动一个可能不知道其命令的程序，可以直接从菜单中进行，只需一个步骤。可以从应用程序右键菜单上找到菜单上列出的从终端运行应用程序的选项，并可以从此小程序设置窗口中隐藏/显示。</li>
 </ul>
-<hr>
-<h2>关于“从终端运行”选项</h2>
-<p>这些选项用于调试目的（例如，打开/关闭程序以检测可能出现的错误后查看控制台输出）。不用打开一个终端来启动一个可能不知道其命令的程序，可以直接从菜单中进行，只需一个步骤。可以从应用程序右键菜单上找到菜单上列出的从终端运行应用程序的选项，并可以从此小程序设置窗口中隐藏/显示。</p>
 <p>默认情况下，这些选项将使用系统的默认终端仿真器（Debian系发行版上是<strong>x-terminal-emulator</strong>）。只要所说的终端仿真器支持<strong>-e</strong>参数，就可以在该小程序的设置窗口中指定任何其他终端仿真器。我用<strong>gnome-terminal</strong>、<strong>xterm</strong>和<strong>terminator</strong>进行了测试。额外的参数可以传递给终端仿真器，但我不会支持。</p>
-<hr>
 <h2>收藏夹处理</h2>
 <ul>
 <li>如果“收藏夹”框<strong>已显示</strong>，则可以从应用程序的右键菜单添加/删除收藏，也可以将应用程序拖进/出收藏夹框。
   <strong>注意:</strong>要删除收藏夹，请将收藏拖动到收藏夹外部的菜单的任意部分。</li>
 <li>如果收藏夹框<strong>隐藏</strong>并已启用了收藏夹类别，则可以从应用程序的右键菜单中添加/删除收藏，并将应用程序拖放到收藏夹类别。很简单，如果将收藏拖到收藏夹类别，收藏将会被删除。如果您拖到收藏夹类别不是已加为书签的应用程序，那么该应用程序将会被添加到收藏夹。
-  <strong>注意:</strong>收藏夹类别将在更改为其他类别和返回到收藏夹类别后更新其内容。</li>
-</ul>
-<hr>
-<h2>故障排除/附加信息</h2>
-<ol>
+  <strong>注意:</strong>收藏夹类别将在更改为其他类别和返回到收藏夹类别后更新其内容。
+## 故障排除/附加信息</li>
 <li>从终端运行。<ol>
 <li><strong>Debian系发行版：</strong> 如果命令<strong>x-terminal-emulator</strong>不运行默认的终端仿真器，请运行以下命令设置其他的默认终端仿真器。<ul>
 <li><code>sudo update-alternatives --config x-terminal-emulator</code></li>
@@ -668,8 +741,7 @@ body {
 </li>
 <li>该小程序目录中有一个名为<strong>run_from_terminal.sh</strong>的文件。<strong><em>请勿删除，重命名或编辑此文件</em></strong>。否则，所有<em>从终端运行</em>的选项都会损坏。</li>
 <li>该小程序目录中有一个名为<strong>icons</strong>的文件夹。它包含一些符号图标（大多数来自Faenza图标主题），每个图标可以直接使用名称（例如在自定义启动器上）。</li>
-</ol>
-<hr>
+</ul>
 
 <h2>小程序/桌面小工具/扩展（也称为xlets）本地化</h2>
 <ul>
@@ -694,7 +766,55 @@ body {
 <p>Los reportes de fallos, peticiones de características y contribuciones deben hacerse en el repositorio de este xlet vinculado a continuación. <a href="https://github.com/Odyseus/CinnamonTools">GitHub</a></p>
 
 </div>
-<hr>
+
+
+<div class="panel panel-success">
+    <div class="panel-heading">
+        <h3 class="panel-title">Copatibilidad</h3>
+    </div>
+    <div class="panel-body compatibility">
+        <span class="compatibility-badge"><span class="label label-primary">Cinnamon</span><span class="label label-success">3.0</span></span>
+<span class="compatibility-badge"><span class="label label-primary">Cinnamon</span><span class="label label-success">3.2</span></span>
+<span class="compatibility-badge"><span class="label label-primary">Cinnamon</span><span class="label label-success">3.4</span></span>
+
+<br/><p class="text-danger compatibility-disclaimer">No instalar en ninguna otra versión de Cinnamon.</p>
+    </div>
+</div>
+
+<h2>Descripción</h2>
+<p>Este applet es una versión personalizada del menú predeterminado de Cinnamon, pero infinitamente más personalizable.</p>
+<h2>Características principales</h2>
+<ul>
+<li>Todos los elementos principales del menú se pueden ocultar o colocar en cualquier parte del menú.</li>
+<li>Agregada búsqueda Fuzzy. Basada en el applet <a href="https://cinnamon-spices.linuxmint.com/applets/view/258">Sane Menu</a> por <strong>nooulaif</strong>.</li>
+<li>Se ha añadido un cuadro de lanzadores personalizados que puede ejecutar cualquier comando/script/archivo y se puede colocar en la parte superior/inferior del menú o a la izquierda/derecha de la caja de búsqueda.</li>
+<li>Los iconos de lanzadores personalizados pueden tener un tamaño personalizado y pueden ser simbólicos o a todo color.</li>
+<li>Los lanzadores personalizados pueden ejecutar cualquier comando (como se ingresa en un terminal) o una ruta de acceso a un archivo.  Si el archivo es un archivo de comandos ejecutable, se realizará un intento de ejecutarlo.  De lo contrario, el archivo se abrirá con el programa predeterminado para ese tipo de archivo.</li>
+<li>Los <strong>Botones de salida</strong> ahora se pueden mover al lado del cuadro de lanzadores personalizados y pueden tener iconos personalizados (SOLAMENTE cuando se colocan junto al cuadro de lanzadores personalizados).  También se pueden ocultar de una vez o individualmente.</li>
+<li>El cuadro de búsqueda puede tener un ancho fijo o un ancho automático para ajustarse al ancho del menú.</li>
+<li>El cuadro de información de aplicaciones se puede ocultar o sustituir por las herramientas tradicionales.  Su texto también se puede alinear a la izquierda.</li>
+<li>El tamaño de los iconos de Favoritos/Categorías/Aplicaciones pueden ser personalizados.</li>
+<li>La cantidad de archivos recientes se puede personalizar.</li>
+<li>La categoría <strong>Archivos recientes</strong> se puede ocultar.  Esto es para personas que desean que la categoría <strong>Archivos recientes</strong> se oculte sin deshabilitar los archivos recientes globalmente.</li>
+<li>La categoría <strong>Todas las aplicaciones</strong> se puede eliminar del menú.</li>
+<li>Los <strong>Favoritos</strong> ahora se pueden mostrar como una categoría más.  La categoría <strong>Todas las aplicaciones</strong> debe estar oculta.</li>
+<li>La colocación del cuadro de categorías y el cuadro de aplicaciones se pueden intercambiar.</li>
+<li>Las barras de desplazamiento en el cuadro de aplicaciones se pueden ocultar.</li>
+<li>El espaciado de ciertos elementos del menú puede personalizarse para sustituir las hojas de estilo del tema actual.</li>
+<li>El resaltado de las aplicaciones instaladas recientemente se pueden desactivar.</li>
+<li>Las aplicaciones utilizadas recientemente se pueden recordar y se mostrarán en una categoría denominada <strong>Aplicaciones recientes</strong>.  Las aplicaciones se ordenarán por tiempo de ejecución y el nombre y el icono de la categoría se pueden personalizar.</li>
+<li>Las categorías se pueden seleccionar al pasar el ratón por encima (predeterminado del sistema) o haciendo clic en ellas.</li>
+<li>Los elementos predeterminados del menú contextual (<strong>Añadir al panel</strong>, <strong>Añadir al escritorio</strong> y <strong>Desinstalar</strong>) se pueden ocultar.</li>
+<li>El editor de menús se puede abrir directamente desde este menú contextual del applet sin necesidad de abrirlo desde la ventana de configuración de este applet.</li>
+<li>El menú contextual para aplicaciones tiene 5 nuevos elementos:<ul>
+<li><strong>Ejecutar como root:</strong> Ejecuta la aplicación como root.</li>
+<li><strong>Editar archivo.desktop:</strong> Abrir el archivo .desktop de la aplicación con un editor de texto.</li>
+<li><strong>Abrir la carpeta de archivo .desktop:</strong> Abrir la carpeta donde se almacena el archivo .desktop de la aplicación.</li>
+<li><strong>Ejecutar desde el terminal:</strong> Abrir un terminal y ejecutar la aplicación desde allí.</li>
+<li><strong>Ejecutar desde el terminal como root:</strong> Igual que el anterior, pero la aplicación se ejecuta como root.</li>
+</ul>
+</li>
+</ul>
 
 <h2>Navegación por teclado</h2>
 <p><strong>Nota:</strong> Casi todos los atajos de teclado de este menú son los mismos utilizados por el menú original. Hay sólo un par de diferencias que me vi forzado a agregar a mi menú para que hacer funcionar algunas de sus características.</p>
@@ -721,31 +841,23 @@ body {
 <li>Tecla <kbd>Escape</kbd>: Cierra el menú principal. Si un menú contextual está actualmente abierto, va a cerrar el menú contextual en su lugar y un segundo accionamiento de esta tecla sí va a cerrar el menú principal del applet.</li>
 <li><kbd>Shift</kbd> + <kbd>Enter</kbd>: Ejecuta la aplicación como root. Esta combinación de teclas no afectan a los lanzadores personalizados.</li>
 <li><kbd>Ctrl</kbd> + <kbd>Enter</kbd>: Abre una terminal y se ejecuta la aplicación desde allí. Esta combinación de teclas no afectan a los lanzadores personalizados.</li>
-<li><kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>Enter</kbd>: Abre una terminal y se ejecuta la aplicación desde allí, pero la aplicación es ejecutada como root. Esta combinación de teclas no afectan a los lanzadores personalizados.</li>
-</ul>
-<hr>
-<h2>Acciones extras al hacer clic en las aplicaciones</h2>
-<p>Al hacer clic izquierdo en una aplicación del menú, ciertas teclas modificadoras pueden presionarse para ejecutar una aplicación de una manera especial.</p>
-<ul>
+<li><kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>Enter</kbd>: Abre una terminal y se ejecuta la aplicación desde allí, pero la aplicación es ejecutada como root. Esta combinación de teclas no afectan a los lanzadores personalizados.
+## Acciones extras al hacer clic en las aplicaciones
+Al hacer clic izquierdo en una aplicación del menú, ciertas teclas modificadoras pueden presionarse para ejecutar una aplicación de una manera especial.</li>
 <li><kbd>Shift</kbd> + <strong>Clic Derecho</strong>: Ejecuta la aplicación como root.</li>
 <li><kbd>Ctrl</kbd> + <strong>Clic izquierdo</strong>: Abre una terminal y se ejecuta la aplicación desde allí.</li>
-<li><kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <strong>Clic izquierdo</strong>: Abre una terminal y se ejecuta la aplicación desde allí, pero la aplicación es ejecutada como root.</li>
+<li><kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <strong>Clic izquierdo</strong>: Abre una terminal y se ejecuta la aplicación desde allí, pero la aplicación es ejecutada como root.
+## Sobre las opciones "Ejecutar desde terminal"
+Estas opciones están diseñadas para fines de depuración (para ver la salida de la consola después de abrir/cerrar un programa para detectar posibles errores, por ejemplo). En vez de abrir una terminal para ejecutar un programa del cual uno puede que no sepa su comando, uno puede hacerlo directamente desde el menú y en un sólo paso. Opciones para ejecutar un programa del menú desde una terminal pueden ser encontradas en el menú contextual de dichas aplicaciones y dichas opciones pueden ser mostradas o escondidas desde la ventana de opciones de este applet.</li>
 </ul>
-<hr>
-<h2>Sobre las opciones "Ejecutar desde terminal"</h2>
-<p>Estas opciones están diseñadas para fines de depuración (para ver la salida de la consola después de abrir/cerrar un programa para detectar posibles errores, por ejemplo). En vez de abrir una terminal para ejecutar un programa del cual uno puede que no sepa su comando, uno puede hacerlo directamente desde el menú y en un sólo paso. Opciones para ejecutar un programa del menú desde una terminal pueden ser encontradas en el menú contextual de dichas aplicaciones y dichas opciones pueden ser mostradas o escondidas desde la ventana de opciones de este applet.</p>
 <p>Por defecto, estas opciones van a usar el emulador de terminal por defecto del sistema (<strong>x-terminal-emulator</strong> en distribuciones basadas en Debian). Cualquier otro emulador de terminal puede ser especificado en la ventana de opciones de este applet, siempre y cuando dicho emulador tenga soporte para el argumento <strong>-e</strong>. Yo he realizado mis pruebas con <strong>gnome-terminal</strong>, <strong>xterm</strong> and <strong>terminator</strong>. Argumentos adicionales podrían ser pasados al emulador de terminal, pero no es soportado por mí.</p>
-<hr>
 <h2>Manejo de favoritos</h2>
 <ul>
 <li>Si la caja de favoritos esta <strong>a la vista</strong>, favoritos pueden ser agregados/removidos desde el menú contextual de las aplicaciones y arrastrando y soltando desde/hacia la caja de favoritos.
   <strong>Nota:</strong> Para remover un favorito, arrastrar un favorito fuera de la caja de favoritos hacia cualquier parte del menú.</li>
 <li>Si la caja de favoritos <strong>está oculta</strong> y la categoría de favoritos está habilitada, favoritos pueden ser agregados/removidos desde el menú contextual de las aplicaciones y arrastrando y soltando desde/hacia la categoría de favoritos. Es sencillo, si un favorito es arrastrado y soltado en la categoría de favoritos, el favorito será eliminado. Si lo que es arrastrado hacia la categoría de favoritos es una aplicación que no está en favoritos, entonces dicha aplicación será agregada a favoritos.
-  <strong>Nota:</strong> La categoría favoritos actualizará su contenido luego de cambiar a otra categoría y regresar a la categoría favoritos.</li>
-</ul>
-<hr>
-<h2>Solución de problemas/información adicional</h2>
-<ol>
+  <strong>Nota:</strong> La categoría favoritos actualizará su contenido luego de cambiar a otra categoría y regresar a la categoría favoritos.
+## Solución de problemas/información adicional</li>
 <li>Ejecutar desde terminal.<ol>
 <li><strong>Distribuciones basadas en Debian:</strong> Si el comando <strong>x-terminal-emulator</strong> no ejecuta el emulador de terminal que uno desea como predeterminado, ejecute el siguiente comando para establecer un emulador de terminal predeterminado diferente.<ul>
 <li><code>sudo update-alternatives --config x-terminal-emulator</code></li>
@@ -757,8 +869,7 @@ body {
 </li>
 <li>Existe un archivo dentro del directorio de este applet llamado <strong>run_from_terminal.sh</strong>. <strong>No borrar, renombrar o editar este archivo</strong>. De otra manera, todas las opciones <em>Ejecutar desde terminal</em> se romperán.</li>
 <li>Existe una carpeta llamada <strong>icons</strong> dentro dentro del directorio de este applet. Dicha carpeta contiene varios íconos simbólicos (la mayoría proviene del tema Faenza) y cada ícono puede ser usado directamente por nombre (en un lanzador personalizado, por ejemplo).</li>
-</ol>
-<hr>
+</ul>
 
 <h2>Localización de applets/desklets/extensiones (también conocidos como xlets)</h2>
 <ul>
@@ -783,7 +894,55 @@ body {
 <p>Zprávy o chybách, požadavky na funkce a příspěvky by měly být prováděny v repozitáři tohoto xletu, na který je odkaz dále. <a href="https://github.com/Odyseus/CinnamonTools">GitHub</a></p>
 
 </div>
-<hr>
+
+
+<div class="panel panel-success">
+    <div class="panel-heading">
+        <h3 class="panel-title">Compatibility</h3>
+    </div>
+    <div class="panel-body compatibility">
+        <span class="compatibility-badge"><span class="label label-primary">Cinnamon</span><span class="label label-success">3.0</span></span>
+<span class="compatibility-badge"><span class="label label-primary">Cinnamon</span><span class="label label-success">3.2</span></span>
+<span class="compatibility-badge"><span class="label label-primary">Cinnamon</span><span class="label label-success">3.4</span></span>
+
+<br/><p class="text-danger compatibility-disclaimer">Do not install on any other version of Cinnamon.</p>
+    </div>
+</div>
+
+<h2>Description</h2>
+<p>This applet is a custom version of the default Cinnamon Menu applet, but infinitely more customizable.</p>
+<h2>Added options/features</h2>
+<ul>
+<li>All mayor elements of the menu can be hidden or placed anywhere on the menu.</li>
+<li>Added Fuzzy search. Based on <a href="https://cinnamon-spices.linuxmint.com/applets/view/258s">Sane Menu</a> applet by <strong>nooulaif</strong>.</li>
+<li>Added a custom launchers box that can run any command/script/file and can be placed at the top/bottom of the menu or to the left/right of the searchbox.</li>
+<li>Custom launchers icons can have a custom size and can be symbolic or full color.</li>
+<li>Custom launchers can execute any command (as entered in a terminal) or a path to a file. If the file is an executable script, an attempt to execute it will be made. Otherwise, the file will be opened with the systems handler for that file type.</li>
+<li>The <strong>Quit buttons</strong> can now be moved next the the custom launchers box and can have custom icons (ONLY when they are placed next to the custom launchers box). They also can be hidden all at once or individually.</li>
+<li>The searchbox can have a fixed width or an automatic width to fit the menu width.</li>
+<li>The applications info box can be hidden or replaced by traditional tooltips. Its text can also be aligned to the left.</li>
+<li>The size of the Favorites/Categories/Applications icons can be customized.</li>
+<li>The amount of recent files can be customized.</li>
+<li>The <strong>Recent Files</strong> category can be hidden. This is for people who want the <strong>Recent Files</strong> category hidden without disabling recent files globally.</li>
+<li>The <strong>All Applications</strong> category can be removed from the menu.</li>
+<li>The <strong>Favorites</strong> can now be displayed as one more category. The <strong>All Applications</strong> category has to be hidden.</li>
+<li>The placement of the categories box and the applications box can be swapped.</li>
+<li>Scrollbars in the applications box can be hidden.</li>
+<li>The padding of certain menu elements can be customized to override the current theme stylesheets.</li>
+<li>Recently installed applications highlighting can be disabled.</li>
+<li>Recently used applications can be remembered and will be displayed on a category called <strong>Recent Apps</strong>. The applications will be sorted by execution time and the name and icon of the category can be customized.</li>
+<li>Categories can be selected on hover (system default) or by clicking on them.</li>
+<li>The default <strong>Add to panel</strong>, <strong>Add to desktop</strong> and <strong>Uninstall</strong> context menu items can be hidden.</li>
+<li>The menu editor can be directly opened from this applet context menu without the need to open it from the settings windows of this applet.</li>
+<li>The context menu for applications has 5 new items:<ul>
+<li><strong>Run as root:</strong> Executes application as root.</li>
+<li><strong>Edit .desktop file:</strong> Open the application's .desktop file with a text editor.</li>
+<li><strong>Open .desktop file folder:</strong> Open the folder where the application's .desktop file is stored.</li>
+<li><strong>Run from terminal:</strong> Open a terminal and run application from there.</li>
+<li><strong>Run from terminal as root:</strong> Same as above but the application is executed as root.</li>
+</ul>
+</li>
+</ul>
 
 <h2>Navigace klávesnicí</h2>
 <p><strong>Poznámka:</strong> Téměř všechny klávesové zkratky v tomto menu jsou stejné jako v původním menu. Existuje jen pár rozdílů, které jsem musel přidat do svého menu, aby některé z jeho funkcí fungovaly.</p>
@@ -810,31 +969,23 @@ body {
 <li>Klávesa <kbd>Escape</kbd>: Zavře hlavní menu. Pokud je otevřeno kontextové menu, zavře kontextovou nabídku a druhým stiskem tohoto tlačítka se zavře hlavní menu. </li>
 <li><kbd>Shift</kbd> + <kbd>Enter</kbd>: Spustí aplikaci jako root. Nemá vliv na uživatelské spouštěče.</li>
 <li><kbd>Ctrl</kbd> + <kbd>Enter</kbd>: Otevře terminál a spustí aplikaci odtud. Nemá vliv na uživatelské spouštěče.</li>
-<li><kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>Enter</kbd>: Otevře terminál a spustí aplikaci odtud, ale aplikace bude spuštěna jako root. Nemá vliv na uživatelské spouštěče.</li>
-</ul>
-<hr>
-<h2>Extra akce pro kliknutí na levé tlačítko při spouštění aplikací</h2>
-<p>Při kliknutí levým tlačítkem na aplikaci v menu, mohou být stisknuty určité klávesové modifikátory, tak aby se aplikace spustila speciálním způsobem.</p>
-<ul>
+<li><kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>Enter</kbd>: Otevře terminál a spustí aplikaci odtud, ale aplikace bude spuštěna jako root. Nemá vliv na uživatelské spouštěče.
+## Extra akce pro kliknutí na levé tlačítko při spouštění aplikací
+Při kliknutí levým tlačítkem na aplikaci v menu, mohou být stisknuty určité klávesové modifikátory, tak aby se aplikace spustila speciálním způsobem.</li>
 <li><kbd>Shift</kbd> + <strong> Levé tlačítko </strong>: Spustí aplikaci jako root.</li>
 <li><kbd>Ctrl</kbd> + <strong> Levé tlačítko </strong>: Otevře terminál a spustí aplikaci odtud.</li>
-<li><kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <strong> Levé tlačítko </strong>: Otevře terminál a spustí aplikaci odtud, ale aplikace bude spuštěna jako root.</li>
+<li><kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <strong> Levé tlačítko </strong>: Otevře terminál a spustí aplikaci odtud, ale aplikace bude spuštěna jako root.
+## Informace o možnosti "Spustit v terminálu" 
+Tyto možnosti jsou určeny pro účely ladění (pro zobrazení výstupu konzoly po otevření / zavření programu pro detekci možných chyb). Namísto otevření terminálu pro spuštění programu, o kterém nemusíte znát jeho spouštěcí příkaz, to můžete udělat přímo z menu a jenom v jednom kroku. Možnosti pro spuštění z terminálu aplikace uvedené v nabídce lze nalézt v kontextové nabídce aplikace a mohou být skryty / zobrazeny v okně nastavení tohoto apletu. </li>
 </ul>
-<hr>
-<h2>Informace o možnosti "Spustit v terminálu"</h2>
-<p>Tyto možnosti jsou určeny pro účely ladění (pro zobrazení výstupu konzoly po otevření / zavření programu pro detekci možných chyb). Namísto otevření terminálu pro spuštění programu, o kterém nemusíte znát jeho spouštěcí příkaz, to můžete udělat přímo z menu a jenom v jednom kroku. Možnosti pro spuštění z terminálu aplikace uvedené v nabídce lze nalézt v kontextové nabídce aplikace a mohou být skryty / zobrazeny v okně nastavení tohoto apletu.</p>
 <p>Ve výchozím nastavení budou tyto možnosti používat výchozí emulátor terminálu systému (<strong> x-terminal-emulator </strong> v distribucích založených na Debianu). Jakýkoliv jiný emulátor terminálu lze zadat uvnitř okna nastavení tohoto apletu, pokud má emulátor podporu pro argument <strong> - e </strong>. Otestovány byly <strong> gnome-terminal </strong>, <strong> xterm </strong> a <strong> terminator </strong>.  Dodatečné argumenty by mohly být předány emulátoru terminálu, ale nejsou mnou podporovány.</p>
-<hr>
 <h2>Obsluha oblíbených položek</h2>
 <ul>
 <li>Pokud je pole s oblíbenými položkami <strong>zobrazeno</strong>, mohou být oblíbené položky přidány / odstraněny z kontextového menu aplikací a také přetažením aplikací do nebo z pole oblíbených položek.
   <strong> Poznámka: </strong> Chcete-li odstranit oblíbenou položku, přetáhněte tuto oblíbenou položku mimo pole s oblíbenými položkami do kterékoli části menu.</li>
 <li>Pokud je pole s oblíbenými položkami <strong> skryté </strong> a kategorie oblíbených položek je povolena, mohou být oblíbené položky přidány / odstraněny z kontextového menu aplikací a také přetažením aplikací do kategorie oblíbených položek. Zjednodušeně, pokud je oblíbená položka přetažena do kategorie oblíbených, bude oblíbená položka odebrána. Pokud to, co přetáhnete do kategorie oblíbených, je aplikace bez záložky, bude tato aplikace přidána do oblíbených položek. 
-  <strong> Poznámka: </strong> Kategorie oblíbených položek aktualizuje svůj obsah po přechodu na jinou kategorii a návratu zpět do kategorie oblíbených položek.</li>
-</ul>
-<hr>
-<h2>Odstraňování problémů / další informace</h2>
-<ol>
+  <strong> Poznámka: </strong> Kategorie oblíbených položek aktualizuje svůj obsah po přechodu na jinou kategorii a návratu zpět do kategorie oblíbených položek.
+## Odstraňování problémů / další informace</li>
 <li>Spustit v terminálu<ol>
 <li><strong>Distribuce založené na Debianu:</strong> Pokud příkaz <strong> x-terminal-emulator </strong> nespustí emulátor terminálu, který má být výchozí, spusťte následující příkaz a nastavte jiný výchozí emulátor terminálu.<ul>
 <li><code>sudo update-alternatives --config x-terminal-emulator</code></li>
@@ -846,8 +997,7 @@ body {
 </li>
 <li>V adresáři tohoto apletu je soubor nazvaný <strong> run_from_terminal.sh </strong>. <strong><em> Neodebírejte, nepřejmenujte nebo neupravujte tento soubor </em></strong>. V opačném případě nebudou všechny možnosti <em> Spustit z terminálu </em> funkční. </li>
 <li>V adresáři tohoto apletu Je složka s názvem <strong> icons </strong>. Obsahuje několik symbolických ikon (většina z nich je z tématu ikon Faenza) a každá ikona může být použita přímo jménem (například u Uživatelského spouštěče). </li>
-</ol>
-<hr>
+</ul>
 
 <h2>Lokalizace apletů/deskletů/rozšíření (a.k.a. xlety)</h2>
 <ul>
@@ -872,7 +1022,55 @@ body {
 <p>Felrapporter, funktionsönskemål och kodbidrag kan lämnas i denna xlets kodförråd, på följande länk. <a href="https://github.com/Odyseus/CinnamonTools">GitHub</a></p>
 
 </div>
-<hr>
+
+
+<div class="panel panel-success">
+    <div class="panel-heading">
+        <h3 class="panel-title">Compatibility</h3>
+    </div>
+    <div class="panel-body compatibility">
+        <span class="compatibility-badge"><span class="label label-primary">Cinnamon</span><span class="label label-success">3.0</span></span>
+<span class="compatibility-badge"><span class="label label-primary">Cinnamon</span><span class="label label-success">3.2</span></span>
+<span class="compatibility-badge"><span class="label label-primary">Cinnamon</span><span class="label label-success">3.4</span></span>
+
+<br/><p class="text-danger compatibility-disclaimer">Do not install on any other version of Cinnamon.</p>
+    </div>
+</div>
+
+<h2>Description</h2>
+<p>This applet is a custom version of the default Cinnamon Menu applet, but infinitely more customizable.</p>
+<h2>Added options/features</h2>
+<ul>
+<li>All mayor elements of the menu can be hidden or placed anywhere on the menu.</li>
+<li>Added Fuzzy search. Based on <a href="https://cinnamon-spices.linuxmint.com/applets/view/258s">Sane Menu</a> applet by <strong>nooulaif</strong>.</li>
+<li>Added a custom launchers box that can run any command/script/file and can be placed at the top/bottom of the menu or to the left/right of the searchbox.</li>
+<li>Custom launchers icons can have a custom size and can be symbolic or full color.</li>
+<li>Custom launchers can execute any command (as entered in a terminal) or a path to a file. If the file is an executable script, an attempt to execute it will be made. Otherwise, the file will be opened with the systems handler for that file type.</li>
+<li>The <strong>Quit buttons</strong> can now be moved next the the custom launchers box and can have custom icons (ONLY when they are placed next to the custom launchers box). They also can be hidden all at once or individually.</li>
+<li>The searchbox can have a fixed width or an automatic width to fit the menu width.</li>
+<li>The applications info box can be hidden or replaced by traditional tooltips. Its text can also be aligned to the left.</li>
+<li>The size of the Favorites/Categories/Applications icons can be customized.</li>
+<li>The amount of recent files can be customized.</li>
+<li>The <strong>Recent Files</strong> category can be hidden. This is for people who want the <strong>Recent Files</strong> category hidden without disabling recent files globally.</li>
+<li>The <strong>All Applications</strong> category can be removed from the menu.</li>
+<li>The <strong>Favorites</strong> can now be displayed as one more category. The <strong>All Applications</strong> category has to be hidden.</li>
+<li>The placement of the categories box and the applications box can be swapped.</li>
+<li>Scrollbars in the applications box can be hidden.</li>
+<li>The padding of certain menu elements can be customized to override the current theme stylesheets.</li>
+<li>Recently installed applications highlighting can be disabled.</li>
+<li>Recently used applications can be remembered and will be displayed on a category called <strong>Recent Apps</strong>. The applications will be sorted by execution time and the name and icon of the category can be customized.</li>
+<li>Categories can be selected on hover (system default) or by clicking on them.</li>
+<li>The default <strong>Add to panel</strong>, <strong>Add to desktop</strong> and <strong>Uninstall</strong> context menu items can be hidden.</li>
+<li>The menu editor can be directly opened from this applet context menu without the need to open it from the settings windows of this applet.</li>
+<li>The context menu for applications has 5 new items:<ul>
+<li><strong>Run as root:</strong> Executes application as root.</li>
+<li><strong>Edit .desktop file:</strong> Open the application's .desktop file with a text editor.</li>
+<li><strong>Open .desktop file folder:</strong> Open the folder where the application's .desktop file is stored.</li>
+<li><strong>Run from terminal:</strong> Open a terminal and run application from there.</li>
+<li><strong>Run from terminal as root:</strong> Same as above but the application is executed as root.</li>
+</ul>
+</li>
+</ul>
 
 <h2>Tangentbordsnavigering</h2>
 <p><strong>Notis:</strong> Nästan alla tangentbordsgenvägar i den här menyn är samma som i originalmenyn. Det är dock några skillnader som jag var tvungen att lägga till i min meny, för att vissa funktioner skall fungera.</p>
@@ -899,31 +1097,23 @@ body {
 <li><kbd>Escape</kbd>: Stänger huvudmenyn. Om en kontextmeny (högerklick) är öppen, stängs kontextmenyn istället och ett andra knapptryck stänger huvudmenyn.</li>
 <li><kbd>Shift</kbd> + <kbd>Enter</kbd>: Startar programmet som root. Detta gäller inte anpassade startare.</li>
 <li><kbd>Ctrl</kbd> + <kbd>Enter</kbd>: Öppnar ett terminalfönster och kör programmet därifrån. Detta gäller inte anpassade startare.</li>
-<li><kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>Enter</kbd>: Öppnar ett terminalfönster och kör programmet därifrån, men programmet körs som root. Detta gäller inte anpassade startare.</li>
-</ul>
-<hr>
-<h2>Extra åtgärder vid klick på program</h2>
-<p>Vid vänsterklick på ett program i menyn, kan vissa modifieringstangenter hållas ner för att starta programmet på ett speciellt sätt.</p>
-<ul>
+<li><kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>Enter</kbd>: Öppnar ett terminalfönster och kör programmet därifrån, men programmet körs som root. Detta gäller inte anpassade startare.
+## Extra åtgärder vid klick på program
+Vid vänsterklick på ett program i menyn, kan vissa modifieringstangenter hållas ner för att starta programmet på ett speciellt sätt.</li>
 <li><kbd>Shift</kbd> + <strong>Vänsterklick</strong>: Startar programmet som root.</li>
 <li><kbd>Ctrl</kbd> + <strong>Vänsterklick</strong>: Öppnar ett terminalfönster och kör programmet därifrån.</li>
-<li><kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <strong>Vänsterklick</strong>: Öppnar ett terminalfönster och kör programmet därifrån, men programmet körs som root.</li>
+<li><kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <strong>Vänsterklick</strong>: Öppnar ett terminalfönster och kör programmet därifrån, men programmet körs som root.
+## Om alternativet "Kör från terminal"
+Dessa alternativ är avsedda för felsökning (t.ex för att identifiera möjliga fel via konsollutdata efter att ett program öppnas/stängs). Istället för att öppna ett terminalfönster och starta ett program med ett kommando som man kanske inte ens känner till, kan man göra det direkt från menyn i ett enda steg. Alternativ för att starta ett program från terminal kan hittas i programmets kontextmeny (högerklick), vilket kan döljas/visas från panelprogrammets inställningar.</li>
 </ul>
-<hr>
-<h2>Om alternativet "Kör från terminal"</h2>
-<p>Dessa alternativ är avsedda för felsökning (t.ex för att identifiera möjliga fel via konsollutdata efter att ett program öppnas/stängs). Istället för att öppna ett terminalfönster och starta ett program med ett kommando som man kanske inte ens känner till, kan man göra det direkt från menyn i ett enda steg. Alternativ för att starta ett program från terminal kan hittas i programmets kontextmeny (högerklick), vilket kan döljas/visas från panelprogrammets inställningar.</p>
 <p>Som standard kommer dessa alternativ att använda systemets standardterminal (<strong> x-terminal-emulator </strong> i Debian-baserade distributioner). Annan terminalemulator kan anges i inställningarna för detta panelprogram, så länge som nämnda emulator har stöd för argumentet <strong>-e</strong>. Jag gjorde mina tester med <strong> gnome-terminal </strong>, <strong> xterm </strong> och <strong> terminator </strong>. Ytterligare argument kan användas i terminalen, men det stöds inte av mig.</p>
-<hr>
 <h2>Favorithantering</h2>
 <ul>
 <li>Om favoritfältet <strong> visas </strong>, kan favoriter läggas till/tas bort från kontextmenyn för program och genom att dra och släppa applikationer till/från favoritfältet.
   <strong>Notis:</strong> För att ta bort en favorit kan du dra den ut från favoritfältet och släppa den var som helst i menyn.</li>
 <li>Om favoritfältet är <strong> doldt </strong> och kategorin Favoriter är aktiverad, kan favoriter läggas till/tas bort via kontextmenyn för program och genom att dra och släppa program till/från favoritfältet. Det är enkelt, om en favorit dras in i kategorin Favoriter, tas den bort från favoritfältet. Om det du drar till kategorin Favoriter är ett icke bokmärkt program, kommer programmet att läggas till i Favoriter.
-  <strong>Notis:</strong> Innehållet i favoritkategorin uppdateras genom att växla till en annan kategori och tillbaka favoritkategorin igen.</li>
-</ul>
-<hr>
-<h2>Felsöknings-/Extra information</h2>
-<ol>
+  <strong>Notis:</strong> Innehållet i favoritkategorin uppdateras genom att växla till en annan kategori och tillbaka favoritkategorin igen.
+## Felsöknings-/Extra information</li>
 <li>Kör från terminal.<ol>
 <li><strong>Debian-baserade distributioner:</strong> Om kommandot <strong>x-terminal-emulator</strong> inte startar den terminal du vill ha som standardterminal, kan du köra följande kommando för att ange en rätt standardterminal.<ul>
 <li><code>sudo update-alternatives --config x-terminal-emulator</code></li>
@@ -935,8 +1125,7 @@ body {
 </li>
 <li>Det finns en fil i det här programmets installationsmapp, kallad <strong>run_from_terminal.sh</strong>. <strong><em>Ta inte bort, döp om eller redigera den här filen</em></strong>. Då kan alla <em>Kör från terminal</em>, sluta fungera.</li>
 <li>Det finns en mapp som heter <strong> icons </strong> i detta programs installationsmapp. Den innehåller flera symboliska ikoner (de flesta av dem är från ikontemat Faenza) och varje ikon kan användas direkt med enbart namn (på en anpassad startare t.ex.).</li>
-</ol>
-<hr>
+</ul>
 
 <h2>Applets/Desklets/Extensions (xlets) översättning</h2>
 <ul>
@@ -961,7 +1150,55 @@ body {
 <p>Bug reports, feature requests and contributions should be done on this xlet's repository linked next. <a href="https://github.com/Odyseus/CinnamonTools">GitHub</a></p>
 
 </div>
-<hr>
+
+
+<div class="panel panel-success">
+    <div class="panel-heading">
+        <h3 class="panel-title">Compatibility</h3>
+    </div>
+    <div class="panel-body compatibility">
+        <span class="compatibility-badge"><span class="label label-primary">Cinnamon</span><span class="label label-success">3.0</span></span>
+<span class="compatibility-badge"><span class="label label-primary">Cinnamon</span><span class="label label-success">3.2</span></span>
+<span class="compatibility-badge"><span class="label label-primary">Cinnamon</span><span class="label label-success">3.4</span></span>
+
+<br/><p class="text-danger compatibility-disclaimer">Do not install on any other version of Cinnamon.</p>
+    </div>
+</div>
+
+<h2>Description</h2>
+<p>This applet is a custom version of the default Cinnamon Menu applet, but infinitely more customizable.</p>
+<h2>Added options/features</h2>
+<ul>
+<li>All mayor elements of the menu can be hidden or placed anywhere on the menu.</li>
+<li>Added Fuzzy search. Based on <a href="https://cinnamon-spices.linuxmint.com/applets/view/258s">Sane Menu</a> applet by <strong>nooulaif</strong>.</li>
+<li>Added a custom launchers box that can run any command/script/file and can be placed at the top/bottom of the menu or to the left/right of the searchbox.</li>
+<li>Custom launchers icons can have a custom size and can be symbolic or full color.</li>
+<li>Custom launchers can execute any command (as entered in a terminal) or a path to a file. If the file is an executable script, an attempt to execute it will be made. Otherwise, the file will be opened with the systems handler for that file type.</li>
+<li>The <strong>Quit buttons</strong> can now be moved next the the custom launchers box and can have custom icons (ONLY when they are placed next to the custom launchers box). They also can be hidden all at once or individually.</li>
+<li>The searchbox can have a fixed width or an automatic width to fit the menu width.</li>
+<li>The applications info box can be hidden or replaced by traditional tooltips. Its text can also be aligned to the left.</li>
+<li>The size of the Favorites/Categories/Applications icons can be customized.</li>
+<li>The amount of recent files can be customized.</li>
+<li>The <strong>Recent Files</strong> category can be hidden. This is for people who want the <strong>Recent Files</strong> category hidden without disabling recent files globally.</li>
+<li>The <strong>All Applications</strong> category can be removed from the menu.</li>
+<li>The <strong>Favorites</strong> can now be displayed as one more category. The <strong>All Applications</strong> category has to be hidden.</li>
+<li>The placement of the categories box and the applications box can be swapped.</li>
+<li>Scrollbars in the applications box can be hidden.</li>
+<li>The padding of certain menu elements can be customized to override the current theme stylesheets.</li>
+<li>Recently installed applications highlighting can be disabled.</li>
+<li>Recently used applications can be remembered and will be displayed on a category called <strong>Recent Apps</strong>. The applications will be sorted by execution time and the name and icon of the category can be customized.</li>
+<li>Categories can be selected on hover (system default) or by clicking on them.</li>
+<li>The default <strong>Add to panel</strong>, <strong>Add to desktop</strong> and <strong>Uninstall</strong> context menu items can be hidden.</li>
+<li>The menu editor can be directly opened from this applet context menu without the need to open it from the settings windows of this applet.</li>
+<li>The context menu for applications has 5 new items:<ul>
+<li><strong>Run as root:</strong> Executes application as root.</li>
+<li><strong>Edit .desktop file:</strong> Open the application's .desktop file with a text editor.</li>
+<li><strong>Open .desktop file folder:</strong> Open the folder where the application's .desktop file is stored.</li>
+<li><strong>Run from terminal:</strong> Open a terminal and run application from there.</li>
+<li><strong>Run from terminal as root:</strong> Same as above but the application is executed as root.</li>
+</ul>
+</li>
+</ul>
 
 <h2>Keyboard navigation</h2>
 <p><strong>Note:</strong> Almost all keyboard shortcuts on this menu are the same as the original menu. There are just a couple of differences that I was forced to add to my menu to make some of its features to work.</p>
@@ -988,31 +1225,23 @@ body {
 <li><kbd>Escape</kbd> key: It closes the main menu. If a context menu is open, it will close the context menu instead and a second tap of this key will close the main menu.</li>
 <li><kbd>Shift</kbd> + <kbd>Enter</kbd>: Executes the application as root. This doesn't affect the custom launchers.</li>
 <li><kbd>Ctrl</kbd> + <kbd>Enter</kbd>: Open a terminal and run application from there. This doesn't affect the custom launchers.</li>
-<li><kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>Enter</kbd>: Open a terminal and run application from there, but the application is executed as root. This doesn't affect the custom launchers.</li>
-</ul>
-<hr>
-<h2>Applications left click extra actions</h2>
-<p>When left clicking an application on the menu, certain key modifiers can be pressed to execute an application in a special way.</p>
-<ul>
+<li><kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>Enter</kbd>: Open a terminal and run application from there, but the application is executed as root. This doesn't affect the custom launchers.
+## Applications left click extra actions
+When left clicking an application on the menu, certain key modifiers can be pressed to execute an application in a special way.</li>
 <li><kbd>Shift</kbd> + <strong>Left click</strong>: Executes application as root.</li>
 <li><kbd>Ctrl</kbd> + <strong>Left click</strong>: Open a terminal and run application from there.</li>
-<li><kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <strong>Left click</strong>: Open a terminal and run application from there, but the application is executed as root.</li>
+<li><kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <strong>Left click</strong>: Open a terminal and run application from there, but the application is executed as root.
+## About "Run from terminal" options
+These options are meant for debugging purposes (to see the console output after opening/closing a program to detect possible errors, for example). Instead of opening a terminal to launch a program of which one might not know its command, one can do it directly from the menu and in just one step. Options to run from a terminal an application listed on the menu can be found on the applications context menu and can be hidden/shown from this applet settings window.</li>
 </ul>
-<hr>
-<h2>About "Run from terminal" options</h2>
-<p>These options are meant for debugging purposes (to see the console output after opening/closing a program to detect possible errors, for example). Instead of opening a terminal to launch a program of which one might not know its command, one can do it directly from the menu and in just one step. Options to run from a terminal an application listed on the menu can be found on the applications context menu and can be hidden/shown from this applet settings window.</p>
 <p>By default, these options will use the system's default terminal emulator (<strong>x-terminal-emulator</strong> on Debian based distributions). Any other terminal emulator can be specified inside the settings window of this applet, as long as said emulator has support for the <strong>-e</strong> argument. I did my tests with <strong>gnome-terminal</strong>, <strong>xterm</strong> and <strong>terminator</strong>. Additional arguments could be passed to the terminal emulator, but it's not supported by me.</p>
-<hr>
 <h2>Favorites handling</h2>
 <ul>
 <li>If the favorites box is <strong>displayed</strong>, favorites can be added/removed from the context menu for applications and by dragging and dropping applications to/from the favorites box.
   <strong>Note:</strong> To remove a favorite, drag a favorite outside the favorites box into any part of the menu.</li>
 <li>If the favorites box is <strong>hidden</strong> and the favorites category is enabled, favorites can be added/removed from the context menu for applications and by dragging and dropping applications to the favorites category. Its simple, if a favorite is dragged into the favorites category, the favorite will be removed. If what you drag into the favorites category is a non bookmarked application, then that application will be added to the favorites.
-  <strong>Note:</strong> The favorites category will update its content after changing to another category and going back to the favorites category.</li>
-</ul>
-<hr>
-<h2>Troubleshooting/extra information</h2>
-<ol>
+  <strong>Note:</strong> The favorites category will update its content after changing to another category and going back to the favorites category.
+## Troubleshooting/extra information</li>
 <li>Run from terminal.<ol>
 <li><strong>Debian based distributions:</strong> If the command <strong>x-terminal-emulator</strong> doesn't run the terminal emulator that one wants to be the default, run the following command to set a different default terminal emulator.<ul>
 <li><code>sudo update-alternatives --config x-terminal-emulator</code></li>
@@ -1024,8 +1253,7 @@ body {
 </li>
 <li>There is a file inside this applet directory called <strong>run_from_terminal.sh</strong>. <strong><em>Do not remove, rename or edit this file</em></strong>. Otherwise, all of the <em>Run from terminal</em> options will break.</li>
 <li>There is a folder named <strong>icons</strong> inside this applet directory. It contains several symbolic icons (most of them are from the Faenza icon theme) and each icon can be used directly by name (on a custom launcher, for example).</li>
-</ol>
-<hr>
+</ul>
 
 <h2>Applets/Desklets/Extensions (a.k.a. xlets) localization</h2>
 <ul>

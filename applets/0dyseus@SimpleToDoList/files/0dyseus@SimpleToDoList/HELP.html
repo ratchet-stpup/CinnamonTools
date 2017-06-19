@@ -526,6 +526,39 @@ body {
 }
 /* For fixed header */
 
+/* Tweak spacing of the compatibility badges inside a panel */
+.panel-body.compatibility > .compatibility-disclaimer,
+.panel-body.compatibility > .compatibility-badge {
+    margin: 5px;
+    line-height: 2.5em;
+}
+/* Tweak spacing of the compatibility badges inside a panel */
+
+/* Tweak appearance of the compatibility badges inside a panel */
+.panel-body.compatibility > .compatibility-disclaimer {
+    font-weight: bold;
+}
+.panel-body.compatibility > .compatibility-badge > .label-primary {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+.panel-body.compatibility > .compatibility-badge > .label-warning,
+.panel-body.compatibility > .compatibility-badge > .label-success,
+.panel-body.compatibility > .compatibility-badge > .label-info {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+.panel-body.compatibility > .compatibility-badge > .label-warning {
+    background-color: #dfb317;
+}
+.panel-body.compatibility > .compatibility-badge > .label-success {
+    background-color: #97CA00;
+}
+.panel-body.compatibility > .compatibility-badge > .label-info {
+    background-color: #439cf7;
+}
+/* Tweak appearance of the compatibility badges inside a panel */
+
 .navbar-form {
     margin-top: 8px !important;
 }
@@ -604,8 +637,24 @@ body {
 <p>错误报告，功能请求和贡献应该在下方链接的xlet的仓库上完成。 <a href="https://github.com/Odyseus/CinnamonTools">GitHub</a></p>
 
 </div>
-<hr>
 
+
+<div class="panel panel-success">
+    <div class="panel-heading">
+        <h3 class="panel-title">Compatibility</h3>
+    </div>
+    <div class="panel-body compatibility">
+        <span class="compatibility-badge"><span class="label label-primary">Cinnamon</span><span class="label label-warning">2.8</span></span>
+<span class="compatibility-badge"><span class="label label-primary">Cinnamon</span><span class="label label-success">3.0</span></span>
+<span class="compatibility-badge"><span class="label label-primary">Cinnamon</span><span class="label label-success">3.2</span></span>
+<span class="compatibility-badge"><span class="label label-primary">Cinnamon</span><span class="label label-success">3.4</span></span>
+
+<br/><p class="text-danger compatibility-disclaimer">Do not install on any other version of Cinnamon.</p>
+    </div>
+</div>
+
+<h2>Description</h2>
+<p>Applet based on two gnome-shell extensions (<a href="https://github.com/bsaleil/todolist-gnome-shell-extension">Todo list</a> and <a href="https://github.com/tomMoral/ToDoList">Section Todo List</a>). It allows to create simple ToDo lists from a menu on the panel.</p>
 <h2>小程序用法和功能</h2>
 <p>这个小程序的用法非常简单。每个任务列表由子菜单表示，子菜单内的每个子菜单项代表任务。</p>
 <ul>
@@ -621,7 +670,7 @@ body {
 <li>打开和关闭菜单的配置的热键。</li>
 <li>请阅读此小程序设置窗口中每个选项的提示获取更多详细信息。</li>
 </ul>
-<hr>
+
 <h2>键盘快捷键</h2>
 <p>该小程序菜单中的键盘导航与Cinnamon上任何其他菜单使用的键盘导航非常相似。但是稍稍改变，以方便任务和部分的处理和编辑。</p>
 <h3>当焦点在任务上时</h3>
@@ -639,11 +688,8 @@ body {
 </ul>
 <h3>当焦点在<strong>新建任务...</strong>条目上时</h3>
 <ul>
-<li><kbd>Ctrl</kbd> + <kbd>Spacebar</kbd>：切换任务菜单选项按钮的可见性。</li>
-</ul>
-<hr>
-<h2>已知问题</h2>
-<ul>
+<li><kbd>Ctrl</kbd> + <kbd>Spacebar</kbd>：切换任务菜单选项按钮的可见性。
+## 已知问题</li>
 <li><strong>悬停在菜单中的条目上不会高亮菜单条目或子菜单：</strong>这实际上是一个所需的功能。允许在鼠标悬停时高亮条目将会导致条目失去焦点，造成无法在其中保持键入文本，并且不断强制我们移动鼠标光标以重新获得焦点。</li>
 <li><strong>任务条目看起来是错的：</strong> 该小程序上的任务条目具有包装其文本的能力，以便在为其设置固定宽度的情况下。 它们也可以是多行（<kbd>Shift</kbd> + <kbd>Enter</kbd>里面的一个条目将创建一个新行）。一些Cinnamon主题，如默认的Mint-X系列主题，为菜单中的条目设置固定宽度和固定高度。 这些固定大小使得无法以编程方式设置条目的所需宽度（至少我找不到办法）。固定高度不允许条目扩展，完全打破条目包装其文本的功能，并且是多行的。</li>
 </ul>
@@ -652,7 +698,6 @@ body {
 <h3>这是条目不应该有的样子</h3>
 <p><img class="incorrect-entries-styling" alt="不正确的条目样式"></p>
 <p>解决这个问题的唯一方法（我能找到的）是通过编辑正在使用的Cinnamon主题，并移除那些固定的大小。需要编辑的CSS选择器有<strong>.menu StEntry</strong>、<strong>.menu StEntry:focus</strong>、<strong>.popup-menu StEntry</strong>和 <strong>.popup-menu StEntry:focus</strong>。根据创建主题的Cinnamon版本，可能只能找到前两个选择器，或者最后两个或全部。需要编辑的CSS属性是<strong>width</strong>和<strong>height</strong>。它们可以被删除，但明智的做法是将它们分别重命名为<strong>min-width</strong>和<strong>min-height</strong>。在编辑主题的文件并重新启动Cinnamon之后，该小程序中的条目应该会像他们看起来的那样工作。</p>
-<hr>
 
 <h2>小程序/桌面小工具/扩展（也称为xlets）本地化</h2>
 <ul>
@@ -677,8 +722,24 @@ body {
 <p>Los reportes de fallos, peticiones de características y contribuciones deben hacerse en el repositorio de este xlet vinculado a continuación. <a href="https://github.com/Odyseus/CinnamonTools">GitHub</a></p>
 
 </div>
-<hr>
 
+
+<div class="panel panel-success">
+    <div class="panel-heading">
+        <h3 class="panel-title">Copatibilidad</h3>
+    </div>
+    <div class="panel-body compatibility">
+        <span class="compatibility-badge"><span class="label label-primary">Cinnamon</span><span class="label label-warning">2.8</span></span>
+<span class="compatibility-badge"><span class="label label-primary">Cinnamon</span><span class="label label-success">3.0</span></span>
+<span class="compatibility-badge"><span class="label label-primary">Cinnamon</span><span class="label label-success">3.2</span></span>
+<span class="compatibility-badge"><span class="label label-primary">Cinnamon</span><span class="label label-success">3.4</span></span>
+
+<br/><p class="text-danger compatibility-disclaimer">No instalar en ninguna otra versión de Cinnamon.</p>
+    </div>
+</div>
+
+<h2>Descripción</h2>
+<p>Applet basado en dos extensiones para gnome-shell (<a href="https://github.com/bsaleil/todolist-gnome-shell-extension">Todo list</a> y <a href="https://github.com/tomMoral/ToDoList">Section Todo List</a>). Permite crear simple listas de tareas desde un menú en el panel.</p>
 <h2>Uso del applet y características</h2>
 <p>El uso de este applet es muy simple. Cada lista de tareas está representada por un submenú y cada submenú ítem dentro de un submenú representa una tarea.</p>
 <ul>
@@ -694,7 +755,7 @@ body {
 <li>Atajo de teclado configurable para abrir/cerrar el menú.</li>
 <li>Leer las cajas de herramientas de cada opción en la ventana de preferencias de este applet para más detalles.</li>
 </ul>
-<hr>
+
 <h2>Atajos de teclado</h2>
 <p>La navegación del teclado dentro del este menú de applet es muy similar a la navegación por teclado utilizada por cualquier otro menú de Cinnamon. Pero ha sido cambiada ligeramente para facilitar el manejo y edición de tareas y listas de tareas.</p>
 <h3>Cuando el foco se encuentra en una tarea</h3>
@@ -712,11 +773,8 @@ body {
 </ul>
 <h3>Cuando el foco se encuentra en la entrada <strong>Nueva tarea...</strong></h3>
 <ul>
-<li><kbd>Ctrl</kbd> + <kbd>Barra espaciadora</kbd>: Cambia la visibilidad del menú de opciones de la lista de tarea.</li>
-</ul>
-<hr>
-<h2>Problemas conocidos</h2>
-<ul>
+<li><kbd>Ctrl</kbd> + <kbd>Barra espaciadora</kbd>: Cambia la visibilidad del menú de opciones de la lista de tarea.
+## Problemas conocidos</li>
 <li><strong>Pasar el ratón sobre elementos dentro del menú no resalta los elementos del menú ni los submenús:</strong> Esto es realmente una característica deseada. Al permitir que los elementos sean resaltados por el ratón podría hacer que las entradas pierdan el foco, resultando en la imposibilidad de seguir escribiendo texto dentro de ellas y obligándonos constantemente a mover el cursor del ratón para recuperar el foco.</li>
 <li><strong>Entradas de tareas lucen mal:</strong> Las entradas de tareas en este applet tienen la habilidad de envolver su texto en el caso de que un ancho fijo es establecido para ellas. Ellas también pueden ser multilínea (<kbd>Shift</kbd> + <kbd>Enter</kbd> dentro de la entrada creará una nueva línea). Algunos temas para Cinnamon, como los temas de la familia Mint-X, establecen un ancho y un alto fijo para entradas que se encuentran dentro de menúes. Estas medidas fijas hacen imposible de establecer programáticamente un ancho para las entradas (al menos, yo no pude encontrar una manera de hacerlo). Y una altura fija no permite a las entradas ser expandidas, rompiendo completamente la capacidad de las entradas de envolver su texto y de ser multilínea.</li>
 </ul>
@@ -725,7 +783,6 @@ body {
 <h3>Así es como las entradas de texto NO DEBERÍAN lucir</h3>
 <p><img class="incorrect-entries-styling" alt="Estilo incorrecto de las entradas"></p>
 <p>La única manera de arreglar esto (que yo he podido encontrar) es editando el tema de Cinnamon que uno está usando y remover esas medidas fijas. Los selectores CSS que necesitan ser editados son <strong>.menu StEntry</strong>, <strong>.menu StEntry:focus</strong>, <strong>.popup-menu StEntry</strong> y <strong>.popup-menu StEntry:focus</strong>. Dependiendo para qué versión de Cinnamon el tema fue creado, uno puede encontrar sólo los primeros dos selectores, los últimos dos o todos ellos. Las propiedades CSS que necesitan ser editadas son <strong>width</strong> y <strong>height</strong>. Ellas podrían ser eliminadas, pero lo más sensible de hacer es renombrarlas a <strong>min-width</strong> y <strong>min-height</strong> respectivamente. Luego de editar el archivo del tema y reiniciar Cinnamon, las entradas de texto de este applet deberían lucir y funcionar correctamente.</p>
-<hr>
 
 <h2>Localización de applets/desklets/extensiones (también conocidos como xlets)</h2>
 <ul>
@@ -750,8 +807,24 @@ body {
 <p>Felrapporter, funktionsönskemål och kodbidrag kan lämnas i denna xlets kodförråd, på följande länk. <a href="https://github.com/Odyseus/CinnamonTools">GitHub</a></p>
 
 </div>
-<hr>
 
+
+<div class="panel panel-success">
+    <div class="panel-heading">
+        <h3 class="panel-title">Compatibility</h3>
+    </div>
+    <div class="panel-body compatibility">
+        <span class="compatibility-badge"><span class="label label-primary">Cinnamon</span><span class="label label-warning">2.8</span></span>
+<span class="compatibility-badge"><span class="label label-primary">Cinnamon</span><span class="label label-success">3.0</span></span>
+<span class="compatibility-badge"><span class="label label-primary">Cinnamon</span><span class="label label-success">3.2</span></span>
+<span class="compatibility-badge"><span class="label label-primary">Cinnamon</span><span class="label label-success">3.4</span></span>
+
+<br/><p class="text-danger compatibility-disclaimer">Do not install on any other version of Cinnamon.</p>
+    </div>
+</div>
+
+<h2>Description</h2>
+<p>Applet based on two gnome-shell extensions (<a href="https://github.com/bsaleil/todolist-gnome-shell-extension">Todo list</a> and <a href="https://github.com/tomMoral/ToDoList">Section Todo List</a>). It allows to create simple ToDo lists from a menu on the panel.</p>
 <h2>Programanvändning och funktioner</h2>
 <p>Det här panelprogrammet är mycket enkelt att använda. Varje uppgiftslista representeras av en undermeny och varje undermenypost representerar en uppgift.</p>
 <ul>
@@ -767,7 +840,7 @@ body {
 <li>Konfigurerbar snabbtangent för att öppna/stänga menyn.</li>
 <li>Läs verktygsbeskrivningen för varje alternativ i programmets inställningar, för mer detaljerad information.</li>
 </ul>
-<hr>
+
 <h2>Tangentbordsgenvägar</h2>
 <p>Tangentbordsnavigering i det här panelprogrammet, är mycket lik tangentbordsnavigering i vilken annan Cinnamon-meny som helst. Den är dock något ändrad för att underlätta aktiviteter vid uppgifts-/listhantering och redigering.</p>
 <h3>När fokus är på en uppgiftspost</h3>
@@ -785,11 +858,8 @@ body {
 </ul>
 <h3>När fokus är på menyposten <strong>Ny uppgift...</strong></h3>
 <ul>
-<li><kbd>Ctrl</kbd> + <kbd>Spacebar</kbd>: Öppnar/Stänger uppgiftslistans alternativmeny.</li>
-</ul>
-<hr>
-<h2>Kända problem</h2>
-<ul>
+<li><kbd>Ctrl</kbd> + <kbd>Spacebar</kbd>: Öppnar/Stänger uppgiftslistans alternativmeny.
+## Kända problem</li>
 <li><strong>Hovring över en menypost markerar inte objektet.</strong> Detta är faktiskt ett önskvärt beteende. Om man låter muspekaren markera ett objekt vid hovring, kommer menyposterna att förlora fokus, vilket gör det omöjligt att fortsätta skriva text i dem och dessutom tvinga oss att flytta muspekaren för att återfå fokus.</li>
 <li><strong>Åtgärdsposter ser fel ut:</strong> Uppgiftsposter i detta program, har förmågan att radbryta sin text om man anger en fast bredd för dem. De kan också göras flerradiga manuellt (<kbd>Shift</kbd> + <kbd>Enter</kbd> inuti en post kommer att skapa ny rad). Några Cinnamon-teman, som Mint-X-familjens standarteman, sätter en fast bredd och höjd för poster inuti menyer. Dessa fasta storlekar gör det programatiskt omöjligt att ange en önskad bredd för posterna (jag kunde åtminstone inte hitta ett sätt att göra det). Fast höjd tillåter inte posterna att expandera, bryter helt menyposters förmåga att radbryta text och att bli flerradiga.</li>
 </ul>
@@ -798,7 +868,6 @@ body {
 <h3>Så här skall listposter INTE se ut</h3>
 <p><img class="incorrect-entries-styling" alt="Felaktig stilsättning för menyposter"></p>
 <p>Enda sättet att åtgärda detta (som jag kunde hitta), är att redigera det aktuella Cinnamon-tema som används, och ta bort de fasta storlekarna. De CSS-selektorer som behöver redigeras är <strong>.menu StEntry</strong>, <strong>.menu StEntry:focus</strong>, <strong>.popup-menu StEntry</strong> och <strong>.popup-menu StEntry:focus</strong>. Beroende på den Cinnamon-version temat skapades för, kanske man bara hittar de två första selektorerna, eller de två sista, eller samtliga. De CSS-egenskaper som behöver redigeras är <strong>width</strong> och <strong>height</strong>. De kan tas bort, men det vettigaste man kan göra är att byta namn på dem till <strong>min-width</strong> respektive <strong>min-height</strong>. Efter redigering av temafilen och omstart av Cinnamon, bör menyposterna i detta program, se ut och fungera som de skall.</p>
-<hr>
 
 <h2>Applets/Desklets/Extensions (xlets) översättning</h2>
 <ul>
@@ -823,8 +892,24 @@ body {
 <p>Bug reports, feature requests and contributions should be done on this xlet's repository linked next. <a href="https://github.com/Odyseus/CinnamonTools">GitHub</a></p>
 
 </div>
-<hr>
 
+
+<div class="panel panel-success">
+    <div class="panel-heading">
+        <h3 class="panel-title">Compatibility</h3>
+    </div>
+    <div class="panel-body compatibility">
+        <span class="compatibility-badge"><span class="label label-primary">Cinnamon</span><span class="label label-warning">2.8</span></span>
+<span class="compatibility-badge"><span class="label label-primary">Cinnamon</span><span class="label label-success">3.0</span></span>
+<span class="compatibility-badge"><span class="label label-primary">Cinnamon</span><span class="label label-success">3.2</span></span>
+<span class="compatibility-badge"><span class="label label-primary">Cinnamon</span><span class="label label-success">3.4</span></span>
+
+<br/><p class="text-danger compatibility-disclaimer">Do not install on any other version of Cinnamon.</p>
+    </div>
+</div>
+
+<h2>Description</h2>
+<p>Applet based on two gnome-shell extensions (<a href="https://github.com/bsaleil/todolist-gnome-shell-extension">Todo list</a> and <a href="https://github.com/tomMoral/ToDoList">Section Todo List</a>). It allows to create simple ToDo lists from a menu on the panel.</p>
 <h2>Applet usage and features</h2>
 <p>The usage of this applet is very simple. Each task list is represented by a sub menu and each sub menu item inside a sub menu represents a task.</p>
 <ul>
@@ -840,7 +925,7 @@ body {
 <li>Configurable hotkey to open/close the menu.</li>
 <li>Read the tooltips of each option on this applet settings window for more details.</li>
 </ul>
-<hr>
+
 <h2>Keyboard shortcuts</h2>
 <p>The keyboard navigation inside this applet menu is very similar to the keyboard navigation used by any other menu on Cinnamon. But it's slightly changed to facilitate tasks and sections handling and edition.</p>
 <h3>When the focus is on a task</h3>
@@ -858,11 +943,8 @@ body {
 </ul>
 <h3>When the focus is on the <strong>New task...</strong> entry</h3>
 <ul>
-<li><kbd>Ctrl</kbd> + <kbd>Spacebar</kbd>: Toggles the visibility of the tasks list options menu.</li>
-</ul>
-<hr>
-<h2>Known issues</h2>
-<ul>
+<li><kbd>Ctrl</kbd> + <kbd>Spacebar</kbd>: Toggles the visibility of the tasks list options menu.
+## Known issues</li>
 <li><strong>Hovering over items inside the menu doesn't highlight menu items nor sub menus:</strong> This is actually a desired feature. Allowing the items to highlight on mouse hover would cause the entries to loose focus, resulting in the impossibility to keep typing text inside them and constantly forcing us to move the mouse cursor to regain focus.</li>
 <li><strong>Task entries look wrong:</strong> Task entries on this applet have the ability to wrap its text in case one sets a fixed width for them. They also can be multi line (<kbd>Shift</kbd> + <kbd>Enter</kbd> inside an entry will create a new line). Some Cinnamon themes, like the default Mint-X family of themes, set a fixed width and a fixed height for entries inside menus. These fixed sizes makes it impossible to programmatically set a desired width for the entries (at least, I couldn't find a way to do it). And the fixed height doesn't allow the entries to expand, completely breaking the entries capability to wrap its text and to be multi line.</li>
 </ul>
@@ -871,7 +953,6 @@ body {
 <h3>This is how entries SHOULD NOT look like</h3>
 <p><img class="incorrect-entries-styling" alt="Incorrect entries styling"></p>
 <p>The only way to fix this (that I could find) is by editing the Cinnamon theme that one is using and remove those fixed sizes. The CSS selectors that needs to be edited are <strong>.menu StEntry</strong>, <strong>.menu StEntry:focus</strong>, <strong>.popup-menu StEntry</strong> and <strong>.popup-menu StEntry:focus</strong>. Depending on the Cinnamon version the theme was created for, one might find just the first two selectors or the last two or all of them. The CSS properties that need to be edited are <strong>width</strong> and <strong>height</strong>. They could be removed, but the sensible thing to do is to rename them to <strong>min-width</strong> and <strong>min-height</strong> respectively. After editing the theme's file and restarting Cinnamon, the entries inside this applet will look and work like they should.</p>
-<hr>
 
 <h2>Applets/Desklets/Extensions (a.k.a. xlets) localization</h2>
 <ul>

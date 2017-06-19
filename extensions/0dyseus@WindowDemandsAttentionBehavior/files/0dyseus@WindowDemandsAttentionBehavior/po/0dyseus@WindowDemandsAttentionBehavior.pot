@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 0dyseus@WindowDemandsAttentionBehavior 1.03\n"
-"POT-Creation-Date: 2017-06-12 22:20-0300\n"
+"POT-Creation-Date: 2017-06-18 23:49-0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -47,25 +47,41 @@ msgstr ""
 msgid "Window demands attention behavior"
 msgstr ""
 
-#: ../../create_localized_help.py:90 ../../create_localized_help.py:96 ../../create_localized_help.py:125
+#: ../../create_localized_help.py:72
+msgid "Description"
+msgstr ""
+
+#: ../../create_localized_help.py:74
+msgid "Extension based on the Gnome Shell extensions [Steal My Focus](https://github.com/v-dimitrov/gnome-shell-extension-stealmyfocus) and [Window Demands Attention Shortcut](https://github.com/awamper/window-demands-attention-shortcut). This extension adds two different behaviors for windows that demand attention. It force them to be activated or a keyboard shortcut can be assigned to activate windows on demand."
+msgstr ""
+
+#: ../../create_localized_help.py:90 ../../create_localized_help.py:96 ../../create_localized_help.py:125 ../../create_localized_help.py:153
 msgid "The following two sections are available only in English."
 msgstr ""
 
 #. TO TRANSLATORS: This is a placeholder.
 #. Here goes your language name in your own language (a.k.a. endonym).
-#: ../../create_localized_help.py:115 ../../create_localized_help.py:119 ../../create_localized_help.py:121 ../../create_localized_help.py:187 ../../create_localized_help.py:194 ../../create_localized_help.py:195
+#: ../../create_localized_help.py:115 ../../create_localized_help.py:119 ../../create_localized_help.py:121 ../../create_localized_help.py:147 ../../create_localized_help.py:187 ../../create_localized_help.py:194 ../../create_localized_help.py:195 ../../create_localized_help.py:238
 msgid "language-name"
 msgstr ""
 
-#: ../../create_localized_help.py:190 ../../create_localized_help.py:197 ../../create_localized_help.py:198
+#: ../../create_localized_help.py:157
+msgid "Do not install on any other version of Cinnamon."
+msgstr ""
+
+#: ../../create_localized_help.py:163
+msgid "Compatibility"
+msgstr ""
+
+#: ../../create_localized_help.py:190 ../../create_localized_help.py:197 ../../create_localized_help.py:198 ../../create_localized_help.py:241
 msgid "Help"
 msgstr ""
 
-#: ../../create_localized_help.py:191 ../../create_localized_help.py:198 ../../create_localized_help.py:199
+#: ../../create_localized_help.py:191 ../../create_localized_help.py:198 ../../create_localized_help.py:199 ../../create_localized_help.py:242
 msgid "Contributors"
 msgstr ""
 
-#: ../../create_localized_help.py:192 ../../create_localized_help.py:199 ../../create_localized_help.py:200
+#: ../../create_localized_help.py:192 ../../create_localized_help.py:199 ../../create_localized_help.py:200 ../../create_localized_help.py:243
 msgid "Changelog"
 msgstr ""
 
@@ -75,36 +91,36 @@ msgstr ""
 
 #. TO TRANSLATORS: Full sentence:
 #. "Help for <xlet_name>"
-#: ../../create_localized_help.py:194 ../../create_localized_help.py:201 ../../create_localized_help.py:202 ../../create_localized_help.py:208 ../../create_localized_help.py:209
+#: ../../create_localized_help.py:194 ../../create_localized_help.py:201 ../../create_localized_help.py:202 ../../create_localized_help.py:208 ../../create_localized_help.py:209 ../../create_localized_help.py:244 ../../create_localized_help.py:251
 #, python-format
 msgid "Help for %s"
 msgstr ""
 
-#: ../../create_localized_help.py:202 ../../create_localized_help.py:209 ../../create_localized_help.py:210
+#: ../../create_localized_help.py:202 ../../create_localized_help.py:209 ../../create_localized_help.py:210 ../../create_localized_help.py:252
 msgid "IMPORTANT!!!"
 msgstr ""
 
-#: ../../create_localized_help.py:203 ../../create_localized_help.py:210 ../../create_localized_help.py:211
+#: ../../create_localized_help.py:203 ../../create_localized_help.py:210 ../../create_localized_help.py:211 ../../create_localized_help.py:253
 msgid "Never delete any of the files found inside this xlet folder. It might break this xlet functionality."
 msgstr ""
 
-#: ../../create_localized_help.py:204 ../../create_localized_help.py:211 ../../create_localized_help.py:212
+#: ../../create_localized_help.py:204 ../../create_localized_help.py:211 ../../create_localized_help.py:212 ../../create_localized_help.py:254
 msgid "Bug reports, feature requests and contributions should be done on this xlet's repository linked next."
 msgstr ""
 
-#: ../../create_localized_help.py:210 ../../create_localized_help.py:217 ../../create_localized_help.py:218
+#: ../../create_localized_help.py:210 ../../create_localized_help.py:217 ../../create_localized_help.py:218 ../../create_localized_help.py:260
 msgid "Applets/Desklets/Extensions (a.k.a. xlets) localization"
 msgstr ""
 
-#: ../../create_localized_help.py:211 ../../create_localized_help.py:218 ../../create_localized_help.py:219
+#: ../../create_localized_help.py:211 ../../create_localized_help.py:218 ../../create_localized_help.py:219 ../../create_localized_help.py:261
 msgid "If this xlet was installed from Cinnamon Settings, all of this xlet's localizations were automatically installed."
 msgstr ""
 
 #. TO TRANSLATORS: MARKDOWN string. Respect formatting.
-#: ../../create_localized_help.py:213 ../../create_localized_help.py:220 ../../create_localized_help.py:221
+#: ../../create_localized_help.py:213 ../../create_localized_help.py:220 ../../create_localized_help.py:221 ../../create_localized_help.py:263
 msgid "If this xlet was installed manually and not trough Cinnamon Settings, localizations can be installed by executing the script called **localizations.sh** from a terminal opened inside the xlet's folder."
 msgstr ""
 
-#: ../../create_localized_help.py:214 ../../create_localized_help.py:221 ../../create_localized_help.py:222
+#: ../../create_localized_help.py:214 ../../create_localized_help.py:221 ../../create_localized_help.py:222 ../../create_localized_help.py:264
 msgid "If this xlet has no locale available for your language, you could create it by following the following instructions."
 msgstr ""

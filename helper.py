@@ -29,6 +29,8 @@ class Main:
                             dest="generate_trans_stats", default=False)
         parser.add_argument("-u", "--update-pot-files", action="store_true",
                             dest="update_pot_files", default=False)
+        parser.add_argument("-q", "--update-spanish-localizations", action="store_true",
+                            dest="update_spanish_localizations", default=False)
         parser.add_argument("-c", "--create-changelogs", action="store_true",
                             dest="create_changelogs", default=False)
         parser.add_argument("-x", "--check-executable", action="store_true",
@@ -94,9 +96,13 @@ class Main:
 
         # Tested OK
         # Order = 4
-        # Needs meta file.
         if options.generate_trans_stats:
             xlets_helper.generate_trans_stats()
+
+        # Tested OK
+        # Order = 5
+        if options.update_spanish_localizations:
+            xlets_helper.update_spanish_localizations()
 
         # Tested OK
         # Order = Doesn't matter.
