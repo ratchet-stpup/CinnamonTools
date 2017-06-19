@@ -4,6 +4,23 @@
 
 ***
 
+- **Date:** Mon, 19 Jun 2017 06:42:36 -0300
+- **Commit:** [3e85bdd](https://github.com/Odyseus/CinnamonTools/commit/3e85bdd)
+- **Author:** Odyseus
+
+```
+Simple ToDo List applet
+- Removed character limit from the **New task...** entry and added text wrapping and multilines
+capabilities to it. Closes #124
+- Improved the display of the tasks counter on the applet label. As it was (showing only the total
+amount of tasks), wasn't very useful. Now it displays the amount of completed tasks and the total
+amount of tasks. Closes #123
+- Added tooltip to the applet.
+
+```
+
+***
+
 - **Date:** Tue, 6 Jun 2017 22:30:27 -0300
 - **Commit:** [e86b5f9](https://github.com/Odyseus/CinnamonTools/commit/e86b5f9)
 - **Author:** Odyseus
