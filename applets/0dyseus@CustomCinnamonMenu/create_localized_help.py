@@ -122,6 +122,7 @@ def get_content_base(for_readme=False):
         "## Menu *emulating* the Whisker menu (XFCE)" if for_readme else "",
         "",
         "![Whisker menu](https://odyseus.github.io/CinnamonTools/lib/img/CustomCinnamonMenu-001.png \"Whisker menu\")" if for_readme else "",
+        ""
     ])
 
 
@@ -168,6 +169,7 @@ def get_content_extra():
         "- %s" % _("[[Ctrl]] + [[Enter]]: Open a terminal and run application from there. This doesn't affect the custom launchers."),
         # TO TRANSLATORS: MARKDOWN string. Respect formatting.
         "- %s" % _("[[Ctrl]] + [[Shift]] + [[Enter]]: Open a terminal and run application from there, but the application is executed as root. This doesn't affect the custom launchers."),
+        "",
         # TO TRANSLATORS: MARKDOWN string. Respect formatting.
         "## %s" % _("Applications left click extra actions"),
         _("When left clicking an application on the menu, certain key modifiers can be pressed to execute an application in a special way."),
@@ -177,11 +179,13 @@ def get_content_extra():
         "- %s" % _("[[Ctrl]] + **Left click**: Open a terminal and run application from there."),
         # TO TRANSLATORS: MARKDOWN string. Respect formatting.
         "- %s" % _("[[Ctrl]] + [[Shift]] + **Left click**: Open a terminal and run application from there, but the application is executed as root."),
+        "",
         "## %s" % _("About \"Run from terminal\" options"),
         _("These options are meant for debugging purposes (to see the console output after opening/closing a program to detect possible errors, for example). Instead of opening a terminal to launch a program of which one might not know its command, one can do it directly from the menu and in just one step. Options to run from a terminal an application listed on the menu can be found on the applications context menu and can be hidden/shown from this applet settings window."),
         "",
         # TO TRANSLATORS: MARKDOWN string. Respect formatting.
         _("By default, these options will use the system's default terminal emulator (**x-terminal-emulator** on Debian based distributions). Any other terminal emulator can be specified inside the settings window of this applet, as long as said emulator has support for the **-e** argument. I did my tests with **gnome-terminal**, **xterm** and **terminator**. Additional arguments could be passed to the terminal emulator, but it's not supported by me."),
+        "",
         "## %s" % _("Favorites handling"),
         # TO TRANSLATORS: MARKDOWN string. Respect formatting.
         "- %s" % _("If the favorites box is **displayed**, favorites can be added/removed from the context menu for applications and by dragging and dropping applications to/from the favorites box."),
@@ -192,6 +196,7 @@ def get_content_extra():
         "- %s" % _("If the favorites box is **hidden** and the favorites category is enabled, favorites can be added/removed from the context menu for applications and by dragging and dropping applications to the favorites category. Its simple, if a favorite is dragged into the favorites category, the favorite will be removed. If what you drag into the favorites category is a non bookmarked application, then that application will be added to the favorites."),
         # TO TRANSLATORS: MARKDOWN string. Respect formatting.
         "    " + _("**Note:** The favorites category will update its content after changing to another category and going back to the favorites category."),
+        "",
         "## %s" % _("Troubleshooting/extra information"),
         "1. " + _("Run from terminal."),
         # TO TRANSLATORS: MARKDOWN string. Respect formatting.

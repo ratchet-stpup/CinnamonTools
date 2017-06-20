@@ -124,6 +124,7 @@ def get_content_extra():
         "### %s" % _("When the focus is on the **New task...** entry"),
         # TO TRANSLATORS: MARKDOWN string. Respect formatting.
         "- " + _("[[Ctrl]] + [[Spacebar]]: Toggles the visibility of the tasks list options menu."),
+        "",
         "## %s" % _("Known issues"),
         # TO TRANSLATORS: MARKDOWN string. Respect formatting.
         "- " + _("**Hovering over items inside the menu doesn't highlight menu items nor sub menus:** This is actually a desired feature. Allowing the items to highlight on mouse hover would cause the entries to loose focus, resulting in the impossibility to keep typing text inside them and constantly forcing us to move the mouse cursor to regain focus."),

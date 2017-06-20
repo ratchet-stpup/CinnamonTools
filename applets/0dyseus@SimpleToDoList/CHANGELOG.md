@@ -4,6 +4,18 @@
 
 ***
 
+- **Date:** Tue, 20 Jun 2017 01:56:32 -0300
+- **Commit:** [4cd3c47](https://github.com/Odyseus/CinnamonTools/commit/4cd3c47)
+- **Author:** Odyseus
+
+```
+Simple ToDo List applet
+- Corrected a formatting issue in the help file.
+
+```
+
+***
+
 - **Date:** Mon, 19 Jun 2017 06:42:36 -0300
 - **Commit:** [3e85bdd](https://github.com/Odyseus/CinnamonTools/commit/3e85bdd)
 - **Author:** Odyseus

@@ -154,8 +154,10 @@ def get_content_extra():
         # TO TRANSLATORS: MARKDOWN string. Respect formatting.
         "- %s" % _("**Fourth translation mechanism (Hotkey #2):** Two hotkeys can be configured to perform a translation and a forced translation."),
         _("All translations are stored into the translation history. If a string of text was already translated in the past, the popup will display that stored translated text without making use of the provider's translation service."),
+        "",
         "## %s" % _("About translation history"),
         _("I created the translation history mechanism mainly to avoid the abuse of the translation services."),
+        "",
         "- %s" % _("If the Google Translate service is \"abused\", Google may block temporarily your IP. Or what is worse, they could change the translation mechanism making this applet useless and forcing me to update its code."),
         "- %s" % _("If the Yandex Translate service is \"abused\", you are \"wasting\" your API keys quota and they will be blocked (temporarily or permanently)."),
         _("In the context menu of this applet is an item that can open the folder were the translation history file is stored. From there, the translation history file can be backed up or deleted."),
@@ -163,6 +165,7 @@ def get_content_extra():
         "**%s**" % _("NEVER edit the translation history file manually!!!"),
         "",
         "**%s**" % _("If the translation history file is deleted/renamed/moved, Cinnamon needs to be restarted."),
+        "",
         "## %s" % _("How to get Yandex translator API keys"),
         "- %s" % _("Visit one of the following links and register a Yandex account (or use one of the available social services)."),
         # TO TRANSLATORS: URL pointing to website in English

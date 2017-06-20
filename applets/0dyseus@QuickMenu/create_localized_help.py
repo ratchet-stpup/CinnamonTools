@@ -88,6 +88,7 @@ def get_content_base(for_readme=False):
         # TO TRANSLATORS: MARKDOWN string. Respect formatting.
         "- %s" % _("The menu can be kept open while activating menu items by pressing [[Ctrl]] + **Left click** or with **Middle click**."),
         "- %s" % _("This applet can create menu and sub-menu items even from symbolic links found inside the main folder."),
+        "",
         "## %s" % _("Settings window") if for_readme else "",
         "",
         "![Settings window](https://odyseus.github.io/CinnamonTools/lib/img/QuickMenu-001.png \"Settings window\")" if for_readme else "",
@@ -107,6 +108,7 @@ def get_content_extra():
         # TO TRANSLATORS: MARKDOWN string. Respect formatting.
         "- %s" % _(
             "The menu can be kept open while activating menu items by pressing [[Ctrl]] + **Left click** or with **Middle click**."),
+        "",
         "## %s" % _("How to set a different icon for each sub-menu"),
         "",
         "- %s" %

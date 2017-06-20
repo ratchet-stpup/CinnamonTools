@@ -103,6 +103,7 @@ def get_content_extra():
         # TO TRANSLATORS: MARKDOWN string. Respect formatting.
         _("Some tweaks have warnings, dependencies, limitations and or known issues that must be read and understood before a tweak is enabled. No worries, nothing *fatal* could ever happen."),
         "</span>",
+        "",
         "### %s" % _("Applets/Desklets tweaks"),
         "- **%s** %s" % (_("Ask for confirmation on applet/desklet removal:"), _(
             "Instead of directly remove the applet/desklet from the context menus, it will ask for confirmation. This option doesn't affect the removal of applets/desklets from the Applets/Desklets manager in Cinnamon settings (there will be no confirmation).")),
@@ -179,6 +180,7 @@ def get_content_extra():
         "**%s** %s" % (_("Note:"),
                        # TO TRANSLATORS: MARKDOWN string. Respect formatting.
                        _("If the application that you want to select doesn't show up on the application chooser dialog, read the section on this help file called **Applications not showing up on the applications chooser dialogs**.")),
+        "",
         "### %s" % _("Windows decorations removal"),
         # TO TRANSLATORS: MARKDOWN string. Respect formatting.
         _("Tweak based on the extension called [Cinnamon Maximus](https://cinnamon-spices.linuxmint.com/extensions/view/29) by [Fatih Mete](https://github.com/fatihmete) with some options from the gnome-shell extension called [Maximus NG](https://github.com/luispabon/maximus-gnome-shell) by [Luis Pabon](https://github.com/luispabon). This tweak allows to remove the windows decorations from maximized/half-maximized/tiled windows."),
@@ -186,9 +188,11 @@ def get_content_extra():
         "**%s** %s" % (_("Note:"),
                        # TO TRANSLATORS: MARKDOWN string. Respect formatting.
                        _("If the application that you want to select doesn't show up on the application chooser dialog, read the section on this help file called **Applications not showing up on the applications chooser dialogs**.")),
+        "",
         "#### %s" % _("Dependencies"),
         # TO TRANSLATORS: MARKDOWN string. Respect formatting.
         _("This tweak requires two commands available on the system (**xprop** and **xwininfo**) for it to work."),
+        "",
         "- %s %s" % (_("Debian based distributions:"),
                      # TO TRANSLATORS: MARKDOWN string. Respect formatting.
                      _("These commands are provided by the **x11-utils** package. Linux Mint already has this package installed.")),
@@ -220,6 +224,7 @@ def get_content_extra():
         "- %s" % _("Next you will find examples on how to edit the Metacity themes found on the **Mint-X** and **Mint-Y** themes."),
         "",
         "##### %s" % _("For the Metacity theme found on the Mint-X theme"),
+        "",
         """
 ```xml
 <frame_geometry name="maximized" has_title="false" title_scale="medium" parent="normal" rounded_top_left="false" rounded_top_right="false">
@@ -235,6 +240,7 @@ def get_content_extra():
 """,
         "",
         "##### %s" % _("For the Metacity theme found on Mint-Y theme"),
+        "",
         """
 ```xml
 <frame_geometry name="max" has_title="false" title_scale="medium" parent="normal" rounded_top_left="false" rounded_top_right="false">
@@ -253,6 +259,7 @@ def get_content_extra():
         "",
         "## %s" % _("General extension issues"),
         "### %s" % _("Applications not showing up on the applications chooser dialogs"),
+        "",
         # TO TRANSLATORS: MARKDOWN string. Respect formatting.
         _("The application chooser dialog used by the settings window of this extension lists only those applications that have available .desktop files. Simply because these applications are the only ones that any of the tweaks that require an application ID (**Auto move windows** and **Windows decorations removal**) will recognize and handle."),
         "",

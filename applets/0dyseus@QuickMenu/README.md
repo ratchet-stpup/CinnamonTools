@@ -47,6 +47,7 @@ I mainly created this applet to replicate the functionality of the XFCE plugin c
 - Menu items to .desktop files will be displayed with the icon and name declared inside the .desktop files themselves.
 - The menu can be kept open while activating menu items by pressing [[Ctrl]] + **Left click** or with **Middle click**.
 - This applet can create menu and sub-menu items even from symbolic links found inside the main folder.
+
 ## Settings window
 
 ![Settings window](https://odyseus.github.io/CinnamonTools/lib/img/QuickMenu-001.png "Settings window")
