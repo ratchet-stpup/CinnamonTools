@@ -171,9 +171,9 @@ OPTION = """<!-- {endonym} --><option {selected}data-title="{title}" data-xlet-h
 
 # The xlet README "header" doesn't need to be localized.
 README_HEADER = """<h2 style="color:red;">Bug reports, feature requests and contributions</h2>
-<span style="color:red;">
+<p style="color:red;">
 Bug reports, feature requests and contributions should be done on this xlet's repository linked next.
-</span>
+</p>
 
 <table><tbody>
 <tr><td><img src="https://odyseus.github.io/CinnamonTools/lib/img/issues.svg"></td>
@@ -192,8 +192,16 @@ Contributors/Mentions
 <td><a href="https://odyseus.github.io/CinnamonTools/help_files/{xlet_uuid}.html#xlet-changelog"><strong style="font-size: 1.2em">
 Full change log
 </strong></a></td></tr>
+{poeditor_block}
 </tbody></table>
 """
+
+README_POEDITOR_BLOCK = """<tr><td><img src="https://odyseus.github.io/CinnamonTools/lib/img/translate.svg"></td>
+<td><a href="{poeditor_url}"><strong style="font-size: 1.2em">
+Translate {xlet_name}
+</strong></a></td></tr>
+"""
+
 
 README_DOC = """{readme_header}
 {readme_compatibility}
@@ -256,6 +264,7 @@ class HTMLTemplates():
         self.boxed_container = BOXED_CONTAINER
         self.readme_doc = README_DOC
         self.readme_header = README_HEADER
+        self.readme_poeditor_block = README_POEDITOR_BLOCK
         self.bt_panel = BOOTSTRAP_PANEL
         self.bt_alert = BOOTSTRAP_ALERT
 
@@ -435,7 +444,7 @@ def get_compatibility(xlet_meta=None, for_readme=False):
                 data += span.format("warning", version)
 
     if for_readme:
-        data += "\n<span style=\"color:red;font-weight:bold;\">Do not install on any other version of Cinnamon.</span>\n"
+        data += "\n<span style=\"color:red;\"><strong>Do not install on any other version of Cinnamon.</strong></span>\n"
 
     return data
 
@@ -443,7 +452,13 @@ def get_compatibility(xlet_meta=None, for_readme=False):
 def create_readme(xlet_dir=None, xlet_meta=None, content_base=""):
     readme_path = os.path.join(xlet_dir, "README.md")
     readme_doc = HTMLTemplates().readme_doc.format(
-        readme_header=HTMLTemplates().readme_header.format(xlet_uuid=xlet_meta["uuid"]),
+        readme_header=HTMLTemplates().readme_header.format(
+            xlet_uuid=xlet_meta["uuid"],
+            poeditor_block=HTMLTemplates().readme_poeditor_block.format(
+                poeditor_url=xlet_meta["poeditor-url"] if xlet_meta["poeditor-url"] else "",
+                xlet_name=xlet_meta["name"]
+            ) if xlet_meta["uuid"] == "0dyseus@MultiTranslatorExtension" else ""
+        ),
         readme_compatibility=get_compatibility(xlet_meta=xlet_meta, for_readme=True),
         readme_content=content_base,
     )

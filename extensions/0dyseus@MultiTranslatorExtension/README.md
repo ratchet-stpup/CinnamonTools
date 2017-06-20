@@ -1,7 +1,7 @@
 <h2 style="color:red;">Bug reports, feature requests and contributions</h2>
-<span style="color:red;">
+<p style="color:red;">
 Bug reports, feature requests and contributions should be done on this xlet's repository linked next.
-</span>
+</p>
 
 <table><tbody>
 <tr><td><img src="https://odyseus.github.io/CinnamonTools/lib/img/issues.svg"></td>
@@ -20,6 +20,11 @@ Contributors/Mentions
 <td><a href="https://odyseus.github.io/CinnamonTools/help_files/0dyseus@MultiTranslatorExtension.html#xlet-changelog"><strong style="font-size: 1.2em">
 Full change log
 </strong></a></td></tr>
+<tr><td><img src="https://odyseus.github.io/CinnamonTools/lib/img/translate.svg"></td>
+<td><a href="https://poeditor.com/join/project/GkOE0exZCp"><strong style="font-size: 1.2em">
+Translate Multi Translator
+</strong></a></td></tr>
+
 </tbody></table>
 
 ## Compatibility
@@ -29,7 +34,7 @@ Full change log
 ![Cinnamon 3.2](https://odyseus.github.io/CinnamonTools/lib/badges/cinn-3.2.svg)
 ![Cinnamon 3.4](https://odyseus.github.io/CinnamonTools/lib/badges/cinn-3.4.svg)
 
-<span style="color:red;font-weight:bold;">Do not install on any other version of Cinnamon.</span>
+<span style="color:red;"><strong>Do not install on any other version of Cinnamon.</strong></span>
 
 ## Description
 
