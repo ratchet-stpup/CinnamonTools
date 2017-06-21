@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2017-06-18 23:49-0300\n"
+"POT-Creation-Date: 2017-06-21 03:32-0300\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Odyseus\n"
 "Language-Team: \n"
@@ -12,41 +12,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 1.8.7.1\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-
-#. 0dyseus@WindowDemandsAttentionBehavior->settings-schema.json->pref_activation_mode->options
-msgid "Force windows demanding attention activation."
-msgstr "Forzar la activación de ventanas que demandan atención."
-
-#. 0dyseus@WindowDemandsAttentionBehavior->settings-schema.json->pref_activation_mode->options
-msgid "Disabled. System behavior."
-msgstr "Desactivado. Comportamiento del sistema."
-
-#. 0dyseus@WindowDemandsAttentionBehavior->settings-schema.json->pref_activation_mode->options
-msgid "Activate windows demanding attention with a shortcut."
-msgstr "Activar ventanas que demandan atención con un atajo de teclado."
-
-#. 0dyseus@WindowDemandsAttentionBehavior->settings-schema.json->pref_activation_mode->description
-msgid "Choose activation mode"
-msgstr "Seleccionar modo de activación"
-
-#. 0dyseus@WindowDemandsAttentionBehavior->settings-schema.json->pref_keyboard_shortcut->description
-msgid "Set the keybinding to activate windows demanding attention: "
-msgstr ""
-"Establecer un atajo de teclado para activar ventanas que exigen atención: "
-
-#. 0dyseus@WindowDemandsAttentionBehavior->metadata.json->contributors
-msgid "See this xlet help file."
-msgstr "Ver el archivo de ayuda de este xlet."
-
-#. 0dyseus@WindowDemandsAttentionBehavior->metadata.json->description
-msgid "Activate demanding attention window with a keyboard shortcut or forced."
-msgstr ""
-"Activar ventanas que demandan atención con un atajo de teclado o "
-"forzosamente."
-
-#. 0dyseus@WindowDemandsAttentionBehavior->metadata.json->name
-msgid "Window demands attention behavior"
-msgstr "Comportamiento de ventanas que demandan atención"
 
 #: ../../create_localized_help.py:72
 msgid "Description"
@@ -69,19 +34,15 @@ msgstr ""
 "obliga a activarse o se puede asignar un atajo de teclado para activar "
 "ventanas bajo demanda."
 
-#: ../../create_localized_help.py:90 ../../create_localized_help.py:96
-#: ../../create_localized_help.py:125 ../../create_localized_help.py:153
-msgid "The following two sections are available only in English."
-msgstr "Las siguientes dos secciones están disponibles sólo en Inglés."
-
 #. TO TRANSLATORS: This is a placeholder.
 #. Here goes your language name in your own language (a.k.a. endonym).
-#: ../../create_localized_help.py:115 ../../create_localized_help.py:119
-#: ../../create_localized_help.py:121 ../../create_localized_help.py:147
-#: ../../create_localized_help.py:187 ../../create_localized_help.py:194
-#: ../../create_localized_help.py:195 ../../create_localized_help.py:238
+#: ../../create_localized_help.py:147 ../../create_localized_help.py:238
 msgid "language-name"
 msgstr "Español"
+
+#: ../../create_localized_help.py:153
+msgid "The following two sections are available only in English."
+msgstr "Las siguientes dos secciones están disponibles sólo en Inglés."
 
 #: ../../create_localized_help.py:157
 msgid "Do not install on any other version of Cinnamon."
@@ -91,43 +52,30 @@ msgstr "No instalar en ninguna otra versión de Cinnamon."
 msgid "Compatibility"
 msgstr "Copatibilidad"
 
-#: ../../create_localized_help.py:190 ../../create_localized_help.py:197
-#: ../../create_localized_help.py:198 ../../create_localized_help.py:241
+#: ../../create_localized_help.py:241
 msgid "Help"
 msgstr "Ayuda"
 
-#: ../../create_localized_help.py:191 ../../create_localized_help.py:198
-#: ../../create_localized_help.py:199 ../../create_localized_help.py:242
+#: ../../create_localized_help.py:242
 msgid "Contributors"
 msgstr "Colaboradores"
 
-#: ../../create_localized_help.py:192 ../../create_localized_help.py:199
-#: ../../create_localized_help.py:200 ../../create_localized_help.py:243
+#: ../../create_localized_help.py:243
 msgid "Changelog"
 msgstr "Registro de cambios"
 
-#: ../../create_localized_help.py:193 ../../create_localized_help.py:200
-#: ../../create_localized_help.py:201
-msgid "Choose language"
-msgstr "Elegir idioma"
-
 #. TO TRANSLATORS: Full sentence:
 #. "Help for <xlet_name>"
-#: ../../create_localized_help.py:194 ../../create_localized_help.py:201
-#: ../../create_localized_help.py:202 ../../create_localized_help.py:208
-#: ../../create_localized_help.py:209 ../../create_localized_help.py:244
-#: ../../create_localized_help.py:251
+#: ../../create_localized_help.py:244 ../../create_localized_help.py:251
 #, python-format
 msgid "Help for %s"
 msgstr "Ayuda para %s"
 
-#: ../../create_localized_help.py:202 ../../create_localized_help.py:209
-#: ../../create_localized_help.py:210 ../../create_localized_help.py:252
+#: ../../create_localized_help.py:252
 msgid "IMPORTANT!!!"
 msgstr "¡IMPORTANTE!"
 
-#: ../../create_localized_help.py:203 ../../create_localized_help.py:210
-#: ../../create_localized_help.py:211 ../../create_localized_help.py:253
+#: ../../create_localized_help.py:253
 msgid ""
 "Never delete any of the files found inside this xlet folder. It might break "
 "this xlet functionality."
@@ -135,8 +83,7 @@ msgstr ""
 "Jamás borrar ninguno de los archivos encontrados dentro de la carpeta de "
 "este xlet. Podría romper la funcionalidad del xlet."
 
-#: ../../create_localized_help.py:204 ../../create_localized_help.py:211
-#: ../../create_localized_help.py:212 ../../create_localized_help.py:254
+#: ../../create_localized_help.py:254
 msgid ""
 "Bug reports, feature requests and contributions should be done on this "
 "xlet's repository linked next."
@@ -144,14 +91,12 @@ msgstr ""
 "Los reportes de fallos, peticiones de características y contribuciones deben "
 "hacerse en el repositorio de este xlet vinculado a continuación."
 
-#: ../../create_localized_help.py:210 ../../create_localized_help.py:217
-#: ../../create_localized_help.py:218 ../../create_localized_help.py:260
+#: ../../create_localized_help.py:260
 msgid "Applets/Desklets/Extensions (a.k.a. xlets) localization"
 msgstr ""
 "Localización de applets/desklets/extensiones (también conocidos como xlets)"
 
-#: ../../create_localized_help.py:211 ../../create_localized_help.py:218
-#: ../../create_localized_help.py:219 ../../create_localized_help.py:261
+#: ../../create_localized_help.py:261
 msgid ""
 "If this xlet was installed from Cinnamon Settings, all of this xlet's "
 "localizations were automatically installed."
@@ -160,8 +105,7 @@ msgstr ""
 "localizaciones de este xlet se instalaron automáticamente."
 
 #. TO TRANSLATORS: MARKDOWN string. Respect formatting.
-#: ../../create_localized_help.py:213 ../../create_localized_help.py:220
-#: ../../create_localized_help.py:221 ../../create_localized_help.py:263
+#: ../../create_localized_help.py:263
 msgid ""
 "If this xlet was installed manually and not trough Cinnamon Settings, "
 "localizations can be installed by executing the script called "
@@ -172,14 +116,51 @@ msgstr ""
 "llamado **localizations.sh** desde una terminal abierta dentro de la carpeta "
 "del xlet."
 
-#: ../../create_localized_help.py:214 ../../create_localized_help.py:221
-#: ../../create_localized_help.py:222 ../../create_localized_help.py:264
+#: ../../create_localized_help.py:264
 msgid ""
 "If this xlet has no locale available for your language, you could create it "
 "by following the following instructions."
 msgstr ""
 "Si este xlet no está disponible en su idioma, la localización puede ser "
 "creada siguiendo las siguientes instrucciones."
+
+#. 0dyseus@WindowDemandsAttentionBehavior->metadata.json->contributors
+msgid "See this xlet help file."
+msgstr "Ver el archivo de ayuda de este xlet."
+
+#. 0dyseus@WindowDemandsAttentionBehavior->metadata.json->name
+msgid "Window demands attention behavior"
+msgstr "Comportamiento de ventanas que demandan atención"
+
+#. 0dyseus@WindowDemandsAttentionBehavior->metadata.json->description
+msgid "Activate demanding attention window with a keyboard shortcut or forced."
+msgstr ""
+"Activar ventanas que demandan atención con un atajo de teclado o "
+"forzosamente."
+
+#. 0dyseus@WindowDemandsAttentionBehavior->settings-schema.json->pref_activation_mode->options
+msgid "Activate windows demanding attention with a shortcut."
+msgstr "Activar ventanas que demandan atención con un atajo de teclado."
+
+#. 0dyseus@WindowDemandsAttentionBehavior->settings-schema.json->pref_activation_mode->options
+msgid "Disabled. System behavior."
+msgstr "Desactivado. Comportamiento del sistema."
+
+#. 0dyseus@WindowDemandsAttentionBehavior->settings-schema.json->pref_activation_mode->options
+msgid "Force windows demanding attention activation."
+msgstr "Forzar la activación de ventanas que demandan atención."
+
+#. 0dyseus@WindowDemandsAttentionBehavior->settings-schema.json->pref_activation_mode->description
+msgid "Choose activation mode"
+msgstr "Seleccionar modo de activación"
+
+#. 0dyseus@WindowDemandsAttentionBehavior->settings-schema.json->pref_keyboard_shortcut->description
+msgid "Set the keybinding to activate windows demanding attention: "
+msgstr ""
+"Establecer un atajo de teclado para activar ventanas que exigen atención: "
+
+#~ msgid "Choose language"
+#~ msgstr "Elegir idioma"
 
 #~ msgid "Read CONTRIBUTORS.md file inside this xlet folder."
 #~ msgstr "Leer el archivo CONTRIBUTORS.md dentro de la carpeta de este xlet."

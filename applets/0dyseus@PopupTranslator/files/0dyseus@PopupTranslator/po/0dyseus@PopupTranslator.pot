@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 0dyseus@PopupTranslator 1.06\n"
-"POT-Creation-Date: 2017-06-18 23:49-0300\n"
+"POT-Creation-Date: 2017-06-21 03:32-0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -153,143 +153,143 @@ msgstr ""
 msgid "All translations are stored into the translation history. If a string of text was already translated in the past, the popup will display that stored translated text without making use of the provider's translation service."
 msgstr ""
 
-#: ../../create_localized_help.py:157
+#: ../../create_localized_help.py:158
 msgid "About translation history"
 msgstr ""
 
-#: ../../create_localized_help.py:158
+#: ../../create_localized_help.py:159
 msgid "I created the translation history mechanism mainly to avoid the abuse of the translation services."
 msgstr ""
 
-#: ../../create_localized_help.py:159
+#: ../../create_localized_help.py:161
 msgid "If the Google Translate service is \"abused\", Google may block temporarily your IP. Or what is worse, they could change the translation mechanism making this applet useless and forcing me to update its code."
 msgstr ""
 
-#: ../../create_localized_help.py:160
+#: ../../create_localized_help.py:162
 msgid "If the Yandex Translate service is \"abused\", you are \"wasting\" your API keys quota and they will be blocked (temporarily or permanently)."
 msgstr ""
 
-#: ../../create_localized_help.py:161
+#: ../../create_localized_help.py:163
 msgid "In the context menu of this applet is an item that can open the folder were the translation history file is stored. From there, the translation history file can be backed up or deleted."
 msgstr ""
 
-#: ../../create_localized_help.py:163
+#: ../../create_localized_help.py:165
 msgid "NEVER edit the translation history file manually!!!"
 msgstr ""
 
-#: ../../create_localized_help.py:165
+#: ../../create_localized_help.py:167
 msgid "If the translation history file is deleted/renamed/moved, Cinnamon needs to be restarted."
 msgstr ""
 
-#: ../../create_localized_help.py:166
+#: ../../create_localized_help.py:169
 msgid "How to get Yandex translator API keys"
 msgstr ""
 
-#: ../../create_localized_help.py:167
+#: ../../create_localized_help.py:170
 msgid "Visit one of the following links and register a Yandex account (or use one of the available social services)."
 msgstr ""
 
 #. TO TRANSLATORS: URL pointing to website in English
-#: ../../create_localized_help.py:169
+#: ../../create_localized_help.py:172
 msgid "English:"
 msgstr ""
 
 #. TO TRANSLATORS: URL pointing to website in Russian
-#: ../../create_localized_help.py:171
+#: ../../create_localized_help.py:174
 msgid "Russian:"
 msgstr ""
 
 #. TO TRANSLATORS: MARKDOWN string. Respect formatting.
-#: ../../create_localized_help.py:173
+#: ../../create_localized_help.py:176
 msgid "Once you successfully finish creating your Yandex account, you can visit the link provided several times to create several API keys. **DO NOT ABUSE!!!**"
 msgstr ""
 
-#: ../../create_localized_help.py:174
+#: ../../create_localized_help.py:177
 msgid "Once you have several API keys, you can add them to Popup Translator's settings window (one API key per line)."
 msgstr ""
 
-#: ../../create_localized_help.py:176
+#: ../../create_localized_help.py:179
 msgid "Important notes about Yandex API keys"
 msgstr ""
 
-#: ../../create_localized_help.py:177
+#: ../../create_localized_help.py:180
 msgid "The API keys will be stored into a preference. Keep your API keys backed up in case you reset Popup Translator's preferences."
 msgstr ""
 
 #. TO TRANSLATORS: MARKDOWN string. Respect formatting.
-#: ../../create_localized_help.py:179
+#: ../../create_localized_help.py:182
 msgid "**NEVER make your API keys public!!!** The whole purpose of going to the trouble of getting your own API keys is that the only one \"consuming their limits\" is you and nobody else."
 msgstr ""
 
 #. TO TRANSLATORS: MARKDOWN string. Respect formatting.
-#: ../../create_localized_help.py:181
+#: ../../create_localized_help.py:184
 msgid "With each Yandex translator API key you can translate **UP TO** 1.000.000 (1 million) characters per day **BUT NOT MORE** than 10.000.000 (10 millions) per month."
 msgstr ""
 
 #. TO TRANSLATORS: This is a placeholder.
 #. Here goes your language name in your own language (a.k.a. endonym).
-#: ../../create_localized_help.py:242 ../../create_localized_help.py:333
+#: ../../create_localized_help.py:245 ../../create_localized_help.py:336
 msgid "language-name"
 msgstr ""
 
-#: ../../create_localized_help.py:248
+#: ../../create_localized_help.py:251
 msgid "The following two sections are available only in English."
 msgstr ""
 
-#: ../../create_localized_help.py:252
+#: ../../create_localized_help.py:255
 msgid "Do not install on any other version of Cinnamon."
 msgstr ""
 
-#: ../../create_localized_help.py:258
+#: ../../create_localized_help.py:261
 msgid "Compatibility"
 msgstr ""
 
-#: ../../create_localized_help.py:336 applet.js:348
+#: ../../create_localized_help.py:339 applet.js:348
 msgid "Help"
 msgstr ""
 
-#: ../../create_localized_help.py:337
+#: ../../create_localized_help.py:340
 msgid "Contributors"
 msgstr ""
 
-#: ../../create_localized_help.py:338
+#: ../../create_localized_help.py:341
 msgid "Changelog"
 msgstr ""
 
 #. TO TRANSLATORS: Full sentence:
 #. "Help for <xlet_name>"
-#: ../../create_localized_help.py:339 ../../create_localized_help.py:346
+#: ../../create_localized_help.py:342 ../../create_localized_help.py:349
 #, python-format
 msgid "Help for %s"
 msgstr ""
 
-#: ../../create_localized_help.py:347
+#: ../../create_localized_help.py:350
 msgid "IMPORTANT!!!"
 msgstr ""
 
-#: ../../create_localized_help.py:348
+#: ../../create_localized_help.py:351
 msgid "Never delete any of the files found inside this xlet folder. It might break this xlet functionality."
 msgstr ""
 
 #. 0dyseus@PopupTranslator->metadata.json->comments
-#: ../../create_localized_help.py:349
+#: ../../create_localized_help.py:352
 msgid "Bug reports, feature requests and contributions should be done on this xlet's repository linked next."
 msgstr ""
 
-#: ../../create_localized_help.py:355
+#: ../../create_localized_help.py:358
 msgid "Applets/Desklets/Extensions (a.k.a. xlets) localization"
 msgstr ""
 
-#: ../../create_localized_help.py:356
+#: ../../create_localized_help.py:359
 msgid "If this xlet was installed from Cinnamon Settings, all of this xlet's localizations were automatically installed."
 msgstr ""
 
 #. TO TRANSLATORS: MARKDOWN string. Respect formatting.
-#: ../../create_localized_help.py:358
+#: ../../create_localized_help.py:361
 msgid "If this xlet was installed manually and not trough Cinnamon Settings, localizations can be installed by executing the script called **localizations.sh** from a terminal opened inside the xlet's folder."
 msgstr ""
 
-#: ../../create_localized_help.py:359
+#: ../../create_localized_help.py:362
 msgid "If this xlet has no locale available for your language, you could create it by following the following instructions."
 msgstr ""
 
@@ -359,10 +359,10 @@ msgstr ""
 msgid "Fourth translation mechanism (Hotkey #2)"
 msgstr ""
 
-#. 0dyseus@PopupTranslator->settings-schema.json->pref_service_provider_4->description
+#. 0dyseus@PopupTranslator->settings-schema.json->pref_service_provider_1->description
 #. 0dyseus@PopupTranslator->settings-schema.json->pref_service_provider_3->description
 #. 0dyseus@PopupTranslator->settings-schema.json->pref_service_provider_2->description
-#. 0dyseus@PopupTranslator->settings-schema.json->pref_service_provider_1->description
+#. 0dyseus@PopupTranslator->settings-schema.json->pref_service_provider_4->description
 #: applet.js:173
 msgid "Service provider"
 msgstr ""
@@ -502,10 +502,6 @@ msgstr ""
 msgid "Unable to execute file/command '%s':"
 msgstr ""
 
-#. 0dyseus@PopupTranslator->metadata.json->contributors
-msgid "See this xlet help file."
-msgstr ""
-
 #. 0dyseus@PopupTranslator->metadata.json->description
 msgid "Simple translator applet that will allow to display any selected text from any application on a system in a popup."
 msgstr ""
@@ -514,77 +510,38 @@ msgstr ""
 msgid "Popup Translator"
 msgstr ""
 
-#. 0dyseus@PopupTranslator->settings-schema.json->pref_translate_key_forced_4->description
-#. 0dyseus@PopupTranslator->settings-schema.json->pref_translate_key_forced_1->description
-#. 0dyseus@PopupTranslator->settings-schema.json->pref_translate_key_forced_3->description
-#. 0dyseus@PopupTranslator->settings-schema.json->pref_translate_key_forced_2->description
-msgid "Keyboard shortcut to perform a FORCED translation"
+#. 0dyseus@PopupTranslator->metadata.json->contributors
+msgid "See this xlet help file."
 msgstr ""
 
-#. 0dyseus@PopupTranslator->settings-schema.json->pref_translate_key_forced_4->tooltip
-#. 0dyseus@PopupTranslator->settings-schema.json->pref_translate_key_forced_1->tooltip
-#. 0dyseus@PopupTranslator->settings-schema.json->pref_translate_key_forced_3->tooltip
-#. 0dyseus@PopupTranslator->settings-schema.json->pref_translate_key_forced_2->tooltip
-msgid "Choose a keybinding to perform a FORCED translation. A \"forced translation\" forces the translation of any string stored on the translation history and overwrites the existing one."
+#. 0dyseus@PopupTranslator->settings-schema.json->pref_loggin_enabled->description
+msgid "Enable logging"
 msgstr ""
 
-#. 0dyseus@PopupTranslator->settings-schema.json->label5->description
-msgid "(*) This options are only useful for the applet developer"
+#. 0dyseus@PopupTranslator->settings-schema.json->pref_loggin_enabled->tooltip
+msgid "It enables the ability to log the output of several functions used by the applet."
 msgstr ""
 
-#. 0dyseus@PopupTranslator->settings-schema.json->pref_custom_label_for_applet->description
-msgid "Custom label"
+#. 0dyseus@PopupTranslator->settings-schema.json->pref_history_initial_window_height->description
+msgid "History window initial height"
 msgstr ""
 
-#. 0dyseus@PopupTranslator->settings-schema.json->pref_translate_key_3->description
-#. 0dyseus@PopupTranslator->settings-schema.json->pref_translate_key_4->description
-#. 0dyseus@PopupTranslator->settings-schema.json->pref_translate_key_1->description
-#. 0dyseus@PopupTranslator->settings-schema.json->pref_translate_key_2->description
-msgid "Keyboard shortcut to perform a translation"
-msgstr ""
-
-#. 0dyseus@PopupTranslator->settings-schema.json->pref_translate_key_3->tooltip
-#. 0dyseus@PopupTranslator->settings-schema.json->pref_translate_key_4->tooltip
-#. 0dyseus@PopupTranslator->settings-schema.json->pref_translate_key_1->tooltip
-#. 0dyseus@PopupTranslator->settings-schema.json->pref_translate_key_2->tooltip
-msgid "Choose a keybinding to perform a translation."
-msgstr ""
-
-#. 0dyseus@PopupTranslator->settings-schema.json->head5->description
-msgid "Debugging settings"
+#. 0dyseus@PopupTranslator->settings-schema.json->pref_history_initial_window_height->units
+#. 0dyseus@PopupTranslator->settings-schema.json->pref_history_initial_window_width->units
+#. 0dyseus@PopupTranslator->settings-schema.json->pref_history_width_to_trigger_word_wrap->units
+msgid "pixels"
 msgstr ""
 
 #. 0dyseus@PopupTranslator->settings-schema.json->head4->description
 msgid "Yandex translator settings"
 msgstr ""
 
-#. 0dyseus@PopupTranslator->settings-schema.json->head2->description
-msgid "Popup elements appearance"
+#. 0dyseus@PopupTranslator->settings-schema.json->head5->description
+msgid "Debugging settings"
 msgstr ""
 
-#. 0dyseus@PopupTranslator->settings-schema.json->pref_style_for_footer->description
-msgid "Footer style"
-msgstr ""
-
-#. 0dyseus@PopupTranslator->settings-schema.json->pref_service_provider_4->tooltip
-#. 0dyseus@PopupTranslator->settings-schema.json->pref_service_provider_3->tooltip
-#. 0dyseus@PopupTranslator->settings-schema.json->pref_service_provider_2->tooltip
-#. 0dyseus@PopupTranslator->settings-schema.json->pref_service_provider_1->tooltip
-msgid "Choose translation service provider."
-msgstr ""
-
-#. 0dyseus@PopupTranslator->settings-schema.json->pref_service_provider_4->options
-#. 0dyseus@PopupTranslator->settings-schema.json->pref_service_provider_3->options
-#. 0dyseus@PopupTranslator->settings-schema.json->pref_service_provider_2->options
-#. 0dyseus@PopupTranslator->settings-schema.json->pref_service_provider_1->options
-msgid "Yandex Translator"
-msgstr ""
-
-#. 0dyseus@PopupTranslator->settings-schema.json->pref_service_provider_4->options
-#. 0dyseus@PopupTranslator->settings-schema.json->pref_service_provider_3->options
-#. 0dyseus@PopupTranslator->settings-schema.json->pref_service_provider_2->options
-#. 0dyseus@PopupTranslator->settings-schema.json->pref_service_provider_1->options
-msgid "Google Translator"
+#. 0dyseus@PopupTranslator->settings-schema.json->pref_history_timestamp->description
+msgid "Timestamp for translation history entries"
 msgstr ""
 
 #. 0dyseus@PopupTranslator->settings-schema.json->pref_history_timestamp->options
@@ -599,8 +556,107 @@ msgstr ""
 msgid "Custom"
 msgstr ""
 
-#. 0dyseus@PopupTranslator->settings-schema.json->pref_history_timestamp->description
-msgid "Timestamp for translation history entries"
+#. 0dyseus@PopupTranslator->settings-schema.json->pref_translate_key_forced_1->description
+#. 0dyseus@PopupTranslator->settings-schema.json->pref_translate_key_forced_3->description
+#. 0dyseus@PopupTranslator->settings-schema.json->pref_translate_key_forced_4->description
+#. 0dyseus@PopupTranslator->settings-schema.json->pref_translate_key_forced_2->description
+msgid "Keyboard shortcut to perform a FORCED translation"
+msgstr ""
+
+#. 0dyseus@PopupTranslator->settings-schema.json->pref_translate_key_forced_1->tooltip
+#. 0dyseus@PopupTranslator->settings-schema.json->pref_translate_key_forced_3->tooltip
+#. 0dyseus@PopupTranslator->settings-schema.json->pref_translate_key_forced_4->tooltip
+#. 0dyseus@PopupTranslator->settings-schema.json->pref_translate_key_forced_2->tooltip
+msgid "Choose a keybinding to perform a FORCED translation. A \"forced translation\" forces the translation of any string stored on the translation history and overwrites the existing one."
+msgstr ""
+
+#. 0dyseus@PopupTranslator->settings-schema.json->pref_translate_key_2->description
+#. 0dyseus@PopupTranslator->settings-schema.json->pref_translate_key_3->description
+#. 0dyseus@PopupTranslator->settings-schema.json->pref_translate_key_1->description
+#. 0dyseus@PopupTranslator->settings-schema.json->pref_translate_key_4->description
+msgid "Keyboard shortcut to perform a translation"
+msgstr ""
+
+#. 0dyseus@PopupTranslator->settings-schema.json->pref_translate_key_2->tooltip
+#. 0dyseus@PopupTranslator->settings-schema.json->pref_translate_key_3->tooltip
+#. 0dyseus@PopupTranslator->settings-schema.json->pref_translate_key_1->tooltip
+#. 0dyseus@PopupTranslator->settings-schema.json->pref_translate_key_4->tooltip
+msgid "Choose a keybinding to perform a translation."
+msgstr ""
+
+#. 0dyseus@PopupTranslator->settings-schema.json->pref_history_initial_window_width->description
+msgid "History window initial width"
+msgstr ""
+
+#. 0dyseus@PopupTranslator->settings-schema.json->head2->description
+msgid "Popup elements appearance"
+msgstr ""
+
+#. 0dyseus@PopupTranslator->settings-schema.json->pref_custom_icon_for_applet->description
+msgid "Custom icon"
+msgstr ""
+
+#. 0dyseus@PopupTranslator->settings-schema.json->pref_loggin_save_history_indented->description
+msgid "Indent translation history data"
+msgstr ""
+
+#. 0dyseus@PopupTranslator->settings-schema.json->pref_loggin_save_history_indented->tooltip
+msgid "It allows to save the translation history data with indentation."
+msgstr ""
+
+#. 0dyseus@PopupTranslator->settings-schema.json->head3->description
+msgid "Translation history settings"
+msgstr ""
+
+#. 0dyseus@PopupTranslator->settings-schema.json->pref_yandex_api_keys->description
+msgid "API keys"
+msgstr ""
+
+#. 0dyseus@PopupTranslator->settings-schema.json->pref_yandex_api_keys->tooltip
+msgid ""
+"Enter one API key per line.\n"
+"Read the help file (Help item on this applet context menu) found inside this applet folder to know how to get free Yandex API keys."
+msgstr ""
+
+#. 0dyseus@PopupTranslator->settings-schema.json->pref_style_for_translated_text->description
+msgid "Translated text style"
+msgstr ""
+
+#. 0dyseus@PopupTranslator->settings-schema.json->head0->description
+msgid "Applet settings"
+msgstr ""
+
+#. 0dyseus@PopupTranslator->settings-schema.json->pref_custom_label_for_applet->description
+msgid "Custom label"
+msgstr ""
+
+#. 0dyseus@PopupTranslator->settings-schema.json->label5->description
+msgid "(*) This options are only useful for the applet developer"
+msgstr ""
+
+#. 0dyseus@PopupTranslator->settings-schema.json->pref_style_for_footer->description
+msgid "Footer style"
+msgstr ""
+
+#. 0dyseus@PopupTranslator->settings-schema.json->pref_service_provider_1->options
+#. 0dyseus@PopupTranslator->settings-schema.json->pref_service_provider_3->options
+#. 0dyseus@PopupTranslator->settings-schema.json->pref_service_provider_2->options
+#. 0dyseus@PopupTranslator->settings-schema.json->pref_service_provider_4->options
+msgid "Yandex Translator"
+msgstr ""
+
+#. 0dyseus@PopupTranslator->settings-schema.json->pref_service_provider_1->options
+#. 0dyseus@PopupTranslator->settings-schema.json->pref_service_provider_3->options
+#. 0dyseus@PopupTranslator->settings-schema.json->pref_service_provider_2->options
+#. 0dyseus@PopupTranslator->settings-schema.json->pref_service_provider_4->options
+msgid "Google Translator"
+msgstr ""
+
+#. 0dyseus@PopupTranslator->settings-schema.json->pref_service_provider_1->tooltip
+#. 0dyseus@PopupTranslator->settings-schema.json->pref_service_provider_3->tooltip
+#. 0dyseus@PopupTranslator->settings-schema.json->pref_service_provider_2->tooltip
+#. 0dyseus@PopupTranslator->settings-schema.json->pref_service_provider_4->tooltip
+msgid "Choose translation service provider."
 msgstr ""
 
 #. 0dyseus@PopupTranslator->settings-schema.json->pref_history_timestamp_custom->description
@@ -618,70 +674,14 @@ msgid ""
 "ss: seconds"
 msgstr ""
 
-#. 0dyseus@PopupTranslator->settings-schema.json->head0->description
-msgid "Applet settings"
+#. 0dyseus@PopupTranslator->settings-schema.json->pref_history_width_to_trigger_word_wrap->description
+msgid "Width to trigger word wrap"
 msgstr ""
 
 #. 0dyseus@PopupTranslator->settings-schema.json->pref_history_width_to_trigger_word_wrap->tooltip
 msgid "The \"Source text\" and \"Target text\" columns on the history window will wrap its text at the width defined by this setting."
 msgstr ""
 
-#. 0dyseus@PopupTranslator->settings-schema.json->pref_history_width_to_trigger_word_wrap->units
-#. 0dyseus@PopupTranslator->settings-schema.json->pref_history_initial_window_height->units
-#. 0dyseus@PopupTranslator->settings-schema.json->pref_history_initial_window_width->units
-msgid "pixels"
-msgstr ""
-
-#. 0dyseus@PopupTranslator->settings-schema.json->pref_history_width_to_trigger_word_wrap->description
-msgid "Width to trigger word wrap"
-msgstr ""
-
-#. 0dyseus@PopupTranslator->settings-schema.json->pref_yandex_api_keys->description
-msgid "API keys"
-msgstr ""
-
-#. 0dyseus@PopupTranslator->settings-schema.json->pref_yandex_api_keys->tooltip
-msgid ""
-"Enter one API key per line.\n"
-"Read the help file (Help item on this applet context menu) found inside this applet folder to know how to get free Yandex API keys."
-msgstr ""
-
-#. 0dyseus@PopupTranslator->settings-schema.json->pref_custom_icon_for_applet->description
-msgid "Custom icon"
-msgstr ""
-
 #. 0dyseus@PopupTranslator->settings-schema.json->pref_style_for_language_pair->description
 msgid "Language pair style"
-msgstr ""
-
-#. 0dyseus@PopupTranslator->settings-schema.json->pref_history_initial_window_height->description
-msgid "History window initial height"
-msgstr ""
-
-#. 0dyseus@PopupTranslator->settings-schema.json->pref_history_initial_window_width->description
-msgid "History window initial width"
-msgstr ""
-
-#. 0dyseus@PopupTranslator->settings-schema.json->pref_loggin_enabled->description
-msgid "Enable logging"
-msgstr ""
-
-#. 0dyseus@PopupTranslator->settings-schema.json->pref_loggin_enabled->tooltip
-msgid "It enables the ability to log the output of several functions used by the applet."
-msgstr ""
-
-#. 0dyseus@PopupTranslator->settings-schema.json->head3->description
-msgid "Translation history settings"
-msgstr ""
-
-#. 0dyseus@PopupTranslator->settings-schema.json->pref_style_for_translated_text->description
-msgid "Translated text style"
-msgstr ""
-
-#. 0dyseus@PopupTranslator->settings-schema.json->pref_loggin_save_history_indented->description
-msgid "Indent translation history data"
-msgstr ""
-
-#. 0dyseus@PopupTranslator->settings-schema.json->pref_loggin_save_history_indented->tooltip
-msgid "It allows to save the translation history data with indentation."
 msgstr ""

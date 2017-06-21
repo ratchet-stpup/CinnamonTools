@@ -88,8 +88,8 @@ class XletsHelperCore():
         Keyword Arguments:
             set_exec {Bool} -- Set execution flag to all files listed. (default: {False})
         """
-        py_list = locate("*.py", self.root_path)
-        sh_list = locate("*.sh", self.root_path)
+        py_list = locate_files("*.py", self.root_path)
+        sh_list = locate_files("*.sh", self.root_path)
 
         for p in itertools.chain(py_list, sh_list):
             if "/tools/" not in p and not is_exec(p):
@@ -154,13 +154,16 @@ class XletsHelperCore():
         for xlet in self.xlets_meta.list:
             xlet_folder_path = get_parent_dir(xlet["meta-path"], 0)
 
-            if os.path.exists(xlet_folder_path):
-                print(Ansi.INFO(
-                    "Updating localization template for %s..." % xlet["name"]))
+            try:
+                remove_file(os.path.join(xlet_folder_path, "po", xlet["uuid"] + ".pot"))
+            finally:
+                if os.path.exists(xlet_folder_path):
+                    print(Ansi.INFO(
+                        "Updating localization template for %s..." % xlet["name"]))
 
-                cmd = "make-xlet-pot --all"
-                self.exec_command(cmd=cmd,
-                                  working_directory=xlet_folder_path)
+                    cmd = "make-xlet-pot --all"
+                    self.exec_command(cmd=cmd,
+                                      working_directory=xlet_folder_path)
 
     def create_localized_help(self, dev=False):
         """create_localized_help
@@ -312,9 +315,17 @@ def is_exec(fpath):
     return os.path.isfile(fpath) and os.access(fpath, os.X_OK)
 
 
-def locate(pattern, root_path):
+def locate_files(pattern, root_path):
     """Locate all files matching supplied file name pattern in and below
     supplied root directory."""
     for path, dirs, files in os.walk(os.path.abspath(root_path)):
         for filename in fnmatch.filter(files, pattern):
             yield os.path.join(path, filename)
+
+
+def remove_file(path):
+    """ Param <path> could either be relative or absolute. """
+    if os.path.isfile(path):
+        os.remove(path)
+    else:
+        print(Ansi.ERROR("File {} is not a file or dir.".format(path)))

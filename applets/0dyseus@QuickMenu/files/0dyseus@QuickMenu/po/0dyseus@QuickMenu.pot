@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 0dyseus@QuickMenu 1.08\n"
-"POT-Creation-Date: 2017-06-18 23:49-0300\n"
+"POT-Creation-Date: 2017-06-21 03:32-0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -48,12 +48,12 @@ msgstr ""
 msgid "A hotkey can be assigned to open/close the menu."
 msgstr ""
 
-#: ../../create_localized_help.py:87 ../../create_localized_help.py:106
+#: ../../create_localized_help.py:87 ../../create_localized_help.py:107
 msgid "Menu items to .desktop files will be displayed with the icon and name declared inside the .desktop files themselves."
 msgstr ""
 
 #. TO TRANSLATORS: MARKDOWN string. Respect formatting.
-#: ../../create_localized_help.py:89 ../../create_localized_help.py:109
+#: ../../create_localized_help.py:89 ../../create_localized_help.py:110
 msgid "The menu can be kept open while activating menu items by pressing [[Ctrl]] + **Left click** or with **Middle click**."
 msgstr ""
 
@@ -61,64 +61,64 @@ msgstr ""
 msgid "This applet can create menu and sub-menu items even from symbolic links found inside the main folder."
 msgstr ""
 
-#: ../../create_localized_help.py:91
+#: ../../create_localized_help.py:92
 msgid "Settings window"
 msgstr ""
 
-#: ../../create_localized_help.py:96
+#: ../../create_localized_help.py:97
 msgid "Image featuring different icons for each sub-menu and different icon sizes"
 msgstr ""
 
-#: ../../create_localized_help.py:105
+#: ../../create_localized_help.py:106
 msgid "Applet usage"
 msgstr ""
 
-#: ../../create_localized_help.py:111
+#: ../../create_localized_help.py:112
 msgid "How to set a different icon for each sub-menu"
 msgstr ""
 
-#: ../../create_localized_help.py:114
+#: ../../create_localized_help.py:115
 msgid "Create a file at the same level as the folders that will be used to create the sub-menus."
 msgstr ""
 
 #. TO TRANSLATORS: MARKDOWN string. Respect formatting.
-#: ../../create_localized_help.py:116
+#: ../../create_localized_help.py:117
 msgid "The file name can be customized, doesn't need to have an extension name and can be a hidden file (a dot file). By default is called **0_icons_for_sub_menus.json**."
 msgstr ""
 
-#: ../../create_localized_help.py:118
+#: ../../create_localized_help.py:119
 msgid "Whatever name is chosen for the file, it will be automatically ignored and will never be shown on the menu."
 msgstr ""
 
 #. TO TRANSLATORS: MARKDOWN string. Respect formatting.
-#: ../../create_localized_help.py:120
+#: ../../create_localized_help.py:121
 msgid "The path to the icon has to be a full path. A path starting with **~/** can be used and will be expanded to the user's home folder."
 msgstr ""
 
 #. TO TRANSLATORS: MARKDOWN string. Respect formatting.
-#: ../../create_localized_help.py:122
+#: ../../create_localized_help.py:123
 msgid "If any sub-folder has more folders that need to have custom icons, just create another **0_icons_for_sub_menus.json** file at the same level that those folders."
 msgstr ""
 
 #. TO TRANSLATORS: MARKDOWN string. Respect formatting.
-#: ../../create_localized_help.py:124
+#: ../../create_localized_help.py:125
 msgid "The content of the file is a *JSON object* and has to look as follows:"
 msgstr ""
 
-#: ../../create_localized_help.py:132 ../../create_localized_help.py:134 ../../create_localized_help.py:136 ../../create_localized_help.py:138
+#: ../../create_localized_help.py:133 ../../create_localized_help.py:135 ../../create_localized_help.py:137 ../../create_localized_help.py:139
 msgid "Folder name"
 msgstr ""
 
-#: ../../create_localized_help.py:133 ../../create_localized_help.py:135 ../../create_localized_help.py:137 ../../create_localized_help.py:139
+#: ../../create_localized_help.py:134 ../../create_localized_help.py:136 ../../create_localized_help.py:138 ../../create_localized_help.py:140
 msgid "Icon name or icon path for Folder name"
 msgstr ""
 
-#: ../../create_localized_help.py:143
+#: ../../create_localized_help.py:144
 msgid "Warning!!!"
 msgstr ""
 
 #. TO TRANSLATORS: MARKDOWN string. Respect formatting.
-#: ../../create_localized_help.py:145
+#: ../../create_localized_help.py:146
 msgid "JSON *language* is very strict. Just be sure to ONLY use double quotes. And the last key/value combination DOESN'T have to end with a comma (**Folder name #n** in the previous example)."
 msgstr ""
 
@@ -216,10 +216,6 @@ msgstr ""
 msgid "Open the help file."
 msgstr ""
 
-#. 0dyseus@QuickMenu->metadata.json->contributors
-msgid "See this xlet help file."
-msgstr ""
-
 #. 0dyseus@QuickMenu->metadata.json->description
 msgid "Easily and quickly create a menu based on the files/folders found inside an specific folder."
 msgstr ""
@@ -228,131 +224,42 @@ msgstr ""
 msgid "Quick Menu"
 msgstr ""
 
-#. 0dyseus@QuickMenu->settings-schema.json->pref_show_hidden_folders->description
-msgid "Show hidden folders"
+#. 0dyseus@QuickMenu->metadata.json->contributors
+msgid "See this xlet help file."
 msgstr ""
 
-#. 0dyseus@QuickMenu->settings-schema.json->pref_show_hidden_folders->tooltip
-msgid "If enabled, hidden sub folders will also be used to create sub-menus."
-msgstr ""
-
-#. 0dyseus@QuickMenu->settings-schema.json->pref_customicon->tooltip
-#. 0dyseus@QuickMenu->settings-schema.json->pref_icon_for_menus->tooltip
-msgid "Set a custom icon for the applet."
-msgstr ""
-
-#. 0dyseus@QuickMenu->settings-schema.json->pref_customicon->description
-msgid "Icon for Applet"
-msgstr ""
-
-#. 0dyseus@QuickMenu->settings-schema.json->pref_head_2->description
-msgid "Menu settings"
-msgstr ""
-
-#. 0dyseus@QuickMenu->settings-schema.json->pref_applet_title->tooltip
-msgid "Set a custom title for the applet."
-msgstr ""
-
-#. 0dyseus@QuickMenu->settings-schema.json->pref_applet_title->description
-msgid "Title for Applet"
-msgstr ""
-
-#. 0dyseus@QuickMenu->settings-schema.json->pref_icon_for_menus->description
-msgid "Icon for sub-menus"
-msgstr ""
-
-#. 0dyseus@QuickMenu->settings-schema.json->pref_auto_close_opened_sub_menus->description
-msgid "Auto-hide opened sub-menus (EXPERIMENTAL/BUGGY)"
-msgstr ""
-
-#. 0dyseus@QuickMenu->settings-schema.json->pref_auto_close_opened_sub_menus->tooltip
-msgid ""
-"If enabled, the previously opened sub-menu will be automatically closed.\n"
-"It will only work with sub-menus created at the first level. Sub-menus inside other sub-menus are not affected."
-msgstr ""
-
-#. 0dyseus@QuickMenu->settings-schema.json->pref_ignore_sub_folders->description
-msgid "Ignore sub folders"
-msgstr ""
-
-#. 0dyseus@QuickMenu->settings-schema.json->pref_ignore_sub_folders->tooltip
-msgid "If enabled, the sub folders found inside the main folder will be ignored and sub-menus will not be created."
-msgstr ""
-
-#. 0dyseus@QuickMenu->settings-schema.json->pref_show_hidden_files->description
-msgid "Show hidden files"
-msgstr ""
-
-#. 0dyseus@QuickMenu->settings-schema.json->pref_show_hidden_files->tooltip
-msgid "If enabled, hidden files will be used to create menu items."
-msgstr ""
-
-#. 0dyseus@QuickMenu->settings-schema.json->pref_menu_item_icon_size->units
 #. 0dyseus@QuickMenu->settings-schema.json->pref_sub_menu_icon_size->units
+#. 0dyseus@QuickMenu->settings-schema.json->pref_menu_item_icon_size->units
 msgid "pixels"
-msgstr ""
-
-#. 0dyseus@QuickMenu->settings-schema.json->pref_menu_item_icon_size->description
-msgid "Menu items icon size"
-msgstr ""
-
-#. 0dyseus@QuickMenu->settings-schema.json->pref_autoupdate->description
-msgid "Auto-update menu"
-msgstr ""
-
-#. 0dyseus@QuickMenu->settings-schema.json->pref_autoupdate->tooltip
-msgid ""
-"If enabled, the applet will monitor the main folder for added/deleted/renamed files/folders and rebuild the menu.\n"
-"If disabled, the menu will have to be updated manually from its context menu."
-msgstr ""
-
-#. 0dyseus@QuickMenu->settings-schema.json->pref_head_1->description
-msgid "Applet settings"
-msgstr ""
-
-#. 0dyseus@QuickMenu->settings-schema.json->pref_sub_menu_icons_file_name->tooltip
-#. 0dyseus@QuickMenu->settings-schema.json->pref_use_different_icons_for_sub_menus->tooltip
-msgid "Read this applet help for details about this option usage (Applet context menu > Help item)."
-msgstr ""
-
-#. 0dyseus@QuickMenu->settings-schema.json->pref_sub_menu_icons_file_name->description
-msgid "Name for the file containing the icons for sub-menus"
-msgstr ""
-
-#. 0dyseus@QuickMenu->settings-schema.json->pref_style_for_sub_menus->description
-msgid "Style for sub-menus"
-msgstr ""
-
-#. 0dyseus@QuickMenu->settings-schema.json->pref_style_for_sub_menus->tooltip
-msgid "Set a custom style for the sub-menus."
 msgstr ""
 
 #. 0dyseus@QuickMenu->settings-schema.json->pref_sub_menu_icon_size->description
 msgid "Sub-menus icon size"
 msgstr ""
 
-#. 0dyseus@QuickMenu->settings-schema.json->pref_use_different_icons_for_sub_menus->description
-msgid "Allow sub-menus to each have their own icon"
+#. 0dyseus@QuickMenu->settings-schema.json->pref_show_applet_title->tooltip
+msgid "Display this applet title."
 msgstr ""
 
 #. 0dyseus@QuickMenu->settings-schema.json->pref_show_applet_title->description
 msgid "Show Applet title"
 msgstr ""
 
-#. 0dyseus@QuickMenu->settings-schema.json->pref_show_applet_title->tooltip
-msgid "Display this applet title."
+#. 0dyseus@QuickMenu->settings-schema.json->pref_icon_for_menus->tooltip
+#. 0dyseus@QuickMenu->settings-schema.json->pref_customicon->tooltip
+msgid "Set a custom icon for the applet."
 msgstr ""
 
-#. 0dyseus@QuickMenu->settings-schema.json->pref_show_submenu_icons->description
-msgid "Display sub-menu icons"
+#. 0dyseus@QuickMenu->settings-schema.json->pref_icon_for_menus->description
+msgid "Icon for sub-menus"
 msgstr ""
 
-#. 0dyseus@QuickMenu->settings-schema.json->pref_show_submenu_icons->tooltip
-msgid "If disabled, all sub-menu items will be created without icons."
+#. 0dyseus@QuickMenu->settings-schema.json->pref_show_customicon->tooltip
+msgid "Display this applet icon."
 msgstr ""
 
-#. 0dyseus@QuickMenu->settings-schema.json->pref_directory->description
-msgid "Choose main directory"
+#. 0dyseus@QuickMenu->settings-schema.json->pref_show_customicon->description
+msgid "Show Applet icon"
 msgstr ""
 
 #. 0dyseus@QuickMenu->settings-schema.json->pref_directory->tooltip
@@ -362,48 +269,141 @@ msgid ""
 "The folders will be used to create sub-menus."
 msgstr ""
 
-#. 0dyseus@QuickMenu->settings-schema.json->pref_hotkey->description
-msgid "Keyboard shortcut to open and close the menu"
-msgstr ""
-
-#. 0dyseus@QuickMenu->settings-schema.json->pref_show_applications_icons->description
-msgid "Display menu items icon"
-msgstr ""
-
-#. 0dyseus@QuickMenu->settings-schema.json->pref_show_applications_icons->tooltip
-msgid "If disabled, all menu items will be created without icons."
-msgstr ""
-
-#. 0dyseus@QuickMenu->settings-schema.json->pref_show_customicon->description
-msgid "Show Applet icon"
-msgstr ""
-
-#. 0dyseus@QuickMenu->settings-schema.json->pref_show_customicon->tooltip
-msgid "Display this applet icon."
-msgstr ""
-
-#. 0dyseus@QuickMenu->settings-schema.json->pref_customtooltip->description
-msgid "Custom Tooltip"
+#. 0dyseus@QuickMenu->settings-schema.json->pref_directory->description
+msgid "Choose main directory"
 msgstr ""
 
 #. 0dyseus@QuickMenu->settings-schema.json->pref_customtooltip->tooltip
 msgid "Set a custom tooltip for the applet."
 msgstr ""
 
-#. 0dyseus@QuickMenu->settings-schema.json->pref_style_for_menu_items->description
-msgid "Style for menu items"
+#. 0dyseus@QuickMenu->settings-schema.json->pref_customtooltip->description
+msgid "Custom Tooltip"
 msgstr ""
 
-#. 0dyseus@QuickMenu->settings-schema.json->pref_style_for_menu_items->tooltip
-msgid "Set a custom style for the menu items."
+#. 0dyseus@QuickMenu->settings-schema.json->pref_head_2->description
+msgid "Menu settings"
 msgstr ""
 
-#. 0dyseus@QuickMenu->settings-schema.json->pref_show_only_desktop_files->description
-msgid "Show only .desktop files"
+#. 0dyseus@QuickMenu->settings-schema.json->pref_use_different_icons_for_sub_menus->tooltip
+#. 0dyseus@QuickMenu->settings-schema.json->pref_sub_menu_icons_file_name->tooltip
+msgid "Read this applet help for details about this option usage (Applet context menu > Help item)."
+msgstr ""
+
+#. 0dyseus@QuickMenu->settings-schema.json->pref_use_different_icons_for_sub_menus->description
+msgid "Allow sub-menus to each have their own icon"
+msgstr ""
+
+#. 0dyseus@QuickMenu->settings-schema.json->pref_ignore_sub_folders->tooltip
+msgid "If enabled, the sub folders found inside the main folder will be ignored and sub-menus will not be created."
+msgstr ""
+
+#. 0dyseus@QuickMenu->settings-schema.json->pref_ignore_sub_folders->description
+msgid "Ignore sub folders"
+msgstr ""
+
+#. 0dyseus@QuickMenu->settings-schema.json->pref_sub_menu_icons_file_name->description
+msgid "Name for the file containing the icons for sub-menus"
 msgstr ""
 
 #. 0dyseus@QuickMenu->settings-schema.json->pref_show_only_desktop_files->tooltip
 msgid ""
 "If enabled, only .desktop files will be used to create the menu.\n"
 "If disabled, all file types will be used to create the menu."
+msgstr ""
+
+#. 0dyseus@QuickMenu->settings-schema.json->pref_show_only_desktop_files->description
+msgid "Show only .desktop files"
+msgstr ""
+
+#. 0dyseus@QuickMenu->settings-schema.json->pref_autoupdate->tooltip
+msgid ""
+"If enabled, the applet will monitor the main folder for added/deleted/renamed files/folders and rebuild the menu.\n"
+"If disabled, the menu will have to be updated manually from its context menu."
+msgstr ""
+
+#. 0dyseus@QuickMenu->settings-schema.json->pref_autoupdate->description
+msgid "Auto-update menu"
+msgstr ""
+
+#. 0dyseus@QuickMenu->settings-schema.json->pref_show_hidden_folders->tooltip
+msgid "If enabled, hidden sub folders will also be used to create sub-menus."
+msgstr ""
+
+#. 0dyseus@QuickMenu->settings-schema.json->pref_show_hidden_folders->description
+msgid "Show hidden folders"
+msgstr ""
+
+#. 0dyseus@QuickMenu->settings-schema.json->pref_style_for_menu_items->tooltip
+msgid "Set a custom style for the menu items."
+msgstr ""
+
+#. 0dyseus@QuickMenu->settings-schema.json->pref_style_for_menu_items->description
+msgid "Style for menu items"
+msgstr ""
+
+#. 0dyseus@QuickMenu->settings-schema.json->pref_menu_item_icon_size->description
+msgid "Menu items icon size"
+msgstr ""
+
+#. 0dyseus@QuickMenu->settings-schema.json->pref_style_for_sub_menus->tooltip
+msgid "Set a custom style for the sub-menus."
+msgstr ""
+
+#. 0dyseus@QuickMenu->settings-schema.json->pref_style_for_sub_menus->description
+msgid "Style for sub-menus"
+msgstr ""
+
+#. 0dyseus@QuickMenu->settings-schema.json->pref_applet_title->description
+msgid "Title for Applet"
+msgstr ""
+
+#. 0dyseus@QuickMenu->settings-schema.json->pref_applet_title->tooltip
+msgid "Set a custom title for the applet."
+msgstr ""
+
+#. 0dyseus@QuickMenu->settings-schema.json->pref_hotkey->description
+msgid "Keyboard shortcut to open and close the menu"
+msgstr ""
+
+#. 0dyseus@QuickMenu->settings-schema.json->pref_show_submenu_icons->tooltip
+msgid "If disabled, all sub-menu items will be created without icons."
+msgstr ""
+
+#. 0dyseus@QuickMenu->settings-schema.json->pref_show_submenu_icons->description
+msgid "Display sub-menu icons"
+msgstr ""
+
+#. 0dyseus@QuickMenu->settings-schema.json->pref_customicon->description
+msgid "Icon for Applet"
+msgstr ""
+
+#. 0dyseus@QuickMenu->settings-schema.json->pref_head_1->description
+msgid "Applet settings"
+msgstr ""
+
+#. 0dyseus@QuickMenu->settings-schema.json->pref_show_applications_icons->tooltip
+msgid "If disabled, all menu items will be created without icons."
+msgstr ""
+
+#. 0dyseus@QuickMenu->settings-schema.json->pref_show_applications_icons->description
+msgid "Display menu items icon"
+msgstr ""
+
+#. 0dyseus@QuickMenu->settings-schema.json->pref_show_hidden_files->tooltip
+msgid "If enabled, hidden files will be used to create menu items."
+msgstr ""
+
+#. 0dyseus@QuickMenu->settings-schema.json->pref_show_hidden_files->description
+msgid "Show hidden files"
+msgstr ""
+
+#. 0dyseus@QuickMenu->settings-schema.json->pref_auto_close_opened_sub_menus->tooltip
+msgid ""
+"If enabled, the previously opened sub-menu will be automatically closed.\n"
+"It will only work with sub-menus created at the first level. Sub-menus inside other sub-menus are not affected."
+msgstr ""
+
+#. 0dyseus@QuickMenu->settings-schema.json->pref_auto_close_opened_sub_menus->description
+msgid "Auto-hide opened sub-menus (EXPERIMENTAL/BUGGY)"
 msgstr ""

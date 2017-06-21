@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.00\n"
 "Report-Msgid-Bugs-To: Odyseus\n"
-"POT-Creation-Date: 2017-06-18 23:49-0300\n"
+"POT-Creation-Date: 2017-06-21 03:32-0300\n"
 "PO-Revision-Date: 2017-06-19 00:02-0300\n"
 "Last-Translator: Odyseus\n"
 "Language-Team: \n"
@@ -669,15 +669,15 @@ msgstr "Perfil cambiado a %s"
 msgid "Configure..."
 msgstr "Configurar..."
 
+#. 0dyseus@WallpaperChangerApplet->metadata.json->contributors
+msgid "See this xlet help file."
+msgstr "Ver el archivo de ayuda de este xlet."
+
 #. 0dyseus@WallpaperChangerApplet->metadata.json->description
 msgid "Cinnamon wallpaper slideshow applet with multiple profiles support."
 msgstr ""
 "Diapositivas de fondos de pantalla para Cinnamon con soporte para múltiples "
 "perfiles."
-
-#. 0dyseus@WallpaperChangerApplet->metadata.json->contributors
-msgid "See this xlet help file."
-msgstr "Ver el archivo de ayuda de este xlet."
 
 #~ msgid "Choose language"
 #~ msgstr "Elegir idioma"

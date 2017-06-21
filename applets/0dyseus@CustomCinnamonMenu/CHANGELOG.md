@@ -4,6 +4,20 @@
 
 ***
 
+- **Date:** Wed, 21 Jun 2017 05:11:34 -0300
+- **Commit:** [775a4bf](https://github.com/Odyseus/CinnamonTools/commit/775a4bf)
+- **Author:** Odyseus
+
+```
+Custom Cinnamon Menu applet
+- Added an extra search option. Now the search can be configured to search only on application names
+and nothing else. It isn't as precise as the fuzzy search, but it doesn't have its performance
+issue. Plus, it isn't as useless as the default search method.
+
+```
+
+***
+
 - **Date:** Thu, 8 Jun 2017 01:04:02 -0300
 - **Commit:** [7681195](https://github.com/Odyseus/CinnamonTools/commit/7681195)
 - **Author:** Odyseus
