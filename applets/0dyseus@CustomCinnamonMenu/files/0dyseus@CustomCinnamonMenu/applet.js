@@ -1959,7 +1959,7 @@ MyApplet.prototype = {
         this._recentAppsButtons = [];
         this._recentAppsApps = [];
 
-        if (this.pref_recently_used_apps.length > 0 && this.recentAppsButton !== null) {
+        if (this.pref_recently_used_apps.length > 0) {
             Array.prototype.slice.call(this._applicationsButtons).forEach(Lang.bind(this, function(aBtn) {
                 let appId = aBtn.get_app_id();
                 let c = 0,
