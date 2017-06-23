@@ -22,7 +22,7 @@ Full change log
 </strong></a></td></tr>
 <tr><td><img src="https://odyseus.github.io/CinnamonTools/lib/img/translate.svg"></td>
 <td><a href="https://poeditor.com/join/project/GkOE0exZCp"><strong style="font-size: 1.2em">
-Translate Multi Translator
+Help translate Multi Translator
 </strong></a></td></tr>
 
 </tbody></table>

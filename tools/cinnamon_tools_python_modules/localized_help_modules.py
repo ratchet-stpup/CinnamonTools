@@ -198,7 +198,7 @@ Full change log
 
 README_POEDITOR_BLOCK = """<tr><td><img src="https://odyseus.github.io/CinnamonTools/lib/img/translate.svg"></td>
 <td><a href="{poeditor_url}"><strong style="font-size: 1.2em">
-Translate {xlet_name}
+Help translate {xlet_name}
 </strong></a></td></tr>
 """
 

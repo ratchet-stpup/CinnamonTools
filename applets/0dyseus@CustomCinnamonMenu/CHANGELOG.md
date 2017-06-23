@@ -4,6 +4,18 @@
 
 ***
 
+- **Date:** Fri, 23 Jun 2017 06:24:53 -0300
+- **Commit:** [a1bc05e](https://github.com/Odyseus/CinnamonTools/commit/a1bc05e)
+- **Author:** Odyseus
+
+```
+Custom Cinnamon Menu applet
+- Removed the cause of an undefined property warning.
+
+```
+
+***
+
 - **Date:** Wed, 21 Jun 2017 05:11:34 -0300
 - **Commit:** [775a4bf](https://github.com/Odyseus/CinnamonTools/commit/775a4bf)
 - **Author:** Odyseus
