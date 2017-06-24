@@ -54,4 +54,4 @@ The Multi Translator extension is an extension ported from a gnome-shell extensi
 
 ## Settings window image
 
-![MultiTranslatorExtension-options](https://odyseus.github.io/CinnamonTools/lib/img/MultiTranslatorExtension-options.gif)
+![MultiTranslatorExtension-options](https://odyseus.github.io/CinnamonTools/lib/img/MultiTranslatorExtension-options.png)

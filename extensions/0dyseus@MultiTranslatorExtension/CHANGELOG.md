@@ -4,6 +4,39 @@
 
 ***
 
+- **Date:** Sat, 24 Jun 2017 09:47:22 -0300
+- **Commit:** [0307b0e](https://github.com/Odyseus/CinnamonTools/commit/0307b0e)
+- **Author:** Odyseus
+
+```
+Update fr.po (POEditor.com)
+
+```
+
+***
+
+- **Date:** Fri, 23 Jun 2017 14:06:33 -0300
+- **Commit:** [4de3177](https://github.com/Odyseus/CinnamonTools/commit/4de3177)
+- **Author:** Odyseus
+
+```
+Update sv.po (POEditor.com)
+
+```
+
+***
+
+- **Date:** Fri, 23 Jun 2017 12:51:30 -0300
+- **Commit:** [ce82044](https://github.com/Odyseus/CinnamonTools/commit/ce82044)
+- **Author:** Odyseus
+
+```
+Update fr.po (POEditor.com)
+
+```
+
+***
+
 - **Date:** Fri, 16 Jun 2017 20:19:37 -0300
 - **Commit:** [53edd4a](https://github.com/Odyseus/CinnamonTools/commit/53edd4a)
 - **Author:** Odyseus

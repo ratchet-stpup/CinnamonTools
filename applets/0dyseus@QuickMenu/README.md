@@ -45,7 +45,7 @@ I mainly created this applet to replicate the functionality of the XFCE plugin c
 - More than one instance of this applet can be installed at the same time.
 - A hotkey can be assigned to open/close the menu.
 - Menu items to .desktop files will be displayed with the icon and name declared inside the .desktop files themselves.
-- The menu can be kept open while activating menu items by pressing [[Ctrl]] + **Left click** or with **Middle click**.
+- The menu can be kept open while activating menu items by pressing <kbd>Ctrl</kbd> + **Left click** or with **Middle click**.
 - This applet can create menu and sub-menu items even from symbolic links found inside the main folder.
 
 ## Settings window

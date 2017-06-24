@@ -119,7 +119,7 @@ Once installed and enabled, the following shortcuts will be available.
 
 ##### Settings window image
 
-![MultiTranslatorExtension-options](https://odyseus.github.io/CinnamonTools/lib/img/MultiTranslatorExtension-options.gif)
+![MultiTranslatorExtension-options](https://odyseus.github.io/CinnamonTools/lib/img/MultiTranslatorExtension-options.png)
 
 ## Issue reports
 

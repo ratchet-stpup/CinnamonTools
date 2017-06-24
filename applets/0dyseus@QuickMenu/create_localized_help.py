@@ -86,7 +86,8 @@ def get_content_base(for_readme=False):
         "- %s" % _("A hotkey can be assigned to open/close the menu."),
         "- %s" % _("Menu items to .desktop files will be displayed with the icon and name declared inside the .desktop files themselves."),
         # TO TRANSLATORS: MARKDOWN string. Respect formatting.
-        "- %s" % _("The menu can be kept open while activating menu items by pressing [[Ctrl]] + **Left click** or with **Middle click**."),
+        "- %s" % ("The menu can be kept open while activating menu items by pressing <kbd>Ctrl</kbd> + **Left click** or with **Middle click**." if for_readme else _(
+            "The menu can be kept open while activating menu items by pressing [[Ctrl]] + **Left click** or with **Middle click**.")),
         "- %s" % _("This applet can create menu and sub-menu items even from symbolic links found inside the main folder."),
         "",
         "## %s" % _("Settings window") if for_readme else "",

@@ -91,7 +91,7 @@ def get_content_base(for_readme=False):
         "",
         "## Settings window image" if for_readme else "",
         "",
-        "![MultiTranslatorExtension-options](https://odyseus.github.io/CinnamonTools/lib/img/MultiTranslatorExtension-options.gif)" if for_readme else ""
+        "![MultiTranslatorExtension-options](https://odyseus.github.io/CinnamonTools/lib/img/MultiTranslatorExtension-options.png)" if for_readme else ""
     ])
 
 
@@ -294,7 +294,7 @@ class Main():
                     self.lang_list.append(parts[0])
                     this_locale_dir = os.path.join(dummy_locale_path, parts[0], "LC_MESSAGES")
                     GLib.mkdir_with_parents(this_locale_dir, 0o755)
-                    subprocess.call(["msgfmt", "-c", os.path.join(root, file), "-o",
+                    subprocess.call(["msgfmt", os.path.join(root, file), "-o",
                                      os.path.join(this_locale_dir, "%s.mo" % XLET_UUID)])
                     done_one = True
 
