@@ -5,18 +5,18 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: 1.11\n"
-"Report-Msgid-Bugs-To: \n"
+"Project-Id-Version: 0dyseus@CinnamonTweaks 1.12\n"
+"Report-Msgid-Bugs-To: https://github.com/Odyseus/CinnamonTools\n"
 "POT-Creation-Date: 2017-06-07 21:42+0200\n"
 "PO-Revision-Date: 2017-06-08 05:37+0200\n"
 "Last-Translator: Radek Otáhal <radek.otahal@email.cz>\n"
-"Language-Team: \n"
+"Language-Team: Czech\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.8.7.1\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+"X-Generator: Poedit 1.8.7.1\n"
 
 #: ../../create_localized_help.py:65
 msgid "Extension options details"
@@ -24,15 +24,8 @@ msgstr "Možnosti rozšíření podrobněji"
 
 #. TO TRANSLATORS: MARKDOWN string. Respect formatting.
 #: ../../create_localized_help.py:68
-msgid ""
-"Some tweaks have warnings, dependencies, limitations and or known issues "
-"that must be read and understood before a tweak is enabled. No worries, "
-"nothing *fatal* could ever happen."
-msgstr ""
-"Některá vylepšení obsahují varování, závislosti, omezení a nebo známé "
-"problémy, se kterými je potřeba se seznámit a pochopit předtím, než je "
-"povoleno dané vylepšení. Nicméně není nutné mít starosti, nic *fatálního* se "
-"nemůže stát. "
+msgid "Some tweaks have warnings, dependencies, limitations and or known issues that must be read and understood before a tweak is enabled. No worries, nothing *fatal* could ever happen."
+msgstr "Některá vylepšení obsahují varování, závislosti, omezení a nebo známé problémy, se kterými je potřeba se seznámit a pochopit předtím, než je povoleno dané vylepšení. Nicméně není nutné mít starosti, nic *fatálního* se nemůže stát. "
 
 #: ../../create_localized_help.py:70
 msgid "Applets/Desklets tweaks"
@@ -43,55 +36,31 @@ msgid "Ask for confirmation on applet/desklet removal:"
 msgstr "Požadovat potvrzení při odstranění apletu/deskletu:"
 
 #: ../../create_localized_help.py:72
-msgid ""
-"Instead of directly remove the applet/desklet from the context menus, it "
-"will ask for confirmation. This option doesn't affect the removal of applets/"
-"desklets from the Applets/Desklets manager in Cinnamon settings (there will "
-"be no confirmation)."
-msgstr ""
-"Namísto přímého odebrání apletu/deskletu z kontextových menu bude požádováno "
-"potvrzení. Tato volba nemá vliv na odstranění apletů/deskletů ze Správce "
-"apletů/deskletů v nastavení Cinnamonu (tam nebude vyžadováno žádné "
-"potvrzení). "
+msgid "Instead of directly remove the applet/desklet from the context menus, it will ask for confirmation. This option doesn't affect the removal of applets/desklets from the Applets/Desklets manager in Cinnamon settings (there will be no confirmation)."
+msgstr "Namísto přímého odebrání apletu/deskletu z kontextových menu bude požádováno potvrzení. Tato volba nemá vliv na odstranění apletů/deskletů ze Správce apletů/deskletů v nastavení Cinnamonu (tam nebude vyžadováno žádné potvrzení). "
 
 #: ../../create_localized_help.py:73
-msgid ""
-"Display \"Edit applet/desklet main file\" on context menu for applets/"
-"desklet:"
+msgid "Display \"Edit applet/desklet main file\" on context menu for applets/desklet:"
 msgstr "Zobrazit \"Upravit hlavní soubor apletu/deskletu\" v kontextovém menu:"
 
 #: ../../create_localized_help.py:73
-msgid ""
-"Display \"Open applet/desklet folder\" on context menu for applets/desklets"
+msgid "Display \"Open applet/desklet folder\" on context menu for applets/desklets"
 msgstr "Zobrazit \"Otevřít složku apletu/deskletu\" v kontextovém menu"
 
 #. TO TRANSLATORS: MARKDOWN string. Respect formatting.
 #: ../../create_localized_help.py:75
-msgid ""
-"These options will add new menu items to the applets/desklets context menus. "
-"The place where this items will be located is chosen by the option **Where "
-"to place the menu item?**."
-msgstr ""
-"Tyto volby přidávají nové položky nabídky do kontextových menu apletů/"
-"deskletů. Místo, kde se tyto položky umístí, je vybráno volbou **Kam umístit "
-"položku v menu?**. "
+msgid "These options will add new menu items to the applets/desklets context menus. The place where this items will be located is chosen by the option **Where to place the menu item?**."
+msgstr "Tyto volby přidávají nové položky nabídky do kontextových menu apletů/deskletů. Místo, kde se tyto položky umístí, je vybráno volbou **Kam umístit položku v menu?**. "
 
 #: ../../create_localized_help.py:77
 msgid "Hot Corners tweaks"
 msgstr "Vylepšení aktivních rohů"
 
 #: ../../create_localized_help.py:78
-msgid ""
-"This tweak is only available for Cinnamon versions lower than 3.2. Cinnamon "
-"3.2.x already has hot corners delay activation."
-msgstr ""
-"Toto vylepšení je k dispozici pouze pro verze Cinnamonu nižší než 3.2. "
-"Cinnamon 3.2.x již obsahuje aktivaci zpoždění. "
+msgid "This tweak is only available for Cinnamon versions lower than 3.2. Cinnamon 3.2.x already has hot corners delay activation."
+msgstr "Toto vylepšení je k dispozici pouze pro verze Cinnamonu nižší než 3.2. Cinnamon 3.2.x již obsahuje aktivaci zpoždění. "
 
-#: ../../create_localized_help.py:79 ../../create_localized_help.py:80
-#: ../../create_localized_help.py:81 ../../create_localized_help.py:82
-#: ../../create_localized_help.py:98 ../../create_localized_help.py:101
-#: ../../create_localized_help.py:119
+#: ../../create_localized_help.py:79 ../../create_localized_help.py:80 ../../create_localized_help.py:81 ../../create_localized_help.py:82 ../../create_localized_help.py:98 ../../create_localized_help.py:101 ../../create_localized_help.py:119
 msgid "Crystal clear."
 msgstr "Jasný význam."
 
@@ -120,12 +89,8 @@ msgid "Enable applications drop to the Desktop:"
 msgstr "Povolit aplikace přetáhnout na pracovní plochu"
 
 #: ../../create_localized_help.py:86
-msgid ""
-"This tweak enables the ability to drag and drop applications from the menu "
-"applet and from the panel launchers applet into the desktop."
-msgstr ""
-"Povolením této možnosti, lze aplikace přetáhnout z menu apletu a ze "
-"spouštěče apletu  na pracovní plochu."
+msgid "This tweak enables the ability to drag and drop applications from the menu applet and from the panel launchers applet into the desktop."
+msgstr "Povolením této možnosti, lze aplikace přetáhnout z menu apletu a ze spouštěče apletu  na pracovní plochu."
 
 #: ../../create_localized_help.py:88 settings.py:305
 msgid "Popup menus tweaks"
@@ -135,48 +100,25 @@ msgstr "Vylepšení Pop-up menu"
 msgid "Panel menus behavior"
 msgstr "Chování menu panelu"
 
-#: ../../create_localized_help.py:90 ../../create_localized_help.py:131
-#: ../../create_localized_help.py:143 ../../create_localized_help.py:150
+#: ../../create_localized_help.py:90 ../../create_localized_help.py:131 ../../create_localized_help.py:143 ../../create_localized_help.py:150
 msgid "Note:"
 msgstr "Poznámka:"
 
 #: ../../create_localized_help.py:91
-msgid ""
-"This setting affects only the behavior of menus that belongs to applets "
-"placed on any panel."
-msgstr ""
-"Toto nastavení má vliv pouze na chování menu, která patří k apletům "
-"umístěných na libovolném panelu."
+msgid "This setting affects only the behavior of menus that belongs to applets placed on any panel."
+msgstr "Toto nastavení má vliv pouze na chování menu, která patří k apletům umístěných na libovolném panelu."
 
 #: ../../create_localized_help.py:93
 msgid "Emulate Gnome Shell behavior:"
 msgstr "Emulovat Gnome Shell menu:"
 
 #: ../../create_localized_help.py:93
-msgid ""
-"When a menu is open on Genome Shell, and then the mouse cursor is moved to "
-"another button on the top panel, the menu of the hovered buttons will "
-"automatically open without the need to click on them. With this option "
-"enabled, that same behavior can be reproduced on Cinnamon."
-msgstr ""
-"Je-li na Genome Shell otevřeno menu, a pak se kurzor myši přesune k jinému "
-"tlačítku na horním panelu, menu tohoto tlačítka se automaticky otevře aniž "
-"by bylo nutné na ně znovu klikat. Povolením této možnosti, lze dosáhnout "
-"stejného chování i v prostředí Cinnamon."
+msgid "When a menu is open on Genome Shell, and then the mouse cursor is moved to another button on the top panel, the menu of the hovered buttons will automatically open without the need to click on them. With this option enabled, that same behavior can be reproduced on Cinnamon."
+msgstr "Je-li na Genome Shell otevřeno menu, a pak se kurzor myši přesune k jinému tlačítku na horním panelu, menu tohoto tlačítka se automaticky otevře aniž by bylo nutné na ně znovu klikat. Povolením této možnosti, lze dosáhnout stejného chování i v prostředí Cinnamon."
 
 #: ../../create_localized_help.py:94
-msgid ""
-"By default, when one opens an applet's menu on Cinnamon and then click on "
-"another applet to open its menu, the first click is used to close the first "
-"opened menu, and then another click has to be performed to open the menu of "
-"the second applet. With this option enabled, one can directly open the menu "
-"of any applet even if another applet has its menu open."
-msgstr ""
-"Ve výchozím nastavení, pokud otevřete menu apletu v prostředí Cinnamon a "
-"potom kliknete na jiný aplet a chcete otevřít jeho menu, první kliknutí se "
-"používá k uzavření prvního otevřeného menu a pak dalším kliknutí otevře menu "
-"druhého apletu. Povolením této možnosti, je možné přímo otevřít menu "
-"jakéhokoliv apletu, i když jiný aplet má své menu otevřené."
+msgid "By default, when one opens an applet's menu on Cinnamon and then click on another applet to open its menu, the first click is used to close the first opened menu, and then another click has to be performed to open the menu of the second applet. With this option enabled, one can directly open the menu of any applet even if another applet has its menu open."
+msgstr "Ve výchozím nastavení, pokud otevřete menu apletu v prostředí Cinnamon a potom kliknete na jiný aplet a chcete otevřít jeho menu, první kliknutí se používá k uzavření prvního otevřeného menu a pak dalším kliknutí otevře menu druhého apletu. Povolením této možnosti, je možné přímo otevřít menu jakéhokoliv apletu, i když jiný aplet má své menu otevřené."
 
 #: ../../create_localized_help.py:94
 msgid "Don't eat clicks:"
@@ -191,20 +133,8 @@ msgid "Avoid mouse pointer overlapping tooltips:"
 msgstr "Zamezit překrývání ukazatele myši a bublinové nápovědy:"
 
 #: ../../create_localized_help.py:97
-msgid ""
-"Tooltips on Cinnamon's UI are aligned to the top-left corner of the mouse "
-"pointer. This leads to having tooltips overlapped by the mouse pointer. This "
-"tweak aligns the tooltip to the bottom-right corner of the mouse pointer "
-"(approximately), reducing the possibility of the mouse pointer to overlap "
-"the tooltip. This tweak is only available for Cinnamon versions lower than "
-"3.2. Cinnamon 3.2.x already has the position of the tooltips changed."
-msgstr ""
-"Bublinová nápověda v prostředí Cinnamon je zarovnána k hornímu levému rohu "
-"ukazatele myši. To vede k překrývání bublinové nápovědy a ukazatele myši. "
-"Toto vylepšení zarovná bublinovou nápovědu ke spodnímu pravému rohu "
-"ukazatele myši (přibližně), čímž se zredukuje možnost nežádoucího "
-"překrývání. Toto vylepšení je k dispozici pouze pro verze Cinnamonu nižší "
-"než 3.2. Cinnamon 3.2.x má již změněnou polohu bublinové nápovědy. "
+msgid "Tooltips on Cinnamon's UI are aligned to the top-left corner of the mouse pointer. This leads to having tooltips overlapped by the mouse pointer. This tweak aligns the tooltip to the bottom-right corner of the mouse pointer (approximately), reducing the possibility of the mouse pointer to overlap the tooltip. This tweak is only available for Cinnamon versions lower than 3.2. Cinnamon 3.2.x already has the position of the tooltips changed."
+msgstr "Bublinová nápověda v prostředí Cinnamon je zarovnána k hornímu levému rohu ukazatele myši. To vede k překrývání bublinové nápovědy a ukazatele myši. Toto vylepšení zarovná bublinovou nápovědu ke spodnímu pravému rohu ukazatele myši (přibližně), čímž se zredukuje možnost nežádoucího překrývání. Toto vylepšení je k dispozici pouze pro verze Cinnamonu nižší než 3.2. Cinnamon 3.2.x má již změněnou polohu bublinové nápovědy. "
 
 #: ../../create_localized_help.py:98
 msgid "Tooltips show delay:"
@@ -223,12 +153,8 @@ msgid "Notifications position:"
 msgstr "Pozice  notifikačního okna:"
 
 #: ../../create_localized_help.py:103
-msgid ""
-"Notifications can be displayed at the top-right of screen (system default) "
-"or at the bottom-right of screen."
-msgstr ""
-"Oznámení lze zobrazit v pravém horním rohu obrazovky (výchozí nastavení "
-"systému) nebo v pravém dolním rohu obrazovky."
+msgid "Notifications can be displayed at the top-right of screen (system default) or at the bottom-right of screen."
+msgstr "Oznámení lze zobrazit v pravém horním rohu obrazovky (výchozí nastavení systému) nebo v pravém dolním rohu obrazovky."
 
 #: ../../create_localized_help.py:104
 msgid "Distance from panel:"
@@ -239,40 +165,24 @@ msgid "For notifications displayed at the top-right of screen:"
 msgstr "U oznámení zobrazených v pravém horním rohu obrazovky: "
 
 #: ../../create_localized_help.py:106
-msgid ""
-"This is the distance between the bottom border of the top panel (if no top "
-"panel, from the top of the screen) to the top border of the notification "
-"popup."
-msgstr ""
-"Je to vzdálenost mezi spodním okraji horního panelu (není-li horní panel, "
-"tak od horní části obrazovky) na horní hranici vyskakovacího okna oznámení ."
+msgid "This is the distance between the bottom border of the top panel (if no top panel, from the top of the screen) to the top border of the notification popup."
+msgstr "Je to vzdálenost mezi spodním okraji horního panelu (není-li horní panel, tak od horní části obrazovky) na horní hranici vyskakovacího okna oznámení ."
 
 #: ../../create_localized_help.py:107
 msgid "For notifications displayed at the bottom-right of screen:"
 msgstr "U oznámení zobrazených v pravém dolním rohu obrazovky:"
 
 #: ../../create_localized_help.py:108
-msgid ""
-"This is the distance between the top border of the bottom panel (if no "
-"bottom panel, from the bottom of the screen) to the bottom border of the "
-"notification popup."
-msgstr ""
-"Je to vzdálenost mezi horním okraji spodního panelu (není-li spodní panel, "
-"tak od dolní části obrazovky) na spodní hranici vyskakovacího okna oznámení."
+msgid "This is the distance between the top border of the bottom panel (if no bottom panel, from the bottom of the screen) to the bottom border of the notification popup."
+msgstr "Je to vzdálenost mezi horním okraji spodního panelu (není-li spodní panel, tak od dolní části obrazovky) na spodní hranici vyskakovacího okna oznámení."
 
 #: ../../create_localized_help.py:109
 msgid "Notification popup right margin:"
 msgstr "Pravý okraj notifikačního okna:"
 
 #: ../../create_localized_help.py:110 settings.py:375
-msgid ""
-"By default, the right margin of the notification popup is defined by the "
-"currently used theme. This option, set to any value other than 0 (zero), "
-"allows to set a custom right margin, ignoring the defined by the theme."
-msgstr ""
-"Ve výchozím nastavení je pravý okraj popup okna definován aktuálně "
-"používaným motivem. Nastavením na hodnotu jinou než 0 (nula), lze nastavit "
-"vlastní pravý okraj a ignoruje tak nastavení definované  motivem."
+msgid "By default, the right margin of the notification popup is defined by the currently used theme. This option, set to any value other than 0 (zero), allows to set a custom right margin, ignoring the defined by the theme."
+msgstr "Ve výchozím nastavení je pravý okraj popup okna definován aktuálně používaným motivem. Nastavením na hodnotu jinou než 0 (nula), lze nastavit vlastní pravý okraj a ignoruje tak nastavení definované  motivem."
 
 #: ../../create_localized_help.py:112 settings.py:395
 msgid "Window focus tweaks"
@@ -280,28 +190,12 @@ msgstr "Vylepšení zaměření okna"
 
 #. TO TRANSLATORS: MARKDOWN string. Respect formatting.
 #: ../../create_localized_help.py:114
-msgid ""
-"Tweak based on the gnome-shell extension called [Steal My Focus](https://"
-"github.com/v-dimitrov/gnome-shell-extension-stealmyfocus) by [Valentin "
-"Dimitrov](https://github.com/v-dimitrov) and another gnome-shell extension "
-"called [Window Demands Attention Shortcut](https://github.com/awamper/window-"
-"demands-attention-shortcut) by [awamper](https://github.com/awamper)."
-msgstr ""
-"Vylepšení založené na rozšíření gnome-shell nazvaného [Steal My Focus]"
-"(https://github.com/v-dimitrov/gnome-shell-extension-stealmyfocus) od "
-"[Valentin Dimitrov](https://github.com/v -dimitrov) a další rozšíření gnome-"
-"shell s názvem [Window Demands Attention Shortcut](https://github.com/"
-"awamper/window-demands-attention-shortcut) od [awamper](https://github.com/"
-"awamper) . "
+msgid "Tweak based on the gnome-shell extension called [Steal My Focus](https://github.com/v-dimitrov/gnome-shell-extension-stealmyfocus) by [Valentin Dimitrov](https://github.com/v-dimitrov) and another gnome-shell extension called [Window Demands Attention Shortcut](https://github.com/awamper/window-demands-attention-shortcut) by [awamper](https://github.com/awamper)."
+msgstr "Vylepšení založené na rozšíření gnome-shell nazvaného [Steal My Focus](https://github.com/v-dimitrov/gnome-shell-extension-stealmyfocus) od [Valentin Dimitrov](https://github.com/v -dimitrov) a další rozšíření gnome-shell s názvem [Window Demands Attention Shortcut](https://github.com/awamper/window-demands-attention-shortcut) od [awamper](https://github.com/awamper) . "
 
 #: ../../create_localized_help.py:116
-msgid ""
-"Some windows that demands attention will not gain focus regardless of the "
-"settings combination on Cinnamon settings. This option will allow you to "
-"correct that."
-msgstr ""
-"Některá okna, která vyžadují pozornost, nebudou zaostřena bez ohledu na "
-"nastavení Cinnamonu. Tato možnost vám to  umožní opravit. "
+msgid "Some windows that demands attention will not gain focus regardless of the settings combination on Cinnamon settings. This option will allow you to correct that."
+msgstr "Některá okna, která vyžadují pozornost, nebudou zaostřena bez ohledu na nastavení Cinnamonu. Tato možnost vám to  umožní opravit. "
 
 #: ../../create_localized_help.py:118
 msgid "The activation of windows demanding attention...:"
@@ -332,12 +226,8 @@ msgid "Keyboard shortcut:"
 msgstr "Klávesová zkratka:"
 
 #: ../../create_localized_help.py:125
-msgid ""
-"Set a keyboard shortcut for the option **...is performed with a keyboard "
-"shortcut**."
-msgstr ""
-"Nastavte klávesovou zkratku pro možnost **.... je vykonané klávesovou "
-"zkratkou**."
+msgid "Set a keyboard shortcut for the option **...is performed with a keyboard shortcut**."
+msgstr "Nastavte klávesovou zkratku pro možnost **.... je vykonané klávesovou zkratkou**."
 
 #: ../../create_localized_help.py:127
 msgid "Window Shadows tweaks"
@@ -345,16 +235,8 @@ msgstr "Vylepšení stínování okna"
 
 #. TO TRANSLATORS: MARKDOWN string. Respect formatting.
 #: ../../create_localized_help.py:129
-msgid ""
-"Tweak based on a Cinnamon extension called [Custom Shadows](https://cinnamon-"
-"spices.linuxmint.com/extensions/view/43) created by [mikhail-ekzi](https://"
-"github.com/mikhail-ekzi). It allows to modify the shadows used by Cinnamon's "
-"window manager (Muffin)."
-msgstr ""
-"Vylepšení založené na rozšíření  Cinnamonu nazvaném [Custom Shadows](https://"
-"cinnamon-spices.linuxmint.com/extensions/view/43) created od [mikhail-ekzi]"
-"(https://github.com/mikhail-ekzi). Umožňuje upravovat stíny používané "
-"správcem oken Cinnamonu (Muffin)."
+msgid "Tweak based on a Cinnamon extension called [Custom Shadows](https://cinnamon-spices.linuxmint.com/extensions/view/43) created by [mikhail-ekzi](https://github.com/mikhail-ekzi). It allows to modify the shadows used by Cinnamon's window manager (Muffin)."
+msgstr "Vylepšení založené na rozšíření  Cinnamonu nazvaném [Custom Shadows](https://cinnamon-spices.linuxmint.com/extensions/view/43) created od [mikhail-ekzi](https://github.com/mikhail-ekzi). Umožňuje upravovat stíny používané správcem oken Cinnamonu (Muffin)."
 
 #: ../../create_localized_help.py:131 settings.py:417
 msgid "Client side decorated windows aren't affected by this tweak."
@@ -386,27 +268,13 @@ msgstr "Automatické přesouvání oken"
 
 #. TO TRANSLATORS: MARKDOWN string. Respect formatting.
 #: ../../create_localized_help.py:141
-msgid ""
-"Tweak based on the gnome-shell extension called [Auto Move Windows](https://"
-"extensions.gnome.org/extension/16/auto-move-windows/) by [Florian Muellner]"
-"(https://github.com/fmuellner). It enables the ability to set rules to open "
-"determined applications on specific workspaces."
-msgstr ""
-"Vylepšení založené na rozšíření gnome-shell nazvaného[Auto Move Windows]"
-"(https://extensions.gnome.org/extension/16/auto-move-windows/) od [Florian "
-"Muellner](https://github.com/ Fmuellner). Umožňuje nastavit pravidla pro "
-"otevření určených aplikací na konkrétních pracovních plochách. "
+msgid "Tweak based on the gnome-shell extension called [Auto Move Windows](https://extensions.gnome.org/extension/16/auto-move-windows/) by [Florian Muellner](https://github.com/fmuellner). It enables the ability to set rules to open determined applications on specific workspaces."
+msgstr "Vylepšení založené na rozšíření gnome-shell nazvaného[Auto Move Windows](https://extensions.gnome.org/extension/16/auto-move-windows/) od [Florian Muellner](https://github.com/ Fmuellner). Umožňuje nastavit pravidla pro otevření určených aplikací na konkrétních pracovních plochách. "
 
 #. TO TRANSLATORS: MARKDOWN string. Respect formatting.
 #: ../../create_localized_help.py:145 ../../create_localized_help.py:152
-msgid ""
-"If the application that you want to select doesn't show up on the "
-"application chooser dialog, read the section on this help file called "
-"**Applications not showing up on the applications chooser dialogs**."
-msgstr ""
-"Pokud se aplikace, kterou chcete vybrat nezobrazuje v dialogovém okně pro "
-"výběr aplikací, přečtěte si sekci tohoto souboru nápovědy s názvem "
-"**Aplikace, které se nezobrazují v dialogových oknech výběru aplikací**."
+msgid "If the application that you want to select doesn't show up on the application chooser dialog, read the section on this help file called **Applications not showing up on the applications chooser dialogs**."
+msgstr "Pokud se aplikace, kterou chcete vybrat nezobrazuje v dialogovém okně pro výběr aplikací, přečtěte si sekci tohoto souboru nápovědy s názvem **Aplikace, které se nezobrazují v dialogových oknech výběru aplikací**."
 
 #: ../../create_localized_help.py:146 settings.py:465
 msgid "Windows decorations removal"
@@ -414,21 +282,8 @@ msgstr "Odstranění dekorace okna"
 
 #. TO TRANSLATORS: MARKDOWN string. Respect formatting.
 #: ../../create_localized_help.py:148
-msgid ""
-"Tweak based on the extension called [Cinnamon Maximus](https://cinnamon-"
-"spices.linuxmint.com/extensions/view/29) by [Fatih Mete](https://github.com/"
-"fatihmete) with some options from the gnome-shell extension called [Maximus "
-"NG](https://github.com/luispabon/maximus-gnome-shell) by [Luis Pabon]"
-"(https://github.com/luispabon). This tweak allows to remove the windows "
-"decorations from maximized/half-maximized/tiled windows."
-msgstr ""
-"Vylepšení založené na rozšíření  Cinnamonu nazvaném [Cinnamon Maximus]"
-"(https://cinnamon-spices.linuxmint.com/extensions/view/29) od [Fatih Mete]"
-"(https://github.com/fatihmete) s některými možnostmi z rozšíření gnome-shell "
-"nazvaného [Maximus NG](https://github.com/luispabon/maximus-gnome-shell) od "
-"[Luis Pabon](https://github.com/luispabon). Toto vylepšení umožňuje "
-"odstranit okenní dekorace z maximalizovaných/napůl maximalizovaných/"
-"dlaždicově uspořádaných oken. "
+msgid "Tweak based on the extension called [Cinnamon Maximus](https://cinnamon-spices.linuxmint.com/extensions/view/29) by [Fatih Mete](https://github.com/fatihmete) with some options from the gnome-shell extension called [Maximus NG](https://github.com/luispabon/maximus-gnome-shell) by [Luis Pabon](https://github.com/luispabon). This tweak allows to remove the windows decorations from maximized/half-maximized/tiled windows."
+msgstr "Vylepšení založené na rozšíření  Cinnamonu nazvaném [Cinnamon Maximus](https://cinnamon-spices.linuxmint.com/extensions/view/29) od [Fatih Mete](https://github.com/fatihmete) s některými možnostmi z rozšíření gnome-shell nazvaného [Maximus NG](https://github.com/luispabon/maximus-gnome-shell) od [Luis Pabon](https://github.com/luispabon). Toto vylepšení umožňuje odstranit okenní dekorace z maximalizovaných/napůl maximalizovaných/dlaždicově uspořádaných oken. "
 
 #: ../../create_localized_help.py:153
 msgid "Dependencies"
@@ -436,12 +291,8 @@ msgstr "Závislosti"
 
 #. TO TRANSLATORS: MARKDOWN string. Respect formatting.
 #: ../../create_localized_help.py:155
-msgid ""
-"This tweak requires two commands available on the system (**xprop** and "
-"**xwininfo**) for it to work."
-msgstr ""
-"Toto vylepšení vyžaduje pro svou funkčnost dva příkazy dostupné v systému "
-"(**xprop** a **xwininfo**)."
+msgid "This tweak requires two commands available on the system (**xprop** and **xwininfo**) for it to work."
+msgstr "Toto vylepšení vyžaduje pro svou funkčnost dva příkazy dostupné v systému (**xprop** a **xwininfo**)."
 
 #: ../../create_localized_help.py:156
 msgid "Debian based distributions:"
@@ -449,12 +300,8 @@ msgstr "Distribuce založené na Debianu:"
 
 #. TO TRANSLATORS: MARKDOWN string. Respect formatting.
 #: ../../create_localized_help.py:158
-msgid ""
-"These commands are provided by the **x11-utils** package. Linux Mint already "
-"has this package installed."
-msgstr ""
-"Tyto příkazy jsou poskytovány balíčkem **x11-utils**. Linux Mint již má "
-"tento balíček nainstalován. "
+msgid "These commands are provided by the **x11-utils** package. Linux Mint already has this package installed."
+msgstr "Tyto příkazy jsou poskytovány balíčkem **x11-utils**. Linux Mint již má tento balíček nainstalován. "
 
 #: ../../create_localized_help.py:159
 msgid "Archlinux based distributions:"
@@ -462,11 +309,8 @@ msgstr "Distribuce založené na Archlinuxu:"
 
 #. TO TRANSLATORS: MARKDOWN string. Respect formatting.
 #: ../../create_localized_help.py:161
-msgid ""
-"These commands are provided by the **xorg-xprop** and **xorg-xwininfo** "
-"packages."
-msgstr ""
-"Tyto příkazy jsou poskytovány balíčky **xorg-xprop** a **xorg-xwininfo**."
+msgid "These commands are provided by the **xorg-xprop** and **xorg-xwininfo** packages."
+msgstr "Tyto příkazy jsou poskytovány balíčky **xorg-xprop** a **xorg-xwininfo**."
 
 #: ../../create_localized_help.py:162
 msgid "Fedora based distributions:"
@@ -482,29 +326,16 @@ msgid "Warnings"
 msgstr "Upozornění"
 
 #: ../../create_localized_help.py:167 settings.py:467
-msgid ""
-"Client side decorated windows and WINE applications aren't affected by this "
-"tweak."
-msgstr ""
-"Client side dekorace oken a WINE aplikací nejsou ovlivněna tímto vylepšením."
+msgid "Client side decorated windows and WINE applications aren't affected by this tweak."
+msgstr "Client side dekorace oken a WINE aplikací nejsou ovlivněna tímto vylepšením."
 
 #: ../../create_localized_help.py:168 settings.py:468
-msgid ""
-"Close all windows that belongs to an application that is going to be added "
-"to the applications list and before applying the settings of this tweak."
-msgstr ""
-"Zavřete všechna okna, které patří k aplikaci přidávané do seznamu aplikací a "
-"před použitím nastavení tohoto vylepšení."
+msgid "Close all windows that belongs to an application that is going to be added to the applications list and before applying the settings of this tweak."
+msgstr "Zavřete všechna okna, které patří k aplikaci přidávané do seznamu aplikací a před použitím nastavení tohoto vylepšení."
 
 #: ../../create_localized_help.py:169
-msgid ""
-"As a general rule to avoid issues, before enabling and configuring this "
-"tweak, close all windows currently opened, enable and configure this tweak "
-"and then log out and log back in."
-msgstr ""
-"Jako obecné pravidlo pro vyhnutí se problémům, předtím než povolíte a "
-"nakonfigurujete toto vylepšení: zavřete všechna otevřená okna, povolte a "
-"nakonfigurujte toto vylepšení a poté se odhlaste a přihlaste se zpět."
+msgid "As a general rule to avoid issues, before enabling and configuring this tweak, close all windows currently opened, enable and configure this tweak and then log out and log back in."
+msgstr "Jako obecné pravidlo pro vyhnutí se problémům, předtím než povolíte a nakonfigurujete toto vylepšení: zavřete všechna otevřená okna, povolte a nakonfigurujte toto vylepšení a poté se odhlaste a přihlaste se zpět."
 
 #: ../../create_localized_help.py:171
 msgid "Known issues"
@@ -515,96 +346,43 @@ msgid "Invisible windows:"
 msgstr "Neviditelná okna:"
 
 #: ../../create_localized_help.py:172
-msgid ""
-"Sometimes, windows of applications that are configured to remove their "
-"decorations can become invisible. The application's icon can still be seen "
-"in the panel (taskbar) and when clicked to focus its respective window, the "
-"invisible window will block the clicks as if it were visible. To fix this, "
-"the window needs to be unmaximized (it will become visible again) and then "
-"closed. When reopened, the window should behave normally."
-msgstr ""
-"Někdy se mohou okna aplikací, které jsou nakonfigurovány s odstraněním "
-"jejich dekorací, stát neviditelnými. Ikona aplikací je stále viditelná v "
-"panelu (panelu úloh) a po kliknutí za účelem zaostření příslušného okna, "
-"neviditelné okno zablokuje kliknutí jako by bylo viditelné. Chcete-li to "
-"vyřešit, musí být u okna zrušena maximalizace (znovu se zobrazí) a pak musí "
-"být zavřeno. Při opětovném otevření by se okno mělo chovat normálně. "
+msgid "Sometimes, windows of applications that are configured to remove their decorations can become invisible. The application's icon can still be seen in the panel (taskbar) and when clicked to focus its respective window, the invisible window will block the clicks as if it were visible. To fix this, the window needs to be unmaximized (it will become visible again) and then closed. When reopened, the window should behave normally."
+msgstr "Někdy se mohou okna aplikací, které jsou nakonfigurovány s odstraněním jejich dekorací, stát neviditelnými. Ikona aplikací je stále viditelná v panelu (panelu úloh) a po kliknutí za účelem zaostření příslušného okna, neviditelné okno zablokuje kliknutí jako by bylo viditelné. Chcete-li to vyřešit, musí být u okna zrušena maximalizace (znovu se zobrazí) a pak musí být zavřeno. Při opětovném otevření by se okno mělo chovat normálně. "
 
 #: ../../create_localized_help.py:173
 msgid "Applications stuck undecorated:"
 msgstr "Aplikace zůstaly bez dekorace:"
 
 #: ../../create_localized_help.py:174
-msgid ""
-"Some times, an application will get stuck undecorated even after "
-"unmaximizing it. Restarting the application will recover its ability to "
-"decorate and undecorate itself."
-msgstr ""
-"Někdy zůstane aplikace bez dekorace i po zrušení její maximalizace. "
-"Restartováním aplikace se obnoví její schopnost povolit a zakázat dekorace "
-"okna. "
+msgid "Some times, an application will get stuck undecorated even after unmaximizing it. Restarting the application will recover its ability to decorate and undecorate itself."
+msgstr "Někdy zůstane aplikace bez dekorace i po zrušení její maximalizace. Restartováním aplikace se obnoví její schopnost povolit a zakázat dekorace okna. "
 
 #: ../../create_localized_help.py:176
 msgid "Alternative"
 msgstr "Alternativa"
 
 #: ../../create_localized_help.py:177
-msgid ""
-"There is an alternative way of hiding the title bar of absolutely all "
-"maximized windows without exceptions. By editing your Metacity theme (window "
-"decorations theme). It works infinitely better and without any of the issues "
-"this tweak on this extension has."
-msgstr ""
-"Existuje alternativní způsob, jak skrýt titulní lištu všech maximalizovaných "
-"oken bez výjimek. Upravením motivu Metacity (motiv dekorace oken). Funguje "
-"to rozhodně lépe a bez jakýchkoli problémů, které má toto vylepšení v tomto "
-"rozšíření. "
+msgid "There is an alternative way of hiding the title bar of absolutely all maximized windows without exceptions. By editing your Metacity theme (window decorations theme). It works infinitely better and without any of the issues this tweak on this extension has."
+msgstr "Existuje alternativní způsob, jak skrýt titulní lištu všech maximalizovaných oken bez výjimek. Upravením motivu Metacity (motiv dekorace oken). Funguje to rozhodně lépe a bez jakýchkoli problémů, které má toto vylepšení v tomto rozšíření. "
 
 #. TO TRANSLATORS: MARKDOWN string. Respect formatting.
 #: ../../create_localized_help.py:179
-msgid ""
-"Simply go to `/Path/To/Your/Theme/metacity-1` folder and edit with any text "
-"editor the file called **metacity-theme-3.xml**. If that file doesn't exists "
-"in your theme, then it should exist one called **metacity-theme-2.xml** or "
-"**metacity-theme-1.xml**. Choose the one with the bigger number."
-msgstr ""
-"Jednoduše přejděte do složky `/Path/To/Your/Theme/metacity-1` a upravte "
-"libovolným textovým editorem soubor s názvem **metacity-theme-3.xml**. Pokud "
-"tento soubor neexistuje ve vašem motivu, měl by existovat jeden názvem "
-"**metacity-theme-2.xml** nebo **metacity-theme-1.xml**. Vyberte ten s větším "
-"číslem. "
+msgid "Simply go to `/Path/To/Your/Theme/metacity-1` folder and edit with any text editor the file called **metacity-theme-3.xml**. If that file doesn't exists in your theme, then it should exist one called **metacity-theme-2.xml** or **metacity-theme-1.xml**. Choose the one with the bigger number."
+msgstr "Jednoduše přejděte do složky `/Path/To/Your/Theme/metacity-1` a upravte libovolným textovým editorem soubor s názvem **metacity-theme-3.xml**. Pokud tento soubor neexistuje ve vašem motivu, měl by existovat jeden názvem **metacity-theme-2.xml** nebo **metacity-theme-1.xml**. Vyberte ten s větším číslem. "
 
 #. TO TRANSLATORS: MARKDOWN string. Respect formatting.
 #: ../../create_localized_help.py:181
-msgid ""
-"Find the **frame_geometry** element named **max** (or **maximized** or "
-"**normal_max** or **normal_maximized**). Its exact name may vary depending "
-"on the theme."
-msgstr ""
-"Najděte element **frame_geometry** s názvem **max** (nebo **maximized** nebo "
-"**normal_max** nebo **normal_maximized**). Přesný název se může lišit v "
-"závislosti na tématu. "
+msgid "Find the **frame_geometry** element named **max** (or **maximized** or **normal_max** or **normal_maximized**). Its exact name may vary depending on the theme."
+msgstr "Najděte element **frame_geometry** s názvem **max** (nebo **maximized** nebo **normal_max** nebo **normal_maximized**). Přesný název se může lišit v závislosti na tématu. "
 
 #: ../../create_localized_help.py:182
-msgid ""
-"Basically, one has to set to that element the attribute **has_title** to "
-"false, and then set all sizes of all its properties to 0 (zero). Some themes "
-"might require to add more properties and set them to 0 (zero) to completely "
-"get rid of the title bar."
-msgstr ""
-"V podstatě je třeba nastavit tomuto elementu atribut **has_title** na "
-"hodnotu false a pak nastavit všechny velikosti všech jeho vlastností na 0 "
-"(nula). Některé motivy mohou vyžadovat přidání dalších vlastností a nastavit "
-"je na 0 (nula), abyste se úplně zbavili titulní lišty/záhlaví. "
+msgid "Basically, one has to set to that element the attribute **has_title** to false, and then set all sizes of all its properties to 0 (zero). Some themes might require to add more properties and set them to 0 (zero) to completely get rid of the title bar."
+msgstr "V podstatě je třeba nastavit tomuto elementu atribut **has_title** na hodnotu false a pak nastavit všechny velikosti všech jeho vlastností na 0 (nula). Některé motivy mohou vyžadovat přidání dalších vlastností a nastavit je na 0 (nula), abyste se úplně zbavili titulní lišty/záhlaví. "
 
 #. TO TRANSLATORS: MARKDOWN string. Respect formatting.
 #: ../../create_localized_help.py:184
-msgid ""
-"Next you will find examples on how to edit the Metacity themes found on the "
-"**Mint-X** and **Mint-Y** themes."
-msgstr ""
-"Dále jsou uvedeny příklady úprav motivů Metacity nalezených v motivech "
-"**Mint-X** a **Mint-Y**."
+msgid "Next you will find examples on how to edit the Metacity themes found on the **Mint-X** and **Mint-Y** themes."
+msgstr "Dále jsou uvedeny příklady úprav motivů Metacity nalezených v motivech **Mint-X** a **Mint-Y**."
 
 #: ../../create_localized_help.py:186
 msgid "For the Metacity theme found on the Mint-X theme"
@@ -624,57 +402,24 @@ msgstr "Aplikace, které se nezobrazují v dialogových oknech výběru aplikac�
 
 #. TO TRANSLATORS: MARKDOWN string. Respect formatting.
 #: ../../create_localized_help.py:222
-msgid ""
-"The application chooser dialog used by the settings window of this extension "
-"lists only those applications that have available .desktop files. Simply "
-"because these applications are the only ones that any of the tweaks that "
-"require an application ID (**Auto move windows** and **Windows decorations "
-"removal**) will recognize and handle."
-msgstr ""
-"Dialogové okno výběru aplikací, které používá okno nastavení tohoto "
-"rozšíření, uvádí pouze ty aplikace, které mají k dispozici soubory .desktop. "
-"Jednoduše proto, že tyto aplikace jsou jediné, které rozšíření vyžadující ID "
-"aplikace (**Automatické přesunutí oken** a **Odstranění dekorace okna**) "
-"dokáže rozpoznat a zpracovat. "
+msgid "The application chooser dialog used by the settings window of this extension lists only those applications that have available .desktop files. Simply because these applications are the only ones that any of the tweaks that require an application ID (**Auto move windows** and **Windows decorations removal**) will recognize and handle."
+msgstr "Dialogové okno výběru aplikací, které používá okno nastavení tohoto rozšíření, uvádí pouze ty aplikace, které mají k dispozici soubory .desktop. Jednoduše proto, že tyto aplikace jsou jediné, které rozšíření vyžadující ID aplikace (**Automatické přesunutí oken** a **Odstranění dekorace okna**) dokáže rozpoznat a zpracovat. "
 
 #: ../../create_localized_help.py:224
-msgid ""
-"Following the [Desktop Entry Specification](https://specifications."
-"freedesktop.org/desktop-entry-spec/latest/index.html), one can create a ."
-"desktop file for any application that doesn't appear in the applications "
-"list."
-msgstr ""
-"Podle specifikace [Desktop Entry Specification](https://specifications."
-"freedesktop.org/desktop-entry-spec/latest/index.html) lze vytvořit soubor ."
-"desktop pro libovolnou aplikaci, která se nezobrazuje v seznamu aplikací."
+msgid "Following the [Desktop Entry Specification](https://specifications.freedesktop.org/desktop-entry-spec/latest/index.html), one can create a .desktop file for any application that doesn't appear in the applications list."
+msgstr "Podle specifikace [Desktop Entry Specification](https://specifications.freedesktop.org/desktop-entry-spec/latest/index.html) lze vytvořit soubor .desktop pro libovolnou aplikaci, která se nezobrazuje v seznamu aplikací."
 
 #: ../../create_localized_help.py:226
 msgid "Extension's settings window"
 msgstr "Okno nastavení rozšíření"
 
 #: ../../create_localized_help.py:227
-msgid ""
-"From this extension settings window, all options can be imported, exported "
-"and/or reseted to their defaults."
-msgstr ""
-"Z tohoto okna nastavení rozšíření lze všechny volby importovat, exportovat a/"
-"nebo je resetovat na výchozí hodnoty."
+msgid "From this extension settings window, all options can be imported, exported and/or reseted to their defaults."
+msgstr "Z tohoto okna nastavení rozšíření lze všechny volby importovat, exportovat a/nebo je resetovat na výchozí hodnoty."
 
 #: ../../create_localized_help.py:229
-msgid ""
-"To be able to perform any of these actions, the settings schema needs to be "
-"installed in the system. This is done automatically when the extension is "
-"installed from the Cinnamon extensions manager. But if the extension was "
-"installed manually, the settings schema also needs to be installed manually. "
-"This is achieved by simply going to the extension folder and launch the "
-"following command:"
-msgstr ""
-"Chcete-li provést některé z těchto akcí, musí být v systému nainstalováno "
-"schéma nastavení. To se provede automaticky, když je rozšíření nainstalováno "
-"ze správce rozšíření Cinnamonu. Ale pokud bylo rozšíření nainstalováno "
-"ručně, schéma nastavení musí být také nainstalováno ručně. Toho lze "
-"dosáhnout pouhým přechodem do složky rozšíření a spuštěním následujícího "
-"příkazu: "
+msgid "To be able to perform any of these actions, the settings schema needs to be installed in the system. This is done automatically when the extension is installed from the Cinnamon extensions manager. But if the extension was installed manually, the settings schema also needs to be installed manually. This is achieved by simply going to the extension folder and launch the following command:"
+msgstr "Chcete-li provést některé z těchto akcí, musí být v systému nainstalováno schéma nastavení. To se provede automaticky, když je rozšíření nainstalováno ze správce rozšíření Cinnamonu. Ale pokud bylo rozšíření nainstalováno ručně, schéma nastavení musí být také nainstalováno ručně. Toho lze dosáhnout pouhým přechodem do složky rozšíření a spuštěním následujícího příkazu: "
 
 #. TO TRANSLATORS: MARKDOWN string. Respect formatting.
 #: ../../create_localized_help.py:231
@@ -688,12 +433,8 @@ msgstr "Příkaz k odinstalování schématu nastavení:"
 
 #. TO TRANSLATORS: MARKDOWN string. Respect formatting.
 #: ../../create_localized_help.py:237
-msgid ""
-"To import/export settings, the **dconf** command needs to be available on "
-"the system."
-msgstr ""
-"Chcete-li importovat/exportovat nastavení, musí být v systému k dispozici "
-"příkaz **dconf**."
+msgid "To import/export settings, the **dconf** command needs to be available on the system."
+msgstr "Chcete-li importovat/exportovat nastavení, musí být v systému k dispozici příkaz **dconf**."
 
 #: ../../create_localized_help.py:260
 msgid "The following two sections are available only in English."
@@ -733,51 +474,29 @@ msgid "IMPORTANT!!!"
 msgstr "DŮLEŽITÉ!!!"
 
 #: ../../create_localized_help.py:373
-msgid ""
-"Never delete any of the files found inside this xlet folder. It might break "
-"this xlet functionality."
-msgstr ""
-"Nikdy neodstraňujte soubory ze složky tohoto xletu. Mohlo by to narušit "
-"funkčnost xletu. "
+msgid "Never delete any of the files found inside this xlet folder. It might break this xlet functionality."
+msgstr "Nikdy neodstraňujte soubory ze složky tohoto xletu. Mohlo by to narušit funkčnost xletu. "
 
 #: ../../create_localized_help.py:374
-msgid ""
-"Bug reports, feature requests and contributions should be done on this "
-"xlet's repository linked next."
-msgstr ""
-"Zprávy o chybách, požadavky na funkce a příspěvky by měly být prováděny v "
-"repozitáři tohoto xletu, na který je odkaz dále."
+msgid "Bug reports, feature requests and contributions should be done on this xlet's repository linked next."
+msgstr "Zprávy o chybách, požadavky na funkce a příspěvky by měly být prováděny v repozitáři tohoto xletu, na který je odkaz dále."
 
 #: ../../create_localized_help.py:380
 msgid "Applets/Desklets/Extensions (a.k.a. xlets) localization"
 msgstr "Lokalizace apletů/deskletů/rozšíření (a.k.a. xlety)"
 
 #: ../../create_localized_help.py:381
-msgid ""
-"If this xlet was installed from Cinnamon Settings, all of this xlet's "
-"localizations were automatically installed."
-msgstr ""
-"Pokud byl tento xlet nainstalován z nastavení systému v Cinnamonu, byly "
-"všechny tyto lokalizace xletu automaticky nainstalovány."
+msgid "If this xlet was installed from Cinnamon Settings, all of this xlet's localizations were automatically installed."
+msgstr "Pokud byl tento xlet nainstalován z nastavení systému v Cinnamonu, byly všechny tyto lokalizace xletu automaticky nainstalovány."
 
 #. TO TRANSLATORS: MARKDOWN string. Respect formatting.
 #: ../../create_localized_help.py:383
-msgid ""
-"If this xlet was installed manually and not trough Cinnamon Settings, "
-"localizations can be installed by executing the script called "
-"**localizations.sh** from a terminal opened inside the xlet's folder."
-msgstr ""
-"Pokud byl tento xlet nainstalován ručně a nikoliv pomocí nastavení systému v "
-"Cinnamonu, mohou být lokalizace instalovány spuštěním skriptu nazvaného ** "
-"localizations.sh ** z terminálu otevřeného uvnitř složky xletu."
+msgid "If this xlet was installed manually and not trough Cinnamon Settings, localizations can be installed by executing the script called **localizations.sh** from a terminal opened inside the xlet's folder."
+msgstr "Pokud byl tento xlet nainstalován ručně a nikoliv pomocí nastavení systému v Cinnamonu, mohou být lokalizace instalovány spuštěním skriptu nazvaného ** localizations.sh ** z terminálu otevřeného uvnitř složky xletu."
 
 #: ../../create_localized_help.py:384
-msgid ""
-"If this xlet has no locale available for your language, you could create it "
-"by following the following instructions."
-msgstr ""
-"Pokud tento xlet nemá k dispozici překlad pro váš jazyk, můžete jej vytvořit "
-"podle následujících pokynů."
+msgid "If this xlet has no locale available for your language, you could create it by following the following instructions."
+msgstr "Pokud tento xlet nemá k dispozici překlad pro váš jazyk, můžete jej vytvořit podle následujících pokynů."
 
 #: settings.py:68 settings.py:70
 msgid "Applets tweaks"
@@ -875,8 +594,7 @@ msgstr "Aktivační zpoždění pro horní levý aktivní roh"
 msgid "Set a delay in milliseconds to activate this hot corner."
 msgstr "Nastavit zpoždění v milisekundách pro aktivaci tohoto aktivního rohu."
 
-#: settings.py:213 settings.py:225 settings.py:237 settings.py:249
-#: settings.py:301
+#: settings.py:213 settings.py:225 settings.py:237 settings.py:249 settings.py:301
 msgid "milliseconds"
 msgstr "milisekund"
 
@@ -905,12 +623,8 @@ msgid "Enable applications drop to the Desktop"
 msgstr "Povolit aplikace přetáhnout na pracovní plochu"
 
 #: settings.py:271
-msgid ""
-"With this option enabled, applications can be dragged from the menu applet "
-"and from the panel launchers applet and dropped into the desktop."
-msgstr ""
-"Povolením této možnosti, lze aplikace přetáhnout z menu apletu a ze "
-"spouštěče apletu  na pracovní plochu."
+msgid "With this option enabled, applications can be dragged from the menu applet and from the panel launchers applet and dropped into the desktop."
+msgstr "Povolením této možnosti, lze aplikace přetáhnout z menu apletu a ze spouštěče apletu  na pracovní plochu."
 
 #: settings.py:280
 msgid "Enable Tooltips tweaks"
@@ -921,17 +635,8 @@ msgid "Avoid mouse pointer overlapping tooltips"
 msgstr "Zamezit překrývání ukazatele myši a bublinové nápovědy"
 
 #: settings.py:289
-msgid ""
-"Tooltips on Cinnamon's UI are aligned to the top-left corner of the mouse "
-"pointer. This leads to having tooltips overlapped by the mouse pointer. This "
-"tweak aligns the tooltip to the bottom-right corner of the mouse pointer "
-"(approximately), reducing the possibility of the mouse pointer to overlap "
-"the tooltip."
-msgstr ""
-"Bublinová nápověda v prostředí Cinnamon je zarovnána k hornímu levému rohu "
-"ukazatele myši. To vede k překrývání bublinové nápovědy a ukazatele myši. "
-"Toto vylepšení zarovná bublinovou nápovědu ke spodnímu pravému rohu "
-"ukazatele myši (přibližně), čímž se zredujuje možnost nežádoucího překrývání."
+msgid "Tooltips on Cinnamon's UI are aligned to the top-left corner of the mouse pointer. This leads to having tooltips overlapped by the mouse pointer. This tweak aligns the tooltip to the bottom-right corner of the mouse pointer (approximately), reducing the possibility of the mouse pointer to overlap the tooltip."
+msgstr "Bublinová nápověda v prostředí Cinnamon je zarovnána k hornímu levému rohu ukazatele myši. To vede k překrývání bublinové nápovědy a ukazatele myši. Toto vylepšení zarovná bublinovou nápovědu ke spodnímu pravému rohu ukazatele myši (přibližně), čímž se zredujuje možnost nežádoucího překrývání."
 
 #: settings.py:296
 msgid "Tooltips show delay"
@@ -939,9 +644,7 @@ msgstr "Zpoždění zobrazení bublinové nápovědy"
 
 #: settings.py:297
 msgid "Set a delay in milliseconds to display Cinnamon's UI tooltips."
-msgstr ""
-"Nastavit zpoždění v milisekundách pro zobrazení bublinové nápovědy prostředí "
-"Cinnamon.."
+msgstr "Nastavit zpoždění v milisekundách pro zobrazení bublinové nápovědy prostředí Cinnamon.."
 
 #: settings.py:310
 msgid "Enable Popup menus tweaks"
@@ -949,35 +652,15 @@ msgstr "Povolit vylepšení pop-up menu "
 
 #: settings.py:318
 msgid ""
-"This setting affects only the behavior of menus that belongs to applets "
-"placed on any panel.\n"
+"This setting affects only the behavior of menus that belongs to applets placed on any panel.\n"
 "\n"
-"Emulate Gnome Shell behavior: When a menu is open on Genome Shell, and then "
-"the mouse cursor is moved to another button on the top panel, the menu of "
-"the hovered buttons will automatically open without the need to click on "
-"them. With this option enabled, that same behavior can be reproduced on "
-"Cinnamon.\n"
+"Emulate Gnome Shell behavior: When a menu is open on Genome Shell, and then the mouse cursor is moved to another button on the top panel, the menu of the hovered buttons will automatically open without the need to click on them. With this option enabled, that same behavior can be reproduced on Cinnamon.\n"
 "\n"
-"Don't eat clicks: By default, when one opens an applet's menu on Cinnamon "
-"and then click on another applet to open its menu, the first click is used "
-"to close the first opened menu, and then another click has to be performed "
-"to open the menu of the second applet. With this option enabled, one can "
-"directly open the menu of any applet even if another applet has its menu "
-"open."
+"Don't eat clicks: By default, when one opens an applet's menu on Cinnamon and then click on another applet to open its menu, the first click is used to close the first opened menu, and then another click has to be performed to open the menu of the second applet. With this option enabled, one can directly open the menu of any applet even if another applet has its menu open."
 msgstr ""
-"Toto nastavení má vliv pouze na chování menu, která patří k apletům "
-"umístěných na libovolném panelu.\n"
-"Emulovat Gnome Shell chování: Je-li na Genome Shell otevřeno menu, a pak se "
-"kurzor myši přesunune k jinému tlačítku na horním panelu, menu tohoto "
-"tlačítka se automaticky otevře aniž by bylo nutné na ně znovu klikat. "
-"Povolením této možnosti, lze dosáhnout stejného chování i v prostředí "
-"Cinnamon.\n"
-"Šetřit kliknutí: Ve výchozím nastavení, pokud otevřete menu apletu v "
-"prostředí Cinnamon a potom kliknete na jiný aplet a chcete otevřít jeho "
-"menu, první kliknutí se používá k uzavření prvního otevřeného menu a pak "
-"dalším kliknutí otevře menu druhého apletu. Povolením této možnosti, je "
-"možné přímo otevřít menu jakéhokoliv apletu, i když jiný aplet má své menu "
-"otevřené."
+"Toto nastavení má vliv pouze na chování menu, která patří k apletům umístěných na libovolném panelu.\n"
+"Emulovat Gnome Shell chování: Je-li na Genome Shell otevřeno menu, a pak se kurzor myši přesunune k jinému tlačítku na horním panelu, menu tohoto tlačítka se automaticky otevře aniž by bylo nutné na ně znovu klikat. Povolením této možnosti, lze dosáhnout stejného chování i v prostředí Cinnamon.\n"
+"Šetřit kliknutí: Ve výchozím nastavení, pokud otevřete menu apletu v prostředí Cinnamon a potom kliknete na jiný aplet a chcete otevřít jeho menu, první kliknutí se používá k uzavření prvního otevřeného menu a pak dalším kliknutí otevře menu druhého apletu. Povolením této možnosti, je možné přímo otevřít menu jakéhokoliv apletu, i když jiný aplet má své menu otevřené."
 
 #: settings.py:320
 msgid "Default behavior"
@@ -1017,21 +700,12 @@ msgstr "Vzdálenost od panelu"
 
 #: settings.py:363
 msgid ""
-"For notifications displayed at the top-right of screen: this is the distance "
-"between the bottom border of the top panel (if no top panel, from the top of "
-"the screen) to the top border of the notification popup.\n"
+"For notifications displayed at the top-right of screen: this is the distance between the bottom border of the top panel (if no top panel, from the top of the screen) to the top border of the notification popup.\n"
 "\n"
-"For notifications displayed at the bottom-right of screen: this is the "
-"distance between the top border of the bottom panel (if no bottom panel, "
-"from the bottom of the screen) to the bottom border of the notification "
-"popup."
+"For notifications displayed at the bottom-right of screen: this is the distance between the top border of the bottom panel (if no bottom panel, from the bottom of the screen) to the bottom border of the notification popup."
 msgstr ""
-"U oznámení zobrazených v pravém horním rohu obrazovky: to je vzdálenost mezi "
-"spodním okraji horního panelu (není-li horní panel, tak od horní části "
-"obrazovky) na horní hranici vyskakovacího okna oznámení .\n"
-"U oznámení zobrazených v pravém dolním rohu obrazovky: to je vzdálenost mezi "
-"horním okraji spodního panelu (není-li spodní panel, tak od dolní části "
-"obrazovky) na spodní hranici vyskakovacího okna oznámení."
+"U oznámení zobrazených v pravém horním rohu obrazovky: to je vzdálenost mezi spodním okraji horního panelu (není-li horní panel, tak od horní části obrazovky) na horní hranici vyskakovacího okna oznámení .\n"
+"U oznámení zobrazených v pravém dolním rohu obrazovky: to je vzdálenost mezi horním okraji spodního panelu (není-li spodní panel, tak od dolní části obrazovky) na spodní hranici vyskakovacího okna oznámení."
 
 #: settings.py:367 settings.py:379
 msgid "pixels"
@@ -1087,47 +761,28 @@ msgid "Edit custom shadows values"
 msgstr "Upravit vlastní hodnoty stínování"
 
 #: settings.py:448
-msgid ""
-"Not all applications can be assigned to be moved. Most applications which "
-"can open multiple instances of themselves most likely cannot be configured "
-"to be automatically moved."
-msgstr ""
-"Ne všechny aplikace lze přiřadit k přesunu. Většinu aplikací, které lze "
-"otevřít ve více instancích s největší pravděpodobností nelze konfigurovat "
-"pro automatický přesun."
+msgid "Not all applications can be assigned to be moved. Most applications which can open multiple instances of themselves most likely cannot be configured to be automatically moved."
+msgstr "Ne všechny aplikace lze přiřadit k přesunu. Většinu aplikací, které lze otevřít ve více instancích s největší pravděpodobností nelze konfigurovat pro automatický přesun."
 
 #: settings.py:453
 msgid "Enable auto move windows tweak"
 msgstr "Povolit vylepšení pro automatický přesun oken"
 
 #: settings.py:454
-msgid ""
-"This tweak enables the ability to set rules to open determined applications "
-"on specific workspaces."
-msgstr ""
-"Toto vylepšení umožňuje nastavit pravidla pro otevření určené aplikace na "
-"konkrétní ploše."
+msgid "This tweak enables the ability to set rules to open determined applications on specific workspaces."
+msgstr "Toto vylepšení umožňuje nastavit pravidla pro otevření určené aplikace na konkrétní ploše."
 
 #: settings.py:461
 msgid "Define auto move windows rules"
 msgstr "Definovat pravidla pro automatický přesun oken"
 
 #: settings.py:466
-msgid ""
-"This tweak settings are purposely NOT applied in real time. Click the »Apply "
-"windows decorations settings« button to save settings."
-msgstr ""
-"Nastavení tohoto vylepšení NEJSOU záměrně aplikována v reálném čase. "
-"Klikněte na tlačítko » Použít nastavení dekorace okna « pro uložení "
-"nastavení."
+msgid "This tweak settings are purposely NOT applied in real time. Click the »Apply windows decorations settings« button to save settings."
+msgstr "Nastavení tohoto vylepšení NEJSOU záměrně aplikována v reálném čase. Klikněte na tlačítko » Použít nastavení dekorace okna « pro uložení nastavení."
 
 #: settings.py:470
-msgid ""
-"Read this extension help for more detailed instructions, list of "
-"dependencies and known issues."
-msgstr ""
-"Přečtěte si nápovědu k tomuto rozšíření pro podrobnější pokyny, seznam "
-"závislostí a známé problémy."
+msgid "Read this extension help for more detailed instructions, list of dependencies and known issues."
+msgstr "Přečtěte si nápovědu k tomuto rozšíření pro podrobnější pokyny, seznam závislostí a známé problémy."
 
 #: settings.py:476
 msgid "Apply windows decorations settings"
@@ -1151,35 +806,21 @@ msgstr "Seznam aplikací je Blacklist?"
 
 #: settings.py:504
 msgid ""
-"If enabled, all applications will have their window decorations removed, "
-"except those listed in the list of applications.\n"
+"If enabled, all applications will have their window decorations removed, except those listed in the list of applications.\n"
 "\n"
-"If disabled, only the application from the list of applications will have "
-"their decorations removed."
+"If disabled, only the application from the list of applications will have their decorations removed."
 msgstr ""
-"Je-li povoleno, budou mít všechny aplikace odstraněny dekorace oken, s "
-"výjimkou aplikací uvedených v seznamu.\n"
+"Je-li povoleno, budou mít všechny aplikace odstraněny dekorace oken, s výjimkou aplikací uvedených v seznamu.\n"
 "\n"
-"Je-li zakázáno, budou mít odstraněny dekorace oken pouze aplikace ze seznamu "
-"aplikací."
+"Je-li zakázáno, budou mít odstraněny dekorace oken pouze aplikace ze seznamu aplikací."
 
 #: settings.py:511
 msgid "Enable hack for invisible windows"
 msgstr "Povolit hack pro neviditelná okna"
 
 #: settings.py:512
-msgid ""
-"On Cinnamon 3.4 or greater, the windows of the applications configured so "
-"that their decorations are removed when maximized, may become invisible. "
-"Enabling this option might prevent that, but it might also add a border of "
-"about 1 pixel in place of the title bar (it might depend on the metacity "
-"theme (Window borders) used)."
-msgstr ""
-"V Cinnamonu 3.4 nebo vyšším budou okna aplikací nakonfigurována tak, aby "
-"jejich dekorace byly odstraněny při maximalizaci a mohou se stát "
-"neviditelnými. Aktivace této volby tomu může zabránit, ale místo titulní "
-"lišty/záhlaví může také přidat orámování asi 1 pixel (může to záviset na "
-"použitém tématu metacity (Okraje oken)). "
+msgid "On Cinnamon 3.4 or greater, the windows of the applications configured so that their decorations are removed when maximized, may become invisible. Enabling this option might prevent that, but it might also add a border of about 1 pixel in place of the title bar (it might depend on the metacity theme (Window borders) used)."
+msgstr "V Cinnamonu 3.4 nebo vyšším budou okna aplikací nakonfigurována tak, aby jejich dekorace byly odstraněny při maximalizaci a mohou se stát neviditelnými. Aktivace této volby tomu může zabránit, ale místo titulní lišty/záhlaví může také přidat orámování asi 1 pixel (může to záviset na použitém tématu metacity (Okraje oken)). "
 
 #: settings.py:519
 msgid "Enable logging"
@@ -1305,14 +946,11 @@ msgstr "Použít uživatelský stín"
 
 #: settings.py:1214
 msgid "Save and apply custom shadow values to see its effects in real time."
-msgstr ""
-"Uložit a použít vlastní hodnoty stínů aby byly vidět jeho efekty v reálném "
-"čase."
+msgstr "Uložit a použít vlastní hodnoty stínů aby byly vidět jeho efekty v reálném čase."
 
 #: settings.py:1256 settings.py:1285
 msgid "Remember to set »Shadow presets« option to »Custom shadows«"
-msgstr ""
-"Nezapomeňte nastavit »Nastavení stínu« na volbu »Uživatelské stínování«"
+msgstr "Nezapomeňte nastavit »Nastavení stínu« na volbu »Uživatelské stínování«"
 
 #. 0dyseus@CinnamonTweaks->metadata.json->name
 #: settings.py:1283 settings.py:2449
@@ -1324,12 +962,8 @@ msgid "Warning: Trying to reset custom shadows values!!!"
 msgstr "Upozornění: Probíhá reset hodnot nastavení stínování!!!"
 
 #: settings.py:1299
-msgid ""
-"Are  you sure that you want to reset the shadows values of the current view "
-"to their defaults?"
-msgstr ""
-"Jste si jisti, že chcete obnovit hodnoty nastavení stínování z aktuální "
-"zobrazení na výchozí hodnoty?"
+msgid "Are  you sure that you want to reset the shadows values of the current view to their defaults?"
+msgstr "Jste si jisti, že chcete obnovit hodnoty nastavení stínování z aktuální zobrazení na výchozí hodnoty?"
 
 #: settings.py:1397
 msgid "Application Chooser"
@@ -1433,8 +1067,7 @@ msgstr "Upozornění: Probíhá reset všech nastavení vylepšení Cinnamonu!!!
 
 #: settings.py:2381
 msgid "Reset all Cinnamon Tweaks settings to default?"
-msgstr ""
-"Resetovat všechna nastavení vylepšení Cinnamonu na jejich výchozí hodnoty?"
+msgstr "Resetovat všechna nastavení vylepšení Cinnamonu na jejich výchozí hodnoty?"
 
 #: settings.py:2400
 msgid "Select or enter file to export to"
@@ -1455,20 +1088,14 @@ msgstr "Nastavení předvoleb pro Vylepšení Cinnamonu"
 #. TO TRANSLATORS: Could be left blank.
 #: settings.py:2548
 #, python-format
-msgid ""
-"Please enter your password to install the required settings schema for %s"
-msgstr ""
-"Prosím zadejte své heslo k instalaci vyžadovaných nastavení schémat pro %s"
+msgid "Please enter your password to install the required settings schema for %s"
+msgstr "Prosím zadejte své heslo k instalaci vyžadovaných nastavení schémat pro %s"
 
 #. TO TRANSLATORS: Could be left blank.
 #: settings.py:2559
 #, python-format
-msgid ""
-"Could not install the settings schema for %s.  You will have to perform this "
-"step yourself."
-msgstr ""
-"Nelze nainstalovat nastavení schémat pro %s. Tyto kroky musíte provést "
-"osobně."
+msgid "Could not install the settings schema for %s.  You will have to perform this step yourself."
+msgstr "Nelze nainstalovat nastavení schémat pro %s. Tyto kroky musíte provést osobně."
 
 #. TO TRANSLATORS: Could be left blank.
 #: settings.py:2565
@@ -1479,12 +1106,8 @@ msgstr "Vložte prosím své heslo k odebrání nastavení schémat pro %s"
 #. TO TRANSLATORS: Could be left blank.
 #: settings.py:2576
 #, python-format
-msgid ""
-"Could not remove the settings schema for %s.  You will have to perform this "
-"step yourself.  This is not a critical error."
-msgstr ""
-"Nelze odebrat nastavení schémat pro %s. Tento krok budete muset provést "
-"osobně. Nejedná se o závažnou chybu."
+msgid "Could not remove the settings schema for %s.  You will have to perform this step yourself.  This is not a critical error."
+msgstr "Nelze odebrat nastavení schémat pro %s. Tento krok budete muset provést osobně. Nejedná se o závažnou chybu."
 
 #: __init__.js:187
 #, javascript-format
@@ -1562,12 +1185,8 @@ msgid "Hotcorners tweaks"
 msgstr "Vylepšení aktivních rohů"
 
 #: extension.js:1306
-msgid ""
-"If you updated this extension from an older version, <b>you must check its "
-"settings window</b>."
-msgstr ""
-"Pokud máte aktualizované toto rozšíření ze starší verze,<b> je nutné "
-"zkontrolovat jeho okno s nastavením</b>."
+msgid "If you updated this extension from an older version, <b>you must check its settings window</b>."
+msgstr "Pokud máte aktualizované toto rozšíření ze starší verze,<b> je nutné zkontrolovat jeho okno s nastavením</b>."
 
 #: extension.js:1307
 msgid "Some preferences may have been changed to their default values."
@@ -1589,12 +1208,8 @@ msgstr "Viz soubor s nápovědou tohoto xletu."
 msgid "Several tweaks for Cinnamon."
 msgstr "Různé vylepšení pro Cinnamon"
 
-#~ msgid ""
-#~ "lestcape: The brain behind the popup menus and desktop tweaks https://"
-#~ "github.com/lestcape."
-#~ msgstr ""
-#~ "lestcape: The brain behind the popup menus and desktop tweaks https://"
-#~ "github.com/lestcape."
+#~ msgid "lestcape: The brain behind the popup menus and desktop tweaks https://github.com/lestcape."
+#~ msgstr "lestcape: The brain behind the popup menus and desktop tweaks https://github.com/lestcape."
 
 #~ msgid "Radek71: Czech localization https://github.com/Radek71."
 #~ msgstr "Radek71: Česká lokalizace https://github.com/Radek71."
@@ -1602,47 +1217,23 @@ msgstr "Různé vylepšení pro Cinnamon"
 #~ msgid "muzena: Croatian localization https://github.com/muzena."
 #~ msgstr "muzena: Chorvatská lokalizace https://github.com/muzena."
 
-#~ msgid ""
-#~ "mikhail-ekzi: Author of Custom Shadows extension https://cinnamon-spices."
-#~ "linuxmint.com/extensions/view/43."
-#~ msgstr ""
-#~ "mikhail-ekzi: Author of Custom Shadows extension https://cinnamon-spices."
-#~ "linuxmint.com/extensions/view/43."
+#~ msgid "mikhail-ekzi: Author of Custom Shadows extension https://cinnamon-spices.linuxmint.com/extensions/view/43."
+#~ msgstr "mikhail-ekzi: Author of Custom Shadows extension https://cinnamon-spices.linuxmint.com/extensions/view/43."
 
-#~ msgid ""
-#~ "Fatih Mete: Author of Cinnamon Maximus extension https://cinnamon-spices."
-#~ "linuxmint.com/extensions/view/29."
-#~ msgstr ""
-#~ "Fatih Mete: Author of Cinnamon Maximus extension https://cinnamon-spices."
-#~ "linuxmint.com/extensions/view/29."
+#~ msgid "Fatih Mete: Author of Cinnamon Maximus extension https://cinnamon-spices.linuxmint.com/extensions/view/29."
+#~ msgstr "Fatih Mete: Author of Cinnamon Maximus extension https://cinnamon-spices.linuxmint.com/extensions/view/29."
 
-#~ msgid ""
-#~ "Luis Pabon: Author of Maximus NG extension https://github.com/luispabon/"
-#~ "maximus-gnome-shell."
-#~ msgstr ""
-#~ "Luis Pabon: Author of Maximus NG extension https://github.com/luispabon/"
-#~ "maximus-gnome-shell."
+#~ msgid "Luis Pabon: Author of Maximus NG extension https://github.com/luispabon/maximus-gnome-shell."
+#~ msgstr "Luis Pabon: Author of Maximus NG extension https://github.com/luispabon/maximus-gnome-shell."
 
-#~ msgid ""
-#~ "Florian Muellner: Author of Auto Move Windows extension https://"
-#~ "extensions.gnome.org/extension/16/auto-move-windows."
-#~ msgstr ""
-#~ "Florian Muellner: Author of Auto Move Windows extension https://"
-#~ "extensions.gnome.org/extension/16/auto-move-windows."
+#~ msgid "Florian Muellner: Author of Auto Move Windows extension https://extensions.gnome.org/extension/16/auto-move-windows."
+#~ msgstr "Florian Muellner: Author of Auto Move Windows extension https://extensions.gnome.org/extension/16/auto-move-windows."
 
-#~ msgid ""
-#~ "Valentin Dimitrov: Author of Steal My Focus extension https://github.com/"
-#~ "v-dimitrov/gnome-shell-extension-stealmyfocus."
-#~ msgstr ""
-#~ "Valentin Dimitrov: Author of Steal My Focus extension https://github.com/"
-#~ "v-dimitrov/gnome-shell-extension-stealmyfocus."
+#~ msgid "Valentin Dimitrov: Author of Steal My Focus extension https://github.com/v-dimitrov/gnome-shell-extension-stealmyfocus."
+#~ msgstr "Valentin Dimitrov: Author of Steal My Focus extension https://github.com/v-dimitrov/gnome-shell-extension-stealmyfocus."
 
-#~ msgid ""
-#~ "awamper: Author of Window Demands Attention Shortcut extension https://"
-#~ "github.com/awamper/window-demands-attention-shortcut."
-#~ msgstr ""
-#~ "awamper: Author of Window Demands Attention Shortcut extension https://"
-#~ "github.com/awamper/window-demands-attention-shortcut."
+#~ msgid "awamper: Author of Window Demands Attention Shortcut extension https://github.com/awamper/window-demands-attention-shortcut."
+#~ msgstr "awamper: Author of Window Demands Attention Shortcut extension https://github.com/awamper/window-demands-attention-shortcut."
 
 #~ msgid "giwhub:: Chinese localization https://github.com/giwhub."
 #~ msgstr "giwhub: Čínská lokalizace https://github.com/giwhub."
@@ -1666,14 +1257,10 @@ msgstr "Různé vylepšení pro Cinnamon"
 #~ msgstr "Okna"
 
 #~ msgid "These tweaks affect only Cinnamon's UI tooltips."
-#~ msgstr ""
-#~ "Tato vylepšení ovlivní pouze bublinovou nápovědu prostředí Cinnamon."
+#~ msgstr "Tato vylepšení ovlivní pouze bublinovou nápovědu prostředí Cinnamon."
 
-#~ msgid ""
-#~ "After changing any option marked with asterisks (*), Cinnamon needs to be "
-#~ "restarted."
-#~ msgstr ""
-#~ "Po změně volby označené hvězdičkou (*), je nutné restartovat Cinnamon."
+#~ msgid "After changing any option marked with asterisks (*), Cinnamon needs to be restarted."
+#~ msgstr "Po změně volby označené hvězdičkou (*), je nutné restartovat Cinnamon."
 
 #~ msgid "Page 2"
 #~ msgstr "Strana 2"
@@ -1681,11 +1268,8 @@ msgstr "Různé vylepšení pro Cinnamon"
 #~ msgid "Page 1"
 #~ msgstr "Strana 1"
 
-#~ msgid ""
-#~ "After changing any option marked with asterisks (*), Cinnamon needs to be "
-#~ "restarted.\n"
-#~ msgstr ""
-#~ "Po změně volby označené hvězdičkou (*), je nutné restartovat Cinnamon.\n"
+#~ msgid "After changing any option marked with asterisks (*), Cinnamon needs to be restarted.\n"
+#~ msgstr "Po změně volby označené hvězdičkou (*), je nutné restartovat Cinnamon.\n"
 
 #~ msgid "Spices page"
 #~ msgstr "Spices web"
@@ -1696,19 +1280,14 @@ msgstr "Různé vylepšení pro Cinnamon"
 #~ msgid "Disable all extensions"
 #~ msgstr "Zakázat všechna rozšíření"
 
-#~ msgid ""
-#~ "This will disable all active extensions. Are you sure you want to do this?"
+#~ msgid "This will disable all active extensions. Are you sure you want to do this?"
 #~ msgstr "Tímto vypnete všechna aktivní rozšíření. Chcete opravdu pokračovat?"
 
 #~ msgid "Refresh extension list"
 #~ msgstr "Obnovit seznam rozšíření"
 
-#~ msgid ""
-#~ "There aren't any extensions installed on your system. Or you may need to "
-#~ "refresh the list of extensions from this applet context menu."
-#~ msgstr ""
-#~ "Ve vašem systému nejsou nainstalována žádná rozšíření. Vyzkoušejte "
-#~ "obnovit seznam rozšíření z kontextového menu tohoto appletu."
+#~ msgid "There aren't any extensions installed on your system. Or you may need to refresh the list of extensions from this applet context menu."
+#~ msgstr "Ve vašem systému nejsou nainstalována žádná rozšíření. Vyzkoušejte obnovit seznam rozšíření z kontextového menu tohoto appletu."
 
 #~ msgid "No enabled extensions"
 #~ msgstr "Žádná povolená rozšíření"
@@ -1719,12 +1298,8 @@ msgstr "Různé vylepšení pro Cinnamon"
 #~ msgid "No disabled extensions"
 #~ msgstr "Žádná zakázaná rozšíření"
 
-#~ msgid ""
-#~ "Extension %s is not compatible with current version of cinnamon. Using it "
-#~ "may break your system. Load anyway?"
-#~ msgstr ""
-#~ "Rozšíření %s není kompatibilní s aktuální verzí cinnamonu. Jeho použítí "
-#~ "může poškodit váš systém. Přesto pokračovat?"
+#~ msgid "Extension %s is not compatible with current version of cinnamon. Using it may break your system. Load anyway?"
+#~ msgstr "Rozšíření %s není kompatibilní s aktuální verzí cinnamonu. Jeho použítí může poškodit váš systém. Přesto pokračovat?"
 
 #~ msgid "Custom label"
 #~ msgstr "Uživatelský název"
@@ -1735,13 +1310,8 @@ msgstr "Různé vylepšení pro Cinnamon"
 #~ msgid "Show \"Spices page\" button on extensions menu"
 #~ msgstr "Zobrazit \"Spices web\" tlačítko v menu rozšíření"
 
-#~ msgid ""
-#~ "If enabled, it will display a button in each extension menu item that "
-#~ "will open the extension's Spices page (if the extension is published on "
-#~ "Spices)."
-#~ msgstr ""
-#~ "Je-li povoleno, tak zobrazí u každé položky menu rozšíření tlačítko pro "
-#~ "otevření  webové stránky (pokud je rozšíření publikované na webu Spices)."
+#~ msgid "If enabled, it will display a button in each extension menu item that will open the extension's Spices page (if the extension is published on Spices)."
+#~ msgstr "Je-li povoleno, tak zobrazí u každé položky menu rozšíření tlačítko pro otevření  webové stránky (pokud je rozšíření publikované na webu Spices)."
 
 #~ msgid "Set max height for the main menu"
 #~ msgstr "Nastavit maximální výšku pro hlavní menu"
@@ -1749,22 +1319,14 @@ msgstr "Různé vylepšení pro Cinnamon"
 #~ msgid "Keep \"Disabled extensions\" menu open"
 #~ msgstr "Ponechat menu \"Zakázaná rozšíření\" otevřené"
 
-#~ msgid ""
-#~ "If enabled, every time that the menu is open, the \"Disabled extensions\" "
-#~ "sub menu will be open too."
-#~ msgstr ""
-#~ "Je-li povoleno, tak pokaždé při otevření menu bude otevřeno také sub menu "
-#~ "\"Zakázaná rozšíření\"."
+#~ msgid "If enabled, every time that the menu is open, the \"Disabled extensions\" sub menu will be open too."
+#~ msgstr "Je-li povoleno, tak pokaždé při otevření menu bude otevřeno také sub menu \"Zakázaná rozšíření\"."
 
 #~ msgid "Show \"Open extension folder\" button on extensions menu"
 #~ msgstr "Zobrazit \"Otevřít složku rozšíření\" tlačítko v menu rozšíření"
 
-#~ msgid ""
-#~ "If enabled, it will display a button in each extension menu item that "
-#~ "will open the location where the extension is installed."
-#~ msgstr ""
-#~ "Je-li povoleno, tak zobrazí u každé položky menu rozšíření tlačítko pro "
-#~ "otevření složky ve které je rozšíření nainstalováno."
+#~ msgid "If enabled, it will display a button in each extension menu item that will open the location where the extension is installed."
+#~ msgstr "Je-li povoleno, tak zobrazí u každé položky menu rozšíření tlačítko pro otevření složky ve které je rozšíření nainstalováno."
 
 #~ msgid "Style for \"Disabled extensions\" sub-menu"
 #~ msgstr "Styl pro \"Zakázaná rozšíření\" sub-menu"
@@ -1772,8 +1334,7 @@ msgstr "Různé vylepšení pro Cinnamon"
 #~ msgid "Use extension name as label"
 #~ msgstr "Použít název rozšíření jako jméno"
 
-#~ msgid ""
-#~ "If disabled, the extension UUID will be used as label for the menu items."
+#~ msgid "If disabled, the extension UUID will be used as label for the menu items."
 #~ msgstr "Je-li zakázáno, tak bude pro položku menu použito UUID jako jméno."
 
 #~ msgid "Icon"
@@ -1786,15 +1347,10 @@ msgstr "Různé vylepšení pro Cinnamon"
 #~ msgstr "Styl pro \"Povolená rozšíření\" sub-menu"
 
 #~ msgid "Show \"Edit extension main file\" button on extensions menu"
-#~ msgstr ""
-#~ "Zobrazit \"Upravit hlavní soubor rozšíření\" tlačítko v menu rozšíření"
+#~ msgstr "Zobrazit \"Upravit hlavní soubor rozšíření\" tlačítko v menu rozšíření"
 
-#~ msgid ""
-#~ "If enabled, it will display a button in each extension menu item that "
-#~ "will open main extension file (extension.js) with a text editor."
-#~ msgstr ""
-#~ "Je-li povoleno, tak zobrazí u každé položky menu rozšíření tlačítko pro "
-#~ "otevření  hlavního souboru (extension.js) v textovém editoru."
+#~ msgid "If enabled, it will display a button in each extension menu item that will open main extension file (extension.js) with a text editor."
+#~ msgstr "Je-li povoleno, tak zobrazí u každé položky menu rozšíření tlačítko pro otevření  hlavního souboru (extension.js) v textovém editoru."
 
 #~ msgid "Icon size for menu items"
 #~ msgstr "Velikost ikon pro položky menu"
@@ -1814,23 +1370,14 @@ msgstr "Různé vylepšení pro Cinnamon"
 #~ msgid "Show \"Open settings window\" button on extensions menu"
 #~ msgstr "Zobrazit \"Otevřít okno nastavení\" tlačítko v menu rozšíření"
 
-#~ msgid ""
-#~ "If enabled, it will display a button in each extension menu item that "
-#~ "will open the extension's settings page (if the extension has a "
-#~ "configuration mechanism)."
-#~ msgstr ""
-#~ "Je-li povoleno, tak zobrazí u každé položky menu rozšíření tlačítko pro "
-#~ "otevření nastavení (pokud rozšíření umožňuje nastavení)."
+#~ msgid "If enabled, it will display a button in each extension menu item that will open the extension's settings page (if the extension has a configuration mechanism)."
+#~ msgstr "Je-li povoleno, tak zobrazí u každé položky menu rozšíření tlačítko pro otevření nastavení (pokud rozšíření umožňuje nastavení)."
 
 #~ msgid "Keep \"Enabled extensions\" menu open"
 #~ msgstr "Ponechat menu \"Povolená rozšíření\" otevřené"
 
-#~ msgid ""
-#~ "If enabled, every time that the menu is open, the \"Enabled extensions\" "
-#~ "sub menu will be open too."
-#~ msgstr ""
-#~ "Je-li povoleno, tak pokaždé při otevření menu bude otevřeno také sub menu "
-#~ "\"Povolená rozšíření\"."
+#~ msgid "If enabled, every time that the menu is open, the \"Enabled extensions\" sub menu will be open too."
+#~ msgstr "Je-li povoleno, tak pokaždé při otevření menu bude otevřeno také sub menu \"Povolená rozšíření\"."
 
 #~ msgid "Show icons on menu items"
 #~ msgstr "Zobrazit ikony položek menu"

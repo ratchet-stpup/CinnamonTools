@@ -5,18 +5,18 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: 1.04\n"
-"Report-Msgid-Bugs-To: \n"
+"Project-Id-Version: 0dyseus@DesktopHandler 1.08\n"
+"Report-Msgid-Bugs-To: https://github.com/Odyseus/CinnamonTools\n"
 "POT-Creation-Date: 2017-06-21 03:32-0300\n"
 "PO-Revision-Date: 2017-06-19 00:32-0300\n"
 "Last-Translator: Odyseus\n"
-"Language-Team: \n"
+"Language-Team: Spanish\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.8.7.1\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 1.8.7.1\n"
 
 #: ../../create_localized_help.py:72
 msgid "Description"
@@ -24,22 +24,8 @@ msgstr "Descripción"
 
 #. TO TRANSLATORS: MARKDOWN string. Respect formatting.
 #: ../../create_localized_help.py:75
-msgid ""
-"This applet is based on [Smart Panel](https://cinnamon-spices.linuxmint.com/"
-"extensions/view/32) extension and [Show Desktop ++](https://cinnamon-spices."
-"linuxmint.com/applets/view/165) applet, both authored by  **mohammad-sn**. I "
-"*mixed* both of them into an applet because there is not always room on the "
-"panel to perform the actions added by **Smart Panel**. The **Smart Panel** "
-"extension can still be installed and activated at the same time than this "
-"applet to have even more desktop actions."
-msgstr ""
-"Este applet está basado en la extensión [Smart Panel](https://cinnamon-"
-"spices.linuxmint.com/extensions/view/32) y en el applet [Show Desktop ++]"
-"(https://cinnamon-spices.linuxmint.com/applets/view/165), ambos escritos por "
-"**mohammad-sn**. Yo *mezclé* ambos en un applet porque no siempre hay "
-"espacio en el panel para realizar las acciones agregadas por **Smart "
-"Panel**. La extensión **Smart Panel** se puede instalar y activar al mismo "
-"tiempo que este applet para tener aún más acciones de escritorio."
+msgid "This applet is based on [Smart Panel](https://cinnamon-spices.linuxmint.com/extensions/view/32) extension and [Show Desktop ++](https://cinnamon-spices.linuxmint.com/applets/view/165) applet, both authored by  **mohammad-sn**. I *mixed* both of them into an applet because there is not always room on the panel to perform the actions added by **Smart Panel**. The **Smart Panel** extension can still be installed and activated at the same time than this applet to have even more desktop actions."
+msgstr "Este applet está basado en la extensión [Smart Panel](https://cinnamon-spices.linuxmint.com/extensions/view/32) y en el applet [Show Desktop ++](https://cinnamon-spices.linuxmint.com/applets/view/165), ambos escritos por **mohammad-sn**. Yo *mezclé* ambos en un applet porque no siempre hay espacio en el panel para realizar las acciones agregadas por **Smart Panel**. La extensión **Smart Panel** se puede instalar y activar al mismo tiempo que este applet para tener aún más acciones de escritorio."
 
 #: ../../create_localized_help.py:77
 msgid "Features"
@@ -47,8 +33,7 @@ msgstr "Características"
 
 #: ../../create_localized_help.py:79
 msgid "The applet icon, background color and width can be customized."
-msgstr ""
-"El icono, el color de fondo y el ancho del applet se pueden personalizar."
+msgstr "El icono, el color de fondo y el ancho del applet se pueden personalizar."
 
 #: ../../create_localized_help.py:80
 msgid "Scroll over applet actions:"
@@ -80,20 +65,15 @@ msgstr "Cambiar entre ventanas"
 
 #: ../../create_localized_help.py:85
 msgid "Posibility to perform different actions for scrolling up and down."
-msgstr ""
-"Posibilidad de realizar diferentes acciones al desplazarse hacia arriba y "
-"hacia abajo."
+msgstr "Posibilidad de realizar diferentes acciones al desplazarse hacia arriba y hacia abajo."
 
 #: ../../create_localized_help.py:86
 msgid "Posibility to perform different actions on left and middle click."
-msgstr ""
-"Posibilidad de realizar diferentes acciones en el clic izquierdo y central."
+msgstr "Posibilidad de realizar diferentes acciones en el clic izquierdo y central."
 
 #: ../../create_localized_help.py:87
 msgid "Actions for up/down scroll and/or left/middle clicks."
-msgstr ""
-"Acciones para los desplazamientos arriba/abajo y/o los clics izquierdo/"
-"central."
+msgstr "Acciones para los desplazamientos arriba/abajo y/o los clics izquierdo/central."
 
 #. 0dyseus@DesktopHandler->settings-schema.json->pref_scroll_down_action->options
 #. 0dyseus@DesktopHandler->settings-schema.json->pref_scroll_up_action->options
@@ -160,12 +140,8 @@ msgid "Posibility to create a windows list menu."
 msgstr "Posibilidad de crear un menú de lista de ventanas."
 
 #: ../../create_localized_help.py:97
-msgid ""
-"Left/Middle/Right click on applet can be configured to open the windows list "
-"menu."
-msgstr ""
-"Clic Izquierdo/Medio/Derecho en el applet se puede configurar para abrir el "
-"menú de la lista de ventanas."
+msgid "Left/Middle/Right click on applet can be configured to open the windows list menu."
+msgstr "Clic Izquierdo/Medio/Derecho en el applet se puede configurar para abrir el menú de la lista de ventanas."
 
 #: ../../create_localized_help.py:98
 msgid "Desktop peek functionality with configurable levels of opacity."
@@ -213,54 +189,30 @@ msgid "IMPORTANT!!!"
 msgstr "¡IMPORTANTE!"
 
 #: ../../create_localized_help.py:277
-msgid ""
-"Never delete any of the files found inside this xlet folder. It might break "
-"this xlet functionality."
-msgstr ""
-"Jamás borrar ninguno de los archivos encontrados dentro de la carpeta de "
-"este xlet. Podría romper la funcionalidad del xlet."
+msgid "Never delete any of the files found inside this xlet folder. It might break this xlet functionality."
+msgstr "Jamás borrar ninguno de los archivos encontrados dentro de la carpeta de este xlet. Podría romper la funcionalidad del xlet."
 
 #. 0dyseus@DesktopHandler->metadata.json->comments
 #: ../../create_localized_help.py:278
-msgid ""
-"Bug reports, feature requests and contributions should be done on this "
-"xlet's repository linked next."
-msgstr ""
-"Los reportes de fallos, peticiones de características y contribuciones deben "
-"hacerse en el repositorio de este xlet vinculado a continuación."
+msgid "Bug reports, feature requests and contributions should be done on this xlet's repository linked next."
+msgstr "Los reportes de fallos, peticiones de características y contribuciones deben hacerse en el repositorio de este xlet vinculado a continuación."
 
 #: ../../create_localized_help.py:284
 msgid "Applets/Desklets/Extensions (a.k.a. xlets) localization"
-msgstr ""
-"Localización de applets/desklets/extensiones (también conocidos como xlets)"
+msgstr "Localización de applets/desklets/extensiones (también conocidos como xlets)"
 
 #: ../../create_localized_help.py:285
-msgid ""
-"If this xlet was installed from Cinnamon Settings, all of this xlet's "
-"localizations were automatically installed."
-msgstr ""
-"Si este xlet se instaló desde Configuración de Cinnamon, todas las "
-"localizaciones de este xlet se instalaron automáticamente."
+msgid "If this xlet was installed from Cinnamon Settings, all of this xlet's localizations were automatically installed."
+msgstr "Si este xlet se instaló desde Configuración de Cinnamon, todas las localizaciones de este xlet se instalaron automáticamente."
 
 #. TO TRANSLATORS: MARKDOWN string. Respect formatting.
 #: ../../create_localized_help.py:287
-msgid ""
-"If this xlet was installed manually and not trough Cinnamon Settings, "
-"localizations can be installed by executing the script called "
-"**localizations.sh** from a terminal opened inside the xlet's folder."
-msgstr ""
-"Si este xlet se instaló manualmente y no a través de Configuración de "
-"Cinnamon, las localizaciones se pueden instalar ejecutando el archivo "
-"llamado **localizations.sh** desde una terminal abierta dentro de la carpeta "
-"del xlet."
+msgid "If this xlet was installed manually and not trough Cinnamon Settings, localizations can be installed by executing the script called **localizations.sh** from a terminal opened inside the xlet's folder."
+msgstr "Si este xlet se instaló manualmente y no a través de Configuración de Cinnamon, las localizaciones se pueden instalar ejecutando el archivo llamado **localizations.sh** desde una terminal abierta dentro de la carpeta del xlet."
 
 #: ../../create_localized_help.py:288
-msgid ""
-"If this xlet has no locale available for your language, you could create it "
-"by following the following instructions."
-msgstr ""
-"Si este xlet no está disponible en su idioma, la localización puede ser "
-"creada siguiendo las siguientes instrucciones."
+msgid "If this xlet has no locale available for your language, you could create it by following the following instructions."
+msgstr "Si este xlet no está disponible en su idioma, la localización puede ser creada siguiendo las siguientes instrucciones."
 
 #: applet.js:250 applet.js:363
 msgid "Close window"
@@ -424,9 +376,7 @@ msgstr "Todos los espacios de trabajo"
 
 #. 0dyseus@DesktopHandler->settings-schema.json->pref_switcher_modified->description
 msgid "When a modifier key is pressed, switch between windows from: "
-msgstr ""
-"Cuando se pulsa una tecla de modificación, cambiar entre ventanas "
-"perteneciente a:"
+msgstr "Cuando se pulsa una tecla de modificación, cambiar entre ventanas perteneciente a:"
 
 #. 0dyseus@DesktopHandler->settings-schema.json->pref_switcher_scope->description
 msgid "Switch between windows from: "
@@ -446,8 +396,7 @@ msgstr "Mostrar \"Configurar...\""
 
 #. 0dyseus@DesktopHandler->settings-schema.json->pref_applet_with->description
 msgid "Applet custom width (Set to 0 (zero) to not set a width):"
-msgstr ""
-"Ancho personalizado para el applet (0 (cero) para no establecer un ancho):"
+msgstr "Ancho personalizado para el applet (0 (cero) para no establecer un ancho):"
 
 #. 0dyseus@DesktopHandler->settings-schema.json->pref_applet_with->units
 msgid "pixels"
@@ -458,12 +407,8 @@ msgid "Background color for the applet:"
 msgstr "Color de fondo para el applet:"
 
 #. 0dyseus@DesktopHandler->settings-schema.json->pref_applet_background_color->tooltip
-msgid ""
-"I mainly added this so it's easy to see the applet the first time is placed "
-"in a panel."
-msgstr ""
-"He añadido esto para que sea fácil ver el applet la primera vez que se lo "
-"coloca en un panel."
+msgid "I mainly added this so it's easy to see the applet the first time is placed in a panel."
+msgstr "He añadido esto para que sea fácil ver el applet la primera vez que se lo coloca en un panel."
 
 #. 0dyseus@DesktopHandler->settings-schema.json->pref_separated_scroll_action->description
 msgid "Independent actions for scrolling up and down"
@@ -475,9 +420,7 @@ msgstr "Comandos personalizados"
 
 #. 0dyseus@DesktopHandler->settings-schema.json->pref_prevent_fast_scroll->description
 msgid "Prevent accidental workspace/window switching on rapid scrolling"
-msgstr ""
-"Prevenir cambios accidentales de espacio de trabajo/ventanas al realizar "
-"desplazamiento rápido"
+msgstr "Prevenir cambios accidentales de espacio de trabajo/ventanas al realizar desplazamiento rápido"
 
 #. 0dyseus@DesktopHandler->settings-schema.json->pref_custom_cmd3_action->description
 msgid "3rd Custom Command:"
@@ -525,8 +468,7 @@ msgstr "Difuminar ventanas al pasar el ratón"
 
 #. 0dyseus@DesktopHandler->settings-schema.json->pref_show_close_all_buttons->description
 msgid "Show close all windows buttons for workspaces"
-msgstr ""
-"Mostrar botones para cerrar todas las ventanas en los espacios de trabajo"
+msgstr "Mostrar botones para cerrar todas las ventanas en los espacios de trabajo"
 
 #. 0dyseus@DesktopHandler->settings-schema.json->pref_peek_opacity->description
 msgid "Level of opacity:"
@@ -546,8 +488,7 @@ msgstr "Acción al desplazar hacia arriba:"
 
 #. 0dyseus@DesktopHandler->settings-schema.json->pref_button_to_open_menu->description
 msgid "Mouse button to open menu (It will override mouse click actions):"
-msgstr ""
-"Botón del ratón para abrir el menú (Se anularán acciones de clic del ratón):"
+msgstr "Botón del ratón para abrir el menú (Se anularán acciones de clic del ratón):"
 
 #. 0dyseus@DesktopHandler->settings-schema.json->pref_peek_desktop_enabled->description
 msgid "Opacify windows on hover (a.k.a. desktop peek)"
@@ -571,9 +512,7 @@ msgstr "Tecla modificadora: "
 
 #. 0dyseus@DesktopHandler->settings-schema.json->pref_show_context_menu_default_items->description
 msgid "Show context menu default items on right click"
-msgstr ""
-"Mostrar elementos predeterminados del menú contextual al hacer clic con el "
-"botón derecho"
+msgstr "Mostrar elementos predeterminados del menú contextual al hacer clic con el botón derecho"
 
 #. 0dyseus@DesktopHandler->settings-schema.json->pref_scroll_delay->description
 msgid "Minimum delay between scrolls:"
@@ -635,22 +574,14 @@ msgstr "Opciones de ratón: "
 #~ msgid "Choose language"
 #~ msgstr "Elegir idioma"
 
-#~ msgid ""
-#~ "Bug reports, feature requests and contributions should be done on this "
-#~ "xlet's repository linked below."
-#~ msgstr ""
-#~ "Los reportes de fallos, peticiones de características y contribuciones "
-#~ "deben hacerse en el repositorio de este xlet vinculado a continuación."
+#~ msgid "Bug reports, feature requests and contributions should be done on this xlet's repository linked below."
+#~ msgstr "Los reportes de fallos, peticiones de características y contribuciones deben hacerse en el repositorio de este xlet vinculado a continuación."
 
 #~ msgid "Read CONTRIBUTORS.md file inside this xlet folder."
 #~ msgstr "Leer el archivo CONTRIBUTORS.md dentro de la carpeta de este xlet."
 
-#~ msgid ""
-#~ "A full list of contributors can be found in the CONTRIBUTORS.md file on "
-#~ "the root of this xlet folder."
-#~ msgstr ""
-#~ "Se puede encontrar una lista completa de contribuyentes en el archivo "
-#~ "CONTRIBUTORS.md en la raíz de la carpeta de este xlet."
+#~ msgid "A full list of contributors can be found in the CONTRIBUTORS.md file on the root of this xlet folder."
+#~ msgstr "Se puede encontrar una lista completa de contribuyentes en el archivo CONTRIBUTORS.md en la raíz de la carpeta de este xlet."
 
 #~ msgid "muzena: Croatian localization."
 #~ msgstr "muzena: Localización Croata."
@@ -664,24 +595,14 @@ msgstr "Opciones de ratón: "
 #~ msgid "Help for {xlet_name}"
 #~ msgstr "Ayuda para {xlet_name}"
 
-#~ msgid ""
-#~ "If this xlet was installed manually and not trough Cinnamon Settings, "
-#~ "localizations can be installed by executing the script called "
-#~ "<strong>localizations.sh</strong> from a terminal opened inside the "
-#~ "xlet's folder."
-#~ msgstr ""
-#~ "Si este xlet se instaló manualmente y no a través de Configuración de "
-#~ "Cinnamon, las localizaciones se pueden instalar ejecutando el archivo "
-#~ "llamado <strong>localizations.sh</strong> desde una terminal abierta "
-#~ "dentro de la carpeta del xlet."
+#~ msgid "If this xlet was installed manually and not trough Cinnamon Settings, localizations can be installed by executing the script called <strong>localizations.sh</strong> from a terminal opened inside the xlet's folder."
+#~ msgstr "Si este xlet se instaló manualmente y no a través de Configuración de Cinnamon, las localizaciones se pueden instalar ejecutando el archivo llamado <strong>localizations.sh</strong> desde una terminal abierta dentro de la carpeta del xlet."
 
 #~ msgid "Choose language:"
 #~ msgstr "Elegir lenguaje:"
 
 #~ msgid "Enable Windows list menu (Cinnamon needs restart after disabled)"
-#~ msgstr ""
-#~ "Habilitar menú de lista de ventanas (Cinnamon necesita ser reiniciado "
-#~ "luego de desactivar esta opción)"
+#~ msgstr "Habilitar menú de lista de ventanas (Cinnamon necesita ser reiniciado luego de desactivar esta opción)"
 
 #~ msgid "Desktop Handler Applet"
 #~ msgstr "Applet manejador de escritorio"

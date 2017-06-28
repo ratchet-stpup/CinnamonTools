@@ -5,44 +5,36 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: 1.05\n"
-"Report-Msgid-Bugs-To: \n"
+"Project-Id-Version: 0dyseus@PopupTranslator 1.06\n"
+"Report-Msgid-Bugs-To: https://github.com/Odyseus/CinnamonTools\n"
 "POT-Creation-Date: 2017-06-08 06:10+0200\n"
 "PO-Revision-Date: 2017-06-08 06:14+0200\n"
 "Last-Translator: Radek Otáhal <radek.otahal@email.cz>\n"
-"Language-Team: \n"
+"Language-Team: Czech\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.8.7.1\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+"X-Generator: Poedit 1.8.7.1\n"
 
 #: ../../create_localized_help.py:64
 msgid "Dependencies"
 msgstr "Závislosti"
 
 #: ../../create_localized_help.py:65
-msgid ""
-"If one or more of these dependencies are missing in your system, you will "
-"not be able to use this applet."
-msgstr ""
-"Pokud v systému chybí jedna nebo více těchto závislostí, nebudete moci tento "
-"aplet používat."
+msgid "If one or more of these dependencies are missing in your system, you will not be able to use this applet."
+msgstr "Pokud v systému chybí jedna nebo více těchto závislostí, nebudete moci tento aplet používat."
 
 #: ../../create_localized_help.py:66
 msgid "xsel command"
 msgstr "xsel příkaz"
 
 #: ../../create_localized_help.py:67
-msgid ""
-"XSel is a command-line program for getting and setting the contents of the X "
-"selection."
-msgstr ""
-"XSel je program příkazového řádku pro získání a nastavení obsahu výběru X."
+msgid "XSel is a command-line program for getting and setting the contents of the X selection."
+msgstr "XSel je program příkazového řádku pro získání a nastavení obsahu výběru X."
 
-#: ../../create_localized_help.py:69 ../../create_localized_help.py:77
-#: ../../create_localized_help.py:89
+#: ../../create_localized_help.py:69 ../../create_localized_help.py:77 ../../create_localized_help.py:89
 msgid "Debian and Archlinux based distributions:"
 msgstr "Distribuce založené na Debianu a Archlinuxu:"
 
@@ -56,20 +48,15 @@ msgid "xdg-open command"
 msgstr "xdg-open příkaz"
 
 #: ../../create_localized_help.py:75
-msgid ""
-"Open a URI in the user's preferred application that handles the respective "
-"URI or file type."
-msgstr ""
-"Otevře URI v aplikaci preferované uživatelem, která zpracovává příslušný URI "
-"nebo typ souboru."
+msgid "Open a URI in the user's preferred application that handles the respective URI or file type."
+msgstr "Otevře URI v aplikaci preferované uživatelem, která zpracovává příslušný URI nebo typ souboru."
 
 #. TO TRANSLATORS: MARKDOWN string. Respect formatting.
 #: ../../create_localized_help.py:79 ../../create_localized_help.py:91
 msgid "This command is installed with the package called **xdg-utils**."
 msgstr "Tento příkaz je nainstalován s balíčkem s názvem **xdg-utils**."
 
-#: ../../create_localized_help.py:80 ../../create_localized_help.py:92
-#: ../../create_localized_help.py:98
+#: ../../create_localized_help.py:80 ../../create_localized_help.py:92 ../../create_localized_help.py:98
 msgid "Installed by default in modern versions of Linux Mint."
 msgstr "Instalováno ve výchozím nastavení v moderních verzích Linux Mint."
 
@@ -86,16 +73,8 @@ msgid "requests Python 3 module"
 msgstr "requests Python 3 modul"
 
 #: ../../create_localized_help.py:87
-msgid ""
-"Requests allow you to send HTTP/1.1 requests. You can add headers, form "
-"data, multi-part files, and parameters with simple Python dictionaries, and "
-"access the response data in the same way. It's powered by httplib and "
-"urllib3, but it does all the hard work and crazy hacks for you."
-msgstr ""
-"Requests knihovna umožňuje posílat HTTP / 1.1 požadavky. Můžete přidat "
-"hlavičky, data formuláře, vícedílné soubory a parametry pomocí jednoduchých "
-"slovníků Pythonu a přístup k datům odezvy stejným způsobem. Využívá httplib "
-"a urllib3, ale dělá pro vás všechnu všechnu zbývající tvrdou práci. "
+msgid "Requests allow you to send HTTP/1.1 requests. You can add headers, form data, multi-part files, and parameters with simple Python dictionaries, and access the response data in the same way. It's powered by httplib and urllib3, but it does all the hard work and crazy hacks for you."
+msgstr "Requests knihovna umožňuje posílat HTTP / 1.1 požadavky. Můžete přidat hlavičky, data formuláře, vícedílné soubory a parametry pomocí jednoduchých slovníků Pythonu a přístup k datům odezvy stejným způsobem. Využívá httplib a urllib3, ale dělá pro vás všechnu všechnu zbývající tvrdou práci. "
 
 #: ../../create_localized_help.py:95
 msgid "Debian based distributions:"
@@ -116,21 +95,12 @@ msgid "The package is called **python-requests**."
 msgstr "Balík se nazývá **python-requests**."
 
 #: ../../create_localized_help.py:106
-msgid ""
-"After installing any of the missing dependencies, Cinnamon needs to be "
-"restarted"
-msgstr ""
-"Po instalaci jakékoli chybějících závislosti je nutné restartovat Cinnamon."
+msgid "After installing any of the missing dependencies, Cinnamon needs to be restarted"
+msgstr "Po instalaci jakékoli chybějících závislosti je nutné restartovat Cinnamon."
 
 #: ../../create_localized_help.py:108
-msgid ""
-"I don't use any other type of Linux distribution (Gentoo based, Slackware "
-"based, etc.). If any of the previous packages/modules are named differently, "
-"please, let me know and I will specify them in this help file."
-msgstr ""
-"Nepoužívám žádný jiný typ distribuce Linuxu (založený na Gentoo, založeném "
-"na Slackware atd.). Pokud se některý z předchozích balíčků / modulů jmenuje "
-"jinak, dejte mi vědět a já doplním tento soubor s nápovědou. "
+msgid "I don't use any other type of Linux distribution (Gentoo based, Slackware based, etc.). If any of the previous packages/modules are named differently, please, let me know and I will specify them in this help file."
+msgstr "Nepoužívám žádný jiný typ distribuce Linuxu (založený na Gentoo, založeném na Slackware atd.). Pokud se některý z předchozích balíčků / modulů jmenuje jinak, dejte mi vědět a já doplním tento soubor s nápovědou. "
 
 #: ../../create_localized_help.py:108
 msgid "Note:"
@@ -142,146 +112,77 @@ msgstr "Používání"
 
 #. TO TRANSLATORS: MARKDOWN string. Respect formatting.
 #: ../../create_localized_help.py:112
-msgid ""
-"There are 4 *translations mechanisms* (**Left click**, **Middle click**, "
-"**Hotkey #1** and **Hotkey #2**). Each translation mechanism can be "
-"configured with their own service providers, language pairs and hotkeys."
-msgstr ""
-"Existují 4 *mechanismy překladů* (**levým tlačítkem**, **středním "
-"tlačítkem**, **klávesová zkratka # 1** a **klávesová zkratka # 2**). Každý "
-"mechanismus překladu může být konfigurován s vlastními poskytovateli služeb, "
-"jazykovými páry a klávesovými zkratkami. "
+msgid "There are 4 *translations mechanisms* (**Left click**, **Middle click**, **Hotkey #1** and **Hotkey #2**). Each translation mechanism can be configured with their own service providers, language pairs and hotkeys."
+msgstr "Existují 4 *mechanismy překladů* (**levým tlačítkem**, **středním tlačítkem**, **klávesová zkratka # 1** a **klávesová zkratka # 2**). Každý mechanismus překladu může být konfigurován s vlastními poskytovateli služeb, jazykovými páry a klávesovými zkratkami. "
 
 #. TO TRANSLATORS: MARKDOWN string. Respect formatting.
 #: ../../create_localized_help.py:114
-msgid ""
-"**First translation mechanism (Left click):** Translates any selected text "
-"from any application on your system. A hotkey can be assigned to perform "
-"this task."
-msgstr ""
-"**Mechanismus prvního překladu (levým tlačítkem myši):** Převede libovolný "
-"vybraný text z jakékoliv aplikace ve vašem systému. K provedení této úlohy "
-"může být přiřazena klávesová zkratka. "
+msgid "**First translation mechanism (Left click):** Translates any selected text from any application on your system. A hotkey can be assigned to perform this task."
+msgstr "**Mechanismus prvního překladu (levým tlačítkem myši):** Převede libovolný vybraný text z jakékoliv aplikace ve vašem systému. K provedení této úlohy může být přiřazena klávesová zkratka. "
 
 #. TO TRANSLATORS: MARKDOWN string. Respect formatting.
 #: ../../create_localized_help.py:116
-msgid ""
-"**First translation mechanism ([[Ctrl]] + Left click):** Same as **Left "
-"click**, but it will bypass the translation history. A hotkey can be "
-"assigned to perform this task."
-msgstr ""
-"**Mechanismus prvního překladu ([[Ctrl]] + levým tlačítkem myši):** Stejné "
-"jako **levým tlačítkem**, ale obchází historii překladu. K provedení této "
-"úlohy může být přiřazena klávesová zkratka. "
+msgid "**First translation mechanism ([[Ctrl]] + Left click):** Same as **Left click**, but it will bypass the translation history. A hotkey can be assigned to perform this task."
+msgstr "**Mechanismus prvního překladu ([[Ctrl]] + levým tlačítkem myši):** Stejné jako **levým tlačítkem**, ale obchází historii překladu. K provedení této úlohy může být přiřazena klávesová zkratka. "
 
 #. TO TRANSLATORS: MARKDOWN string. Respect formatting.
 #: ../../create_localized_help.py:118
-msgid ""
-"**Second translation mechanism (Middle click):** Same as **Left click**."
-msgstr ""
-"**Mechanismus druhého překladu (prostředním tlačítkem myši):** Stejné jako "
-"**levým tlačítkem**."
+msgid "**Second translation mechanism (Middle click):** Same as **Left click**."
+msgstr "**Mechanismus druhého překladu (prostředním tlačítkem myši):** Stejné jako **levým tlačítkem**."
 
 #: ../../create_localized_help.py:121
-msgid ""
-"**Second translation mechanism ([[Ctrl]] + Middle click):** Same as [[Ctrl]] "
-"+ **Left click**."
-msgstr ""
-"**Mechanismus druhého překladu ([[Ctrl]] + prostředním tlačítkem myši):** "
-"Stejné jako [[Ctrl]] + **levým tlačítkem**."
+msgid "**Second translation mechanism ([[Ctrl]] + Middle click):** Same as [[Ctrl]] + **Left click**."
+msgstr "**Mechanismus druhého překladu ([[Ctrl]] + prostředním tlačítkem myši):** Stejné jako [[Ctrl]] + **levým tlačítkem**."
 
 #. TO TRANSLATORS: MARKDOWN string. Respect formatting.
 #: ../../create_localized_help.py:123
-msgid ""
-"**Third translation mechanism (Hotkey #1):** Two hotkeys can be configured "
-"to perform a translation and a forced translation."
-msgstr ""
-"**Mechanismus třetího překladu (klávesová zkratka # 1):** Dvě klávesové "
-"zkratky mohou být nakonfigurovány pro překlad a vynucený překlad."
+msgid "**Third translation mechanism (Hotkey #1):** Two hotkeys can be configured to perform a translation and a forced translation."
+msgstr "**Mechanismus třetího překladu (klávesová zkratka # 1):** Dvě klávesové zkratky mohou být nakonfigurovány pro překlad a vynucený překlad."
 
 #. TO TRANSLATORS: MARKDOWN string. Respect formatting.
 #: ../../create_localized_help.py:125
-msgid ""
-"**Fourth translation mechanism (Hotkey #2):** Two hotkeys can be configured "
-"to perform a translation and a forced translation."
-msgstr ""
-"**Mechanismus čtvrtého překladu (klávesová zkratka # 2):** Dvě klávesové "
-"zkratky mohou být nakonfigurovány pro překlad a vynucený překlad."
+msgid "**Fourth translation mechanism (Hotkey #2):** Two hotkeys can be configured to perform a translation and a forced translation."
+msgstr "**Mechanismus čtvrtého překladu (klávesová zkratka # 2):** Dvě klávesové zkratky mohou být nakonfigurovány pro překlad a vynucený překlad."
 
 #: ../../create_localized_help.py:126
-msgid ""
-"All translations are stored into the translation history. If a string of "
-"text was already translated in the past, the popup will display that stored "
-"translated text without making use of the provider's translation service."
-msgstr ""
-"Všechny překlady jsou uloženy do historie překladů. Pokud byl řetězec textu "
-"již v minulosti přeložen, vyskakovací okno zobrazí tento uložený přeložený "
-"text bez použití služby poskytovatele překladu. "
+msgid "All translations are stored into the translation history. If a string of text was already translated in the past, the popup will display that stored translated text without making use of the provider's translation service."
+msgstr "Všechny překlady jsou uloženy do historie překladů. Pokud byl řetězec textu již v minulosti přeložen, vyskakovací okno zobrazí tento uložený přeložený text bez použití služby poskytovatele překladu. "
 
 #: ../../create_localized_help.py:128
 msgid "About translation history"
 msgstr "O historii překladů"
 
 #: ../../create_localized_help.py:129
-msgid ""
-"I created the translation history mechanism mainly to avoid the abuse of the "
-"translation services."
-msgstr ""
-"Vytvořil jsem mechanismus historie překladu hlavně proto, aby se zabránilo "
-"zneužívání překladatelských služeb."
+msgid "I created the translation history mechanism mainly to avoid the abuse of the translation services."
+msgstr "Vytvořil jsem mechanismus historie překladu hlavně proto, aby se zabránilo zneužívání překladatelských služeb."
 
 #: ../../create_localized_help.py:130
-msgid ""
-"If the Google Translate service is \"abused\", Google may block temporarily "
-"your IP. Or what is worse, they could change the translation mechanism "
-"making this applet useless and forcing me to update its code."
-msgstr ""
-"Pokud je služba Google Translate \"zneužívána\", může společnost Google "
-"dočasně zablokovat vaši IP adresu. Nebo co je horší, mohou změnit překladový "
-"mechanismus, což způsobí nepoužitelnost tohoto apletu a donutí mě "
-"aktualizovat jeho kód. "
+msgid "If the Google Translate service is \"abused\", Google may block temporarily your IP. Or what is worse, they could change the translation mechanism making this applet useless and forcing me to update its code."
+msgstr "Pokud je služba Google Translate \"zneužívána\", může společnost Google dočasně zablokovat vaši IP adresu. Nebo co je horší, mohou změnit překladový mechanismus, což způsobí nepoužitelnost tohoto apletu a donutí mě aktualizovat jeho kód. "
 
 #: ../../create_localized_help.py:131
-msgid ""
-"If the Yandex Translate service is \"abused\", you are \"wasting\" your API "
-"keys quota and they will be blocked (temporarily or permanently)."
-msgstr ""
-"Pokud je služba Yandex Translate \"zneužívána\", \"utrácíte\" kvótu na klíče "
-"API a ty budou blokovány (dočasně nebo trvale)."
+msgid "If the Yandex Translate service is \"abused\", you are \"wasting\" your API keys quota and they will be blocked (temporarily or permanently)."
+msgstr "Pokud je služba Yandex Translate \"zneužívána\", \"utrácíte\" kvótu na klíče API a ty budou blokovány (dočasně nebo trvale)."
 
 #: ../../create_localized_help.py:132
-msgid ""
-"In the context menu of this applet is an item that can open the folder were "
-"the translation history file is stored. From there, the translation history "
-"file can be backed up or deleted."
-msgstr ""
-"V kontextovém menu tohoto apletu je položka, která může otevřít složku se "
-"souborem historie překladů. Odtud může být soubor historie překladů "
-"zálohován nebo smazán. "
+msgid "In the context menu of this applet is an item that can open the folder were the translation history file is stored. From there, the translation history file can be backed up or deleted."
+msgstr "V kontextovém menu tohoto apletu je položka, která může otevřít složku se souborem historie překladů. Odtud může být soubor historie překladů zálohován nebo smazán. "
 
 #: ../../create_localized_help.py:134
 msgid "NEVER edit the translation history file manually!!!"
 msgstr "NIKDY neupravujte soubor historie překladu ručně!!!"
 
 #: ../../create_localized_help.py:136
-msgid ""
-"If the translation history file is deleted/renamed/moved, Cinnamon needs to "
-"be restarted."
-msgstr ""
-"Pokud je soubor s historií překladů smazán/přejmenován/přesunut, je třeba "
-"restartovat Cinnamon."
+msgid "If the translation history file is deleted/renamed/moved, Cinnamon needs to be restarted."
+msgstr "Pokud je soubor s historií překladů smazán/přejmenován/přesunut, je třeba restartovat Cinnamon."
 
 #: ../../create_localized_help.py:138
 msgid "How to get Yandex translator API keys"
 msgstr "Jak získat klíče API pro překladač Yandex"
 
 #: ../../create_localized_help.py:139
-msgid ""
-"Visit one of the following links and register a Yandex account (or use one "
-"of the available social services)."
-msgstr ""
-"Navštivte některý z následujících odkazů a zaregistrujte účet Yandex (nebo "
-"použijte jednu z dostupných sociálních služeb)."
+msgid "Visit one of the following links and register a Yandex account (or use one of the available social services)."
+msgstr "Navštivte některý z následujících odkazů a zaregistrujte účet Yandex (nebo použijte jednu z dostupných sociálních služeb)."
 
 #. TO TRANSLATORS: URL pointing to website in English
 #: ../../create_localized_help.py:141
@@ -295,53 +196,30 @@ msgstr "Rusky:"
 
 #. TO TRANSLATORS: MARKDOWN string. Respect formatting.
 #: ../../create_localized_help.py:145
-msgid ""
-"Once you successfully finish creating your Yandex account, you can visit the "
-"link provided several times to create several API keys. **DO NOT ABUSE!!!**"
-msgstr ""
-"Jakmile úspěšně dokončíte vytváření účtu Yandex, můžete několikrát navštívit "
-"odkaz k vytvoření několika klíčů API. **NEZNEUŽÍVEJTE !!!**"
+msgid "Once you successfully finish creating your Yandex account, you can visit the link provided several times to create several API keys. **DO NOT ABUSE!!!**"
+msgstr "Jakmile úspěšně dokončíte vytváření účtu Yandex, můžete několikrát navštívit odkaz k vytvoření několika klíčů API. **NEZNEUŽÍVEJTE !!!**"
 
 #: ../../create_localized_help.py:146
-msgid ""
-"Once you have several API keys, you can add them to Popup Translator's "
-"settings window (one API key per line)."
-msgstr ""
-"Jakmile máte k dispozici několik klíčů API, můžete je přidat do okna "
-"nastavení Popup překladače (jeden klíč API na každý řádek)."
+msgid "Once you have several API keys, you can add them to Popup Translator's settings window (one API key per line)."
+msgstr "Jakmile máte k dispozici několik klíčů API, můžete je přidat do okna nastavení Popup překladače (jeden klíč API na každý řádek)."
 
 #: ../../create_localized_help.py:148
 msgid "Important notes about Yandex API keys"
 msgstr "Důležité poznámky o klíčích API služby Yandex"
 
 #: ../../create_localized_help.py:149
-msgid ""
-"The API keys will be stored into a preference. Keep your API keys backed up "
-"in case you reset Popup Translator's preferences."
-msgstr ""
-"Klíče API budou uloženy do předvoleb. Udržujte klíč API zálohované pro "
-"případ, že zresetujete předvolby Popup překladače. "
+msgid "The API keys will be stored into a preference. Keep your API keys backed up in case you reset Popup Translator's preferences."
+msgstr "Klíče API budou uloženy do předvoleb. Udržujte klíč API zálohované pro případ, že zresetujete předvolby Popup překladače. "
 
 #. TO TRANSLATORS: MARKDOWN string. Respect formatting.
 #: ../../create_localized_help.py:151
-msgid ""
-"**NEVER make your API keys public!!!** The whole purpose of going to the "
-"trouble of getting your own API keys is that the only one \"consuming their "
-"limits\" is you and nobody else."
-msgstr ""
-"**NIKDY nezveřejňujte své klíče API** Celý proces získání vlastních klíčů "
-"API, má jediný účel a tím je, že jediný kdo spotřebovává jejich limity jste "
-"vy a nikdo jiný."
+msgid "**NEVER make your API keys public!!!** The whole purpose of going to the trouble of getting your own API keys is that the only one \"consuming their limits\" is you and nobody else."
+msgstr "**NIKDY nezveřejňujte své klíče API** Celý proces získání vlastních klíčů API, má jediný účel a tím je, že jediný kdo spotřebovává jejich limity jste vy a nikdo jiný."
 
 #. TO TRANSLATORS: MARKDOWN string. Respect formatting.
 #: ../../create_localized_help.py:153
-msgid ""
-"With each Yandex translator API key you can translate **UP TO** 1.000.000 (1 "
-"million) characters per day **BUT NOT MORE** than 10.000.000 (10 millions) "
-"per month."
-msgstr ""
-"S každým klíčem API pro překladač Yandex můžete přeložit **AŽ DO** 1.000.000 "
-"(1 milion) znaků za den **ALE NE VÍCE** než 10.000.000 (10 milionů) za měsíc."
+msgid "With each Yandex translator API key you can translate **UP TO** 1.000.000 (1 million) characters per day **BUT NOT MORE** than 10.000.000 (10 millions) per month."
+msgstr "S každým klíčem API pro překladač Yandex můžete přeložit **AŽ DO** 1.000.000 (1 milion) znaků za den **ALE NE VÍCE** než 10.000.000 (10 milionů) za měsíc."
 
 #: ../../create_localized_help.py:175
 msgid "The following two sections are available only in English."
@@ -381,51 +259,29 @@ msgid "IMPORTANT!!!"
 msgstr "DŮLEŽITÉ!!!"
 
 #: ../../create_localized_help.py:288
-msgid ""
-"Never delete any of the files found inside this xlet folder. It might break "
-"this xlet functionality."
-msgstr ""
-"Nikdy neodstraňujte soubory ze složky tohoto xletu. Mohlo by to narušit "
-"funkčnost xletu. "
+msgid "Never delete any of the files found inside this xlet folder. It might break this xlet functionality."
+msgstr "Nikdy neodstraňujte soubory ze složky tohoto xletu. Mohlo by to narušit funkčnost xletu. "
 
 #: ../../create_localized_help.py:289
-msgid ""
-"Bug reports, feature requests and contributions should be done on this "
-"xlet's repository linked next."
-msgstr ""
-"Zprávy o chybách, požadavky na funkce a příspěvky by měly být prováděny v "
-"repozitáři tohoto xletu, na který je odkaz dále."
+msgid "Bug reports, feature requests and contributions should be done on this xlet's repository linked next."
+msgstr "Zprávy o chybách, požadavky na funkce a příspěvky by měly být prováděny v repozitáři tohoto xletu, na který je odkaz dále."
 
 #: ../../create_localized_help.py:295
 msgid "Applets/Desklets/Extensions (a.k.a. xlets) localization"
 msgstr "Lokalizace apletů/deskletů/rozšíření (a.k.a. xlety)"
 
 #: ../../create_localized_help.py:296
-msgid ""
-"If this xlet was installed from Cinnamon Settings, all of this xlet's "
-"localizations were automatically installed."
-msgstr ""
-"Pokud byl tento xlet nainstalován z nastavení systému v Cinnamonu, byly "
-"všechny tyto lokalizace xletu automaticky nainstalovány."
+msgid "If this xlet was installed from Cinnamon Settings, all of this xlet's localizations were automatically installed."
+msgstr "Pokud byl tento xlet nainstalován z nastavení systému v Cinnamonu, byly všechny tyto lokalizace xletu automaticky nainstalovány."
 
 #. TO TRANSLATORS: MARKDOWN string. Respect formatting.
 #: ../../create_localized_help.py:298
-msgid ""
-"If this xlet was installed manually and not trough Cinnamon Settings, "
-"localizations can be installed by executing the script called "
-"**localizations.sh** from a terminal opened inside the xlet's folder."
-msgstr ""
-"Pokud byl tento xlet nainstalován ručně a nikoliv pomocí nastavení systému v "
-"Cinnamonu, mohou být lokalizace instalovány spuštěním skriptu nazvaného ** "
-"localizations.sh ** z terminálu otevřeného uvnitř složky xletu."
+msgid "If this xlet was installed manually and not trough Cinnamon Settings, localizations can be installed by executing the script called **localizations.sh** from a terminal opened inside the xlet's folder."
+msgstr "Pokud byl tento xlet nainstalován ručně a nikoliv pomocí nastavení systému v Cinnamonu, mohou být lokalizace instalovány spuštěním skriptu nazvaného ** localizations.sh ** z terminálu otevřeného uvnitř složky xletu."
 
 #: ../../create_localized_help.py:299
-msgid ""
-"If this xlet has no locale available for your language, you could create it "
-"by following the following instructions."
-msgstr ""
-"Pokud tento xlet nemá k dispozici překlad pro váš jazyk, můžete jej vytvořit "
-"podle následujících pokynů."
+msgid "If this xlet has no locale available for your language, you could create it by following the following instructions."
+msgstr "Pokud tento xlet nemá k dispozici překlad pro váš jazyk, můžete jej vytvořit podle následujících pokynů."
 
 #: appletHelper.py:310
 msgid "Popup Translator history"
@@ -639,24 +495,16 @@ msgid "Unable to execute file/command '%s':"
 msgstr "Nelze spustit soubor/příkaz '%s':"
 
 #. 0dyseus@PopupTranslator->metadata.json->description
-msgid ""
-"Simple translator applet that will allow to display any selected text from "
-"any application on a system in a popup."
-msgstr ""
-"Aplet umožňující zobrazit překlad vybraného textu z jakékoliv aplikace v "
-"popup okně."
+msgid "Simple translator applet that will allow to display any selected text from any application on a system in a popup."
+msgstr "Aplet umožňující zobrazit překlad vybraného textu z jakékoliv aplikace v popup okně."
 
 #. 0dyseus@PopupTranslator->metadata.json->contributors
 msgid "See this xlet help file."
 msgstr "Viz soubor s nápovědou tohoto xletu."
 
 #. 0dyseus@PopupTranslator->metadata.json->comments
-msgid ""
-"Bug reports, feature requests and contributions should be done on this "
-"xlet's repository linked below."
-msgstr ""
-"Zprávy o chybách, požadavky na funkce a příspěvky by měly být prováděny v "
-"repozitáři tohoto xletu, na který je odkaz níže."
+msgid "Bug reports, feature requests and contributions should be done on this xlet's repository linked below."
+msgstr "Zprávy o chybách, požadavky na funkce a příspěvky by měly být prováděny v repozitáři tohoto xletu, na který je odkaz níže."
 
 #. 0dyseus@PopupTranslator->metadata.json->name
 msgid "Popup Translator"
@@ -728,9 +576,7 @@ msgid "Enable logging"
 msgstr "Povolit protokolování"
 
 #. 0dyseus@PopupTranslator->settings-schema.json->pref_loggin_enabled->tooltip
-msgid ""
-"It enables the ability to log the output of several functions used by the "
-"applet."
+msgid "It enables the ability to log the output of several functions used by the applet."
 msgstr "Povoluje možnost logovat výstup z několika funkcí používaných apletem."
 
 #. 0dyseus@PopupTranslator->settings-schema.json->pref_translate_key_forced_3->description
@@ -744,14 +590,8 @@ msgstr "Klávesová zkratka pro vyvolání vynuceného překladu"
 #. 0dyseus@PopupTranslator->settings-schema.json->pref_translate_key_forced_4->tooltip
 #. 0dyseus@PopupTranslator->settings-schema.json->pref_translate_key_forced_2->tooltip
 #. 0dyseus@PopupTranslator->settings-schema.json->pref_translate_key_forced_1->tooltip
-msgid ""
-"Choose a keybinding to perform a FORCED translation. A \"forced translation"
-"\" forces the translation of any string stored on the translation history "
-"and overwrites the existing one."
-msgstr ""
-"Zvolit klávesovou zkratku pro vyvolání vynuceného překladu. \"Vynucený "
-"překlad\" vynutí překlad jakéhokoliv řetězce uloženého v historii překladů a "
-"přepíše existující."
+msgid "Choose a keybinding to perform a FORCED translation. A \"forced translation\" forces the translation of any string stored on the translation history and overwrites the existing one."
+msgstr "Zvolit klávesovou zkratku pro vyvolání vynuceného překladu. \"Vynucený překlad\" vynutí překlad jakéhokoliv řetězce uloženého v historii překladů a přepíše existující."
 
 #. 0dyseus@PopupTranslator->settings-schema.json->pref_style_for_language_pair->description
 msgid "Language pair style"
@@ -768,25 +608,18 @@ msgstr "API klíče"
 #. 0dyseus@PopupTranslator->settings-schema.json->pref_yandex_api_keys->tooltip
 msgid ""
 "Enter one API key per line.\n"
-"Read the help file (Help item on this applet context menu) found inside this "
-"applet folder to know how to get free Yandex API keys."
+"Read the help file (Help item on this applet context menu) found inside this applet folder to know how to get free Yandex API keys."
 msgstr ""
 "Zadejte jeden API klíč na řádek.\n"
-"Přečtěte soubor s nápovědou (položka Nápověda v kontextovém menu tohoto "
-"apletu), který je umístěn ve složce tohoto apletu s popisem jak získat  "
-"Yandex API klíče."
+"Přečtěte soubor s nápovědou (položka Nápověda v kontextovém menu tohoto apletu), který je umístěn ve složce tohoto apletu s popisem jak získat  Yandex API klíče."
 
 #. 0dyseus@PopupTranslator->settings-schema.json->pref_history_width_to_trigger_word_wrap->description
 msgid "Width to trigger word wrap"
 msgstr "Šířka pro zalomení řádků"
 
 #. 0dyseus@PopupTranslator->settings-schema.json->pref_history_width_to_trigger_word_wrap->tooltip
-msgid ""
-"The \"Source text\" and \"Target text\" columns on the history window will "
-"wrap its text at the width defined by this setting."
-msgstr ""
-"Text ve sloupcích \"Zdrojový text\" a \"Cílový text\" v okně historie bude "
-"zalomen na šířku definovanou tímto nastavením."
+msgid "The \"Source text\" and \"Target text\" columns on the history window will wrap its text at the width defined by this setting."
+msgstr "Text ve sloupcích \"Zdrojový text\" a \"Cílový text\" v okně historie bude zalomen na šířku definovanou tímto nastavením."
 
 #. 0dyseus@PopupTranslator->settings-schema.json->pref_custom_label_for_applet->description
 msgid "Custom label"

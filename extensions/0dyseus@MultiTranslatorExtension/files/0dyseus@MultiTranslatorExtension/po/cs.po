@@ -5,84 +5,55 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: 1.04\n"
-"Report-Msgid-Bugs-To: \n"
+"Project-Id-Version: 0dyseus@MultiTranslatorExtension 1.05\n"
+"Report-Msgid-Bugs-To: https://github.com/Odyseus/CinnamonTools\n"
 "POT-Creation-Date: 2017-06-08 06:27+0200\n"
 "PO-Revision-Date: 2017-06-08 06:49+0200\n"
 "Last-Translator: Radek Otáhal <radek.otahal@email.cz>\n"
-"Language-Team: \n"
+"Language-Team: Czech\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.8.7.1\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+"X-Generator: Poedit 1.8.7.1\n"
 
 #: ../../create_localized_help.py:64
 msgid "Dependencies"
 msgstr "Závislosti"
 
 #: ../../create_localized_help.py:65
-msgid ""
-"If one or more of these dependencies are missing in your system, you will "
-"not be able to use this extension."
-msgstr ""
-"Pokud v systému chybí jedna nebo více těchto závislostí, nebudete moci toto "
-"rozšíření používat."
+msgid "If one or more of these dependencies are missing in your system, you will not be able to use this extension."
+msgstr "Pokud v systému chybí jedna nebo více těchto závislostí, nebudete moci toto rozšíření používat."
 
 #: ../../create_localized_help.py:66
 msgid "xsel command:"
 msgstr "xsel příkaz:"
 
 #: ../../create_localized_help.py:67
-msgid ""
-"XSel is a command-line program for getting and setting the contents of the X "
-"selection."
-msgstr ""
-"XSel je program příkazového řádku pro získání a nastavení obsahu výběru X."
+msgid "XSel is a command-line program for getting and setting the contents of the X selection."
+msgstr "XSel je program příkazového řádku pro získání a nastavení obsahu výběru X."
 
 #: ../../create_localized_help.py:68
 msgid "trans command:"
 msgstr "trans příkaz:"
 
 #: ../../create_localized_help.py:69
-msgid ""
-"Command provided by the package translate-shell. Is a simple command line "
-"interface for several translation providers (Google Translate, Yandex "
-"Translate, Bing Translate and Apertium) which allows you to translate "
-"strings in your terminal."
-msgstr ""
-"Příkaz poskytovaný balíkem translate-shell. Jde o jednoduché rozhraní "
-"příkazového řádku pro několik poskytovatelů překladů (Google Translate, "
-"Yandex Translate, Bing Translate a Apertium), které umožní přeložit řetězce "
-"ve vaše terminálu. "
+msgid "Command provided by the package translate-shell. Is a simple command line interface for several translation providers (Google Translate, Yandex Translate, Bing Translate and Apertium) which allows you to translate strings in your terminal."
+msgstr "Příkaz poskytovaný balíkem translate-shell. Jde o jednoduché rozhraní příkazového řádku pro několik poskytovatelů překladů (Google Translate, Yandex Translate, Bing Translate a Apertium), které umožní přeložit řetězce ve vaše terminálu. "
 
 #. TO TRANSLATORS: MARKDOWN string. Respect formatting.
 #: ../../create_localized_help.py:71
-msgid ""
-"Check translate-shell [dependencies](https://github.com/soimort/translate-"
-"shell#dependencies) and [recommended dependencies](https://github.com/"
-"soimort/translate-shell#recommended-dependencies)."
-msgstr ""
-"Zkontrolujte translate-shell [závislosti](https://github.com/soimort/"
-"translate-shell#dependencies) a [doporučené závislosti](https://github.com/"
-"soimort/translate-shell#recommended-pendencies)."
+msgid "Check translate-shell [dependencies](https://github.com/soimort/translate-shell#dependencies) and [recommended dependencies](https://github.com/soimort/translate-shell#recommended-dependencies)."
+msgstr "Zkontrolujte translate-shell [závislosti](https://github.com/soimort/translate-shell#dependencies) a [doporučené závislosti](https://github.com/soimort/translate-shell#recommended-pendencies)."
 
 #: ../../create_localized_help.py:73
 msgid "Note:"
 msgstr "Poznámka:"
 
 #: ../../create_localized_help.py:73
-msgid ""
-"The translate-shell package available on Ubuntu 16.04.x/Linux Mint 18.x "
-"repositories is outdated and broken. It can be installed anyway so it will "
-"also install its dependencies. But updating to the latest version should be "
-"done as described bellow."
-msgstr ""
-"Balík translate-shell dostupný v repozitářích Ubuntu 16.04.x ​​/ Linux Mint 18."
-"x je zastaralý a porušený. Přesto může být instalován tak, že bude také "
-"instalovat jeho závislosti. Aktualizace na nejnovější verzi by měla být "
-"provedena způsobem popsaným níže. "
+msgid "The translate-shell package available on Ubuntu 16.04.x/Linux Mint 18.x repositories is outdated and broken. It can be installed anyway so it will also install its dependencies. But updating to the latest version should be done as described bellow."
+msgstr "Balík translate-shell dostupný v repozitářích Ubuntu 16.04.x ​​/ Linux Mint 18.x je zastaralý a porušený. Přesto může být instalován tak, že bude také instalovat jeho závislosti. Aktualizace na nejnovější verzi by měla být provedena způsobem popsaným níže. "
 
 #: ../../create_localized_help.py:75
 msgid "How to install latest version of translate-shell"
@@ -93,15 +64,13 @@ msgid "Option 1. Direct Download"
 msgstr "Možnost 1. Přímé stažení"
 
 #: ../../create_localized_help.py:77
-msgid ""
-"This method will only install the trans script into the specified locations."
+msgid "This method will only install the trans script into the specified locations."
 msgstr "Tato metoda pouze nainstaluje skript trans do určených umístění."
 
 #. TO TRANSLATORS: MARKDOWN string. Respect formatting.
 #: ../../create_localized_help.py:80
 msgid "For the current user only. **~/.local/bin** needs to be in your PATH."
-msgstr ""
-"Pouze pro aktuálního uživatele. **~/.local/bin** musí být ve vaší cestě. "
+msgstr "Pouze pro aktuálního uživatele. **~/.local/bin** musí být ve vaší cestě. "
 
 #: ../../create_localized_help.py:86
 msgid "For all users without overwriting the installed version."
@@ -109,21 +78,12 @@ msgstr "Pro všechny uživatele bez přepsání nainstalované verze."
 
 #. TO TRANSLATORS: MARKDOWN string. Respect formatting.
 #: ../../create_localized_help.py:94
-msgid ""
-"Option 2. From Git - [More details](https://github.com/soimort/translate-"
-"shell/blob/develop/README.md#option-3-from-git-recommended-for-seasoned-"
-"hackers)"
-msgstr ""
-"Možnost 2. Z Git - [Podrobnosti](https://github.com/soimort/translate-shell/"
-"blob/develop/README.md#option-3-from-git-recommended-for-seasoned-hackers)"
+msgid "Option 2. From Git - [More details](https://github.com/soimort/translate-shell/blob/develop/README.md#option-3-from-git-recommended-for-seasoned-hackers)"
+msgstr "Možnost 2. Z Git - [Podrobnosti](https://github.com/soimort/translate-shell/blob/develop/README.md#option-3-from-git-recommended-for-seasoned-hackers)"
 
 #: ../../create_localized_help.py:95
-msgid ""
-"This method will not just install the trans script but also its man pages. "
-"Refer to the link above for more installation details."
-msgstr ""
-"Tato metoda nebude pouze instalovat trans skript, ale i jeho man pages. Více "
-"podrobností o instalaci naleznete na výše uvedeném odkazu. "
+msgid "This method will not just install the trans script but also its man pages. Refer to the link above for more installation details."
+msgstr "Tato metoda nebude pouze instalovat trans skript, ale i jeho man pages. Více podrobností o instalaci naleznete na výše uvedeném odkazu. "
 
 #: ../../create_localized_help.py:105
 msgid "Extension usage"
@@ -131,9 +91,7 @@ msgstr "Používání rozšíření"
 
 #: ../../create_localized_help.py:106
 msgid "Once installed and enabled, the following shortcuts will be available."
-msgstr ""
-"Po instalaci a aktivaci rozšíření budou k dispozici následující klávesové "
-"zkratky."
+msgstr "Po instalaci a aktivaci rozšíření budou k dispozici následující klávesové zkratky."
 
 #: ../../create_localized_help.py:107
 msgid "Global shortcuts (configurable from the extension settings)"
@@ -146,21 +104,13 @@ msgstr "**[[Super]] + [[T]]:** Otevřít dialog překladače."
 
 #. TO TRANSLATORS: MARKDOWN string. Respect formatting.
 #: ../../create_localized_help.py:111
-msgid ""
-"**[[Super]] + [[Shift]] + [[T]]:** Open translator dialog and translate text "
-"from clipboard."
-msgstr ""
-"**[[Super]] + [[Shift]] + [[T]]:** Otevřít dialog překladače a přeložit text "
-"ze schránky."
+msgid "**[[Super]] + [[Shift]] + [[T]]:** Open translator dialog and translate text from clipboard."
+msgstr "**[[Super]] + [[Shift]] + [[T]]:** Otevřít dialog překladače a přeložit text ze schránky."
 
 #. TO TRANSLATORS: MARKDOWN string. Respect formatting.
 #: ../../create_localized_help.py:113
-msgid ""
-"**[[Super]] + [[Alt]] + [[T]]:** Open translator dialog and translate from "
-"primary selection."
-msgstr ""
-"**[[Super]] + [[Alt]] + [[T]]:** Otevřít dialog překladače a přeložit "
-"vybraný text."
+msgid "**[[Super]] + [[Alt]] + [[T]]:** Open translator dialog and translate from primary selection."
+msgstr "**[[Super]] + [[Alt]] + [[T]]:** Otevřít dialog překladače a přeložit vybraný text."
 
 #: ../../create_localized_help.py:115
 msgid "Shortcuts available on the translation dialog"
@@ -173,17 +123,13 @@ msgstr "**[[Ctrl]] + [[Enter]]:** Přeložit text."
 
 #. TO TRANSLATORS: MARKDOWN string. Respect formatting.
 #: ../../create_localized_help.py:119
-msgid ""
-"**[[Shift]] + [[Enter]]:** Force text translation. Ignores translation "
-"history."
-msgstr ""
-"**[[Shift]] + [[Enter]]:** Vynutit překlad textu. Ignoruje historii překladů."
+msgid "**[[Shift]] + [[Enter]]:** Force text translation. Ignores translation history."
+msgstr "**[[Shift]] + [[Enter]]:** Vynutit překlad textu. Ignoruje historii překladů."
 
 #. TO TRANSLATORS: MARKDOWN string. Respect formatting.
 #: ../../create_localized_help.py:121
 msgid "**[[Ctrl]] + [[Shift]] + [[C]]:** Copy translated text to clipboard."
-msgstr ""
-"**[[Ctrl]] + [[Shift]] + [[C]]:** Kopírovat přeložený text do schránky."
+msgstr "**[[Ctrl]] + [[Shift]] + [[C]]:** Kopírovat přeložený text do schránky."
 
 #. TO TRANSLATORS: MARKDOWN string. Respect formatting.
 #: ../../create_localized_help.py:123
@@ -205,28 +151,12 @@ msgid "Extension's settings window"
 msgstr "Okno nastavení rozšíření"
 
 #: ../../create_localized_help.py:131
-msgid ""
-"From this extension settings window, all options can be imported, exported "
-"and/or reseted to their defaults."
-msgstr ""
-"Z tohoto okna nastavení rozšíření lze všechny volby importovat, exportovat a/"
-"nebo je resetovat na výchozí hodnoty."
+msgid "From this extension settings window, all options can be imported, exported and/or reseted to their defaults."
+msgstr "Z tohoto okna nastavení rozšíření lze všechny volby importovat, exportovat a/nebo je resetovat na výchozí hodnoty."
 
 #: ../../create_localized_help.py:133
-msgid ""
-"To be able to perform any of these actions, the settings schema needs to be "
-"installed in the system. This is done automatically when the extension is "
-"installed from the Cinnamon extensions manager. But if the extension was "
-"installed manually, the settings schema also needs to be installed manually. "
-"This is achieved by simply going to the extension folder and launch the "
-"following command:"
-msgstr ""
-"Chcete-li provést některé z těchto akcí, musí být v systému nainstalováno "
-"schéma nastavení. To se provede automaticky, když je rozšíření nainstalováno "
-"ze správce rozšíření Cinnamonu. Ale pokud bylo rozšíření nainstalováno "
-"ručně, schéma nastavení musí být také nainstalováno ručně. Toho lze "
-"dosáhnout pouhým přechodem do složky rozšíření a spuštěním následujícího "
-"příkazu: "
+msgid "To be able to perform any of these actions, the settings schema needs to be installed in the system. This is done automatically when the extension is installed from the Cinnamon extensions manager. But if the extension was installed manually, the settings schema also needs to be installed manually. This is achieved by simply going to the extension folder and launch the following command:"
+msgstr "Chcete-li provést některé z těchto akcí, musí být v systému nainstalováno schéma nastavení. To se provede automaticky, když je rozšíření nainstalováno ze správce rozšíření Cinnamonu. Ale pokud bylo rozšíření nainstalováno ručně, schéma nastavení musí být také nainstalováno ručně. Toho lze dosáhnout pouhým přechodem do složky rozšíření a spuštěním následujícího příkazu: "
 
 #. TO TRANSLATORS: MARKDOWN string. Respect formatting.
 #: ../../create_localized_help.py:135
@@ -240,12 +170,8 @@ msgstr "Příkaz k odinstalování schématu nastavení:"
 
 #. TO TRANSLATORS: MARKDOWN string. Respect formatting.
 #: ../../create_localized_help.py:141
-msgid ""
-"To import/export settings, the **dconf** command needs to be available on "
-"the system."
-msgstr ""
-"Chcete-li importovat/exportovat nastavení, musí být v systému k dispozici "
-"příkaz **dconf**."
+msgid "To import/export settings, the **dconf** command needs to be available on the system."
+msgstr "Chcete-li importovat/exportovat nastavení, musí být v systému k dispozici příkaz **dconf**."
 
 #: ../../create_localized_help.py:164
 msgid "The following two sections are available only in English."
@@ -285,51 +211,29 @@ msgid "IMPORTANT!!!"
 msgstr "DŮLEŽITÉ!!!"
 
 #: ../../create_localized_help.py:277
-msgid ""
-"Never delete any of the files found inside this xlet folder. It might break "
-"this xlet functionality."
-msgstr ""
-"Nikdy neodstraňujte soubory ze složky tohoto xletu. Mohlo by to narušit "
-"funkčnost xletu. "
+msgid "Never delete any of the files found inside this xlet folder. It might break this xlet functionality."
+msgstr "Nikdy neodstraňujte soubory ze složky tohoto xletu. Mohlo by to narušit funkčnost xletu. "
 
 #: ../../create_localized_help.py:278
-msgid ""
-"Bug reports, feature requests and contributions should be done on this "
-"xlet's repository linked next."
-msgstr ""
-"Zprávy o chybách, požadavky na funkce a příspěvky by měly být prováděny v "
-"repozitáři tohoto xletu, na který je odkaz dále."
+msgid "Bug reports, feature requests and contributions should be done on this xlet's repository linked next."
+msgstr "Zprávy o chybách, požadavky na funkce a příspěvky by měly být prováděny v repozitáři tohoto xletu, na který je odkaz dále."
 
 #: ../../create_localized_help.py:284
 msgid "Applets/Desklets/Extensions (a.k.a. xlets) localization"
 msgstr "Lokalizace apletů/deskletů/rozšíření (a.k.a. xlety)"
 
 #: ../../create_localized_help.py:285
-msgid ""
-"If this xlet was installed from Cinnamon Settings, all of this xlet's "
-"localizations were automatically installed."
-msgstr ""
-"Pokud byl tento xlet nainstalován z nastavení systému v Cinnamonu, byly "
-"všechny tyto lokalizace xletu automaticky nainstalovány."
+msgid "If this xlet was installed from Cinnamon Settings, all of this xlet's localizations were automatically installed."
+msgstr "Pokud byl tento xlet nainstalován z nastavení systému v Cinnamonu, byly všechny tyto lokalizace xletu automaticky nainstalovány."
 
 #. TO TRANSLATORS: MARKDOWN string. Respect formatting.
 #: ../../create_localized_help.py:287
-msgid ""
-"If this xlet was installed manually and not trough Cinnamon Settings, "
-"localizations can be installed by executing the script called "
-"**localizations.sh** from a terminal opened inside the xlet's folder."
-msgstr ""
-"Pokud byl tento xlet nainstalován ručně a nikoliv pomocí nastavení systému v "
-"Cinnamonu, mohou být lokalizace instalovány spuštěním skriptu nazvaného ** "
-"localizations.sh ** z terminálu otevřeného uvnitř složky xletu."
+msgid "If this xlet was installed manually and not trough Cinnamon Settings, localizations can be installed by executing the script called **localizations.sh** from a terminal opened inside the xlet's folder."
+msgstr "Pokud byl tento xlet nainstalován ručně a nikoliv pomocí nastavení systému v Cinnamonu, mohou být lokalizace instalovány spuštěním skriptu nazvaného ** localizations.sh ** z terminálu otevřeného uvnitř složky xletu."
 
 #: ../../create_localized_help.py:288
-msgid ""
-"If this xlet has no locale available for your language, you could create it "
-"by following the following instructions."
-msgstr ""
-"Pokud tento xlet nemá k dispozici překlad pro váš jazyk, můžete jej vytvořit "
-"podle následujících pokynů."
+msgid "If this xlet has no locale available for your language, you could create it by following the following instructions."
+msgstr "Pokud tento xlet nemá k dispozici překlad pro váš jazyk, můžete jej vytvořit podle následujících pokynů."
 
 #: extensionHelper.py:271
 msgid "Multi Translator history"
@@ -818,8 +722,7 @@ msgstr "Zvolit výchozího poskytovatele služby překladu."
 
 #: settings.py:192
 msgid "Providers marked with (*) require translate-shell package to work."
-msgstr ""
-"Poskytovatelé označení (*) vyžadují pro funkčnost balíček translate-shell."
+msgstr "Poskytovatelé označení (*) vyžadují pro funkčnost balíček translate-shell."
 
 #: settings.py:193 __init__.js:3553
 msgid "See the extended help of this extension for more information."
@@ -838,12 +741,8 @@ msgid "Keep source entry text selected"
 msgstr "Zachovat zdrojový text vybraný"
 
 #: settings.py:215
-msgid ""
-"Keep source entry text selected whenever the translation dialog is opened "
-"and the source entry box contains text."
-msgstr ""
-"Zachovat zdrojový text vybraný vždy, když je dialogové okno překladu "
-"otevřené a box pro zdrojový text obsahuje text."
+msgid "Keep source entry text selected whenever the translation dialog is opened and the source entry box contains text."
+msgstr "Zachovat zdrojový text vybraný vždy, když je dialogové okno překladu otevřené a box pro zdrojový text obsahuje text."
 
 #: settings.py:221
 msgid "Show most used languages"
@@ -968,14 +867,10 @@ msgstr "Časové razítko pro záznamy v historii překladů"
 #: settings.py:347
 msgid ""
 "Timestamp format for the translation history entries.\n"
-"Note: After changing this setting, only new entries in the translation "
-"history will be saved with the new timestamp format. Old entries will still "
-"have the previous timestamp format."
+"Note: After changing this setting, only new entries in the translation history will be saved with the new timestamp format. Old entries will still have the previous timestamp format."
 msgstr ""
 "Formát časového razítka pro záznamy v historii překladů \\ n\n"
-"Poznámka: Po změně tohoto nastavení budou uloženy pouze nové záznamy v "
-"historii překladu s novým formátem časového razítka. Staré záznamy budou mít "
-"i nadále předchozí formát časového razítka. "
+"Poznámka: Po změně tohoto nastavení budou uloženy pouze nové záznamy v historii překladu s novým formátem časového razítka. Staré záznamy budou mít i nadále předchozí formát časového razítka. "
 
 #: settings.py:351
 msgid "European"
@@ -1018,12 +913,8 @@ msgid "Width to trigger word wrap"
 msgstr "Šířka pro zalomení řádků"
 
 #: settings.py:388
-msgid ""
-"The \"Source text\" and \"Target text\" columns on the history window will "
-"wrap its text at the width defined by this setting."
-msgstr ""
-"Text ve sloupcích \"Zdrojový text\" a \"Cílový text\" v okně historie bude "
-"zalomen na šířku definovanou tímto nastavením."
+msgid "The \"Source text\" and \"Target text\" columns on the history window will wrap its text at the width defined by this setting."
+msgstr "Text ve sloupcích \"Zdrojový text\" a \"Cílový text\" v okně historie bude zalomen na šířku definovanou tímto nastavením."
 
 #: settings.py:399
 msgid "Advanced"
@@ -1040,12 +931,10 @@ msgstr "Yandex API klíče"
 #: settings.py:408
 msgid ""
 "Enter one API key per line.\n"
-"Read the help file found inside this extension folder to know how to get "
-"free Yandex API keys."
+"Read the help file found inside this extension folder to know how to get free Yandex API keys."
 msgstr ""
 "Zadejte jeden API klíč na každém řádku.\n"
-"Přečtěte si soubor s nápovědou ve složce tohoto rozšíření pro získání "
-"informací, jak se získat zdarma Yandex API klíče."
+"Přečtěte si soubor s nápovědou ve složce tohoto rozšíření pro získání informací, jak se získat zdarma Yandex API klíče."
 
 #: settings.py:413
 msgid "This options are only useful for the extension developer."
@@ -1056,11 +945,8 @@ msgid "Enable logging"
 msgstr "Povolit protokolování"
 
 #: settings.py:422
-msgid ""
-"It enables the ability to log the output of several functions used by the "
-"extension."
-msgstr ""
-"Povoluje možnost logovat výstup z několika funkcí používaných rozšířením."
+msgid "It enables the ability to log the output of several functions used by the extension."
+msgstr "Povoluje možnost logovat výstup z několika funkcí používaných rozšířením."
 
 #: settings.py:428
 msgid "Indent translation history data"
@@ -1191,20 +1077,14 @@ msgstr "DCONF soubory"
 #. TO TRANSLATORS: Could be left blank.
 #: settings.py:1534
 #, python-format
-msgid ""
-"Please enter your password to install the required settings schema for %s"
-msgstr ""
-"Prosím zadejte své heslo k instalaci vyžadovaných nastavení schémat pro %s"
+msgid "Please enter your password to install the required settings schema for %s"
+msgstr "Prosím zadejte své heslo k instalaci vyžadovaných nastavení schémat pro %s"
 
 #. TO TRANSLATORS: Could be left blank.
 #: settings.py:1545
 #, python-format
-msgid ""
-"Could not install the settings schema for %s.  You will have to perform this "
-"step yourself."
-msgstr ""
-"Nelze nainstalovat nastavení schémat pro %s. Tyto kroky musíte provést "
-"osobně."
+msgid "Could not install the settings schema for %s.  You will have to perform this step yourself."
+msgstr "Nelze nainstalovat nastavení schémat pro %s. Tyto kroky musíte provést osobně."
 
 #. TO TRANSLATORS: Could be left blank.
 #: settings.py:1551
@@ -1215,12 +1095,8 @@ msgstr "Vložte prosím své heslo k odebrání nastavení schémat pro %s"
 #. TO TRANSLATORS: Could be left blank.
 #: settings.py:1562
 #, python-format
-msgid ""
-"Could not remove the settings schema for %s.  You will have to perform this "
-"step yourself.  This is not a critical error."
-msgstr ""
-"Nelze odebrat nastavení schémat pro %s. Tento krok budete muset provést "
-"osobně. Nejedná se o závažnou chybu."
+msgid "Could not remove the settings schema for %s.  You will have to perform this step yourself.  This is not a critical error."
+msgstr "Nelze odebrat nastavení schémat pro %s. Tento krok budete muset provést osobně. Nejedná se o závažnou chybu."
 
 #: __init__.js:457
 #, javascript-format
@@ -1288,9 +1164,7 @@ msgstr "Nejčastěji používané jazyky."
 msgid "Can't load preferences for %s"
 msgstr "Nelze načíst nastavení pro %s"
 
-#: __init__.js:2239 translation_providers/google_translation_provider.js:76
-#: translation_providers/transltr_translation_provider.js:66
-#: translation_providers/yandex_translation_provider.js:272
+#: __init__.js:2239 translation_providers/google_translation_provider.js:76 translation_providers/transltr_translation_provider.js:66 translation_providers/yandex_translation_provider.js:272
 msgid "Error"
 msgstr "Chyba"
 
@@ -1307,11 +1181,9 @@ msgstr "Vyskytla se chyba při spuštění translate-shell"
 msgid "Unmet dependencies found!!!"
 msgstr "Nalezeny nesplněné závislosti!!!"
 
-#: __init__.js:3435 __init__.js:3452
-#: translation_providers/yandex_translation_provider.js:334
+#: __init__.js:3435 __init__.js:3452 translation_providers/yandex_translation_provider.js:334
 msgid "Check this extension help file for instructions."
-msgstr ""
-"Zkontrolujte soubor s nápovědou tohoto rozšíření pro získání instrukcí."
+msgstr "Zkontrolujte soubor s nápovědou tohoto rozšíření pro získání instrukcí."
 
 #: __init__.js:3436
 msgid "It can be accessed from the translation dialog main menu."
@@ -1322,8 +1194,7 @@ msgid "All dependencies seem to be met."
 msgstr "Všechny závislosti jsou splněny."
 
 #: __init__.js:3453
-msgid ""
-"This information has also been logged into the ~/.cinnamon/glass.log file."
+msgid "This information has also been logged into the ~/.cinnamon/glass.log file."
 msgstr "Tato informace byla zaznamenána také do ~/.cinnamon/glass.log souboru."
 
 #. Just in case.
@@ -1337,14 +1208,11 @@ msgstr "Stiskněte <Esc> pro zavření"
 
 #: __init__.js:3549
 msgid "This translation provider doesn't require translate-shell to work."
-msgstr ""
-"Tento zprostředkovatel překladu nevyžaduje pro svou funkčnost translate-"
-"shell."
+msgstr "Tento zprostředkovatel překladu nevyžaduje pro svou funkčnost translate-shell."
 
 #: __init__.js:3552
 msgid "This translation provider requires translate-shell to work."
-msgstr ""
-"Tento zprostředkovatel překladu vyžaduje pro svou funkčnost translate-shell."
+msgstr "Tento zprostředkovatel překladu vyžaduje pro svou funkčnost translate-shell."
 
 #: extension.js:148 extension.js:406
 msgid "Choose source language"
@@ -1450,21 +1318,15 @@ msgstr "Chyba parsování stylu"
 msgid "Error unloading stylesheet"
 msgstr "Chyba načítání stylu"
 
-#: translation_providers/apertium_ts_translation_provider.js:87
-#: translation_providers/bing_ts_translation_provider.js:87
-#: translation_providers/google_ts_translation_provider.js:88
+#: translation_providers/apertium_ts_translation_provider.js:87 translation_providers/bing_ts_translation_provider.js:87 translation_providers/google_ts_translation_provider.js:88
 msgid "Error while parsing data"
 msgstr "Chyba parsování dat"
 
-#: translation_providers/apertium_ts_translation_provider.js:120
-#: translation_providers/bing_ts_translation_provider.js:121
-#: translation_providers/google_ts_translation_provider.js:122
+#: translation_providers/apertium_ts_translation_provider.js:120 translation_providers/bing_ts_translation_provider.js:121 translation_providers/google_ts_translation_provider.js:122
 msgid "Error while translating, check your internet connection"
 msgstr "Chyba při převodu, zkontrolujte připojení k Internetu"
 
-#: translation_providers/google_translation_provider.js:81
-#: translation_providers/transltr_translation_provider.js:71
-#: translation_providers/yandex_translation_provider.js:277
+#: translation_providers/google_translation_provider.js:81 translation_providers/transltr_translation_provider.js:71 translation_providers/yandex_translation_provider.js:277
 msgid "Can't translate text, please try later."
 msgstr "Nelze přeložit text, zkuste to prosím později."
 
@@ -1497,24 +1359,16 @@ msgid "No Yandex API keys were found!!!"
 msgstr "Žádné Yandex API klíče nebyly nalezeny!!!"
 
 #. 0dyseus@MultiTranslatorExtension->metadata.json->description
-msgid ""
-"Translation of text by different translation providers (currently Google, "
-"Yandex, Bing and Apertium)."
-msgstr ""
-"Překlad textu různými poskytovateli překladu (v současné době Google, "
-"Yandex, Bing a Apertium)."
+msgid "Translation of text by different translation providers (currently Google, Yandex, Bing and Apertium)."
+msgstr "Překlad textu různými poskytovateli překladu (v současné době Google, Yandex, Bing a Apertium)."
 
 #. 0dyseus@MultiTranslatorExtension->metadata.json->contributors
 msgid "See this xlet help file."
 msgstr "Viz soubor s nápovědou tohoto xletu."
 
 #. 0dyseus@MultiTranslatorExtension->metadata.json->comments
-msgid ""
-"Bug reports, feature requests and contributions should be done on this "
-"xlet's repository linked below."
-msgstr ""
-"Zprávy o chybách, požadavky na funkce a příspěvky by měly být prováděny v "
-"repozitáři tohoto xletu, na který je odkaz níže."
+msgid "Bug reports, feature requests and contributions should be done on this xlet's repository linked below."
+msgstr "Zprávy o chybách, požadavky na funkce a příspěvky by měly být prováděny v repozitáři tohoto xletu, na který je odkaz níže."
 
 #~ msgid "muzena: Croatian localization https://github.com/muzena."
 #~ msgstr "muzena: Chorvatská lokalizace https://github.com/muzena."
@@ -1522,11 +1376,8 @@ msgstr ""
 #~ msgid "giwhub: Chinese localization https://github.com/giwhub."
 #~ msgstr "giwhub: Čínská lokalizace https://github.com/giwhub."
 
-#~ msgid ""
-#~ "Radek71: Czech localization and author of Thunderbolt theme https://"
-#~ "github.com/Radek71."
-#~ msgstr ""
-#~ "Radek71: Česká lokalizace a Thunderbolt motiv https://github.com/Radek71."
+#~ msgid "Radek71: Czech localization and author of Thunderbolt theme https://github.com/Radek71."
+#~ msgstr "Radek71: Česká lokalizace a Thunderbolt motiv https://github.com/Radek71."
 
 #~ msgid "NikoKrause: German localization https://github.com/NikoKrause."
 #~ msgstr "NikoKrause: Německá lokalizace https://github.com/NikoKrause."
@@ -1538,6 +1389,4 @@ msgstr ""
 #~ msgstr "Vylepšení Cinnamonu"
 
 #~ msgid "Reset all Multi Translator settings to default?"
-#~ msgstr ""
-#~ "Resetovat všechna nastavení Multi Translator rozšíření na jejich výchozí "
-#~ "hodnoty?"
+#~ msgstr "Resetovat všechna nastavení Multi Translator rozšíření na jejich výchozí hodnoty?"

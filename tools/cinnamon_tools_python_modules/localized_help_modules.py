@@ -3,6 +3,9 @@
 import os
 import json
 import gettext
+import polib
+import datetime
+import time
 from shutil import copy
 
 HTML_DOC = """<!DOCTYPE html>
@@ -167,7 +170,7 @@ LOCALE_SECTION = """
 
 # {endonym} inside an HTML comment at the very begening of the string so I can sort all
 # the "option" elements by endonym.
-OPTION = """<!-- {endonym} --><option {selected}data-title="{title}" data-xlet-help="{xlet_help}" data-xlet-contributors="{xlet_contributors}" data-xlet-changelog="{xlet_changelog}" value="{language_code}">{endonym}</option>"""
+OPTION = """<!-- {endonym} --><option {selected}data-title="{title}" data-xlet-help="{xlet_help}" data-xlet-contributors="{xlet_contributors}" data-xlet-changelog="{xlet_changelog}" value="{language_code}">{endonym} ({language_name})</option>"""
 
 # The xlet README "header" doesn't need to be localized.
 README_HEADER = """<h2 style="color:red;">Bug reports, feature requests and contributions</h2>
@@ -398,6 +401,88 @@ def get_parent_dir(fpath, go_up=0):
             dir_path = os.path.dirname(dir_path)
 
     return dir_path
+
+
+def get_time_zone():
+    if time.localtime().tm_isdst and time.daylight:
+        tzone = -time.altzone
+    else:
+        tzone = -time.timezone
+
+    # Up to here, tzone is an integer.
+    tzone = str(tzone / 60 / 60)
+
+    # And the ugliness begins!!!
+    [h, m] = tzone.split(".")
+
+    isNegative = int(h) < 0
+    hours = "{0:03d}".format(int(h)) if isNegative else "{0:02d}".format(int(h))
+    minutes = "{0:02d}".format(int(m))
+
+    try:
+        return (hours if isNegative else "+" + hours) + minutes
+    except:
+        return "+0000"
+
+
+def get_timestamp():
+    """Returns a time stamp in the same format used by xgettex."""
+    now = datetime.datetime.now()
+    # Since the "padding" with zeroes of the rest of the values converts
+    # them into strings, lets convert to string the year too.
+    YEAR = str(now.year)
+    # "Pad" all the following values with zeroes.
+    MO = "{0:02d}".format(now.month)
+    DA = "{0:02d}".format(now.day)
+    HO = "{0:02d}".format(now.hour)
+    MI = "{0:02d}".format(now.minute)
+    ZONE = get_time_zone()
+
+    return "%s-%s-%s %s:%s%s" % (YEAR, MO, DA, HO, MI, ZONE)
+
+
+def validate_po_file(pofile_path, lang_name, xlet_meta):
+    po_file = polib.pofile(pofile_path, wrapwidth=99999999)
+    do_save = False
+
+    # Add package information to the .po files headers.
+    if xlet_meta:
+        do_save = True
+        po_file.metadata[
+            "Project-Id-Version"] = "{0} {1}".format(xlet_meta["uuid"], xlet_meta["version"])
+
+    # Sanitize language code to be UNIX compliant
+    if "-" in po_file.metadata["Language"]:
+        do_save = True
+        po_file.metadata["Language"] = po_file.metadata["Language"].replace("-", "_")
+
+    # Add the Report-Msgid-Bugs- field to the header.
+    if "Report-Msgid-Bugs-To" not in po_file.metadata or po_file.metadata["Report-Msgid-Bugs-To"] != "https://github.com/Odyseus/CinnamonTools":
+        do_save = True
+        po_file.metadata["Report-Msgid-Bugs-To"] = "https://github.com/Odyseus/CinnamonTools"
+
+    # Add the Language-Team field to the header to STFU all msgfmt warnings.
+    if "Language-Team" not in po_file.metadata or po_file.metadata["Language-Team"] == "":
+        do_save = True
+        po_file.metadata["Language-Team"] = lang_name
+
+    # Add the PO-Revision-Date field to the header to STFU all msgfmt warnings.
+    if "PO-Revision-Date" not in po_file.metadata:
+        do_save = True
+        po_file.metadata["PO-Revision-Date"] = get_timestamp()
+
+    # Add the Last-Translator field to the header to STFU all msgfmt warnings.
+    if "Last-Translator" not in po_file.metadata:
+        do_save = True
+        po_file.metadata["Last-Translator"] = ""
+
+    if po_file.metadata["X-Generator"] == "POEditor.com":
+        do_save = True
+        po_file.metadata["X-Generator"] = ""
+
+    # Save only if the PO file metadata/header has been changed.
+    if do_save:
+        po_file.save()
 
 
 def save_file(path, data, creation_type=None):

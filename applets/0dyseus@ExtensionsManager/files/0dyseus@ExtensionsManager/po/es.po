@@ -5,31 +5,26 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: 1.00\n"
-"Report-Msgid-Bugs-To: \n"
+"Project-Id-Version: 0dyseus@ExtensionsManager 1.08\n"
+"Report-Msgid-Bugs-To: https://github.com/Odyseus/CinnamonTools\n"
 "POT-Creation-Date: 2017-06-21 03:32-0300\n"
 "PO-Revision-Date: 2017-06-19 00:04-0300\n"
 "Last-Translator: Odyseus\n"
-"Language-Team: \n"
+"Language-Team: Spanish\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.8.7.1\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 1.8.7.1\n"
 
 #: ../../create_localized_help.py:72 __init__.js:294 __init__.js:301
 msgid "Description"
 msgstr "Descripción"
 
 #: ../../create_localized_help.py:74
-msgid ""
-"This applet creates a menu with a list of all installed extensions in "
-"Cinnamon. From each menu item different tasks can be performed:"
-msgstr ""
-"Este applet crea un menú con una lista de todas las extensiones instaladas "
-"en Cinnamon.  Desde cada elemento de menú se pueden realizar diferentes "
-"tareas:"
+msgid "This applet creates a menu with a list of all installed extensions in Cinnamon. From each menu item different tasks can be performed:"
+msgstr "Este applet crea un menú con una lista de todas las extensiones instaladas en Cinnamon.  Desde cada elemento de menú se pueden realizar diferentes tareas:"
 
 #: ../../create_localized_help.py:76
 msgid "Enable/Disable the extension"
@@ -93,62 +88,34 @@ msgid "IMPORTANT!!!"
 msgstr "¡IMPORTANTE!"
 
 #: ../../create_localized_help.py:263
-msgid ""
-"Never delete any of the files found inside this xlet folder. It might break "
-"this xlet functionality."
-msgstr ""
-"Jamás borrar ninguno de los archivos encontrados dentro de la carpeta de "
-"este xlet. Podría romper la funcionalidad del xlet."
+msgid "Never delete any of the files found inside this xlet folder. It might break this xlet functionality."
+msgstr "Jamás borrar ninguno de los archivos encontrados dentro de la carpeta de este xlet. Podría romper la funcionalidad del xlet."
 
 #. 0dyseus@ExtensionsManager->metadata.json->comments
 #: ../../create_localized_help.py:264
-msgid ""
-"Bug reports, feature requests and contributions should be done on this "
-"xlet's repository linked next."
-msgstr ""
-"Los reportes de fallos, peticiones de características y contribuciones deben "
-"hacerse en el repositorio de este xlet vinculado a continuación."
+msgid "Bug reports, feature requests and contributions should be done on this xlet's repository linked next."
+msgstr "Los reportes de fallos, peticiones de características y contribuciones deben hacerse en el repositorio de este xlet vinculado a continuación."
 
 #: ../../create_localized_help.py:270
 msgid "Applets/Desklets/Extensions (a.k.a. xlets) localization"
-msgstr ""
-"Localización de applets/desklets/extensiones (también conocidos como xlets)"
+msgstr "Localización de applets/desklets/extensiones (también conocidos como xlets)"
 
 #: ../../create_localized_help.py:271
-msgid ""
-"If this xlet was installed from Cinnamon Settings, all of this xlet's "
-"localizations were automatically installed."
-msgstr ""
-"Si este xlet se instaló desde Configuración de Cinnamon, todas las "
-"localizaciones de este xlet se instalaron automáticamente."
+msgid "If this xlet was installed from Cinnamon Settings, all of this xlet's localizations were automatically installed."
+msgstr "Si este xlet se instaló desde Configuración de Cinnamon, todas las localizaciones de este xlet se instalaron automáticamente."
 
 #. TO TRANSLATORS: MARKDOWN string. Respect formatting.
 #: ../../create_localized_help.py:273
-msgid ""
-"If this xlet was installed manually and not trough Cinnamon Settings, "
-"localizations can be installed by executing the script called "
-"**localizations.sh** from a terminal opened inside the xlet's folder."
-msgstr ""
-"Si este xlet se instaló manualmente y no a través de Configuración de "
-"Cinnamon, las localizaciones se pueden instalar ejecutando el archivo "
-"llamado **localizations.sh** desde una terminal abierta dentro de la carpeta "
-"del xlet."
+msgid "If this xlet was installed manually and not trough Cinnamon Settings, localizations can be installed by executing the script called **localizations.sh** from a terminal opened inside the xlet's folder."
+msgstr "Si este xlet se instaló manualmente y no a través de Configuración de Cinnamon, las localizaciones se pueden instalar ejecutando el archivo llamado **localizations.sh** desde una terminal abierta dentro de la carpeta del xlet."
 
 #: ../../create_localized_help.py:274
-msgid ""
-"If this xlet has no locale available for your language, you could create it "
-"by following the following instructions."
-msgstr ""
-"Si este xlet no está disponible en su idioma, la localización puede ser "
-"creada siguiendo las siguientes instrucciones."
+msgid "If this xlet has no locale available for your language, you could create it by following the following instructions."
+msgstr "Si este xlet no está disponible en su idioma, la localización puede ser creada siguiendo las siguientes instrucciones."
 
 #: appletHelper.py:268
-msgid ""
-"This terminal will list the errors of extensions that couldn't be loaded by "
-"Extensions Manager."
-msgstr ""
-"Esta terminal listará los errores de extensiones que no han podido ser "
-"cargadas por Administrador de Extensiones."
+msgid "This terminal will list the errors of extensions that couldn't be loaded by Extensions Manager."
+msgstr "Esta terminal listará los errores de extensiones que no han podido ser cargadas por Administrador de Extensiones."
 
 #: appletHelper.py:289 appletHelper.py:308
 msgid "Extensions Manager debugger"
@@ -156,13 +123,11 @@ msgstr "Depurador de Administrador de Extensiones"
 
 #: appletHelper.py:323
 msgid "Helper script for Extensions Manager applet for Cinnamon."
-msgstr ""
-"Script de ayuda para el applet Administrador de Extensiones de Cinnamon."
+msgstr "Script de ayuda para el applet Administrador de Extensiones de Cinnamon."
 
 #: appletHelper.py:328
 msgid "Returns a JSON string with a list of all installed extensions."
-msgstr ""
-"Devuelve una cadena JSON con una lista de todas las extensiones instaladas."
+msgstr "Devuelve una cadena JSON con una lista de todas las extensiones instaladas."
 
 #: appletHelper.py:332
 msgid "Process all extensions, but it will only display possible errors."
@@ -206,8 +171,7 @@ msgstr "Error al analizar cadena JSON."
 
 #: __init__.js:414
 msgid "A detailed error has been logged into ~/.cinnamon/glass.log."
-msgstr ""
-"Se ha registrado un error detallado en el archivo ~/.cinnamon/glass.log."
+msgstr "Se ha registrado un error detallado en el archivo ~/.cinnamon/glass.log."
 
 #: applet.js:104
 msgid "Open extensions manager"
@@ -218,11 +182,8 @@ msgid "Disable all extensions"
 msgstr "Deshabilitar todas las extensiones"
 
 #: applet.js:127
-msgid ""
-"This will disable all active extensions. Are you sure you want to do this?"
-msgstr ""
-"Esto va a deshabilitar todas las extensiones. ¿Está seguro/a de que quiere "
-"realizar esta tarea?"
+msgid "This will disable all active extensions. Are you sure you want to do this?"
+msgstr "Esto va a deshabilitar todas las extensiones. ¿Está seguro/a de que quiere realizar esta tarea?"
 
 #: applet.js:135
 msgid "Refresh extension list"
@@ -242,12 +203,8 @@ msgid "Source of error: %s"
 msgstr "Origen del error: %s"
 
 #: applet.js:384
-msgid ""
-"There aren't any extensions installed on your system. Or you may need to "
-"refresh the list of extensions from this applet context menu."
-msgstr ""
-"No hay ninguna extensión instalada en su sistema. O usted debería actualizar "
-"la lista de extensiones instaladas desde el menú contextual de este applet."
+msgid "There aren't any extensions installed on your system. Or you may need to refresh the list of extensions from this applet context menu."
+msgstr "No hay ninguna extensión instalada en su sistema. O usted debería actualizar la lista de extensiones instaladas desde el menú contextual de este applet."
 
 #: applet.js:453
 msgid "Enabled extensions"
@@ -267,12 +224,8 @@ msgstr "No hay extensiones deshabilitadas"
 
 #: applet.js:499
 #, javascript-format
-msgid ""
-"Extension %s is not compatible with current version of cinnamon. Using it "
-"may break your system. Load anyway?"
-msgstr ""
-"La extensión %s no es compatible con la versión actual de Cinnamon. Su uso "
-"podría estropear el sistema. ¿Quiere cargarla igualmente?\""
+msgid "Extension %s is not compatible with current version of cinnamon. Using it may break your system. Load anyway?"
+msgstr "La extensión %s no es compatible con la versión actual de Cinnamon. Su uso podría estropear el sistema. ¿Quiere cargarla igualmente?\""
 
 #. 0dyseus@ExtensionsManager->metadata.json->name
 msgid "Extensions Manager"
@@ -280,8 +233,7 @@ msgstr "Administrador de Extensiones"
 
 #. 0dyseus@ExtensionsManager->metadata.json->description
 msgid "Allows enabling/disabling extensions (and other tasks) from a menu."
-msgstr ""
-"Permite habilitar/deshabilitar extensiones (y otras tareas) desde un menú."
+msgstr "Permite habilitar/deshabilitar extensiones (y otras tareas) desde un menú."
 
 #. 0dyseus@ExtensionsManager->metadata.json->contributors
 msgid "See this xlet help file."
@@ -300,25 +252,16 @@ msgid "Keep \"Disabled extensions\" menu open"
 msgstr "Mantener el menú \"Extensiones deshabilitadas\" abierto"
 
 #. 0dyseus@ExtensionsManager->settings-schema.json->pref_keep_disabled_extension_menu_open->tooltip
-msgid ""
-"If enabled, every time that the menu is open, the \"Disabled extensions\" "
-"sub menu will be open too."
-msgstr ""
-"Con esta opción habilitada, cada vez que el menú es abierto, el sub menú "
-"\"Extensiones deshabilitadas\" también será abierto."
+msgid "If enabled, every time that the menu is open, the \"Disabled extensions\" sub menu will be open too."
+msgstr "Con esta opción habilitada, cada vez que el menú es abierto, el sub menú \"Extensiones deshabilitadas\" también será abierto."
 
 #. 0dyseus@ExtensionsManager->settings-schema.json->pref_show_spices_button->description
 msgid "Show \"Spices page\" button on extensions menu"
 msgstr "Mostrar el botón \"Página de Spices\" en el menú"
 
 #. 0dyseus@ExtensionsManager->settings-schema.json->pref_show_spices_button->tooltip
-msgid ""
-"If enabled, it will display a button in each extension menu item that will "
-"open the extension's Spices page (if the extension is published on Spices)."
-msgstr ""
-"Con esta opción habilitada, se mostrará un botón en cada elemento del menú "
-"que permitirá abrir el sitio Spices de la extensión (si es que la extensión "
-"está publicada en Spices)."
+msgid "If enabled, it will display a button in each extension menu item that will open the extension's Spices page (if the extension is published on Spices)."
+msgstr "Con esta opción habilitada, se mostrará un botón en cada elemento del menú que permitirá abrir el sitio Spices de la extensión (si es que la extensión está publicada en Spices)."
 
 #. 0dyseus@ExtensionsManager->settings-schema.json->pref_custom_icon_for_applet->description
 msgid "Icon"
@@ -337,24 +280,16 @@ msgid "Keep \"Enabled extensions\" menu open"
 msgstr "Mantener el menú \"Extensiones habilitadas\" abierto"
 
 #. 0dyseus@ExtensionsManager->settings-schema.json->pref_keep_enabled_extension_menu_open->tooltip
-msgid ""
-"If enabled, every time that the menu is open, the \"Enabled extensions\" sub "
-"menu will be open too."
-msgstr ""
-"Con esta opción habilitada, cada vez que el menú es abierto, el sub menú "
-"\"Extensiones habilitadas\" también será abierto."
+msgid "If enabled, every time that the menu is open, the \"Enabled extensions\" sub menu will be open too."
+msgstr "Con esta opción habilitada, cada vez que el menú es abierto, el sub menú \"Extensiones habilitadas\" también será abierto."
 
 #. 0dyseus@ExtensionsManager->settings-schema.json->pref_show_open_extension_folder_button->description
 msgid "Show \"Open extension folder\" button on extensions menu"
 msgstr "Mostrar el botón \"Abrir carpeta de la extensión\" en el menú"
 
 #. 0dyseus@ExtensionsManager->settings-schema.json->pref_show_open_extension_folder_button->tooltip
-msgid ""
-"If enabled, it will display a button in each extension menu item that will "
-"open the location where the extension is installed."
-msgstr ""
-"Con esta opción habilitada, se mostrará un botón en cada elemento del menú "
-"que permitirá abrir la ubicación donde la extensión está instalada."
+msgid "If enabled, it will display a button in each extension menu item that will open the location where the extension is installed."
+msgstr "Con esta opción habilitada, se mostrará un botón en cada elemento del menú que permitirá abrir la ubicación donde la extensión está instalada."
 
 #. 0dyseus@ExtensionsManager->settings-schema.json->pref_disabled_extensions_style->description
 msgid "Style for \"Disabled extensions\" sub-menu"
@@ -389,14 +324,8 @@ msgid "Show \"Open settings window\" button on extensions menu"
 msgstr "Mostrar el botón \"Abrir ventana de preferencias\" en el menú"
 
 #. 0dyseus@ExtensionsManager->settings-schema.json->pref_show_config_button->tooltip
-msgid ""
-"If enabled, it will display a button in each extension menu item that will "
-"open the extension's settings page (if the extension has a configuration "
-"mechanism)."
-msgstr ""
-"Con esta opción habilitada, se mostrará un botón en cada elemento del menú "
-"que permitirá abrir la ventana de configuración de la extensión (si es que "
-"la extensión tiene un mecanismo de configuración)."
+msgid "If enabled, it will display a button in each extension menu item that will open the extension's settings page (if the extension has a configuration mechanism)."
+msgstr "Con esta opción habilitada, se mostrará un botón en cada elemento del menú que permitirá abrir la ventana de configuración de la extensión (si es que la extensión tiene un mecanismo de configuración)."
 
 #. 0dyseus@ExtensionsManager->settings-schema.json->pref_max_width_for_menu_items_label->units
 msgid "ems"
@@ -411,11 +340,8 @@ msgid "Use extension name as label"
 msgstr "Usar el nombre de la extensión como etiqueta"
 
 #. 0dyseus@ExtensionsManager->settings-schema.json->pref_use_extension_names_as_label->tooltip
-msgid ""
-"If disabled, the extension UUID will be used as label for the menu items."
-msgstr ""
-"Con esta opción deshabilitada, la UUID de la extensión será utilizada como "
-"etiqueta para los elementos del menú."
+msgid "If disabled, the extension UUID will be used as label for the menu items."
+msgstr "Con esta opción deshabilitada, la UUID de la extensión será utilizada como etiqueta para los elementos del menú."
 
 #. 0dyseus@ExtensionsManager->settings-schema.json->pref_enabled_extensions_style->description
 msgid "Style for \"Enabled extensions\" sub-menu"
@@ -438,33 +364,20 @@ msgid "Show \"Edit extension main file\" button on extensions menu"
 msgstr "Mostrar el botón \"Editar archivo principal\" en el menú"
 
 #. 0dyseus@ExtensionsManager->settings-schema.json->pref_show_edit_extension_file_button->tooltip
-msgid ""
-"If enabled, it will display a button in each extension menu item that will "
-"open main extension file (extension.js) with a text editor."
-msgstr ""
-"Con esta opción habilitada, se mostrará un botón en cada elemento del menú "
-"que permitirá abrir el archivo extension.js perteneciente a la extensión con "
-"un editor de textos."
+msgid "If enabled, it will display a button in each extension menu item that will open main extension file (extension.js) with a text editor."
+msgstr "Con esta opción habilitada, se mostrará un botón en cada elemento del menú que permitirá abrir el archivo extension.js perteneciente a la extensión con un editor de textos."
 
 #~ msgid "Choose language"
 #~ msgstr "Elegir idioma"
 
-#~ msgid ""
-#~ "Bug reports, feature requests and contributions should be done on this "
-#~ "xlet's repository linked below."
-#~ msgstr ""
-#~ "Los reportes de fallos, peticiones de características y contribuciones "
-#~ "deben hacerse en el repositorio de este xlet vinculado a continuación."
+#~ msgid "Bug reports, feature requests and contributions should be done on this xlet's repository linked below."
+#~ msgstr "Los reportes de fallos, peticiones de características y contribuciones deben hacerse en el repositorio de este xlet vinculado a continuación."
 
 #~ msgid "Read CONTRIBUTORS.md file inside this xlet folder."
 #~ msgstr "Leer el archivo CONTRIBUTORS.md dentro de la carpeta de este xlet."
 
-#~ msgid ""
-#~ "A full list of contributors can be found in the CONTRIBUTORS.md file on "
-#~ "the root of this xlet folder."
-#~ msgstr ""
-#~ "Se puede encontrar una lista completa de contribuyentes en el archivo "
-#~ "CONTRIBUTORS.md en la raíz de la carpeta de este xlet."
+#~ msgid "A full list of contributors can be found in the CONTRIBUTORS.md file on the root of this xlet folder."
+#~ msgstr "Se puede encontrar una lista completa de contribuyentes en el archivo CONTRIBUTORS.md en la raíz de la carpeta de este xlet."
 
 #~ msgid "Radek71: Czech localization."
 #~ msgstr "Radek71: Localización Checa."
@@ -481,16 +394,8 @@ msgstr ""
 #~ msgid "Help for {xlet_name}"
 #~ msgstr "Ayuda para {xlet_name}"
 
-#~ msgid ""
-#~ "If this xlet was installed manually and not trough Cinnamon Settings, "
-#~ "localizations can be installed by executing the script called "
-#~ "<strong>localizations.sh</strong> from a terminal opened inside the "
-#~ "xlet's folder."
-#~ msgstr ""
-#~ "Si este xlet se instaló manualmente y no a través de Configuración de "
-#~ "Cinnamon, las localizaciones se pueden instalar ejecutando el archivo "
-#~ "llamado <strong>localizations.sh</strong> desde una terminal abierta "
-#~ "dentro de la carpeta del xlet."
+#~ msgid "If this xlet was installed manually and not trough Cinnamon Settings, localizations can be installed by executing the script called <strong>localizations.sh</strong> from a terminal opened inside the xlet's folder."
+#~ msgstr "Si este xlet se instaló manualmente y no a través de Configuración de Cinnamon, las localizaciones se pueden instalar ejecutando el archivo llamado <strong>localizations.sh</strong> desde una terminal abierta dentro de la carpeta del xlet."
 
 #~ msgid "Icon size for menu items"
 #~ msgstr "Tamaño de íconos de los elementos del menú:"

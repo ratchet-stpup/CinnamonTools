@@ -5,32 +5,26 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: 1.22\n"
-"Report-Msgid-Bugs-To: \n"
+"Project-Id-Version: 0dyseus@CustomCinnamonMenu 1.23\n"
+"Report-Msgid-Bugs-To: https://github.com/Odyseus/CinnamonTools\n"
 "POT-Creation-Date: 2017-06-08 05:56+0200\n"
 "PO-Revision-Date: 2017-06-08 05:57+0200\n"
 "Last-Translator: Radek Otáhal <radek.otahal@email.cz>\n"
-"Language-Team: \n"
+"Language-Team: Czech\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.8.7.1\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+"X-Generator: Poedit 1.8.7.1\n"
 
 #: ../../create_localized_help.py:64
 msgid "Keyboard navigation"
 msgstr "Navigace klávesnicí"
 
 #: ../../create_localized_help.py:66
-msgid ""
-"Almost all keyboard shortcuts on this menu are the same as the original "
-"menu. There are just a couple of differences that I was forced to add to my "
-"menu to make some of its features to work."
-msgstr ""
-"Téměř všechny klávesové zkratky v tomto menu jsou stejné jako v původním "
-"menu. Existuje jen pár rozdílů, které jsem musel přidat do svého menu, aby "
-"některé z jeho funkcí fungovaly. "
+msgid "Almost all keyboard shortcuts on this menu are the same as the original menu. There are just a couple of differences that I was forced to add to my menu to make some of its features to work."
+msgstr "Téměř všechny klávesové zkratky v tomto menu jsou stejné jako v původním menu. Existuje jen pár rozdílů, které jsem musel přidat do svého menu, aby některé z jeho funkcí fungovaly. "
 
 #. TO TRANSLATORS: MARKDOWN string. Respect formatting.
 #: ../../create_localized_help.py:66
@@ -43,20 +37,12 @@ msgid "[[Left Arrow]] and [[Right Arrow]] keys:"
 msgstr "Klávesy [[Šipka vlevo]] a [[Šipka vpravo]]:"
 
 #: ../../create_localized_help.py:71
-msgid ""
-"Cycles through the favorites box, applications box and categories box if the "
-"focus is in one of these boxes."
-msgstr ""
-"Cyklicky přepíná mezi oblíbenými položkami, aplikacemi a kategoriemi, pokud "
-"je zaměřena některá z těchto částí."
+msgid "Cycles through the favorites box, applications box and categories box if the focus is in one of these boxes."
+msgstr "Cyklicky přepíná mezi oblíbenými položkami, aplikacemi a kategoriemi, pokud je zaměřena některá z těchto částí."
 
 #: ../../create_localized_help.py:73
-msgid ""
-"If the focus is on the custom launchers box, these keys will cycle through "
-"this box buttons."
-msgstr ""
-"Pokud je zaměřena oblast uživatelských spouštěčů, budete těmito klávesami "
-"procházet tlačítky v tomto boxu."
+msgid "If the focus is on the custom launchers box, these keys will cycle through this box buttons."
+msgstr "Pokud je zaměřena oblast uživatelských spouštěčů, budete těmito klávesami procházet tlačítky v tomto boxu."
 
 #. TO TRANSLATORS: MARKDOWN string. Respect formatting.
 #: ../../create_localized_help.py:75
@@ -64,30 +50,16 @@ msgid "[[Tab]] key:"
 msgstr "Klávesa [[Tab]]:"
 
 #: ../../create_localized_help.py:78
-msgid ""
-"If the favorites box, applications box or categories box are currently "
-"focused, the [[Tab]] key will switch the focus to the custom launchers box."
-msgstr ""
-"Pokud je zaměřena oblast oblíbených položek, aplikací nebo kategorií, "
-"klávesa [[Tab]] změní zaostření na oblast uživatelských spouštěčů."
+msgid "If the favorites box, applications box or categories box are currently focused, the [[Tab]] key will switch the focus to the custom launchers box."
+msgstr "Pokud je zaměřena oblast oblíbených položek, aplikací nebo kategorií, klávesa [[Tab]] změní zaostření na oblast uživatelských spouštěčů."
 
 #: ../../create_localized_help.py:80 ../../create_localized_help.py:88
-msgid ""
-"If the focus is on the custom launchers box, the focus will go back to the "
-"categories box."
-msgstr ""
-"Pokud je zaměřena oblast uživatelských spouštěčů, zaostření se vrátí zpět na "
-"oblast kategorií."
+msgid "If the focus is on the custom launchers box, the focus will go back to the categories box."
+msgstr "Pokud je zaměřena oblast uživatelských spouštěčů, zaostření se vrátí zpět na oblast kategorií."
 
 #: ../../create_localized_help.py:83
-msgid ""
-"If the custom launchers box isn't part of the menu, the [[Tab]] key alone or "
-"[[Ctrl]]/[[Shift]] + [[Tab]] key are pressed, it will cycle through the "
-"favorites box, applications box and categories box."
-msgstr ""
-"Není-li oblast uživatelských spouštěčů součástí menu, stiskem klávesy "
-"[[Tab]] nebo kláves [[Ctrl]] / [[Shift]] + [[Tab] se bude cyklicky přepínat "
-"mezi oblíbenými položkami, aplikacemi a kategoriemi. "
+msgid "If the custom launchers box isn't part of the menu, the [[Tab]] key alone or [[Ctrl]]/[[Shift]] + [[Tab]] key are pressed, it will cycle through the favorites box, applications box and categories box."
+msgstr "Není-li oblast uživatelských spouštěčů součástí menu, stiskem klávesy [[Tab]] nebo kláves [[Ctrl]] / [[Shift]] + [[Tab] se bude cyklicky přepínat mezi oblíbenými položkami, aplikacemi a kategoriemi. "
 
 #. TO TRANSLATORS: MARKDOWN string. Respect formatting.
 #: ../../create_localized_help.py:85
@@ -95,31 +67,18 @@ msgid "[[Up Arrow]] and [[Down Arrow]] keys:"
 msgstr "Klávesy [[Šipka nahoru] a [[Šipka dolů]]:"
 
 #: ../../create_localized_help.py:86
-msgid ""
-"If the favorites box, applications box or categories box are currently "
-"focused, these keys will cycle through the items in the currently "
-"highlighted box."
-msgstr ""
-"Pokud je zaměřena oblast oblíbených položek, aplikací nebo kategorií, budou "
-"tyto klávesy procházet položky v aktuálně zvýrazněném poli."
+msgid "If the favorites box, applications box or categories box are currently focused, these keys will cycle through the items in the currently highlighted box."
+msgstr "Pokud je zaměřena oblast oblíbených položek, aplikací nebo kategorií, budou tyto klávesy procházet položky v aktuálně zvýrazněném poli."
 
 #. TO TRANSLATORS: MARKDOWN string. Respect formatting.
 #: ../../create_localized_help.py:90
-msgid ""
-"[[Page Up]] and [[Page Down]] keys: Jumps to the first and last item of the "
-"currently selected box. This doesn't affect the custom launchers."
-msgstr ""
-"Klávesy [[Page Up]] a [[Page Down]]: Přeskočí na první a poslední položku "
-"aktuálně vybraného pole. Nemá vliv na uživatelské spouštěče. "
+msgid "[[Page Up]] and [[Page Down]] keys: Jumps to the first and last item of the currently selected box. This doesn't affect the custom launchers."
+msgstr "Klávesy [[Page Up]] a [[Page Down]]: Přeskočí na první a poslední položku aktuálně vybraného pole. Nemá vliv na uživatelské spouštěče. "
 
 #. TO TRANSLATORS: MARKDOWN string. Respect formatting.
 #: ../../create_localized_help.py:92
-msgid ""
-"[[Menu]] or [[Alt]] + [[Enter]] keys: Opens and closes the context menu (if "
-"any) of the currently highlighted item."
-msgstr ""
-"Klávesy [[Menu]] nebo [[Alt]] + [[Enter]]: Otevře a zavře kontextové menu "
-"(pokud existuje) aktuálně zvýrazněné položky."
+msgid "[[Menu]] or [[Alt]] + [[Enter]] keys: Opens and closes the context menu (if any) of the currently highlighted item."
+msgstr "Klávesy [[Menu]] nebo [[Alt]] + [[Enter]]: Otevře a zavře kontextové menu (pokud existuje) aktuálně zvýrazněné položky."
 
 #. TO TRANSLATORS: MARKDOWN string. Respect formatting.
 #: ../../create_localized_help.py:94
@@ -128,53 +87,30 @@ msgstr "Klávesa [[Enter]]: Spustí aktuálně zvýrazněnou položku."
 
 #. TO TRANSLATORS: MARKDOWN string. Respect formatting.
 #: ../../create_localized_help.py:96
-msgid ""
-"[[Escape]] key: It closes the main menu. If a context menu is open, it will "
-"close the context menu instead and a second tap of this key will close the "
-"main menu."
-msgstr ""
-"Klávesa [[Escape]]: Zavře hlavní menu. Pokud je otevřeno kontextové menu, "
-"zavře kontextovou nabídku a druhým stiskem tohoto tlačítka se zavře hlavní "
-"menu. "
+msgid "[[Escape]] key: It closes the main menu. If a context menu is open, it will close the context menu instead and a second tap of this key will close the main menu."
+msgstr "Klávesa [[Escape]]: Zavře hlavní menu. Pokud je otevřeno kontextové menu, zavře kontextovou nabídku a druhým stiskem tohoto tlačítka se zavře hlavní menu. "
 
 #: ../../create_localized_help.py:99
-msgid ""
-"[[Shift]] + [[Enter]]: Executes the application as root. This doesn't affect "
-"the custom launchers."
-msgstr ""
-"[[Shift]] + [[Enter]]: Spustí aplikaci jako root. Nemá vliv na uživatelské "
-"spouštěče."
+msgid "[[Shift]] + [[Enter]]: Executes the application as root. This doesn't affect the custom launchers."
+msgstr "[[Shift]] + [[Enter]]: Spustí aplikaci jako root. Nemá vliv na uživatelské spouštěče."
 
 #. TO TRANSLATORS: MARKDOWN string. Respect formatting.
 #: ../../create_localized_help.py:101
-msgid ""
-"[[Ctrl]] + [[Enter]]: Open a terminal and run application from there. This "
-"doesn't affect the custom launchers."
-msgstr ""
-"[[Ctrl]] + [[Enter]]: Otevře terminál a spustí aplikaci odtud. Nemá vliv na "
-"uživatelské spouštěče."
+msgid "[[Ctrl]] + [[Enter]]: Open a terminal and run application from there. This doesn't affect the custom launchers."
+msgstr "[[Ctrl]] + [[Enter]]: Otevře terminál a spustí aplikaci odtud. Nemá vliv na uživatelské spouštěče."
 
 #. TO TRANSLATORS: MARKDOWN string. Respect formatting.
 #: ../../create_localized_help.py:103
-msgid ""
-"[[Ctrl]] + [[Shift]] + [[Enter]]: Open a terminal and run application from "
-"there, but the application is executed as root. This doesn't affect the "
-"custom launchers."
-msgstr ""
-"[[Ctrl]] + [[Shift]] + [[Enter]]: Otevře terminál a spustí aplikaci odtud, "
-"ale aplikace bude spuštěna jako root. Nemá vliv na uživatelské spouštěče."
+msgid "[[Ctrl]] + [[Shift]] + [[Enter]]: Open a terminal and run application from there, but the application is executed as root. This doesn't affect the custom launchers."
+msgstr "[[Ctrl]] + [[Shift]] + [[Enter]]: Otevře terminál a spustí aplikaci odtud, ale aplikace bude spuštěna jako root. Nemá vliv na uživatelské spouštěče."
 
 #: ../../create_localized_help.py:106
 msgid "Applications left click extra actions"
 msgstr "Extra akce pro kliknutí na levé tlačítko při spouštění aplikací"
 
 #: ../../create_localized_help.py:107
-msgid ""
-"When left clicking an application on the menu, certain key modifiers can be "
-"pressed to execute an application in a special way."
-msgstr ""
-"Při kliknutí levým tlačítkem na aplikaci v menu, mohou být stisknuty určité "
-"klávesové modifikátory, tak aby se aplikace spustila speciálním způsobem."
+msgid "When left clicking an application on the menu, certain key modifiers can be pressed to execute an application in a special way."
+msgstr "Při kliknutí levým tlačítkem na aplikaci v menu, mohou být stisknuty určité klávesové modifikátory, tak aby se aplikace spustila speciálním způsobem."
 
 #. TO TRANSLATORS: MARKDOWN string. Respect formatting.
 #: ../../create_localized_help.py:109
@@ -183,59 +119,26 @@ msgstr "[[Shift]] + ** Levé tlačítko **: Spustí aplikaci jako root."
 
 #. TO TRANSLATORS: MARKDOWN string. Respect formatting.
 #: ../../create_localized_help.py:111
-msgid ""
-"[[Ctrl]] + **Left click**: Open a terminal and run application from there."
-msgstr ""
-"[[Ctrl]] + ** Levé tlačítko **: Otevře terminál a spustí aplikaci odtud."
+msgid "[[Ctrl]] + **Left click**: Open a terminal and run application from there."
+msgstr "[[Ctrl]] + ** Levé tlačítko **: Otevře terminál a spustí aplikaci odtud."
 
 #. TO TRANSLATORS: MARKDOWN string. Respect formatting.
 #: ../../create_localized_help.py:113
-msgid ""
-"[[Ctrl]] + [[Shift]] + **Left click**: Open a terminal and run application "
-"from there, but the application is executed as root."
-msgstr ""
-"[[Ctrl]] + [[Shift]] + ** Levé tlačítko **: Otevře terminál a spustí "
-"aplikaci odtud, ale aplikace bude spuštěna jako root."
+msgid "[[Ctrl]] + [[Shift]] + **Left click**: Open a terminal and run application from there, but the application is executed as root."
+msgstr "[[Ctrl]] + [[Shift]] + ** Levé tlačítko **: Otevře terminál a spustí aplikaci odtud, ale aplikace bude spuštěna jako root."
 
 #: ../../create_localized_help.py:115
 msgid "About \"Run from terminal\" options"
 msgstr "Informace o možnosti \"Spustit v terminálu\" "
 
 #: ../../create_localized_help.py:116
-msgid ""
-"These options are meant for debugging purposes (to see the console output "
-"after opening/closing a program to detect possible errors, for example). "
-"Instead of opening a terminal to launch a program of which one might not "
-"know its command, one can do it directly from the menu and in just one step. "
-"Options to run from a terminal an application listed on the menu can be "
-"found on the applications context menu and can be hidden/shown from this "
-"applet settings window."
-msgstr ""
-"Tyto možnosti jsou určeny pro účely ladění (pro zobrazení výstupu konzoly po "
-"otevření / zavření programu pro detekci možných chyb). Namísto otevření "
-"terminálu pro spuštění programu, o kterém nemusíte znát jeho spouštěcí "
-"příkaz, to můžete udělat přímo z menu a jenom v jednom kroku. Možnosti pro "
-"spuštění z terminálu aplikace uvedené v nabídce lze nalézt v kontextové "
-"nabídce aplikace a mohou být skryty / zobrazeny v okně nastavení tohoto "
-"apletu. "
+msgid "These options are meant for debugging purposes (to see the console output after opening/closing a program to detect possible errors, for example). Instead of opening a terminal to launch a program of which one might not know its command, one can do it directly from the menu and in just one step. Options to run from a terminal an application listed on the menu can be found on the applications context menu and can be hidden/shown from this applet settings window."
+msgstr "Tyto možnosti jsou určeny pro účely ladění (pro zobrazení výstupu konzoly po otevření / zavření programu pro detekci možných chyb). Namísto otevření terminálu pro spuštění programu, o kterém nemusíte znát jeho spouštěcí příkaz, to můžete udělat přímo z menu a jenom v jednom kroku. Možnosti pro spuštění z terminálu aplikace uvedené v nabídce lze nalézt v kontextové nabídce aplikace a mohou být skryty / zobrazeny v okně nastavení tohoto apletu. "
 
 #. TO TRANSLATORS: MARKDOWN string. Respect formatting.
 #: ../../create_localized_help.py:119
-msgid ""
-"By default, these options will use the system's default terminal emulator "
-"(**x-terminal-emulator** on Debian based distributions). Any other terminal "
-"emulator can be specified inside the settings window of this applet, as long "
-"as said emulator has support for the **-e** argument. I did my tests with "
-"**gnome-terminal**, **xterm** and **terminator**. Additional arguments could "
-"be passed to the terminal emulator, but it's not supported by me."
-msgstr ""
-"Ve výchozím nastavení budou tyto možnosti používat výchozí emulátor "
-"terminálu systému (** x-terminal-emulator ** v distribucích založených na "
-"Debianu). Jakýkoliv jiný emulátor terminálu lze zadat uvnitř okna nastavení "
-"tohoto apletu, pokud má emulátor podporu pro argument ** - e **. Otestovány "
-"byly ** gnome-terminal **, ** xterm ** a ** terminator **.  Dodatečné "
-"argumenty by mohly být předány emulátoru terminálu, ale nejsou mnou "
-"podporovány. "
+msgid "By default, these options will use the system's default terminal emulator (**x-terminal-emulator** on Debian based distributions). Any other terminal emulator can be specified inside the settings window of this applet, as long as said emulator has support for the **-e** argument. I did my tests with **gnome-terminal**, **xterm** and **terminator**. Additional arguments could be passed to the terminal emulator, but it's not supported by me."
+msgstr "Ve výchozím nastavení budou tyto možnosti používat výchozí emulátor terminálu systému (** x-terminal-emulator ** v distribucích založených na Debianu). Jakýkoliv jiný emulátor terminálu lze zadat uvnitř okna nastavení tohoto apletu, pokud má emulátor podporu pro argument ** - e **. Otestovány byly ** gnome-terminal **, ** xterm ** a ** terminator **.  Dodatečné argumenty by mohly být předány emulátoru terminálu, ale nejsou mnou podporovány. "
 
 #: ../../create_localized_help.py:121
 msgid "Favorites handling"
@@ -243,50 +146,23 @@ msgstr "Obsluha oblíbených položek"
 
 #. TO TRANSLATORS: MARKDOWN string. Respect formatting.
 #: ../../create_localized_help.py:123
-msgid ""
-"If the favorites box is **displayed**, favorites can be added/removed from "
-"the context menu for applications and by dragging and dropping applications "
-"to/from the favorites box."
-msgstr ""
-"Pokud je pole s oblíbenými položkami **zobrazeno**, mohou být oblíbené "
-"položky přidány / odstraněny z kontextového menu aplikací a také přetažením "
-"aplikací do nebo z pole oblíbených položek."
+msgid "If the favorites box is **displayed**, favorites can be added/removed from the context menu for applications and by dragging and dropping applications to/from the favorites box."
+msgstr "Pokud je pole s oblíbenými položkami **zobrazeno**, mohou být oblíbené položky přidány / odstraněny z kontextového menu aplikací a také přetažením aplikací do nebo z pole oblíbených položek."
 
 #. TO TRANSLATORS: MARKDOWN string. Respect formatting.
 #: ../../create_localized_help.py:126
-msgid ""
-"**Note:** To remove a favorite, drag a favorite outside the favorites box "
-"into any part of the menu."
-msgstr ""
-"** Poznámka: ** Chcete-li odstranit oblíbenou položku, přetáhněte tuto "
-"oblíbenou položku mimo pole s oblíbenými položkami do kterékoli části menu."
+msgid "**Note:** To remove a favorite, drag a favorite outside the favorites box into any part of the menu."
+msgstr "** Poznámka: ** Chcete-li odstranit oblíbenou položku, přetáhněte tuto oblíbenou položku mimo pole s oblíbenými položkami do kterékoli části menu."
 
 #. TO TRANSLATORS: MARKDOWN string. Respect formatting.
 #: ../../create_localized_help.py:128
-msgid ""
-"If the favorites box is **hidden** and the favorites category is enabled, "
-"favorites can be added/removed from the context menu for applications and by "
-"dragging and dropping applications to the favorites category. Its simple, if "
-"a favorite is dragged into the favorites category, the favorite will be "
-"removed. If what you drag into the favorites category is a non bookmarked "
-"application, then that application will be added to the favorites."
-msgstr ""
-"Pokud je pole s oblíbenými položkami ** skryté ** a kategorie oblíbených "
-"položek je povolena, mohou být oblíbené položky přidány / odstraněny z "
-"kontextového menu aplikací a také přetažením aplikací do kategorie "
-"oblíbených položek. Zjednodušeně, pokud je oblíbená položka přetažena do "
-"kategorie oblíbených, bude oblíbená položka odebrána. Pokud to, co "
-"přetáhnete do kategorie oblíbených, je aplikace bez záložky, bude tato "
-"aplikace přidána do oblíbených položek. "
+msgid "If the favorites box is **hidden** and the favorites category is enabled, favorites can be added/removed from the context menu for applications and by dragging and dropping applications to the favorites category. Its simple, if a favorite is dragged into the favorites category, the favorite will be removed. If what you drag into the favorites category is a non bookmarked application, then that application will be added to the favorites."
+msgstr "Pokud je pole s oblíbenými položkami ** skryté ** a kategorie oblíbených položek je povolena, mohou být oblíbené položky přidány / odstraněny z kontextového menu aplikací a také přetažením aplikací do kategorie oblíbených položek. Zjednodušeně, pokud je oblíbená položka přetažena do kategorie oblíbených, bude oblíbená položka odebrána. Pokud to, co přetáhnete do kategorie oblíbených, je aplikace bez záložky, bude tato aplikace přidána do oblíbených položek. "
 
 #. TO TRANSLATORS: MARKDOWN string. Respect formatting.
 #: ../../create_localized_help.py:130
-msgid ""
-"**Note:** The favorites category will update its content after changing to "
-"another category and going back to the favorites category."
-msgstr ""
-"** Poznámka: ** Kategorie oblíbených položek aktualizuje svůj obsah po "
-"přechodu na jinou kategorii a návratu zpět do kategorie oblíbených položek."
+msgid "**Note:** The favorites category will update its content after changing to another category and going back to the favorites category."
+msgstr "** Poznámka: ** Kategorie oblíbených položek aktualizuje svůj obsah po přechodu na jinou kategorii a návratu zpět do kategorie oblíbených položek."
 
 #: ../../create_localized_help.py:132
 msgid "Troubleshooting/extra information"
@@ -302,14 +178,8 @@ msgid "Debian based distributions:"
 msgstr "Distribuce založené na Debianu:"
 
 #: ../../create_localized_help.py:136
-msgid ""
-"If the command **x-terminal-emulator** doesn't run the terminal emulator "
-"that one wants to be the default, run the following command to set a "
-"different default terminal emulator."
-msgstr ""
-"Pokud příkaz ** x-terminal-emulator ** nespustí emulátor terminálu, který má "
-"být výchozí, spusťte následující příkaz a nastavte jiný výchozí emulátor "
-"terminálu."
+msgid "If the command **x-terminal-emulator** doesn't run the terminal emulator that one wants to be the default, run the following command to set a different default terminal emulator."
+msgstr "Pokud příkaz ** x-terminal-emulator ** nespustí emulátor terminálu, který má být výchozí, spusťte následující příkaz a nastavte jiný výchozí emulátor terminálu."
 
 #: ../../create_localized_help.py:139
 msgid "Type in the number of the selection and hit enter."
@@ -320,34 +190,18 @@ msgid "For other distributions:"
 msgstr "Pro ostatní distribuce:"
 
 #: ../../create_localized_help.py:142
-msgid ""
-"Just set the terminal executable of your choice on this applet settings "
-"window."
-msgstr ""
-"Stačí nastavit spustitelný soubor terminálu podle vašeho výběru v okně "
-"nastavení tohoto apletu."
+msgid "Just set the terminal executable of your choice on this applet settings window."
+msgstr "Stačí nastavit spustitelný soubor terminálu podle vašeho výběru v okně nastavení tohoto apletu."
 
 #. TO TRANSLATORS: MARKDOWN string. Respect formatting.
 #: ../../create_localized_help.py:144
-msgid ""
-"There is a file inside this applet directory called **run_from_terminal."
-"sh**. ***Do not remove, rename or edit this file***. Otherwise, all of the "
-"*Run from terminal* options will break."
-msgstr ""
-"V adresáři tohoto apletu je soubor nazvaný ** run_from_terminal.sh **. *** "
-"Neodebírejte, nepřejmenujte nebo neupravujte tento soubor ***. V opačném "
-"případě nebudou všechny možnosti * Spustit z terminálu * funkční. "
+msgid "There is a file inside this applet directory called **run_from_terminal.sh**. ***Do not remove, rename or edit this file***. Otherwise, all of the *Run from terminal* options will break."
+msgstr "V adresáři tohoto apletu je soubor nazvaný ** run_from_terminal.sh **. *** Neodebírejte, nepřejmenujte nebo neupravujte tento soubor ***. V opačném případě nebudou všechny možnosti * Spustit z terminálu * funkční. "
 
 #. TO TRANSLATORS: MARKDOWN string. Respect formatting.
 #: ../../create_localized_help.py:146
-msgid ""
-"There is a folder named **icons** inside this applet directory. It contains "
-"several symbolic icons (most of them are from the Faenza icon theme) and "
-"each icon can be used directly by name (on a custom launcher, for example)."
-msgstr ""
-"V adresáři tohoto apletu Je složka s názvem ** icons **. Obsahuje několik "
-"symbolických ikon (většina z nich je z tématu ikon Faenza) a každá ikona "
-"může být použita přímo jménem (například u Uživatelského spouštěče). "
+msgid "There is a folder named **icons** inside this applet directory. It contains several symbolic icons (most of them are from the Faenza icon theme) and each icon can be used directly by name (on a custom launcher, for example)."
+msgstr "V adresáři tohoto apletu Je složka s názvem ** icons **. Obsahuje několik symbolických ikon (většina z nich je z tématu ikon Faenza) a každá ikona může být použita přímo jménem (například u Uživatelského spouštěče). "
 
 #: ../../create_localized_help.py:168
 msgid "The following two sections are available only in English."
@@ -387,51 +241,29 @@ msgid "IMPORTANT!!!"
 msgstr "DŮLEŽITÉ!!!"
 
 #: ../../create_localized_help.py:281
-msgid ""
-"Never delete any of the files found inside this xlet folder. It might break "
-"this xlet functionality."
-msgstr ""
-"Nikdy neodstraňujte soubory ze složky tohoto xletu. Mohlo by to narušit "
-"funkčnost xletu. "
+msgid "Never delete any of the files found inside this xlet folder. It might break this xlet functionality."
+msgstr "Nikdy neodstraňujte soubory ze složky tohoto xletu. Mohlo by to narušit funkčnost xletu. "
 
 #: ../../create_localized_help.py:282
-msgid ""
-"Bug reports, feature requests and contributions should be done on this "
-"xlet's repository linked next."
-msgstr ""
-"Zprávy o chybách, požadavky na funkce a příspěvky by měly být prováděny v "
-"repozitáři tohoto xletu, na který je odkaz dále."
+msgid "Bug reports, feature requests and contributions should be done on this xlet's repository linked next."
+msgstr "Zprávy o chybách, požadavky na funkce a příspěvky by měly být prováděny v repozitáři tohoto xletu, na který je odkaz dále."
 
 #: ../../create_localized_help.py:288
 msgid "Applets/Desklets/Extensions (a.k.a. xlets) localization"
 msgstr "Lokalizace apletů/deskletů/rozšíření (a.k.a. xlety)"
 
 #: ../../create_localized_help.py:289
-msgid ""
-"If this xlet was installed from Cinnamon Settings, all of this xlet's "
-"localizations were automatically installed."
-msgstr ""
-"Pokud byl tento xlet nainstalován z nastavení systému v Cinnamonu, byly "
-"všechny tyto lokalizace xletu automaticky nainstalovány."
+msgid "If this xlet was installed from Cinnamon Settings, all of this xlet's localizations were automatically installed."
+msgstr "Pokud byl tento xlet nainstalován z nastavení systému v Cinnamonu, byly všechny tyto lokalizace xletu automaticky nainstalovány."
 
 #. TO TRANSLATORS: MARKDOWN string. Respect formatting.
 #: ../../create_localized_help.py:291
-msgid ""
-"If this xlet was installed manually and not trough Cinnamon Settings, "
-"localizations can be installed by executing the script called "
-"**localizations.sh** from a terminal opened inside the xlet's folder."
-msgstr ""
-"Pokud byl tento xlet nainstalován ručně a nikoliv pomocí nastavení systému v "
-"Cinnamonu, mohou být lokalizace instalovány spuštěním skriptu nazvaného ** "
-"localizations.sh ** z terminálu otevřeného uvnitř složky xletu."
+msgid "If this xlet was installed manually and not trough Cinnamon Settings, localizations can be installed by executing the script called **localizations.sh** from a terminal opened inside the xlet's folder."
+msgstr "Pokud byl tento xlet nainstalován ručně a nikoliv pomocí nastavení systému v Cinnamonu, mohou být lokalizace instalovány spuštěním skriptu nazvaného ** localizations.sh ** z terminálu otevřeného uvnitř složky xletu."
 
 #: ../../create_localized_help.py:292
-msgid ""
-"If this xlet has no locale available for your language, you could create it "
-"by following the following instructions."
-msgstr ""
-"Pokud tento xlet nemá k dispozici překlad pro váš jazyk, můžete jej vytvořit "
-"podle následujících pokynů."
+msgid "If this xlet has no locale available for your language, you could create it by following the following instructions."
+msgstr "Pokud tento xlet nemá k dispozici překlad pro váš jazyk, můžete jej vytvořit podle následujících pokynů."
 
 #. NOTE: This string could be left blank because it's a default string,
 #. so it's already translated by Cinnamon. It's up to the translators.
@@ -867,14 +699,8 @@ msgstr "Zobrazit ikony kategorií"
 
 #. 3.2->settings-schema.json->pref_user_picture_placement->tooltip
 #. 0dyseus@CustomCinnamonMenu->settings-schema.json->pref_user_picture_placement->tooltip
-msgid ""
-"This option allows to display the user picture on the menu. Clicking on the "
-"picture will open \"Account details\". For the image to be shown, the "
-"applications info box also has to be displayed."
-msgstr ""
-"Tato volba umožňuje zobrazení obrázku uživatele v menu. Po kliknutí na "
-"obrázek se otevře \"Podrobnosti o účtu\". Pro zobrazení obrázku, musí být "
-"také zobrazen info box o aplikaci."
+msgid "This option allows to display the user picture on the menu. Clicking on the picture will open \"Account details\". For the image to be shown, the applications info box also has to be displayed."
+msgstr "Tato volba umožňuje zobrazení obrázku uživatele v menu. Po kliknutí na obrázek se otevře \"Podrobnosti o účtu\". Pro zobrazení obrázku, musí být také zobrazen info box o aplikaci."
 
 #. 3.2->settings-schema.json->pref_user_picture_placement->description
 #. 0dyseus@CustomCinnamonMenu->settings-schema.json->pref_user_picture_placement->description
@@ -898,9 +724,7 @@ msgstr "Vlevo od info boxu o aplikaci"
 
 #. 3.2->settings-schema.json->pref_cat_select_on_hover->tooltip
 #. 0dyseus@CustomCinnamonMenu->settings-schema.json->pref_cat_select_on_hover->tooltip
-msgid ""
-"If disabled, categories can be selected by clicking on them instead of just "
-"hovering."
+msgid "If disabled, categories can be selected by clicking on them instead of just hovering."
 msgstr ""
 "Je-li volba povolena, může být kategorie vybrána pouhým najetím myši. \n"
 "Není-li povolena, může být kategorie vybrána kliknutím."
@@ -969,14 +793,8 @@ msgstr "Odsazení dole:"
 
 #. 3.2->settings-schema.json->pref_fuzzy_search_enabled->tooltip
 #. 0dyseus@CustomCinnamonMenu->settings-schema.json->pref_fuzzy_search_enabled->tooltip
-msgid ""
-"This option enables an infinitelly better sorting of search results. It's "
-"marked as experimental because it has a huge impact on performance every "
-"time the search box is cleared."
-msgstr ""
-"Tato volba umožňuje nesrovnatelně lepší třídění výsledků vyhledávání. Je to "
-"označeno jako experimentální, protože má obrovský dopad na výkon pokaždé, "
-"když je vymazán obsah vyhledávacího pole."
+msgid "This option enables an infinitelly better sorting of search results. It's marked as experimental because it has a huge impact on performance every time the search box is cleared."
+msgstr "Tato volba umožňuje nesrovnatelně lepší třídění výsledků vyhledávání. Je to označeno jako experimentální, protože má obrovský dopad na výkon pokaždé, když je vymazán obsah vyhledávacího pole."
 
 #. 3.2->settings-schema.json->pref_fuzzy_search_enabled->description
 #. 0dyseus@CustomCinnamonMenu->settings-schema.json->pref_fuzzy_search_enabled->description
@@ -1000,14 +818,8 @@ msgstr "Skrýt kategorii \"Všechny aplikace\""
 
 #. 3.2->settings-schema.json->pref_autofit_searchbox_width->tooltip
 #. 0dyseus@CustomCinnamonMenu->settings-schema.json->pref_autofit_searchbox_width->tooltip
-msgid ""
-"If enabled, Custom width for search box will be ignored. Also, this option "
-"is ignored if the custom launchers box is placed at either side of the "
-"searchbox."
-msgstr ""
-"Je-li volba povolena, uživatelská šířka vyhledávacího pole bude ignorována. "
-"Tato možnost je rovněž ignorována, pokud jsou uživatelské spouštěče umístěny "
-"vedle vyhledávacího pole."
+msgid "If enabled, Custom width for search box will be ignored. Also, this option is ignored if the custom launchers box is placed at either side of the searchbox."
+msgstr "Je-li volba povolena, uživatelská šířka vyhledávacího pole bude ignorována. Tato možnost je rovněž ignorována, pokud jsou uživatelské spouštěče umístěny vedle vyhledávacího pole."
 
 #. 3.2->settings-schema.json->pref_autofit_searchbox_width->description
 #. 0dyseus@CustomCinnamonMenu->settings-schema.json->pref_autofit_searchbox_width->description
@@ -1021,14 +833,8 @@ msgstr "Zobrazit \"Přidat na panel\" v kontextovém menu"
 
 #. 3.2->settings-schema.json->pref_recently_used_apps_invert_order->tooltip
 #. 0dyseus@CustomCinnamonMenu->settings-schema.json->pref_recently_used_apps_invert_order->tooltip
-msgid ""
-"By default, the most recently used application is at the top of the list. "
-"With this option enabled, the most recently used application will be at the "
-"bottom of the list."
-msgstr ""
-"Ve výchozím nastavení jsou naposledy použité aplikace v horní části seznamu. "
-"Je-li tato možnost povolena budou naposledy použité aplikace ve spodní části "
-"seznamu."
+msgid "By default, the most recently used application is at the top of the list. With this option enabled, the most recently used application will be at the bottom of the list."
+msgstr "Ve výchozím nastavení jsou naposledy použité aplikace v horní části seznamu. Je-li tato možnost povolena budou naposledy použité aplikace ve spodní části seznamu."
 
 #. 3.2->settings-schema.json->pref_recently_used_apps_invert_order->description
 #. 0dyseus@CustomCinnamonMenu->settings-schema.json->pref_recently_used_apps_invert_order->description
@@ -1038,15 +844,11 @@ msgstr "Obrátí pořadí naposledy použitých aplikací"
 #. 3.2->settings-schema.json->pref_remember_recently_used_apps->tooltip
 #. 0dyseus@CustomCinnamonMenu->settings-schema.json->pref_remember_recently_used_apps->tooltip
 msgid ""
-"From the moment this option is enabled, every application launched from the "
-"menu will be stored and displayed in the \"Recent Applications\" category.\n"
-"Every time this option is disabled, the list of recently used applications "
-"will be cleared."
+"From the moment this option is enabled, every application launched from the menu will be stored and displayed in the \"Recent Applications\" category.\n"
+"Every time this option is disabled, the list of recently used applications will be cleared."
 msgstr ""
-"Od okamžiku, kdy je tato volba zapnuta, bude každá aplikace spuštěna z menu "
-"uložena a zobrazena v kategorii \"Nedávné aplikace\".\n"
-"Pokaždé, když je tato volba vypnuta, bude vymazán seznam nedávno použitých "
-"aplikací."
+"Od okamžiku, kdy je tato volba zapnuta, bude každá aplikace spuštěna z menu uložena a zobrazena v kategorii \"Nedávné aplikace\".\n"
+"Pokaždé, když je tato volba vypnuta, bude vymazán seznam nedávno použitých aplikací."
 
 #. 3.2->settings-schema.json->pref_remember_recently_used_apps->description
 #. 0dyseus@CustomCinnamonMenu->settings-schema.json->pref_remember_recently_used_apps->description
@@ -1136,20 +938,16 @@ msgstr "ems"
 #. 3.2->settings-schema.json->pref_recently_used_apps_separator->tooltip
 #. 0dyseus@CustomCinnamonMenu->settings-schema.json->pref_recently_used_apps_separator->tooltip
 msgid ""
-"This option, when enabled, will break the menu keyboard navigation. Only "
-"enable this option if you will never use the keyboard to navigate the menu.\n"
+"This option, when enabled, will break the menu keyboard navigation. Only enable this option if you will never use the keyboard to navigate the menu.\n"
 "This message is only temporary until I figure out how to fix this."
 msgstr ""
-"Je-li tato volba povolena, nebude funkční navigace v menu pomocí klávesnice. "
-"Tuto možnost povolte pouze v případě, že nikdy nepoužíváte klávesnici k "
-"navigaci v menu.\n"
+"Je-li tato volba povolena, nebude funkční navigace v menu pomocí klávesnice. Tuto možnost povolte pouze v případě, že nikdy nepoužíváte klávesnici k navigaci v menu.\n"
 "Tato zpráva je pouze dočasná do doby opravení problému."
 
 #. 3.2->settings-schema.json->pref_recently_used_apps_separator->description
 #. 0dyseus@CustomCinnamonMenu->settings-schema.json->pref_recently_used_apps_separator->description
 msgid "Display separator after \"Recent Applications\" category (WARNING)"
-msgstr ""
-"Zobrazit oddělovač za kategorií \"Nedávno spuštěné aplikace\" (UPOZORNĚNÍ)"
+msgstr "Zobrazit oddělovač za kategorií \"Nedávno spuštěné aplikace\" (UPOZORNĚNÍ)"
 
 #. 3.2->settings-schema.json->pref_show_add_to_desktop_on_context->description
 #. 0dyseus@CustomCinnamonMenu->settings-schema.json->pref_show_add_to_desktop_on_context->description
@@ -1257,14 +1055,8 @@ msgstr "Emulátor terminálu:"
 
 #. 3.2->settings-schema.json->pref_swap_categories_box->tooltip
 #. 0dyseus@CustomCinnamonMenu->settings-schema.json->pref_swap_categories_box->tooltip
-msgid ""
-"By default, the categories box is to the left of the applications list. With "
-"this option enabled, the categories box will be placed to the right of the "
-"applications list."
-msgstr ""
-"Ve výchozím nastavení se zobrazuje seznam kategorií vlevo od seznamu "
-"aplikací. Je-li tato volba zapnuta, bude seznam kategorií umístěn napravo od "
-"seznamu aplikací."
+msgid "By default, the categories box is to the left of the applications list. With this option enabled, the categories box will be placed to the right of the applications list."
+msgstr "Ve výchozím nastavení se zobrazuje seznam kategorií vlevo od seznamu aplikací. Je-li tato volba zapnuta, bude seznam kategorií umístěn napravo od seznamu aplikací."
 
 #. 3.2->settings-schema.json->pref_swap_categories_box->description
 #. 0dyseus@CustomCinnamonMenu->settings-schema.json->pref_swap_categories_box->description
@@ -1303,12 +1095,10 @@ msgstr "Zobrazit záložky a místa"
 #. 0dyseus@CustomCinnamonMenu->settings-schema.json->pref_shutdown_button_custom_icon->tooltip
 #. 0dyseus@CustomCinnamonMenu->settings-schema.json->pref_logout_button_custom_icon->tooltip
 msgid ""
-"Only valid if the System buttons box is placed next to the Custom launchers "
-"box.\n"
+"Only valid if the System buttons box is placed next to the Custom launchers box.\n"
 "Leave blank to use default."
 msgstr ""
-"Platné pouze pokud jsou tlačítka pro ukončení umístěna vedle uživatelských "
-"spouštěčů.\n"
+"Platné pouze pokud jsou tlačítka pro ukončení umístěna vedle uživatelských spouštěčů.\n"
 "Ponechte prázdné, pokud chcete použít výchozí ikony."
 
 #. 3.2->settings-schema.json->pref_shutdown_button_custom_icon->description
@@ -1354,22 +1144,16 @@ msgstr "Druhá součást menu"
 #. 3.2->settings-schema.json->custom_padding_label->description
 #. 0dyseus@CustomCinnamonMenu->settings-schema.json->appearance7->description
 msgid ""
-"Note: Most themes stylesheets come with hardcoded sizes for certain "
-"elemets.\n"
+"Note: Most themes stylesheets come with hardcoded sizes for certain elemets.\n"
 "This section is for overriding those stylesheets."
 msgstr ""
-"Poznámka: Většina motivů má ve svých stylech nastavené pevné velikosti pro "
-"určité prvky.\n"
+"Poznámka: Většina motivů má ve svých stylech nastavené pevné velikosti pro určité prvky.\n"
 "Tato sekce umožňuje přepsání těchto stylů."
 
 #. 3.2->settings-schema.json->pref_show_recents_button->tooltip
 #. 0dyseus@CustomCinnamonMenu->settings-schema.json->pref_show_recents_button->tooltip
-msgid ""
-"For people who want the \"Recent documents\" category hidden without "
-"disabling recent documents globally."
-msgstr ""
-"Pro uživatele, kteří chtějí skrýt kategorii \"Nedávné dokumenty\" bez "
-"globálního zakázání zobrazení posledních dokumentů."
+msgid "For people who want the \"Recent documents\" category hidden without disabling recent documents globally."
+msgstr "Pro uživatele, kteří chtějí skrýt kategorii \"Nedávné dokumenty\" bez globálního zakázání zobrazení posledních dokumentů."
 
 #. 3.2->settings-schema.json->pref_show_recents_button->description
 #. 0dyseus@CustomCinnamonMenu->settings-schema.json->pref_show_recents_button->description
@@ -1388,24 +1172,17 @@ msgstr "Zvolte ikonu, která se zobrazí na panelu."
 
 #. 3.2->settings-schema.json->custom_launchers_label->description
 msgid ""
-"Fields marked with asterisks (*) are mandatory. Otherwise, the button will "
-"not appear on the menu.\n"
-"Icons can be any icon name or path to an icon file (symbolic or full "
-"color).\n"
+"Fields marked with asterisks (*) are mandatory. Otherwise, the button will not appear on the menu.\n"
+"Icons can be any icon name or path to an icon file (symbolic or full color).\n"
 "Commands can be any command (as entered in a terminal) or a path to a file.\n"
 "If the file is an executable script, an attempt to execute it will be made.\n"
-"Otherwise, the file will be opened with the systems handler for that file "
-"type."
+"Otherwise, the file will be opened with the systems handler for that file type."
 msgstr ""
-"Pole označená hvězdičkou (*) jsou povinné. Jinak se nezobrazí tlačítko v "
-"nabídce.\n"
-"Ikony mohou být jakýkoli název ikony nebo cesta k souboru ikony (symbolické "
-"nebo plnobarevné).\n"
-"Příkazy mohou být jakýkoli příkaz (jako se zadává v terminálu) nebo cesta k "
-"souboru.\n"
+"Pole označená hvězdičkou (*) jsou povinné. Jinak se nezobrazí tlačítko v nabídce.\n"
+"Ikony mohou být jakýkoli název ikony nebo cesta k souboru ikony (symbolické nebo plnobarevné).\n"
+"Příkazy mohou být jakýkoli příkaz (jako se zadává v terminálu) nebo cesta k souboru.\n"
 "Pokud je soubor spustitelný skript, bude proveden pokus o spuštění.\n"
-"Jinak bude soubor otevřen aplikací asociovanou v systému pro tento typ "
-"souboru."
+"Jinak bude soubor otevřen aplikací asociovanou v systému pro tento typ souboru."
 
 #. 3.2->settings-schema.json->section_save_button_full->title
 msgid ""
@@ -1566,12 +1343,10 @@ msgstr "Uživatelský název"
 #. 0dyseus@CustomCinnamonMenu->settings-schema.json->pref_privilege_elevator->tooltip
 msgid ""
 "The graphical front-end to use to run applications as root.\n"
-"This is used by the \"Open as Root\" context menu and the option \"Gain "
-"privileges of not owned files\"."
+"This is used by the \"Open as Root\" context menu and the option \"Gain privileges of not owned files\"."
 msgstr ""
 "Grafický front-end použitý ke spouštění aplikací jako root.\n"
-"Používá se pro kontextové menu \"Spustit jako root\" a volbu \"Získat "
-"oprávnění k souborům, jichž nejste vlastníkem\"."
+"Používá se pro kontextové menu \"Spustit jako root\" a volbu \"Získat oprávnění k souborům, jichž nejste vlastníkem\"."
 
 #. 3.2->settings-schema.json->pref_privilege_elevator->description
 #. 0dyseus@CustomCinnamonMenu->settings-schema.json->pref_privilege_elevator->description
@@ -1620,12 +1395,8 @@ msgstr "Zobrazit \"Spustit v terminálu\" v kontextovém menu"
 
 #. 3.2->settings-schema.json->pref_recent_apps_ignore_favorites->tooltip
 #. 0dyseus@CustomCinnamonMenu->settings-schema.json->pref_recent_apps_ignore_favorites->tooltip
-msgid ""
-"If enabled, applications set as Favorite will not be stored in the \"Recent "
-"Applications\" category."
-msgstr ""
-"Je-li volba povolena, aplikace nastavené jako oblíbené položky nebudou "
-"uloženy v kategorii \"Nedávné aplikace\"."
+msgid "If enabled, applications set as Favorite will not be stored in the \"Recent Applications\" category."
+msgstr "Je-li volba povolena, aplikace nastavené jako oblíbené položky nebudou uloženy v kategorii \"Nedávné aplikace\"."
 
 #. 3.2->settings-schema.json->pref_recent_apps_ignore_favorites->description
 #. 0dyseus@CustomCinnamonMenu->settings-schema.json->pref_recent_apps_ignore_favorites->description
@@ -1669,14 +1440,8 @@ msgstr "Velikost obrázku uživatele:"
 
 #. 3.2->settings-schema.json->pref_use_alternate_vector_box->tooltip
 #. 0dyseus@CustomCinnamonMenu->settings-schema.json->pref_use_alternate_vector_box->tooltip
-msgid ""
-"With this option enabled, an alternate method to select categories will be "
-"used. This method can improve the performance of the menu and is extracted "
-"from the applet called Configurable Menu by lestcape."
-msgstr ""
-"Je-li tato volba povolena, bude pro výběr kategorie použita alternativní "
-"metoda. Tato metoda může zlepšit výkon menu a je převzata z apletu "
-"Configurable Menu od autora lestcape."
+msgid "With this option enabled, an alternate method to select categories will be used. This method can improve the performance of the menu and is extracted from the applet called Configurable Menu by lestcape."
+msgstr "Je-li tato volba povolena, bude pro výběr kategorie použita alternativní metoda. Tato metoda může zlepšit výkon menu a je převzata z apletu Configurable Menu od autora lestcape."
 
 #. 3.2->settings-schema.json->pref_use_alternate_vector_box->description
 #. 0dyseus@CustomCinnamonMenu->settings-schema.json->pref_use_alternate_vector_box->description
@@ -1685,9 +1450,7 @@ msgstr "Použít alternativní metodu pro výběr kategorie (EXPERIMENTÁLNÍ)"
 
 #. 3.2->settings-schema.json->pref_enable_autoscroll->tooltip
 #. 0dyseus@CustomCinnamonMenu->settings-schema.json->pref_enable_autoscroll->tooltip
-msgid ""
-"Choose whether or not to enable smooth auto-scrolling in the application "
-"list."
+msgid "Choose whether or not to enable smooth auto-scrolling in the application list."
 msgstr "Zaškrtněte pro automatický posun v seznamu aplikací."
 
 #. 3.2->settings-schema.json->pref_enable_autoscroll->description
@@ -1752,12 +1515,8 @@ msgstr "Uvnitř boxu \"Oblíbené\""
 
 #. 3.2->settings-schema.json->pref_show_edit_desktop_file_on_context->tooltip
 #. 0dyseus@CustomCinnamonMenu->settings-schema.json->pref_show_edit_desktop_file_on_context->tooltip
-msgid ""
-"It adds to the applications context menu an entry that will allow you to "
-"open the current selected application's .desktop file in a text editor."
-msgstr ""
-"Přidá do kontextové nabídky aplikace položku, která vám umožní otevřít ."
-"desktop soubor aktuální vybrané aplikace v textovém editoru."
+msgid "It adds to the applications context menu an entry that will allow you to open the current selected application's .desktop file in a text editor."
+msgstr "Přidá do kontextové nabídky aplikace položku, která vám umožní otevřít .desktop soubor aktuální vybrané aplikace v textovém editoru."
 
 #. 3.2->settings-schema.json->pref_show_edit_desktop_file_on_context->description
 #. 0dyseus@CustomCinnamonMenu->settings-schema.json->pref_show_edit_desktop_file_on_context->description
@@ -1767,19 +1526,13 @@ msgstr "Zobrazit \"Upravit .desktop soubor\" v kontextovém menu"
 #. 3.2->settings-schema.json->pref_gain_privileges_on_context->tooltip
 #. 0dyseus@CustomCinnamonMenu->settings-schema.json->pref_gain_privileges_on_context->tooltip
 msgid ""
-"If enabled, this options will open as root .desktop files that aren't owned "
-"by the current user.\n"
+"If enabled, this options will open as root .desktop files that aren't owned by the current user.\n"
 "\n"
-"This isn't needed for all text editors. Some text editors will allow you to "
-"open and edit not owned files and will ask for the root password at the "
-"moment of saving the changes."
+"This isn't needed for all text editors. Some text editors will allow you to open and edit not owned files and will ask for the root password at the moment of saving the changes."
 msgstr ""
-"Je-li volba povolena, budou s oprávněním uživatele root otevřeny .desktop "
-"soubory, které nejsou vlastněné aktuálním uživatelem.\n"
+"Je-li volba povolena, budou s oprávněním uživatele root otevřeny .desktop soubory, které nejsou vlastněné aktuálním uživatelem.\n"
 "\n"
-"Toto není nezbytné pro všechny textové editory. Některé textové editory vám "
-"umožní otevřít a upravit nevlastní soubory a požádá o heslo uživatele root v "
-"okamžiku uložení změn."
+"Toto není nezbytné pro všechny textové editory. Některé textové editory vám umožní otevřít a upravit nevlastní soubory a požádá o heslo uživatele root v okamžiku uložení změn."
 
 #. 3.2->settings-schema.json->pref_gain_privileges_on_context->description
 #. 0dyseus@CustomCinnamonMenu->settings-schema.json->pref_gain_privileges_on_context->description
@@ -1788,12 +1541,8 @@ msgstr "Získat oprávnění k souborům, jichž nejste vlastníkem"
 
 #. 3.2->settings-schema.json->pref_user_picture_stylized->tooltip
 #. 0dyseus@CustomCinnamonMenu->settings-schema.json->pref_user_picture_stylized->tooltip
-msgid ""
-"With this option enabled, the box containing the user picture will have the "
-"same style as the Favorites box."
-msgstr ""
-"Je-li tato volba povolena, bude mít pole obsahující obrázek uživatele stejný "
-"styl jako pole pro oblíbené položky."
+msgid "With this option enabled, the box containing the user picture will have the same style as the Favorites box."
+msgstr "Je-li tato volba povolena, bude mít pole obsahující obrázek uživatele stejný styl jako pole pro oblíbené položky."
 
 #. 3.2->settings-schema.json->pref_user_picture_stylized->description
 #. 0dyseus@CustomCinnamonMenu->settings-schema.json->pref_user_picture_stylized->description
@@ -1821,15 +1570,8 @@ msgstr ""
 
 #. 3.2->settings-schema.json->pref_use_hover_feedback->tooltip
 #. 0dyseus@CustomCinnamonMenu->settings-schema.json->pref_use_hover_feedback->tooltip
-msgid ""
-"If enabled, and the user picture is shown, every time an application/"
-"favorite/place/recent file is hovered or selected with keyboard navigation, "
-"its icon will be displayed where the user picture is located."
-msgstr ""
-"Je-li volba povolena a zároveň je povoleno zobrazení obrázku uživatele, tak "
-"pokaždé po výběru klávesou nebo při najetí myší na aplikaci/oblíbenou "
-"položku/místo/poslední otevřený soubor, bude jeho ikona zobrazena na místě "
-"obrázku uživatele."
+msgid "If enabled, and the user picture is shown, every time an application/favorite/place/recent file is hovered or selected with keyboard navigation, its icon will be displayed where the user picture is located."
+msgstr "Je-li volba povolena a zároveň je povoleno zobrazení obrázku uživatele, tak pokaždé po výběru klávesou nebo při najetí myší na aplikaci/oblíbenou položku/místo/poslední otevřený soubor, bude jeho ikona zobrazena na místě obrázku uživatele."
 
 #. 3.2->settings-schema.json->pref_use_hover_feedback->description
 #. 0dyseus@CustomCinnamonMenu->settings-schema.json->pref_use_hover_feedback->description
@@ -1844,12 +1586,10 @@ msgstr "Vlastní textový editor:"
 #. 3.2->settings-schema.json->pref_custom_editor_for_edit_desktop_file_on_context->tooltip
 #. 0dyseus@CustomCinnamonMenu->settings-schema.json->pref_custom_editor_for_edit_desktop_file_on_context->tooltip
 msgid ""
-"Set a custom text editor to open .desktop files (just the name of the text "
-"editor executable or the path to it).\n"
+"Set a custom text editor to open .desktop files (just the name of the text editor executable or the path to it).\n"
 "Leave it blank to let the system decide."
 msgstr ""
-"Nastavte vlastní textový editor pro otevření .desktop souborů (pouze název "
-"textového editoru nebo cesta).\n"
+"Nastavte vlastní textový editor pro otevření .desktop souborů (pouze název textového editoru nebo cesta).\n"
 "Ponechte nevyplněné pro výběr systémového editoru."
 
 #. 3.2->settings-schema.json->pref_custom_commands_box_alignment->description
@@ -1893,23 +1633,16 @@ msgid "Custom launchers icon size:"
 msgstr "Velikost ikon pro uživatelské spouštěče:"
 
 #. 0dyseus@CustomCinnamonMenu->metadata.json->description
-msgid ""
-"Custom version of the default Cinnamon Menu applet, but infinitely more "
-"customizable."
-msgstr ""
-"Vlastní verze výchozího apletu Cinnamon menu, ale mnohem přizpůsobitelnější."
+msgid "Custom version of the default Cinnamon Menu applet, but infinitely more customizable."
+msgstr "Vlastní verze výchozího apletu Cinnamon menu, ale mnohem přizpůsobitelnější."
 
 #. 0dyseus@CustomCinnamonMenu->metadata.json->name
 msgid "Custom Cinnamon Menu"
 msgstr "Nastavitelné Cinnamon menu"
 
 #. 0dyseus@CustomCinnamonMenu->metadata.json->comments
-msgid ""
-"Bug reports, feature requests and contributions should be done on this "
-"xlet's repository linked below."
-msgstr ""
-"Zprávy o chybách, požadavky na funkce a příspěvky by měly být prováděny v "
-"repozitáři tohoto xletu, na který je odkaz níže."
+msgid "Bug reports, feature requests and contributions should be done on this xlet's repository linked below."
+msgstr "Zprávy o chybách, požadavky na funkce a příspěvky by měly být prováděny v repozitáři tohoto xletu, na který je odkaz níže."
 
 #. 0dyseus@CustomCinnamonMenu->metadata.json->contributors
 msgid "See this xlet help file."
@@ -1931,25 +1664,18 @@ msgstr "Klikněte zde pro uložení nastavení"
 #. 0dyseus@CustomCinnamonMenu->settings-schema.json->head8->description
 msgid ""
 "Custom launchers notes\n"
-"Fields marked with asterisks (*) are mandatory. Otherwise, the button will "
-"not appear on the menu.\n"
-"Icons can be any icon name or path to an icon file (symbolic or full "
-"color).\n"
+"Fields marked with asterisks (*) are mandatory. Otherwise, the button will not appear on the menu.\n"
+"Icons can be any icon name or path to an icon file (symbolic or full color).\n"
 "Commands can be any command (as entered in a terminal) or a path to a file.\n"
 "If the file is an executable script, an attempt to execute it will be made.\n"
-"Otherwise, the file will be opened with the systems handler for that file "
-"type."
+"Otherwise, the file will be opened with the systems handler for that file type."
 msgstr ""
 "Poznámky pro uživatelské spouštěče\n"
-"Pole označená hvězdičkou (*) jsou povinná. Jinak se nezobrazí tlačítko v "
-"menu.\n"
-"Ikony mohou být jakýkoliv název ikony nebo cesta k souboru ikony (symbolické "
-"nebo plnobarevné).\n"
-"Příkazy mohou být jakýkoliv příkaz (jako se zadává v terminálu) nebo cesta k "
-"souboru.\n"
+"Pole označená hvězdičkou (*) jsou povinná. Jinak se nezobrazí tlačítko v menu.\n"
+"Ikony mohou být jakýkoliv název ikony nebo cesta k souboru ikony (symbolické nebo plnobarevné).\n"
+"Příkazy mohou být jakýkoliv příkaz (jako se zadává v terminálu) nebo cesta k souboru.\n"
 "Pokud je soubor spustitelný skript, bude proveden pokus o spuštění.\n"
-"Jinak bude soubor otevřen aplikací asociovanou v systému pro tento typ "
-"souboru."
+"Jinak bude soubor otevřen aplikací asociovanou v systému pro tento typ souboru."
 
 #. 0dyseus@CustomCinnamonMenu->settings-schema.json->head5->description
 msgid "Applications context menu extras"
@@ -1958,8 +1684,7 @@ msgstr "Extra položky pro kontextové menu aplikací"
 #. 0dyseus@CustomCinnamonMenu->settings-schema.json->head->description
 msgid ""
 "Most settings are not automatically saved when modified.\n"
-"Press any of the \"Click here to save settings\" buttons for the settings to "
-"take effect."
+"Press any of the \"Click here to save settings\" buttons for the settings to take effect."
 msgstr ""
 "Většina změn nastavení se neukládá automaticky.\n"
 "Stiskněte tlačítko \"Klikněte zde pro uložení nastavení\" pro aktivaci změn."
@@ -1989,15 +1714,13 @@ msgstr "Nedávno použité aplikace"
 #~ msgstr "giwhub: Čínská lokalizace."
 
 #~ msgid "lestcape: Author of some advanced features used by this applet."
-#~ msgstr ""
-#~ "lestcape: Autor některých pokročilých vlastností použitých tímto apletem."
+#~ msgstr "lestcape: Autor některých pokročilých vlastností použitých tímto apletem."
 
 #~ msgid "nooulaif: Fuzzy search feature based on his Sane Menu applet."
 #~ msgstr "nooulaif: Fuzzy vyhledávání založené na jeho Sane Menu apletu."
 
 #~ msgid "Daniel Bruce: Some icons used by this menu are from www.entypo.com."
-#~ msgstr ""
-#~ "Daniel Bruce: Některé ikony použité v tomto menu jsou z www.entypo.com."
+#~ msgstr "Daniel Bruce: Některé ikony použité v tomto menu jsou z www.entypo.com."
 
 #~ msgid "eson57: Swedish localization."
 #~ msgstr "eson57: Švédská lokalizace."

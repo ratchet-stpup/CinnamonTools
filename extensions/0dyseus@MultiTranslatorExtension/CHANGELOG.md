@@ -4,6 +4,17 @@
 
 ***
 
+- **Date:** Sat, 24 Jun 2017 09:56:15 -0300
+- **Commit:** [9cc736f](https://github.com/Odyseus/CinnamonTools/commit/9cc736f)
+- **Author:** Odyseus
+
+```
+Update da.po (POEditor.com)
+
+```
+
+***
+
 - **Date:** Sat, 24 Jun 2017 09:47:22 -0300
 - **Commit:** [0307b0e](https://github.com/Odyseus/CinnamonTools/commit/0307b0e)
 - **Author:** Odyseus

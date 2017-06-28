@@ -19,6 +19,7 @@ from gi.repository import GLib
 from cinnamon_tools_python_modules import localized_help_modules
 from cinnamon_tools_python_modules import mistune
 from cinnamon_tools_python_modules.pyuca import Collator
+from cinnamon_tools_python_modules.locale_list import locale_list
 
 pyuca_collator = Collator()
 md = mistune.Markdown()
@@ -44,6 +45,8 @@ def _(aStr):
     if not aStr.strip():
         return aStr
 
+    current_language_stats["total"] = current_language_stats["total"] + 1
+
     if trans:
         result = trans(aStr)
 
@@ -53,6 +56,7 @@ def _(aStr):
             result = result
 
         if result != aStr:
+            current_language_stats["translated"] = current_language_stats["translated"] + 1
             return result
 
     return aStr
@@ -217,17 +221,18 @@ class Main():
             global current_language
             current_language = lang
 
+            global current_language_stats
+            current_language_stats = {
+                "total": 0,
+                "translated": 0
+            }
+
             if current_language == "en":
                 localized_help_modules.create_readme(
                     xlet_dir=XLET_DIR,
                     xlet_meta=xlet_meta,
                     content_base=get_content_base(for_readme=True)
                 )
-
-            if current_language != "en" and _("language-name") == "language-name":
-                # If the endonym isn't provided, assume that the HELP file isn't translated.
-                # Placed this comment here so the comment isn't extracted by xgettext.
-                continue
 
             only_english = md("<div style=\"font-weight:bold;\" class=\"alert alert-info\">{0}</div>".format(
                 _("The following two sections are available only in English."))
@@ -254,10 +259,14 @@ class Main():
                 localize_info=self.get_localize_info(),
                 only_english=only_english,
             )
-            self.sections.append(section)
 
             option = self.get_option()
-            self.options.append(option)
+
+            # option could be None if the the language has no endonym or if the amount
+            # of translated strings is lower than 50% of the total translatable strings.
+            if option is not None:
+                self.sections.append(section)
+                self.options.append(option)
 
         html_doc = self.html_templates.html_doc.format(
             # This string doesn't need to be translated.
@@ -289,14 +298,28 @@ class Main():
 
         for root, subFolders, files in os.walk(podir, topdown=False):
             for file in files:
+                pofile_path = os.path.join(root, file)
                 parts = os.path.splitext(file)
+
                 if parts[1] == ".po":
-                    self.lang_list.append(parts[0])
-                    this_locale_dir = os.path.join(dummy_locale_path, parts[0], "LC_MESSAGES")
-                    GLib.mkdir_with_parents(this_locale_dir, 0o755)
-                    subprocess.call(["msgfmt", os.path.join(root, file), "-o",
-                                     os.path.join(this_locale_dir, "%s.mo" % XLET_UUID)])
-                    done_one = True
+                    try:
+                        try:
+                            lang_name = locale_list[parts[0]]["name"]
+                        except:
+                            lang_name = ""
+
+                        localized_help_modules.validate_po_file(
+                            pofile_path=pofile_path,
+                            lang_name=lang_name,
+                            xlet_meta=xlet_meta
+                        )
+                    finally:
+                        self.lang_list.append(parts[0])
+                        this_locale_dir = os.path.join(dummy_locale_path, parts[0], "LC_MESSAGES")
+                        GLib.mkdir_with_parents(this_locale_dir, 0o755)
+                        subprocess.call(["msgfmt", "-c", pofile_path, "-o",
+                                         os.path.join(this_locale_dir, "%s.mo" % XLET_UUID)])
+                        done_one = True
 
         if done_one:
             print("Dummy install complete")
@@ -311,18 +334,40 @@ class Main():
             print("Dummy install failed")
             quit()
 
+    def get_language_stats(self):
+        stats_total = str(current_language_stats["total"])
+        stats_translated = str(current_language_stats["translated"])
+
+        return int(100 * float(stats_translated) / float(stats_total))
+
     def get_option(self):
-        return self.html_templates.option_base.format(
-            # TO TRANSLATORS: This is a placeholder.
-            # Here goes your language name in your own language (a.k.a. endonym).
-            endonym="English" if current_language is "en" else _("language-name"),
-            selected="selected " if current_language is "en" else "",
-            language_code=current_language,
-            xlet_help=_("Help"),
-            xlet_contributors=_("Contributors"),
-            xlet_changelog=_("Changelog"),
-            title=_("Help for %s") % xlet_meta["name"]
-        )
+        try:
+            endonym = locale_list[current_language]["endonym"]
+            language_name = locale_list[current_language]["name"]
+        except:
+            endonym = None
+            language_name = None
+
+        if current_language == "en" or (endonym is not None and self.get_language_stats() >= 50):
+            # Define them first before self.get_language_stats() is called so these
+            # strings are also counted.
+            xlet_help = _("Help")
+            xlet_contributors = _("Contributors")
+            xlet_changelog = _("Changelog")
+            title = _("Help for %s") % xlet_meta["name"]
+
+            return self.html_templates.option_base.format(
+                endonym=endonym,
+                language_name=language_name,
+                selected="selected " if current_language is "en" else "",
+                language_code=current_language,
+                xlet_help=xlet_help,
+                xlet_contributors=xlet_contributors,
+                xlet_changelog=xlet_changelog,
+                title=title
+            )
+        else:
+            return None
 
     def get_introduction(self):
         return self.html_templates.introduction_base.format(

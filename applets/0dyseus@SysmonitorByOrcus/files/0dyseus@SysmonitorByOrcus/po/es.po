@@ -5,18 +5,18 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: 1.06\n"
-"Report-Msgid-Bugs-To: \n"
+"Project-Id-Version: 0dyseus@SysmonitorByOrcus 1.14\n"
+"Report-Msgid-Bugs-To: https://github.com/Odyseus/CinnamonTools\n"
 "POT-Creation-Date: 2017-06-21 03:32-0300\n"
 "PO-Revision-Date: 2017-06-19 00:35-0300\n"
 "Last-Translator: Odyseus\n"
-"Language-Team: \n"
+"Language-Team: Spanish\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.8.7.1\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 1.8.7.1\n"
 
 #: ../../create_localized_help.py:72
 msgid "Description"
@@ -24,43 +24,28 @@ msgstr "Descripción"
 
 #. TO TRANSLATORS: MARKDOWN string. Respect formatting.
 #: ../../create_localized_help.py:75
-msgid ""
-"This applet is a fork of [System Monitor](https://cinnamon-spices.linuxmint."
-"com/applets/view/88) applet by Josef Michálek (a.k.a. Orcus)."
-msgstr ""
-"Este applet está basado en el applet [System Monitor](https://cinnamon-"
-"spices.linuxmint.com/applets/view/88) por Josef Michálek (también conocido "
-"como Orcus)."
+msgid "This applet is a fork of [System Monitor](https://cinnamon-spices.linuxmint.com/applets/view/88) applet by Josef Michálek (a.k.a. Orcus)."
+msgstr "Este applet está basado en el applet [System Monitor](https://cinnamon-spices.linuxmint.com/applets/view/88) por Josef Michálek (también conocido como Orcus)."
 
 #: ../../create_localized_help.py:77
 msgid "Differences with the original applet"
 msgstr "Diferencias con el original"
 
 #: ../../create_localized_help.py:81
-msgid ""
-"This applet uses Cinnamon's native settings system instead of an external "
-"library (gjs)."
-msgstr ""
-"Este applet utiliza el sistema de configuración nativo de Cinnamon en lugar "
-"de una biblioteca externa (gjs)."
+msgid "This applet uses Cinnamon's native settings system instead of an external library (gjs)."
+msgstr "Este applet utiliza el sistema de configuración nativo de Cinnamon en lugar de una biblioteca externa (gjs)."
 
 #: ../../create_localized_help.py:82
 msgid "I added an option to use a custom command on applet click."
-msgstr ""
-"He añadido una opción para usar un comando personalizado al hacer clic en el "
-"applet."
+msgstr "He añadido una opción para usar un comando personalizado al hacer clic en el applet."
 
 #: ../../create_localized_help.py:83
 msgid "I added an option to set a custom width for each graph individually."
-msgstr ""
-"He añadido una opción para establecer un ancho personalizado para cada "
-"gráfico individualmente."
+msgstr "He añadido una opción para establecer un ancho personalizado para cada gráfico individualmente."
 
 #: ../../create_localized_help.py:84
 msgid "I added an option to align this applet tooltip text to the left."
-msgstr ""
-"He añadido una opción para alinear el texto de información de este applet a "
-"la izquierda."
+msgstr "He añadido una opción para alinear el texto de información de este applet a la izquierda."
 
 #: ../../create_localized_help.py:85
 msgid "Removed NetworkManager dependency."
@@ -71,12 +56,8 @@ msgid "Dependencies"
 msgstr "Dependencias"
 
 #: ../../create_localized_help.py:89
-msgid ""
-"The gtop library reads information about processes and the state of the "
-"system."
-msgstr ""
-"La biblioteca gtop lee información acerca de procesos y el estado del "
-"sistema."
+msgid "The gtop library reads information about processes and the state of the system."
+msgstr "La biblioteca gtop lee información acerca de procesos y el estado del sistema."
 
 #: ../../create_localized_help.py:90 ../../create_localized_help.py:101
 msgid "Debian based distributions:"
@@ -85,8 +66,7 @@ msgstr "Distribuciones basadas en Debian:"
 #. TO TRANSLATORS: MARKDOWN string. Respect formatting.
 #: ../../create_localized_help.py:92
 msgid "The package is called **gir1.2-gtop-2.0**."
-msgstr ""
-"Distribuciones basadas en Debian: El paquete es llamado **gir1.2-gtop-2.0**."
+msgstr "Distribuciones basadas en Debian: El paquete es llamado **gir1.2-gtop-2.0**."
 
 #: ../../create_localized_help.py:93 ../../create_localized_help.py:104
 msgid "Archlinux based distributions:"
@@ -107,14 +87,8 @@ msgid "The package is called **libgtop2-devel**."
 msgstr "El paquete es llamado **libgtop2-devel**."
 
 #: ../../create_localized_help.py:100
-msgid ""
-"NetworkManager is a system network service that manages your network devices "
-"and connections, attempting to keep active network connectivity when "
-"available."
-msgstr ""
-"NetworkManager es un servicio de red del sistema que administra los "
-"dispositivos y conexiones de red, intentando mantener una conectividad de "
-"red activa cuando está disponible."
+msgid "NetworkManager is a system network service that manages your network devices and connections, attempting to keep active network connectivity when available."
+msgstr "NetworkManager es un servicio de red del sistema que administra los dispositivos y conexiones de red, intentando mantener una conectividad de red activa cuando está disponible."
 
 #. TO TRANSLATORS: MARKDOWN string. Respect formatting.
 #: ../../create_localized_help.py:103
@@ -137,24 +111,12 @@ msgstr "Nota importante:"
 
 #. TO TRANSLATORS: MARKDOWN string. Respect formatting.
 #: ../../create_localized_help.py:113
-msgid ""
-"NetworkManager is only used if the **GTop** library version installed on a "
-"system is < **2.32** and doesn't support certain library calls. So, "
-"basically, if the network graph on this applet works without having "
-"installed NetworkManager, then you don't need to install it."
-msgstr ""
-"NetworkManager is usado sólo si la versión de la librería **GTop** instalada "
-"en el sistema es < 2.32 y no soporta ciertas llamadas a la librería. "
-"Básicamente, si el gráfico de red de este applet funciona sin tener "
-"instalado NetworkManager, entonces no es necesario que sea instalado."
+msgid "NetworkManager is only used if the **GTop** library version installed on a system is < **2.32** and doesn't support certain library calls. So, basically, if the network graph on this applet works without having installed NetworkManager, then you don't need to install it."
+msgstr "NetworkManager is usado sólo si la versión de la librería **GTop** instalada en el sistema es < 2.32 y no soporta ciertas llamadas a la librería. Básicamente, si el gráfico de red de este applet funciona sin tener instalado NetworkManager, entonces no es necesario que sea instalado."
 
 #: ../../create_localized_help.py:115
-msgid ""
-"Restart Cinnamon after installing the packages for the applet to recognize "
-"them."
-msgstr ""
-"Reiniciar Cinnamon luego de haber instalado los paquetes para que el applet "
-"los reconozca."
+msgid "Restart Cinnamon after installing the packages for the applet to recognize them."
+msgstr "Reiniciar Cinnamon luego de haber instalado los paquetes para que el applet los reconozca."
 
 #. TO TRANSLATORS: This is a placeholder.
 #. Here goes your language name in your own language (a.k.a. endonym).
@@ -198,54 +160,30 @@ msgid "IMPORTANT!!!"
 msgstr "¡IMPORTANTE!"
 
 #: ../../create_localized_help.py:286
-msgid ""
-"Never delete any of the files found inside this xlet folder. It might break "
-"this xlet functionality."
-msgstr ""
-"Jamás borrar ninguno de los archivos encontrados dentro de la carpeta de "
-"este xlet. Podría romper la funcionalidad del xlet."
+msgid "Never delete any of the files found inside this xlet folder. It might break this xlet functionality."
+msgstr "Jamás borrar ninguno de los archivos encontrados dentro de la carpeta de este xlet. Podría romper la funcionalidad del xlet."
 
 #. 0dyseus@SysmonitorByOrcus->metadata.json->comments
 #: ../../create_localized_help.py:287
-msgid ""
-"Bug reports, feature requests and contributions should be done on this "
-"xlet's repository linked next."
-msgstr ""
-"Los reportes de fallos, peticiones de características y contribuciones deben "
-"hacerse en el repositorio de este xlet vinculado a continuación."
+msgid "Bug reports, feature requests and contributions should be done on this xlet's repository linked next."
+msgstr "Los reportes de fallos, peticiones de características y contribuciones deben hacerse en el repositorio de este xlet vinculado a continuación."
 
 #: ../../create_localized_help.py:293
 msgid "Applets/Desklets/Extensions (a.k.a. xlets) localization"
-msgstr ""
-"Localización de applets/desklets/extensiones (también conocidos como xlets)"
+msgstr "Localización de applets/desklets/extensiones (también conocidos como xlets)"
 
 #: ../../create_localized_help.py:294
-msgid ""
-"If this xlet was installed from Cinnamon Settings, all of this xlet's "
-"localizations were automatically installed."
-msgstr ""
-"Si este xlet se instaló desde Configuración de Cinnamon, todas las "
-"localizaciones de este xlet se instalaron automáticamente."
+msgid "If this xlet was installed from Cinnamon Settings, all of this xlet's localizations were automatically installed."
+msgstr "Si este xlet se instaló desde Configuración de Cinnamon, todas las localizaciones de este xlet se instalaron automáticamente."
 
 #. TO TRANSLATORS: MARKDOWN string. Respect formatting.
 #: ../../create_localized_help.py:296
-msgid ""
-"If this xlet was installed manually and not trough Cinnamon Settings, "
-"localizations can be installed by executing the script called "
-"**localizations.sh** from a terminal opened inside the xlet's folder."
-msgstr ""
-"Si este xlet se instaló manualmente y no a través de Configuración de "
-"Cinnamon, las localizaciones se pueden instalar ejecutando el archivo "
-"llamado **localizations.sh** desde una terminal abierta dentro de la carpeta "
-"del xlet."
+msgid "If this xlet was installed manually and not trough Cinnamon Settings, localizations can be installed by executing the script called **localizations.sh** from a terminal opened inside the xlet's folder."
+msgstr "Si este xlet se instaló manualmente y no a través de Configuración de Cinnamon, las localizaciones se pueden instalar ejecutando el archivo llamado **localizations.sh** desde una terminal abierta dentro de la carpeta del xlet."
 
 #: ../../create_localized_help.py:297
-msgid ""
-"If this xlet has no locale available for your language, you could create it "
-"by following the following instructions."
-msgstr ""
-"Si este xlet no está disponible en su idioma, la localización puede ser "
-"creada siguiendo las siguientes instrucciones."
+msgid "If this xlet has no locale available for your language, you could create it by following the following instructions."
+msgstr "Si este xlet no está disponible en su idioma, la localización puede ser creada siguiendo las siguientes instrucciones."
 
 #: __init__.js:192
 msgid "CPU:"
@@ -287,18 +225,12 @@ msgid "Missing dependency!!!"
 msgstr "¡¡¡Falta de dependencia!!!"
 
 #: applet.js:186
-msgid ""
-"This applet needs the GTop library installed on your system for it  to work."
-msgstr ""
-"Este applet necesita la biblioteca GTop instalada en su sistema para que "
-"funcione."
+msgid "This applet needs the GTop library installed on your system for it  to work."
+msgstr "Este applet necesita la biblioteca GTop instalada en su sistema para que funcione."
 
 #: applet.js:187
-msgid ""
-"Read this applet help for more details (Applet context menu > Help item)."
-msgstr ""
-"Leer el archivo de ayuda de este applet para más detalles sobre esta opción "
-"(menú contextual del applet > elemento Ayuda)."
+msgid "Read this applet help for more details (Applet context menu > Help item)."
+msgstr "Leer el archivo de ayuda de este applet para más detalles sobre esta opción (menú contextual del applet > elemento Ayuda)."
 
 #. 0dyseus@SysmonitorByOrcus->metadata.json->contributors
 msgid "See this xlet help file."
@@ -336,9 +268,7 @@ msgstr "Usado:"
 #. 0dyseus@SysmonitorByOrcus->settings-schema.json->demo-button2->description
 #. 0dyseus@SysmonitorByOrcus->settings-schema.json->demo-button1->description
 msgid "To apply these settings, Cinnamon needs to be restarted. Click me!!!"
-msgstr ""
-"Para aplicar estas preferencias, Cinnamon necesita ser reiniciado. "
-"Presióname!!!"
+msgstr "Para aplicar estas preferencias, Cinnamon necesita ser reiniciado. Presióname!!!"
 
 #. 0dyseus@SysmonitorByOrcus->settings-schema.json->demo-button2->tooltip
 #. 0dyseus@SysmonitorByOrcus->settings-schema.json->demo-button1->tooltip
@@ -458,12 +388,8 @@ msgid "Align tooltip text to the left"
 msgstr "Alinear el texto de las herramientas emergentes a la izquierda"
 
 #. 0dyseus@SysmonitorByOrcus->settings-schema.json->pref_align_tooltip_text_to_the_left->tooltip
-msgid ""
-"For those of us who suffer from the stupidity of using a theme with tooltips "
-"aligned to the center. ¬¬"
-msgstr ""
-"Para aquellos de nosotros que sufren de la estupidez de usar un tema con "
-"cajas de herramientas alineadas al centro.  ¬¬"
+msgid "For those of us who suffer from the stupidity of using a theme with tooltips aligned to the center. ¬¬"
+msgstr "Para aquellos de nosotros que sufren de la estupidez de usar un tema con cajas de herramientas alineadas al centro.  ¬¬"
 
 #. 0dyseus@SysmonitorByOrcus->settings-schema.json->pref_cpu_graph_color_user->description
 msgid "User:"
@@ -500,22 +426,14 @@ msgstr "Almacenado en caché:"
 #~ msgid "Choose language"
 #~ msgstr "Elegir idioma"
 
-#~ msgid ""
-#~ "Bug reports, feature requests and contributions should be done on this "
-#~ "xlet's repository linked below."
-#~ msgstr ""
-#~ "Los reportes de fallos, peticiones de características y contribuciones "
-#~ "deben hacerse en el repositorio de este xlet vinculado a continuación."
+#~ msgid "Bug reports, feature requests and contributions should be done on this xlet's repository linked below."
+#~ msgstr "Los reportes de fallos, peticiones de características y contribuciones deben hacerse en el repositorio de este xlet vinculado a continuación."
 
 #~ msgid "Read CONTRIBUTORS.md file inside this xlet folder."
 #~ msgstr "Leer el archivo CONTRIBUTORS.md dentro de la carpeta de este xlet."
 
-#~ msgid ""
-#~ "A full list of contributors can be found in the CONTRIBUTORS.md file on "
-#~ "the root of this xlet folder."
-#~ msgstr ""
-#~ "Se puede encontrar una lista completa de contribuyentes en el archivo "
-#~ "CONTRIBUTORS.md en la raíz de la carpeta de este xlet."
+#~ msgid "A full list of contributors can be found in the CONTRIBUTORS.md file on the root of this xlet folder."
+#~ msgstr "Se puede encontrar una lista completa de contribuyentes en el archivo CONTRIBUTORS.md en la raíz de la carpeta de este xlet."
 
 #~ msgid "buzz: Bug fixes."
 #~ msgstr "buzz: Corrección de errores."
@@ -532,91 +450,35 @@ msgstr "Almacenado en caché:"
 #~ msgid "Help for {xlet_name}"
 #~ msgstr "Ayuda para {xlet_name}"
 
-#~ msgid ""
-#~ "**Important note:** NetworkManager is only used if the **GTop** library "
-#~ "version installed on a system is < **2.32** and doesn't support certain "
-#~ "library calls. So, basically, if the network graph on this applet works "
-#~ "without having installed NetworkManager, then you don't need to install "
-#~ "it."
-#~ msgstr ""
-#~ "**Nota importante:** NetworkManager is usado sólo si la versión de la "
-#~ "librería **GTop** instalada en el sistema es < 2.32 y no soporta ciertas "
-#~ "llamadas a la librería. Básicamente, si el gráfico de red de este applet "
-#~ "funciona sin tener instalado NetworkManager, entonces no es necesario que "
-#~ "sea instalado."
+#~ msgid "**Important note:** NetworkManager is only used if the **GTop** library version installed on a system is < **2.32** and doesn't support certain library calls. So, basically, if the network graph on this applet works without having installed NetworkManager, then you don't need to install it."
+#~ msgstr "**Nota importante:** NetworkManager is usado sólo si la versión de la librería **GTop** instalada en el sistema es < 2.32 y no soporta ciertas llamadas a la librería. Básicamente, si el gráfico de red de este applet funciona sin tener instalado NetworkManager, entonces no es necesario que sea instalado."
 
-#~ msgid ""
-#~ "**Restart Cinnamon after installing the packages for the applet to "
-#~ "recognize them.**"
-#~ msgstr ""
-#~ "**Reiniciar Cinnamon luego de haber instalado los paquetes para que el "
-#~ "applet los reconozca.**"
+#~ msgid "**Restart Cinnamon after installing the packages for the applet to recognize them.**"
+#~ msgstr "**Reiniciar Cinnamon luego de haber instalado los paquetes para que el applet los reconozca.**"
 
-#~ msgid ""
-#~ "Debian based distributions: The package is called <strong>gir1.2-"
-#~ "gtop-2.0</strong>."
-#~ msgstr ""
-#~ "Distribuciones basadas en Debian: El paquete es llamado <strong>gir1.2-"
-#~ "gtop-2.0</strong>."
+#~ msgid "Debian based distributions: The package is called <strong>gir1.2-gtop-2.0</strong>."
+#~ msgstr "Distribuciones basadas en Debian: El paquete es llamado <strong>gir1.2-gtop-2.0</strong>."
 
-#~ msgid ""
-#~ "Archlinux based distributions: The package is called <strong>libgtop</"
-#~ "strong>."
-#~ msgstr ""
-#~ "Distribuciones basadas en Archlinux: El paquete es <strong>libgtop</"
-#~ "strong>."
+#~ msgid "Archlinux based distributions: The package is called <strong>libgtop</strong>."
+#~ msgstr "Distribuciones basadas en Archlinux: El paquete es <strong>libgtop</strong>."
 
-#~ msgid ""
-#~ "Fedora based distributions: The package is called <strong>libgtop2-devel</"
-#~ "strong>."
-#~ msgstr ""
-#~ "Distribuciones basadas en Fedora: El paquete es llamado <strong>libgtop2-"
-#~ "devel</strong>."
+#~ msgid "Fedora based distributions: The package is called <strong>libgtop2-devel</strong>."
+#~ msgstr "Distribuciones basadas en Fedora: El paquete es llamado <strong>libgtop2-devel</strong>."
 
-#~ msgid ""
-#~ "Debian based distributions: The package is called <strong>gir1.2-"
-#~ "networkmanager-1.0</strong>."
-#~ msgstr ""
-#~ "Distribuciones basadas en Debian: El paquete es llamado <strong>gir1.2-"
-#~ "networkmanager-1.0</strong>."
+#~ msgid "Debian based distributions: The package is called <strong>gir1.2-networkmanager-1.0</strong>."
+#~ msgstr "Distribuciones basadas en Debian: El paquete es llamado <strong>gir1.2-networkmanager-1.0</strong>."
 
-#~ msgid ""
-#~ "Archlinux based distributions: The package is called "
-#~ "<strong>networkmanager</strong>."
-#~ msgstr ""
-#~ "Distribuciones basadas en Archlinux: El paquete es llamado "
-#~ "<strong>networkmanager</strong>."
+#~ msgid "Archlinux based distributions: The package is called <strong>networkmanager</strong>."
+#~ msgstr "Distribuciones basadas en Archlinux: El paquete es llamado <strong>networkmanager</strong>."
 
-#~ msgid ""
-#~ "Fedora based distributions: The package is called <strong>NetworkManager</"
-#~ "strong>."
-#~ msgstr ""
-#~ "Distribuciones basadas en Fedora: El paquete es llamado "
-#~ "<strong>NetworkManager</strong>."
+#~ msgid "Fedora based distributions: The package is called <strong>NetworkManager</strong>."
+#~ msgstr "Distribuciones basadas en Fedora: El paquete es llamado <strong>NetworkManager</strong>."
 
-#~ msgid ""
-#~ "NetworkManager is only used if the <strong>GTop</strong> library version "
-#~ "installed on a system is < <strong>2.32</strong> and doesn't support "
-#~ "certain library calls. So, basically, if the network graph on this applet "
-#~ "works without having installed NetworkManager, then you don't need to "
-#~ "install it."
-#~ msgstr ""
-#~ "NetworkManager is usado sólo si la versión de la librería <strong>GTop</"
-#~ "strong> instalada en el sistema es < 2.32 y no soporta ciertas llamadas a "
-#~ "la librería. Básicamente, si el gráfico de red de este applet funciona "
-#~ "sin tener instalado NetworkManager, entonces no es necesario que sea "
-#~ "instalado."
+#~ msgid "NetworkManager is only used if the <strong>GTop</strong> library version installed on a system is < <strong>2.32</strong> and doesn't support certain library calls. So, basically, if the network graph on this applet works without having installed NetworkManager, then you don't need to install it."
+#~ msgstr "NetworkManager is usado sólo si la versión de la librería <strong>GTop</strong> instalada en el sistema es < 2.32 y no soporta ciertas llamadas a la librería. Básicamente, si el gráfico de red de este applet funciona sin tener instalado NetworkManager, entonces no es necesario que sea instalado."
 
-#~ msgid ""
-#~ "If this xlet was installed manually and not trough Cinnamon Settings, "
-#~ "localizations can be installed by executing the script called "
-#~ "<strong>localizations.sh</strong> from a terminal opened inside the "
-#~ "xlet's folder."
-#~ msgstr ""
-#~ "Si este xlet se instaló manualmente y no a través de Configuración de "
-#~ "Cinnamon, las localizaciones se pueden instalar ejecutando el archivo "
-#~ "llamado <strong>localizations.sh</strong> desde una terminal abierta "
-#~ "dentro de la carpeta del xlet."
+#~ msgid "If this xlet was installed manually and not trough Cinnamon Settings, localizations can be installed by executing the script called <strong>localizations.sh</strong> from a terminal opened inside the xlet's folder."
+#~ msgstr "Si este xlet se instaló manualmente y no a través de Configuración de Cinnamon, las localizaciones se pueden instalar ejecutando el archivo llamado <strong>localizations.sh</strong> desde una terminal abierta dentro de la carpeta del xlet."
 
 #~ msgid "CPU: "
 #~ msgstr "CPU: "
@@ -639,9 +501,5 @@ msgstr "Almacenado en caché:"
 #~ msgid "Load average: "
 #~ msgstr "Promedio de carga: "
 
-#~ msgid ""
-#~ "Bug reports and feature requests should be reported on this applet's "
-#~ "repository linked below."
-#~ msgstr ""
-#~ "Los reportes de errores y las solicitudes de características deben ser "
-#~ "reportadas en el repositorio de este applet, que se enlaza a continuación."
+#~ msgid "Bug reports and feature requests should be reported on this applet's repository linked below."
+#~ msgstr "Los reportes de errores y las solicitudes de características deben ser reportadas en el repositorio de este applet, que se enlaza a continuación."

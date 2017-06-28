@@ -5,18 +5,18 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: 1.07\n"
-"Report-Msgid-Bugs-To: \n"
+"Project-Id-Version: 0dyseus@ExtensionsManager 1.08\n"
+"Report-Msgid-Bugs-To: https://github.com/Odyseus/CinnamonTools\n"
 "POT-Creation-Date: 2017-06-08 06:03+0200\n"
 "PO-Revision-Date: 2017-06-08 06:04+0200\n"
 "Last-Translator: Radek Otáhal <radek.otahal@email.cz>\n"
-"Language-Team: \n"
+"Language-Team: Czech\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.8.7.1\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+"X-Generator: Poedit 1.8.7.1\n"
 
 #: ../../create_localized_help.py:90
 msgid "The following two sections are available only in English."
@@ -56,59 +56,33 @@ msgid "IMPORTANT!!!"
 msgstr "DŮLEŽITÉ!!!"
 
 #: ../../create_localized_help.py:203
-msgid ""
-"Never delete any of the files found inside this xlet folder. It might break "
-"this xlet functionality."
-msgstr ""
-"Nikdy neodstraňujte soubory ze složky tohoto xletu. Mohlo by to narušit "
-"funkčnost xletu. "
+msgid "Never delete any of the files found inside this xlet folder. It might break this xlet functionality."
+msgstr "Nikdy neodstraňujte soubory ze složky tohoto xletu. Mohlo by to narušit funkčnost xletu. "
 
 #: ../../create_localized_help.py:204
-msgid ""
-"Bug reports, feature requests and contributions should be done on this "
-"xlet's repository linked next."
-msgstr ""
-"Zprávy o chybách, požadavky na funkce a příspěvky by měly být prováděny v "
-"repozitáři tohoto xletu, na který je odkaz dále."
+msgid "Bug reports, feature requests and contributions should be done on this xlet's repository linked next."
+msgstr "Zprávy o chybách, požadavky na funkce a příspěvky by měly být prováděny v repozitáři tohoto xletu, na který je odkaz dále."
 
 #: ../../create_localized_help.py:210
 msgid "Applets/Desklets/Extensions (a.k.a. xlets) localization"
 msgstr "Lokalizace apletů/deskletů/rozšíření (a.k.a. xlety)"
 
 #: ../../create_localized_help.py:211
-msgid ""
-"If this xlet was installed from Cinnamon Settings, all of this xlet's "
-"localizations were automatically installed."
-msgstr ""
-"Pokud byl tento xlet nainstalován z nastavení systému v Cinnamonu, byly "
-"všechny tyto lokalizace xletu automaticky nainstalovány."
+msgid "If this xlet was installed from Cinnamon Settings, all of this xlet's localizations were automatically installed."
+msgstr "Pokud byl tento xlet nainstalován z nastavení systému v Cinnamonu, byly všechny tyto lokalizace xletu automaticky nainstalovány."
 
 #. TO TRANSLATORS: MARKDOWN string. Respect formatting.
 #: ../../create_localized_help.py:213
-msgid ""
-"If this xlet was installed manually and not trough Cinnamon Settings, "
-"localizations can be installed by executing the script called "
-"**localizations.sh** from a terminal opened inside the xlet's folder."
-msgstr ""
-"Pokud byl tento xlet nainstalován ručně a nikoliv pomocí nastavení systému v "
-"Cinnamonu, mohou být lokalizace instalovány spuštěním skriptu nazvaného ** "
-"localizations.sh ** z terminálu otevřeného uvnitř složky xletu."
+msgid "If this xlet was installed manually and not trough Cinnamon Settings, localizations can be installed by executing the script called **localizations.sh** from a terminal opened inside the xlet's folder."
+msgstr "Pokud byl tento xlet nainstalován ručně a nikoliv pomocí nastavení systému v Cinnamonu, mohou být lokalizace instalovány spuštěním skriptu nazvaného ** localizations.sh ** z terminálu otevřeného uvnitř složky xletu."
 
 #: ../../create_localized_help.py:214
-msgid ""
-"If this xlet has no locale available for your language, you could create it "
-"by following the following instructions."
-msgstr ""
-"Pokud tento xlet nemá k dispozici překlad pro váš jazyk, můžete jej vytvořit "
-"podle následujících pokynů."
+msgid "If this xlet has no locale available for your language, you could create it by following the following instructions."
+msgstr "Pokud tento xlet nemá k dispozici překlad pro váš jazyk, můžete jej vytvořit podle následujících pokynů."
 
 #: appletHelper.py:268
-msgid ""
-"This terminal will list the errors of extensions that couldn't be loaded by "
-"Extensions Manager."
-msgstr ""
-"Tento terminál zobrazí chyby rozšíření, které nemohly být načteny správcem "
-"rozšíření."
+msgid "This terminal will list the errors of extensions that couldn't be loaded by Extensions Manager."
+msgstr "Tento terminál zobrazí chyby rozšíření, které nemohly být načteny správcem rozšíření."
 
 #: appletHelper.py:289 appletHelper.py:308
 msgid "Extensions Manager debugger"
@@ -179,8 +153,7 @@ msgid "Disable all extensions"
 msgstr "Zakázat všechna rozšíření"
 
 #: applet.js:122
-msgid ""
-"This will disable all active extensions. Are you sure you want to do this?"
+msgid "This will disable all active extensions. Are you sure you want to do this?"
 msgstr "Tímto vypnete všechna aktivní rozšíření. Chcete opravdu pokračovat?"
 
 #: applet.js:130
@@ -201,12 +174,8 @@ msgid "Source of error: %s"
 msgstr "Zdroj chyby: % s"
 
 #: applet.js:373
-msgid ""
-"There aren't any extensions installed on your system. Or you may need to "
-"refresh the list of extensions from this applet context menu."
-msgstr ""
-"Ve vašem systému nejsou nainstalována žádná rozšíření. Vyzkoušejte obnovit "
-"seznam rozšíření z kontextového menu tohoto appletu."
+msgid "There aren't any extensions installed on your system. Or you may need to refresh the list of extensions from this applet context menu."
+msgstr "Ve vašem systému nejsou nainstalována žádná rozšíření. Vyzkoušejte obnovit seznam rozšíření z kontextového menu tohoto appletu."
 
 #: applet.js:442
 msgid "Enabled extensions"
@@ -226,12 +195,8 @@ msgstr "Žádná zakázaná rozšíření"
 
 #: applet.js:488
 #, javascript-format
-msgid ""
-"Extension %s is not compatible with current version of cinnamon. Using it "
-"may break your system. Load anyway?"
-msgstr ""
-"Rozšíření %s není kompatibilní s aktuální verzí cinnamonu. Jeho použítí může "
-"poškodit váš systém. Přesto pokračovat?"
+msgid "Extension %s is not compatible with current version of cinnamon. Using it may break your system. Load anyway?"
+msgstr "Rozšíření %s není kompatibilní s aktuální verzí cinnamonu. Jeho použítí může poškodit váš systém. Přesto pokračovat?"
 
 #. 0dyseus@ExtensionsManager->metadata.json->contributors
 msgid "See this xlet help file."
@@ -242,12 +207,8 @@ msgid "Extensions Manager"
 msgstr "Správce rozšíření"
 
 #. 0dyseus@ExtensionsManager->metadata.json->comments
-msgid ""
-"Bug reports, feature requests and contributions should be done on this "
-"xlet's repository linked below."
-msgstr ""
-"Zprávy o chybách, požadavky na funkce a příspěvky by měly být prováděny v "
-"repozitáři tohoto xletu, na který je odkaz níže."
+msgid "Bug reports, feature requests and contributions should be done on this xlet's repository linked below."
+msgstr "Zprávy o chybách, požadavky na funkce a příspěvky by měly být prováděny v repozitáři tohoto xletu, na který je odkaz níže."
 
 #. 0dyseus@ExtensionsManager->metadata.json->description
 msgid "Allows enabling/disabling extensions (and other tasks) from a menu."
@@ -268,12 +229,8 @@ msgid "pixels"
 msgstr "pixelů"
 
 #. 0dyseus@ExtensionsManager->settings-schema.json->pref_keep_enabled_extension_menu_open->tooltip
-msgid ""
-"If enabled, every time that the menu is open, the \"Enabled extensions\" sub "
-"menu will be open too."
-msgstr ""
-"Je-li povoleno, tak pokaždé při otevření menu bude otevřeno také sub menu "
-"\"Povolená rozšíření\"."
+msgid "If enabled, every time that the menu is open, the \"Enabled extensions\" sub menu will be open too."
+msgstr "Je-li povoleno, tak pokaždé při otevření menu bude otevřeno také sub menu \"Povolená rozšíření\"."
 
 #. 0dyseus@ExtensionsManager->settings-schema.json->pref_keep_enabled_extension_menu_open->description
 msgid "Keep \"Enabled extensions\" menu open"
@@ -284,24 +241,16 @@ msgid "Style for \"Disabled extensions\" sub-menu"
 msgstr "Styl pro \"Zakázaná rozšíření\" sub-menu"
 
 #. 0dyseus@ExtensionsManager->settings-schema.json->pref_show_open_extension_folder_button->tooltip
-msgid ""
-"If enabled, it will display a button in each extension menu item that will "
-"open the location where the extension is installed."
-msgstr ""
-"Je-li povoleno, tak zobrazí u každé položky menu rozšíření tlačítko pro "
-"otevření složky ve které je rozšíření nainstalováno."
+msgid "If enabled, it will display a button in each extension menu item that will open the location where the extension is installed."
+msgstr "Je-li povoleno, tak zobrazí u každé položky menu rozšíření tlačítko pro otevření složky ve které je rozšíření nainstalováno."
 
 #. 0dyseus@ExtensionsManager->settings-schema.json->pref_show_open_extension_folder_button->description
 msgid "Show \"Open extension folder\" button on extensions menu"
 msgstr "Zobrazit \"Otevřít složku rozšíření\" tlačítko v menu rozšíření"
 
 #. 0dyseus@ExtensionsManager->settings-schema.json->pref_show_spices_button->tooltip
-msgid ""
-"If enabled, it will display a button in each extension menu item that will "
-"open the extension's Spices page (if the extension is published on Spices)."
-msgstr ""
-"Je-li povoleno, tak zobrazí u každé položky menu rozšíření tlačítko pro "
-"otevření  webové stránky (pokud je rozšíření publikované na webu Spices)."
+msgid "If enabled, it will display a button in each extension menu item that will open the extension's Spices page (if the extension is published on Spices)."
+msgstr "Je-li povoleno, tak zobrazí u každé položky menu rozšíření tlačítko pro otevření  webové stránky (pokud je rozšíření publikované na webu Spices)."
 
 #. 0dyseus@ExtensionsManager->settings-schema.json->pref_show_spices_button->description
 msgid "Show \"Spices page\" button on extensions menu"
@@ -312,13 +261,8 @@ msgid "Keep only one menu open at all times"
 msgstr "Ponechat vždy otevřené pouze jedno menu"
 
 #. 0dyseus@ExtensionsManager->settings-schema.json->pref_show_config_button->tooltip
-msgid ""
-"If enabled, it will display a button in each extension menu item that will "
-"open the extension's settings page (if the extension has a configuration "
-"mechanism)."
-msgstr ""
-"Je-li povoleno, tak zobrazí u každé položky menu rozšíření tlačítko pro "
-"otevření nastavení (pokud rozšíření umožňuje nastavení)."
+msgid "If enabled, it will display a button in each extension menu item that will open the extension's settings page (if the extension has a configuration mechanism)."
+msgstr "Je-li povoleno, tak zobrazí u každé položky menu rozšíření tlačítko pro otevření nastavení (pokud rozšíření umožňuje nastavení)."
 
 #. 0dyseus@ExtensionsManager->settings-schema.json->pref_show_config_button->description
 msgid "Show \"Open settings window\" button on extensions menu"
@@ -333,8 +277,7 @@ msgid "Custom label"
 msgstr "Uživatelský název"
 
 #. 0dyseus@ExtensionsManager->settings-schema.json->pref_use_extension_names_as_label->tooltip
-msgid ""
-"If disabled, the extension UUID will be used as label for the menu items."
+msgid "If disabled, the extension UUID will be used as label for the menu items."
 msgstr "Je-li zakázáno, tak bude pro položku menu použito UUID jako jméno."
 
 #. 0dyseus@ExtensionsManager->settings-schema.json->pref_use_extension_names_as_label->description
@@ -342,12 +285,8 @@ msgid "Use extension name as label"
 msgstr "Použít název rozšíření jako jméno"
 
 #. 0dyseus@ExtensionsManager->settings-schema.json->pref_keep_disabled_extension_menu_open->tooltip
-msgid ""
-"If enabled, every time that the menu is open, the \"Disabled extensions\" "
-"sub menu will be open too."
-msgstr ""
-"Je-li povoleno, tak pokaždé při otevření menu bude otevřeno také sub menu "
-"\"Zakázaná rozšíření\"."
+msgid "If enabled, every time that the menu is open, the \"Disabled extensions\" sub menu will be open too."
+msgstr "Je-li povoleno, tak pokaždé při otevření menu bude otevřeno také sub menu \"Zakázaná rozšíření\"."
 
 #. 0dyseus@ExtensionsManager->settings-schema.json->pref_keep_disabled_extension_menu_open->description
 msgid "Keep \"Disabled extensions\" menu open"
@@ -366,12 +305,8 @@ msgid "Set max height for the main menu"
 msgstr "Nastavit maximální výšku pro hlavní menu"
 
 #. 0dyseus@ExtensionsManager->settings-schema.json->pref_show_edit_extension_file_button->tooltip
-msgid ""
-"If enabled, it will display a button in each extension menu item that will "
-"open main extension file (extension.js) with a text editor."
-msgstr ""
-"Je-li povoleno, tak zobrazí u každé položky menu rozšíření tlačítko pro "
-"otevření  hlavního souboru (extension.js) v textovém editoru."
+msgid "If enabled, it will display a button in each extension menu item that will open main extension file (extension.js) with a text editor."
+msgstr "Je-li povoleno, tak zobrazí u každé položky menu rozšíření tlačítko pro otevření  hlavního souboru (extension.js) v textovém editoru."
 
 #. 0dyseus@ExtensionsManager->settings-schema.json->pref_show_edit_extension_file_button->description
 msgid "Show \"Edit extension main file\" button on extensions menu"
