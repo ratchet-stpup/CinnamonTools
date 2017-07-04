@@ -5,7 +5,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: 0dyseus@window-list-fork 1.10\n"
+"Project-Id-Version: 0dyseus@window-list-fork 1.11\n"
 "Report-Msgid-Bugs-To: https://github.com/Odyseus/CinnamonTools\n"
 "POT-Creation-Date: 2017-06-21 03:32-0300\n"
 "PO-Revision-Date: 2017-06-19 00:23-0300\n"

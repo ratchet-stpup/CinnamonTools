@@ -4,6 +4,18 @@
 
 ***
 
+- **Date:** Tue, 4 Jul 2017 19:17:57 -0300
+- **Commit:** [c552bb7](https://github.com/Odyseus/CinnamonTools/commit/c552bb7)
+- **Author:** Odyseus
+
+```
+Popup Translator applet
+- Updated Czech localization. Thanks to [Radek71](https://github.com/Radek71).
+
+```
+
+***
+
 - **Date:** Thu, 8 Jun 2017 01:19:07 -0300
 - **Commit:** [a92c7fd](https://github.com/Odyseus/CinnamonTools/commit/a92c7fd)
 - **Author:** Odyseus

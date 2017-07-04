@@ -4,6 +4,18 @@
 
 ***
 
+- **Date:** Tue, 4 Jul 2017 19:17:36 -0300
+- **Commit:** [fe1e87b](https://github.com/Odyseus/CinnamonTools/commit/fe1e87b)
+- **Author:** Odyseus
+
+```
+Extensions Manager applet
+- Updated Czech localization. Thanks to [Radek71](https://github.com/Radek71).
+
+```
+
+***
+
 - **Date:** Thu, 8 Jun 2017 01:11:05 -0300
 - **Commit:** [2b17363](https://github.com/Odyseus/CinnamonTools/commit/2b17363)
 - **Author:** Odyseus

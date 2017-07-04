@@ -4,6 +4,18 @@
 
 ***
 
+- **Date:** Tue, 4 Jul 2017 19:18:58 -0300
+- **Commit:** [6668eff](https://github.com/Odyseus/CinnamonTools/commit/6668eff)
+- **Author:** Odyseus
+
+```
+Cinnamon Tweaks extensions
+- Updated Czech localization. Thanks to [Radek71](https://github.com/Radek71).
+
+```
+
+***
+
 - **Date:** Thu, 8 Jun 2017 01:36:50 -0300
 - **Commit:** [385d917](https://github.com/Odyseus/CinnamonTools/commit/385d917)
 - **Author:** Odyseus

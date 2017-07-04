@@ -4,6 +4,18 @@
 
 ***
 
+- **Date:** Tue, 4 Jul 2017 19:18:19 -0300
+- **Commit:** [587d2a7](https://github.com/Odyseus/CinnamonTools/commit/587d2a7)
+- **Author:** Odyseus
+
+```
+Wallpaper Changer applet
+- Updated Czech localization. Thanks to [Radek71](https://github.com/Radek71).
+
+```
+
+***
+
 - **Date:** Thu, 8 Jun 2017 01:25:40 -0300
 - **Commit:** [ef6cc75](https://github.com/Odyseus/CinnamonTools/commit/ef6cc75)
 - **Author:** Odyseus
