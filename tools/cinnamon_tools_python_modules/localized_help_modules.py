@@ -180,7 +180,7 @@ Bug reports, feature requests and contributions should be done on this xlet's re
 
 <table><tbody>
 <tr><td><img src="https://odyseus.github.io/CinnamonTools/lib/img/issues.svg"></td>
-<td><a href="https://github.com/Odyseus/CinnamonTools"><strong style="color: red; font-size: 1.2em">
+<td><a href="https://github.com/Odyseus/CinnamonTools"><strong style="font-size: 1.2em">
 Bug reports/Feature requests/Contributions
 </strong></a></td></tr>
 <tr><td><img src="https://odyseus.github.io/CinnamonTools/lib/img/help.svg"></td>
