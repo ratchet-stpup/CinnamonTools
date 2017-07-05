@@ -4,6 +4,19 @@
 
 ***
 
+- **Date:** Wed, 5 Jul 2017 17:40:41 -0300
+- **Commit:** [bf6a86b](https://github.com/Odyseus/CinnamonTools/commit/bf6a86b)
+- **Author:** Odyseus
+
+```
+Desktop Handler applet
+- Fixed typo that caused the impossibility to open the applet settings window from its context menu.
+Fixes #126
+
+```
+
+***
+
 - **Date:** Tue, 6 Jun 2017 22:29:26 -0300
 - **Commit:** [4289024](https://github.com/Odyseus/CinnamonTools/commit/4289024)
 - **Author:** Odyseus
