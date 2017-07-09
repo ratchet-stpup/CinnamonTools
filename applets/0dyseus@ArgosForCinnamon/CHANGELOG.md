@@ -4,6 +4,20 @@
 
 ***
 
+- **Date:** Sun, 9 Jul 2017 11:00:34 -0300
+- **Commit:** [a2dd8f2](https://github.com/Odyseus/CinnamonTools/commit/a2dd8f2)
+- **Author:** Odyseus
+
+```
+Argos For Cinnamon applet
+- Commented out the unused TryExec function to prevent a warning.
+- Initialization of the PopupSubMenuMenuItem prototype with an empty label to prevent an error that
+will be caused when a change in Cinnamon gets merged. ¬¬
+
+```
+
+***
+
 - **Date:** Tue, 6 Jun 2017 22:28:36 -0300
 - **Commit:** [158f4e3](https://github.com/Odyseus/CinnamonTools/commit/158f4e3)
 - **Author:** Odyseus
