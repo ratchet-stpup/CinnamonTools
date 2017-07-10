@@ -4,6 +4,18 @@
 
 ***
 
+- **Date:** Sun, 9 Jul 2017 22:54:06 -0300
+- **Commit:** [4bd4791](https://github.com/Odyseus/CinnamonTools/commit/4bd4791)
+- **Author:** Odyseus
+
+```
+Argos for Cinnamon applet
+- Fixed wrongly handled paths when selecting a script from the applet settings window. Fixes #127
+
+```
+
+***
+
 - **Date:** Sun, 9 Jul 2017 11:00:34 -0300
 - **Commit:** [a2dd8f2](https://github.com/Odyseus/CinnamonTools/commit/a2dd8f2)
 - **Author:** Odyseus
