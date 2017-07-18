@@ -55,3 +55,8 @@ I mainly created this applet to replicate the functionality of the XFCE plugin c
 ## Image featuring different icons for each sub-menu and different icon sizes
 
 ![Image featuring different icons for each sub-menu and different icon sizes](https://odyseus.github.io/CinnamonTools/lib/img/QuickMenu-002.png "Image featuring different icons for each sub-menu and different icon sizes")
+<h1 style="color:red;">Spices comments</h1>
+
+<strong style="color:red;font-size:x-large;">
+The Spices website has no notification system. I will not receive a notification when a comment is posted and you will not receive a notification if I answer a question. Do not expect answers from me on this Spices page EVER. Make your inquiries on <a href="https://github.com/Odyseus/CinnamonTools">this xlet's repository</a> and nowhere else.
+</strong>

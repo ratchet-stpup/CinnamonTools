@@ -55,3 +55,8 @@ The Multi Translator extension is an extension ported from a gnome-shell extensi
 ## Settings window image
 
 ![MultiTranslatorExtension-options](https://odyseus.github.io/CinnamonTools/lib/img/MultiTranslatorExtension-options.png)
+<h1 style="color:red;">Spices comments</h1>
+
+<strong style="color:red;font-size:x-large;">
+The Spices website has no notification system. I will not receive a notification when a comment is posted and you will not receive a notification if I answer a question. Do not expect answers from me on this Spices page EVER. Make your inquiries on <a href="https://github.com/Odyseus/CinnamonTools">this xlet's repository</a> and nowhere else.
+</strong>

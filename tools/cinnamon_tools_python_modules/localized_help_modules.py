@@ -209,6 +209,14 @@ Help translate {xlet_name}
 README_DOC = """{readme_header}
 {readme_compatibility}
 {readme_content}
+{readme_comments}
+"""
+
+README_COMMENTS = """<h1 style="color:red;">Spices comments</h1>
+
+<strong style="color:red;font-size:x-large;">
+The Spices website has no notification system. I will not receive a notification when a comment is posted and you will not receive a notification if I answer a question. Do not expect answers from me on this Spices page EVER. Make your inquiries on <a href="https://github.com/Odyseus/CinnamonTools">this xlet's repository</a> and nowhere else.
+</strong>
 """
 
 BOOTSTRAP_PANEL = """
@@ -266,6 +274,7 @@ class HTMLTemplates():
         self.option_base = OPTION
         self.boxed_container = BOXED_CONTAINER
         self.readme_doc = README_DOC
+        self.readme_comments = README_COMMENTS
         self.readme_header = README_HEADER
         self.readme_poeditor_block = README_POEDITOR_BLOCK
         self.bt_panel = BOOTSTRAP_PANEL
@@ -546,6 +555,7 @@ def create_readme(xlet_dir=None, xlet_meta=None, content_base=""):
         ),
         readme_compatibility=get_compatibility(xlet_meta=xlet_meta, for_readme=True),
         readme_content=content_base,
+        readme_comments=HTMLTemplates().readme_comments
     )
 
     # Strip the readme_doc string, but add a new line at the end.
