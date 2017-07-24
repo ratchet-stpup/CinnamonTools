@@ -4,6 +4,18 @@
 
 ***
 
+- **Date:** Mon, 24 Jul 2017 01:09:43 -0300
+- **Commit:** [377c2bf](https://github.com/Odyseus/CinnamonTools/commit/377c2bf)
+- **Author:** Odyseus
+
+```
+Desktop Handler applet
+- Added Czech localization. Thanks to [Radek71](https://github.com/Radek71).
+
+```
+
+***
+
 - **Date:** Wed, 5 Jul 2017 17:40:41 -0300
 - **Commit:** [bf6a86b](https://github.com/Odyseus/CinnamonTools/commit/bf6a86b)
 - **Author:** Odyseus

@@ -4,6 +4,18 @@
 
 ***
 
+- **Date:** Mon, 24 Jul 2017 01:10:49 -0300
+- **Commit:** [172fcc3](https://github.com/Odyseus/CinnamonTools/commit/172fcc3)
+- **Author:** Odyseus
+
+```
+Window list (Fork By Odyseus) applet
+- Added Czech localization. Thanks to [Radek71](https://github.com/Radek71).
+
+```
+
+***
+
 - **Date:** Sun, 11 Jun 2017 03:13:23 -0300
 - **Commit:** [68a7103](https://github.com/Odyseus/CinnamonTools/commit/68a7103)
 - **Author:** Odyseus

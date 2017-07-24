@@ -4,6 +4,21 @@
 
 ***
 
+- **Date:** Mon, 24 Jul 2017 01:17:56 -0300
+- **Commit:** [412966b](https://github.com/Odyseus/CinnamonTools/commit/412966b)
+- **Author:** Odyseus
+
+```
+Argos for Cinnamon applet
+- Added possibility to log **stderr** output when an instance of Argos for Cinnamon applet executes
+its assigned script. Code based on [a
+suggestion](https://github.com/Odyseus/CinnamonTools/issues/128#issuecomment-317284215) by
+[edaubert](https://github.com/edaubert).
+
+```
+
+***
+
 - **Date:** Sun, 9 Jul 2017 22:54:06 -0300
 - **Commit:** [4bd4791](https://github.com/Odyseus/CinnamonTools/commit/4bd4791)
 - **Author:** Odyseus
